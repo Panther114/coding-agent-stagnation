@@ -144,17 +144,25 @@ def _tb2_row_to_traj(row: Dict[str, Any], row_key: str) -> Optional[Trajectory]:
 def load_tb2(limit: Optional[int] = None, row_groups: Optional[Iterable[int]] = None) -> List[Trajectory]:
     pf = pq.ParquetFile(TB2_PARQUET)
     cols = ["task_name", "agent", "model", "reward", "duration_seconds", "input_tokens",
-            "output_tokens", "trial_name", "started_at", "steps"]
+            "output_tokens", "trial_name", "trial_id", "started_at", "steps"]
     groups = list(row_groups) if row_groups is not None else range(pf.metadata.num_row_groups)
+    seen: Dict[str, int] = {}  # trial_name -> index into out (release ships UUID + empty-UUID twins)
     out: List[Trajectory] = []
     for g in groups:
         for i, row in enumerate(pf.read_row_group(g, columns=cols).to_pylist()):
             key = row.get("trial_name") or f"rg{g}-{i}"
             t = _tb2_row_to_traj(row, key)
-            if t is not None:
-                out.append(t)
-                if limit and len(out) >= limit:
-                    return out
+            if t is None:
+                continue
+            if key in seen:
+                # Prefer the twin carrying a real trial_id; first-seen order is preserved.
+                if row.get("trial_id"):
+                    out[seen[key]] = t
+                continue
+            seen[key] = len(out)
+            out.append(t)
+            if limit and len(out) >= limit:
+                return out
     return out
 
 
