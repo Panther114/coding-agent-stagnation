@@ -1440,6 +1440,95 @@ labels which one every figure uses.
 
 ---
 
+### 2.34 The router transfers across **shards**, and the margin is measured against the field
+
+Artifact: `results/rebuild/route_modes_transfer.json` · script:
+`scripts/analyse_router_transfer.py`
+
+The study's headline router number is an out-of-fold score on one shard set, which invites the
+objection that it is fitted to one corpus. So the model was trained on one set and scored on the
+other two, in **both directions**, at four prefix fractions: **24 cross cells** over three disjoint
+sets (26,679 / 26,680 / 26,676 runs). The published families — position, AgentStop-style shape,
+n-gram loop, normalised redundancy — were re-derived on the *same rows and folds*, because a gain is
+only meaningful against an opponent that saw the same data.
+
+| target | within-set mean | **cross-set mean** | worst cell | position | AgentStop-style | **gain over the best family** |
+|---|---|---|---|---|---|---|
+| will this run fail? | 0.7169 | **0.7145** | 0.6752 | 0.6718 | 0.5589 | **+0.1556** |
+| LOST or WRONG-FIX? | 0.7117 | **0.7324** | 0.6817 | 0.5993 | 0.5960 | **+0.1364** |
+
+**Cross-set performance equals within-set performance**, so the margin is not fitted to one corpus:
+on the mode question the published families sit at or below chance (0.596 / 0.599) while the router
+reaches 0.73 on data it never saw. This is the result the paper's claim #5 rests on.
+
+An earlier version of the paper's transfer table quoted four pairs of numbers that appeared in this
+artifact only by coincidence; the table now reports the artifact's verdict block directly, and the
+audit gate (`scripts/audit_paper_numbers.py`, 57/57) checks every value in it. That is the third
+time the gate has caught a real error in our own manuscript.
+
+---
+
+### 2.35 The router does **not** transfer across scaffolds — tested, and negative
+
+Artifacts: `results/rebuild/router_xscaffold.json` (`scripts/analyse_router_xscaffold.py`) and
+`results/live/live_router_deployment.json` (`scripts/analyse_router_live.py`)
+
+§2.34 varies the shards and holds the scaffold fixed. The obvious follow-up is to vary the scaffold,
+and the corpora for it were already on disk. Three of them carry a usable outcome label, so the same
+code path built the per-step frame for training and test data and the *same* features were scored
+two ways: fitted inside the target scaffold (task-disjoint 5-fold OOF) and transferred from
+SWE-agent.
+
+| test corpus (scaffold) | runs | fitted inside it | **transferred from SWE-agent** | best fixed baseline |
+|---|---|---|---|---|
+| SWE-rebench / OpenHands | 67,074 | 0.653 | **0.495** | 0.655 |
+| thoughtworks agentic-coding | 15,000 | 0.759 | **0.433** | 0.640 |
+| SWE-Gym / OpenHands | 6,055 | 0.761 | **0.319** | 0.425 |
+
+Four feature-set variants (22–31 features, dropping command-digest and observation-scale families
+one at a time and together) move the transferred column only within **0.32–0.54**, so this is not an
+artefact of the transcript bridge. The same conclusion arrives from a completely different
+direction in the live harness: the frozen model applied to 125 live episodes scores **0.426** at the
+20% checkpoint against 0.584 for the published output-overlap baseline, and re-fitting on
+bridgeable-but-scale-free features recovers 0.602.
+
+**The claim is therefore bounded, in the paper and here: the generality established in §2.34 is
+shard-level generality *within a scaffold*, not scaffold-independent generality.** The mode head
+could not be tested this way at all — the gold patches that define its labels exist for 227 of the
+9,921 instances with edits in these corpora, so the LOST/WRONG-FIX question has almost no negatives.
+
+---
+
+### 2.36 The live experiment, with the masked condition finally valid
+
+Artifact: `results/live/live_arms_valid.json` · script: `scripts/analyse_live_arms_valid.py`
+(145 episodes, 42 tasks, **$1.36**; raw view: `live_masked_vs_full.json`)
+
+The first masked run is the study's best example of a number that *looked like a finding*: 0/48
+success, 0% reaching the gold file, 48 errors, $0.00 spent. Every episode had died before its first
+tool call because the recorded interpreter had been deleted from a temp directory between runs.
+Diagnosis was by reading transcripts, not by re-running statistics (`scripts/diagnose_masked.py`).
+The venv was rebuilt in-repo (`research/data/live/.venv`) and the arm re-run.
+
+Valid episodes only (19 of 145 dropped because the mutated package did not actually fail at episode
+start, which makes success meaningless — and note that the filter *lowers* every arm, which is the
+signature of a real data problem):
+
+| condition | what the agent sees | success | vs hinted | reached the gold file |
+|---|---|---|---|---|
+| hinted | the exact file and function | **0.561** (n=41) | — | 1.000 |
+| unmasked | full pytest output (normal CI) | 0.372 (n=43) | −0.189, Fisher p = 0.125 | **1.000** |
+| masked | only "N failed, M passed" | **0.286** (n=42) | **−0.275, Fisher p = 0.015** | 0.952 |
+
+Two things are worth recording. First, **withholding which tests failed is the only significant
+effect in the experiment**, and it is the first condition in which any agent failed to reach the
+file at all: roughly a quarter of the benchmark's difficulty was the test runner naming the file
+(§2.32 measured the leak at 51.5% of test observations). Second, the *hint* — handing over the file
+and function — is worth +0.189 and is **not** significant at this n, so it must not be reported as a
+gain. Raw (unfiltered) values for comparison: hinted 0.604, unmasked 0.449, masked 0.333.
+
+---
+
 ### 2.28 The field comparison is conservative, not lucky
 
 Artifact: `results/rebuild/field_comparison_stability.json` · script:

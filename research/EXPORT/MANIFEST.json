@@ -1,5 +1,5 @@
 {
-  "n_numbers": 81,
+  "n_numbers": 139,
   "sections": [
     "measurement validity",
     "failure modes",
@@ -8,6 +8,8 @@
     "cross-scaffold",
     "frozen taxonomy",
     "live experiment",
+    "router on live runs (negative)",
+    "cross-scaffold transfer (negative)",
     "live experiment (masked)"
   ],
   "artifacts_copied": [
@@ -85,7 +87,7 @@
     },
     {
       "file": "doc_reference_integrity.json",
-      "bytes": 2344
+      "bytes": 2428
     },
     {
       "file": "early_prediction_nebius.json",
@@ -166,6 +168,10 @@
     {
       "file": "routeA.json",
       "bytes": 2845
+    },
+    {
+      "file": "router_xscaffold.json",
+      "bytes": 23883
     },
     {
       "file": "scaffold_transfer.json",
@@ -294,6 +300,14 @@
       "bytes": 1457923
     },
     {
+      "file": "episodes_masked.jsonl",
+      "bytes": 572267
+    },
+    {
+      "file": "live_arms_valid.json",
+      "bytes": 2518
+    },
+    {
       "file": "live_experiment.json",
       "bytes": 2157
     },
@@ -303,11 +317,15 @@
     },
     {
       "file": "live_experiment48_valid.json",
-      "bytes": 1393
+      "bytes": 1402
     },
     {
       "file": "live_masked_vs_full.json",
-      "bytes": 1677
+      "bytes": 1868
+    },
+    {
+      "file": "live_router_deployment.json",
+      "bytes": 10624
     },
     {
       "file": "pilot_episodes.jsonl",
@@ -340,6 +358,6 @@
     "claim audit": "28/28 headline claims found verbatim in the findings",
     "summary audit": "0 mismatches between the executive summary and the artifacts",
     "doc references": "all cited artifacts exist",
-    "paper numbers": "17/17 paper numbers trace to an artifact"
+    "paper numbers": "57/57 paper numbers trace to an artifact"
   }
 }

@@ -1,0 +1,664 @@
+{
+  "question": "trained on SWE-agent (shards 0-3), does failure prediction survive a different scaffold?",
+  "feature_sets": {
+    "bridgeable": [
+      "no_edit_yet",
+      "first_edit_frac",
+      "edit_rate",
+      "noop_edit_frac",
+      "distinct_files_per_edit",
+      "repeat_file_edit_frac",
+      "any_file_edited_twice",
+      "testish_per_step",
+      "verify_frac",
+      "run_frac",
+      "read_frac",
+      "search_frac",
+      "finish_seen",
+      "unique_sig_frac",
+      "unique_cmdfam_frac",
+      "sig_entropy",
+      "cmdfam_entropy",
+      "repeat_sig_frac",
+      "max_consec_repeat_norm",
+      "has_repeat_3plus",
+      "obs_mean",
+      "obs_last_over_mean",
+      "obs_slope_norm",
+      "obs_half_ratio",
+      "err_rate",
+      "pass_seen_per_step",
+      "fail_seen_per_step",
+      "err_seen_per_step",
+      "fail_minus_pass_norm",
+      "any_test_fail_seen",
+      "any_test_pass_seen"
+    ],
+    "bridgeable_no_sig": [
+      "no_edit_yet",
+      "first_edit_frac",
+      "edit_rate",
+      "noop_edit_frac",
+      "distinct_files_per_edit",
+      "repeat_file_edit_frac",
+      "any_file_edited_twice",
+      "testish_per_step",
+      "verify_frac",
+      "run_frac",
+      "read_frac",
+      "search_frac",
+      "finish_seen",
+      "unique_cmdfam_frac",
+      "cmdfam_entropy",
+      "obs_mean",
+      "obs_last_over_mean",
+      "obs_slope_norm",
+      "obs_half_ratio",
+      "err_rate",
+      "pass_seen_per_step",
+      "fail_seen_per_step",
+      "err_seen_per_step",
+      "fail_minus_pass_norm",
+      "any_test_fail_seen",
+      "any_test_pass_seen"
+    ],
+    "bridgeable_no_scale": [
+      "no_edit_yet",
+      "first_edit_frac",
+      "edit_rate",
+      "noop_edit_frac",
+      "distinct_files_per_edit",
+      "repeat_file_edit_frac",
+      "any_file_edited_twice",
+      "testish_per_step",
+      "verify_frac",
+      "run_frac",
+      "read_frac",
+      "search_frac",
+      "finish_seen",
+      "unique_sig_frac",
+      "unique_cmdfam_frac",
+      "sig_entropy",
+      "cmdfam_entropy",
+      "repeat_sig_frac",
+      "max_consec_repeat_norm",
+      "has_repeat_3plus",
+      "err_rate",
+      "pass_seen_per_step",
+      "fail_seen_per_step",
+      "err_seen_per_step",
+      "fail_minus_pass_norm",
+      "any_test_fail_seen",
+      "any_test_pass_seen"
+    ],
+    "bridgeable_no_sig_no_scale": [
+      "no_edit_yet",
+      "first_edit_frac",
+      "edit_rate",
+      "noop_edit_frac",
+      "distinct_files_per_edit",
+      "repeat_file_edit_frac",
+      "any_file_edited_twice",
+      "testish_per_step",
+      "verify_frac",
+      "run_frac",
+      "read_frac",
+      "search_frac",
+      "finish_seen",
+      "unique_cmdfam_frac",
+      "cmdfam_entropy",
+      "err_rate",
+      "pass_seen_per_step",
+      "fail_seen_per_step",
+      "err_seen_per_step",
+      "fail_minus_pass_norm",
+      "any_test_fail_seen",
+      "any_test_pass_seen"
+    ]
+  },
+  "n_features": {
+    "bridgeable": 31,
+    "bridgeable_no_sig": 26,
+    "bridgeable_no_scale": 27,
+    "bridgeable_no_sig_no_scale": 22
+  },
+  "excluded": [
+    "text_chars_mean",
+    "text_to_obs",
+    "obs_mean_over_text (no model text outside SWE-agent)",
+    "st_tb/st_syntax/st_notfound (not extracted outside SWE-agent)"
+  ],
+  "corpora": {
+    "openhands": {
+      "label": "OpenHands (SWE-Gym sampled)",
+      "n_runs": 67074,
+      "variants": {
+        "bridgeable": {
+          "n_features": 31,
+          "0.20": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.49525691170383446,
+            "in_corpus_auc_train": 0.7300345527559062,
+            "baselines": {
+              "position": 0.6553221741777793,
+              "agentstop_outlen": 0.48334927543663503,
+              "agentstop_overlap": 0.4989136063314579
+            },
+            "gain_over_best_baseline": -0.1600652624739448,
+            "in_corpus_oof_auc": 0.7200311130227657,
+            "gap_vs_in_corpus_oof": -0.22477420131893122,
+            "in_target_oof_auc": 0.6527628610112954
+          },
+          "0.40": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.4935778540919519,
+            "in_corpus_auc_train": 0.7300620847895615,
+            "baselines": {
+              "position": 0.6562965698441323,
+              "agentstop_outlen": 0.4597886672050535,
+              "agentstop_overlap": 0.48711522635058035
+            },
+            "gain_over_best_baseline": -0.16271871575218044
+          },
+          "0.60": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.4983226180543198,
+            "in_corpus_auc_train": 0.7400700380588235,
+            "baselines": {
+              "position": 0.6563716479725922,
+              "agentstop_outlen": 0.46792750575149605,
+              "agentstop_overlap": 0.5162991013959227
+            },
+            "gain_over_best_baseline": -0.15804902991827235
+          }
+        },
+        "bridgeable_no_sig": {
+          "n_features": 26,
+          "0.20": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.4893712644182538,
+            "in_corpus_auc_train": 0.7249128270338681,
+            "baselines": {
+              "position": 0.6553221741777793,
+              "agentstop_outlen": 0.48334927543663503,
+              "agentstop_overlap": 0.4989136063314579
+            },
+            "gain_over_best_baseline": -0.16595090975952548,
+            "in_corpus_oof_auc": 0.7153431322184645,
+            "gap_vs_in_corpus_oof": -0.22597186780021067,
+            "in_target_oof_auc": 0.6527452315600721
+          },
+          "0.40": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.488936401207437,
+            "in_corpus_auc_train": 0.7251203101568925,
+            "baselines": {
+              "position": 0.6562965698441323,
+              "agentstop_outlen": 0.4597886672050535,
+              "agentstop_overlap": 0.48711522635058035
+            },
+            "gain_over_best_baseline": -0.16736016863669534
+          },
+          "0.60": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.5002310010283033,
+            "in_corpus_auc_train": 0.7369686108196664,
+            "baselines": {
+              "position": 0.6563716479725922,
+              "agentstop_outlen": 0.46792750575149605,
+              "agentstop_overlap": 0.5162991013959227
+            },
+            "gain_over_best_baseline": -0.15614064694428886
+          }
+        },
+        "bridgeable_no_scale": {
+          "n_features": 27,
+          "0.20": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.49978721711032903,
+            "in_corpus_auc_train": 0.7259597420056313,
+            "baselines": {
+              "position": 0.6553221741777793,
+              "agentstop_outlen": 0.48334927543663503,
+              "agentstop_overlap": 0.4989136063314579
+            },
+            "gain_over_best_baseline": -0.15553495706745024,
+            "in_corpus_oof_auc": 0.7168064356563386,
+            "gap_vs_in_corpus_oof": -0.21701921854600958,
+            "in_target_oof_auc": 0.6518556652149774
+          },
+          "0.40": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.5031686994837015,
+            "in_corpus_auc_train": 0.726641779711873,
+            "baselines": {
+              "position": 0.6562965698441323,
+              "agentstop_outlen": 0.4597886672050535,
+              "agentstop_overlap": 0.48711522635058035
+            },
+            "gain_over_best_baseline": -0.15312787036043085
+          },
+          "0.60": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.5047773443816346,
+            "in_corpus_auc_train": 0.735249506344733,
+            "baselines": {
+              "position": 0.6563716479725922,
+              "agentstop_outlen": 0.46792750575149605,
+              "agentstop_overlap": 0.5162991013959227
+            },
+            "gain_over_best_baseline": -0.1515943035909576
+          }
+        },
+        "bridgeable_no_sig_no_scale": {
+          "n_features": 22,
+          "0.20": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.4952707320536241,
+            "in_corpus_auc_train": 0.7173676436928502,
+            "baselines": {
+              "position": 0.6553221741777793,
+              "agentstop_outlen": 0.48334927543663503,
+              "agentstop_overlap": 0.4989136063314579
+            },
+            "gain_over_best_baseline": -0.16005144212415517,
+            "in_corpus_oof_auc": 0.7074294489759178,
+            "gap_vs_in_corpus_oof": -0.21215871692229366,
+            "in_target_oof_auc": 0.6518353194300217
+          },
+          "0.40": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.4975020220944929,
+            "in_corpus_auc_train": 0.7212394150869362,
+            "baselines": {
+              "position": 0.6562965698441323,
+              "agentstop_outlen": 0.4597886672050535,
+              "agentstop_overlap": 0.48711522635058035
+            },
+            "gain_over_best_baseline": -0.15879454774963941
+          },
+          "0.60": {
+            "n": 67074,
+            "n_failed": 34913,
+            "auc_router": 0.49987691356727504,
+            "in_corpus_auc_train": 0.7329327635322253,
+            "baselines": {
+              "position": 0.6563716479725922,
+              "agentstop_outlen": 0.46792750575149605,
+              "agentstop_overlap": 0.5162991013959227
+            },
+            "gain_over_best_baseline": -0.15649473440531714
+          }
+        }
+      }
+    },
+    "thoughtworks": {
+      "label": "four frameworks (thoughtworks)",
+      "n_runs": 15000,
+      "variants": {
+        "bridgeable": {
+          "n_features": 31,
+          "0.20": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.4327128056027617,
+            "in_corpus_auc_train": 0.7300345527559062,
+            "baselines": {
+              "position": 0.44852005343046103,
+              "agentstop_outlen": 0.3498836794485811,
+              "agentstop_overlap": 0.6395797011602502
+            },
+            "gain_over_best_baseline": -0.2068668955574885,
+            "in_corpus_oof_auc": 0.7200311130227657,
+            "gap_vs_in_corpus_oof": -0.28731830742000397,
+            "in_target_oof_auc": 0.7591087439272957
+          },
+          "0.40": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.5005504430473038,
+            "in_corpus_auc_train": 0.7300620847895615,
+            "baselines": {
+              "position": 0.44870997134057033,
+              "agentstop_outlen": 0.3176197174808515,
+              "agentstop_overlap": 0.6680262547754601
+            },
+            "gain_over_best_baseline": -0.1674758117281563
+          },
+          "0.60": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.623786959792761,
+            "in_corpus_auc_train": 0.7400700380588235,
+            "baselines": {
+              "position": 0.4486217549715473,
+              "agentstop_outlen": 0.31559370064468706,
+              "agentstop_overlap": 0.7053113799178568
+            },
+            "gain_over_best_baseline": -0.08152442012509575
+          }
+        },
+        "bridgeable_no_sig": {
+          "n_features": 26,
+          "0.20": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.4628720594404708,
+            "in_corpus_auc_train": 0.7249128270338681,
+            "baselines": {
+              "position": 0.44852005343046103,
+              "agentstop_outlen": 0.3498836794485811,
+              "agentstop_overlap": 0.6395797011602502
+            },
+            "gain_over_best_baseline": -0.17670764171977943,
+            "in_corpus_oof_auc": 0.7153431322184645,
+            "gap_vs_in_corpus_oof": -0.2524710727779937,
+            "in_target_oof_auc": 0.7546176814074534
+          },
+          "0.40": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.5486077195544415,
+            "in_corpus_auc_train": 0.7251203101568925,
+            "baselines": {
+              "position": 0.44870997134057033,
+              "agentstop_outlen": 0.3176197174808515,
+              "agentstop_overlap": 0.6680262547754601
+            },
+            "gain_over_best_baseline": -0.11941853522101853
+          },
+          "0.60": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.6394928499825254,
+            "in_corpus_auc_train": 0.7369686108196664,
+            "baselines": {
+              "position": 0.4486217549715473,
+              "agentstop_outlen": 0.31559370064468706,
+              "agentstop_overlap": 0.7053113799178568
+            },
+            "gain_over_best_baseline": -0.06581852993533133
+          }
+        },
+        "bridgeable_no_scale": {
+          "n_features": 27,
+          "0.20": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.46313157084288203,
+            "in_corpus_auc_train": 0.7259597420056313,
+            "baselines": {
+              "position": 0.44852005343046103,
+              "agentstop_outlen": 0.3498836794485811,
+              "agentstop_overlap": 0.6395797011602502
+            },
+            "gain_over_best_baseline": -0.17644813031736817,
+            "in_corpus_oof_auc": 0.7168064356563386,
+            "gap_vs_in_corpus_oof": -0.2536748648134566,
+            "in_target_oof_auc": 0.7013995128330484
+          },
+          "0.40": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.5472990534284601,
+            "in_corpus_auc_train": 0.726641779711873,
+            "baselines": {
+              "position": 0.44870997134057033,
+              "agentstop_outlen": 0.3176197174808515,
+              "agentstop_overlap": 0.6680262547754601
+            },
+            "gain_over_best_baseline": -0.12072720134699999
+          },
+          "0.60": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.6597793008819928,
+            "in_corpus_auc_train": 0.735249506344733,
+            "baselines": {
+              "position": 0.4486217549715473,
+              "agentstop_outlen": 0.31559370064468706,
+              "agentstop_overlap": 0.7053113799178568
+            },
+            "gain_over_best_baseline": -0.04553207903586398
+          }
+        },
+        "bridgeable_no_sig_no_scale": {
+          "n_features": 22,
+          "0.20": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.5348898292706352,
+            "in_corpus_auc_train": 0.7173676436928502,
+            "baselines": {
+              "position": 0.44852005343046103,
+              "agentstop_outlen": 0.3498836794485811,
+              "agentstop_overlap": 0.6395797011602502
+            },
+            "gain_over_best_baseline": -0.10468987188961498,
+            "in_corpus_oof_auc": 0.7074294489759178,
+            "gap_vs_in_corpus_oof": -0.17253961970528253,
+            "in_target_oof_auc": 0.6999464282260367
+          },
+          "0.40": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.5978543799005157,
+            "in_corpus_auc_train": 0.7212394150869362,
+            "baselines": {
+              "position": 0.44870997134057033,
+              "agentstop_outlen": 0.3176197174808515,
+              "agentstop_overlap": 0.6680262547754601
+            },
+            "gain_over_best_baseline": -0.07017187487494436
+          },
+          "0.60": {
+            "n": 15000,
+            "n_failed": 10376,
+            "auc_router": 0.6613702385462326,
+            "in_corpus_auc_train": 0.7329327635322253,
+            "baselines": {
+              "position": 0.4486217549715473,
+              "agentstop_outlen": 0.31559370064468706,
+              "agentstop_overlap": 0.7053113799178568
+            },
+            "gain_over_best_baseline": -0.04394114137162419
+          }
+        }
+      }
+    },
+    "swegym": {
+      "label": "OpenHands / SWE-Gym",
+      "n_runs": 6055,
+      "variants": {
+        "bridgeable": {
+          "n_features": 31,
+          "0.20": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.3189085787159526,
+            "in_corpus_auc_train": 0.7300345527559062,
+            "baselines": {
+              "position": 0.42534345757788294,
+              "agentstop_outlen": 0.3769866950910787,
+              "agentstop_overlap": 0.3223922041755188
+            },
+            "gain_over_best_baseline": -0.10643487886193037,
+            "in_corpus_oof_auc": 0.7200311130227657,
+            "gap_vs_in_corpus_oof": -0.4011225343068131,
+            "in_target_oof_auc": 0.7608740213856608
+          },
+          "0.40": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.357475537386838,
+            "in_corpus_auc_train": 0.7300620847895615,
+            "baselines": {
+              "position": 0.42123847515523855,
+              "agentstop_outlen": 0.2662409349601233,
+              "agentstop_overlap": 0.6576615967354875
+            },
+            "gain_over_best_baseline": -0.3001860593486495
+          },
+          "0.60": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.39543925819312686,
+            "in_corpus_auc_train": 0.7400700380588235,
+            "baselines": {
+              "position": 0.41730187223363463,
+              "agentstop_outlen": 0.26922674276444003,
+              "agentstop_overlap": 0.7146216366194668
+            },
+            "gain_over_best_baseline": -0.3191823784263399
+          }
+        },
+        "bridgeable_no_sig": {
+          "n_features": 26,
+          "0.20": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.3630628084822272,
+            "in_corpus_auc_train": 0.7249128270338681,
+            "baselines": {
+              "position": 0.42534345757788294,
+              "agentstop_outlen": 0.3769866950910787,
+              "agentstop_overlap": 0.3223922041755188
+            },
+            "gain_over_best_baseline": -0.06228064909565573,
+            "in_corpus_oof_auc": 0.7153431322184645,
+            "gap_vs_in_corpus_oof": -0.35228032373623724,
+            "in_target_oof_auc": 0.7166361509324564
+          },
+          "0.40": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.31345692632737954,
+            "in_corpus_auc_train": 0.7251203101568925,
+            "baselines": {
+              "position": 0.42123847515523855,
+              "agentstop_outlen": 0.2662409349601233,
+              "agentstop_overlap": 0.6576615967354875
+            },
+            "gain_over_best_baseline": -0.344204670408108
+          },
+          "0.60": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.35744808420732055,
+            "in_corpus_auc_train": 0.7369686108196664,
+            "baselines": {
+              "position": 0.41730187223363463,
+              "agentstop_outlen": 0.26922674276444003,
+              "agentstop_overlap": 0.7146216366194668
+            },
+            "gain_over_best_baseline": -0.3571735524121462
+          }
+        },
+        "bridgeable_no_scale": {
+          "n_features": 27,
+          "0.20": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.3168016386985875,
+            "in_corpus_auc_train": 0.7259597420056313,
+            "baselines": {
+              "position": 0.42534345757788294,
+              "agentstop_outlen": 0.3769866950910787,
+              "agentstop_overlap": 0.3223922041755188
+            },
+            "gain_over_best_baseline": -0.10854181887929543,
+            "in_corpus_oof_auc": 0.7168064356563386,
+            "gap_vs_in_corpus_oof": -0.4000047969577511,
+            "in_target_oof_auc": 0.7539054893181509
+          },
+          "0.40": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.5002924678724592,
+            "in_corpus_auc_train": 0.726641779711873,
+            "baselines": {
+              "position": 0.42123847515523855,
+              "agentstop_outlen": 0.2662409349601233,
+              "agentstop_overlap": 0.6576615967354875
+            },
+            "gain_over_best_baseline": -0.15736912886302834
+          },
+          "0.60": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.47889161631143473,
+            "in_corpus_auc_train": 0.735249506344733,
+            "baselines": {
+              "position": 0.41730187223363463,
+              "agentstop_outlen": 0.26922674276444003,
+              "agentstop_overlap": 0.7146216366194668
+            },
+            "gain_over_best_baseline": -0.23573002030803203
+          }
+        },
+        "bridgeable_no_sig_no_scale": {
+          "n_features": 22,
+          "0.20": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.41462903067581686,
+            "in_corpus_auc_train": 0.7173676436928502,
+            "baselines": {
+              "position": 0.42534345757788294,
+              "agentstop_outlen": 0.3769866950910787,
+              "agentstop_overlap": 0.3223922041755188
+            },
+            "gain_over_best_baseline": -0.010714426902066088,
+            "in_corpus_oof_auc": 0.7074294489759178,
+            "gap_vs_in_corpus_oof": -0.2928004183001009,
+            "in_target_oof_auc": 0.6791967858549506
+          },
+          "0.40": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.39707894509510516,
+            "in_corpus_auc_train": 0.7212394150869362,
+            "baselines": {
+              "position": 0.42123847515523855,
+              "agentstop_outlen": 0.2662409349601233,
+              "agentstop_overlap": 0.6576615967354875
+            },
+            "gain_over_best_baseline": -0.26058265164038236
+          },
+          "0.60": {
+            "n": 6055,
+            "n_failed": 5564,
+            "auc_router": 0.39081724088957087,
+            "in_corpus_auc_train": 0.7329327635322253,
+            "baselines": {
+              "position": 0.41730187223363463,
+              "agentstop_outlen": 0.26922674276444003,
+              "agentstop_overlap": 0.7146216366194668
+            },
+            "gain_over_best_baseline": -0.3238043957298959
+          }
+        }
+      }
+    }
+  },
+  "verdict": {
+    "headline": "openhands/bridgeable 0.495; openhands/bridgeable_no_sig 0.489; openhands/bridgeable_no_scale 0.500; openhands/bridgeable_no_sig_no_scale 0.495; thoughtworks/bridgeable 0.433; thoughtworks/bridgeable_no_sig 0.463; thoughtworks/bridgeable_no_scale 0.463; thoughtworks/bridgeable_no_sig_no_scale 0.535; swegym/bridgeable 0.319; swegym/bridgeable_no_sig 0.363; swegym/bridgeable_no_scale 0.317; swegym/bridgeable_no_sig_no_scale 0.415",
+    "best_cell": {
+      "key": "thoughtworks/bridgeable_no_sig_no_scale",
+      "auc": 0.5348898292706352
+    },
+    "transfers_above_chance_everywhere": false,
+    "note": "a negative result here bounds the claim: cross-set transfer within SWE-agent is not evidence of cross-scaffold transfer"
+  }
+}

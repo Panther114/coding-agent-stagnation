@@ -1,7 +1,7 @@
 {
-  "n_raw": 96,
+  "n_raw": 97,
   "n_dropped_fail_before_false": 13,
-  "n_valid": 83,
+  "n_valid": 84,
   "arms": {
     "unhinted": {
       "n": 43,
@@ -17,28 +17,28 @@
       "test_files_removed": 587
     },
     "hinted": {
-      "n": 40,
-      "success": 0.55,
+      "n": 41,
+      "success": 0.561,
       "success_ci95": [
-        0.4,
-        0.7
+        0.4146,
+        0.7073
       ],
       "reached_gold": 1.0,
-      "success_given_reached_gold": 0.55,
-      "n_reached_gold": 40,
-      "mean_turns": 11.4,
-      "test_files_removed": 461
+      "success_given_reached_gold": 0.561,
+      "n_reached_gold": 41,
+      "mean_turns": 11.41,
+      "test_files_removed": 489
     }
   },
   "P1_failure_rate_drop": {
-    "drop": 0.1779,
+    "drop": 0.1889,
     "pre_registered_ceiling": 0.309,
     "holds": true
   },
   "significance_hinted_vs_unhinted": {
     "table": [
       [
-        22,
+        23,
         18
       ],
       [
@@ -46,12 +46,12 @@
         27
       ]
     ],
-    "p_fisher_two_sided": 0.12584830684232243,
+    "p_fisher_two_sided": 0.12511187641817562,
     "note": "NOT significant at this sample size; reported so the effect is not over-read"
   },
   "behaviour": {
-    "episodes_where_agent_modified_the_test_files": 71,
-    "total_test_files_removed": 1048,
+    "episodes_where_agent_modified_the_test_files": 72,
+    "total_test_files_removed": 1076,
     "note": "the verifier is restored before grading, so an agent that edits tests to pass is still scored as failing; the count is a behavioural measurement, not a validity threat"
   }
 }

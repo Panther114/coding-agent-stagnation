@@ -6,7 +6,7 @@
     "masked",
     "unhinted"
   ],
-  "total_usd": 0.9202,
+  "total_usd": 1.3574,
   "per_arm": {
     "hinted": {
       "n": 48,
@@ -24,15 +24,17 @@
     },
     "masked": {
       "n": 48,
-      "success": 0.0,
+      "success": 0.3333,
       "success_ci95": [
-        0.0,
-        0.0
+        0.2083,
+        0.4792
       ],
-      "reached_gold": 0.0,
-      "mean_turns": NaN,
-      "errors": 48,
-      "usd": 0.0
+      "reached_gold": 0.9583,
+      "mean_turns": 12.04,
+      "errors": 9,
+      "usd": 0.4372,
+      "success_given_reached_gold": 0.3478,
+      "n_reached_gold": 46
     },
     "unhinted": {
       "n": 49,
@@ -64,6 +66,10 @@
         "hinted": {
           "success_given_reached_gold": 0.617,
           "n": 47
+        },
+        "masked": {
+          "success_given_reached_gold": 0.3478,
+          "n": 46
         },
         "unhinted": {
           "success_given_reached_gold": 0.449,

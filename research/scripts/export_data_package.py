@@ -39,6 +39,16 @@ def load(name: str) -> Dict[str, Any]:
         return {}
 
 
+def load_live(name: str) -> Dict[str, Any]:
+    p = LIVE / name
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
 def dig(d: Any, path: str) -> Any:
     cur = d
     for k in path.split("."):
@@ -74,10 +84,7 @@ def main() -> None:
     transfer = load("route_modes_transfer.json")
     xs = load("xscaffold_replication.json")
     dead = load("dead_end.json")
-    live48 = load("../../live/live_experiment48_valid.json")
-    if not live48:
-        p = LIVE / "live_experiment48_valid.json"
-        live48 = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    live48 = load_live("live_arms_valid.json") or load("../../live/live_experiment48_valid.json")
     masked = None
     p = LIVE / "live_masked_vs_full.json"
     if p.exists():
@@ -153,19 +160,53 @@ def main() -> None:
                   "dead_end.json")
 
     if live48:
-        for arm, v in (live48.get("arms") or {}).items():
-            for k in ("success", "reached_gold", "success_given_reached_gold", "n"):
+        for arm, v in (live48.get("per_arm") or live48.get("arms") or {}).items():
+            for k in ("success", "success_ci95", "reached_gold", "success_given_reached_gold", "n",
+                      "mean_turns", "usd"):
                 if v.get(k) is not None:
-                    claim("live experiment", f"{arm}: {k}", v[k], "live_experiment48_valid.json")
+                    claim("live experiment", f"{arm}: {k}", v[k], "live_arms_valid.json")
+        for pair, v in (live48.get("pairwise") or {}).items():
+            claim("live experiment", f"success diff {pair}", v["success_diff"],
+                  "live_arms_valid.json")
+            claim("live experiment", f"Fisher p {pair}", round(v["p_fisher_two_sided"], 4),
+                  "live_arms_valid.json", "significant" if v["significant_at_0.05"]
+                  else "NOT significant")
         sig = live48.get("significance_hinted_vs_unhinted", {})
         if sig:
             claim("live experiment", "hinted vs unmasked Fisher p",
                   round(sig.get("p_fisher_two_sided", float("nan")), 4),
-                  "live_experiment48_valid.json", "NOT significant")
+                  "live_arms_valid.json", "NOT significant")
         p1 = live48.get("P1_failure_rate_drop", {})
         if p1:
             claim("live experiment", "P1 failure-rate drop", p1.get("drop"),
-                  "live_experiment48_valid.json", f"ceiling {p1.get('pre_registered_ceiling')}")
+                  "live_arms_valid.json", f"ceiling {p1.get('pre_registered_ceiling')}")
+    dep = load_live("live_router_deployment.json")
+    if dep:
+        b = (dep.get("fractions") or {}).get("0.2", {})
+        if b:
+            claim("router on live runs (negative)", "AUC at 20% of the run", round(b["auc_router"], 4),
+                  "live_router_deployment.json", "does NOT transfer")
+            for k, v in (b.get("baselines") or {}).items():
+                claim("router on live runs (negative)", f"baseline {k}", round(v, 4),
+                      "live_router_deployment.json")
+        for name, v in (dep.get("refit_bridgeable") or {}).get("variants", {}).items():
+            claim("router on live runs (negative)", f"refit {name}: in-corpus AUC",
+                  round(v["auc_in_corpus_shards0_3"], 4), "live_router_deployment.json")
+    xsc = load("router_xscaffold.json")
+    for name, c in (xsc.get("corpora") or {}).items():
+        for vname, vb in (c.get("variants") or {}).items():
+            b = vb.get("0.20", {})
+            claim("cross-scaffold transfer (negative)",
+                  f"{name} [{vname}] transferred AUC", round(b.get("auc_router", float("nan")), 4),
+                  "router_xscaffold.json", "trained on SWE-agent, tested here")
+            if b.get("in_target_oof_auc") is not None:
+                claim("cross-scaffold transfer (negative)",
+                      f"{name} [{vname}] fitted inside the target", round(b["in_target_oof_auc"], 4),
+                      "router_xscaffold.json")
+            if vname == "bridgeable":
+                for k, vv in (b.get("baselines") or {}).items():
+                    claim("cross-scaffold transfer (negative)", f"{name} baseline {k}",
+                          round(vv, 4), "router_xscaffold.json")
     if masked:
         for arm, v in (masked.get("per_arm") or {}).items():
             claim("live experiment (masked)", f"{arm}: success", v.get("success"),

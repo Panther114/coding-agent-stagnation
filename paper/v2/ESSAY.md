@@ -35,10 +35,17 @@ And as a decision rule it beats every fixed policy: routing on the predicted mod
 **12 of 12** fraction × cost cells.
 
 We then test the router's premise in a live environment and find something uncomfortable: on the
-benchmark suite we built, **100% of runs reached the correct file** — because the verifier itself
-prints the failing test's filename, which contains the module name. Localisation was being solved
-by string-matching, not by diagnosis. Masking the failure location (the agent is told *that* tests
-fail, never *where*) is the condition the router exists for, and we report what happens there.
+benchmark suite we built, **every run reached the correct file** — because the verifier itself prints
+the failing test's filename, which contains the module name. Localisation was being solved by
+string-matching, not by diagnosis. Withholding *which* tests failed cuts success from 0.561 to
+**0.286** (Fisher *p* = 0.015) and is the only significant effect in the live experiment: roughly a
+quarter of the benchmark's difficulty was the test runner naming the file.
+
+We also report where the method **stops** working. A model trained on SWE-agent scores
+**0.319–0.495** on 88,000 runs from three other scaffolds, against **0.653–0.761** for the same
+features fitted inside those scaffolds, and 0.426 on our live runs against a 0.584 baseline. The
+generality established here is therefore **shard-level generality within a scaffold**, and it is
+claimed as nothing more.
 
 Along the way we found and fixed a measurement trap that inverts a common result, and we record
 **eight retractions of our own claims**, because the project's rule was that a claim survives only
@@ -174,19 +181,52 @@ all** about which failure the agent is in, while the router reaches 0.68–0.77.
 ### 4.2 It transfers to runs it has never seen
 
 This is the part that makes the number credible rather than fitted. The trainer saw shards 0–3
-only. Held-out performance:
+only. Averaged over the **24 cross-set cells** (three shard sets, every ordered pair, four prefix
+fractions) and over the three within-set cells:
 
-| trained on | tested on | failure prediction | LOST vs WRONG-FIX |
-|---|---|---|---|
-| shards 0–3 | shards 4–7 | 0.735 | 0.749 |
-| shards 0–3 | shards 8–11 | 0.749 | 0.776 |
-| shards 4–7 | shards 0–3 | 0.729 | 0.709 |
-| shards 8–11 | shards 4–7 | 0.771 | 0.770 |
+| | will this run fail? | LOST or WRONG-FIX? |
+|---|---|---|
+| within-set (same shard set, task-disjoint folds) | 0.7169 | 0.7117 |
+| **cross-set** (trained on one set, tested on another) | **0.7145** | **0.7324** |
+| worst of the 24 cross cells | 0.6752 | 0.6817 |
+| position baseline | 0.6718 | 0.5993 |
+| AgentStop-style baseline | 0.5589 | 0.5960 |
+| **gain over the field** | **+0.1556** | **+0.1364** |
 
-Cross-set AUC equals within-set AUC. **Gain over the field: +0.156 AUC (failure), +0.136 AUC
-(mode)** — at every fraction, in every direction, on data the model never saw.
+Cross-set performance *equals* within-set performance: the margin is not fitted to one corpus, and
+the worst single cell still beats the best baseline's mean. Direction by direction at the deployed
+20% checkpoint, the failure head scores 0.6965 (0–3→4–7), 0.7220 (0–3→8–11), 0.7086 (4–7→0–3) and
+0.7079 (8–11→4–7); the mode head scores 0.7346, 0.7274, 0.7086 and 0.7317 on the same rows.
 
-### 4.3 Correct calibration, done properly
+### 4.3 Where it stops working — tested, not asserted
+
+"Generalises" would be too strong a word for the table above, and we checked. The split is over
+*shards of one scaffold*: the same prompt, the same tools, the same observation format. So we ran
+the same code path over three corpora recorded from **other scaffolds** — OpenHands on
+SWE-rebench, the thoughtworks four-framework corpus, and SWE-Gym's OpenHands trajectories — building
+the per-step frame with the same feature code for training and test data, and adding the control
+that a near-chance number cannot give you on its own: how well the *same* features do when the model
+is fitted **inside** the target scaffold.
+
+| test corpus (scaffold) | runs | fitted inside it | **transferred from SWE-agent** | best fixed baseline |
+|---|---|---|---|---|
+| SWE-rebench / OpenHands | 67,074 | 0.653 | **0.495** | 0.655 |
+| thoughtworks agentic-coding | 15,000 | 0.759 | **0.433** | 0.640 |
+| SWE-Gym / OpenHands | 6,055 | 0.761 | **0.319** | 0.425 |
+
+The features carry real signal inside every scaffold. A model trained on SWE-agent carries almost
+none of it across. Three feature-set variants (dropping command-digest and observation-scale
+features, 22–31 features) move the transferred column only within 0.32–0.54, so this is not an
+artefact of our bridge.
+
+This is a negative result and we report it as one: **the transfer we establish is shard-level
+generality inside a scaffold, not scaffold-independent generality.** It matches the structural
+finding in §7 — a measurement that leans on one scaffold's output format should not be expected to
+survive a different one. The mode head could not be tested this way at all: the gold patches that
+define its labels exist for 227 of the 9,921 instances that have edits in these corpora, so the
+LOST/WRONG-FIX question has almost no negatives to score.
+
+### 4.4 Correct calibration, done properly
 
 Our own earlier "zero false alarms at every budget" claim was **withdrawn as circular**: the
 detector and the label were the same statistic, so the numbers reported were literally an oracle's.
@@ -203,7 +243,7 @@ that succeed — and a sequential rule valid under arbitrary dependence:
 calibrated rule flags **3.39%**. We also report a negative: a formal sequential e-value test is
 valid and **never fires** at α ≤ 0.05.
 
-### 4.4 It is worth acting on
+### 4.5 It is worth acting on
 
 Scoring 1 for a correct routing decision and λ for a wrong one, evaluated on runs that actually
 failed:
@@ -222,10 +262,12 @@ It beats all three at every fraction and every cost setting — **12 of 12 cells
 ## 5. Testing the premise in a live environment: the verifier was giving the answer away
 
 We ran the router's premise against live agents (DeepSeek V4.1 Flash, temperature 0, real Python
-packages, the packages' own test suites as the verifier, no Docker). Total spend: **$0.92**.
+packages, the packages' own test suites as the verifier, no Docker): 145 episodes over 42 tasks,
+**$1.36 total**.
 
-The first surprise: **every single run in both arms reached the correct file.** 100%. Which would
-mean the LOST mode does not exist in this setting, and the router's SEARCH branch is untestable.
+The first surprise: **every run in the first two conditions reached the correct file.** 100%. Which
+would mean the LOST mode does not exist in this setting, and the router's SEARCH branch is
+untestable.
 
 The second surprise was the explanation. Reading the transcripts:
 
@@ -241,32 +283,49 @@ failure message. **51.5% of the test observations handed to the agent literally 
 module.** Localisation in these benchmarks is a string-matching task, not a diagnostic one — and
 that is why the failure rate is what it is.
 
-We therefore added a second condition, **masked**: the agent is told *that* tests fail (it still
-sees "3 failed, 516 passed") but never *which* ones or *where*. The grader always sees the true
-output, so the success criterion is unchanged.
+We therefore added a third condition, **masked**: the agent is told *that* tests fail (it still sees
+"3 failed, 516 passed") but never *which* ones or *where*. The grader always sees the true output,
+so the success criterion is unchanged.
 
 ### 5.1 What the conditions show
 
-| condition | what the agent sees | success | reached the correct file |
-|---|---|---|---|
-| hinted | told the exact file and function | **0.604** | 0.979 |
-| **unmasked** (normal CI output) | full pytest output | 0.449 | **1.000** |
-| **masked** (location withheld) | only "N failed, M passed" | 0.000 | 0.000 |
+Valid episodes only (145 raw, 19 dropped because the mutated package did not actually fail its suite
+at episode start, which makes success meaningless):
 
-> ⚠️ **The masked row is a HARNESS FAULT, not a result.** All 48 episodes died before their first
-> tool call with `FileNotFoundError` — the Python environment recording their interpreter had been
-> deleted from a temp directory between runs — so nothing was actually attempted and no tokens were
-> spent. It is recorded here because the number is exactly the shape of a spectacular finding and
-> had to be checked against the transcripts to be disbelieved. The environment has been rebuilt
-> inside the repository and the condition re-run; **the corrected numbers are in
-> `results/live/episodes_masked.jsonl` and must replace this row before submission.**
+| condition | what the agent sees | success | vs hinted | reached the correct file |
+|---|---|---|---|---|
+| **hinted** | told the exact file and function | **0.561** (n=41) | — | 1.000 |
+| **unmasked** (normal CI output) | full pytest output | 0.372 (n=43) | −0.189 (*p* = 0.125) | **1.000** |
+| **masked** (location withheld) | only "N failed, M passed" | **0.286** (n=42) | **−0.275 (*p* = 0.015)** | 0.952 |
 
-Handing over the file raised success by +15.5 points (0.449 → 0.604). With the failure location
-withheld, see the corrected row.
+Withholding **which** tests failed is the only difference in this experiment that reaches
+significance — and it is also the only condition in which any agent failed to find the file at all.
+The hint itself is worth +0.189 over normal CI output and is **not** significant at this sample
+size; masked against unmasked is indistinguishable too (*p* = 0.490).
 
-### 5.2 Harness faults we had to fix, because they looked like results
+Read against the leaked-filename measurement above, this is the causal version of the same fact:
+**roughly a quarter of the benchmark's difficulty was the test runner naming the file.**
+
+### 5.2 The router on the live runs — another negative
+
+The frozen model was then applied **unchanged** to these episodes (a different scaffold, a different
+model, real packages). It does **not** transfer: AUC **0.426** at the 20% checkpoint (n = 125)
+against 0.584 for the published output-overlap baseline. Re-fitting on the training corpus with only
+the features that survive the transcript bridge, and dropping the observation-scale family, recovers
+0.602. This is the same conclusion the three external corpora reached in §4.3, from a completely
+different direction — and it is why the claim in this paper is bounded to shards of one scaffold.
+
+### 5.3 Harness faults we had to fix, because they looked like results
 
 Worth recording, because two of them would otherwise have been reported as findings:
+
+> ⚠️ **The masked condition's first run produced 0/48 success and 0% reaching the gold file.** All
+> 48 episodes died before their first tool call with `FileNotFoundError` — the Python environment
+> recording their interpreter had been deleted from a temp directory between runs — so nothing was
+> actually attempted and no tokens were spent. It is recorded because the number has exactly the
+> shape of a spectacular finding and had to be checked against the transcripts to be disbelieved.
+> The environment was rebuilt inside the repository and the condition re-run; the numbers in §5.1 are
+> the corrected ones.
 
 1. **65.2% of turns were unparseable** in the first pilot. Our protocol was ad-hoc text, but the
    model emits its own XML tool-call format regardless; we were measuring protocol compliance, not
@@ -274,8 +333,8 @@ Worth recording, because two of them would otherwise have been reported as findi
 2. **The agent was writing its own tests into `tests/`.** pytest collects them, so an
    agent-authored passing test could have scored a run as successful **without the defect being
    fixed**. The verifier is now restored to the package's originals before grading (agent source
-   edits kept, agent test edits not). In 71 of 83 valid episodes the agent had modified test files —
-   1,048 files removed. That frequency is itself a finding.
+   edits kept, agent test edits not). In 72 of 84 valid episodes the agent had modified test files —
+   1,076 files removed. That frequency is itself a finding.
 3. **The deleted interpreter**, above.
 
 ---
@@ -290,28 +349,35 @@ python demo/route.py --replay <run_id>   # step through one run, turn by turn
 ```
 
 It runs offline and deterministically, needs no API key, and reproduces the held-out numbers in
-§4.2 on demand. `--replay` is the one to watch: it shows the router committing to a route at each
-fraction of a real run, then reveals the ground truth.
+§4.2 on demand — `--summary` prints the same cells as `results/rebuild/route_modes_transfer.json`
+(0.6965 / 0.7346 and 0.7220 / 0.7274 at the 20% checkpoint). `--replay` is the one to watch: it
+shows the router committing to a route at each fraction of a real run, then reveals the ground
+truth. See `demo/README.md`.
 
 ---
 
 ## 7. Limitations
 
-* **The cross-scaffold limit is severe.** Every mechanical measurement here rests on a structural
-  footer that SWE-agent prints into its observations (`[File: ... (N lines total)]`) in 95.8% of
-  edit steps. That footer is **absent from every other scaffold we tested** — OpenHands, the PI
-  agent, mini-swe-agent-plus and a multi-framework corpus all show 0%. Cross-framework generality
-  is **not claimed**.
-* **The dead-end rate is scaffold-specific, not a property of coding agents.** It ranges from
-  **3.7% to 23.6%** across four other scaffolds — a factor of six. 19.1% is SWE-agent's number and
+* **The cross-scaffold limit is severe, and we measured it rather than assuming it (§4.3).** Every
+  mechanical measurement here rests on a structural footer that SWE-agent prints into its
+  observations (`[File: ... (N lines total)]`) in 95.8% of edit steps. That footer is **absent from
+  every other scaffold we tested** — OpenHands, the PI agent, mini-swe-agent-plus and a
+  multi-framework corpus all show 0% — and the failure head trained on SWE-agent scores
+  **0.319–0.495** on 88,000 runs from three other scaffolds. **Scaffold-independent generality is
+  not claimed and this is the evidence against it.**
+* **The dead-end rate is scaffold-specific, not a property of coding agents.** OpenHands **3.7%**,
+  the PI agent **11.8%**, a multi-framework corpus **17.9%**, mini-swe-agent-plus **23.6%** — a
+  factor of six, moving in both directions away from SWE-agent. **19.1% is SWE-agent's number** and
   must not be quoted as a universal rate.
 * **The 3.7% figure rests on patch recovery from the transcript** for a scaffold with no printed
   patch, which is the obvious confound. Reported as a discrepancy to investigate.
 * **The mode labels are a coarse binary.** "Ever touched a gold file" is a proxy for LOST vs
   WRONG-FIX, not a judgement of whether the fix was *good*. Gold matching is basename-based, and
   4.10% of edit steps carry no filename, which biases LOST upward.
-* **The live experiment is small** (n = 40–49 per arm). The hinted-vs-unmasked difference is **not
-  statistically significant** (Fisher *p* = 0.126) and is reported as such.
+* **The live experiment is small** (n = 41–43 per condition). One difference reaches significance
+  (withholding the failure location costs 0.275, Fisher *p* = 0.015); the hint's own effect (0.189
+  over normal CI output) does **not** (*p* = 0.125) and is reported as inconclusive rather than as a
+  gain.
 * **The inversion's mechanism is unexplained.** Three candidate explanations were tested; all three
   failed.
 * **Temperature-0 inference is not deterministic**: published work finds ~9% of per-instance
@@ -335,11 +401,11 @@ Six automated gates run on every change:
 | headline claims vs the artifacts that produced them | 28 / 28 |
 | one-page summary vs artifacts | 0 mismatches |
 | every cited artifact exists | all present |
-| paper numbers vs the artifact each one names | 17 / 17 |
+| paper numbers vs the artifact each one names | 57 / 57 |
 
-The last gate was written during this work and **found four real errors in our own manuscript** on
-its first run — values quoted as pooled that were within-instance, and figures mixed across two
-artifacts' row sets. All are fixed.
+The last gate was written during this work and **found five real errors in our own manuscript** —
+values quoted as pooled that were within-instance, figures mixed across two artifacts' row sets, and
+a transfer table whose cells had been read off the wrong rows. All are fixed.
 
 Complete data package: `research/EXPORT/` — `INDEX.md` (every claim → number → artifact),
 `numbers.csv`, `TABLES.md`, `artifacts/` (68 files), `live/` (12 episode files).

@@ -64,19 +64,77 @@ frozen taxonomy,kept_rate,0.1573,dead_end.json,
 frozen taxonomy,revised_rate,0.6516,dead_end.json,
 frozen taxonomy,dead_end_rate,0.1911,dead_end.json,
 frozen taxonomy,n_edits,236137,dead_end.json,
-live experiment,unhinted: success,0.3721,live_experiment48_valid.json,
-live experiment,unhinted: reached_gold,1.0,live_experiment48_valid.json,
-live experiment,unhinted: success_given_reached_gold,0.3721,live_experiment48_valid.json,
-live experiment,unhinted: n,43,live_experiment48_valid.json,
-live experiment,hinted: success,0.55,live_experiment48_valid.json,
-live experiment,hinted: reached_gold,1.0,live_experiment48_valid.json,
-live experiment,hinted: success_given_reached_gold,0.55,live_experiment48_valid.json,
-live experiment,hinted: n,40,live_experiment48_valid.json,
-live experiment,hinted vs unmasked Fisher p,0.1258,live_experiment48_valid.json,NOT significant
-live experiment,P1 failure-rate drop,0.1779,live_experiment48_valid.json,ceiling 0.309
+live experiment,hinted: success,0.561,live_arms_valid.json,
+live experiment,hinted: success_ci95,"[0.4146, 0.7073]",live_arms_valid.json,
+live experiment,hinted: reached_gold,1.0,live_arms_valid.json,
+live experiment,hinted: success_given_reached_gold,0.561,live_arms_valid.json,
+live experiment,hinted: n,41,live_arms_valid.json,
+live experiment,hinted: mean_turns,11.41,live_arms_valid.json,
+live experiment,hinted: usd,0.3436,live_arms_valid.json,
+live experiment,masked: success,0.2857,live_arms_valid.json,
+live experiment,masked: success_ci95,"[0.1429, 0.4286]",live_arms_valid.json,
+live experiment,masked: reached_gold,0.9524,live_arms_valid.json,
+live experiment,masked: success_given_reached_gold,0.3,live_arms_valid.json,
+live experiment,masked: n,42,live_arms_valid.json,
+live experiment,masked: mean_turns,12.31,live_arms_valid.json,
+live experiment,masked: usd,0.3982,live_arms_valid.json,
+live experiment,unhinted: success,0.3721,live_arms_valid.json,
+live experiment,unhinted: success_ci95,"[0.2326, 0.5116]",live_arms_valid.json,
+live experiment,unhinted: reached_gold,1.0,live_arms_valid.json,
+live experiment,unhinted: success_given_reached_gold,0.3721,live_arms_valid.json,
+live experiment,unhinted: n,43,live_arms_valid.json,
+live experiment,unhinted: mean_turns,12.21,live_arms_valid.json,
+live experiment,unhinted: usd,0.4839,live_arms_valid.json,
+live experiment,success diff hinted_vs_masked,0.2753,live_arms_valid.json,
+live experiment,Fisher p hinted_vs_masked,0.0148,live_arms_valid.json,significant
+live experiment,success diff hinted_vs_unhinted,0.1889,live_arms_valid.json,
+live experiment,Fisher p hinted_vs_unhinted,0.1251,live_arms_valid.json,NOT significant
+live experiment,success diff masked_vs_unhinted,-0.0864,live_arms_valid.json,
+live experiment,Fisher p masked_vs_unhinted,0.4904,live_arms_valid.json,NOT significant
+live experiment,P1 failure-rate drop,0.1889,live_arms_valid.json,ceiling 0.309
+router on live runs (negative),AUC at 20% of the run,0.4263,live_router_deployment.json,does NOT transfer
+router on live runs (negative),baseline position,0.5684,live_router_deployment.json,
+router on live runs (negative),baseline agentstop_shape,0.4244,live_router_deployment.json,
+router on live runs (negative),baseline agentstop_overlap,0.5844,live_router_deployment.json,
+router on live runs (negative),refit bridgeable: in-corpus AUC,0.7332,live_router_deployment.json,
+router on live runs (negative),refit bridgeable_no_sig: in-corpus AUC,0.7292,live_router_deployment.json,
+router on live runs (negative),refit bridgeable_no_sig_no_scale: in-corpus AUC,0.7143,live_router_deployment.json,
+cross-scaffold transfer (negative),openhands [bridgeable] transferred AUC,0.4953,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),openhands [bridgeable] fitted inside the target,0.6528,router_xscaffold.json,
+cross-scaffold transfer (negative),openhands baseline position,0.6553,router_xscaffold.json,
+cross-scaffold transfer (negative),openhands baseline agentstop_outlen,0.4833,router_xscaffold.json,
+cross-scaffold transfer (negative),openhands baseline agentstop_overlap,0.4989,router_xscaffold.json,
+cross-scaffold transfer (negative),openhands [bridgeable_no_sig] transferred AUC,0.4894,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),openhands [bridgeable_no_sig] fitted inside the target,0.6527,router_xscaffold.json,
+cross-scaffold transfer (negative),openhands [bridgeable_no_scale] transferred AUC,0.4998,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),openhands [bridgeable_no_scale] fitted inside the target,0.6519,router_xscaffold.json,
+cross-scaffold transfer (negative),openhands [bridgeable_no_sig_no_scale] transferred AUC,0.4953,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),openhands [bridgeable_no_sig_no_scale] fitted inside the target,0.6518,router_xscaffold.json,
+cross-scaffold transfer (negative),thoughtworks [bridgeable] transferred AUC,0.4327,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),thoughtworks [bridgeable] fitted inside the target,0.7591,router_xscaffold.json,
+cross-scaffold transfer (negative),thoughtworks baseline position,0.4485,router_xscaffold.json,
+cross-scaffold transfer (negative),thoughtworks baseline agentstop_outlen,0.3499,router_xscaffold.json,
+cross-scaffold transfer (negative),thoughtworks baseline agentstop_overlap,0.6396,router_xscaffold.json,
+cross-scaffold transfer (negative),thoughtworks [bridgeable_no_sig] transferred AUC,0.4629,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),thoughtworks [bridgeable_no_sig] fitted inside the target,0.7546,router_xscaffold.json,
+cross-scaffold transfer (negative),thoughtworks [bridgeable_no_scale] transferred AUC,0.4631,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),thoughtworks [bridgeable_no_scale] fitted inside the target,0.7014,router_xscaffold.json,
+cross-scaffold transfer (negative),thoughtworks [bridgeable_no_sig_no_scale] transferred AUC,0.5349,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),thoughtworks [bridgeable_no_sig_no_scale] fitted inside the target,0.6999,router_xscaffold.json,
+cross-scaffold transfer (negative),swegym [bridgeable] transferred AUC,0.3189,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),swegym [bridgeable] fitted inside the target,0.7609,router_xscaffold.json,
+cross-scaffold transfer (negative),swegym baseline position,0.4253,router_xscaffold.json,
+cross-scaffold transfer (negative),swegym baseline agentstop_outlen,0.377,router_xscaffold.json,
+cross-scaffold transfer (negative),swegym baseline agentstop_overlap,0.3224,router_xscaffold.json,
+cross-scaffold transfer (negative),swegym [bridgeable_no_sig] transferred AUC,0.3631,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),swegym [bridgeable_no_sig] fitted inside the target,0.7166,router_xscaffold.json,
+cross-scaffold transfer (negative),swegym [bridgeable_no_scale] transferred AUC,0.3168,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),swegym [bridgeable_no_scale] fitted inside the target,0.7539,router_xscaffold.json,
+cross-scaffold transfer (negative),swegym [bridgeable_no_sig_no_scale] transferred AUC,0.4146,router_xscaffold.json,"trained on SWE-agent, tested here"
+cross-scaffold transfer (negative),swegym [bridgeable_no_sig_no_scale] fitted inside the target,0.6792,router_xscaffold.json,
 live experiment (masked),hinted: success,0.6042,live_masked_vs_full.json,
 live experiment (masked),hinted: reached_gold,0.9792,live_masked_vs_full.json,
-live experiment (masked),masked: success,0.0,live_masked_vs_full.json,
-live experiment (masked),masked: reached_gold,0.0,live_masked_vs_full.json,
+live experiment (masked),masked: success,0.3333,live_masked_vs_full.json,
+live experiment (masked),masked: reached_gold,0.9583,live_masked_vs_full.json,
 live experiment (masked),unhinted: success,0.449,live_masked_vs_full.json,
 live experiment (masked),unhinted: reached_gold,1.0,live_masked_vs_full.json,

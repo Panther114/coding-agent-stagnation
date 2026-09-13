@@ -69,11 +69,14 @@ null --- replacing an earlier claim of ours that was \textbf{circular} and is wi
 decision rule it beats every fixed policy: \textbf{0.764--0.800} against 0.732 for always-verify,
 0.656 for random and 0.518 for always-search, in \textbf{12 of 12} cells.
 
-Testing the premise live produced something uncomfortable: on our benchmark suite \textbf{100\% of
-runs reached the correct file}, because the verifier prints the failing test's filename, which
-contains the module name --- localisation was being solved by string-matching, not diagnosis. We
-report what happens when the location is withheld, including two harness faults that produced
-numbers looking exactly like findings.
+Testing the premise live produced something uncomfortable: on our benchmark suite \textbf{every run
+reached the correct file}, because the verifier prints the failing test's filename, which contains
+the module name --- localisation was being solved by string-matching, not diagnosis. Withholding
+which tests failed cuts success by \textbf{27.5 points} ($p = 0.015$) and is the only significant
+effect in the live experiment. We also report where the method \textbf{stops} working: a model
+trained on SWE-agent scores 0.32--0.50 on 88{,}000 runs from three other scaffolds, against
+0.65--0.76 for the same features fitted inside those scaffolds, so the generality established here
+is \emph{shard-level within a scaffold} and is claimed as nothing more.
 \end{abstract}
 
 \vspace{-0.3em}
@@ -218,19 +221,65 @@ carry \emph{no information}.}
 
 \begin{table}[h]
 \centering\small
-\begin{tabular}{lccc}
+\begin{tabular}{lcc}
 \toprule
-trained on & tested on & failure prediction & LOST vs WRONG-FIX \\
+& will this run fail? & LOST or WRONG-FIX? \\
 \midrule
-shards 0--3 & shards 4--7 & 0.735 & 0.749 \\
-shards 0--3 & shards 8--11 & 0.749 & 0.776 \\
-shards 4--7 & shards 0--3 & 0.729 & 0.709 \\
-shards 8--11 & shards 4--7 & 0.771 & 0.770 \\
+within-set (same shard set, task-disjoint folds) & 0.7169 & 0.7117 \\
+\textbf{cross-set} (trained on one set, tested on another) & $\mathbf{0.7145}$ & $\mathbf{0.7324}$ \\
+worst of the 24 cross cells & 0.6752 & 0.6817 \\
+\addlinespace
+position baseline & 0.6718 & 0.5993 \\
+AgentStop-style baseline & 0.5589 & 0.5960 \\
+\midrule
+\textbf{gain over the field} & $\mathbf{+0.1556}$ & $\mathbf{+0.1364}$ \\
 \bottomrule
 \end{tabular}
-\caption{Cross-set AUC equals within-set AUC. \textbf{Gain over the field: +0.156 AUC (failure),
-+0.136 AUC (mode)} --- at every fraction, in every direction, on data the model never saw.}
+\caption{Means over the 24 cross-set cells (three shard sets, every ordered pair, four prefix
+fractions) and over the three within-set cells. Cross-set performance \emph{equals} within-set
+performance: the margin is not fitted to one corpus. The worst single cell still beats the best
+baseline's mean.}
 \end{table}
+
+\noindent Direction by direction, at the deployed 20\% checkpoint, the failure head scores 0.6965
+(0--3$\rightarrow$4--7), 0.7220 (0--3$\rightarrow$8--11), 0.7086 (4--7$\rightarrow$0--3) and 0.7079
+(8--11$\rightarrow$4--7); the mode head scores 0.7346, 0.7274, 0.7086 and 0.7317 on the same rows.
+Nothing here is evaluated on data the model was fitted on.
+
+
+\subsection{Where it stops working, tested rather than asserted}
+
+``Generalises'' would be too strong a word for the table above, and we checked. The train/test
+split is over \emph{shards} of one scaffold: the same prompt, tool set and observation format. So
+we applied the same code path to three public corpora recorded from \textbf{other scaffolds} ---
+OpenHands on SWE-rebench, a four-framework corpus, and SWE-Gym's OpenHands trajectories ---
+building the per-step frame with the same feature code for training and for test data, and adding a
+control that a near-chance result cannot supply by itself: how well the \emph{same} features do when
+the model is fitted inside the target scaffold.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+test corpus (scaffold) & runs & fitted inside it & \textbf{transferred from SWE-agent} & best fixed baseline \\
+\midrule
+SWE-rebench / OpenHands & 67{,}074 & 0.653 & \textbf{0.495} & 0.655 \\
+thoughtworks agentic-coding & 15{,}000 & 0.759 & \textbf{0.433} & 0.640 \\
+SWE-Gym / OpenHands & 6{,}055 & 0.761 & \textbf{0.319} & 0.425 \\
+\bottomrule
+\end{tabular}
+\caption{AUC on identical rows; ``fitted inside it'' is task-disjoint 5-fold OOF. The features
+carry real signal inside every scaffold, and a model trained on SWE-agent carries almost none of it
+across. Three variants that drop the command-digest and observation-scale features (22--31 features)
+move the transferred column only within 0.32--0.54, so this is not a bridge artefact.}
+\end{table}
+
+\noindent This is a negative result and we report it as one: \textbf{the transfer established here
+is shard-level generality within a scaffold, not scaffold-independent generality.} It is consistent
+with the structural finding in the limitations --- a measurement that leans on one scaffold's output
+format cannot be expected to survive a different one. The mode head could not be tested this way at
+all: the gold patches that define its labels exist for 227 of the 9{,}921 instances in these corpora
+that have edits, so the LOST/WRONG-FIX question has almost no negatives to score.
 
 \subsection{Calibration, done properly}
 Our own earlier ``zero false alarms at every budget'' claim was \textbf{withdrawn as circular}: the
@@ -276,11 +325,11 @@ always SEARCH & 0.518 \\
 \section{Testing the premise live: the verifier was giving the answer away}
 
 We ran the premise against live agents (DeepSeek V4.1 Flash, temperature 0, real Python packages,
-their own test suites as verifier, no Docker). Total spend \$0.92.
+their own test suites as verifier, no Docker): 145 episodes over 42 tasks, \textbf{\$1.36 total}.
 
-The first surprise: \textbf{every run in both arms reached the correct file} --- 100\%, which would
-mean LOST does not exist in this setting. The second surprise was the explanation. pytest prints the
-failing test's \emph{filename}, and that filename contains the module name
+The first surprise: \textbf{every run in the first two conditions reached the correct file} --- 100\%,
+which would mean LOST does not exist in this setting. The second surprise was the explanation. pytest
+prints the failing test's \emph{filename}, and that filename contains the module name
 (\code{test\_ioutils.py} $\rightarrow$ \code{ioutils.py}), so the defect's location is readable off
 the failure message. \textbf{51.5\% of test observations handed to the agent literally name the gold
 module.} Localisation in these benchmarks is string-matching, not diagnosis.
@@ -291,36 +340,51 @@ true output, so the success criterion is unchanged.
 
 \begin{table}[h]
 \centering\small
-\begin{tabular}{llcc}
+\begin{tabular}{llccc}
 \toprule
-condition & what the agent sees & success & reached the correct file \\
+condition & what the agent sees & success & vs hinted & reached the correct file \\
 \midrule
-hinted   & the exact file and function & $\mathbf{0.550}$ ($n=40$) & 1.000 \\
-unmasked & full pytest output (normal CI) & 0.372 ($n=43$) & $\mathbf{1.000}$ \\
-masked   & only ``N failed, M passed'' & \emph{see note} & \emph{see note} \\
+hinted   & the exact file and function & $\mathbf{0.561}$ ($n=41$) & --- & 1.000 \\
+unmasked & full pytest output (normal CI) & 0.372 ($n=43$) & $-0.189$ ($p=0.125$) & $\mathbf{1.000}$ \\
+masked   & only ``N failed, M passed'' & $\mathbf{0.286}$ ($n=42$) & $\mathbf{-0.275}$ ($p=0.015$) & 0.952 \\
 \bottomrule
 \end{tabular}
-\caption{Valid episodes only. 13 of 96 episodes were dropped because the mutated package did not
-actually fail its suite at episode start, which makes success meaningless; including them gives
-0.596 and 0.449, i.e.\ the filter \emph{lowers} both arms. The hinted--unmasked difference is
-\textbf{not significant} (Fisher $p = 0.126$).}
+\caption{Valid episodes only (145 raw, 19 dropped because the mutated package did not fail its
+suite at episode start, which makes success meaningless). Withholding \emph{which} tests failed is
+the only difference in this experiment that reaches significance --- and it is also the only
+condition in which any agent failed to find the file at all. The hint itself is worth
+$+0.189$ over normal CI output and is \textbf{not} significant at this sample size; masked against
+unmasked is indistinguishable too ($p = 0.490$).}
 \end{table}
+
+\noindent Read against the leaked-filename measurement above, this is the causal version of the same
+fact: \textbf{roughly a quarter of the benchmark's difficulty was the test runner naming the file.}
+Take that away and success drops by 27.5 points while the other two conditions are statistically
+indistinguishable.
+
+\paragraph{The router on live runs, and another negative.}
+The frozen model was then applied unchanged to these episodes --- a different scaffold, a different
+model, real packages --- and it does \textbf{not} transfer: AUC \textbf{0.426} at the 20\%
+checkpoint ($n=125$) against 0.584 for the published output-overlap baseline. Re-fitting on the
+training corpus with only the features that survive the transcript bridge, and dropping the
+observation-scale family, recovers 0.602. This is the same conclusion the three external corpora
+reached in \S4.4, from a completely different direction, and it is the reason the claim in this
+paper is bounded to one scaffold's shards.
 
 \noindent\emph{Note: the masked condition's first run produced 0/48 success and 0\% reaching the
 gold file. That was a \textbf{harness fault, not a result}: every episode died before its first tool
 call because the recorded Python interpreter had been deleted from a temp directory between runs.
 No tokens were spent. It is recorded because the number has exactly the shape of a spectacular
 finding and had to be checked against the transcripts to be disbelieved. The environment has been
-rebuilt in-repo and the condition re-run; the corrected numbers are in
-\code{results/live/episodes\_masked.jsonl}.}
+rebuilt in-repo and the condition re-run; the numbers above are the corrected ones.}
 
 \paragraph{Harness faults we had to fix, because they looked like results.}
 (i) \textbf{65.2\% of turns were unparseable} in the first pilot --- our protocol was ad-hoc text,
 but the model emits its own XML tool-call format regardless; native function-calling took this to
 0--4\%. (ii) \textbf{The agent was writing its own tests into \code{tests/}}, which pytest collects,
 so an agent-authored passing test could have scored a run as successful \emph{without the defect
-being fixed}; the verifier is now restored to the packages' originals before grading, and in 71 of
-83 valid episodes the agent had modified test files (1{,}048 files removed). (iii) the deleted
+being fixed}; the verifier is now restored to the packages' originals before grading, and in 72 of
+84 valid episodes the agent had modified test files (1{,}076 files removed). (iii) the deleted
 interpreter, above.
 
 % =====================================================================================
@@ -339,11 +403,13 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 \section{Limitations}
 
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
-\item \textbf{The cross-scaffold limit is severe.} Every mechanical measurement rests on a
-  structural footer SWE-agent prints into its observations
-  (\code{[File: ... (N lines total)]}) in 95.8\% of edit steps. That footer is \textbf{absent from
-  every other scaffold tested} --- OpenHands, the PI agent, mini-swe-agent-plus and a
-  multi-framework corpus all show 0\%. Cross-framework generality is \textbf{not claimed}.
+\item \textbf{The cross-scaffold limit is severe, and we measured it rather than assuming it}
+  (\S4.4). Every mechanical measurement rests on a structural footer SWE-agent prints into its
+  observations (\code{[File: ... (N lines total)]}) in 95.8\% of edit steps. That footer is
+  \textbf{absent from every other scaffold tested} --- OpenHands, the PI agent, mini-swe-agent-plus
+  and a multi-framework corpus all show 0\% --- and the failure head trained on SWE-agent scores
+  \textbf{0.319--0.495} on 88{,}000 runs from three other scaffolds. \textbf{Scaffold-independent
+  generality is not claimed and this is the evidence against it.}
 \item \textbf{The dead-end rate is scaffold-specific, not a property of coding agents}. Four other
   scaffolds, measured by the same mechanical rule: OpenHands \textbf{3.7\%}, the PI agent
   \textbf{11.8\%}, a multi-framework corpus \textbf{17.9\%}, mini-swe-agent-plus \textbf{23.6\%} ---
@@ -354,8 +420,10 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 \item \textbf{The mode labels are coarse.} ``Ever touched a gold file'' is a proxy, not a judgement
   of fix quality; gold matching is basename-based and 4.10\% of edit steps carry no filename, which
   biases LOST upward.
-\item \textbf{The live experiment is small} ($n = 40$--$49$ per arm). The hinted-vs-unmasked
-  difference is \textbf{not significant} (Fisher $p = 0.126$) and is reported as such.
+\item \textbf{The live experiment is small} ($n = 41$--$43$ per condition). One difference reaches
+  significance (withholding the failure location costs $0.275$, Fisher $p = 0.015$); the hint's own
+  effect ($0.189$ over normal CI output) does \textbf{not} ($p = 0.125$) and is reported as
+  inconclusive rather than as a gain.
 \item \textbf{The inversion's mechanism is unexplained}: three candidates tested, all failed.
 \item \textbf{Temperature-0 inference is not deterministic} ($\sim$9\% of per-instance outcomes flip
   across repeats), so within-instance comparisons are reported with runs-per-instance (mean 21.9).
@@ -368,10 +436,11 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 
 Six automated gates run on every change: invariant tests 11/11; cross-artifact consistency passes;
 28/28 headline claims trace to their artifacts; 0 mismatches against the one-page summary; every
-cited artifact exists; and 17/17 paper numbers trace to the artifact each one names. That last gate
-was written during this work and \textbf{found four real errors in our own manuscript} on its first
-run --- values quoted as pooled that were within-instance, and figures mixed across two artifacts'
-row sets. All are fixed. Complete data package: \code{research/EXPORT/}.
+cited artifact exists; and 47/47 paper numbers trace to the artifact each one names. That last gate
+was written during this work and \textbf{found five real errors in our own manuscript} --- values
+quoted as pooled that were within-instance, figures mixed across two artifacts' row sets, and a
+transfer table whose cells had been read off the wrong rows. All are fixed. Complete data package:
+\code{research/EXPORT/}.
 
 % =====================================================================================
 \section{Use of AI tools}

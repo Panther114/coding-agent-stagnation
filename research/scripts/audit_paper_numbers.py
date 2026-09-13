@@ -39,15 +39,17 @@ def pct(x):
 
 
 def contains_quantity(quoted, value):
-    """The paper may write a rate as 0.550 or as 55.0% -- both are the same number.
+    """The paper may write a rate as 0.550, 0.5504 or 55.0% -- all the same number.
 
-    Only these two exact renderings are accepted; this is not a fuzzy match, so a wrong
-    decimal still fails the audit.
+    Only these exact renderings count; this is not a fuzzy match, so a wrong decimal still fails.
     """
     if quoted in tex:
         return True
-    if isinstance(value, (int, float)) and 0.0 <= float(value) <= 1.0:
-        return pct(value) in tex
+    if isinstance(value, (int, float)):
+        if f"{float(value):.4f}" in tex:
+            return True
+        if 0.0 <= float(value) <= 1.0 and pct(value) in tex:
+            return True
     return False
 
 
@@ -86,13 +88,55 @@ chk("repl2 gold failed", repl2["pooled_on_target_gold"]["failed"],
 chk("repl2 wrong-fix share", repl2["failure_decomposition"]["frac_wrong_fix"],
     f"{100 * repl2['failure_decomposition']['frac_wrong_fix']:.1f}")
 
-# --- live experiment ---
-chk("live hinted success", live48["arms"]["hinted"]["success"],
-    P(live48["arms"]["hinted"]["success"]))
-chk("live unhinted success", live48["arms"]["unhinted"]["success"],
-    P(live48["arms"]["unhinted"]["success"]))
-chk("live significance p", live48["significance_hinted_vs_unhinted"]["p_fisher_two_sided"],
-    f"{live48['significance_hinted_vs_unhinted']['p_fisher_two_sided']:.3f}")
+# --- live experiment (all three conditions, valid episodes only) ---
+live48 = load(LIVE / "live_arms_valid.json")
+for arm in ("hinted", "unhinted", "masked"):
+    a = live48["per_arm"][arm]
+    chk(f"live {arm} success", a["success"], P(a["success"]))
+    chk(f"live {arm} reached gold", a["reached_gold"], P(a["reached_gold"]))
+for pair, label in (("hinted_vs_masked", "hinted vs masked"),
+                    ("hinted_vs_unhinted", "hinted vs unhinted"),
+                    ("masked_vs_unhinted", "masked vs unhinted")):
+    p = live48["pairwise"][pair]
+    chk(f"live p {label}", p["p_fisher_two_sided"],
+        f"{p['p_fisher_two_sided']:.3f}")
+chk("live n raw", live48["n_raw"], str(live48["n_raw"]))
+chk("live n dropped", live48["n_dropped_fail_before_false"],
+    str(live48["n_dropped_fail_before_false"]))
+
+# --- the router applied to the live runs (a negative) ---
+dep = load(LIVE / "live_router_deployment.json")
+chk("live router deployed AUC", dep["fractions"]["0.2"]["auc_router"],
+    P(dep["fractions"]["0.2"]["auc_router"]))
+chk("live router best baseline", max(dep["fractions"]["0.2"]["baselines"].values()),
+    P(max(dep["fractions"]["0.2"]["baselines"].values())))
+
+# --- cross-set transfer (the headline #5 numbers) ---
+# The paper's transfer table quotes the verdict block of route_modes_transfer.json directly, plus
+# the four directional cells at the deployed 0.20 checkpoint.  Adding these checks is what caught
+# an earlier version of the table that quoted numbers appearing in the artifact only by accident.
+xfer = load(RES / "route_modes_transfer.json")
+for tgt, key in (("y_fail", "failure"), ("y_wrong_fix", "mode")):
+    v = xfer["verdict"][tgt]
+    for name, field in (("within", "within_own_rates_mean"), ("cross", "cross_own_rates_mean"),
+                        ("worst cell", "cross_own_rates_min"),
+                        ("position", "cross_position_mean"), ("agentstop", "cross_agentstop_mean")):
+        chk(f"transfer {key} {name}", v[field], P(v[field]))
+    chk(f"transfer {key} gain", v["own_minus_agentstop"],
+        f"+{v['own_minus_agentstop']:.4f}")
+    c20 = xfer["targets"][tgt]["0.2"]["cross"]
+    for pair in ("A_shards0_3->B_shards4_7", "A_shards0_3->C_shards8_11",
+                 "B_shards4_7->A_shards0_3", "C_shards8_11->B_shards4_7"):
+        chk(f"transfer {key} {pair.split('->')[0][:1]}->{pair.split('->')[1][:1]} @0.20",
+            c20[pair]["own_rates"], P(c20[pair]["own_rates"]))
+chk("transfer n cross cells", 24, "24")
+
+# --- cross-scaffold transfer (the negative result) ---
+xsc = load(RES / "router_xscaffold.json")
+for name, c in xsc["corpora"].items():
+    v = c["variants"]["bridgeable"]["0.20"]
+    chk(f"{name} transferred AUC", v["auc_router"], P(v["auc_router"]))
+    chk(f"{name} in-target OOF", v["in_target_oof_auc"], P(v["in_target_oof_auc"]))
 
 # --- cross-scaffold ---
 for name, c in xs.get("corpora", {}).items():

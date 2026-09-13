@@ -96,6 +96,28 @@ BRIDGE_FEATURES = [
     "err_seen_per_step", "fail_minus_pass_norm", "any_test_fail_seen", "any_test_pass_seen",
 ]
 
+#: features built on ``sig`` (the command digest).  Kept separate because a scaffold's command
+#: syntax differs, so the digest's *equality structure* is not necessarily comparable.
+SIG_FEATURES = ["unique_sig_frac", "sig_entropy", "repeat_sig_frac", "max_consec_repeat_norm",
+                "has_repeat_3plus"]
+
+#: features whose *scale* is set by the harness rather than by the agent: observation lengths
+#: depend on how much the scaffold truncates and pretty-prints.  The live experiment already
+#: showed that dropping these changes the answer, so every result below is reported both ways.
+SCALE_SENSITIVE = ["obs_mean", "obs_last_over_mean", "obs_slope_norm", "obs_half_ratio"]
+
+VARIANTS = ["bridgeable", "bridgeable_no_sig", "bridgeable_no_scale", "bridgeable_no_sig_no_scale"]
+
+
+def variant_features(name: str) -> List[str]:
+    drop: List[str] = []
+    if name in ("bridgeable_no_sig", "bridgeable_no_sig_no_scale"):
+        drop += SIG_FEATURES
+    if name in ("bridgeable_no_scale", "bridgeable_no_sig_no_scale"):
+        drop += SCALE_SENSITIVE
+    return [c for c in BRIDGE_FEATURES if c not in drop]
+
+
 STEP_COLS = ["run_id", "task", "model", "reward", "step", "n_steps", "verb", "cmd_family",
              "is_edit", "is_read", "is_search", "is_run", "is_test", "is_finish", "obs_chars",
              "text_chars", "sig", "targets_str", "file_shown", "added_lines_n", "st_passed",
@@ -206,6 +228,21 @@ def build_external(chunk: pd.DataFrame) -> pd.DataFrame:
 # --------------------------------------------------------------------------------------
 
 
+def _three_fractions(tabs: Dict[float, pd.DataFrame]) -> pd.DataFrame:
+    """Stack the per-fraction tables and tag each row with the fraction it came from.
+
+    The tag is not cosmetic: every external corpus is built in chunks, so the rows of one
+    fraction are *not* a contiguous block of the final table.  Tagging at build time is the only
+    way to recover which rows belong to which prefix length later.
+    """
+    parts = []
+    for f in FRACTIONS:
+        t = tabs[f].copy()
+        t["_fraction"] = float(f)
+        parts.append(t)
+    return pd.concat(parts, ignore_index=True)
+
+
 def features_for(name: str, steps: pd.DataFrame) -> pd.DataFrame:
     """Prefix features for one corpus, built chunk by chunk so memory stays bounded."""
     rows: List[pd.DataFrame] = []
@@ -214,7 +251,7 @@ def features_for(name: str, steps: pd.DataFrame) -> pd.DataFrame:
         sub = steps[steps["run_id"].isin(set(chunk_ids["run_id"]))]
         with contextlib.redirect_stdout(io.StringIO()):
             tabs, _meta = arm.prefix_features(sub, FRACTIONS)
-        rows.append(pd.concat([tabs[f] for f in FRACTIONS], ignore_index=True))
+        rows.append(_three_fractions(tabs))
         print(f"    {name}: chunk {i + 1} ({len(sub):,} steps, {sub['run_id'].nunique():,} runs)",
               flush=True)
     return pd.concat(rows, ignore_index=True)
@@ -269,7 +306,7 @@ def load_external(key: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
         frame = build_external(sub)
         with contextlib.redirect_stdout(io.StringIO()):
             tabs, _meta = arm.prefix_features(frame, FRACTIONS)
-        pieces.append(pd.concat([tabs[f] for f in FRACTIONS], ignore_index=True))
+        pieces.append(_three_fractions(tabs))
         del sub, frame
         print(f"    {key}: chunk {i + 1}/{len(ids) // CHUNK_RUNS + 1} done", flush=True)
     t = pd.concat(pieces, ignore_index=True)
@@ -308,15 +345,15 @@ def _score(blob: Dict[str, object], X: np.ndarray) -> np.ndarray:
 
 def evaluate() -> Dict[str, object]:
     CACHE.mkdir(parents=True, exist_ok=True)
-    cols = list(BRIDGE_FEATURES)
     res: Dict[str, object] = {
         "question": "trained on SWE-agent (shards 0-3), does failure prediction survive a "
                     "different scaffold?",
-        "features": cols, "n_features": len(cols),
+        "feature_sets": {v: variant_features(v) for v in VARIANTS},
+        "n_features": {v: len(variant_features(v)) for v in VARIANTS},
         "excluded": ["text_chars_mean", "text_to_obs", "obs_mean_over_text (no model text "
-                     "outside SWE-agent)", "err_rate uses only st_error (no traceback/syntax "
-                     "flags outside SWE-agent)"],
-        "fractions": {}, "corpora": {},
+                     "outside SWE-agent)", "st_tb/st_syntax/st_notfound (not extracted outside "
+                     "SWE-agent)"],
+        "corpora": {},
     }
     print("building the training feature table (SWE-agent shards 0-3) ...")
     tr, tr_lab = load_training(CACHE / "train_features.parquet")
@@ -327,49 +364,74 @@ def evaluate() -> Dict[str, object]:
         print(f"\nbuilding {key} ...")
         t, lab = load_external(key)
         t = t.merge(lab[["run_id", "y_fail"]], on="run_id", how="inner")
-        block: Dict[str, object] = {"label": CORPORA[key][1], "n_runs": int(t["run_id"].nunique())}
-        for f in FRACTIONS:
-            trf = tr[np.isclose(tr["_fraction"], f)]
-            tef = t[np.isclose(t["_fraction"], f)]
-            blob = _fit(trf, cols)
-            y = tef["y_fail"].to_numpy(dtype=float)
-            s = _score(blob, arm._clean(tef[cols].to_numpy()))
-            oof = arm.oof_scores(trf.reset_index(drop=True), cols, "y_fail", n_folds=5, seed=0)
-            ok = np.isfinite(oof)
-            row = {"n": int(len(tef)), "n_failed": int(y.sum()),
-                   "auc_router": float(arm._auc(y, s)),
-                   "in_corpus_auc_train": float(arm._auc(
-                       trf["y_fail"].to_numpy(dtype=float),
-                       _score(blob, arm._clean(trf[cols].to_numpy())))),
-                   "in_corpus_oof_auc": float(arm._auc(trf["y_fail"].to_numpy(dtype=float)[ok],
-                                                       oof[ok])) if ok.any() else None,
-                   "baselines": {
-                       "position": float(arm._auc(y, tef["_prefix_len"].to_numpy(dtype=float))),
-                       "agentstop_outlen": float(arm._auc(y, tef["obs_mean"].to_numpy())),
-                       "agentstop_overlap": float(arm._auc(
-                           y, tef["repeat_sig_frac"].to_numpy())),
-                   }}
-            row["gain_over_best_baseline"] = (
-                row["auc_router"] - max(row["baselines"].values()))
-            row["gap_vs_in_corpus_oof"] = (
-                row["auc_router"] - row["in_corpus_oof_auc"]
-                if row["in_corpus_oof_auc"] is not None else None)
-            block[f"{f:.2f}"] = row
-            print(f"  {key:14s} f={f:.2f}  n={row['n']:6,d}  router AUC={row['auc_router']:.3f} "
-                  f"(in-corpus OOF {row['in_corpus_oof_auc']:.3f}, gap "
-                  f"{row['gap_vs_in_corpus_oof']:+.3f})  "
-                  f"best baseline {max(row['baselines'].values()):.3f}  "
-                  f"gain {row['gain_over_best_baseline']:+.3f}")
+        block: Dict[str, object] = {"label": CORPORA[key][1], "n_runs": int(t["run_id"].nunique()),
+                                    "variants": {}}
+        for v in VARIANTS:
+            cols = variant_features(v)
+            vb: Dict[str, object] = {"n_features": len(cols)}
+            for f in FRACTIONS:
+                trf = tr[np.isclose(tr["_fraction"], f)]
+                tef = t[np.isclose(t["_fraction"], f)]
+                blob = _fit(trf, cols)
+                y = tef["y_fail"].to_numpy(dtype=float)
+                s = _score(blob, arm._clean(tef[cols].to_numpy()))
+                row = {"n": int(len(tef)), "n_failed": int(y.sum()),
+                       "auc_router": float(arm._auc(y, s)),
+                       "in_corpus_auc_train": float(arm._auc(
+                           trf["y_fail"].to_numpy(dtype=float),
+                           _score(blob, arm._clean(trf[cols].to_numpy())))),
+                       "baselines": {
+                           "position": float(arm._auc(
+                               y, tef["_prefix_len"].to_numpy(dtype=float))),
+                           "agentstop_outlen": float(arm._auc(y, tef["obs_mean"].to_numpy())),
+                           "agentstop_overlap": float(arm._auc(
+                               y, tef["repeat_sig_frac"].to_numpy())),
+                       }}
+                row["gain_over_best_baseline"] = (
+                    row["auc_router"] - max(row["baselines"].values()))
+                if f == FRACTIONS[0]:
+                    oof = arm.oof_scores(trf.reset_index(drop=True), cols, "y_fail",
+                                         n_folds=5, seed=0)
+                    ok = np.isfinite(oof)
+                    row["in_corpus_oof_auc"] = (float(arm._auc(
+                        trf["y_fail"].to_numpy(dtype=float)[ok], oof[ok])) if ok.any() else None)
+                    row["gap_vs_in_corpus_oof"] = (
+                        row["auc_router"] - row["in_corpus_oof_auc"]
+                        if row["in_corpus_oof_auc"] is not None else None)
+                    # control: are these features informative *inside* the test scaffold at all?
+                    # Without it a near-chance number cannot distinguish "the features do not
+                    # transfer" from "the features are simply uninformative here".
+                    oof_t = arm.oof_scores(tef.reset_index(drop=True), cols, "y_fail",
+                                           n_folds=5, seed=0)
+                    ok_t = np.isfinite(oof_t)
+                    row["in_target_oof_auc"] = (float(arm._auc(
+                        y[ok_t], oof_t[ok_t])) if ok_t.any() and len(np.unique(y[ok_t])) > 1
+                        else None)
+                vb[f"{f:.2f}"] = row
+            block["variants"][v] = vb
+            b0 = vb[f"{FRACTIONS[0]:.2f}"]
+            print(f"  {key:14s} [{v:26s}] {len(cols):2d} feat  "
+                  f"AUC={b0['auc_router']:.3f} (in-corpus OOF "
+                  f"{b0.get('in_corpus_oof_auc'):.3f}, in-TARGET OOF "
+                  f"{b0.get('in_target_oof_auc') if b0.get('in_target_oof_auc') is None else round(b0['in_target_oof_auc'], 3)})  "
+                  f"best baseline {max(b0['baselines'].values()):.3f}  gain "
+                  f"{b0['gain_over_best_baseline']:+.3f}")
         res["corpora"][key] = block
 
-    prim = {k: v[f"{FRACTIONS[0]:.2f}"]["auc_router"] for k, v in res["corpora"].items()}
+    prim = {}
+    for k, v in res["corpora"].items():
+        for vn, vb in v["variants"].items():
+            prim[f"{k}/{vn}"] = vb[f"{FRACTIONS[0]:.2f}"]["auc_router"]
+    best = max(prim.items(), key=lambda kv: kv[1])
     res["verdict"] = {
-        "headline": "; ".join(f"{CORPORA[k][1]}: AUC {v:.3f}" for k, v in prim.items()),
+        "headline": "; ".join(f"{k} {v:.3f}" for k, v in prim.items()),
+        "best_cell": {"key": best[0], "auc": best[1]},
         "transfers_above_chance_everywhere": bool(all(v > 0.5 for v in prim.values())),
-        "mean_auc_at_20pct": float(np.mean(list(prim.values()))),
+        "note": "a negative result here bounds the claim: cross-set transfer within SWE-agent is "
+                "not evidence of cross-scaffold transfer",
     }
     OUT.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
-    print("\n" + res["verdict"]["headline"])
+    print("\nbest cell: " + best[0] + f" -> {best[1]:.3f}")
     print(f"wrote {OUT}")
     return res
 

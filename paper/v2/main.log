@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2026.6.5)  13 SEP 2026 15:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2026.6.5)  13 SEP 2026 15:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -623,15 +623,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 60.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
-5.
+8.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 106.
+(Font)              <10> on input line 109.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 106.
+(Font)              <7> on input line 109.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -648,24 +648,28 @@ a/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [2]
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 320.
- [4] [5] [6] (main.aux)
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 384.
+ [5] [6] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 99DB47B91CFF28964BA79B924F4496CC;2821.
+(rerunfilecheck)             Checksum: AF90C4A6CF0F0ABF3417E916A4CB4026;3155.
  ) 
 Here is how much of TeX's memory you used:
- 15065 strings out of 474486
- 241817 string characters out of 5743756
- 1944542 words of memory out of 5000000
- 36858 multiletter control sequences out of 15000+600000
- 664564 words of font info for 213 fonts, out of 8000000 for 9000
+ 15093 strings out of 474486
+ 242089 string characters out of 5743756
+ 1945542 words of memory out of 5000000
+ 36854 multiletter control sequences out of 15000+600000
+ 665360 words of font info for 226 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,1003b,610s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,1003b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb
@@ -684,11 +688,10 @@ rs/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Use
 rs/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/User
 s/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy9.pfb><C:/Users
 /admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users
-/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.pfb><C:/Users/
-admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on main.pdf (6 pages, 452322 bytes).
+/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.pfb>
+Output written on main.pdf (6 pages, 444844 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 60545 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 248 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 59529 words of extra memory for PDF output out of 61914 (max. 10000000)
 

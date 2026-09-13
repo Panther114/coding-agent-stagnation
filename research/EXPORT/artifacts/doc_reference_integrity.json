@@ -21,8 +21,8 @@
     "VERIFY_PARSER_EVIDENCE.md",
     "XSCAFFOLD_REPLICATION.md"
   ],
-  "artifacts_present": 78,
-  "artifacts_cited": 52,
+  "artifacts_present": 83,
+  "artifacts_cited": 54,
   "missing": [],
   "uncited": [
     "alignment_runs.parquet",
@@ -39,9 +39,12 @@
     "llm_ledger.jsonl",
     "objective_signals.parquet",
     "rebuild_numbers.flat.json",
+    "roundtrip_cost.json",
     "routeA_steps.parquet",
     "step_task.parquet",
     "step_verification.parquet",
+    "waiting_inspect.json",
+    "waiting_probe.json",
     "waste_by_run.parquet",
     "waste_examples.md",
     "wrongness_repl.json",

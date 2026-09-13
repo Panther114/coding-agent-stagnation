@@ -16,14 +16,18 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The published detectors cannot make this decision}{3}{subsection.4.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Identical rows, identical task-disjoint folds. Averaged over 24 cells (every ordered pair of the three shard sets $\times $ four prefix fractions). On the mode question the published families carry \emph  {no information}.}}{3}{table.caption.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}It transfers to runs it has never seen}{3}{subsection.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Cross-set AUC equals within-set AUC. \textbf  {Gain over the field: +0.156 AUC (failure), +0.136 AUC (mode)} --- at every fraction, in every direction, on data the model never saw.}}{3}{table.caption.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Calibration, done properly}{3}{subsection.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Beats all three at every fraction and every cost setting --- 12 of 12 cells.}}{4}{table.caption.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}It is worth acting on}{4}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Means over the 24 cross-set cells (three shard sets, every ordered pair, four prefix fractions) and over the three within-set cells. Cross-set performance \emph  {equals} within-set performance: the margin is not fitted to one corpus. The worst single cell still beats the best baseline's mean.}}{3}{table.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Where it stops working, tested rather than asserted}{3}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces AUC on identical rows; ``fitted inside it'' is task-disjoint 5-fold OOF. The features carry real signal inside every scaffold, and a model trained on SWE-agent carries almost none of it across. Three variants that drop the command-digest and observation-scale features (22--31 features) move the transferred column only within 0.32--0.54, so this is not a bridge artefact.}}{4}{table.caption.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Calibration, done properly}{4}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}It is worth acting on}{4}{subsection.4.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Beats all three at every fraction and every cost setting --- 12 of 12 cells.}}{4}{table.caption.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}Testing the premise live: the verifier was giving the answer away}{4}{section.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Valid episodes only. 13 of 96 episodes were dropped because the mutated package did not actually fail its suite at episode start, which makes success meaningless; including them gives 0.596 and 0.449, i.e.\ the filter \emph  {lowers} both arms. The hinted--unmasked difference is \textbf  {not significant} (Fisher $p = 0.126$).}}{4}{table.caption.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Harness faults we had to fix, because they looked like results.}{4}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}The demo}{4}{section.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Valid episodes only (145 raw, 19 dropped because the mutated package did not fail its suite at episode start, which makes success meaningless). Withholding \emph  {which} tests failed is the only difference in this experiment that reaches significance --- and it is also the only condition in which any agent failed to find the file at all. The hint itself is worth $+0.189$ over normal CI output and is \textbf  {not} significant at this sample size; masked against unmasked is indistinguishable too ($p = 0.490$).}}{5}{table.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The router on live runs, and another negative.}{5}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Harness faults we had to fix, because they looked like results.}{5}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}The demo}{5}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{5}{section.7}\protected@file@percent }
 \bibcite{agentstop}{1}
 \bibcite{fap}{2}
 \bibcite{redundancy}{3}
@@ -31,10 +35,9 @@
 \bibcite{confidentwrong}{5}
 \bibcite{behaviour}{6}
 \bibcite{failforge}{7}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{5}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Reproducibility}{5}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Use of AI tools}{5}{section.9}\protected@file@percent }
 \bibcite{trim}{8}
 \bibcite{whowhen}{9}
 \bibcite{noise}{10}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Reproducibility}{6}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Use of AI tools}{6}{section.9}\protected@file@percent }
 \gdef \@abspage@last{6}

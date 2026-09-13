@@ -21,8 +21,8 @@
     "VERIFY_PARSER_EVIDENCE.md",
     "XSCAFFOLD_REPLICATION.md"
   ],
-  "artifacts_present": 82,
-  "artifacts_cited": 52,
+  "artifacts_present": 83,
+  "artifacts_cited": 54,
   "missing": [],
   "uncited": [
     "alignment_runs.parquet",
@@ -41,7 +41,6 @@
     "rebuild_numbers.flat.json",
     "roundtrip_cost.json",
     "routeA_steps.parquet",
-    "route_modes_transfer.json",
     "step_task.parquet",
     "step_verification.parquet",
     "waiting_inspect.json",

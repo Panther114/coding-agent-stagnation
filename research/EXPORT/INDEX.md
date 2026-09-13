@@ -22,9 +22,9 @@ was read out of a frozen artifact at export time.
 | claim audit | 28/28 headline claims found verbatim in the findings |
 | summary audit | 0 mismatches between the executive summary and the artifacts |
 | doc references | all cited artifacts exist |
-| paper numbers | 17/17 paper numbers trace to an artifact |
+| paper numbers | 57/57 paper numbers trace to an artifact |
 
-## Numbers (81 total)
+## Numbers (139 total)
 
 ### measurement validity
 
@@ -125,16 +125,84 @@ was read out of a frozen artifact at export time.
 
 | claim | value | artifact | note |
 |---|---|---|---|
-| unhinted: success | `0.3721` | `live_experiment48_valid.json` |  |
-| unhinted: reached_gold | `1` | `live_experiment48_valid.json` |  |
-| unhinted: success_given_reached_gold | `0.3721` | `live_experiment48_valid.json` |  |
-| unhinted: n | `43` | `live_experiment48_valid.json` |  |
-| hinted: success | `0.55` | `live_experiment48_valid.json` |  |
-| hinted: reached_gold | `1` | `live_experiment48_valid.json` |  |
-| hinted: success_given_reached_gold | `0.55` | `live_experiment48_valid.json` |  |
-| hinted: n | `40` | `live_experiment48_valid.json` |  |
-| hinted vs unmasked Fisher p | `0.1258` | `live_experiment48_valid.json` | NOT significant |
-| P1 failure-rate drop | `0.1779` | `live_experiment48_valid.json` | ceiling 0.309 |
+| hinted: success | `0.561` | `live_arms_valid.json` |  |
+| hinted: success_ci95 | `[0.4146, 0.7073]` | `live_arms_valid.json` |  |
+| hinted: reached_gold | `1` | `live_arms_valid.json` |  |
+| hinted: success_given_reached_gold | `0.561` | `live_arms_valid.json` |  |
+| hinted: n | `41` | `live_arms_valid.json` |  |
+| hinted: mean_turns | `11.41` | `live_arms_valid.json` |  |
+| hinted: usd | `0.3436` | `live_arms_valid.json` |  |
+| masked: success | `0.2857` | `live_arms_valid.json` |  |
+| masked: success_ci95 | `[0.1429, 0.4286]` | `live_arms_valid.json` |  |
+| masked: reached_gold | `0.9524` | `live_arms_valid.json` |  |
+| masked: success_given_reached_gold | `0.3` | `live_arms_valid.json` |  |
+| masked: n | `42` | `live_arms_valid.json` |  |
+| masked: mean_turns | `12.31` | `live_arms_valid.json` |  |
+| masked: usd | `0.3982` | `live_arms_valid.json` |  |
+| unhinted: success | `0.3721` | `live_arms_valid.json` |  |
+| unhinted: success_ci95 | `[0.2326, 0.5116]` | `live_arms_valid.json` |  |
+| unhinted: reached_gold | `1` | `live_arms_valid.json` |  |
+| unhinted: success_given_reached_gold | `0.3721` | `live_arms_valid.json` |  |
+| unhinted: n | `43` | `live_arms_valid.json` |  |
+| unhinted: mean_turns | `12.21` | `live_arms_valid.json` |  |
+| unhinted: usd | `0.4839` | `live_arms_valid.json` |  |
+| success diff hinted_vs_masked | `0.2753` | `live_arms_valid.json` |  |
+| Fisher p hinted_vs_masked | `0.0148` | `live_arms_valid.json` | significant |
+| success diff hinted_vs_unhinted | `0.1889` | `live_arms_valid.json` |  |
+| Fisher p hinted_vs_unhinted | `0.1251` | `live_arms_valid.json` | NOT significant |
+| success diff masked_vs_unhinted | `-0.0864` | `live_arms_valid.json` |  |
+| Fisher p masked_vs_unhinted | `0.4904` | `live_arms_valid.json` | NOT significant |
+| P1 failure-rate drop | `0.1889` | `live_arms_valid.json` | ceiling 0.309 |
+
+### router on live runs (negative)
+
+| claim | value | artifact | note |
+|---|---|---|---|
+| AUC at 20% of the run | `0.4263` | `live_router_deployment.json` | does NOT transfer |
+| baseline position | `0.5684` | `live_router_deployment.json` |  |
+| baseline agentstop_shape | `0.4244` | `live_router_deployment.json` |  |
+| baseline agentstop_overlap | `0.5844` | `live_router_deployment.json` |  |
+| refit bridgeable: in-corpus AUC | `0.7332` | `live_router_deployment.json` |  |
+| refit bridgeable_no_sig: in-corpus AUC | `0.7292` | `live_router_deployment.json` |  |
+| refit bridgeable_no_sig_no_scale: in-corpus AUC | `0.7143` | `live_router_deployment.json` |  |
+
+### cross-scaffold transfer (negative)
+
+| claim | value | artifact | note |
+|---|---|---|---|
+| openhands [bridgeable] transferred AUC | `0.4953` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| openhands [bridgeable] fitted inside the target | `0.6528` | `router_xscaffold.json` |  |
+| openhands baseline position | `0.6553` | `router_xscaffold.json` |  |
+| openhands baseline agentstop_outlen | `0.4833` | `router_xscaffold.json` |  |
+| openhands baseline agentstop_overlap | `0.4989` | `router_xscaffold.json` |  |
+| openhands [bridgeable_no_sig] transferred AUC | `0.4894` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| openhands [bridgeable_no_sig] fitted inside the target | `0.6527` | `router_xscaffold.json` |  |
+| openhands [bridgeable_no_scale] transferred AUC | `0.4998` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| openhands [bridgeable_no_scale] fitted inside the target | `0.6519` | `router_xscaffold.json` |  |
+| openhands [bridgeable_no_sig_no_scale] transferred AUC | `0.4953` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| openhands [bridgeable_no_sig_no_scale] fitted inside the target | `0.6518` | `router_xscaffold.json` |  |
+| thoughtworks [bridgeable] transferred AUC | `0.4327` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| thoughtworks [bridgeable] fitted inside the target | `0.7591` | `router_xscaffold.json` |  |
+| thoughtworks baseline position | `0.4485` | `router_xscaffold.json` |  |
+| thoughtworks baseline agentstop_outlen | `0.3499` | `router_xscaffold.json` |  |
+| thoughtworks baseline agentstop_overlap | `0.6396` | `router_xscaffold.json` |  |
+| thoughtworks [bridgeable_no_sig] transferred AUC | `0.4629` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| thoughtworks [bridgeable_no_sig] fitted inside the target | `0.7546` | `router_xscaffold.json` |  |
+| thoughtworks [bridgeable_no_scale] transferred AUC | `0.4631` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| thoughtworks [bridgeable_no_scale] fitted inside the target | `0.7014` | `router_xscaffold.json` |  |
+| thoughtworks [bridgeable_no_sig_no_scale] transferred AUC | `0.5349` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| thoughtworks [bridgeable_no_sig_no_scale] fitted inside the target | `0.6999` | `router_xscaffold.json` |  |
+| swegym [bridgeable] transferred AUC | `0.3189` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| swegym [bridgeable] fitted inside the target | `0.7609` | `router_xscaffold.json` |  |
+| swegym baseline position | `0.4253` | `router_xscaffold.json` |  |
+| swegym baseline agentstop_outlen | `0.377` | `router_xscaffold.json` |  |
+| swegym baseline agentstop_overlap | `0.3224` | `router_xscaffold.json` |  |
+| swegym [bridgeable_no_sig] transferred AUC | `0.3631` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| swegym [bridgeable_no_sig] fitted inside the target | `0.7166` | `router_xscaffold.json` |  |
+| swegym [bridgeable_no_scale] transferred AUC | `0.3168` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| swegym [bridgeable_no_scale] fitted inside the target | `0.7539` | `router_xscaffold.json` |  |
+| swegym [bridgeable_no_sig_no_scale] transferred AUC | `0.4146` | `router_xscaffold.json` | trained on SWE-agent, tested here |
+| swegym [bridgeable_no_sig_no_scale] fitted inside the target | `0.6792` | `router_xscaffold.json` |  |
 
 ### live experiment (masked)
 
@@ -142,7 +210,7 @@ was read out of a frozen artifact at export time.
 |---|---|---|---|
 | hinted: success | `0.6042` | `live_masked_vs_full.json` |  |
 | hinted: reached_gold | `0.9792` | `live_masked_vs_full.json` |  |
-| masked: success | `0` | `live_masked_vs_full.json` |  |
-| masked: reached_gold | `0` | `live_masked_vs_full.json` |  |
+| masked: success | `0.3333` | `live_masked_vs_full.json` |  |
+| masked: reached_gold | `0.9583` | `live_masked_vs_full.json` |  |
 | unhinted: success | `0.449` | `live_masked_vs_full.json` |  |
 | unhinted: reached_gold | `1` | `live_masked_vs_full.json` |  |
