@@ -1,6 +1,6 @@
 {
   "id": "dsh-batch-flow",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "lib/index.js",
   "description": "Batch/parallel declarative tool-calls with early-exit contracts, reference-following reads, and per-rule metering. Advisory only.",
   "engines": {

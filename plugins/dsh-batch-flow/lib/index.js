@@ -242,13 +242,46 @@ function validateBatchSpec(spec) {
 	return null;
 }
 
-async function runStep(tools, agent, step) {
+const SPEC_HINT = 'expected {steps:[{tool,args?,expect?:{contains?,matches?,exitCode?},id?}], mode?:sequence|parallel, on_unexpected?:stop|continue}';
+
+/**
+ * Accept both the nested form ({spec:{...}}) and the flat form ({steps:[...],...}).
+ * Agents intuitively call batch(steps=[...]); rejecting that shape cost a real
+ * session, so both spellings are equivalent.
+ */
+export function normalizeSpec(args) {
+	if (args && typeof args === 'object' && !Array.isArray(args)) {
+		if (args.spec !== undefined) return args.spec;
+		if (Array.isArray(args.steps)) {
+			const { description: _d, ...rest } = args;
+			return rest;
+		}
+	}
+	return args?.spec;
+}
+
+function linkSignal(parentSignal) {
+	const ctrl = new AbortController();
+	let detach = () => {};
+	try {
+		if (parentSignal && typeof parentSignal.addEventListener === 'function') {
+			const onAbort = () => { try { ctrl.abort(parentSignal.reason); } catch { /* noop */ } };
+			parentSignal.addEventListener('abort', onAbort, { once: true });
+			detach = () => { try { parentSignal.removeEventListener('abort', onAbort); } catch { /* noop */ } };
+			if (parentSignal.aborted) ctrl.abort(parentSignal.reason);
+		}
+	} catch { /* a signal we cannot observe behaves as never-aborted */ }
+	return { signal: ctrl.signal, abort: (r) => { try { ctrl.abort(r); } catch { /* noop */ } }, detach };
+}
+
+async function runStep(tools, agent, step, signal) {
 	const started = Date.now();
 	try {
 		const exec = await tools.execute({
 			name: step.tool,
 			arguments: step.args ?? {},
 			...(agent ? { agent } : {}),
+			...(signal ? { signal } : {}),
 		});
 		const text = textOf(exec);
 		const exit = exitOf(exec, text);
@@ -269,32 +302,49 @@ async function runStep(tools, agent, step) {
 	}
 }
 
-export async function runBatch(tools, agent, spec, meter) {
+export async function runBatch(tools, agent, spec, meter, parentSignal) {
 	const invalid = validateBatchSpec(spec);
-	if (invalid) throw new Error(`invalid batch spec: ${invalid}`);
+	if (invalid) throw new Error(`invalid batch spec: ${invalid}. ${SPEC_HINT}`);
 	const mode = spec.mode ?? 'sequence';
 	const onUnexpected = spec.on_unexpected ?? 'stop';
+	const link = linkSignal(parentSignal);
 	const results = [];
 	let stoppedEarly = null;
-	if (mode === 'parallel') {
-		// No rollback by design (same contract as PTC): steps are independent by declaration.
-		const settled = await Promise.all(spec.steps.map((s) => runStep(tools, agent, s)));
-		for (const r of settled) {
-			results.push(r);
-			bump(meter, 'batchCalls'); bump(meter, 'outChars', r.output.length);
+	const note = (r) => {
+		results.push(r);
+		bump(meter, 'batchCalls'); bump(meter, 'outChars', r.output.length);
+		if (!r.ok && onUnexpected === 'stop' && stoppedEarly === null) {
+			stoppedEarly = `stopped: step '${r.tool}' unsatisfactory (${r.mismatch ?? `failed${r.exit === null ? '' : ` exit ${r.exit}`}`})`;
 		}
-		const bad = settled.find((r) => !r.ok);
-		if (bad && onUnexpected === 'stop') stoppedEarly = `parallel batch: step '${bad.tool}' unsatisfactory (${bad.mismatch ?? `failed${bad.exit === null ? '' : ` exit ${bad.exit}`}`})`;
-	} else {
-		for (const s of spec.steps) {
-			const r = await runStep(tools, agent, s);
-			results.push(r);
-			bump(meter, 'batchCalls'); bump(meter, 'outChars', r.output.length);
-			if (!r.ok && onUnexpected === 'stop') {
-				stoppedEarly = `stopped after step '${r.tool}': ${r.mismatch ?? `failed${r.exit === null ? '' : ` exit ${r.exit}`}`}`;
-				break;
+	};
+	try {
+		if (mode === 'parallel') {
+			// No rollback by design (same contract as PTC): steps are independent
+			// by declaration. First unsatisfactory result aborts in-flight
+			// cooperating bodies; results still report in spec order.
+			const slots = new Array(spec.steps.length).fill(null);
+			const pending = new Map();
+			spec.steps.forEach((s, i) => {
+				pending.set(i, runStep(tools, agent, s, link.signal).then((r) => ({ i, r })));
+			});
+			while (pending.size > 0) {
+				// eslint-disable-next-line no-await-in-loop
+				const { i, r } = await Promise.race(pending.values());
+				pending.delete(i);
+				slots[i] = r;
+				if (!r.ok && onUnexpected === 'stop') link.abort('batch early exit');
+			}
+			for (const r of slots) note(r);
+		} else {
+			for (const s of spec.steps) {
+				// eslint-disable-next-line no-await-in-loop
+				const r = await runStep(tools, agent, s, link.signal);
+				note(r);
+				if (stoppedEarly) { link.abort('batch early exit'); break; }
 			}
 		}
+	} finally {
+		link.detach();
 	}
 	if (stoppedEarly) bump(meter, 'earlyExits');
 	return { mode, completed: results.length, stoppedEarly, results };
@@ -346,7 +396,7 @@ export function apply(ctx) {
 		try {
 			ctx.tools.register({
 				name: 'batch',
-				description: 'Run a declared list of tool calls (sequence or parallel) with per-step expectations and an early-exit contract. One model turn instead of many. No rollback: parallel steps must be independent.',
+				description: 'Run a declared list of tool calls (sequence or parallel) with per-step expectations and an early-exit contract. One model turn instead of many. Accepts {spec:{...}} or the flat {steps:[...]} form. No rollback: parallel steps must be independent.',
 				parameters: {
 					type: 'object',
 					properties: {
@@ -374,7 +424,7 @@ export function apply(ctx) {
 					const meter = exec?.agent ? meterOf(meters, exec.agent) : null;
 					bump(meter, 'batches');
 					if (!toolOrNull()) throw new Error('batch: tool execution backend unavailable in this deployment');
-					return runBatch(ctx.tools, exec?.agent ?? null, args?.spec, meter);
+					return runBatch(ctx.tools, exec?.agent ?? null, normalizeSpec(args), meter, exec?.signal ?? null);
 				},
 			});
 		} catch (error) {
