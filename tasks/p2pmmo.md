@@ -8,11 +8,13 @@ Toolchain: `.tools` is a symlink to the hermetic vendored Go 1.27.1 (darwin/arm6
 Agents run with `GOROOT=<arm>/.tools/go GOTOOLCHAIN=local CGO_ENABLED=0` and a WRITABLE
 `GOCACHE`/`GOMODCACHE` outside the repo (default user cache is fine on this machine).
 
-## §2 — Agent brief (this section only is shown to the agent)
+## §2 — Agent brief (paste into chat with workspace set to the arm dir)
 
-> Letter-gap burns are not reaching zeros: implement an observable burn sink (AddBurn /
-> BurnTotal accounting with reads-burn and verdict legs) so burn conservation holds.
-> Verify with `go test ./pkg/store/ ./pkg/server/`. Do not modify `*_test.go` files.
+> something's off with the burn accounting — letter-gap burns never seem to reach zeros
+> and i don't think conservation actually holds end to end. can you add a proper observable
+> burn sink (AddBurn/BurnTotal with the reads-burn and verdict legs wired in)? check your
+> work with go test on pkg/store and pkg/server. go toolchain is in .tools, and don't
+> touch any *_test.go files.
 
 ## Battery (evaluator-only below this line)
 

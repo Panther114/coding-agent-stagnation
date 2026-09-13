@@ -8,11 +8,19 @@ vs HEAD (HEAD is the problematic commit; history present, fix purged — verify 
 
  Hermetic: `bun test` only. No network during runs (tests need none).
 
-## §2 — Agent brief (this section only is shown to the agent)
+## §2A — Agent brief, Task A (paste into chat with workspace set to the A arm dir)
 
-> The gateway crashes on some upstream responses ("response is not a JSON object") and
-> mishandles some request bodies. Diagnose and fix so `bun test` is fully green.
-> Do not modify `test/` — fix `src/` only.
+> hey the gateway keeps blowing up on some upstream responses with 'response is not a
+> JSON object'. i think the desktop client might be sending zstd-encoded bodies? not sure.
+> figure it out and fix it. bun test should be fully green when you're done, and don't
+> touch anything under test/ — fix src/ only.
+
+## §2B — Agent brief, Task B (paste into chat with workspace set to the B arm dir)
+
+> when upstream cuts the stream mid-response the gateway just dies silently, and i've
+> also noticed the model catalog keeps resurrecting models i deleted. surface the
+> upstream errors properly instead of swallowing them, and stop the catalog from
+> bringing back removed models. bun test green when done, don't touch test/.
 
 ## Battery (evaluator-only below this line)
 

@@ -1,0 +1,5 @@
+# dsh-error-shape-nudge bundle patch: one row, host only (no client half).
+# The row name MUST equal the package name.
+- insert:
+    - id: dsh-error-shape-nudge
+      name: 'dsh-error-shape-nudge'

@@ -1,0 +1,13 @@
+{
+  "id": "dsh-error-shape-nudge",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "description": "Nudges the agent the second time the same tool fails the same way in a row. Advisory only: never blocks, vetoes, or rewrites.",
+  "engines": {
+    "dsh": ">=0.1.5-rc.1"
+  },
+  "contributes": {
+    "tools": [],
+    "skills": []
+  }
+}

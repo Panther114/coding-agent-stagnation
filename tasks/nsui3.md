@@ -8,11 +8,13 @@ the arm dir. Agent edits = `git diff` vs HEAD.
 ⚠️ NO sealed gold exists (the fix is unwritten): scoring is red-to-green + no-regressions
 + diff review, NOT gold comparison. Weaker oracle than codextras — disclosed, not hidden.
 
-## §2 — Agent brief (this section only is shown to the agent)
+## §2 — Agent brief (paste into chat with workspace set to the arm dir)
 
-> One test assertion currently fails: `NSPopover final isShown false after close`
-> (run `./tests.sh`). Diagnose and fix the popover close behavior so the suite is green.
-> Do not weaken the assertion or silence the runner. Keep every other test green.
+> popover behavior seems off — i think after closing a popover it still reports as shown?
+> there's a test for it somewhere (PopoverTest) that's red. can you look into the close
+> behavior and fix it. run ./tests.sh to check, everything else should stay green, and
+> don't touch the tests themselves. heads up the tests pop actual windows so run it
+> where you can see the screen.
 
 ## Battery (evaluator-only below this line)
 
