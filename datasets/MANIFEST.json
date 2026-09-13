@@ -1,0 +1,181 @@
+{
+ "purpose": "acceptance manifest: every byte removed by will/dev history surgery (blobs >5MB only; smoke_tb2 + xscaffold fixtures kept for tests)",
+ "created": "2026-09-13",
+ "n_files": 31,
+ "total_bytes": 707345991,
+ "raw_download": {
+  "tb2": {
+   "repo": "yoonholee/terminalbench-trajectories",
+   "files": [
+    {
+     "name": "train-00000-of-00002.parquet",
+     "bytes": 114356912,
+     "url": "https://huggingface.co/datasets/yoonholee/terminalbench-trajectories/resolve/main/data/train-00000-of-00002.parquet"
+    },
+    {
+     "name": "train-00001-of-00002.parquet",
+     "bytes": 106636988,
+     "url": "https://huggingface.co/datasets/yoonholee/terminalbench-trajectories/resolve/main/data/train-00001-of-00002.parquet"
+    }
+   ]
+  }
+ },
+ "files": [
+  {
+   "path": "research/data/processed/nebius/sample_trajectories.jsonl",
+   "bytes": 72488075,
+   "sha256": "bd8dfee572d609f2f63fda13381033ceded4cb68da04b7d2cfa9429c6fb8ec57"
+  },
+  {
+   "path": "research/data/processed/steps/nebius/steps.parquet",
+   "bytes": 12851914,
+   "sha256": "a53552c3aeb1ec7993453f6cb9632ff3e45fed882aa3ac607bef59a1882725ac"
+  },
+  {
+   "path": "research/data/processed/steps/tb2/steps.parquet",
+   "bytes": 7178095,
+   "sha256": "3ad95018831cba479bd24a2b07fe6d24932eb27c4164b784c9ef9caa9edfba09"
+  },
+  {
+   "path": "research/data/processed/steps_full/nebius/steps.parquet",
+   "bytes": 26963887,
+   "sha256": "8cce1de0401d73cd05fc6459f0f60a73a338cd51613527c9f2ef5098ed1f1e40"
+  },
+  {
+   "path": "research/data/processed/steps_full/tb2/steps.parquet",
+   "bytes": 13747601,
+   "sha256": "5f660de5c57f96a536357eb771905da65046fd334a01ffbde8330176c1f683e3"
+  },
+  {
+   "path": "research/data/processed/tb2/sample_trajectories.jsonl",
+   "bytes": 50481761,
+   "sha256": "b1ac5f714fd1859ac0612c3c3e5681d3585dba34ea63d626528d3b5123cb75d2"
+  },
+  {
+   "path": "research/data/processed/tb2/step_embeddings.npz",
+   "bytes": 11312166,
+   "sha256": "de9ec7fd80f0716c8e3be75d43d3a168fc711ac0ac3308d40ab72b605545fe7e"
+  },
+  {
+   "path": "research/data/processed/windows/nebius/windows.parquet",
+   "bytes": 51409129,
+   "sha256": "345d99efd625ac07dbcc2f1be8a2b3c369e4e4620339b5281876e746075272ac"
+  },
+  {
+   "path": "research/data/processed/windows/tb2/windows.parquet",
+   "bytes": 37962800,
+   "sha256": "ba6f5484458f47bceeb05cb33b8163dbf795ec858a27fbf3b920747ae30783c5"
+  },
+  {
+   "path": "research/results/final/tb2_cal/monitor_scores.parquet",
+   "bytes": 27053295,
+   "sha256": "530f68a6d375109b71860b65f6de0bfbaf8e58a7bde1014a560efb392a61e78b"
+  },
+  {
+   "path": "research/results/final/tb2_cal/window_features.parquet",
+   "bytes": 9618812,
+   "sha256": "9367dabea7b2b21066be1caff382c9ba78557a72d7b7ac380a7ee2a58eb7bd71"
+  },
+  {
+   "path": "research/results/final/tb2_cv/monitor_scores.parquet",
+   "bytes": 14982193,
+   "sha256": "836dab4433367de8fa6f94b95ef86f43adef6aeec2cd4b595f9d72d903e5f4ea"
+  },
+  {
+   "path": "research/results/final/tb2_cv/window_features.parquet",
+   "bytes": 9663142,
+   "sha256": "967073953b29ce9dd34b80ee12113b2c9985418183a5a78edf2b3e17ea13331b"
+  },
+  {
+   "path": "research/results/final/tb2_dense/monitor_scores.parquet",
+   "bytes": 32839415,
+   "sha256": "8552b31c8120bcc724924381be44c77da4fa79614c5aae6f0d478bcab8af1818"
+  },
+  {
+   "path": "research/results/final/tb2_dense/window_features.parquet",
+   "bytes": 9618566,
+   "sha256": "4742d29824418f0c1ffd3fdcde2a04f43222ba92cfb02a0eba01542be425d1ab"
+  },
+  {
+   "path": "research/results/final/tb2_final/monitor_scores.parquet",
+   "bytes": 27058029,
+   "sha256": "1272827d111d54c27e5376da10debacd813e25c26f099deac42aa00159d667c6"
+  },
+  {
+   "path": "research/results/final/tb2_final/window_features.parquet",
+   "bytes": 9618613,
+   "sha256": "c251f3bf364c5831c967e8f50e27289bec56f469cb828f57a35704839149342a"
+  },
+  {
+   "path": "research/results/final/tb2_round1/monitor_scores.parquet",
+   "bytes": 15434061,
+   "sha256": "358c0c0d60c67654c2954226005f86574f7435139239ed09e5774f300bb0a171"
+  },
+  {
+   "path": "research/results/final/tb2_v2/monitor_scores.parquet",
+   "bytes": 31464399,
+   "sha256": "0009fa67976210f3d1b9ced5b0e58f5507ad23b8f00098046216ab782ce6ab1e"
+  },
+  {
+   "path": "research/results/final/tb2_v2/window_features.parquet",
+   "bytes": 9618609,
+   "sha256": "bb7159cf0e1f6ecd6ff73de9699f67ca7c59f21b059f11a5ac2b2c7be0642039"
+  },
+  {
+   "path": "research/results/final/tb2_v3/monitor_scores.parquet",
+   "bytes": 15738797,
+   "sha256": "97fb1deeca0db60de25859941507247ba66708991fe2d42b64dd431267d2a9fe"
+  },
+  {
+   "path": "research/results/final/tb2_v3/window_features.parquet",
+   "bytes": 5336721,
+   "sha256": "cd98d8fa25aaa2553a3f49e7e112f978e51d4e450f9d565a7bba59facb9a8d5c"
+  },
+  {
+   "path": "research/results/final/tb2_v5/monitor_scores.parquet",
+   "bytes": 27147323,
+   "sha256": "8da6d2f6270a87f0b30f3a3cacf13def3dc5998587305514673adb9f815d2d5b"
+  },
+  {
+   "path": "research/results/final/tb2_v5/window_features.parquet",
+   "bytes": 9599466,
+   "sha256": "6fa65339d250ee1b335abb575dbb28f835542e34618bbdc2e6c535217a1f4a13"
+  },
+  {
+   "path": "research/results/final/tb2_v6/monitor_scores.parquet",
+   "bytes": 27152953,
+   "sha256": "52b6732d4dde9177eb81bad1519f12da8e2ed70abc32fc829302894cd548df77"
+  },
+  {
+   "path": "research/results/final/tb2_v6/window_features.parquet",
+   "bytes": 9599888,
+   "sha256": "929d992d57b8c2fb915d36e8032256694467b71c258cb0f030bd96f1814d83c8"
+  },
+  {
+   "path": "research/results/final/tb2_w6_w30/monitor_scores.parquet",
+   "bytes": 31034358,
+   "sha256": "b5cfbf6e050b9dc08d48523369cd58c9d2d078ae653a53b0c2ebc068cbd3e0da"
+  },
+  {
+   "path": "research/results/final/tb2_w6_w30/window_features.parquet",
+   "bytes": 10038428,
+   "sha256": "7d60fa654be1899b40268d6b4f4eddfe434677b0e02cd509bca1675a24836739"
+  },
+  {
+   "path": "research/results/rebuild/nebius_w10/window_scores.parquet",
+   "bytes": 38968554,
+   "sha256": "32bb8c843fb2a4ca47c042c3090eb405083c2225b29852f41885bf8af7946013"
+  },
+  {
+   "path": "research/results/rebuild/step_task.parquet",
+   "bytes": 12429575,
+   "sha256": "d037d2b4e15b6f0eb587cac55fea4bc8e30f39f9dece00405d53017bdddf2e21"
+  },
+  {
+   "path": "research/results/rebuild/tb2_w10/window_scores.parquet",
+   "bytes": 38935366,
+   "sha256": "1a23a8ea4da51566daa34de2c9ba83173ce41913c23eaef1d68402544ea6dc8f"
+  }
+ ],
+ "kept_note": "runs.parquet stays (KBs, needed); smoke_tb2 + xscaffold fixtures stay (tests/probes); all small JSONs/logs stay"
+}
