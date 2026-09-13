@@ -1,0 +1,15 @@
+https://arxiv.org/abs/2607.09510
+https://arxiv.org/abs/2608.03222
+https://arxiv.org/abs/2607.05391
+https://arxiv.org/abs/2608.16156
+https://arxiv.org/abs/2607.06184
+https://arxiv.org/abs/2605.15206
+https://arxiv.org/html/2607.09510v1
+https://arxiv.org/html/2608.03222v1
+https://arxiv.org/html/2607.05391v1
+https://arxiv.org/html/2608.16156v1
+https://arxiv.org/html/2607.06184v1
+https://arxiv.org/html/2605.15206v1
+https://openreview.net/forum?id=BlVgsZzg0N
+https://2026.aiwareconf.org/details/aiware-2026-papers/10/Zombie-Agents-Detecting-Semantic-Livelock-in-Long-Horizon-Autonomous-Software
+https://www.tbench.ai/leaderboard/terminal-bench/2.0

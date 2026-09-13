@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_39,PRODUCTIVE,medium,false,E,,Steps 32-38 ruled out payload families and mapped filter mangling; the null-byte probe at 38 revealed the substring check; search space narrowed.
+d_tb2_build-pov-ray__6eHBkqP_23,PRODUCTIVE,high,false,E/I,,Steps 19-20 read unix.mak and the build notes; the step 23 Makefile gcc edit survived into the successful compile at 24-25.
+d_tb2_build-pov-ray__KS3ejPb_15,PRODUCTIVE,high,false,E/I/V,,Steps 6-11 extracted the archives and copied machine sources; step 15 moved past missing make to a real compile target error.
+d_tb2_build-pov-ray__oboi8x8_9,PRODUCTIVE,high,false,E/I,,Step 4 located the Old-Versions path; step 8 downloaded POVSRC.TAR.Z; step 9 created /app/povray-2.2 durably.
+d_tb2_cobol-modernization__z8rbv6p_46,PRODUCTIVE,high,false,I/V,,Steps 37-43 built a differential case; the step 43 cmp returned accounts:0 books:0 trans:0 confirming the Python output matched COBOL.
+d_tb2_compile-compcert__ArM52Gs_37,UNCERTAIN,low,false,none,,Observations at steps 28-31 and 33-37 are truncated variables and step 32 is a sandbox kill; cannot tell whether a channel advanced.
+d_tb2_compile-compcert__pvBcxmV_33,BLOCKED_EXTERNAL,medium,false,none,,Steps 25-27 and 31-33 wait on Coq built from source; the step 27 kill and resource limits block progress outside the agent's control.
+d_tb2_crack-7z-hash__M36nRdr_25,STAGNANT,medium,false,none,repeat_search,Steps 16-19 and 24 repeat password guesses and greps that return empty; no new information; no durable change; no verification movement.
+d_tb2_crack-7z-hash__X4cK7Hr_10,PRODUCTIVE,high,false,E/I,,Steps 4-8 established password protection and the 7z2john dependency; steps 3 and 9 installed p7zip and cpanm durably.
+d_tb2_custom-memory-heap-crash__E322Lxp_53,STAGNANT,medium,false,none,edit_revert,Steps 44-53 repeatedly rewrite user.cpp and recompile; every run returns the identical post-computation SIGSEGV with no new information.
+d_tb2_db-wal-recovery__rwGVtyu_36,STAGNANT,medium,false,none,no_new_information,Steps 27-36 send finds ls and interrupt keystrokes into a hung shell; outputs stay empty or unchanged and no channel moves.
+d_tb2_distribution-search__ZJDezEN_36,PRODUCTIVE,medium,false,E,,Steps 29 and 36 identified the venv interpreter that lacks scipy and listed sys.path; new relevant environment knowledge despite failed installs.
+d_tb2_dna-assembly__Xbp9Bz3_25,PRODUCTIVE,high,false,E,,Steps 17-22 located an exact output segment and the junctions; steps 23-25 computed oligotm melting temperatures; new task-relevant data.
+d_tb2_extract-moves-from-video__vRcGj7U_23,PRODUCTIVE,high,false,E/I,,Step 14 created extract_moves.py; steps 15-21 processed frames and recovered command changes such as n u get all move rug.
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_10,PRODUCTIVE,high,false,E/I,,Step 6 read feal.py; step 9 analysed the six round keys and step 10 wrote attack.py; epistemic and implementation channels advanced.
+d_tb2_feal-linear-cryptanalysis__923TJt4_56,BLOCKED_EXTERNAL,medium,false,none,,Steps 47-56 only poll one background compile-and-run job; every observation is the identical status running with no output yet.
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_45,STAGNANT,high,false,none,no_new_information,Steps 36-45 repeat the same Ctrl+C and the same analysis text while the brute force counters advance; no new task-relevant information.
+d_tb2_fix-code-vulnerability__7wXM79N_31,PRODUCTIVE,high,false,E,,Step 22 revealed the _hkey and _hval header functions; steps 23-31 located the relevant test files and collected the pytest suite.
+d_tb2_fix-ocaml-gc__4FMyNtb_23,PRODUCTIVE,high,false,E/I,,Step 15 found Makefile.config missing; steps 16-19 ran configure and make exposing the build state; the configuration change survived.
+d_tb2_fix-ocaml-gc__EE2S8BX_11,PRODUCTIVE,high,false,E/I,,Step 5 located caml_sweep in shared_heap.c; the pool_sweep fixes at 7 and 10 survived the rebuilds at 9 and 11.
+d_tb2_fix-ocaml-gc__yoU3Mrz_56,PRODUCTIVE,high,true,V,,Step 54 shows the build completing without the segmentation fault; the previously crashing bootstrap now succeeds; earlier steps only waited.
+d_tb2_git-multibranch__zEK52fz_46,PRODUCTIVE,high,false,V/I,,Step 37 verified the dev endpoint serves dev branch content; steps 38-43 verified SSH password auth and cloning; test content created at 44.
+d_tb2_install-windows-3.11__mUYmJ4a_40,PRODUCTIVE,medium,true,E/V,,Step 37 confirmed the snapshot qcow2 overlay for the base image; step 38 sent keystrokes through QMP successfully; steps 31-36 repeat screendumps.
+d_tb2_llm-inference-batching-scheduler__7vihvYk_27,PRODUCTIVE,high,false,I/E,,Steps 18-24 swapped in k-means with feature scaling; evaluated cost fell from 1.248e+12 to 7.566e+11 and pad ratio from 0.6050 to 0.2146.
+d_tb2_mailman__dbiKZhc_17,PRODUCTIVE,high,false,E/I,,Step 12 created the reading-group mailing list durably; steps 9-11 fixed the CLI syntax errors; steps 15-17 found the logging paths absent.
+d_tb2_mailman__jVyKJJk_9,PRODUCTIVE,medium,true,E,,Step 7 read the provided eval.py; steps 8-9 listed the postfix and mailman3 configuration directories; the warmup steps 0-5 add nothing.
+d_tb2_mailman__tQhp5VL_28,PRODUCTIVE,medium,false,E,,Steps 19-26 located the mailman database directory and the python package path; step 28 established that mailmanctl does not exist.
+d_tb2_make-doom-for-mips__DU5GBNE_38,STAGNANT,medium,false,none,irrelevant_exploration,Steps 31-38 repeatedly write unrequested summary and quick-reference markdown documents after the listing steps 29-30; nothing advances the MIPS build.

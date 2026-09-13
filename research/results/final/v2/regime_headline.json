@@ -1,0 +1,28 @@
+{
+  "n_episodes": 68,
+  "n_productive_regions": 108,
+  "windows_in_episodes": 319,
+  "episode_median_steps": 16.0,
+  "episode_max_steps": 312,
+  "episodes_ge20": 29,
+  "episodes_separated": 49,
+  "episodes_total": 65,
+  "mean_diff": 0.16743274765665278,
+  "ci": [
+    0.07923813569645108,
+    0.24607593054615828
+  ],
+  "p": 0.0,
+  "pm_separated": 30,
+  "pm_total": 36,
+  "pm_mean_diff": 0.1919783267439346,
+  "pm_ci": [
+    0.07369134405686635,
+    0.30143015876353507
+  ],
+  "pm_p": 0.0005,
+  "proxy_pm_separated": 12,
+  "proxy_pm_total": 36,
+  "detect_global_q80": {},
+  "detect_global_q90": {}
+}

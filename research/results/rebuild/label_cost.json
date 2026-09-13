@@ -1,0 +1,104 @@
+{
+  "n_matched_windows": 386,
+  "n_features": 46,
+  "task": null,
+  "L3_confusion": {
+    "agree": 0.5673575129533679,
+    "judged_stagnant_mech_quiet": 67,
+    "judged_stagnant_mech_active": 36,
+    "judged_productive_mech_quiet": 131,
+    "judged_productive_mech_active": 152,
+    "auc_between_targets": 0.5937939551957186
+  },
+  "L1_same_windows": {
+    "REP": {
+      "y_judged": {
+        "auc": 0.5881505368966345,
+        "ap": 0.32221979358653074
+      },
+      "y_mech": {
+        "auc": 0.8339109176875134,
+        "ap": 0.8125251300287626
+      }
+    },
+    "MIX": {
+      "y_judged": {
+        "auc": 0.5116127482932519,
+        "ap": 0.2772022511803427
+      },
+      "y_mech": {
+        "auc": 0.7190790887599398,
+        "ap": 0.7030981292616484
+      }
+    },
+    "NOV": {
+      "y_judged": {
+        "auc": 0.6794058115201208,
+        "ap": 0.4701855290824563
+      },
+      "y_mech": {
+        "auc": 0.9570438426821406,
+        "ap": 0.9632006904951472
+      }
+    },
+    "WS": {
+      "y_judged": {
+        "auc": 0.3602868022916738,
+        "ap": 0.2166592653676854
+      },
+      "y_mech": {
+        "auc": 0.3455297657425317,
+        "ap": 0.43634222979960274
+      }
+    },
+    "VER": {
+      "y_judged": {
+        "auc": 0.36153898933068035,
+        "ap": 0.2153462858152423
+      },
+      "y_mech": {
+        "auc": 0.565522243713733,
+        "ap": 0.5359374066958725
+      }
+    },
+    "STALL": {
+      "y_judged": {
+        "auc": 0.6881368142989468,
+        "ap": 0.5435384038597131
+      },
+      "y_mech": {
+        "auc": 0.8771625832796046,
+        "ap": 0.8929973551360622
+      }
+    }
+  },
+  "L2_label_noise_ceiling": [
+    {
+      "flip_rate": 0.05,
+      "auc_perfect_detector": 0.9498229322311944,
+      "sd": 0.010926651194433274
+    },
+    {
+      "flip_rate": 0.1,
+      "auc_perfect_detector": 0.8989450701946081,
+      "sd": 0.012053209620082465
+    },
+    {
+      "flip_rate": 0.15,
+      "auc_perfect_detector": 0.8499468263449319,
+      "sd": 0.022288052899055836
+    },
+    {
+      "flip_rate": 0.2,
+      "auc_perfect_detector": 0.7987023004847604,
+      "sd": 0.018922156562288628
+    },
+    {
+      "flip_rate": 0.3,
+      "auc_perfect_detector": 0.7070591525926868,
+      "sd": 0.020002103008374558
+    }
+  ],
+  "observed_gap_on_same_windows": 0.2689070283831938,
+  "caveat": "the matched set is 386 windows from the first version's strided gold sample, so the L1 gap is measured on the small overlap; the L2 simulation is the scaling argument and does not depend on the sample size"
+}

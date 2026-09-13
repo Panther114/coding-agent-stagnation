@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_30,BLOCKED_EXTERNAL,high,false,none,,Steps 21-30 only restate that the clone failed for lack of network so no source exists to patch.
+d_tb2_build-pov-ray__bMc6qiA_22,STAGNANT,medium,false,none,repeat_search,Steps 19-22 repeat api.github.com searches with empty output; steps 16-18 rule out sources already known dead.
+d_tb2_build-pov-ray__oboi8x8_12,PRODUCTIVE,high,false,E/I,,Steps 4-8 locate then download POVSRC.TAR.Z; steps 9-12 extract to /app/povray-2.2 and list source files.
+d_tb2_caffe-cifar-10__zjg6gBb_47,PRODUCTIVE,medium,true,V,,Step 38 restarts the build writing output to a file; steps 40-43 show compiles advancing and step 41 reports zero errors.
+d_tb2_compile-compcert__3AjSGCy_32,PRODUCTIVE,high,true,E/V,,Steps 24-30 configure then make CompCert; steps 26-29 locate menhirLib and configure details not previously known.
+d_tb2_compile-compcert__PdkzfMV_35,PRODUCTIVE,high,false,E/I,,Steps 27-34 unpack Coq 8.16.1; steps 28-32 install dune and configure Coq successfully from source.
+d_tb2_crack-7z-hash__gpBub6y_22,PRODUCTIVE,high,false,E/I,,Steps 13-18 find curl tar xz available; steps 19-22 download and extract 7-Zip then list the secret archive.
+d_tb2_crack-7z-hash__Mp364LH_17,PRODUCTIVE,medium,false,E/V,,Step 10 derives the hash file; step 12 with exit 0 establishes the wordlist is insufficient rather than still unknown.
+d_tb2_crack-7z-hash__X4cK7Hr_57,STAGNANT,high,false,none,repeat_verify,Steps 48-57 re-run 7z with guesses like toor Admin johnsecret; identical Wrong password output and no new information.
+d_tb2_custom-memory-heap-crash__NAMeUua_37,PRODUCTIVE,high,false,I/V,,Steps 29-33 inspect eh_alloc.cc then edit user.cpp; steps 34-37 rebuild and valgrind runs now exit 0.
+d_tb2_db-wal-recovery__tQJsCmY_27,DONE_REDUNDANT,high,false,none,post_completion,Steps 11-15 already recovered and validated all 11 records; steps 18-27 only re-read recovered.json and re-verify.
+d_tb2_dna-assembly__o5NzHz7_32,PRODUCTIVE,high,false,E/I,,Steps 23-32 map sequence positions and BsaI sites then run oligotm producing concrete primer sequences with melting temperatures.
+d_tb2_extract-elf__rUUxEg5_25,DONE_REDUNDANT,high,false,none,post_completion,Steps 12-15 already produced and validated the 700-entry output; steps 16-25 only re-read extract.js and re-check the delivery directory.
+d_tb2_extract-moves-from-video__ZE44RbF_15,PRODUCTIVE,medium,false,E,,Steps 6-9 render and read frames revealing the Treasure Room interface and command area; steps 10-15 launch the frame pipeline.
+d_tb2_feal-differential-cryptanalysis__WrYeFB_54,BLOCKED_EXTERNAL,high,false,none,,Steps 45-54 poll the same background python3 test_attack.py; status stays running with identical output so progress waits on the test.
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_46,BLOCKED_EXTERNAL,high,false,none,,Steps 37-46 repeat identical no-tool analyses that /app is empty; feal.c and pairs.txt never appear so no attack can start.
+d_tb2_financial-document-processor__fZuguYf_39,PRODUCTIVE,high,false,E/I,,Steps 30-39 read and correctly route five further documents; totals and VAT values are extracted and each move exits 0.
+d_tb2_fix-code-vulnerability__uLGMMUD_25,UNCERTAIN,low,false,E,,Steps 16-25 are twelve greps over bottle.py with mostly truncated results; whether successive patterns yielded new relevant information cannot be decided.
+d_tb2_fix-ocaml-gc__awEK6tj_15,PRODUCTIVE,high,false,E,,Steps 8-15 trace caml_sweep from major_gc.c to its definition in shared_heap.c and read the sweep implementation.
+d_tb2_fix-ocaml-gc__EE2S8BX_54,STAGNANT,medium,false,none,edit_revert,Steps 45-47 edit lines 612 631 1390; steps 48-52 revert the wosize conversions; steps 53-54 re-edit 1592-1593 with no verification.
+d_tb2_git-leak-recovery__3MYVn6Q_39,PRODUCTIVE,high,false,E/I,,Steps 33-36 correct the filter-repo invocation after unrecognized arguments; step 38 rewrites history with exit 0.
+d_tb2_install-windows-3.11__2UtJ22k_33,DONE_REDUNDANT,medium,false,none,post_completion,Steps 24-25 confirm the desktop nginx 200 and send-key test; steps 27-33 only re-explain and re-verify the same state.
+d_tb2_large-scale-text-editing__KdK777C_30,PRODUCTIVE,medium,false,I/E,,Step 21 runs the saved macro and step 24 exposes that ex mode rejects ggvGgU; steps 29-30 write test_macros.vim.
+d_tb2_llm-inference-batching-scheduler__evStmDE_18,PRODUCTIVE,medium,false,I/V,,Steps 9-18 alternate packer edits with evaluate_plans runs; each cycle produces new cost numbers and different shape sets.
+d_tb2_mailman__jVyKJJk_13,PRODUCTIVE,medium,false,E,,Steps 7-13 read eval.py then confirm mailman.cfg exists and postfix and mailman binaries are present while locating the configs.
+d_tb2_mailman__qzvMMtK_53,DONE_REDUNDANT,high,false,none,post_completion,Steps 40-43 already show all three tests passing consistently; steps 44-53 only re-run eval.py and re-read the config.
+d_tb2_mailman__vQauci9_39,PRODUCTIVE,medium,false,E/I,,Steps 30-38 read aliases postfix.cfg and schema.cfg and step 36 durably edits mailman.cfg for the local.edu domain.
+d_tb2_make-doom-for-mips__YWJGKe2_33,PRODUCTIVE,high,false,E/V,,Steps 28-33 create the assembly and build scripts; steps 31-32 advance linker errors past missing -m to emulation selection.

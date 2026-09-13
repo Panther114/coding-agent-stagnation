@@ -1,0 +1,69 @@
+\section{Introduction}
+
+A coding agent can run for an hour and finish nothing. It keeps issuing tool calls, reading files, editing,
+reverting, and re-running the same command while the task stands exactly where it stood before.
+Practitioners recognise the pattern immediately --- the repeated \code{grep}, the edit that undoes the
+previous edit, the twenty minutes of verification after the job was already done --- but the runtimes that
+host them mostly do not, and the rules they do apply (``stop after three identical tool calls'') alarm on
+productive work about as often as on stagnation.
+
+This paper asks which observable signals let an online monitor tell that a coding agent has stopped making
+task-relevant progress without knowing the correct solution. The monitor runs at every step, sees the task
+statement and everything the agent has done and observed, and is denied the reference patch, the hidden
+tests, future steps and the final grade. We measure each signal family against independently annotated
+windows rather than against final success.
+
+\paragraph{Why not simply measure file change.}
+The naive operationalisation of progress is ``the workspace changed''. It is wrong in both directions. An
+agent that reads fifteen files and finally locates the function that raises the reported error has made real
+progress with an unchanged workspace; an agent that edits five files in a loop, undoing each change, has
+changed the workspace a great deal and advanced nothing. Progress is therefore defined through three
+channels an engineer would use judging a colleague's work in progress: \emph{epistemic} (something new and
+task-relevant became known), \emph{implementation} (a plausible artefact changed durably) and
+\emph{verification} (objective evidence about correctness improved). Stagnation is the joint absence of all
+three while activity continues.
+
+\paragraph{What we measured.}
+We instrumented \pnTraj{} trajectories from \pcorpusName{} (\pnTasks{} tasks, \pcorpusScaffolds{} scaffolds,
+\pcorpusModels{} models) and computed \pnWindows{} online feature vectors across six families: action
+repetition, relevance-blind novelty, task-grounded evidence, verification deltas, workspace dynamics and
+rolling semantic redundancy. The annotation codebook was written before any monitor and produced
+\pannWindowsTotal{} labelled windows over \pannTrajTotal{} trajectories, each re-read by a second reader
+under reduced context so that label stability could be measured. Monitors are trained on task-disjoint
+folds and tested on held-out tasks, both as window classifiers and as sequential alarms under a false-stop
+budget.
+
+\paragraph{What we found.}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt,topsep=3pt]
+\item \textbf{Rolling semantic redundancy is the strongest single family} (\paucBFoursemantic{} global
+ROC-AUC, \pwithinBFoursemantic{} within a run). It beats repetition, verification and workspace churn, and
+matches the best combination we could build.
+\item \textbf{Task grounding is not the missing ingredient.} Weighting newly observed entities by whether
+they mention the task reaches \paucCOneevidence{}, below plain exact repetition at \paucBTworepThree{} and
+well below the semantic baseline ($\Delta=\ppairCOneevvsBFoursemDelta{}$, clustered interval excluding
+zero). It adds value only in combination (\paucCThreeevidSem{}).
+\item \textbf{Stagnation is an episode, not a window.} Consecutive same-label windows merge into
+\pregEpisodes{} stall episodes with a median length of \pregMedianSteps{} steps. Scored at that unit, and
+against productive stretches at matched positions within the same run, the monitor separates
+\pregPmPct{}\% of episodes where a run-position proxy separates \pregProxySep{} of \pregProxyTot{}.
+\item \textbf{The score drifts, so it cannot simply be thresholded.} Information flow rises with run
+progress (positive trend in 93\% of runs, correlation $r=0.52$ with step index), which defeats any fixed
+threshold. Anchoring the reference to a run's own opening, before a stall can begin, removes the drift and
+yields a working alarm.
+\item \textbf{The resulting alarm meets a practical target}: \palDet{}\% of stall episodes detected at a
+\palFaWin{}\% per-window false-alarm rate, median latency zero steps, and \pnestedDet{}\% detection under a
+nested protocol that selects every parameter on held-out runs.
+\end{enumerate}
+
+\paragraph{Contributions.}
+(i) A falsifiable definition of stagnation with a published codebook, \pannWindowsTotal{} adjudicated
+windows and a measured label-stability statistic. (ii) A six-family comparison of cheap online signals
+under one protocol, finding that the intuitive signal --- task-grounded evidence --- loses to a task-blind
+one, and identifying the representation drift that prevents either from being alarmed on directly. (iii) A
+calibrated detector needing no labels, no reference trajectories and no per-task tuning, with the
+annotations, frozen feature matrices and scripts that regenerate every figure and number here.
+
+\paragraph{Scope.}
+We study Terminal-Bench~2.0, a corpus of short, self-contained terminal tasks, so the conclusions are
+strongest for runs of tens of steps and weakest for multi-hour repository work.
+Section~\ref{sec:limits} states what the labels cannot support.

@@ -1,0 +1,185 @@
+{
+  "corpus": "nebius",
+  "w": 10,
+  "event_col": "y_stagnation",
+  "event_level": 0.5,
+  "n_runs": 16314,
+  "n_never_stalls": 12516,
+  "n_stalls": 3798,
+  "frac_never_stalls": 0.7671938212578153,
+  "persistence_sweep": [
+    {
+      "k": 1,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "median_stall_share_observed": 0.06666666666666667
+    },
+    {
+      "k": 2,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 1.0,
+      "median_stall_share_observed": 0.13333333333333333
+    },
+    {
+      "k": 3,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 2.0,
+      "median_stall_share_observed": 0.2
+    },
+    {
+      "k": 4,
+      "recall": 0.4836756187467088,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 1837,
+      "n_false_alarms": 0,
+      "median_latency_steps": 3.0,
+      "median_stall_share_observed": 0.2222222222222222
+    },
+    {
+      "k": 5,
+      "recall": 0.4836756187467088,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 1837,
+      "n_false_alarms": 0,
+      "median_latency_steps": 4.0,
+      "median_stall_share_observed": 0.2777777777777778
+    },
+    {
+      "k": 6,
+      "recall": 0.4836756187467088,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 1837,
+      "n_false_alarms": 0,
+      "median_latency_steps": 5.0,
+      "median_stall_share_observed": 0.3333333333333333
+    },
+    {
+      "k": 8,
+      "recall": 0.39178515007898895,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 1488,
+      "n_false_alarms": 0,
+      "median_latency_steps": 7.0,
+      "median_stall_share_observed": 0.2962962962962963
+    }
+  ],
+  "curves": [
+    {
+      "budget": 0.2,
+      "threshold": 0.0,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.1,
+      "threshold": 0.0,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.05,
+      "threshold": 0.0,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.02,
+      "threshold": 0.0,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.01,
+      "threshold": 0.0,
+      "recall": 0.6003159557661928,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2280,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "oracle": {
+    "recall": 0.6003159557661928,
+    "false_alarm_rate": 0.0,
+    "precision": 1.0,
+    "median_latency_steps": 0.0
+  },
+  "cost_model": {
+    "total_steps": 615082.0,
+    "steps_saved": 127300.0,
+    "step_saving_frac": 0.2069642746820749,
+    "frac_runs_stopped": 0.13975726369988967,
+    "success_among_stopped": 0.02763157894736842,
+    "success_overall": 0.10144661027338482,
+    "budget": 0.1,
+    "precision_at_budget": 1.0
+  }
+}

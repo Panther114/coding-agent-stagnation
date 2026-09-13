@@ -1,0 +1,17 @@
+{
+  "monitor": "B5_novelty",
+  "k_smooth": 3,
+  "k_sd": 1.0,
+  "open_frac": 0.15,
+  "episodes": 68,
+  "episodes_detected": 36,
+  "detection_rate": 0.5294117647058824,
+  "median_latency_steps": 0.0,
+  "productive_windows": 784,
+  "false_alarm_windows": 130,
+  "false_alarm_window_rate": 0.16581632653061223,
+  "productive_regions": 108,
+  "false_alarm_regions": 40,
+  "false_alarm_region_rate": 0.37037037037037035,
+  "target_met_window_level": true
+}

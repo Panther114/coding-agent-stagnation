@@ -1,0 +1,264 @@
+Hugging Face
+Models
+Datasets
+Spaces
+Buckets new
+Docs
+Enterprise
+Pricing
+Website
+Tasks
+HuggingChat
+Collections
+Languages
+Organizations
+Community
+Blog
+Posts
+Daily Papers
+Hardware
+Learn
+Discord
+Forum
+GitHub
+Solutions
+Team & Enterprise
+Hugging Face PRO
+Enterprise Support
+Inference Providers
+Inference Endpoints
+Storage Buckets
+Log In
+Sign Up
+Datasets:
+nebius
+/
+SWE-agent-trajectories
+like 95
+Follow
+Nebius 302
+Modalities:
+Text
+Formats:
+parquet
+Size:
+10K - 100K
+Tags:
+code
+Synthetic
+tools
+agents
+software
+Libraries:
+Datasets
+Dask
+Croissant
++ 1
+License:
+cc-by-4.0
+Dataset card Data Studio Files Files and versions
+xet
+Community
+1
+Dataset Viewer
+Auto-converted to Parquet API Embed Duplicate Data Studio
+Subset (1)
+default · 80k rows
+default (80k rows)
+Split (1)
+train · 80k rows
+train (80k rows)
+SQL
+Console
+instance_id
+string lengths
+10
+57
+model_name
+string classes
+3
+values
+target
+bool
+2
+classes
+trajectory
+list lengths
+2
+817
+exit_status
+string classes
+9
+values
+generated_patch
+string lengths
+1
+1.86M
+⌀
+eval_logs
+string lengths
+284
+16.8M
+⌀
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[
+{
+"cutoff_date": "01.01.2023",
+"mask": false,
+"role": "system",
+"system_prompt": "SETTING: You are an autonomous programmer, and you're working directly in the command line with a special interface.\n\nThe special interface consists of a file editor that shows you 100 lines of a file at a time.\nIn ...
+submitted (exit_context)
+diff --git a/lexicon/providers/memset.py b/lexicon/providers/memset.py
+index 6394170a..9c1d3bbe 100644
+--- a/lexicon/providers/memset.py
++++ b/lexicon/providers/memset.py
+@@ -20,11 +20,12 @@ class Provider(BaseProvider):
+def __init__(self, config):
+super(Provider, self).__init__(config)
+self.dom...
+Will execute following command for apply_patch:
+```
+cd //lexicon &&
+source activate base &&
+conda activate lexicon &&
+git apply -v /swebench_matterhorn/prediction_patch.patch --allow-empty
+```
+Checking patch lexicon/providers/memset.py...
+Checking patch reproduce.py...
+Applied patch lexicon/providers/memset.py cleanl...
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted (exit_context)
+"\ndiff --git a/lexicon/providers/memset.py b/lexicon/providers/memset.py\nindex 6394170a..c77f9d50 (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted (exit_context)
+"\ndiff --git a/lexicon/providers/memset.py b/lexicon/providers/memset.py\nindex 6394170a..67f9c83b (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted
+"\ndiff --git a/lexicon/cli.py b/lexicon/cli.py\nindex dbef1ae2..81c391e4 100644\n--- a/lexicon/cli. (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted
+"\ndiff --git a/lexicon/providers/memset.py b/lexicon/providers/memset.py\nindex 6394170a..1fff9ab9 (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted
+"\ndiff --git a/lexicon/cli.py b/lexicon/cli.py\nindex dbef1ae2..23dc77d1 100644\n--- a/lexicon/cli. (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted (exit_context)
+"\ndiff --git a/lexicon/providers/memset.py b/lexicon/providers/memset.py\nindex 6394170a..f5eac74b (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted
+"\ndiff --git a/lexicon/cli.py b/lexicon/cli.py\nindex dbef1ae2..e41ea105 100644\n--- a/lexicon/cli. (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted
+"\ndiff --git a/lexicon/cli.py b/lexicon/cli.py\nindex dbef1ae2..99512aa3 100644\n--- a/lexicon/cli. (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+AnalogJ__lexicon-336
+swe-agent-llama-70b
+false
+[{"cutoff_date":"01.01.2023","mask":false,"role":"system","system_prompt":"SETTING: You are an auton (...TRUNCATED)
+submitted
+"\ndiff --git a/lexicon/cli.py b/lexicon/cli.py\nindex dbef1ae2..80c0f7b8 100644\n--- a/lexicon/cli. (...TRUNCATED)
+"Will execute following command for apply_patch:\n```\n\ncd //lexicon &&\nsource activate base &&\nc (...TRUNCATED)
+End of preview. Expand in Data Studio
+Previous
+1
+2
+3
+...
+801
+Next
+Dataset Summary
+This dataset contains 80,036 trajectories generated by a software engineering agent based on the SWE-agent framework, using various models as action generators. In these trajectories, the agent attempts to solve GitHub issues from the nebius/SWE-bench-extra and the dev split of princeton-nlp/SWE-bench .
+Dataset Description
+This dataset was created as part of a research project focused on developing a software engineering agent using open-weight models, which achieved a score of 40.6% on the SWE-bench Verified benchmark. The detailed process of achieving this is outlined in our blog post "Leveraging training and search for better software engineering agents" .
+The dataset collection consisted of two stages: collecting issue-resolution instances, following a methodology similar to SWE-bench, and generating a large number of trajectories for solving the collected issues. The generated code patches in these trajectories were evaluated by the tests from the linked pull requests to determine which of them passed the tests. The detailed process of collecting issue-resolution instances is described in our blog post "Scaling Data Collection for Training Software Engineering Agents" .
+How to use
+from datasets import load_dataset
+ds = load_dataset( 'nebius/swe-agent-trajectories' )
+Dataset Statistics
+Key statistics on issue resolution and patch edits, including steps, context length, edit details, exit rates, and correctness metrics, aggregated across 80,036 instances.
+Issue Resolved Issue Not Resolved
+Trajectory Average steps count 31.3 58.4
+Average context length (Llama 3 tokenizer) 8,352.4 15,241
+Final Patch Files edited 1.33 2.17
+Lines edited 20.7 61.0
+Exit Status Rate (Grouped by Target) Submits 94.6% 57.6%
+Exit context 5.31% 30.4%
+Other 0.37% 12%
+Correct Steps At least one correct file opened 83% 40%
+Total Instances 13,389 66,647
+Dataset Structure
+An agent's trajectory includes the following information:
+Field Name Type Description
+instance_id str The identifier of the instance with the issue the agent tried to solve, consisting of the repository name and issue number.
+model_name str The name of the model used to generate the trajectory.
+target bool Whether the model solved the issue in this trajectory.
+trajectory str A JSON list with the logged trajectory consisting of a list of model reasoning and actions (under the role: ai) and observations from the environment (under the role: user). The first entry is the system prompt under the system role.
+exit_status str The status of the agent's completion.
+generated_patch str The final patch generated by the model while modifying the project files.
+eval_logs str The logs of test execution to verify the final patch.
+License
+The dataset is licensed under the Creative Commons Attribution 4.0 license. However, please respect the license of each specific repository on which a particular instance is based. To facilitate this, the license of each repository at the time of the commit is provided for every instance in SWE-bench-extra .
+Additionally, a notice for users: if you intend to use the outputs of these models, you must comply with the Llama 3.1 License .
+Copy to bucket new
+Use this dataset
+Downloads last month
+7,163
+Number of rows:
+80,036
+Total file size:
+1.11 GB
+Models trained or fine-tuned on nebius/SWE-agent-trajectories
+trjxter/Qwimi-3.6-27B-Coder-MTP-GGUF
+Text Generation • 27B • Updated Jul 11 • 369 • 7
+raicoon2k/Qwen3.5-9B-MTP-SWE-Agent-GGUF
+Image-Text-to-Text • 0.5B • Updated Jun 3 • 364 • 3
+trjxter/Qwimi-3.6-27B-Coder-MTP-mlx-6Bit
+Text Generation • 27B • Updated Jul 11 • 109 • 2
+trjxter/Qwimi-3.6-27B-Coder-MTP-mlx-8Bit
+Text Generation • 27B • Updated Jul 11 • 84 • 2
+trjxter/Qwimi-3.6-27B-Coder-MTP-BF16
+Text Generation • 28B • Updated Jul 11 • 59 • 4
+trjxter/Qwimi-3.6-27B-Coder-MTP-mlx-4Bit
+Text Generation • 27B • Updated Jul 11 • 39 • 1
+Browse 7 models trained on this dataset
+Space using nebius/SWE-agent-trajectories 1
+🔎
+midah/procgrep-explorer
+System theme
+Company
+TOS Privacy About Careers
+Website
+Models Datasets Spaces Pricing Docs

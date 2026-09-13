@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_33,PRODUCTIVE,medium,false,E,,Steps 25-33 test distinct XSS vectors (entity-encoded attribute; split tag); each filter output and no-alert result rules out a vector family.
+d_tb2_build-pov-ray__6eHBkqP_19,PRODUCTIVE,high,false,E/I,,Steps 12-13 locate and download all three archives into /app/povray-2.2; 14-19 extract them and read unix.mak/unixconf.h for the build.
+d_tb2_build-pov-ray__KS3ejPb_12,PRODUCTIVE,high,false,E/I,,Steps 3-5 locate and fetch the FTP archives; 6-11 extract and copy the machine files; 8-10 correct the extracted directory layout.
+d_tb2_build-pov-ray__oboi8x8_34,PRODUCTIVE,high,false,E/I/V,,Step 26 the build succeeds and 27 installs povray; 28-31 supply the missing includes so the sanity check passes at 31.
+d_tb2_cobol-modernization__z8rbv6p_40,PRODUCTIVE,medium,false,I/E,,Step 32 writes app/program.py; 37-40 build a differential harness that captures COBOL reference output to compare against.
+d_tb2_compile-compcert__ArM52Gs_31,PRODUCTIVE,low,false,E/V,,Step 27 shows make proof compiling flocq well past the earlier configure blocker; 28-29 set up an opam Coq switch.
+d_tb2_compile-compcert__pvBcxmV_28,PRODUCTIVE,medium,true,E/I,,Steps 19-20 show only Coq 8.18 is packaged; 21-24 install opam and start a switch; 27-28 that source build is killed.
+d_tb2_crack-7z-hash__M36nRdr_19,STAGNANT,medium,false,none,repeat_search,Steps 10-12 and 17 repeat git-log searches with empty results; 16-19 guess password lists yielding nothing new and no state change.
+d_tb2_crack-7z-hash__Mp364LH_9,PRODUCTIVE,high,false,E/I,,Step 3 installs p7zip; 4-6 show the archive is encrypted and locate 7z2john.pl; 7-9 find and fix the missing Perl module.
+d_tb2_custom-memory-heap-crash__E322Lxp_49,STAGNANT,medium,false,none,edit_revert,Steps 41-48 rewrite user.cpp and rebuild four times; every run still ends in SIGSEGV so no fix survived and verification never moved.
+d_tb2_db-wal-recovery__rwGVtyu_32,STAGNANT,medium,false,none,no_new_information,Steps 23-25 and 28-31 return empty terminal output; 26 and 32 are malformed-JSON retries; no file or verification change.
+d_tb2_distribution-search__ZJDezEN_31,PRODUCTIVE,medium,true,E/I,,Step 23 finally creates find_distribution.py; 25-29 diagnose why the active venv interpreter lacks scipy; 31 targets it correctly.
+d_tb2_dna-assembly__Xbp9Bz3_20,PRODUCTIVE,high,false,E,,Steps 11-20 progressively localize the egfp and flag starts and the output junctions (11; 13; 18; 20); each reveals new assembly facts.
+d_tb2_extract-moves-from-video__vRcGj7U_17,PRODUCTIVE,medium,true,I,,Steps 13-14 stop the hung run and rewrite extract_moves.py; 15 shows it processing frames 15-135 where nothing ran before.
+d_tb2_extract-moves-from-video__ZE44RbF_55,PRODUCTIVE,medium,true,E,,Steps 46-51 deliver newly transcribed commands (rub mirror; put torch and screw) unseen before; the OCR evidence keeps accumulating.
+d_tb2_feal-linear-cryptanalysis__923TJt4_52,STAGNANT,medium,false,none,repeat_verify,Steps 44-51 poll the same background job five times; status stays running with empty output and no edit occurs.
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_39,STAGNANT,high,false,none,repeat_verify,Steps 30-39 repeat an identical analysis and Ctrl-C while the same brute-force counter advances; the planned attack is never written.
+d_tb2_fix-code-vulnerability__7wXM79N_27,PRODUCTIVE,high,false,E,,Steps 19-22 locate the suspect _hkey and _hval header functions; 23-26 find the tests covering header handling; localization narrows steadily.
+d_tb2_fix-ocaml-gc__4FMyNtb_19,PRODUCTIVE,medium,false,E/I,,Step 10 lists the build configuration files; 15 detects the missing Makefile.config; 16-19 run configure and make to start building.
+d_tb2_fix-ocaml-gc__awEK6tj_54,REGRESSION,medium,false,none,,Steps 50-54 show the Makefile itself now failing with missing separator at lines 556-558; syntax breakage the agent introduced after 46.
+d_tb2_fix-ocaml-gc__yoU3Mrz_50,BLOCKED_EXTERNAL,medium,false,none,,Steps 41-50 only poll the background make launched at 40; it has produced no output so nothing can advance inside the window.
+d_tb2_git-multibranch__zEK52fz_40,PRODUCTIVE,high,false,I/V,,Steps 31-35 rewrite the nginx site config and the post-receive hook; 36-37 curl now returns main and dev content where 29 gave 404.
+d_tb2_install-windows-3.11__mUYmJ4a_34,PRODUCTIVE,medium,false,E/V,,Step 26 verifies nginx 200 plus VNC and QMP sendkey responses; 31-33 add a screendump capture of the guest screen.
+d_tb2_llm-inference-batching-scheduler__7vihvYk_21,PRODUCTIVE,high,false,I/V,,Step 15 gives concrete baseline metrics; 18-20 the k-means packer cuts pad_ratio 0.61 to 0.36 and bucket-2 cost sharply.
+d_tb2_mailman__dbiKZhc_12,PRODUCTIVE,high,false,E/I,,Steps 3-8 write mailman.cfg and the postfix transport map; 9-11 fix the CLI syntax; 12 creates reading-group@local.edu.
+d_tb2_mailman__jVyKJJk_48,PRODUCTIVE,medium,false,E/I,,Step 39 confirms SubscriptionPolicy.open; 41-43 fix the DomainManager API misuse and create the domain and list through a script.
+d_tb2_mailman__tQhp5VL_25,PRODUCTIVE,low,false,E,,Steps 16-22 establish no mailman process runs and the data directory holds only an empty mailman.db; 24 obtains the interpreter version.
+d_tb2_make-doom-for-mips__DU5GBNE_34,PRODUCTIVE,low,false,E,,Steps 25-30 read other platform ports (soso; emscripten) and check doomgeneric_img.c includes; relevant porting knowledge accumulates.

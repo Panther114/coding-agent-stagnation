@@ -1,0 +1,542 @@
+{
+  "B1_step30|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.5681665547347213,
+    "median_alarm_step": 31.0,
+    "median_steps_saved": 39.0,
+    "total_steps_saved": 61748.0,
+    "pass_rate_among_alarmed": 0.458628841607565,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B1_step30|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.5681665547347213,
+    "median_alarm_step": 31.0,
+    "median_steps_saved": 39.0,
+    "total_steps_saved": 61748.0,
+    "pass_rate_among_alarmed": 0.458628841607565,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B1_step60|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.32572196104768303,
+    "median_alarm_step": 61.0,
+    "median_steps_saved": 50.0,
+    "total_steps_saved": 42499.0,
+    "pass_rate_among_alarmed": 0.41030927835051545,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B1_step60|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.32572196104768303,
+    "median_alarm_step": 61.0,
+    "median_steps_saved": 50.0,
+    "total_steps_saved": 42499.0,
+    "pass_rate_among_alarmed": 0.41030927835051545,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B2_exact_rep3|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.30691739422431163,
+    "median_alarm_step": 14.0,
+    "median_steps_saved": 44.0,
+    "total_steps_saved": 34092.0,
+    "pass_rate_among_alarmed": 0.47702407002188185,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B2_exact_rep3|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.30691739422431163,
+    "median_alarm_step": 14.0,
+    "median_steps_saved": 44.0,
+    "total_steps_saved": 34092.0,
+    "pass_rate_among_alarmed": 0.47702407002188185,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B2_exact_rep5|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.22028206850235058,
+    "median_alarm_step": 15.0,
+    "median_steps_saved": 44.5,
+    "total_steps_saved": 26170.0,
+    "pass_rate_among_alarmed": 0.5030487804878049,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B2_exact_rep5|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.22028206850235058,
+    "median_alarm_step": 15.0,
+    "median_steps_saved": 44.5,
+    "total_steps_saved": 26170.0,
+    "pass_rate_among_alarmed": 0.5030487804878049,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B3_rep_channel|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.18334452652787106,
+    "median_alarm_step": 29.0,
+    "median_steps_saved": 43.0,
+    "total_steps_saved": 21239.0,
+    "pass_rate_among_alarmed": 0.4065934065934066,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B3_rep_channel|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.2397582269979852,
+    "median_alarm_step": 33.0,
+    "median_steps_saved": 45.0,
+    "total_steps_saved": 26949.0,
+    "pass_rate_among_alarmed": 0.43137254901960786,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B3_rep_target|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.20752182672934855,
+    "median_alarm_step": 31.0,
+    "median_steps_saved": 45.0,
+    "total_steps_saved": 23895.0,
+    "pass_rate_among_alarmed": 0.39805825242718446,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B3_rep_target|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.20013431833445267,
+    "median_alarm_step": 40.0,
+    "median_steps_saved": 47.0,
+    "total_steps_saved": 24742.0,
+    "pass_rate_among_alarmed": 0.3926174496644295,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B4_sem_diversity|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.3351242444593687,
+    "median_alarm_step": 18.0,
+    "median_steps_saved": 38.0,
+    "total_steps_saved": 35437.0,
+    "pass_rate_among_alarmed": 0.42084168336673344,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B4_sem_diversity|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.21087978509066488,
+    "median_alarm_step": 23.0,
+    "median_steps_saved": 37.5,
+    "total_steps_saved": 22891.0,
+    "pass_rate_among_alarmed": 0.3535031847133758,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B4_semantic|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.007387508394895903,
+    "median_alarm_step": 47.0,
+    "median_steps_saved": 44.0,
+    "total_steps_saved": 1066.0,
+    "pass_rate_among_alarmed": 0.5454545454545454,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B4_semantic|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.018132975151108125,
+    "median_alarm_step": 68.0,
+    "median_steps_saved": 83.0,
+    "total_steps_saved": 3984.0,
+    "pass_rate_among_alarmed": 0.5925925925925926,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B5_novelty|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.008730691739422432,
+    "median_alarm_step": 20.0,
+    "median_steps_saved": 19.0,
+    "total_steps_saved": 613.0,
+    "pass_rate_among_alarmed": 0.15384615384615385,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B5_novelty|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0047011417058428475,
+    "median_alarm_step": 48.0,
+    "median_steps_saved": 39.0,
+    "total_steps_saved": 442.0,
+    "pass_rate_among_alarmed": 0.14285714285714285,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B5_novelty_sig|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.23035594358629952,
+    "median_alarm_step": 19.0,
+    "median_steps_saved": 49.0,
+    "total_steps_saved": 33055.0,
+    "pass_rate_among_alarmed": 0.4518950437317784,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B5_novelty_sig|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.2525184687709872,
+    "median_alarm_step": 22.0,
+    "median_steps_saved": 45.0,
+    "total_steps_saved": 34696.0,
+    "pass_rate_among_alarmed": 0.425531914893617,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B6_ver_stall|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.07387508394895903,
+    "median_alarm_step": 126.0,
+    "median_steps_saved": 63.0,
+    "total_steps_saved": 9984.0,
+    "pass_rate_among_alarmed": 0.35454545454545455,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B6_ver_stall|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.07387508394895903,
+    "median_alarm_step": 126.0,
+    "median_steps_saved": 63.0,
+    "total_steps_saved": 9984.0,
+    "pass_rate_among_alarmed": 0.35454545454545455,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B6_verification|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.004029550033579583,
+    "median_alarm_step": 27.0,
+    "median_steps_saved": 108.5,
+    "total_steps_saved": 784.0,
+    "pass_rate_among_alarmed": 0.6666666666666666,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B6_verification|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.005372733378106112,
+    "median_alarm_step": 93.0,
+    "median_steps_saved": 42.0,
+    "total_steps_saved": 824.0,
+    "pass_rate_among_alarmed": 0.5,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B7_workspace|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.11820013431833445,
+    "median_alarm_step": 35.0,
+    "median_steps_saved": 31.5,
+    "total_steps_saved": 10148.0,
+    "pass_rate_among_alarmed": 0.32386363636363635,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "B7_workspace|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.16924110141034251,
+    "median_alarm_step": 33.5,
+    "median_steps_saved": 36.5,
+    "total_steps_saved": 17729.0,
+    "pass_rate_among_alarmed": 0.3611111111111111,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C1_evidence|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0,
+    "median_alarm_step": null,
+    "median_steps_saved": null,
+    "total_steps_saved": 0.0,
+    "pass_rate_among_alarmed": null,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C1_evidence|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0,
+    "median_alarm_step": null,
+    "median_steps_saved": null,
+    "total_steps_saved": 0.0,
+    "pass_rate_among_alarmed": null,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C1_evidence_rel|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0,
+    "median_alarm_step": null,
+    "median_steps_saved": null,
+    "total_steps_saved": 0.0,
+    "pass_rate_among_alarmed": null,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C1_evidence_rel|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0,
+    "median_alarm_step": null,
+    "median_steps_saved": null,
+    "total_steps_saved": 0.0,
+    "pass_rate_among_alarmed": null,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C2_evid_ver|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.002686366689053056,
+    "median_alarm_step": 368.5,
+    "median_steps_saved": 82.0,
+    "total_steps_saved": 450.0,
+    "pass_rate_among_alarmed": 0.5,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C2_evid_ver|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0033579583613163196,
+    "median_alarm_step": 146.0,
+    "median_steps_saved": 47.0,
+    "total_steps_saved": 497.0,
+    "pass_rate_among_alarmed": 0.6,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C2_evid_ver_work|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0047011417058428475,
+    "median_alarm_step": 66.0,
+    "median_steps_saved": 12.0,
+    "total_steps_saved": 347.0,
+    "pass_rate_among_alarmed": 0.14285714285714285,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C2_evid_ver_work|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.006715916722632639,
+    "median_alarm_step": 71.0,
+    "median_steps_saved": 32.5,
+    "total_steps_saved": 569.0,
+    "pass_rate_among_alarmed": 0.4,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C3_evid_sem|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0,
+    "median_alarm_step": null,
+    "median_steps_saved": null,
+    "total_steps_saved": 0.0,
+    "pass_rate_among_alarmed": null,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C3_evid_sem|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0,
+    "median_alarm_step": null,
+    "median_steps_saved": null,
+    "total_steps_saved": 0.0,
+    "pass_rate_among_alarmed": null,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C4_all_hand|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.0020147750167897917,
+    "median_alarm_step": 16.0,
+    "median_steps_saved": 22.0,
+    "total_steps_saved": 308.0,
+    "pass_rate_among_alarmed": 0.3333333333333333,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "C4_all_hand|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.004029550033579583,
+    "median_alarm_step": 90.5,
+    "median_steps_saved": 20.0,
+    "total_steps_saved": 375.0,
+    "pass_rate_among_alarmed": 0.3333333333333333,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_all_hand|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.5715245130960376,
+    "median_alarm_step": 14.0,
+    "median_steps_saved": 38.0,
+    "total_steps_saved": 59255.0,
+    "pass_rate_among_alarmed": 0.44535840188014103,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_all_hand|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.5245130960376091,
+    "median_alarm_step": 15.0,
+    "median_steps_saved": 37.0,
+    "total_steps_saved": 54063.0,
+    "pass_rate_among_alarmed": 0.42893725992317544,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_all_sem|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.5641370047011417,
+    "median_alarm_step": 15.0,
+    "median_steps_saved": 38.0,
+    "total_steps_saved": 57683.0,
+    "pass_rate_among_alarmed": 0.43452380952380953,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_all_sem|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.5110812625923439,
+    "median_alarm_step": 19.0,
+    "median_steps_saved": 37.0,
+    "total_steps_saved": 52925.0,
+    "pass_rate_among_alarmed": 0.4204993429697766,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.04701141705842848,
+    "median_alarm_step": 18.0,
+    "median_steps_saved": 27.5,
+    "total_steps_saved": 3527.0,
+    "pass_rate_among_alarmed": 0.5142857142857142,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.04633982538616521,
+    "median_alarm_step": 23.0,
+    "median_steps_saved": 35.0,
+    "total_steps_saved": 3827.0,
+    "pass_rate_among_alarmed": 0.42028985507246375,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid_nov|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.5426460711887172,
+    "median_alarm_step": 13.0,
+    "median_steps_saved": 39.0,
+    "total_steps_saved": 53770.0,
+    "pass_rate_among_alarmed": 0.44183168316831684,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid_nov|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.48153122901276024,
+    "median_alarm_step": 13.0,
+    "median_steps_saved": 41.0,
+    "total_steps_saved": 50761.0,
+    "pass_rate_among_alarmed": 0.41562064156206413,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid_sem|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.38146406984553394,
+    "median_alarm_step": 19.0,
+    "median_steps_saved": 41.0,
+    "total_steps_saved": 40418.0,
+    "pass_rate_among_alarmed": 0.44014084507042256,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid_sem|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.24378777703156482,
+    "median_alarm_step": 28.0,
+    "median_steps_saved": 40.0,
+    "total_steps_saved": 25727.0,
+    "pass_rate_among_alarmed": 0.3746556473829201,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid_ver|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.28811282740094024,
+    "median_alarm_step": 26.0,
+    "median_steps_saved": 37.0,
+    "total_steps_saved": 30227.0,
+    "pass_rate_among_alarmed": 0.4731934731934732,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_evid_ver|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.28206850235057085,
+    "median_alarm_step": 31.0,
+    "median_steps_saved": 38.0,
+    "total_steps_saved": 31934.0,
+    "pass_rate_among_alarmed": 0.46190476190476193,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_nov|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.4600402955003358,
+    "median_alarm_step": 16.0,
+    "median_steps_saved": 38.0,
+    "total_steps_saved": 44414.0,
+    "pass_rate_among_alarmed": 0.43795620437956206,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_nov|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.41974479516453994,
+    "median_alarm_step": 16.0,
+    "median_steps_saved": 39.0,
+    "total_steps_saved": 43350.0,
+    "pass_rate_among_alarmed": 0.4304,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_rep|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.13700470114170585,
+    "median_alarm_step": 30.0,
+    "median_steps_saved": 40.5,
+    "total_steps_saved": 15480.0,
+    "pass_rate_among_alarmed": 0.43137254901960786,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_rep|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.13297515110812627,
+    "median_alarm_step": 37.0,
+    "median_steps_saved": 40.0,
+    "total_steps_saved": 14815.0,
+    "pass_rate_among_alarmed": 0.45454545454545453,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_sem|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.2907991940899933,
+    "median_alarm_step": 22.0,
+    "median_steps_saved": 39.0,
+    "total_steps_saved": 32259.0,
+    "pass_rate_among_alarmed": 0.4110854503464203,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_sem|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.16588314304902618,
+    "median_alarm_step": 30.0,
+    "median_steps_saved": 45.0,
+    "total_steps_saved": 18927.0,
+    "pass_rate_among_alarmed": 0.31983805668016196,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_ver|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.11887172599059771,
+    "median_alarm_step": 35.0,
+    "median_steps_saved": 35.0,
+    "total_steps_saved": 12399.0,
+    "pass_rate_among_alarmed": 0.4406779661016949,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_ver|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.1396910678307589,
+    "median_alarm_step": 38.0,
+    "median_steps_saved": 40.5,
+    "total_steps_saved": 15810.0,
+    "pass_rate_among_alarmed": 0.4423076923076923,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_work|w10": {
+    "n_traj": 1489,
+    "alarm_rate": 0.19677635997313633,
+    "median_alarm_step": 6.0,
+    "median_steps_saved": 43.0,
+    "total_steps_saved": 20172.0,
+    "pass_rate_among_alarmed": 0.4334470989761092,
+    "pass_rate_all": 0.4862323707186031
+  },
+  "L_work|w20": {
+    "n_traj": 1489,
+    "alarm_rate": 0.18670248488918736,
+    "median_alarm_step": 6.0,
+    "median_steps_saved": 44.0,
+    "total_steps_saved": 19271.0,
+    "pass_rate_among_alarmed": 0.45323741007194246,
+    "pass_rate_all": 0.4862323707186031
+  }
+}

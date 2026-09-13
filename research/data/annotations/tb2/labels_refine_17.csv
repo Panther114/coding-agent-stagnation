@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_custom-memory-heap-crash__NAMeUua_29,PRODUCTIVE,high,false,E,,steps 25-29 localize libstdc++ eh_alloc.cc; new relevant source found
+d_tb2_custom-memory-heap-crash__NAMeUua_30,PRODUCTIVE,high,false,E,,step 30 returns __freeres definitions in eh_alloc.cc; relevant new information
+d_tb2_custom-memory-heap-crash__NAMeUua_31,PRODUCTIVE,high,false,E,,step 25 exposes libstdc++ tree; steps 29-31 read eh_alloc.cc
+d_tb2_custom-memory-heap-crash__NAMeUua_33,PRODUCTIVE,high,false,E/I,,step 27 lists libstdc++ sources; steps 32-33 edit user.cpp durably
+d_tb2_custom-memory-heap-crash__NAMeUua_34,PRODUCTIVE,high,false,E/I,,steps 29-31 read eh_alloc.cc; steps 32-34 edit and rebuild user.cpp
+d_tb2_custom-memory-heap-crash__NAMeUua_35,PRODUCTIVE,high,false,E/I,,steps 32-35 fix survives; release binary runs without crash at 35
+d_tb2_custom-memory-heap-crash__NAMeUua_37,PRODUCTIVE,high,false,E/I/V,,steps 32-35 edit and pass; valgrind exit 0 at 36-37
+d_tb2_custom-memory-heap-crash__NAMeUua_38,PRODUCTIVE,high,true,E/I/V,,step 29 finds leak source; 32-37 edit; valgrind passes 36-37
+d_tb2_custom-memory-heap-crash__NAMeUua_9,PRODUCTIVE,high,false,E/I,,step 5 reproduces release SIGSEGV; step 8 edits user.cpp
+d_tb2_db-wal-recovery__rwGVtyu_11,STAGNANT,medium,false,none,no_new_information,"steps 5-10 repeat overlay probes; step 6 rules WAL absent"
+d_tb2_db-wal-recovery__rwGVtyu_12,STAGNANT,medium,false,none,no_new_information,"steps 5-11 repeat overlay and mount probes; nothing new about WAL"
+d_tb2_db-wal-recovery__rwGVtyu_13,STAGNANT,medium,false,none,no_new_information,"steps 5-12 repeat overlay searches and count query; WAL never located"
+d_tb2_db-wal-recovery__rwGVtyu_15,STAGNANT,medium,false,none,no_new_information,"steps 6-15 probe mounts and devices; no WAL data recovered or narrowed"
+d_tb2_db-wal-recovery__rwGVtyu_16,STAGNANT,medium,false,none,edit_revert,"step 16 mknod creates then deletes main.db-wal; steps 7-15 empty probes"
+d_tb2_db-wal-recovery__rwGVtyu_17,STAGNANT,medium,false,none,no_new_information,"steps 10-15 repeat overlay and device probes; step 16 reverts its own file"
+d_tb2_db-wal-recovery__rwGVtyu_19,STAGNANT,medium,false,none,no_new_information,"steps 10-19 probe devices and deleted files; no WAL content learned"
+d_tb2_db-wal-recovery__rwGVtyu_20,STAGNANT,medium,false,none,no_new_information,"steps 11-20 repeat null searches; step 12 only reconfirms five rows"
+d_tb2_db-wal-recovery__rwGVtyu_21,STAGNANT,medium,false,none,no_new_information,"steps 12-21 probe devices and names; step 21 scan yields nothing"
+d_tb2_db-wal-recovery__rwGVtyu_23,STAGNANT,medium,false,none,no_new_information,"steps 14-23 confirm absent WAL and hang; no recovery progress"
+d_tb2_db-wal-recovery__rwGVtyu_25,STAGNANT,medium,false,none,no_new_information,"steps 16-25 revert self-created WAL; shell steps 22-25 return nothing"
+d_tb2_db-wal-recovery__rwGVtyu_26,STAGNANT,high,false,none,no_new_information,"steps 17-26 repeat failed probes; step 26 repeats known hang state"
+d_tb2_db-wal-recovery__rwGVtyu_27,STAGNANT,high,false,none,no_new_information,"step 27 size find empty; steps 22-26 idle waiting on known hang"
+d_tb2_db-wal-recovery__rwGVtyu_29,STAGNANT,high,false,none,no_new_information,"steps 20-27 repeat failed searches; 22-26 and 28-29 return nothing"
+d_tb2_db-wal-recovery__rwGVtyu_31,STAGNANT,high,false,none,no_tool_text_loop,"steps 22-25 and 28-31 emit empty shell output; step 26 repeats hang news"
+d_tb2_db-wal-recovery__rwGVtyu_32,STAGNANT,high,false,none,no_tool_text_loop,"steps 23-31 empty shells; steps 26 and 32 repeat the stall diagnosis"
+d_tb2_db-wal-recovery__rwGVtyu_33,STAGNANT,high,false,none,no_tool_text_loop,"steps 24-31 empty shells; steps 26 and 32 restate the known hang"
+d_tb2_db-wal-recovery__rwGVtyu_35,STAGNANT,medium,false,none,no_new_information,"steps 26-35 idle on hang; step 30 env bare; 35 directory listing empty"
+d_tb2_db-wal-recovery__rwGVtyu_36,STAGNANT,medium,false,none,no_new_information,"steps 27-36 idle on hang; only step 35 path turns out nonexistent"
+d_tb2_db-wal-recovery__rwGVtyu_37,STAGNANT,medium,false,none,no_new_information,"steps 28-37 idle on hang; step 37 empty wildcard find"
+d_tb2_db-wal-recovery__rwGVtyu_39,STAGNANT,medium,false,none,other,"steps 30-36 idle and step 38 duplicate; step 39 writes base five rows"

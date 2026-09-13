@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_101,BLOCKED_EXTERNAL,high,false,none,,Steps 92-101 repeat that GitHub/PyPI are unreachable; the clone needed by the task cannot succeed
+d_tb2_build-cython-ext__JrNsKeV_109,BLOCKED_EXTERNAL,high,false,none,,Steps 100-109 restate the unreachable network; no source files exist so no work is possible
+d_tb2_build-cython-ext__JrNsKeV_115,BLOCKED_EXTERNAL,high,false,none,,Steps 106-115 repeat the same network failure; step 126 is a malformed-response error not progress
+d_tb2_build-cython-ext__JrNsKeV_121,BLOCKED_EXTERNAL,high,false,none,,Steps 112-121 only restate that GitHub and PyPI are unreachable and the directory is empty
+d_tb2_build-cython-ext__JrNsKeV_127,BLOCKED_EXTERNAL,high,false,none,,Steps 118-127 restate the same outage; steps 126-127 add nothing beyond a parse error
+d_tb2_build-cython-ext__JrNsKeV_133,BLOCKED_EXTERNAL,high,false,none,,Steps 124-133 repeat that the clone cannot run; no source is available to inspect
+d_tb2_build-cython-ext__JrNsKeV_139,BLOCKED_EXTERNAL,high,false,none,,Steps 130-139 restate the unchanged outage; no channel advances and no new fact appears
+d_tb2_build-cython-ext__JrNsKeV_145,BLOCKED_EXTERNAL,high,false,none,,Steps 136-145 repeat the network failure; nothing in the window changes the terminal state
+d_tb2_build-cython-ext__JrNsKeV_15,BLOCKED_EXTERNAL,high,false,none,,Steps 6-15 restate the failed clone; the network outage is outside the agent's control
+d_tb2_build-cython-ext__JrNsKeV_151,BLOCKED_EXTERNAL,high,false,none,,Steps 142-151 repeat the same outage; the window ends without any state change
+d_tb2_build-cython-ext__JrNsKeV_16,BLOCKED_EXTERNAL,high,false,none,,Steps 7-16 repeat the unreachable-network analysis; no tool call or new information
+d_tb2_build-cython-ext__JrNsKeV_21,BLOCKED_EXTERNAL,high,false,none,,Steps 12-21 restate the outage and the empty directory; no channel can advance
+d_tb2_build-cython-ext__JrNsKeV_26,BLOCKED_EXTERNAL,high,false,none,,Steps 17-26 repeat that GitHub and PyPI are unreachable; step 25 is only a parse error
+d_tb2_build-cython-ext__JrNsKeV_27,BLOCKED_EXTERNAL,high,false,none,,Steps 18-27 restate the same outage; nothing new is learned about the task
+d_tb2_build-cython-ext__JrNsKeV_30,BLOCKED_EXTERNAL,high,false,none,,Steps 21-30 repeat the unreachable network; step 25 adds only a malformed-response error
+d_tb2_build-cython-ext__JrNsKeV_33,BLOCKED_EXTERNAL,high,false,none,,Steps 24-33 restate the outage; step 34 shows the first tool attempt only after the window
+d_tb2_build-cython-ext__JrNsKeV_36,BLOCKED_EXTERNAL,high,false,none,,Steps 27-36 repeat the network failure; no source files exist to inspect or compile
+d_tb2_build-cython-ext__JrNsKeV_39,BLOCKED_EXTERNAL,high,false,none,,Steps 30-39 restate the unchanged outage; the window ends with the directory still empty
+d_tb2_build-cython-ext__JrNsKeV_40,BLOCKED_EXTERNAL,high,false,none,,Steps 31-40 repeat that the clone is impossible; no channel advances inside the window
+d_tb2_build-cython-ext__JrNsKeV_44,BLOCKED_EXTERNAL,high,false,none,,Steps 35-44 restate the outage; step 45's tool attempt falls outside this window
+d_tb2_build-cython-ext__JrNsKeV_45,BLOCKED_EXTERNAL,high,false,none,,Steps 36-44 repeat the outage; step 45 tries apt-get and pip but the network still blocks them
+d_tb2_build-cython-ext__JrNsKeV_50,BLOCKED_EXTERNAL,high,false,none,,Steps 41-50 repeat the same unreachable-network analysis; step 45's install attempt changes nothing
+d_tb2_build-cython-ext__JrNsKeV_51,BLOCKED_EXTERNAL,high,false,none,,Steps 42-51 restate the outage; step 45's commands cannot proceed without GitHub or PyPI
+d_tb2_build-cython-ext__JrNsKeV_55,BLOCKED_EXTERNAL,high,false,none,,Steps 46-55 repeat the same network failure; no new information and no durable change
+d_tb2_build-cython-ext__JrNsKeV_59,BLOCKED_EXTERNAL,high,false,none,,Steps 50-59 restate the outage and the empty directory; no channel advances
+d_tb2_build-cython-ext__JrNsKeV_65,BLOCKED_EXTERNAL,high,false,none,,Steps 56-65 repeat the same outage; step 75's parse error lies outside this window
+d_tb2_build-cython-ext__JrNsKeV_71,BLOCKED_EXTERNAL,high,false,none,,Steps 62-71 restate the network failure; nothing new is learned or changed
+d_tb2_build-cython-ext__JrNsKeV_77,BLOCKED_EXTERNAL,high,false,none,,Steps 68-77 repeat the unchanged outage; no tool call and no verification movement
+d_tb2_build-cython-ext__JrNsKeV_83,BLOCKED_EXTERNAL,high,false,none,,Steps 74-83 restate that GitHub and PyPI are unreachable; the directory stays empty
+d_tb2_build-cython-ext__JrNsKeV_89,BLOCKED_EXTERNAL,high,false,none,,Steps 80-89 repeat the same outage; no channel advances and no state changes

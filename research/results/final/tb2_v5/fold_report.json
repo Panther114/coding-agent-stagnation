@@ -1,0 +1,92 @@
+[
+  {
+    "fold": 0,
+    "n_test_traj": 279,
+    "n_train_traj": 1221,
+    "n_train_windows": 258,
+    "n_test_labelled_windows": 438,
+    "tasks": [
+      "chess-best-move",
+      "circuit-fibsqrt",
+      "compile-compcert",
+      "custom-memory-heap-crash",
+      "dna-insert",
+      "feal-differential-cryptanalysis",
+      "git-leak-recovery",
+      "llm-inference-batching-scheduler"
+    ]
+  },
+  {
+    "fold": 1,
+    "n_test_traj": 314,
+    "n_train_traj": 1186,
+    "n_train_windows": 236,
+    "n_test_labelled_windows": 490,
+    "tasks": [
+      "break-filter-js-from-html",
+      "crack-7z-hash",
+      "fix-git",
+      "git-multibranch",
+      "hf-model-inference",
+      "install-windows-3.11",
+      "kv-store-grpc",
+      "largest-eigenval",
+      "mailman"
+    ]
+  },
+  {
+    "fold": 2,
+    "n_test_traj": 336,
+    "n_train_traj": 1164,
+    "n_train_windows": 224,
+    "n_test_labelled_windows": 434,
+    "tasks": [
+      "build-pmars",
+      "caffe-cifar-10",
+      "code-from-image",
+      "configure-git-webserver",
+      "db-wal-recovery",
+      "extract-elf",
+      "extract-moves-from-video",
+      "filter-js-from-html",
+      "fix-ocaml-gc",
+      "gpt2-codegolf"
+    ]
+  },
+  {
+    "fold": 3,
+    "n_test_traj": 278,
+    "n_train_traj": 1222,
+    "n_train_windows": 242,
+    "n_test_labelled_windows": 374,
+    "tasks": [
+      "build-cython-ext",
+      "cancel-async-tasks",
+      "cobol-modernization",
+      "distribution-search",
+      "dna-assembly",
+      "feal-linear-cryptanalysis",
+      "gcode-to-text",
+      "headless-terminal",
+      "log-summary-date-ranges"
+    ]
+  },
+  {
+    "fold": 4,
+    "n_test_traj": 293,
+    "n_train_traj": 1207,
+    "n_train_windows": 216,
+    "n_test_labelled_windows": 446,
+    "tasks": [
+      "adaptive-rejection-sampler",
+      "bn-fit-modify",
+      "build-pov-ray",
+      "constraints-scheduling",
+      "count-dataset-tokens",
+      "financial-document-processor",
+      "fix-code-vulnerability",
+      "large-scale-text-editing",
+      "make-doom-for-mips"
+    ]
+  }
+]

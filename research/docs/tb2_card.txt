@@ -1,0 +1,1062 @@
+Hugging Face
+Models
+Datasets
+Spaces
+Buckets new
+Docs
+Enterprise
+Pricing
+Website
+Tasks
+HuggingChat
+Collections
+Languages
+Organizations
+Community
+Blog
+Posts
+Daily Papers
+Hardware
+Learn
+Discord
+Forum
+GitHub
+Solutions
+Team & Enterprise
+Hugging Face PRO
+Enterprise Support
+Inference Providers
+Inference Endpoints
+Storage Buckets
+Log In
+Sign Up
+Datasets:
+yoonholee
+/
+terminalbench-trajectories
+like 14
+Tasks:
+Text Generation
+Modalities:
+Tabular
+Text
+Formats:
+parquet
+optimized-parquet
+Size:
+10K - 100K
+Tags:
+coding-agents
+trajectories
+terminal-bench
+benchmark
+Libraries:
+Datasets
+Dask
+Polars
++ 1
+License:
+apache-2.0
+Dataset card Data Studio Files Files and versions
+xet
+Community
+1
+Dataset Viewer
+Auto-converted to Parquet API Embed Duplicate Data Studio
+Subset (1)
+default · 52.1k rows
+default (52.1k rows)
+Split (1)
+train · 52.1k rows
+train (52.1k rows)
+SQL
+Console
+task_name
+string
+agent
+string
+model
+string
+reward
+int64
+duration_seconds
+float64
+input_tokens
+float64
+output_tokens
+float64
+cache_tokens
+float64
+cost_cents
+float64
+trial_name
+string
+trial_id
+string
+started_at
+string
+ended_at
+string
+steps
+string
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-5-20251101@anthropic
+0
+534.469971
+null
+null
+null
+0
+adaptive-rejection-sampler__8Mm5WbC
+d4ff4cc0-b631-4ff3-8c14-4fd3d71010db
+2025-12-09T07:18:54.673043+00:00
+2025-12-09T07:27:49.143757+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-5-20251101@anthropic
+0
+573.291016
+null
+null
+null
+0
+adaptive-rejection-sampler__DgabGmU
+13591200-5477-44e7-a596-d5745429c6d7
+2025-12-09T10:26:58.78122+00:00
+2025-12-09T10:36:32.072725+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-5-20251101@anthropic
+0
+473.23999
+null
+null
+null
+0
+adaptive-rejection-sampler__YSuAABx
+499e0d64-a0f3-4517-b8e3-e48f85cd589b
+2025-12-10T02:00:45.862542+00:00
+2025-12-10T02:08:39.102967+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-5-20251101@anthropic
+0
+734.650024
+null
+null
+null
+0
+adaptive-rejection-sampler__oKhn8i3
+95045282-3814-4354-a12a-94cd7445c2dc
+2025-12-10T08:16:55.89605+00:00
+2025-12-10T08:29:10.546835+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-5-20251101@anthropic
+0
+442.843994
+null
+null
+null
+0
+adaptive-rejection-sampler__xyqGQkC
+708e22ef-02d3-4603-9bb9-fdb060c50982
+2025-12-09T14:37:23.792581+00:00
+2025-12-09T14:44:46.636285+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-6@anthropic
+0
+520.776978
+null
+null
+null
+0
+adaptive-rejection-sampler__2Kz28j9
+003a12bc-d1ef-4ce5-b400-9f7def09259e
+2026-01-29T23:21:50.975084+00:00
+2026-01-29T23:30:31.752036+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-6@anthropic
+0
+504.01001
+null
+null
+null
+0
+adaptive-rejection-sampler__MGd4MPt
+8bfde483-863b-4608-b4d9-6b9d33e910b7
+2026-01-29T07:55:21.421662+00:00
+2026-01-29T08:03:45.431904+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-6@anthropic
+0
+354.14801
+null
+null
+null
+0
+adaptive-rejection-sampler__hoFrxh3
+964dda74-0e23-4fa4-9e65-46c86a2c9690
+2026-01-29T03:21:49.32986+00:00
+2026-01-29T03:27:43.477311+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-6@anthropic
+0
+943.187988
+null
+null
+null
+0
+adaptive-rejection-sampler__pqQpfmr
+5c3d032c-a10f-41f3-b770-bff1a227cf98
+2026-01-30T02:21:35.480298+00:00
+2026-01-30T02:37:18.668683+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+claude-opus-4-6@anthropic
+0
+778.513
+null
+null
+null
+0
+adaptive-rejection-sampler__zYLwytj
+988f10dd-8b14-4011-b842-5eec4ceb5cb3
+2026-01-29T06:24:09.203032+00:00
+2026-01-29T06:37:07.716069+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gemini-3-pro-preview@google
+0
+247.858002
+null
+null
+null
+0
+adaptive-rejection-sampler__Pqyh7Zv
+23ac1fc4-8d3a-4804-b759-6f217fec7ad5
+2025-12-23T19:03:53.772883+00:00
+2025-12-23T19:08:01.630178+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gemini-3-pro-preview@google
+0
+348.756989
+null
+null
+null
+0
+adaptive-rejection-sampler__STx8z5X
+9ca7d64a-363f-43c8-b4eb-fc962d668485
+2025-12-22T17:29:58.730223+00:00
+2025-12-22T17:35:47.487816+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gemini-3-pro-preview@google
+1
+300.019012
+null
+null
+null
+0
+adaptive-rejection-sampler__Y4WE5EJ
+d383650f-95c8-4033-99c4-c3ba40477ff8
+2025-12-23T08:25:08.283775+00:00
+2025-12-23T08:30:08.302015+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gemini-3-pro-preview@google
+1
+423.174011
+null
+null
+null
+0
+adaptive-rejection-sampler__oTkuQy8
+84b5fb23-3293-4277-ac6c-b4b71e19fa40
+2025-12-23T04:55:26.873273+00:00
+2025-12-23T05:02:30.047569+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gemini-3-pro-preview@google
+1
+252.977005
+null
+null
+null
+0
+adaptive-rejection-sampler__xvMsih8
+1b826761-8a5e-4177-8ec0-326e67365f0e
+2025-12-21T22:52:52.372016+00:00
+2025-12-21T22:57:05.349086+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.2@openai
+1
+936.575989
+null
+null
+null
+0
+adaptive-rejection-sampler__J3iWgzR
+54bc5ae4-d0bb-4b2a-8a31-6459a5444abc
+2025-12-18T06:44:11.652806+00:00
+2025-12-18T06:59:48.228195+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.2@openai
+1
+747.570984
+null
+null
+null
+0
+adaptive-rejection-sampler__Z4TQFdR
+a476c1cd-6fd5-4fc8-8b03-e848c5762ea3
+2025-12-18T18:43:41.350326+00:00
+2025-12-18T18:56:08.921371+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.2@openai
+1
+810.510986
+null
+null
+null
+0
+adaptive-rejection-sampler__cqjjr5g
+1eefb20d-558d-432c-a1a5-6c3ec049fdfd
+2025-12-18T13:29:19.745914+00:00
+2025-12-18T13:42:50.256522+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.2@openai
+0
+936.070007
+null
+null
+null
+0
+adaptive-rejection-sampler__pfbMuLv
+ba376a46-0a34-4474-a9d5-31a9bb6e72f6
+2025-12-18T01:05:05.241469+00:00
+2025-12-18T01:20:41.311259+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.2@openai
+1
+936.604004
+null
+null
+null
+0
+adaptive-rejection-sampler__qWHATM8
+9dbd7eb5-95b8-4d6e-a76a-85a0f6e1fbd6
+2025-12-19T00:23:11.220921+00:00
+2025-12-19T00:38:47.824888+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.3-codex@openai
+1
+456.121002
+null
+null
+null
+0
+adaptive-rejection-sampler__PUtpRB9
+43cacb1f-9d72-4d52-9f0a-14724d882a3f
+2026-02-22T10:19:11.534724+00:00
+2026-02-22T10:26:47.655136+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.3-codex@openai
+1
+566.497009
+null
+null
+null
+0
+adaptive-rejection-sampler__RJ62BTk
+635727be-fe8e-4419-b121-f9daf071ee33
+2026-02-16T17:43:22.341334+00:00
+2026-02-16T17:52:48.838041+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.3-codex@openai
+1
+590.763977
+null
+null
+null
+0
+adaptive-rejection-sampler__WMtfbck
+22fe2a88-4f62-42ef-a4c4-d01a971cc0e9
+2026-02-22T09:59:46.450253+00:00
+2026-02-22T10:09:37.214336+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.3-codex@openai
+1
+548.538025
+null
+null
+null
+0
+adaptive-rejection-sampler__jjGmSp9
+0c949e8e-8bec-4a3a-b07a-c40d1adec4ef
+2026-02-21T21:59:06.677305+00:00
+2026-02-21T22:08:15.215588+00:00
+null
+adaptive-rejection-sampler
+Factory Droid
+gpt-5.3-codex@openai
+1
+439.002991
+null
+null
+null
+0
+adaptive-rejection-sampler__qspxa2D
+dbb37f24-7696-4414-9bc9-e0dba381b6ff
+2026-02-22T06:09:16.801737+00:00
+2026-02-22T06:16:35.804729+00:00
+null
+adaptive-rejection-sampler
+Junie
+gemini-3-flash-preview@gemini
+0
+235.917999
+null
+null
+null
+0
+adaptive-rejection-sampler__KQdTSzc
+ee8bb4e5-21ea-48e8-ab52-796e9852d028
+2025-12-22T21:50:19.50325+00:00
+2025-12-22T21:54:15.421172+00:00
+null
+adaptive-rejection-sampler
+Junie
+gemini-3-flash-preview@gemini
+1
+269.632996
+null
+null
+null
+0
+adaptive-rejection-sampler__LxPvYGE
+cbaa0696-3e7c-491e-bb8e-19135a7e43b4
+2025-12-22T17:35:30.242239+00:00
+2025-12-22T17:39:59.875181+00:00
+null
+adaptive-rejection-sampler
+Junie
+gemini-3-flash-preview@gemini
+0
+320.710999
+null
+null
+null
+0
+adaptive-rejection-sampler__SwrzfBF
+2f27bb1f-1878-4f9c-b6e0-b870cf23e3ab
+2025-12-22T20:26:23.563609+00:00
+2025-12-22T20:31:44.274364+00:00
+null
+adaptive-rejection-sampler
+Junie
+gemini-3-flash-preview@gemini
+1
+215.580994
+null
+null
+null
+0
+adaptive-rejection-sampler__T3wiBSH
+3ad9cabf-84d6-47c8-a908-4f05cf939a26
+2025-12-22T16:24:53.081168+00:00
+2025-12-22T16:28:28.662536+00:00
+null
+adaptive-rejection-sampler
+Junie
+gemini-3-flash-preview@gemini
+0
+276.278015
+null
+null
+null
+0
+adaptive-rejection-sampler__jGFojps
+f9c401ee-1b5a-41f2-a7ee-2334d82536ed
+2025-12-22T19:07:34.961004+00:00
+2025-12-22T19:12:11.239919+00:00
+null
+adaptive-rejection-sampler
+TerminalBenchAgent
+claude-sonnet-4-5@anthropic
+1
+544.593994
+null
+null
+null
+0
+adaptive-rejection-sampler__KA4rcGS
+08945b81-ec86-4e45-be93-6f809d112cf6
+2025-12-20T16:11:24.198379+00:00
+2025-12-20T16:20:28.792149+00:00
+null
+adaptive-rejection-sampler
+TerminalBenchAgent
+claude-sonnet-4-5@anthropic
+1
+557.544983
+null
+null
+null
+0
+adaptive-rejection-sampler__VJv47VS
+c38b7c19-0992-45d2-9872-f7641ad87ca9
+2025-12-20T08:53:42.81684+00:00
+2025-12-20T09:03:00.361476+00:00
+null
+adaptive-rejection-sampler
+TerminalBenchAgent
+claude-sonnet-4-5@anthropic
+1
+872.255981
+null
+null
+null
+0
+adaptive-rejection-sampler__boCuUJJ
+dd21af2d-8c4a-4a56-9af6-8b6cb82a2158
+2025-12-19T11:12:15.05618+00:00
+2025-12-19T11:26:47.312873+00:00
+null
+adaptive-rejection-sampler
+TerminalBenchAgent
+claude-sonnet-4-5@anthropic
+1
+754.981018
+null
+null
+null
+0
+adaptive-rejection-sampler__iaNLjPC
+8c6fde1b-f3c1-4952-a5d9-efd150820b7b
+2025-12-19T20:23:10.305988+00:00
+2025-12-19T20:35:45.286594+00:00
+null
+adaptive-rejection-sampler
+TerminalBenchAgent
+claude-sonnet-4-5@anthropic
+1
+699.513
+null
+null
+null
+0
+adaptive-rejection-sampler__nK8fjtZ
+5cabf5eb-0ee4-454f-b33d-e772bf701d34
+2025-12-21T00:15:27.77348+00:00
+2025-12-21T00:27:07.286784+00:00
+null
+adaptive-rejection-sampler
+ante
+gemini-3-pro-preview@Google
+0
+398.221985
+null
+null
+null
+0
+adaptive-rejection-sampler__GHotNov
+73ff98ee-d5fc-40a2-b84a-364ff9ec9406
+2026-01-01T07:31:49.373628+00:00
+2026-01-01T07:38:27.595287+00:00
+null
+adaptive-rejection-sampler
+ante
+gemini-3-pro-preview@Google
+1
+330.148987
+null
+null
+null
+0
+adaptive-rejection-sampler__hntuXZF
+5869a751-2d8c-4d8d-a1ba-49649b0d23a6
+2025-12-31T22:36:36.701914+00:00
+2025-12-31T22:42:06.850378+00:00
+null
+adaptive-rejection-sampler
+ante
+gemini-3-pro-preview@Google
+0
+313.622986
+null
+null
+null
+0
+adaptive-rejection-sampler__p529KPb
+6378ba67-ebf9-4aa2-a941-6dcba1f4ea90
+2026-01-01T10:49:45.853137+00:00
+2026-01-01T10:54:59.476895+00:00
+null
+adaptive-rejection-sampler
+ante
+gemini-3-pro-preview@Google
+0
+270.201996
+null
+null
+null
+0
+adaptive-rejection-sampler__p6ZptT8
+407eadb6-397a-44f9-a00f-768a6e6df206
+2026-01-01T01:25:44.361931+00:00
+2026-01-01T01:30:14.563407+00:00
+null
+adaptive-rejection-sampler
+ante
+gemini-3-pro-preview@Google
+0
+273.108002
+null
+null
+null
+0
+adaptive-rejection-sampler__rNLcgRc
+4abb2cb1-dc11-43f3-bcd3-36c8b56a0aa2
+2026-01-01T04:37:04.901732+00:00
+2026-01-01T04:41:38.009835+00:00
+null
+adaptive-rejection-sampler
+aone-agent
+Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8@modelscope
+0
+1,140.284058
+null
+null
+null
+0
+adaptive-rejection-sampler__2X52btu
+c33cbf40-79e5-42a2-ad24-131ca3c4681a
+2025-12-26T00:52:30.056745+00:00
+2025-12-26T01:11:30.340067+00:00
+null
+adaptive-rejection-sampler
+aone-agent
+Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8@modelscope
+0
+1,164.098999
+null
+null
+null
+0
+adaptive-rejection-sampler__Q4zykpm
+3c588ce5-8e86-41a5-a821-a59a653f1ace
+2025-12-26T01:55:00.864548+00:00
+2025-12-26T02:14:24.963687+00:00
+null
+adaptive-rejection-sampler
+aone-agent
+Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8@modelscope
+0
+1,138.411011
+null
+null
+null
+0
+adaptive-rejection-sampler__ULW5J9a
+3a36b408-2231-4992-8764-50406f3be848
+2025-12-26T00:05:22.070269+00:00
+2025-12-26T00:24:20.481602+00:00
+null
+adaptive-rejection-sampler
+aone-agent
+Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8@modelscope
+0
+1,202.563965
+null
+null
+null
+0
+adaptive-rejection-sampler__kPuknzN
+62a1a381-f7f7-4781-abd7-437959b0ddc2
+2025-12-26T00:23:35.705656+00:00
+2025-12-26T00:43:38.269812+00:00
+null
+adaptive-rejection-sampler
+aone-agent
+Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8@modelscope
+0
+934.835999
+null
+null
+null
+0
+adaptive-rejection-sampler__x2niyGJ
+9d7dcab7-9bcd-4a94-95b9-a4b82ac4e8e5
+2025-12-26T01:24:11.089375+00:00
+2025-12-26T01:39:45.925961+00:00
+null
+adaptive-rejection-sampler
+claude-code-enhanced
+claude-opus-4-6@anthropic
+1
+287.643005
+1,021,946
+174
+1,021,941
+0.4375
+adaptive-rejection-sampler__97PBrF6
+7caecdf3-379d-4d19-ae5c-c4eb309d184b
+2026-02-08T17:41:34.324339+00:00
+2026-02-08T17:46:21.96713+00:00
+null
+adaptive-rejection-sampler
+claude-code-enhanced
+claude-opus-4-6@anthropic
+0
+556.640991
+2,681,170
+283
+2,681,124
+0.7305
+adaptive-rejection-sampler__CMKCJ3t
+aa3636cc-2f7e-4bad-998e-5f4a852655fa
+2026-02-08T11:59:20.084757+00:00
+2026-02-08T12:08:36.725357+00:00
+null
+adaptive-rejection-sampler
+claude-code
+GLM-4.7@z-ai
+0
+119.482002
+0
+0
+0
+0
+adaptive-rejection-sampler__QNJBynP
+a5b46256-d647-41db-a2ac-b96d3d8ba9b4
+2026-02-07T04:43:49.897401+00:00
+2026-02-07T04:45:49.37926+00:00
+null
+adaptive-rejection-sampler
+claude-code
+GLM-4.7@z-ai
+1
+345.356995
+0
+0
+0
+0
+adaptive-rejection-sampler__TVZ5dEP
+eccc5afe-0580-47c4-9b92-0f1a6979a921
+2026-02-06T14:11:57.310939+00:00
+2026-02-06T14:17:42.667159+00:00
+null
+adaptive-rejection-sampler
+claude-code
+GLM-4.7@z-ai
+0
+302.946991
+0
+0
+0
+0
+adaptive-rejection-sampler__Yr6RQcZ
+6126adee-0c3b-4190-b483-2e79405dd416
+2026-02-06T21:20:49.358753+00:00
+2026-02-06T21:25:52.305781+00:00
+null
+adaptive-rejection-sampler
+claude-code
+GLM-4.7@z-ai
+0
+1,073.987061
+0
+0
+0
+0
+adaptive-rejection-sampler__oi8NZD2
+8a40a879-746a-4a5d-aec5-2dd3f55af3b9
+2026-02-07T00:54:49.700632+00:00
+2026-02-07T01:12:43.687023+00:00
+null
+adaptive-rejection-sampler
+claude-code
+GLM-4.7@z-ai
+0
+339.542999
+0
+0
+0
+0
+adaptive-rejection-sampler__xHMpxVc
+6a9a345d-49bd-4357-8dad-19dd4523b4c4
+2026-02-06T17:27:40.453886+00:00
+2026-02-06T17:33:19.996952+00:00
+null
+adaptive-rejection-sampler
+claude-code
+claude-haiku-4-5-20251001@anthropic
+0
+522.046997
+9,417,011
+2,847
+null
+95.684776
+adaptive-rejection-sampler__8YuTzJm
+[{"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "agent", "msg": "I'm ready to help! I'm Claude Code, Anthropic's file search specialist for Claude's CLI. \n\nI'm prepared to assist you with:\n- **Finding files** using glob patterns\n- ...
+adaptive-rejection-sampler
+claude-code
+claude-haiku-4-5-20251001@anthropic
+0
+440.542999
+5,772,680
+349
+null
+57.989769
+adaptive-rejection-sampler__Evnd4hC
+[{"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "agent", "msg": "I'm ready to help! I'm Claude Code, Anthropic's file search specialist for the Claude CLI. \n\nI'm prepared to:\n- Search for files using glob patterns\n- Search file con...
+adaptive-rejection-sampler
+claude-code
+claude-haiku-4-5-20251001@anthropic
+0
+1,671.91394
+null
+null
+null
+0
+adaptive-rejection-sampler__mDTkvMR
+53e1838c-1afd-415e-afda-311bbb73246d
+2025-11-05T00:57:58.748333+00:00
+2025-11-05T01:25:50.662798+00:00
+null
+adaptive-rejection-sampler
+claude-code
+claude-haiku-4-5-20251001@anthropic
+0
+815.479004
+5,063,217
+1,199
+null
+51.31942
+adaptive-rejection-sampler__ubYZyKj
+[{"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "agent", "msg": "Hello! I'm Claude Code, Anthropic's file search specialist CLI. I'm ready to help you navigate and explore your codebase.\n\nI can assist you with:\n\n- **Glob patterns**...
+adaptive-rejection-sampler
+claude-code
+claude-opus-4-1-20250805@anthropic
+1
+628.838989
+2,137,974
+552
+null
+326.231995
+adaptive-rejection-sampler__DFZ5rbT
+[{"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "agent", "msg": "Hello! I'm Claude Code, Anthropic's file search specialist for Claude's CLI. I'm ready to help you navigate and explore your codebase efficiently.\n\nI can assist you wit...
+adaptive-rejection-sampler
+claude-code
+claude-opus-4-1-20250805@anthropic
+0
+1,679.074951
+null
+null
+null
+0
+adaptive-rejection-sampler__HevY8bS
+1c479691-7a62-49cb-bc82-c3a25e0dc318
+2025-11-05T00:57:56.473235+00:00
+2025-11-05T01:25:55.548511+00:00
+null
+adaptive-rejection-sampler
+claude-code
+claude-opus-4-1-20250805@anthropic
+0
+796.638
+4,709,487
+756
+null
+713.452515
+adaptive-rejection-sampler__SBZkcUM
+[{"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "agent", "msg": "Hello! I'm Claude Code, Anthropic's official CLI file search specialist. I'm ready to help you navigate and explore codebases efficiently.\n\nI can assist you with:\n- **...
+adaptive-rejection-sampler
+claude-code
+claude-opus-4-1-20250805@anthropic
+0
+837.315979
+1,950,743
+588
+null
+298.410614
+adaptive-rejection-sampler__kjMMRbx
+[{"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "agent", "msg": "I'm Claude Code, Anthropic's CLI file search specialist. I'm ready to help you navigate and explore your codebase!\n\nHere's what I can do for you:\n\n**My capabilities:*...
+adaptive-rejection-sampler
+claude-code
+claude-opus-4-5-20251101@anthropic
+0
+763.789001
+null
+null
+null
+0
+adaptive-rejection-sampler__Mevwqr6
+[{"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "user", "msg": "Warmup", "tools": null, "obs": null}, {"src": "agent", "msg": "I'm ready to help you search and explore code! I'm Claude Code, your file search specialist for Anthropic's Claude CLI.\n\nI'm set up to:\n- **Search files** using glob p...
+End of preview. Expand in Data Studio
+Previous
+1
+2
+3
+...
+522
+Next
+Quick start
+Dataset summary
+Schema
+Step format
+Scaffolds
+Top agents by pass rate
+Top agents on hard tasks
+Data source
+License
+Terminal-Bench 2.0 Trajectories
+Full agent trajectories from Terminal-Bench 2.0 , a benchmark that evaluates AI coding agents on real-world terminal tasks. Each row is one trial: an agent attempting a task, with the complete step-by-step trace of messages, tool calls, and observations.
+Explorer: yoonholee.com/web-apps/terminal-bench
+Quick start
+from datasets import load_dataset import json
+ds = load_dataset( "yoonholee/terminalbench-trajectories" , split= "train" ) # Filter to a specific agent opus_runs = ds. filter ( lambda x: x[ "model" ] == "claude-opus-4-6@anthropic" ) # Parse steps from JSON string row = ds[ 0 ]
+steps = json.loads(row[ "steps" ]) print ( f"Task: {row[ 'task_name' ]} , Agent: {row[ 'agent' ]} / {row[ 'model' ]} , Reward: {row[ 'reward' ]} " ) print ( f"Steps: { len (steps)} " )
+Dataset summary
+Stat Value
+Total trajectories 52,104
+Tasks 89
+Agent/model combos 109
+Scaffolds (agents) 26
+Underlying models 49
+Overall pass rate 39.6%
+Median steps per trajectory 21
+Mean steps per trajectory 47.1
+Trials with trajectory steps 34,462
+Trials per (task, agent) typically 5
+Schema
+Each row represents one trial (one agent attempting one task).
+Column Type Description
+task_name string Task identifier (e.g. "chess-best-move" )
+agent string Agent scaffold (e.g. "claude-code" , "terminus-2" )
+model string Underlying LLM (e.g. "claude-opus-4-6@anthropic" , "gpt-5@openai" )
+reward int64 1 if the agent solved the task, 0 otherwise
+duration_seconds float64 Wall-clock duration in seconds (null for some agents)
+input_tokens float64 Input tokens consumed (null for some agents)
+output_tokens float64 Output tokens generated (null for some agents)
+cache_tokens float64 Cached tokens (null for some agents)
+cost_cents float64 Cost in cents (null for some agents)
+trial_name string Human-readable trial name
+trial_id string UUID for this specific trial
+started_at string Trial start timestamp
+ended_at string Trial end timestamp
+steps string JSON-serialized list of step objects (see below)
+Step format
+The steps column is a JSON string. Each step has:
+{ "src" : "agent" , "msg" : "Let me check the file structure first." , "tools" : [ { "fn" : "Bash" , "cmd" : "ls -la" } ] , "obs" : "total 42\ndrwxr-xr-x ..." }
+Field Description
+src "user" , "agent" , or "system"
+msg The agent's message or reasoning text
+tools List of tool calls ( null if none). Each has fn (function name) and cmd (command/argument).
+obs Tool output / observation ( null if none). Truncated to 5,000 chars.
+Scaffolds
+Scaffold Combos Trajectories Pass rate
+terminus-2 32 17,431 33.6%
+mini-swe-agent 13 6,663 22.8%
+openhands 12 6,198 28.2%
+codex 8 3,532 45.2%
+claude-code 7 3,092 40.3%
+Factory Droid 5 2,224 67.3%
+gemini-cli 4 1,766 33.5%
+mux 4 1,068 66.2%
+letta-code 3 1,335 56.2%
+goose 3 1,332 44.2%
+ruley 2 890 66.3%
+terminus-3-3 2 887 74.9%
+Plus 14 more single-combo agents (forge, judy, spoox-m, TerminalBenchAgent, Junie, ii-agent-simple, sage, ante, simple_codex, aone-agent, deepagent-harbor, claude-code-enhanced, final, opencode).
+Top agents by pass rate
+Agent Pass rate
+forge/gemini-3.1-pro-preview@Google 78.4%
+Factory Droid/gpt-5.3-codex@openai 77.3%
+simple_codex/gpt-5.3-codex@openai 74.9%
+terminus-3-3/claude-opus-4-6@anthropic 74.9%
+terminus-3-3/gemini-3.1-pro-preview@Google 74.8%
+judy/claude-opus-4.6@anthropic 71.9%
+ruley/gpt-5.3-codex@OpenAI 70.3%
+Factory Droid/claude-opus-4-6@anthropic 69.9%
+mux/gpt-5.3-codex@openai 68.5%
+deepagent-harbor/gpt-5.2-codex@openai 67.7%
+mux/claude-opus-4-6@anthropic 66.5%
+claude-code-enhanced/claude-opus-4-6@anthropic 66.1%
+sage/gemini-3-pro-preview@Google 65.2%
+Factory Droid/gpt-5.2@openai 65.1%
+ante/gemini-3-pro-preview@Google 64.9%
+Top agents on hard tasks
+Pass rates on the official Terminal-Bench 2.0 hard split (30 tasks tagged difficulty:hard ): bn-fit-modify, cancel-async-tasks, circuit-fibsqrt, configure-git-webserver, dna-assembly, extract-moves-from-video, feal-differential-cryptanalysis, feal-linear-cryptanalysis, fix-code-vulnerability, fix-ocaml-gc, gpt2-codegolf, install-windows-3.11, llm-inference-batching-scheduler, make-doom-for-mips, make-mips-interpreter, mcmc-sampling-stan, model-extraction-relu-logits, password-recovery, path-tracing, path-tracing-reverse, polyglot-rust-c, protein-assembly, regex-chess, sam-cell-seg, sparql-university, torch-pipeline-parallelism, torch-tensor-parallelism, train-fasttext, video-processing, write-compressor.
+Agent Pass / Total Pass rate
+terminus-3-3/claude-opus-4-6@anthropic 99/147 67.3%
+Factory Droid/claude-opus-4-6@anthropic 95/150 63.3%
+Factory Droid/gpt-5.3-codex@openai 94/150 62.7%
+forge/gemini-3.1-pro-preview@Google 93/150 62.0%
+terminus-3-3/gemini-3.1-pro-preview@Google 89/150 59.3%
+simple_codex/gpt-5.3-codex@openai 85/149 57.0%
+ruley/gpt-5.3-codex@OpenAI 85/150 56.7%
+judy/claude-opus-4.6@anthropic 84/150 56.0%
+mux/claude-opus-4-6@anthropic 82/150 54.7%
+claude-code-enhanced/claude-opus-4-6@anthropic 73/134 54.5%
+mux/gpt-5.3-codex@openai 80/150 53.3%
+Junie/gemini-3-flash-preview@gemini 78/150 52.0%
+deepagent-harbor/gpt-5.2-codex@openai 68/141 48.2%
+ante/gemini-3-pro-preview@Google 72/150 48.0%
+Factory Droid/claude-opus-4-5-20251101@anthropic 72/150 48.0%
+Data source
+Trajectories were scraped from tbench.ai using the publicly available leaderboard data.
+License
+Apache 2.0.
+Copy to bucket new
+Use this dataset
+Downloads last month
+1,190
+Number of rows:
+52,104
+Total file size:
+221 MB
+System theme
+Company
+TOS Privacy About Careers
+Website
+Models Datasets Spaces Pricing Docs

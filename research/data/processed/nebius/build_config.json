@@ -1,0 +1,16 @@
+{
+  "args": {
+    "corpus": "nebius",
+    "n": 1200,
+    "out": "data\\processed\\nebius",
+    "windows": "10",
+    "stride": 3,
+    "seed": 12,
+    "rel_threshold": 0.5
+  },
+  "n_views": 1200,
+  "n_window_rows": 26567,
+  "n_idf_terms": 14139,
+  "seconds": 135.2398488521576,
+  "built_at": "2026-09-10 22:33:36"
+}

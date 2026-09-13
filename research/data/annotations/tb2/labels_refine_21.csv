@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_dna-assembly__Xbp9Bz3_19,PRODUCTIVE,high,true,E/I,,steps 11-15 localize egfp/flag junctions; steps 17-19 map output segment
+d_tb2_dna-assembly__Xbp9Bz3_20,PRODUCTIVE,high,true,E/I,,steps 11-15 junction knowledge; step 20 explains end index 1554
+d_tb2_dna-assembly__Xbp9Bz3_21,PRODUCTIVE,high,true,E/I,,steps 12-15 junctions; steps 18-21 identify 546bp output segment
+d_tb2_dna-assembly__Xbp9Bz3_23,PRODUCTIVE,high,true,E/I,,steps 20-23 learn junction match 690 and oligotm Tm table
+d_tb2_dna-assembly__Xbp9Bz3_25,PRODUCTIVE,high,true,E/I,,steps 17-23 new junction data then primer Tm sweeps
+d_tb2_dna-assembly__Xbp9Bz3_27,PRODUCTIVE,high,true,E/I,,steps 20-27 junction data and two primer Tm sweeps
+d_tb2_dna-assembly__Xbp9Bz3_29,PRODUCTIVE,high,true,E/I,,steps 20-29 junction data and three new Tm sweeps
+d_tb2_dna-assembly__Xbp9Bz3_31,PRODUCTIVE,high,true,E/I,,steps 22-31 new Tm sweeps for five primer candidates
+d_tb2_dna-assembly__Xbp9Bz3_33,PRODUCTIVE,high,true,E/I,,steps 25-33 Tm sweeps advance primer selection over six candidates
+d_tb2_dna-assembly__Xbp9Bz3_35,PRODUCTIVE,high,true,E/I,,steps 27-35 Tm sweeps plus index 190 localization
+d_tb2_dna-assembly__Xbp9Bz3_37,PRODUCTIVE,high,true,E/I,,steps 28-37 Tm sweeps and sense-strand substring check
+d_tb2_dna-assembly__Xbp9Bz3_39,PRODUCTIVE,high,true,E/I,,steps 30-39 Tm sweeps then sense-strand substring check
+d_tb2_dna-assembly__Xbp9Bz3_41,PRODUCTIVE,high,true,E/I,,steps 32-41 new Tm sweeps and annealing lengths per primer
+d_tb2_dna-assembly__Xbp9Bz3_42,PRODUCTIVE,high,true,E/I,,steps 35-42 Tm sweeps then anneal lengths verified per primer
+d_tb2_dna-assembly__Xbp9Bz3_43,PRODUCTIVE,high,true,E/I,,steps 34-43 Tm data plus overhang analysis completed
+d_tb2_dna-assembly__Xbp9Bz3_45,PRODUCTIVE,high,true,E/I,,steps 38-45 new overhang data and primers.fasta written
+d_tb2_dna-assembly__Xbp9Bz3_47,PRODUCTIVE,high,true,E/I,,steps 39-47 overhangs computed and primers.fasta contents first shown
+d_tb2_dna-assembly__Xbp9Bz3_48,PRODUCTIVE,high,true,E/I,,steps 39-46 Tm checks plus primers.fasta created and printed
+d_tb2_dna-assembly__Xbp9Bz3_49,PRODUCTIVE,medium,true,E/I,,steps 40-46 new Tm data and primers.fasta written
+d_tb2_dna-assembly__Xbp9Bz3_51,PRODUCTIVE,medium,true,E/I,,steps 42-46 overhangs and primers.fasta written; steps 47+ re-verify known Tm
+d_tb2_dna-assembly__Xbp9Bz3_53,PRODUCTIVE,high,true,E/I,,steps 45-46 create primers.fasta with seven BsaI-tailed primers
+d_tb2_dna-assembly__Xbp9Bz3_54,PRODUCTIVE,medium,true,E/I,,steps 45-46 primers.fasta written; steps 47-53 re-verify known Tm
+d_tb2_dna-assembly__Xbp9Bz3_9,PRODUCTIVE,medium,true,E,,steps 4-5 block resolved by installed python; step 2 sees sequences.fasta
+d_tb2_extract-elf__rUUxEg5_11,PRODUCTIVE,high,true,E/I,,steps 5-8 binary analyzed and extract.js written; step 10 runs it
+d_tb2_extract-elf__rUUxEg5_13,PRODUCTIVE,high,true,E/I/V,,steps 5-12 inspect binary; edit unsigned; step 13 verification improves
+d_tb2_extract-elf__rUUxEg5_15,PRODUCTIVE,high,true,E/I/V,,steps 8-14 edit unsigned and verify negative values drop to zero
+d_tb2_extract-elf__rUUxEg5_16,PRODUCTIVE,high,true,E/I/V,,steps 8-15 script written; unsigned fix verified against binary bytes
+d_tb2_extract-elf__rUUxEg5_17,PRODUCTIVE,high,true,E/I/V,,steps 8-15 edit and verification; step 17 confirms clean directory
+d_tb2_extract-elf__rUUxEg5_19,PRODUCTIVE,high,true,E/I/V,,steps 12-15 unsigned fix verified; values match binary bytes
+d_tb2_extract-elf__rUUxEg5_20,PRODUCTIVE,high,true,E/I/V,,steps 12-15 unsigned fix and byte verification; step 18 reports completion

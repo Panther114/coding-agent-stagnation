@@ -1,0 +1,1658 @@
+{
+  "B1_step30": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.05,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.1,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.2,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    }
+  ],
+  "B1_step60": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.05,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.3,
+      "detection_rate": 0.13043478260869565,
+      "false_stop_rate": 0.0787746170678337,
+      "coverage": 0.5257793764988009,
+      "balanced_accuracy": 0.525830082770431,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.3,
+      "detection_rate": 0.13043478260869565,
+      "false_stop_rate": 0.0787746170678337,
+      "coverage": 0.5257793764988009,
+      "balanced_accuracy": 0.525830082770431,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B2_exact_rep3": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.05,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.1,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.2,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    }
+  ],
+  "B2_exact_rep5": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.05,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.1,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.2,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    }
+  ],
+  "B3_rep_channel": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.05,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.96,
+      "detection_rate": 0.18840579710144928,
+      "false_stop_rate": 0.09190371991247265,
+      "coverage": 0.16918465227817744,
+      "balanced_accuracy": 0.5482510385944883,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.84,
+      "detection_rate": 0.32608695652173914,
+      "false_stop_rate": 0.18161925601750548,
+      "coverage": 0.2780575539568345,
+      "balanced_accuracy": 0.5722338502521168,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B3_rep_target": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.05,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 1.0,
+      "detection_rate": 0.13768115942028986,
+      "false_stop_rate": 0.09190371991247265,
+      "coverage": 0.14904076738609112,
+      "balanced_accuracy": 0.5228887197539086,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.34057971014492755,
+      "false_stop_rate": 0.19912472647702406,
+      "coverage": 0.32026378896882496,
+      "balanced_accuracy": 0.5707274918339518,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B4_sem_diversity": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.92,
+      "detection_rate": 0.2246376811594203,
+      "false_stop_rate": 0.002188183807439825,
+      "coverage": 0.15335731414868106,
+      "balanced_accuracy": 0.6112247486759903,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.88,
+      "detection_rate": 0.2753623188405797,
+      "false_stop_rate": 0.019693654266958426,
+      "coverage": 0.1737410071942446,
+      "balanced_accuracy": 0.6278343322868106,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.3115942028985507,
+      "false_stop_rate": 0.037199124726477024,
+      "coverage": 0.20239808153477218,
+      "balanced_accuracy": 0.6371975390860368,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.76,
+      "detection_rate": 0.4420289855072464,
+      "false_stop_rate": 0.08315098468271334,
+      "coverage": 0.24184652278177457,
+      "balanced_accuracy": 0.6794390004122666,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.7,
+      "detection_rate": 0.5072463768115942,
+      "false_stop_rate": 0.19037199124726478,
+      "coverage": 0.3017985611510791,
+      "balanced_accuracy": 0.6584371927821647,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B4_semantic": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.9,
+      "detection_rate": 0.1956521739130435,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.15755395683453238,
+      "balanced_accuracy": 0.5934497193416421,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.84,
+      "detection_rate": 0.2318840579710145,
+      "false_stop_rate": 0.0175054704595186,
+      "coverage": 0.20731414868105516,
+      "balanced_accuracy": 0.6071892937557479,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.2463768115942029,
+      "false_stop_rate": 0.03938730853391685,
+      "coverage": 0.22661870503597123,
+      "balanced_accuracy": 0.6034947515301431,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.78,
+      "detection_rate": 0.32608695652173914,
+      "false_stop_rate": 0.087527352297593,
+      "coverage": 0.26666666666666666,
+      "balanced_accuracy": 0.6192798021120731,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.7,
+      "detection_rate": 0.5289855072463768,
+      "false_stop_rate": 0.17943107221006566,
+      "coverage": 0.4646282973621103,
+      "balanced_accuracy": 0.6747772175181557,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B5_novelty": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.86,
+      "detection_rate": 0.15942028985507245,
+      "false_stop_rate": 0.006564551422319475,
+      "coverage": 0.09100719424460432,
+      "balanced_accuracy": 0.5764278692163765,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.18840579710144928,
+      "false_stop_rate": 0.015317286652078774,
+      "coverage": 0.10491606714628297,
+      "balanced_accuracy": 0.5865442552246852,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.78,
+      "detection_rate": 0.2753623188405797,
+      "false_stop_rate": 0.04814004376367615,
+      "coverage": 0.23585131894484412,
+      "balanced_accuracy": 0.6136111375384518,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.38405797101449274,
+      "false_stop_rate": 0.0962800875273523,
+      "coverage": 0.3298561151079137,
+      "balanced_accuracy": 0.6438889417435703,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.572463768115942,
+      "false_stop_rate": 0.17943107221006566,
+      "coverage": 0.4366906474820144,
+      "balanced_accuracy": 0.6965163479529382,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B5_novelty_sig": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.94,
+      "detection_rate": 0.08695652173913043,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.11294964028776978,
+      "balanced_accuracy": 0.5391018932546856,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.94,
+      "detection_rate": 0.08695652173913043,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.11294964028776978,
+      "balanced_accuracy": 0.5391018932546856,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.92,
+      "detection_rate": 0.10869565217391304,
+      "false_stop_rate": 0.0262582056892779,
+      "coverage": 0.11918465227817746,
+      "balanced_accuracy": 0.5412187232423176,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.9,
+      "detection_rate": 0.13768115942028986,
+      "false_stop_rate": 0.09846827133479212,
+      "coverage": 0.18453237410071943,
+      "balanced_accuracy": 0.5196064440427489,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.427536231884058,
+      "false_stop_rate": 0.1575492341356674,
+      "coverage": 0.2918465227817746,
+      "balanced_accuracy": 0.6349934988741952,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B6_ver_stall": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.66,
+      "detection_rate": 0.014492753623188406,
+      "false_stop_rate": 0.006564551422319475,
+      "coverage": 0.22793764988009593,
+      "balanced_accuracy": 0.5039641011004344,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.6,
+      "detection_rate": 0.021739130434782608,
+      "false_stop_rate": 0.0175054704595186,
+      "coverage": 0.26498800959232616,
+      "balanced_accuracy": 0.5021168299876321,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.56,
+      "detection_rate": 0.043478260869565216,
+      "false_stop_rate": 0.03938730853391685,
+      "coverage": 0.2936450839328537,
+      "balanced_accuracy": 0.5020454761678242,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.52,
+      "detection_rate": 0.10144927536231885,
+      "false_stop_rate": 0.08315098468271334,
+      "coverage": 0.33393285371702636,
+      "balanced_accuracy": 0.5091491453398027,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.48,
+      "detection_rate": 0.21014492753623187,
+      "false_stop_rate": 0.16630196936542668,
+      "coverage": 0.3947242206235012,
+      "balanced_accuracy": 0.5219214790854027,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B6_verification": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.014492753623188406,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.07961630695443644,
+      "balanced_accuracy": 0.5028700091967145,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.8,
+      "detection_rate": 0.014492753623188406,
+      "false_stop_rate": 0.015317286652078774,
+      "coverage": 0.09328537170263788,
+      "balanced_accuracy": 0.4995877334855548,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.021739130434782608,
+      "false_stop_rate": 0.04157549234135667,
+      "coverage": 0.13872901678657074,
+      "balanced_accuracy": 0.49008181904671294,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.72,
+      "detection_rate": 0.050724637681159424,
+      "false_stop_rate": 0.06783369803063458,
+      "coverage": 0.17218225419664268,
+      "balanced_accuracy": 0.49144546982526244,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.66,
+      "detection_rate": 0.2536231884057971,
+      "false_stop_rate": 0.19912472647702406,
+      "coverage": 0.2738609112709832,
+      "balanced_accuracy": 0.5272492309643866,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "B7_workspace": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 1.0,
+      "detection_rate": 0.028985507246376812,
+      "false_stop_rate": 0.045951859956236324,
+      "coverage": 0.06618705035971223,
+      "balanced_accuracy": 0.49151682364507027,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.86,
+      "detection_rate": 0.07246376811594203,
+      "false_stop_rate": 0.09846827133479212,
+      "coverage": 0.13189448441247004,
+      "balanced_accuracy": 0.48699774839057497,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.76,
+      "detection_rate": 0.13768115942028986,
+      "false_stop_rate": 0.19474835886214442,
+      "coverage": 0.22685851318944844,
+      "balanced_accuracy": 0.4714664002790727,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "C1_evidence": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "C1_evidence_rel": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.62,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.62,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.62,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.62,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.62,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "C2_evid_ver": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.78,
+      "detection_rate": 0.007246376811594203,
+      "false_stop_rate": 0.002188183807439825,
+      "coverage": 0.10647482014388489,
+      "balanced_accuracy": 0.5025290965020772,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.78,
+      "detection_rate": 0.007246376811594203,
+      "false_stop_rate": 0.002188183807439825,
+      "coverage": 0.10647482014388489,
+      "balanced_accuracy": 0.5025290965020772,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.76,
+      "detection_rate": 0.021739130434782608,
+      "false_stop_rate": 0.0262582056892779,
+      "coverage": 0.1329736211031175,
+      "balanced_accuracy": 0.4977404623727523,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.72,
+      "detection_rate": 0.10144927536231885,
+      "false_stop_rate": 0.09409190371991247,
+      "coverage": 0.18237410071942445,
+      "balanced_accuracy": 0.5036786858212032,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.12318840579710146,
+      "false_stop_rate": 0.12253829321663019,
+      "coverage": 0.24940047961630696,
+      "balanced_accuracy": 0.5003250562902356,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "C2_evid_ver_work": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.86,
+      "detection_rate": 0.007246376811594203,
+      "false_stop_rate": 0.006564551422319475,
+      "coverage": 0.06666666666666667,
+      "balanced_accuracy": 0.5003409126946373,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.86,
+      "detection_rate": 0.007246376811594203,
+      "false_stop_rate": 0.006564551422319475,
+      "coverage": 0.06666666666666667,
+      "balanced_accuracy": 0.5003409126946373,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.78,
+      "detection_rate": 0.021739130434782608,
+      "false_stop_rate": 0.045951859956236324,
+      "coverage": 0.16139088729016787,
+      "balanced_accuracy": 0.48789363523927315,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.06521739130434782,
+      "false_stop_rate": 0.08533916849015317,
+      "coverage": 0.23884892086330936,
+      "balanced_accuracy": 0.4899391114070973,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.7,
+      "detection_rate": 0.11594202898550725,
+      "false_stop_rate": 0.18599562363238512,
+      "coverage": 0.30551558752997604,
+      "balanced_accuracy": 0.46497320267656106,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "C3_evid_sem": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.10144927536231885,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.12877697841726618,
+      "balanced_accuracy": 0.5463482700662798,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.10144927536231885,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.12877697841726618,
+      "balanced_accuracy": 0.5463482700662798,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.72,
+      "detection_rate": 0.14492753623188406,
+      "false_stop_rate": 0.02188183807439825,
+      "coverage": 0.18489208633093526,
+      "balanced_accuracy": 0.561522849078743,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.7,
+      "detection_rate": 0.2971014492753623,
+      "false_stop_rate": 0.05470459518599562,
+      "coverage": 0.3173860911270983,
+      "balanced_accuracy": 0.6211984270446833,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.41304347826086957,
+      "false_stop_rate": 0.12035010940919037,
+      "coverage": 0.3912470023980815,
+      "balanced_accuracy": 0.6463466844258396,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "C4_all_hand": [
+    {
+      "budget": 0.01,
+      "available": 0.0,
+      "threshold": NaN,
+      "detection_rate": NaN,
+      "false_stop_rate": NaN,
+      "coverage": NaN,
+      "balanced_accuracy": NaN
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.98,
+      "detection_rate": 0.07246376811594203,
+      "false_stop_rate": 0.019693654266958426,
+      "coverage": 0.06342925659472422,
+      "balanced_accuracy": 0.5263850569244918,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.9,
+      "detection_rate": 0.10869565217391304,
+      "false_stop_rate": 0.03938730853391685,
+      "coverage": 0.13956834532374102,
+      "balanced_accuracy": 0.5346541718199981,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.84,
+      "detection_rate": 0.17391304347826086,
+      "false_stop_rate": 0.09190371991247265,
+      "coverage": 0.20959232613908874,
+      "balanced_accuracy": 0.5410046617828941,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.36231884057971014,
+      "false_stop_rate": 0.17286652078774617,
+      "coverage": 0.354916067146283,
+      "balanced_accuracy": 0.594726159895982,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_all_hand": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 1.0,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.98,
+      "detection_rate": 0.15217391304347827,
+      "false_stop_rate": 0.0175054704595186,
+      "coverage": 0.08752997601918465,
+      "balanced_accuracy": 0.5673342212919799,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.98,
+      "detection_rate": 0.15217391304347827,
+      "false_stop_rate": 0.0175054704595186,
+      "coverage": 0.08752997601918465,
+      "balanced_accuracy": 0.5673342212919799,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.94,
+      "detection_rate": 0.2753623188405797,
+      "false_stop_rate": 0.09409190371991247,
+      "coverage": 0.14568345323741008,
+      "balanced_accuracy": 0.5906352075603336,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.86,
+      "detection_rate": 0.3695652173913043,
+      "false_stop_rate": 0.19693654266958424,
+      "coverage": 0.25539568345323743,
+      "balanced_accuracy": 0.58631433736086,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_all_sem": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 1.0,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 1.0,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.98,
+      "detection_rate": 0.15942028985507245,
+      "false_stop_rate": 0.0262582056892779,
+      "coverage": 0.0960431654676259,
+      "balanced_accuracy": 0.5665810420828973,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.94,
+      "detection_rate": 0.2608695652173913,
+      "false_stop_rate": 0.09190371991247265,
+      "coverage": 0.17002398081534773,
+      "balanced_accuracy": 0.5844829226524594,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.88,
+      "detection_rate": 0.32608695652173914,
+      "false_stop_rate": 0.17286652078774617,
+      "coverage": 0.23381294964028776,
+      "balanced_accuracy": 0.5766102178669965,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_evid": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.8,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.7,
+      "detection_rate": 0.007246376811594203,
+      "false_stop_rate": 0.019693654266958426,
+      "coverage": 0.009832134292565946,
+      "balanced_accuracy": 0.4937763612723179,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.028985507246376812,
+      "false_stop_rate": 0.04814004376367615,
+      "coverage": 0.021223021582733814,
+      "balanced_accuracy": 0.4904227317413503,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.028985507246376812,
+      "false_stop_rate": 0.04814004376367615,
+      "coverage": 0.021223021582733814,
+      "balanced_accuracy": 0.4904227317413503,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.66,
+      "detection_rate": 0.043478260869565216,
+      "false_stop_rate": 0.18161925601750548,
+      "coverage": 0.08225419664268585,
+      "balanced_accuracy": 0.43092950242602984,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_evid_nov": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 1.0,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.98,
+      "detection_rate": 0.07246376811594203,
+      "false_stop_rate": 0.015317286652078774,
+      "coverage": 0.03141486810551559,
+      "balanced_accuracy": 0.5285732407319317,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.96,
+      "detection_rate": 0.07246376811594203,
+      "false_stop_rate": 0.024070021881838075,
+      "coverage": 0.035491606714628296,
+      "balanced_accuracy": 0.524196873117052,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.92,
+      "detection_rate": 0.13768115942028986,
+      "false_stop_rate": 0.07439824945295405,
+      "coverage": 0.10455635491606714,
+      "balanced_accuracy": 0.5316414549836679,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.86,
+      "detection_rate": 0.2608695652173913,
+      "false_stop_rate": 0.175054704595186,
+      "coverage": 0.16282973621103117,
+      "balanced_accuracy": 0.5429074303111027,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_evid_sem": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.94,
+      "detection_rate": 0.09420289855072464,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.05431654676258993,
+      "balanced_accuracy": 0.5427250816604827,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.94,
+      "detection_rate": 0.09420289855072464,
+      "false_stop_rate": 0.0087527352297593,
+      "coverage": 0.05431654676258993,
+      "balanced_accuracy": 0.5427250816604827,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.88,
+      "detection_rate": 0.2608695652173913,
+      "false_stop_rate": 0.045951859956236324,
+      "coverage": 0.1893285371702638,
+      "balanced_accuracy": 0.6074588526305775,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.34782608695652173,
+      "false_stop_rate": 0.09409190371991247,
+      "coverage": 0.2460431654676259,
+      "balanced_accuracy": 0.6268670916183046,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.76,
+      "detection_rate": 0.45652173913043476,
+      "false_stop_rate": 0.1838074398249453,
+      "coverage": 0.3053956834532374,
+      "balanced_accuracy": 0.6363571496527447,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_evid_ver": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.92,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.002188183807439825,
+      "coverage": 0.06726618705035971,
+      "balanced_accuracy": 0.4989059080962801,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.92,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.002188183807439825,
+      "coverage": 0.06726618705035971,
+      "balanced_accuracy": 0.4989059080962801,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.88,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.04157549234135667,
+      "coverage": 0.10767386091127099,
+      "balanced_accuracy": 0.47921225382932164,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.06521739130434782,
+      "false_stop_rate": 0.09190371991247265,
+      "coverage": 0.2593525179856115,
+      "balanced_accuracy": 0.4866568356959376,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.09420289855072464,
+      "false_stop_rate": 0.17286652078774617,
+      "coverage": 0.32302158273381293,
+      "balanced_accuracy": 0.4606681888814892,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_nov": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 1.0,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.96,
+      "detection_rate": 0.09420289855072464,
+      "false_stop_rate": 0.0175054704595186,
+      "coverage": 0.03381294964028777,
+      "balanced_accuracy": 0.538348714045603,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.9,
+      "detection_rate": 0.13768115942028986,
+      "false_stop_rate": 0.0437636761487965,
+      "coverage": 0.09940047961630695,
+      "balanced_accuracy": 0.5469587416357466,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.84,
+      "detection_rate": 0.18840579710144928,
+      "false_stop_rate": 0.09846827133479212,
+      "coverage": 0.1275779376498801,
+      "balanced_accuracy": 0.5449687628833286,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.427536231884058,
+      "false_stop_rate": 0.19474835886214442,
+      "coverage": 0.21774580335731414,
+      "balanced_accuracy": 0.6163939365109568,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_rep": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.9,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0,
+      "coverage": 0.0,
+      "balanced_accuracy": 0.5,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.0175054704595186,
+      "coverage": 0.008513189448441247,
+      "balanced_accuracy": 0.4912472647702407,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.78,
+      "detection_rate": 0.06521739130434782,
+      "false_stop_rate": 0.03938730853391685,
+      "coverage": 0.060191846522781776,
+      "balanced_accuracy": 0.5129150413852155,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.16666666666666666,
+      "false_stop_rate": 0.09409190371991247,
+      "coverage": 0.126378896882494,
+      "balanced_accuracy": 0.5362873814733771,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.68,
+      "detection_rate": 0.2898550724637681,
+      "false_stop_rate": 0.17286652078774617,
+      "coverage": 0.1906474820143885,
+      "balanced_accuracy": 0.5584942758380109,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_sem": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.9,
+      "detection_rate": 0.06521739130434782,
+      "false_stop_rate": 0.006564551422319475,
+      "coverage": 0.06462829736211032,
+      "balanced_accuracy": 0.5293264199410141,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.88,
+      "detection_rate": 0.18115942028985507,
+      "false_stop_rate": 0.010940919037199124,
+      "coverage": 0.10983213429256594,
+      "balanced_accuracy": 0.585109250626328,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.82,
+      "detection_rate": 0.2971014492753623,
+      "false_stop_rate": 0.0437636761487965,
+      "coverage": 0.19976019184652277,
+      "balanced_accuracy": 0.6266688865632829,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.78,
+      "detection_rate": 0.37681159420289856,
+      "false_stop_rate": 0.09190371991247265,
+      "coverage": 0.2461630695443645,
+      "balanced_accuracy": 0.6424539371452129,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.7,
+      "detection_rate": 0.5,
+      "false_stop_rate": 0.18818380743982493,
+      "coverage": 0.32422062350119907,
+      "balanced_accuracy": 0.6559080962800875,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_ver": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.88,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.006564551422319475,
+      "coverage": 0.002158273381294964,
+      "balanced_accuracy": 0.49671772428884026,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.88,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.006564551422319475,
+      "coverage": 0.002158273381294964,
+      "balanced_accuracy": 0.49671772428884026,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.74,
+      "detection_rate": 0.0,
+      "false_stop_rate": 0.04814004376367615,
+      "coverage": 0.1645083932853717,
+      "balanced_accuracy": 0.4759299781181619,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.62,
+      "detection_rate": 0.10144927536231885,
+      "false_stop_rate": 0.06345733041575492,
+      "coverage": 0.2672661870503597,
+      "balanced_accuracy": 0.518995972473282,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.62,
+      "detection_rate": 0.10144927536231885,
+      "false_stop_rate": 0.06345733041575492,
+      "coverage": 0.2672661870503597,
+      "balanced_accuracy": 0.518995972473282,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ],
+  "L_work": [
+    {
+      "budget": 0.01,
+      "available": 1.0,
+      "threshold": 0.8,
+      "detection_rate": 0.014492753623188406,
+      "false_stop_rate": 0.00437636761487965,
+      "coverage": 0.00539568345323741,
+      "balanced_accuracy": 0.5050581930041543,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.02,
+      "available": 1.0,
+      "threshold": 0.72,
+      "detection_rate": 0.036231884057971016,
+      "false_stop_rate": 0.015317286652078774,
+      "coverage": 0.010191846522781775,
+      "balanced_accuracy": 0.5104572987029461,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.05,
+      "available": 1.0,
+      "threshold": 0.72,
+      "detection_rate": 0.036231884057971016,
+      "false_stop_rate": 0.015317286652078774,
+      "coverage": 0.010191846522781775,
+      "balanced_accuracy": 0.5104572987029461,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.1,
+      "available": 1.0,
+      "threshold": 0.72,
+      "detection_rate": 0.036231884057971016,
+      "false_stop_rate": 0.015317286652078774,
+      "coverage": 0.010191846522781775,
+      "balanced_accuracy": 0.5104572987029461,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    },
+    {
+      "budget": 0.2,
+      "available": 1.0,
+      "threshold": 0.7,
+      "detection_rate": 0.17391304347826086,
+      "false_stop_rate": 0.1400437636761488,
+      "coverage": 0.2026378896882494,
+      "balanced_accuracy": 0.516934639901056,
+      "n_positive_windows": 138,
+      "n_negative_windows": 457
+    }
+  ]
+}

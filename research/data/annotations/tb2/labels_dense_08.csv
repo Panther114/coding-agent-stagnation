@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_51,STAGNANT,low,true,none,repeat_verify,steps 44/47/50 each end "no alert" for further payloads; window 42-51 added no new information or durable artefact
+d_tb2_build-pov-ray__6eHbkqP_31,PRODUCTIVE,high,true,I/V,,step 23 Makefile edit compiled at 25 then installed /usr/local/bin/povray at 26; 27 sanity render printed statistics
+d_tb2_build-pov-ray__KS3ejPb_22,PRODUCTIVE,high,true,E/V,,step 21 error moved from missing make to missing config.h with cc invoked; 16-20 read unix.mak unix.doc and searched config.h
+d_tb2_caffe-cifar-10__zjg6gbb_18,PRODUCTIVE,high,true,E/I,,steps 16-18 installed dependencies and found HDF5 boost_python and OpenCV4 paths; step 15 read Makefile.config.example
+d_tb2_cobol-modernization__z8rbv6p_57,PRODUCTIVE,high,true,I/E,,steps 54-56 edited program.py three times after diagnostic run at 48-49 showed which validation path failed
+d_tb2_compile-compcert__ArM52Gs_49,PRODUCTIVE,high,false,E/V,,step 45 installed ccomp and 48 compiled hello.c printing "hello from CompCert OK"; 46-47 confirmed version 3.13
+d_tb2_compile-compcert__pvBcxmV_42,PRODUCTIVE,high,true,E/V,,step 39-41 localized and patched Z_div_mod_eq; 42 make now fails later at a different tactic failure
+d_tb2_crack-7z-hash__M36nRdr_34,STAGNANT,medium,false,none,no_new_information,"steps 27/29/31/33 repeat password loops with empty output; 25/28/30/32 restate known facts and no extraction succeeded"
+d_tb2_crack-7z-hash__X4cK7Hr_22,STAGNANT,medium,false,none,repeat_verify,,steps 16-19 rerun john on the same hash and all time out; 20-22 self-test again shows the same timeout
+d_tb2_custom-memory-heap-crash__NAMeUua_11,PRODUCTIVE,high,false,I/V,,step 8 edited user.cpp; 9-10 release rebuilt and now exits 0 instead of SIGSEGV (step 5)
+d_tb2_db-wal-recovery__rwGVtyu_9,PRODUCTIVE,medium,true,E,,step 3 showed the WAL is absent and base holds 5 rows; 5-9 probed and enumerated overlay lower layers for main.db-wal
+d_tb2_distribution-search__ZJDezEN_47,PRODUCTIVE,medium,true,E/I,,step 42 installed scipy via uv after steps 38-39 failed; 44 ran the search and printed initial KL 6.26 and 2.30
+d_tb2_dna-assembly__Xbp9Bz3_37,PRODUCTIVE,high,true,E,,steps 28-33 and 35 compute oligotm melting temperatures for candidate annealing regions; step 34 located the 190 junction
+d_tb2_extract-moves-from-video__vRcGj7U_35,PRODUCTIVE,medium,true,E/V,,steps 26-31 extracted per-frame keystroke text; 34 saved command frames and 35 finally returned a command list
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_19,PRODUCTIVE,medium,true,E/I,,step 15 ruled out the scoring heuristic after run 14; 16 and 19 replaced the attack between failing runs 14 and 17
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_11,BLOCKED_EXTERNAL,high,false,none,,"steps 4-11 repeatedly echo that feal.c decrypt.c pairs.txt and ciphertexts.txt are absent; no input files exist to attack"
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_53,STAGNANT,high,false,none,repeat_verify,,steps 44-53 each interrupt the same brute force which only advances counters k0/k1/k2; no edit and no new information
+d_tb2_fix-code-vulnerability__7wXM79N_42,STAGNANT,medium,true,none,repeat_verify,,steps 39-42 run pytest on two nonexistent test node ids and both fail exit 4; step 38 rereads the same _hval text as 22
+d_tb2_fix-ocaml-gc__4FMyNtb_33,PRODUCTIVE,medium,true,E,,steps 25-29 read major_gc.c and grep compression and RLE markers; steps 30-33 then repeat malformed calls with no observation
+d_tb2_fix-ocaml-gc__EE2S8BX_19,STAGNANT,high,true,none,edit_revert,,steps 10-14 edit shared_heap.c while 11/13/15 make attempts still fail identically; step 16 search repeats the pool_sweep hits of step 5
+d_tb2_git-leak-recovery__3MYVn6Q_10,PRODUCTIVE,high,true,E/I,,step 4 reflog exposed the rewritten commit; 6 search yielded the secret string and 8 wrote it to /app/secret.txt
+d_tb2_git-multibranch__zEK52fz_58,PRODUCTIVE,high,false,I/V,,steps 50-56 fixed deployment permissions and pushed dev; 51/57/58 curl returned main and dev branch content
+d_tb2_install-windows-3.11__mUYmJ4a_52,PRODUCTIVE,medium,true,E/V,,step 43 verified VNC listening on 5901; 49-52 confirmed the QEMU 5.2 command line with -snapshot -vnc :1 and usb-kbd
+d_tb2_llm-inference-batching-scheduler__7vihvYk_37,REGRESSION,medium,false,V,,step 28 metrics cost 7.29e11 pad 0.19; after edits 30 and 34 step 36 reports cost 9.70e12 pad 1.53 - worse
+d_tb2_mailman__dbiKZhc_27,PRODUCTIVE,medium,true,E,,step 25 mailq revealed the deferred MX lookup failure for local.edu; steps 18-24 checked mydestination home_mailbox and listeners
+d_tb2_mailman__qzvMMtK_17,PRODUCTIVE,high,true,E,,step 11 read eval.py mailman.cfg and main.cf; 12-17 established the Debian layout paths and the shipped mailman.cfg location
+d_tb2_mailman__tQhpVL_32,PRODUCTIVE,medium,true,E,,steps 25-32 located mailman at /usr/lib/python3/dist-packages and the real bin directory then narrowed the master invocation
+d_tb2_make-doom-for-mips__DU5GBNE_48,STAGNANT,medium,true,none,post_completion,,steps 40/42/44/46/48 keep writing and verifying analysis documents while no MIPS ELF build is attempted in the window

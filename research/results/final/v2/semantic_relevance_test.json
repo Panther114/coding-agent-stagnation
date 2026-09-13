@@ -1,0 +1,11 @@
+{
+  "auc": {
+    "lexical (v1 implementation)": 0.582830193205809,
+    "semantic (MiniLM relevance)": 0.5656407939351289,
+    "v1 C1_evidence (lexical)": 0.584241651205937,
+    "v1 exact repetition": 0.6047917599641738,
+    "v1 semantic (BoW)": 0.7754782163649159
+  },
+  "n_windows": 1103,
+  "positive_rate": 0.28921124206708976
+}

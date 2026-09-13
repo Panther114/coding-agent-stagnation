@@ -1,0 +1,19 @@
+# URLs from main_idea.md to verify (one per line)
+https://openreview.net/pdf?id=BlVgsZzg0N
+https://2026.aiwareconf.org/details/aiware-2026-papers/10/Zombie-Agents-Detecting-Semantic-Livelock-in-Long-Horizon-Autonomous-Software
+https://arxiv.org/abs/2607.09510
+https://arxiv.org/abs/2608.03222
+https://arxiv.org/abs/2607.05391
+https://arxiv.org/abs/2608.16156
+https://arxiv.org/abs/2607.06184
+https://arxiv.org/abs/2605.15206
+https://arxiv.org/abs/2310.06770
+https://arxiv.org/abs/2405.15793
+https://huggingface.co/datasets/yoonholee/terminalbench-trajectories
+https://huggingface.co/datasets/nebius/SWE-agent-trajectories
+https://github.com/anomalyco/opencode/issues/43603
+https://github.com/anomalyco/opencode/issues/45442
+https://github.com/anthropics/claude-code/issues/85265
+https://github.com/anthropics/claude-code/issues/86499
+https://llm-as-a-verifier.com/
+https://github.com/brave-experiments/AgentStop

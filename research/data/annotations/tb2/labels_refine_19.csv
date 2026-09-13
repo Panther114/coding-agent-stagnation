@@ -1,0 +1,35 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_115,BLOCKED_EXTERNAL,medium,false,none,,steps 106-115 no tool call; network to GitHub/PyPI unavailable so clone impossible
+d_tb2_build-cython-ext__JrNsKeV_121,BLOCKED_EXTERNAL,medium,false,none,,steps 112-121 repeat same analysis; no network access to GitHub or PyPI
+d_tb2_build-cython-ext__JrNsKeV_127,BLOCKED_EXTERNAL,medium,false,none,,steps 118-127 no new tool result; external network block prevents cloning source
+d_tb2_build-cython-ext__JrNsKeV_133,BLOCKED_EXTERNAL,medium,false,none,,steps 124-133 same blocked analysis; environment cannot reach GitHub or PyPI
+d_tb2_build-cython-ext__JrNsKeV_139,BLOCKED_EXTERNAL,medium,false,none,,steps 130-139 no action possible; network block outside agent control
+d_tb2_build-cython-ext__JrNsKeV_145,BLOCKED_EXTERNAL,medium,false,none,,steps 136-145 unchanged empty directory; network failure is external
+d_tb2_build-cython-ext__JrNsKeV_151,BLOCKED_EXTERNAL,medium,false,none,,steps 142-151 repeated no-tool analysis; clone blocked by unreachable network
+d_tb2_build-pov-ray__6eHBkqP_11,PRODUCTIVE,low,false,E,,steps 6-11 rule out povray.org archive.org github; step 12 locates FTP archives
+d_tb2_build-pov-ray__6eHBkqP_15,PRODUCTIVE,high,false,E/I,,steps 12-15 archives downloaded and extracted into /app/povray-2.2 with sources
+d_tb2_build-pov-ray__6eHBkqP_17,PRODUCTIVE,high,false,E/I,,step 12 finds FTP archives; steps 13-17 extract source and povdoc trees
+d_tb2_build-pov-ray__6eHBkqP_21,PRODUCTIVE,high,false,E,,steps 16-21 directory and unix.mak inspection builds compile context
+d_tb2_build-pov-ray__6eHBkqP_25,PRODUCTIVE,high,false,I/V,,step 23 Makefile edited for gcc; step 25 build compiles to povray binary
+d_tb2_build-pov-ray__6eHBkqP_29,PRODUCTIVE,high,false,I/V,,step 23 edits Makefile; step 27 binary installed and sanity check renders
+d_tb2_build-pov-ray__6eHBkqP_33,PRODUCTIVE,high,false,I/V,,step 25 successful compile; step 27 installs to /usr/local/bin and render passes
+d_tb2_build-pov-ray__6eHBkqP_35,DONE_REDUNDANT,high,false,V,post_completion,steps 26-27 completion verified; steps 30-35 re-check binary and includes
+d_tb2_build-pov-ray__6eHBkqP_39,DONE_REDUNDANT,high,false,V,post_completion,task verified by step 27; steps 34-39 re-run sanity check and image check
+d_tb2_build-pov-ray__6eHBkqP_41,DONE_REDUNDANT,high,false,V,post_completion,step 27 verified build; steps 34-41 repeat checks ending all PASS
+d_tb2_build-pov-ray__6eHBkqP_43,DONE_REDUNDANT,high,false,V,post_completion,verified before window; steps 34-42 only re-verify then finish_verification
+d_tb2_build-pov-ray__KS3ejPb_11,PRODUCTIVE,high,false,E/I,,steps 5-6 download and extract archives; steps 8-11 map source tree
+d_tb2_build-pov-ray__KS3ejPb_13,PRODUCTIVE,high,false,E/I,,steps 5-6 fetch and uncompress archives; steps 9-13 map dirs and copy files
+d_tb2_build-pov-ray__KS3ejPb_17,PRODUCTIVE,high,false,E/V,,steps 13-17 install make; make error moves from missing tool to config.h
+d_tb2_build-pov-ray__KS3ejPb_21,PRODUCTIVE,high,false,E/V,,steps 16-21 identify config.h template; make now runs cc past missing config
+d_tb2_build-pov-ray__KS3ejPb_23,PRODUCTIVE,high,false,E/V,,steps 16-23 install make/gcc; error advances to cc invocation
+d_tb2_build-pov-ray__KS3ejPb_25,PRODUCTIVE,high,false,E/V,,steps 18-25 read unix.doc and gccconf.h; build reaches unix_init_povray error
+d_tb2_build-pov-ray__KS3ejPb_27,PRODUCTIVE,high,false,E/I,,steps 21-27 build dir plus Makefile fixes; unix_init_povray and stdlib fixed
+d_tb2_build-pov-ray__KS3ejPb_29,PRODUCTIVE,high,false,I/V,,steps 21-29 fixes compile errors; step 29 binary successfully installed
+d_tb2_build-pov-ray__KS3ejPb_31,PRODUCTIVE,high,false,I/V,,steps 24-31 recompile succeeds; binary installed and sanity check passes
+d_tb2_build-pov-ray__KS3ejPb_35,PRODUCTIVE,high,false,I/V/E,,steps 26-28 fixes compile build; steps 29-31 install and sanity check pass
+d_tb2_build-pov-ray__KS3ejPb_37,PRODUCTIVE,high,false,I/V,,steps 28-31 compile install sanity pass; step 37 renders PNG
+d_tb2_build-pov-ray__bMc6qiA_9,PRODUCTIVE,medium,false,E,,steps 2-7 rule out official site archive.org sourceforge; HTML diagnosis
+d_tb2_build-pov-ray__bMc6qiA_25,STAGNANT,medium,false,none,repeat_search,steps 17-25 paraphrase same archive and GitHub queries; same empty matches
+d_tb2_build-pov-ray__bMc6qiA_33,STAGNANT,medium,false,none,repeat_search,steps 32-33 re-issue identical GitHub repository searches with no new results
+d_tb2_build-pov-ray__bMc6qiA_41,STAGNANT,high,false,none,repeat_search,steps 32-41 repeat identical GitHub repository search; nothing new learned
+d_tb2_build-pov-ray__bMc6qiA_49,STAGNANT,high,false,none,repeat_search,steps 40-49 repeat same GitHub search; identical empty results throughout

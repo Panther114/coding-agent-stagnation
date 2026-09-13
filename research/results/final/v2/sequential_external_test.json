@@ -1,0 +1,30 @@
+{
+  "llr_boundary2.0": {
+    "det": 18,
+    "fp": 10
+  },
+  "llr_boundary3.0": {
+    "det": 14,
+    "fp": 5
+  },
+  "llr_boundary5.0": {
+    "det": 12,
+    "fp": 2
+  },
+  "llr_boundary8.0": {
+    "det": 8,
+    "fp": 2
+  },
+  "llr_scaffold_boundary2.0": {
+    "det": 16,
+    "fp": 9
+  },
+  "llr_scaffold_boundary3.0": {
+    "det": 14,
+    "fp": 5
+  },
+  "llr_scaffold_boundary5.0": {
+    "det": 12,
+    "fp": 2
+  }
+}

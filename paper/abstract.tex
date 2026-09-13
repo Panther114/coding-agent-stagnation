@@ -1,0 +1,34 @@
+Coding agents spend much of their runtime on activity that does not advance the task. We ask which
+runtime signals let an online, reference-free monitor recognise this, and answer with annotated evidence
+rather than a new model. Progress is defined through three channels --- epistemic (new task-relevant
+information), implementation (durable plausible change) and verification (objective evidence about
+correctness) --- and \pannWindowsTotal{} windows over \pannTrajTotal{} trajectories are labelled with a
+written codebook, then re-read under reduced context to measure stability (\pannBinaryAgr{}\% binary
+agreement, $\kappa=\pannKappa$). On \pnTraj{} Terminal-Bench~2.0 trajectories (\pnTasks{} tasks,
+\pcorpusScaffolds{} scaffolds) under task-level cross-validation we compare six signal families: action
+repetition, relevance-blind novelty, task-grounded evidence, verification deltas, workspace churn, and
+rolling semantic redundancy of successive steps.
+
+Two findings. First, the family we expected to dominate does not: task-grounded evidence scores
+\paucCOneevidence{}, below exact repetition (\paucBTworepThree{}) and far below semantic redundancy
+(\paucBFoursemantic{}; paired $\Delta$ \ppairCOneevvsBFoursemDelta{}, clustered $95\%$ interval excluding
+zero). Verification deltas and workspace churn are weaker still. Second, and contrary to our earlier
+reading, the label is an \emph{episode} rather than a point: consecutive windows sharing a label merge
+into \pregEpisodes{} contiguous stall episodes with a median duration of \pregMedianSteps{} steps. Scored
+at that unit the picture reverses. Inside a single run, and against productive stretches at matched run
+positions, the monitor separates \pregPmSep{} of \pregPmTot{} stall episodes (\pregPmPct{}\%, clustered
+interval $[\pregPmLo{},\pregPmHi{}]$, $p=\pregPmP{}$), while a run-position proxy separates only
+\pregProxySep{} of \pregProxyTot{}.
+
+That separation is not by itself an alarm, because the score drifts upward with run progress. The drift is
+what the detector removes: smooth the score over \palSmooth{} windows, anchor a reference to the run's own
+first \palOpen{}\% of steps --- before a stall can have begun --- and alarm when the smoothed score exceeds
+$\mu+\palKsd{}\sigma$. The resulting alarm flags \palDet{}\% of stall episodes at a \palFaWin{}\%
+per-window false-alarm rate with median latency zero steps, and reaches \pnestedDet{}\% at \pnestedFa{}\%
+under a nested protocol that selects every parameter on held-out runs. It uses no labels, no reference
+trajectories and no task-specific tuning, and we report both where it succeeds and where it fails: roughly
+two episodes in five are missed, and short stalls are the ones missed. Everything needed to reproduce this
+is released, including the annotated windows with step-cited justifications, the frozen feature matrices,
+the monitor implementation (\prtMsPerWindow\,ms per feature vector on one CPU core), and the scripts that
+regenerate every figure and every number in this paper.
+

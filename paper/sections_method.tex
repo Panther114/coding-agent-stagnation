@@ -1,0 +1,83 @@
+\section{Online, reference-free signals}
+\label{sec:method}
+
+Every signal below is a function of the window $[t-w+1,t]$ and of statistics accumulated on steps
+$<t-w+1$. All are computed by the released implementation (\code{src/features.py}) from normalized
+actions and extracted entities, so the same feature vector can be produced by any runtime that can log
+tool calls and their outputs.
+
+\subsection{Action normalization}
+Raw tool calls differ across scaffolds (a shell command, a \code{str\_replace} call, a \code{Grep} tool),
+so we first canonicalize each call into a tuple: a tool class (\code{shell}, \code{read}, \code{edit},
+\code{search}, \code{verify}, \code{install}, \code{web}, \code{control}), a leading verb, a set of
+plausible file or symbol targets, search terms, and a coarse intent (\code{explore}, \code{read},
+\code{edit}, \code{verify}, \code{install}, \code{control}). Compound shell commands are split on pipes and
+redirections and classified by priority, so \code{cd /app \&\& pytest -x} is a verification, not a
+directory change, and multi-tool steps are flattened into an action sequence. This normalization is what
+makes ``the same action again'' comparable across scaffolds; without it, repetition detection is
+scaffold-specific.
+
+\subsection{Evidence: entities and verification state}
+From each observation we extract typed entities: file paths (including traceback frames and
+\code{[File:...]} headers), function and symbol names, exception classes, normalized exception messages,
+test identifiers, and metric-like key/value pairs, de-duplicated per step and identified by
+\code{kind:value} with paths normalized to repository-relative form. In parallel we read \emph{objective
+state} out of each observation: process exit codes, test pass/fail/error counts, build success or
+failure markers, crash and timeout markers, and the terminal error signature (exception class plus
+normalized message). Comparing two consecutive verification states yields the verification delta.
+
+\subsection{Task grounding without a model}
+The only task-specific input is the task statement. We tokenize it into content words and score an
+entity's relevance as the weighted fraction of its subtokens appearing in the statement, with weights
+being inverse-document-frequencies estimated on the training split (so a token like \code{file}
+contributes little and \code{pyproject} contributes substantially). This is a zero-cost relevance prior:
+no second model, no reference solution, no hand-written rules per task. It is deliberately crude, and
+Section~\ref{sec:results} shows both that it is enough to change the operating point and where it fails.
+
+\subsection{Six channels}
+\begin{description}[leftmargin=1.1em,style=nextline,itemsep=2pt]
+\item[\rep{} --- repetition.] Exact-duplicate fraction of normalized action signatures, at target level
+and at command-family level; the longest exact repetition; the fraction of window actions already seen
+anywhere earlier; and a periodicity statistic for $2$-, $3$- and $4$-cycles.
+\item[\nov{} --- relevance-blind novelty.] Rate of entities never observed before, split by kind, plus
+the fraction of distinct action signatures and the mean observation length. This is the ``is anything
+new happening?'' channel, blind to whether the novelty matters.
+\item[\evid{} --- task-grounded evidence.] Novel entities weighted by relevance: rate of new relevant
+entities, share of new entities that are relevant, rate of high-relevance novelty, relevance-weighted
+novelty mass, and a persistence term for novel entities that reappear inside the window (transient noise
+does not count).
+\item[\ver{} --- verification deltas.] Count of verification events, improvements and regressions versus
+the previous verification, net progress, steps since the last improvement, rate of \emph{new} error
+signatures, test-count deltas, and the modal error signature's dominance.
+\item[\work{} --- workspace dynamics.] Number of edits, share of edits aimed at previously untouched
+targets, churn (repeat edits to the same target), re-edit rate, and edits performed after the agent
+declared completion.
+\item[\sem{} --- semantic redundancy.] Rolling diversity of step representations: $1-$ mean pairwise
+cosine similarity inside the window, similarity to the nearest earlier step, distance from the window
+centroid, and novelty against the whole prefix. This is the livelock-style channel;
+Section~\ref{sec:results} documents that in this environment the representation had to be a hashing
+bag-of-words surrogate rather than a pretrained encoder, because the model host was unreachable.
+\end{description}
+
+\subsection{Monitors}
+A monitor maps a feature vector to a stagnation score in $[0,1]$ and raises an alarm when the score stays
+above a threshold for two consecutive steps, subject to a minimum step margin. We evaluate three families:
+fixed baselines (B1 alarms after a step budget of 30 or 60 steps; B2 alarms on $k$ identical normalized
+actions in a row, $k=3,5$); hand-designed channel monitors (signed, standardised sums of one channel's
+features or of a chosen combination, squashed through a logistic, with standardisation statistics from the
+training split); and learned monitors ($\ell_2$-regularised logistic regression on a channel's features,
+fitted on annotated training windows only with balanced class weights). We train one learned monitor per
+channel and one per combination --- evidence, evidence$+$verification, evidence$+$novelty,
+evidence$+$semantic, all channels --- so the ablation is learned rather than hand-tuned.
+
+\subsection{Operational alarm metrics}
+Window-level AUC tells us how well a monitor ranks, but a runtime decides \emph{when} to act, so we also run
+each monitor sequentially over each test trajectory and evaluate the first alarm. \textbf{Detection}: the
+alarm lands inside an annotated stagnant region. \textbf{False stop}: the alarm lands inside an annotated
+productive region, or before the first stagnant region while productive work remained; because a false stop
+destroys work the annotators called productive, we count it as \emph{negative} savings. \textbf{Savings}:
+the signed number of steps between the alarm and the end of the run, whose oracle bound is the step index
+of the first annotated stagnant region. \textbf{Latency}: steps between the start of the stagnant region
+and the alarm. All headline numbers are reported at fixed false-stop budgets (1\%, 2\%, 5\%, 10\%, 20\%),
+following the practice of early-termination work, and the monotone curve of savings against false-stop rate
+is reported in full rather than at a single cherry-picked threshold.

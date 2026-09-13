@@ -1,0 +1,54 @@
+\section{What counts as progress? An operational definition}
+\label{sec:definition}
+
+We need a definition of stagnation that (i) a human can apply to a trajectory, (ii) a runtime can
+approximate without the reference solution, and (iii) is falsifiable, in the sense that data could show
+the definition is not worth monitoring. The definition below is the one handed to annotators before any
+monitor was written; the codebook is reproduced in Appendix~\ref{app:codebook}.
+
+\subsection{Windows, not steps}
+A single step is rarely informative: reading one file can be the most productive step of a run, running
+one test can be wasted motion. We therefore judge \emph{windows} of $w$ consecutive steps
+($w=\pwParam$ throughout) and ask, at the end of each window, whether the trajectory moved.
+
+\subsection{Three channels of progress}
+A window has advanced the task if at least one of the following is true, judged from the trajectory
+itself:
+
+\begin{description}[leftmargin=1.1em,style=nextline,itemsep=2pt]
+\item[E --- epistemic.] Something new \emph{and relevant to this task} became known: a file, function,
+symbol, error signature or test name plausibly in scope of the task statement; a hypothesis eliminated
+by evidence; the search space narrowed. Irrelevance is judged against the task statement, the reported
+failure, and the artefact the task asks for.
+\item[I --- implementation.] A plausible artefact changed durably --- the change survives the window
+rather than being immediately reverted --- or a previously malformed artefact became well-formed.
+\item[V --- verification.] Objective evidence about correctness improved: a failing test passes, the
+failure count falls, a build moves from failing to succeeding, or the error signature advances past the
+previous blocker.
+\end{description}
+
+\noindent A window in which none of the three advanced \emph{while the agent kept expending actions} is
+\emph{stagnant}. Four additional labels keep the binary target from swallowing distinct phenomena:
+\textsc{regression} (a previous success was undone), \textsc{done\_redundant} (the task was already
+complete and verified and the agent keeps working without a new goal), \textsc{blocked\_external}
+(progress is impossible for reasons outside the agent's control, e.g.\ a dependency download in
+flight), and \textsc{uncertain}. For the binary task, \textsc{stagnant} and \textsc{done\_redundant} are
+positive, \textsc{productive} and \textsc{regression} are negative, and the other two are held out and
+counted.
+
+\subsection{Why this definition, and what would falsify it}
+The definition is deliberately conservative in one direction and generous in another. It never calls a
+window stagnant merely because commands repeat: an edit loop that finally produces passing tests is
+progress, and a repeated test invocation whose failure output shrinks is progress. It counts purely
+epistemic work --- looking, understanding, narrowing --- as progress even with an untouched workspace,
+which is exactly the case that workspace-change monitors miss. It would be falsified as a research target
+if the channels it names were unobservable at runtime, or if the labels it produces had no relationship to
+task outcomes or to cost; Section~\ref{sec:results} reports both checks.
+
+The annotator sees the whole trajectory, because deciding whether information was already known or whether
+a change survived requires the future. The monitor, at step $t$, sees only the task statement, the actions
+and observations of steps $\le t$, and the diffs implied by those actions: never the reference patch, the
+hidden tests, later steps, the final reward, or any annotation attached to a later window. Every feature
+used in Section~\ref{sec:method} is computed from a window ending at $t$; corpus-level normalisation
+statistics are estimated on the training split only, and the split is by task, so no monitor can memorise a
+task.

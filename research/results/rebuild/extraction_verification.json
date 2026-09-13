@@ -1,0 +1,11 @@
+{
+  "n_runs_scanned": 300,
+  "n_edit_steps_with_lines": 1765,
+  "hit_rate_on_these_steps": 0.623229461756374,
+  "mean_lines_recovered": 6.279320113314448,
+  "mean_matching": 2.8940509915014165,
+  "share_of_steps_where_file_is_in_patch": 0.7886685552407932,
+  "hit_rate_when_file_in_patch": 0.7593390804597702,
+  "hit_rate_when_file_not_in_patch": 0.11528150134048257,
+  "note": "re-derived independently of the pipeline: trajectories are re-parsed from the raw parquet and the patch is read directly, so a systematic extractor error would show as recovered text that never matches"
+}

@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_crack-7z-hash__M36nRdr_47,STAGNANT,high,false,none,no_new_information,38-47 repeat wordlist brute force; no new password knowledge; edits reverted; timeouts
+d_tb2_crack-7z-hash__M36nRdr_48,STAGNANT,high,false,none,no_new_information,39-48 wordlist sweeps and timeouts; 48 only says found is in list
+d_tb2_crack-7z-hash__M36nRdr_49,STAGNANT,medium,false,none,no_new_information,40-49 repeated ranges; 48 repeats found for a password already tried
+d_tb2_crack-7z-hash__M36nRdr_53,PRODUCTIVE,medium,false,E,,52-53 john known-tool retry yields No password hashes loaded; 7z route eliminated
+d_tb2_crack-7z-hash__M36nRdr_54,STAGNANT,high,false,none,no_new_information,45-54 repeat brute force; 48 repeats known found; no new information
+d_tb2_crack-7z-hash__M36nRdr_55,STAGNANT,high,false,none,no_new_information,46-55 repeat wordlist and find attempts; nothing new; no durable change
+d_tb2_crack-7z-hash__M36nRdr_59,STAGNANT,medium,false,none,no_new_information,50-59 repeated password attempts and setups; no new knowledge; no verification movement
+d_tb2_crack-7z-hash__M36nRdr_61,STAGNANT,high,false,none,repeat_verify,52-61 repeated find and brute force; 59 repeats known bsdtar limitation; no advance
+d_tb2_crack-7z-hash__M36nRdr_65,STAGNANT,high,false,none,repeat_search,56-65 thread repeats itself; 61-62 reuse stale outputs; 63-64 strings clue
+d_tb2_crack-7z-hash__M36nRdr_69,PRODUCTIVE,medium,false,E,,63-64 strings exposes L-: twice; new task-relevant artefact knowledge; 68 lists tools
+d_tb2_crack-7z-hash__M36nRdr_71,PRODUCTIVE,medium,false,E,,63-64 strings L-: clue; 68 apt-cache output names installable cracking tools
+d_tb2_crack-7z-hash__M36nRdr_75,PRODUCTIVE,medium,false,E/I,,66-67 listing metadata; 68-69 apt installs py7zr; new tooling obtained
+d_tb2_crack-7z-hash__M36nRdr_77,PRODUCTIVE,medium,false,E/I,,73 crunch exists; 76 environment listing; 77 first daytona session path
+d_tb2_crack-7z-hash__M36nRdr_81,PRODUCTIVE,medium,false,E/I,,76 env listing; 80 solution.txt written and survives into 81
+d_tb2_crack-7z-hash__M36nRdr_9,PRODUCTIVE,high,false,E/I,,1-6 locate archive and john tools; 9 install succeeds; 10 hash extracted
+d_tb2_crack-7z-hash__Mp364LH_109,STAGNANT,high,false,none,repeat_verify,100-109 repeated 7z password guesses; 107-108 identical; exit=2 unchanged
+d_tb2_crack-7z-hash__Mp364LH_123,STAGNANT,high,false,none,repeat_verify,114-123 repeated 7z guesses; 117-122 identical commands; 115 installs nothing new
+d_tb2_crack-7z-hash__Mp364LH_137,STAGNANT,high,false,none,repeat_verify,128-137 single-letter guesses; 7z output identical each step; no verification movement
+d_tb2_crack-7z-hash__Mp364LH_13,PRODUCTIVE,high,false,E/I,,7-9 missing perl module identified; 10 7z2john extracts hash; 4-6 john tools located
+d_tb2_crack-7z-hash__Mp364LH_151,STAGNANT,high,false,none,repeat_verify,142-151 single-letter password attempts; same 7z message every step; nothing new
+d_tb2_crack-7z-hash__Mp364LH_165,STAGNANT,high,false,none,repeat_verify,156-165 sequential numeric guesses plus 164 john show still zero cracked
+d_tb2_crack-7z-hash__Mp364LH_17,PRODUCTIVE,high,false,E/I,,8-9 module installed; 10 hash.txt created; 12 16-17 john runs teach failure modes
+d_tb2_crack-7z-hash__Mp364LH_181,STAGNANT,high,false,none,repeat_verify,172-181 alternating identical 7z commands; same output; no new information
+d_tb2_crack-7z-hash__Mp364LH_195,STAGNANT,high,false,none,repeat_verify,186-195 alternating identical 7z commands; same output; no channel advanced
+d_tb2_crack-7z-hash__Mp364LH_209,STAGNANT,high,false,none,repeat_verify,200-209 alternating identical 7z commands; identical output; nothing learned
+d_tb2_crack-7z-hash__Mp364LH_223,STAGNANT,high,false,none,repeat_verify,214-223 alternating identical 7z commands; identical output; no verification movement
+d_tb2_crack-7z-hash__Mp364LH_23,PRODUCTIVE,medium,true,E/I,,15 hash.txt and secrets visible; 16 wordlist john fails; 20 common_passwords.txt created
+d_tb2_crack-7z-hash__Mp364LH_237,STAGNANT,high,false,none,repeat_verify,228-237 alternating identical 7z commands; identical output; no progress
+d_tb2_crack-7z-hash__Mp364LH_251,STAGNANT,high,false,none,repeat_verify,242-251 alternating identical 7z commands; identical output; no progress
+d_tb2_crack-7z-hash__Mp364LH_267,STAGNANT,high,false,none,repeat_verify,258-267 alternating identical 7z commands; identical output; nothing advanced

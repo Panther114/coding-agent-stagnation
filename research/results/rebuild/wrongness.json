@@ -1,0 +1,227 @@
+{
+  "question": "do failed runs localise WORSE (lost) or equally/better (wrong-fix)?",
+  "corpora": {
+    "nebius": {
+      "reversal_on_target_self": {
+        "n_instances": 271,
+        "solved_mean": 0.6277321645366544,
+        "failed_mean": 0.6500966397576718,
+        "delta": -0.022364475221017477,
+        "delta_ci95": [
+          -0.04914545732341268,
+          0.006095803410149423
+        ],
+        "p_wilcoxon": 0.0509870087365387,
+        "frac_instances_solved_higher": 0.44649446494464945
+      },
+      "reversal_on_target_gold": {
+        "n_instances": 228,
+        "solved_mean": 0.4959484844823932,
+        "failed_mean": 0.4476850143350839,
+        "delta": 0.048263470147309306,
+        "delta_ci95": [
+          0.01928387834324738,
+          0.0791014559015593
+        ],
+        "p_wilcoxon": 0.007006189656934297,
+        "frac_instances_solved_higher": 0.5526315789473685
+      },
+      "reversal_ever_touched_gold": {
+        "n_instances": 228,
+        "solved_mean": 0.9699588354303266,
+        "failed_mean": 0.7799417087635024,
+        "delta": 0.19001712666682413,
+        "delta_ci95": [
+          0.15656982358012989,
+          0.2244842714283895
+        ],
+        "p_wilcoxon": 1.608942202024541e-23,
+        "frac_instances_solved_higher": 0.6491228070175439
+      },
+      "pooled_on_target_self": {
+        "solved": 0.5936,
+        "failed": 0.6701,
+        "delta_solved_minus_failed": -0.0765,
+        "n_solved": 4130,
+        "n_failed": 21551
+      },
+      "pooled_on_target_gold": {
+        "solved": 0.4771,
+        "failed": 0.4069,
+        "delta_solved_minus_failed": 0.0703,
+        "n_solved": 3308,
+        "n_failed": 16327
+      },
+      "pooled_ever_touched_gold": {
+        "solved": 0.9819,
+        "failed": 0.6705,
+        "delta_solved_minus_failed": 0.3114,
+        "n_solved": 3308,
+        "n_failed": 16327
+      },
+      "breadth_by_outcome": {
+        "n_edit": {
+          "0": 16327,
+          "1": 3308
+        },
+        "mean_n_edit": {
+          "0": 9.54,
+          "1": 5.34
+        },
+        "mean_distinct_files": {
+          "0": 1.815,
+          "1": 1.924
+        },
+        "mean_patch_n_files": {
+          "0": 2.245,
+          "1": 1.34
+        },
+        "median_n_edit": {
+          "0": 5.0,
+          "1": 4.0
+        }
+      },
+      "on_target_gold_by_matched_edit_count": [
+        {
+          "n_edit_bin": "1-3",
+          "solved": 0.5829,
+          "failed": 0.4755,
+          "n_solved": 1636,
+          "n_failed": 6111
+        },
+        {
+          "n_edit_bin": "4-7",
+          "solved": 0.4075,
+          "failed": 0.3365,
+          "n_solved": 1105,
+          "n_failed": 4328
+        },
+        {
+          "n_edit_bin": "8-15",
+          "solved": 0.3229,
+          "failed": 0.3629,
+          "n_solved": 420,
+          "n_failed": 2788
+        },
+        {
+          "n_edit_bin": "16-30",
+          "solved": 0.3288,
+          "failed": 0.4358,
+          "n_solved": 110,
+          "n_failed": 2064
+        },
+        {
+          "n_edit_bin": "31-+",
+          "solved": 0.0712,
+          "failed": 0.3562,
+          "n_solved": 37,
+          "n_failed": 1036
+        }
+      ],
+      "mechanism_patch_breadth_strata": [
+        {
+          "patch_n_files": 1,
+          "n_solved": 3178,
+          "n_failed": 11812,
+          "on_target_self_solved": 0.5304,
+          "on_target_self_failed": 0.6944,
+          "self_delta_solved_minus_failed": -0.1641,
+          "on_target_gold_solved": 0.5233,
+          "on_target_gold_failed": 0.4721
+        },
+        {
+          "patch_n_files": 2,
+          "n_solved": 737,
+          "n_failed": 4878,
+          "on_target_self_solved": 0.8015,
+          "on_target_self_failed": 0.8722,
+          "self_delta_solved_minus_failed": -0.0706,
+          "on_target_gold_solved": 0.347,
+          "on_target_gold_failed": 0.3631
+        },
+        {
+          "patch_n_files": 3,
+          "n_solved": 215,
+          "n_failed": 2451,
+          "on_target_self_solved": 0.8149,
+          "on_target_self_failed": 0.8094,
+          "self_delta_solved_minus_failed": 0.0054,
+          "on_target_gold_solved": 0.2226,
+          "on_target_gold_failed": 0.2754
+        }
+      ],
+      "patch_breadth_by_outcome": {
+        "mean_patch_n_files_solved": 1.351,
+        "mean_patch_n_files_failed": 2.2,
+        "frac_broad_patch_gt1_solved": 0.2305,
+        "frac_broad_patch_gt1_failed": 0.3401
+      },
+      "failure_decomposition": {
+        "n_failed_runs_with_gold": 16327,
+        "lost_never_touched_gold": 5380,
+        "wrong_fix_touched_gold": 10947,
+        "frac_wrong_fix": 0.6705,
+        "note": "WRONG_FIX = failed run that DID edit a gold file; LOST = failed run that never edited one. Neither says the edit was correct -- only that the agent was in the right place."
+      },
+      "solved_touched_gold": {
+        "n": 3308,
+        "frac_touched_gold": 0.9819
+      },
+      "per_model": {
+        "swe-agent-llama-405b": {
+          "n_runs": 224,
+          "solve_rate": 0.4018,
+          "n_failed": 134,
+          "frac_wrong_fix_among_failed": 0.7015
+        },
+        "swe-agent-llama-70b": {
+          "n_runs": 18274,
+          "solve_rate": 0.1659,
+          "n_failed": 15242,
+          "frac_wrong_fix_among_failed": 0.668
+        },
+        "swe-agent-llama-8b": {
+          "n_runs": 1137,
+          "solve_rate": 0.1636,
+          "n_failed": 951,
+          "frac_wrong_fix_among_failed": 0.7066
+        }
+      },
+      "by_gold_patch_width": [
+        {
+          "n_gold_files": 1,
+          "n_runs": 11556,
+          "solve_rate": 0.1773,
+          "frac_wrong_fix_among_failed": 0.6646
+        },
+        {
+          "n_gold_files": 2,
+          "n_runs": 5120,
+          "solve_rate": 0.1979,
+          "frac_wrong_fix_among_failed": 0.6482
+        },
+        {
+          "n_gold_files": 3,
+          "n_runs": 2420,
+          "solve_rate": 0.0669,
+          "frac_wrong_fix_among_failed": 0.74
+        },
+        {
+          "n_gold_files": 4,
+          "n_runs": 539,
+          "solve_rate": 0.1558,
+          "frac_wrong_fix_among_failed": 0.6505
+        }
+      ]
+    }
+  },
+  "verdict": {
+    "reversal_replicates_on_self_referential_target": true,
+    "reversal_on_independent_gold_target": {
+      "solved": 0.4959484844823932,
+      "failed": 0.4476850143350839,
+      "p": 0.007006189656934297
+    },
+    "headline": "67.0% of failed runs that have a known gold patch DID edit a gold file; 5380 never did (n=16327)"
+  }
+}

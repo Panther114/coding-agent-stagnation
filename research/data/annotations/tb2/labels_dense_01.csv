@@ -1,0 +1,30 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_11,PRODUCTIVE,high,true,E/I,,steps 5-8 create and test a meta-refresh payload and rule it out; steps 3-4 confirm chromium and chromedriver tooling
+d_tb2_build-cython-ext__JrNsKeV_50,STAGNANT,medium,false,none,no_tool_text_loop,steps 41-50 repeat the identical no-network analysis with no tool call; nothing new beyond what steps 27-40 already established
+d_tb2_build-pov-ray__bMc6qiA_43,STAGNANT,high,false,none,repeat_search,steps 34-43 re-issue the same GitHub repository search with identical analysis text and no new results; the search space does not narrow
+d_tb2_build-pov-ray__oboi8x8_24,PRODUCTIVE,high,true,E/I/V,,steps 15-16 find the build instructions; 17-20 build the tree and makefile; 22 installs make; 23 moves past that blocker to a config.h error
+d_tb2_cobol-modernization__z8rbv6p_20,PRODUCTIVE,high,true,E,,steps 13-19 compile probe programs that reveal record padding and arithmetic semantics; step 16 exposes the NUL padding needed for byte-identical output
+d_tb2_compile-compcert__ArM52Gs_12,PRODUCTIVE,high,false,E/I,,steps 4-11 detect host and prerequisites and download the CompCert 3.13 source; step 12 learns configure rejects the -toolchain option
+d_tb2_compile-compcert__PdkzfMV_53,PRODUCTIVE,high,false,I/V,,steps 44-46 install ccomp under /tmp/CompCert; 49 runs the compiler; 51-52 compile and run hello.c printing Hello CompCert!
+d_tb2_crack-7z-hash__gpBub6y_35,PRODUCTIVE,high,true,E/V,,step 29 hits the missing Compress::Raw::Lzma error; after the apt install step 33 the hash script runs; 34-35 load the extracted hash into john
+d_tb2_crack-7z-hash__Mp364LH_35,STAGNANT,medium,false,none,irrelevant_exploration,steps 26-35 string-search the archive; grep own trajectory logs and hexdump secrets.7z without finding a password or a new lead
+d_tb2_custom-memory-heap-crash__E322Lxp_30,PRODUCTIVE,medium,true,E/I,,steps 21-26 and 29 write and rebuild distinct user.cpp overrides; step 27 runs gdb and rules out memset and free as the crash site
+d_tb2_db-wal-recovery__rwGVtyu_20,PRODUCTIVE,medium,true,E,,steps 13-14 find /dev/md1 exists but is unreadable and 18 finds no container tools; 20 confirms no WAL file exists anywhere
+d_tb2_distribution-search__ZJDezEN_12,STAGNANT,high,false,none,no_new_information,steps 3-11 are malformed tool calls and harness nudges that create nothing and reveal nothing task-relevant
+d_tb2_dna-assembly__o5NzHz7_49,PRODUCTIVE,high,true,E,,steps 41-49 compute BsaI cut sites and overhang variants and primer sequences via perl probes; each run adds new design information
+d_tb2_extract-elf__rUUxEg5_42,DONE_REDUNDANT,medium,false,V,,step 34 verifies all 700 values against the raw binary; steps 35-42 only re-check the directory and move hi.c with no new goal
+d_tb2_extract-moves-from-video__ZE44RbF_36,PRODUCTIVE,medium,true,E,,steps 28 and 35-36 show key-frame detection completing and OCR text streaming in; genuinely new transcription content arrives inside the window
+d_tb2_feal-linear-cryptanalysis__923TJt4_30,STAGNANT,medium,false,none,no_new_information,steps 21-28 poll the same background job which only reports running with no output; step 30 times out; no channel moves
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_18,STAGNANT,high,false,none,no_new_information,steps 9-18 repeat failing kill attempts while the same brute-force counter output repeats; nothing is learned or changed
+d_tb2_financial-document-processor__fZuguYf_54,PRODUCTIVE,high,true,E/I,,steps 45-54 classify and move four further documents into invoices/ or other/; each move is durable task-relevant progress
+d_tb2_fix-code-vulnerability__uLGMMUD_44,PRODUCTIVE,high,true,E,,steps 36-37 locate eval at line 3771 and exec at 4162; 39-42 read those sections; 44 finds the template parser
+d_tb2_fix-ocaml-gc__awEK6tj_34,PRODUCTIVE,high,true,E/V,,step 25 shows the segfault is gone and the build now reaches ocamltest; 27-34 trace the failing CAMLC make rule
+d_tb2_fix-ocaml-gc__yoU3Mrz_27,PRODUCTIVE,high,true,E,,steps 18-25 narrow the sweep bug to shared_heap.c pool_sweep free-block handling near lines 614-644
+d_tb2_git-multibranch__zEK52fz_19,PRODUCTIVE,high,true,I/V,,steps 10-18 create the bare repo; deploy directories; post-receive hook; SSL certificate and nginx site; step 19 nginx -t passes
+d_tb2_install-windows-3.11__mUYmJ4a_12,PRODUCTIVE,high,false,I/V,,steps 6-8 launch qemu with the image and QMP socket; 9 confirms ports 80 and 5901 listening; 11 QMP reports status running
+d_tb2_large-scale-text-editing__KdK777C_51,PRODUCTIVE,medium,true,I/V,,step 42 writes the deliverable apply_macros.vim; step 44 shows no effect but 48 shows the uppercase macro working; the test output changes
+d_tb2_llm-inference-batching-scheduler__evStmDE_39,PRODUCTIVE,medium,true,I/V,,steps 30-39 alternate edits to my_packer.py with packer and cost-model reruns; the edits persist and verification is re-run each cycle
+d_tb2_mailman__jVyKJJk_31,PRODUCTIVE,high,true,I/V,,steps 23-28 add the LMTP transport and mailman directories; 29 fixes the run-as-root error; 31 shows the master runner starting
+d_tb2_mailman__tQhp5VL_15,PRODUCTIVE,medium,false,E,,steps 6-12 read mailman.cfg and the postfix configs the task names; 14 reveals systemd is absent so services need manual start
+d_tb2_make-doom-for-mips__DU5GBNE_15,PRODUCTIVE,high,false,E,,steps 6-15 locate vm.js and read doomgeneric_img.c plus the Makefile and doomgeneric.c that the task points at
+d_tb2_make-doom-for-mips__YWJGKe2_9,PRODUCTIVE,medium,false,E,,steps 3-7 map the doomgeneric tree and read the Makefile variants needed to build doomgeneric_mips; 8-9 repeat a broken grep

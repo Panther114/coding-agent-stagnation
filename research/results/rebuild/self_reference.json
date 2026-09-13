@@ -1,0 +1,76 @@
+{
+  "n_edit_steps": 236137,
+  "n_runs": 25681,
+  "pooled_wasted": 0.8426591343160962,
+  "T1_single_edit": {
+    "single_edit_runs": {
+      "n_runs": 3077,
+      "n_edits": 3077,
+      "wasted": 0.6405589860253493,
+      "resolve_rate": 0.1927201819954501
+    },
+    "two_to_three_edits": {
+      "n_runs": 6918,
+      "n_edits": 18397,
+      "wasted": 0.8120889275425341,
+      "resolve_rate": 0.23145078001848127
+    },
+    "eight_or_more_edits": {
+      "n_runs": 8626,
+      "n_edits": 178429,
+      "wasted": 0.8528826592089851,
+      "resolve_rate": 0.059558704022328206
+    }
+  },
+  "T2_supersession": {
+    "wasted_followed_by_same_file": 0.7732369096857521,
+    "surviving_followed_by_same_file": 0.6732787855950907,
+    "difference": 0.0999581240906614,
+    "share_of_waste_revision_could_explain": 0.7732369096857521,
+    "n_wasted": 198983,
+    "n_surviving": 37154
+  },
+  "T3_within_instance": {
+    "all_edits": {
+      "n_instances": 271,
+      "mean_delta": 0.1411014926695725,
+      "p": 7.597320214221998e-14,
+      "n_edits": 236137,
+      "n_runs": 25681,
+      "pooled_survival": 0.15734086568390385,
+      "pooled_wasted": 0.8426591343160962
+    },
+    "only_non_superseded": {
+      "n_instances": 271,
+      "mean_delta": 0.15740856357030733,
+      "p": 6.924390545380561e-13,
+      "n_edits": 57261,
+      "n_runs": 25681,
+      "pooled_survival": 0.21199420198739108,
+      "pooled_wasted": 0.788005798012609
+    },
+    "only_superseded": {
+      "n_instances": 259,
+      "mean_delta": 0.048729820450944594,
+      "p": 0.07778348129024511,
+      "n_edits": 178876,
+      "n_runs": 22140,
+      "pooled_survival": 0.1398454795500794,
+      "pooled_wasted": 0.8601545204499206
+    },
+    "only_single_file_runs": {
+      "n_instances": 122,
+      "mean_delta": 0.3096339493662921,
+      "p": 1.447716772104828e-10,
+      "n_edits": 25785,
+      "n_runs": 7711,
+      "pooled_survival": 0.2071747139809967,
+      "pooled_wasted": 0.7928252860190033
+    }
+  },
+  "revision_upper_bound": {
+    "pooled_wasted_all": 0.8426591343160962,
+    "pooled_wasted_excluding_all_superseded": 0.788005798012609,
+    "note": "Even if every superseded edit were relabelled as progress, the waste rate would fall only to the second number; the third possibility -- that a superseded edit was genuinely useful and simply rewritten -- cannot be separated offline and is stated as a limitation"
+  }
+}

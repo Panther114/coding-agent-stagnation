@@ -1,0 +1,19 @@
+{
+  "baseline_auc": 0.7754782163649159,
+  "baseline_monitor": "B4_semantic",
+  "baseline_ci": [
+    0.6752844632144828,
+    0.8479210132266299
+  ],
+  "frozen_monitors": 30,
+  "independent_attempts": {
+    "rebuild: real encoder (MiniLM-L6)": 0.6972349051085402,
+    "rebuild: joint over families": 0.7778013242914721
+  },
+  "attempt_range": [
+    0.6972349051085402,
+    0.7778013242914721
+  ],
+  "n_windows": 1103,
+  "n_tasks": 31
+}

@@ -1,0 +1,11 @@
+{
+  "runs_no_event_pct": "79",
+  "runs_pytest_pct": "3",
+  "runs_build_pct": "1",
+  "events_fail_mean": "7.3",
+  "events_pass_mean": "3.7",
+  "flips_k3": "0.07",
+  "runs_with_two_events": 201,
+  "feat_diversity": "0.70",
+  "feat_nearest": "0.67"
+}

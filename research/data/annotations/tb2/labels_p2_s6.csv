@@ -1,0 +1,29 @@
+card_id,label6b,confidence6b,channels6b,detail6b,justification6b
+tb2_bn-fit-modify__MXHjNK8_18_ctrlSTAG,PRODUCTIVE,medium,E/I,,Step 13 learns correct pgmpy API; step 14 edits solve_bn.py, step 15 changes ImportError to running; steps 16-18 add nothing.
+tb2_build-pov-ray__RLBcWPD_41,PRODUCTIVE,high,E/I/V,,Steps 32-34 fix include path past shapes.inc error; segfault at 35 drives durable makefile/unix.c build edits.
+tb2_chess-best-move__BjEPAPq_29,DONE_REDUNDANT,high,none,post_completion,Move.txt already holds e2e4 and step 24 confirms its format; steps 24-29 only re-read and re-verify it.
+tb2_cobol-modernization__wX7wSXK_24,PRODUCTIVE,high,E/I/V,,Step 15 diagnoses 15-byte variable-length INPUT.DAT; steps 16 and 21 rewrite program.py; step 18 diff shows COBOL-Python outputs identical.
+tb2_compile-compcert__DkH2JMz_60,PRODUCTIVE,high,E/V,,Requirement met in-window: ccomp built and reports version 3.13 (steps 56-57); steps 58-60 begin post-completion version checking.
+tb2_compile-compcert__qeLnFSj_60,STAGNANT,medium,none,repeat_search,Steps 51-59 repeat Nix/opam/DuckDuckGo fetches returning only 404s and shell syntax errors; nothing new becomes known.
+tb2_configure-git-webserver__Noh5oyF_15,PRODUCTIVE,high,E/I/V,,Steps 10-13 initialize the bare repo and write the git_httpd hook; step 15 completes clone-commit-push into the server.
+tb2_custom-memory-heap-crash__dE3EWmb_56,PRODUCTIVE,high,E/I,,Step 54 locates the CustomHeapManager destructor in main.cpp, the root cause; steps 48-56 keep rewriting user.cpp around it.
+tb2_db-wal-recovery__mUwQ8nv_23,STAGNANT,high,none,no_tool_text_loop,Steps 14-23 are all no-tool restatements that the WAL is missing; step 19 confirms only main.db.
+tb2_db-wal-recovery__rwGVtyu_27,STAGNANT,medium,none,no_new_information,Steps 20-27 confirm no WAL file anywhere and no container tools; steps 22-25 return empty output with no result.
+tb2_db-wal-recovery__urEH2nP_46,STAGNANT,medium,none,irrelevant_exploration,Steps 37-40 write JSON holding only the 5 base records; steps 41-46 drift into task tracker and system reconnaissance.
+tb2_dna-assembly__b5N2XyK_73,PRODUCTIVE,medium,E,,Steps 66-70 keep refining a candidate primer: 30nt gives Tm 73.9, trimmed to 25nt gives 70.9, inside the allowed range.
+tb2_extract-moves-from-video__vRcGj7U_18,PRODUCTIVE,medium,E,,Steps 14-15 run the extraction script over 135 frames; step 18 surfaces new transcribed moves such as n and u.
+tb2_extract-moves-from-video__ZE44RbF_70,PRODUCTIVE,medium,E,,Steps 66-67 repeat wc and cat on the hung script, but steps 68-69 add an ambiguous-frame extractor yielding new command open trap.
+tb2_feal-linear-cryptanalysis__jbbLGgC_22,BLOCKED_EXTERNAL,high,none,,The required inputs feal.c, decrypt.c, pairs.txt and ciphertexts.txt are absent from /app, so steps 13-22 cannot proceed.
+tb2_financial-document-processor__w7XM5qk_58,PRODUCTIVE,medium,E/I,,Steps 51-56 iterate process_final.sh and emit summary.csv with extracted amounts; step 57 finds bc missing on PATH.
+tb2_financial-document-processor__ygK3UcB_117,PRODUCTIVE,high,E/I,,Steps 108-114 add regexes for Total, Grand Total, Amount Due and GST; step 116 runs the script successfully.
+tb2_fix-code-vulnerability__uLGMMUD_28,PRODUCTIVE,medium,E,,Steps 19-27 locate eval and exec sinks plus add_header injection in bottle.py after one grep parameter error at 19.
+tb2_fix-ocaml-gc__wouZCwt_21,PRODUCTIVE,high,E/I,,Steps 14-18 localise the pool_sweep wosize merge bug with its comment as evidence; steps 19-20 apply it, sed error then revert.
+tb2_headless-terminal__jL4JdXw_68,PRODUCTIVE,low,I,,Steps 59-66 are repeated no-tool filler with no new information; step 68 patches headless_terminal.py again, a durable file change.
+tb2_install-windows-3.11__er9h2Gw_30,PRODUCTIVE,high,E/V,,Steps 24-29 verify QEMU booted with VNC listening on 5901 and the QMP keyboard controller accepting a Return keypress.
+tb2_install-windows-3.11__mUYmJ4a_53,PRODUCTIVE,medium,E,,Steps 46-52 use QMP screendumps and process inspection to confirm the running machine type is pc-i440fx-5.2 matching the task requirement.
+tb2_install-windows-3.11__S59DCLX_52,STAGNANT,medium,none,no_new_information,Steps 43-52 loop identical ctrl-C plus echo attempts while the screen shows only repeated Slirp packet errors; nothing new is learned.
+tb2_largest-eigenval__KJWcZ8D_36,PRODUCTIVE,medium,E,,Steps 33-35 rule out QR and SVD with measured timings and residuals; step 35 shows SVD residual 3.0 versus reference 7e-15.
+tb2_llm-inference-batching-scheduler__ubwAnFp_66,PRODUCTIVE,medium,E/I,,Steps 57-60 profile prompt_len buckets and step 65-66 rewrite the plan generator; step 68 verifies shapes and cost.
+tb2_mailman__cC4xXg9_44,PRODUCTIVE,high,E/I/V,,Step 35 discovers SubscriptionPolicy in mailman.interfaces.mailinglist; steps 36-42 write the policy and postfix maps; step 44 identifies why reload failed.
+tb2_make-doom-for-mips__7QckTNB_81,PRODUCTIVE,medium,E/I,,Steps 72-75 diagnose termination after 8 instructions via vm_debug.js; steps 76-80 persist Makefile and link.ld edits and rerun the build.
+tb2_make-doom-for-mips__tHguAnp_10_ctrlSTAG,PRODUCTIVE,high,E,,Steps 4-9 read the task statement and open vm.js and the doomgeneric sources including doomgeneric_img.c, the frame-dump file named in the task.

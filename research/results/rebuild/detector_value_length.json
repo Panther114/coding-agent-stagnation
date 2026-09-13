@@ -1,0 +1,27 @@
+{
+  "n_runs": 15535,
+  "n_features": 46,
+  "uncontrolled_auc": 0.776859114266577,
+  "M1_within_length_deciles": {
+    "mean_auc": 0.6656397744861619,
+    "n_deciles": 10,
+    "per_decile": [
+      0.5901485601337357,
+      0.6680887539184952,
+      0.5836559507158796,
+      0.5810310262865008,
+      0.5771725056280622,
+      0.6122806900885386,
+      0.6434743616602896,
+      0.6975272560094575,
+      0.7601651754989677,
+      0.9428534649216906
+    ]
+  },
+  "M2_residual": {
+    "spearman_with_length_residual": 0.19477897468700558,
+    "n": 15535
+  },
+  "length_vs_label_spearman": -0.5933151627436256,
+  "verdict": "If the within-decile mean and the residual correlation are both near 0.5 and 0, the opening block is reading run size rather than run quality and the 0.792 must not be reported as progress prediction."
+}

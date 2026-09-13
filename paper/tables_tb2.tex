@@ -1,0 +1,20 @@
+% Table fragments for the paper.
+% The run-level operating table that used to live here has been dropped: the same data is the
+% right-hand panel of Figure~\ref{fig:ops}, and as a full-page float it was mostly empty cells.
+
+\begin{table}[t]\centering\small
+\caption{Leave-one-channel-out ablation with a learned monitor (task-level folds). Positive $\Delta$ means
+the model is \emph{better} without the channel.}
+\label{tab:ablation}
+\begin{tabular}{lrrr}\toprule
+Channel & alone & without & $\Delta$ ROC \\ \midrule
+repetition & \pablREPAucAlone{} & \pablREPAucWithout{} & \pablREPDelta{} \\
+novelty (relevance-blind) & \pablNOVAucAlone{} & \pablNOVAucWithout{} & \pablNOVDelta{} \\
+task-grounded evidence & \pablEVIDAucAlone{} & \pablEVIDAucWithout{} & \pablEVIDDelta{} \\
+verification deltas & \pablVERAucAlone{} & \pablVERAucWithout{} & \pablVERDelta{} \\
+workspace churn & \pablWORKAucAlone{} & \pablWORKAucWithout{} & \pablWORKDelta{} \\
+semantic redundancy & \pablSEMAucAlone{} & \pablSEMAucWithout{} & \pablSEMDelta{} \\
+\midrule
+\multicolumn{4}{l}{all channels: ROC-AUC \pablFullAuc{}, PR-AUC 0.594} \\
+\bottomrule\end{tabular}
+\end{table}

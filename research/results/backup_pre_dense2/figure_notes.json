@@ -1,0 +1,66 @@
+{
+  "label_stats": {
+    "labels": {
+      "PRODUCTIVE": 453,
+      "UNCERTAIN": 44,
+      "BLOCKED_EXTERNAL": 10,
+      "STAGNANT": 116,
+      "DONE_REDUNDANT": 27,
+      "REGRESSION": 4
+    },
+    "by_agent": {
+      "deepagent-harbor": {
+        "NEG": 64,
+        "POS": 5
+      },
+      "judy": {
+        "NEG": 46,
+        "POS": 24
+      },
+      "gemini-cli": {
+        "NEG": 64,
+        "POS": 5
+      },
+      "terminus-2": {
+        "NEG": 23,
+        "POS": 38
+      },
+      "codex": {
+        "NEG": 67,
+        "POS": 5
+      },
+      "mini-swe-agent": {
+        "NEG": 43,
+        "POS": 27
+      },
+      "terminus-3-3": {
+        "POS": 16,
+        "NEG": 18
+      },
+      "openhands": {
+        "POS": 11,
+        "NEG": 72
+      },
+      "claude-code": {
+        "NEG": 60,
+        "POS": 12
+      }
+    },
+    "subtypes": {
+      "repeat_verify": 34,
+      "no_new_information": 36,
+      "no_tool_text_loop": 32,
+      "post_completion": 36,
+      "repeat_search": 16,
+      "irrelevant_exploration": 8,
+      "other": 5,
+      "edit_revert": 17,
+      "repeat_read": 2
+    }
+  },
+  "signal_example_trajectories": [
+    "install-windows-3.11__mUYmJ4a",
+    "install-windows-3.11__2UtJ22k",
+    "fix-code-vulnerability__uLGMMUD"
+  ]
+}

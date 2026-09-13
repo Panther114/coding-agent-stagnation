@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_9,PRODUCTIVE,high,false,E/I,none,steps 0-9; filter.py read plus payload created tested and inspected; new task information
+d_tb2_break-filter-js-from-html__J2d7BGR_11,PRODUCTIVE,medium,false,E/I,none,steps 2-11; meta refresh and data URI variants tested; filter behaviour newly observed
+d_tb2_break-filter-js-from-html__J2d7BGR_15,PRODUCTIVE,high,false,E/I,none,steps 6-15; meta2 filtered; selenium bug fixed at 13-14; refresh showed no navigation
+d_tb2_break-filter-js-from-html__J2d7BGR_19,PRODUCTIVE,high,false,E/I,none,steps 10-19; data URI filtered; refresh navigated to target at 18; new evidence
+d_tb2_break-filter-js-from-html__J2d7BGR_21,PRODUCTIVE,high,false,E/I,none,steps 12-21; refresh navigation observed at 18; refresh_data and svg_img variants newly tried
+d_tb2_break-filter-js-from-html__J2d7BGR_25,PRODUCTIVE,high,false,E/I,none,steps 16-25; svg_img and attr payloads created filtered and read; new filter evidence
+d_tb2_break-filter-js-from-html__J2d7BGR_27,PRODUCTIVE,high,false,E/I,none,steps 18-27; refresh navigated at 18; svg_img and attribute-encoding variants newly tested
+d_tb2_break-filter-js-from-html__J2d7BGR_29,PRODUCTIVE,medium,false,E/I,none,steps 20-29; refresh_data svg_img attr variants probed; outputs new at 23 and 27
+d_tb2_break-filter-js-from-html__J2d7BGR_31,PRODUCTIVE,high,false,E/I,none,steps 22-31; svg_img attr split payloads filtered and tested; each outcome newly observed
+d_tb2_break-filter-js-from-html__J2d7BGR_33,PRODUCTIVE,high,false,E/I,none,steps 24-33; attr and split injected-tag payloads created filtered and tested
+d_tb2_break-filter-js-from-html__J2d7BGR_35,PRODUCTIVE,high,false,E/I,none,steps 26-35; attr split img_js payloads applied through filter and browser-tested
+d_tb2_break-filter-js-from-html__J2d7BGR_39,PRODUCTIVE,high,false,E/I,none,steps 30-39; null-byte tag test at 37-38 changed tag into plain text
+d_tb2_break-filter-js-from-html__J2d7BGR_43,PRODUCTIVE,high,false,E/I,none,steps 34-43; null-tag script conversion observed at 37-38; new nulltag payload built
+d_tb2_break-filter-js-from-html__J2d7BGR_45,PRODUCTIVE,high,false,E/I,none,steps 36-45; nulltag and svg_img_script filtered tested; link_js started
+d_tb2_break-filter-js-from-html__J2d7BGR_49,PRODUCTIVE,high,false,E/I,none,steps 40-49; four new payload variants filtered and browser-tested within window
+d_tb2_break-filter-js-from-html__J2d7BGR_51,PRODUCTIVE,high,false,E/I,none,steps 42-51; link css svg_image variants filtered and tested; each result new
+d_tb2_break-filter-js-from-html__J2d7BGR_53,PRODUCTIVE,high,false,E/I,none,steps 44-53; link css svg_image payloads filtered and tested through selenium
+d_tb2_break-filter-js-from-html__J2d7BGR_55,PRODUCTIVE,high,false,E/I,none,steps 46-55; iframe parser diagnostics at 54-55 revealed null byte removal
+d_tb2_break-filter-js-from-html__J2d7BGR_56,PRODUCTIVE,high,false,E/I,none,steps 47-56; iframe null-byte diagnostic at 55 showed tag survives removal
+d_tb2_break-filter-js-from-html__J2d7BGR_59,PRODUCTIVE,high,false,E/I,none,steps 50-59; nulliframe output inspected at 58; site query returned zero iframes
+d_tb2_break-filter-js-from-html__J2d7BGR_62,PRODUCTIVE,high,false,E/I,none,steps 53-62; iframe null-byte parse result at 55; base_refresh and svg_use tested
+d_tb2_break-filter-js-from-html__J2d7BGR_63,PRODUCTIVE,high,false,E/I,none,steps 54-63; four new bypass variants created filtered and browser-tested
+d_tb2_break-filter-js-from-html__J2d7BGR_67,PRODUCTIVE,medium,false,E/I,none,steps 58-67; base_refresh svg_use svg_anim_image2 variants filtered and tested
+d_tb2_break-filter-js-from-html__J2d7BGR_69,PRODUCTIVE,medium,false,E/I,none,steps 60-69; base_refresh svg_use svg_anim_image2 variants filtered and browser-tested
+d_tb2_break-filter-js-from-html__J2d7BGR_73,PRODUCTIVE,medium,false,E/I,none,steps 64-73; svg_anim svg_prefix svg_use_script variants filtered and tested
+d_tb2_break-filter-js-from-html__J2d7BGR_77,PRODUCTIVE,medium,false,E/I,none,steps 68-77; svg_prefix svg_use_script xlink variants filtered and browser-tested
+d_tb2_break-filter-js-from-html__J2d7BGR_79,PRODUCTIVE,medium,false,E/I,none,steps 70-79; svg_prefix svg_use_script xlink and comment payloads newly filtered tested
+d_tb2_break-filter-js-from-html__J2d7BGR_83,PRODUCTIVE,high,false,E/I,none,steps 74-83; xlink and comment variants tested; payload.html and out.html written at 81-82
+d_tb2_break-filter-js-from-html__J2d7BGR_87,PRODUCTIVE,high,false,E/I/V,none,steps 78-87; payload and out written at 81-82; alert confirmed at 85
+d_tb2_build-cython-ext__JrNsKeV_10,BLOCKED_EXTERNAL,high,false,none,none,steps 1-10; GitHub clone impossible; window only restates the network failure

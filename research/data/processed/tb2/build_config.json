@@ -1,0 +1,16 @@
+{
+  "args": {
+    "corpus": "tb2",
+    "n": 1500,
+    "out": "data/processed/tb2",
+    "windows": "10",
+    "stride": 3,
+    "seed": 11,
+    "rel_threshold": 0.5
+  },
+  "n_views": 1500,
+  "n_window_rows": 32594,
+  "n_idf_terms": 13462,
+  "seconds": 103.88741970062256,
+  "built_at": "2026-09-10 22:33:04"
+}

@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_9,PRODUCTIVE,high,false,E/I/V,,steps 1-5 read cipher and data; 6-8 wrote compiled ran attack.c; new epistemic and implementation evidence
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_97,STAGNANT,high,false,none,no_new_information,steps 88-97 only repeated c-c with identical progress counter; no new information and no durable change
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_11,STAGNANT,medium,false,none,no_tool_text_loop,steps 4-11 repeated echo and parser errors repeating the missing-files claim; step 2 build evidence never rechecked
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_15,STAGNANT,medium,false,none,no_tool_text_loop,steps 6-15 echo same missing-files message; nothing new learned and no change survived
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_16,STAGNANT,medium,false,none,no_tool_text_loop,steps 7-16 repeated echoes of missing file names; no recheck of the earlier compile output
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_17,STAGNANT,medium,false,none,no_tool_text_loop,steps 8-17 echo loop with no new observation; epistemic and verification channels static
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_20,STAGNANT,medium,false,none,no_tool_text_loop,steps 11-20 repeated echo of the same conclusion; no tool call produced new task-relevant information
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_21,STAGNANT,medium,false,none,no_tool_text_loop,steps 12-21 echo same missing-file text; no new information and no artefact change
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_23,STAGNANT,medium,false,none,no_tool_text_loop,steps 14-23 repeat the same echo message; observations carry no information beyond the earlier assumption
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_25,STAGNANT,medium,false,none,no_tool_text_loop,steps 16-25 unchanged echo loop; nothing learned changed or verified inside the window
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_27,STAGNANT,medium,false,none,no_tool_text_loop,steps 18-27 repeated echo of missing files; no channel advanced and no verification state moved
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_30,STAGNANT,medium,false,none,no_tool_text_loop,steps 21-30 same echo text repeated; no new information beyond the assumed blocker
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_31,STAGNANT,medium,false,none,no_tool_text_loop,steps 22-31 echo loop unchanged; no new epistemic implementation or verification evidence
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_33,STAGNANT,medium,false,none,no_tool_text_loop,steps 24-33 unchanged echoes concluding files are missing; no channel advanced
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_34,STAGNANT,medium,false,none,no_tool_text_loop,steps 25-34 no-tool messages and echoes repeat known claim; nothing new learned or changed
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_37,STAGNANT,medium,false,none,no_tool_text_loop,steps 28-37 echoes keep restating the missing-files conclusion; observations add no new information
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_39,STAGNANT,medium,false,none,no_tool_text_loop,steps 30-39 repeated echo loop; neither epistemic nor verification state moved
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_40,STAGNANT,medium,false,none,no_tool_text_loop,steps 31-40 identical no-tool messages each repeating the same missing-file premise
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_43,STAGNANT,medium,false,none,no_tool_text_loop,steps 34-43 no-tool repetitions of the same conclusion; no new evidence and no change survived
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_46,STAGNANT,medium,false,none,no_tool_text_loop,steps 37-46 repeated no-tool restatement of the missing-files conclusion; no channel advanced
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_47,STAGNANT,medium,false,none,no_tool_text_loop,steps 38-47 no-tool messages then an echo; identical information repeated without verification movement
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_49,STAGNANT,medium,false,none,no_tool_text_loop,steps 40-49 repeat the same missing-files claim by text and echo; nothing new or durable
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_51,STAGNANT,medium,false,none,no_tool_text_loop,steps 42-51 unchanged echo loop; observations carry no information not already known
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_53,STAGNANT,medium,false,none,no_tool_text_loop,steps 44-53 echoes continue with identical claims; no new information and no durable change
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_55,STAGNANT,medium,false,none,no_tool_text_loop,steps 46-55 repeated echo and no-tool messages; task-relevant knowledge and verification static
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_59,STAGNANT,medium,false,none,no_tool_text_loop,steps 50-59 echo loop repeating the missing-files conclusion; no channel advanced
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_61,STAGNANT,medium,false,none,no_tool_text_loop,steps 53-61 repeated echoes of the same premise; no new information change or verification
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_65,STAGNANT,medium,false,none,no_tool_text_loop,steps 57-65 identical echo text repeated; nothing learned changed or verified in window
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_69,STAGNANT,medium,false,none,no_tool_text_loop,steps 61-69 unchanged echo loop restating known facts; no channel advanced
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_71,STAGNANT,medium,false,none,no_tool_text_loop,steps 63-71 repeated echo of the missing-files premise; no progress and no verification movement

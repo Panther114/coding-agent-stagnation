@@ -1,0 +1,14 @@
+{
+  "auc": {
+    "v1_hashing_bow_B4_semantic": 0.7754782163649159,
+    "v2_semantic_MiniLM-L6": 0.6972349051085402
+  },
+  "per_feature": {
+    "sem_diversity": 0.6999849701026908,
+    "sem_nearest_sim": 0.6688466787989081,
+    "sem_centroid_dist": 0.6899880573248407,
+    "sem_novelty_rate": NaN
+  },
+  "n_windows": 1103,
+  "positive_rate": 0.28921124206708976
+}

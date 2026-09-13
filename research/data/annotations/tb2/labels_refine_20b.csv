@@ -1,0 +1,15 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_distribution-search__ZJDezEN_12,PRODUCTIVE,medium,false,E,,5 pwd shows empty /app; 3;6;8-9 reveal tool schema constraints; 12 runs the script
+d_tb2_distribution-search__ZJDezEN_16,STAGNANT,low,false,none,no_tool_text_loop,8 repeats the known edit error; 12-16 repeat schema and missing-file messages
+d_tb2_distribution-search__ZJDezEN_22,STAGNANT,medium,false,none,no_tool_text_loop,13 repeats the missing-file fact; 15-22 retry identical failing editor calls
+d_tb2_distribution-search__ZJDezEN_26,PRODUCTIVE,high,false,E/I,,23 creates find_distribution.py; 25 gives a new scipy-missing signature
+d_tb2_distribution-search__ZJDezEN_31,PRODUCTIVE,high,false,E/I,,23 creates find_distribution.py; 25 and 29 add new scipy import evidence
+d_tb2_distribution-search__ZJDezEN_36,STAGNANT,low,false,none,no_tool_text_loop,27 and 29 repeat scipy findings; 30-37 loop the same tool-schema errors
+d_tb2_distribution-search__ZJDezEN_42,PRODUCTIVE,high,false,E,,36 exposes python sys.path; 42 installs scipy into the venv; 39 repeats a known error
+d_tb2_distribution-search__ZJDezEN_47,PRODUCTIVE,high,false,E,,39 confirms scipy absent; 42 installs it; 44 shows the script runs and reports KL values
+d_tb2_distribution-search__ZJDezEN_53,STAGNANT,medium,true,none,no_tool_text_loop,44 runs and 45-46 stop the script; 47-53 repeat known editor schema errors
+d_tb2_distribution-search__ZJDezEN_57,STAGNANT,high,false,none,no_tool_text_loop,48-57 are ten no-tool schema-error messages repeating known constraints
+d_tb2_git-leak-recovery__3MYVn6Q_10,PRODUCTIVE,high,false,E/I,,4 reflog exposes the dangling commit; 6 finds the secret; 8 writes secret.txt
+d_tb2_git-leak-recovery__3MYVn6Q_14,PRODUCTIVE,high,false,E/I,,6 locates the secret via checkout; 8 writes secret.txt; 12-14 rule out pip and pip3
+d_tb2_git-leak-recovery__3MYVn6Q_18,PRODUCTIVE,medium,true,E,,12-16 rule out pip; pip3; python3; 17-18 start locating a usable python
+d_tb2_git-leak-recovery__3MYVn6Q_22,PRODUCTIVE,medium,true,E,,14-16 rule out pip; pip3; python3; 17-22 search for the available python

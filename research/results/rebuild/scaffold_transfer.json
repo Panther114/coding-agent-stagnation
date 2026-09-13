@@ -1,0 +1,74 @@
+{
+  "corpus": "tb2",
+  "n_features": 46,
+  "scaffolds": {
+    "terminus-2": {
+      "n_runs": 3211,
+      "n_windows": 41139,
+      "transfer_auc": 0.80016725809016,
+      "in_scaffold_auc": 0.8184341667342399,
+      "degradation": 0.01826690864407987,
+      "left_out_positive_rate": 0.644133304163932,
+      "other_scaffolds_positive_rate": 0.6835426591598095,
+      "position_auc_here": 0.7513760894059927
+    },
+    "openhands": {
+      "n_runs": 2249,
+      "n_windows": 60725,
+      "transfer_auc": 0.7623321842396784,
+      "in_scaffold_auc": 0.7849661115541441,
+      "degradation": 0.022633927314465674,
+      "left_out_positive_rate": 0.854491560312886,
+      "other_scaffolds_positive_rate": 0.5186192871080331,
+      "position_auc_here": 0.6879270261856539
+    },
+    "mini-swe-agent": {
+      "n_runs": 1447,
+      "n_windows": 15092,
+      "transfer_auc": 0.8663899417005991,
+      "in_scaffold_auc": 0.8574469873013644,
+      "degradation": -0.00894295439923476,
+      "left_out_positive_rate": 0.2604028624436788,
+      "other_scaffolds_positive_rate": 0.72378322227571,
+      "position_auc_here": 0.7609517227890157
+    },
+    "claude-code": {
+      "n_runs": 941,
+      "n_windows": 9738,
+      "transfer_auc": 0.7470157578369282,
+      "in_scaffold_auc": 0.7450167781490542,
+      "degradation": -0.001998979687873992,
+      "left_out_positive_rate": 0.46292873279934277,
+      "other_scaffolds_positive_rate": 0.6878014883525505,
+      "position_auc_here": 0.6794461641169893
+    },
+    "codex": {
+      "n_runs": 276,
+      "n_windows": 2010,
+      "transfer_auc": 0.66522645313343,
+      "in_scaffold_auc": 0.6284696947163131,
+      "degradation": -0.0367567584171169,
+      "left_out_positive_rate": 0.6791044776119403,
+      "other_scaffolds_positive_rate": 0.6712804873411464,
+      "position_auc_here": 0.5743606780816083
+    },
+    "terminus-3-3": {
+      "n_runs": 235,
+      "n_windows": 1862,
+      "transfer_auc": 0.8060177570446834,
+      "in_scaffold_auc": 0.7025156085855915,
+      "degradation": -0.10350214845909189,
+      "left_out_positive_rate": 0.42320085929108486,
+      "other_scaffolds_positive_rate": 0.6749090301359041,
+      "position_auc_here": 0.7298419495410675
+    }
+  },
+  "summary": {
+    "n_scaffolds": 6,
+    "mean_transfer_auc": 0.7745248920075798,
+    "mean_in_scaffold_auc": 0.7561415578401179,
+    "mean_degradation": -0.018383334167462,
+    "max_degradation": 0.022633927314465674,
+    "n_scaffolds_above_0.6_transfer": 6
+  }
+}

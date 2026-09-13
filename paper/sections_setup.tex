@@ -1,0 +1,74 @@
+\section{Experimental setup}
+\label{sec:setup}
+
+\subsection{Corpus}
+Our primary corpus is the public \pcorpusName{} trajectory release \cite{yoonholee2026tb2}: 52{,}104 agent
+trials over 89 terminal tasks, each with the full step-by-step trace of messages, tool calls and
+observations. From it we draw a stratified analysis sample of \pnTraj{} trajectories (\pnTasks{} tasks,
+\pcorpusScaffolds{} scaffolds, \pcorpusModels{} models, \pcorpusSteps{} agent steps, overall pass rate
+\pcorpusPass{}\%), balanced across scaffold, outcome and trajectory length. A second corpus (SWE-agent
+trajectories over SWE-bench \cite{nebius2024sweagenttraj}) was prepared for a cross-corpus check;
+Appendix~\ref{app:transfer} explains why it could not be evaluated here. Terminal-Bench tasks are short and
+self-contained --- a run averages \pcorpusStepsMean{} steps in our sample (median \pcorpusStepsMedian{},
+maximum \pcorpusStepsMax{}) --- which is both an advantage and a limitation: it makes annotation tractable
+and lets us see complete runs, but the conclusions are strongest for runs of tens of steps.
+
+\subsection{Data quality controls}
+The release is a scrape, and two artefacts matter. Many observation fields are redacted to opaque
+placeholders: of the \pcorpusRedactSteps{} steps that carry any observation, \pcorpusRedactFrac{}\% show a
+bare reference instead of output, and averaged per trajectory the share is \pcorpusRedactMean{}\% --- for
+some scaffolds the majority are. And a minority of runs are degenerate, consisting mostly of one repeated
+agent message with no tool call at all, a harness-level failure rather than agent behaviour. We exclude
+trajectories whose redaction rate exceeds 50\% or whose most frequent message covers more than 40\% of
+steps, and report sensitivity to that filter. Redaction hurts the \evid{} and \ver{} channels directly,
+since a redacted observation exposes no entities and no state, so it biases every channel against itself
+rather than in favour of the proposed one; it also drives annotation disagreement.
+
+\subsection{Annotation}
+Labels come from a written codebook (Appendix~\ref{app:codebook}) applied by readers who see the whole
+trajectory; monitors see only the prefix. Three rounds were collected:
+
+\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=2pt]
+\item \textbf{Round 1 (prevalence).} \pannPositionWindows{} windows drawn at evenly spaced positions from
+40 trajectories stratified by scaffold, outcome and length. Because the positions are not chosen by any
+detector, the positive rate of this sample estimates the prevalence of stagnation
+(Section~\ref{sec:results}).
+\item \textbf{Round 2 (stability).} Every window of round 1 re-labelled by a \emph{different} reader who
+saw only the window and three steps of context on either side, giving a conservative estimate of label
+stability under reduced information.
+\item \textbf{Round 3 (density).} \pannDenseWindows{} windows from 51 trajectories, roughly ten per
+trajectory at most four steps apart, so that consecutive windows of the same label merge into contiguous
+stagnant and productive \emph{regions}. Alarm-level metrics are computed on these regions.
+\end{itemize}
+
+Each window is labelled by one reader per round; a window read in two rounds is adjudicated by majority,
+and any conflict becomes \textsc{uncertain} and is held out of the binary task. That task takes
+\textsc{stagnant} and \textsc{done\_redundant} as positive, \textsc{productive} and \textsc{regression} as
+negative, and excludes and counts \textsc{blocked\_external} and \textsc{uncertain}. In total
+\pannWindowsTotal{} windows over \pannTrajTotal{} trajectories are labelled, of which \pannBinaryN{} enter
+the binary task (\pannPosRate{}\% positive).
+
+\subsection{Protocol}
+Features are computed for every step of every sampled trajectory and for two window sizes ($w=\pwParam$
+and $w=20$). Evaluation uses \pnFolds-fold task-level cross-validation: in each fold, monitors are
+trained and standardised on the training tasks and scored on the held-out tasks, so every trajectory is
+evaluated by a model that never saw its task. All reported window metrics pool the folds; all alarm
+metrics pool the folds as well, and we report trajectory-level bootstrap intervals.
+
+The alarm policy is fixed: a monitor alarms at the first step $t$ where its score is at least $\theta$
+for two consecutive steps and $t$ exceeds a two-step margin. We sweep $\theta$ over $[0.30,1.00]$ in
+steps of $0.02$ and report, for each false-stop budget, the threshold with the best net savings.
+Thresholds are selected on the annotated set, which is the correct protocol for a deployment decision but
+does mean the reported operating point is optimistic; the full curve is therefore reported alongside it.
+
+\subsection{Metrics}
+\emph{Window level}: ROC-AUC, PR-AUC (average precision) with the positive prevalence marked, best-F1 with
+its threshold, and the mean ROC-AUC computed \emph{inside} each trajectory, which removes between-run
+differences. \emph{Alarm level, primary view}: every annotated window counts once; detection is the share
+of annotated stagnant windows that drew an alarm within the window plus a two-step tolerance, a false stop
+is the same for annotated productive windows, and coverage is the share of \emph{unannotated} windows that
+drew one, so silence is visible as zero detection rather than as a low false-stop rate. \emph{Alarm level,
+secondary view}: only the first alarm per run counts, scored against that run's annotated regions, with
+signed steps saved (a false stop costs the steps it destroys) and the median detection latency in steps.
+\emph{Whole-sample}: the alarm rate when the monitor runs on all \pnTraj{} sampled trajectories regardless
+of annotation, which shows what an operator would see without labels.

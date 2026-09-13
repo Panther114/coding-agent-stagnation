@@ -1,0 +1,26 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_crack-7z-hash__Mp364LH_109,PRODUCTIVE,medium,false,E,,steps 100-109 narrowed the guess space; exit=2 constant but step 100 re-read the statement and examined metadata
+d_tb2_crack-7z-hash__Mp364LH_123,STAGNANT,medium,false,none,repeat_search,steps 114-123 cycle password guesses with unchanged exit=2; nothing new became known and no change survived
+d_tb2_crack-7z-hash__Mp364LH_137,STAGNANT,high,false,none,repeat_search,steps 128-137 brute-force single letters; identical exit=2 every step; verification state never moves
+d_tb2_crack-7z-hash__Mp364LH_151,STAGNANT,high,false,none,repeat_search,steps 142-151 continue a-z guessing; each guess returns the same exit=2 and teaches nothing
+d_tb2_crack-7z-hash__Mp364LH_165,STAGNANT,high,false,none,repeat_search,steps 156-163 digit guesses plus step 164 john show; that check was already run earlier
+d_tb2_crack-7z-hash__Mp364LH_181,STAGNANT,high,false,none,repeat_verify,steps 172-181 repeat the identical 7z invocation ten times; exit=2 unchanged; no new information
+d_tb2_crack-7z-hash__Mp364LH_195,STAGNANT,high,false,none,repeat_verify,steps 186-195 alternate the same failed extraction and the same stuck thought; nothing learned
+d_tb2_crack-7z-hash__Mp364LH_209,STAGNANT,high,false,none,repeat_verify,steps 200-209 repeat one identical failing command with unchanged output; no channel advanced
+d_tb2_crack-7z-hash__Mp364LH_223,STAGNANT,high,false,none,repeat_verify,steps 214-223 identical 7z attempts; output constant; verification state does not move
+d_tb2_crack-7z-hash__Mp364LH_237,STAGNANT,high,false,none,repeat_verify,steps 228-237 the same extraction loop continues; exit=2 and message unchanged throughout
+d_tb2_crack-7z-hash__Mp364LH_251,STAGNANT,high,false,none,repeat_verify,steps 242-251 identical failing extraction repeated; no new information; no durable change
+d_tb2_crack-7z-hash__Mp364LH_267,STAGNANT,high,false,none,repeat_verify,steps 258-267 same command and same failure ten times; the window advances nothing
+d_tb2_crack-7z-hash__Mp364LH_281,STAGNANT,high,false,none,repeat_verify,steps 272-281 the same failing extraction repeats; exit=2 constant; no channel advanced
+d_tb2_crack-7z-hash__Mp364LH_295,STAGNANT,high,false,none,repeat_verify,steps 286-295 identical repeated command; output unchanged; epistemic and verification channels both frozen
+d_tb2_crack-7z-hash__Mp364LH_309,STAGNANT,high,false,none,repeat_verify,steps 300-309 the loop is unchanged; same command; same exit=2; no information gained
+d_tb2_crack-7z-hash__Mp364LH_323,STAGNANT,high,false,none,repeat_verify,steps 314-323 identical repeated extraction and restated stuck text; no progress signal
+d_tb2_crack-7z-hash__Mp364LH_337,STAGNANT,high,false,none,repeat_verify,steps 328-337 same failing command every step to the trajectory end; nothing new
+d_tb2_crack-7z-hash__X4cK7Hr_9,PRODUCTIVE,high,false,E,,steps 0-9 localize secrets.7z; install p7zip; detect the password gate; find 7z2john.pl; surface the missing Perl module
+d_tb2_crack-7z-hash__X4cK7Hr_10,PRODUCTIVE,high,false,E,,steps 1-10 discover the password-protected archive; install tooling; identify the 7z2john.pl dependency failure; start log diagnosis
+d_tb2_crack-7z-hash__X4cK7Hr_16,PRODUCTIVE,high,false,E/V,,steps 7-16 diagnose and install Compress::Raw::Lzma; step 13 produces secrets.hash; john loads it reporting cost
+d_tb2_crack-7z-hash__X4cK7Hr_17,PRODUCTIVE,high,false,E/I,,steps 8-17 repair the broken 7z2john.pl run; step 13 emits secrets.hash; john output identifies a 7z SHA256 hash
+d_tb2_crack-7z-hash__X4cK7Hr_22,PRODUCTIVE,high,false,E,,steps 13-22 hash produced; john reveals cost 524288; the step 22 dummy-archive experiment isolates the timeout
+d_tb2_crack-7z-hash__X4cK7Hr_26,PRODUCTIVE,high,false,E,,steps 17-26 john timing out on a trivial dummy hash rules out the password; step 23 find lists an unexpected secrets directory
+d_tb2_crack-7z-hash__X4cK7Hr_27,PRODUCTIVE,medium,false,E,,steps 18-27 dummy-hash experiment and find output add information; the closing grep at step 27 yields nothing
+d_tb2_crack-7z-hash__X4cK7Hr_31,STAGNANT,medium,true,none,repeat_search,steps 28-31 only fresh guesses; nothing new after the step 23-27 experiments; verification state frozen

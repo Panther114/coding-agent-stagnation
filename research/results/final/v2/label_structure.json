@@ -1,0 +1,11 @@
+{
+  "n_windows": 1103,
+  "n_productive_regions": 108,
+  "n_stagnant_regions": 68,
+  "windows_in_stagnant_regions": 319,
+  "episode_median_steps": 16.0,
+  "episode_max_steps": 312,
+  "episodes_ge20": 29,
+  "trajectories_with_stagnant_region": 50,
+  "trajectories_total": 80
+}

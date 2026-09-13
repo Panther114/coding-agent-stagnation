@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_custom-memory-heap-crash__E322Lxp_33,STAGNANT,medium,false,none,repeat_verify,Steps 24-33 rebuild after each hypothesis; segfault and trace after "Computation completed" never move
+d_tb2_custom-memory-heap-crash__E322Lxp_34,STAGNANT,medium,false,none,repeat_verify,Steps 25-34 edit-test cycle; identical segfault at 26; 29; 33; nothing new learned
+d_tb2_custom-memory-heap-crash__E322Lxp_37,PRODUCTIVE,medium,false,E,,"Step 35 new std::fflush error ruled out previous linker blocker; step 36 durable include fix; later segs repeat"
+d_tb2_custom-memory-heap-crash__E322Lxp_39,STAGNANT,low,false,none,repeat_verify,Steps 30-39 repeat build-test loop; step 31 __libc_malloc error already known; segfault unchanged at 33; 37; 39
+d_tb2_custom-memory-heap-crash__E322Lxp_43,STAGNANT,medium,false,none,repeat_verify,Steps 34-43 crash persists; step 41 duplicate operator delete already known from earlier window; no channel moves
+d_tb2_custom-memory-heap-crash__E322Lxp_45,STAGNANT,medium,false,none,repeat_verify,Steps 36-45 cstdio fix then repeated probes; same segfault at 37; 39; pre-existing crashes elsewhere
+d_tb2_custom-memory-heap-crash__E322Lxp_47,STAGNANT,medium,false,none,repeat_verify,Step 43 memset trace and 45 free trace repeat earlier evidence; step 47 build output empty; crash unchanged
+d_tb2_custom-memory-heap-crash__E322Lxp_49,STAGNANT,medium,false,none,repeat_verify,Steps 40-49 relink and rerun; operator delete clash and segfault already observed; no new localization
+d_tb2_custom-memory-heap-crash__E322Lxp_53,STAGNANT,medium,false,none,no_new_information,Steps 44-53 same probe cycle; init_priority warning fails at 50; 52; crash signature identical throughout
+d_tb2_custom-memory-heap-crash__E322Lxp_55,STAGNANT,medium,false,none,no_new_information,Steps 46-55 rebuild and rerun each hypothesis; free trace at 56 duplicates prior finding; segfault persists
+d_tb2_custom-memory-heap-crash__E322Lxp_59,PRODUCTIVE,medium,false,E,,"Step 56 "free:" trace shows crash now lands inside free(); a new crash location past earlier memset evidence"
+d_tb2_custom-memory-heap-crash__E322Lxp_61,STAGNANT,medium,false,none,repeat_verify,Steps 52-61 probes and memset-conflict error already seen; step 59 repeats it; segfault unchanged at 61
+d_tb2_custom-memory-heap-crash__E322Lxp_65,STAGNANT,medium,false,none,repeat_verify,Steps 56-65 reuse known signatures; step 63 skipping-free still segfaults; no new localization gained
+d_tb2_custom-memory-heap-crash__E322Lxp_69,STAGNANT,medium,false,none,no_new_information,Steps 60-69 reruns of earlier instrumentation; step 67 trace repeats known free and memset messages
+d_tb2_custom-memory-heap-crash__E322Lxp_71,STAGNANT,medium,false,none,repeat_verify,Steps 62-71 repeat skipping-free and signal-handler probes; segmentation faults recur at 63; 66; 70
+d_tb2_custom-memory-heap-crash__E322Lxp_75,PRODUCTIVE,high,false,I/V,,"Step 74 release run exits 0 first time; steps 75-77 valgrind confirms fix survived"
+d_tb2_custom-memory-heap-crash__E322Lxp_77,PRODUCTIVE,high,false,V,,"Steps 77-80 release and debug run clean; valgrind reports zero leaks on both"
+d_tb2_custom-memory-heap-crash__E322Lxp_81,DONE_REDUNDANT,high,false,none,,"Both builds and valgrind already passed by step 78; steps 78-81 merely re-run and re-read"
+d_tb2_custom-memory-heap-crash__E322Lxp_9,PRODUCTIVE,high,false,E/V,,"Steps 3-4 establish debug-passes/release-segfaults; step 8-9 build error narrower than first crash"
+d_tb2_custom-memory-heap-crash__NAMeUua_11,PRODUCTIVE,high,false,I/V,,"Step 8 edit; step 10 release runs exit 0 after step 5 segfault; debug reverified"
+d_tb2_custom-memory-heap-crash__NAMeUua_13,PRODUCTIVE,high,false,I/V,,"Step 8 fix ends step 5 crash; steps 9-12 verify release and debug both exit 0"
+d_tb2_custom-memory-heap-crash__NAMeUua_15,PRODUCTIVE,medium,false,I/V,,"Step 8 fix verified at 9-12; step 14 summary and valgrind check add little"
+d_tb2_custom-memory-heap-crash__NAMeUua_17,PRODUCTIVE,high,false,I/V,,"Step 8 fix verified release step 10 and debug step 12; first valgrind check starts at 17"
+d_tb2_custom-memory-heap-crash__NAMeUua_19,DONE_REDUNDANT,medium,false,none,,"Task completed and verified by step 16; steps 17-19 repeat valgrind on the same builds"
+d_tb2_custom-memory-heap-crash__NAMeUua_21,DONE_REDUNDANT,medium,false,none,,"Release verified clean at steps 10-16; window only re-executes builds and re-runs valgrind"
+d_tb2_custom-memory-heap-crash__NAMeUua_22,DONE_REDUNDANT,medium,false,none,,"Crash fixed before step 10; steps 13-19 re-read; re-verify and rerun valgrind without new goal"
+d_tb2_custom-memory-heap-crash__NAMeUua_23,DONE_REDUNDANT,medium,false,none,,"Completion verified at 15-16; steps 17-19 repeat duplicate valgrind runs and exploratory searches"
+d_tb2_custom-memory-heap-crash__NAMeUua_25,DONE_REDUNDANT,medium,false,none,,"Both builds pass by step 16; steps 17-19 re-run valgrind and search build tree for already-fixed bug"
+d_tb2_custom-memory-heap-crash__NAMeUua_26,DONE_REDUNDANT,medium,false,none,,"Fix verified at steps 10-16; window repeats valgrind and repeats fruitless libstdc++ searches"
+d_tb2_custom-memory-heap-crash__NAMeUua_27,DONE_REDUNDANT,medium,false,none,,"Task verified complete by step 16; steps 18-27 only re-run valgrind and list already-known build directories"

@@ -1,0 +1,38 @@
+{
+  "n_runs": 15535,
+  "median_dead_share": 0.2727272727272727,
+  "persistence_statistics": {
+    "persist_run_s_NOV_raw": {
+      "auc_high_dead_ender": 0.38067591092864916,
+      "spearman_with_dead_share": -0.28552188040060744,
+      "auc_run_fails": 0.6145374030315958
+    },
+    "persist_run_s_REP_raw": {
+      "auc_high_dead_ender": 0.36626749558545507,
+      "spearman_with_dead_share": -0.2864594238333838,
+      "auc_run_fails": 0.6120490261803808
+    },
+    "persist_run_s_STALL_stat": {
+      "auc_high_dead_ender": 0.391275202106865,
+      "spearman_with_dead_share": -0.27229478435033383,
+      "auc_run_fails": 0.6190209129613344
+    }
+  },
+  "controls": {
+    "n_windows_observed": 0.316379217872715,
+    "n_steps_observed": 0.31037883121025356,
+    "n_edits_total": 0.15721053325564446
+  },
+  "opening_feature_block": {
+    "auc": 0.792336644019294,
+    "n_features": 46,
+    "n_runs": 15535
+  },
+  "verdict": {
+    "best_persistence_statistic": "persist_run_s_STALL_stat",
+    "best_persistence_auc": 0.391275202106865,
+    "feature_block_auc": 0.792336644019294,
+    "beats_controls": true,
+    "beats_feature_block": false
+  }
+}

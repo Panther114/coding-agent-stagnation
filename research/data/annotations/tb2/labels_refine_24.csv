@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_extract-moves-from-video__ZE44RbF_9,PRODUCTIVE,high,false,E/I,,steps 6-9 extract frames and read terminal text; first task-relevant evidence obtained
+d_tb2_extract-moves-from-video__ZE44RbF_23,STAGNANT,low,false,none,no_new_information,steps 14-20 and 23 only empty polls; step 21 parse error repeats known state
+d_tb2_extract-moves-from-video__ZE44RbF_27,STAGNANT,low,false,none,no_new_information,steps 18-24 and 26-27 repeat empty polls and parse errors; nothing new learned
+d_tb2_extract-moves-from-video__ZE44RbF_31,STAGNANT,low,false,none,no_new_information,steps 23-24 and 30-31 empty polls; steps 25/27 repeat the same JSON error
+d_tb2_extract-moves-from-video__ZE44RbF_32,STAGNANT,low,false,none,no_new_information,steps 23-24 and 30-32 carry no content; steps 25/27 repeat the same error
+d_tb2_extract-moves-from-video__ZE44RbF_33,STAGNANT,low,false,none,no_new_information,steps 24 and 30-33 add nothing beyond empty polls; steps 25/27 repeat known errors
+d_tb2_extract-moves-from-video__ZE44RbF_36,PRODUCTIVE,medium,true,E,,"steps 35-36 give first OCR output at new timestamps; steps 27-34 merely restart the pipeline"
+d_tb2_extract-moves-from-video__ZE44RbF_37,PRODUCTIVE,medium,true,E,,"step 35 reports 140 key frames and OCR start; steps 36-37 add new timestamped lines"
+d_tb2_extract-moves-from-video__ZE44RbF_40,PRODUCTIVE,medium,false,E,,"steps 35-40 yield new OCR frames and timestamped zork lines; steps 31-33 polled empty output"
+d_tb2_extract-moves-from-video__ZE44RbF_41,PRODUCTIVE,medium,false,E,,"steps 35-41 deliver new timestamped transcript lines; steps 32-33 polled empty output only"
+d_tb2_extract-moves-from-video__ZE44RbF_45,PRODUCTIVE,medium,false,E,,"steps 36-45 add new OCR timestamps and commands; monotone progress to 112s of video"
+d_tb2_extract-moves-from-video__ZE44RbF_46,PRODUCTIVE,medium,false,E,,"steps 37-46 add new timestamped transcript lines to 118s; no edit or verification loss"
+d_tb2_extract-moves-from-video__ZE44RbF_49,PRODUCTIVE,medium,false,E,,"steps 40-51 yield new OCR lines; prompt returns at 51 ending that run"
+d_tb2_extract-moves-from-video__ZE44RbF_51,PRODUCTIVE,medium,false,E/I,,"step 51 OCR run completes at prompt; step 52 writes raw_commands.txt from new extraction"
+d_tb2_extract-moves-from-video__ZE44RbF_53,PRODUCTIVE,medium,false,E/I,,"steps 44-51 add new transcript lines and finish OCR; step 52 produces raw_commands.txt"
+d_tb2_extract-moves-from-video__ZE44RbF_55,PRODUCTIVE,medium,false,E/I,,"steps 46-51 add transcript lines and OCR completion; step 52 writes raw_commands.txt"
+d_tb2_extract-moves-from-video__ZE44RbF_59,PRODUCTIVE,medium,false,E/I,,"steps 50-51 finish that OCR run with new lines; step 52 writes raw_commands.txt"
+d_tb2_extract-moves-from-video__ZE44RbF_63,STAGNANT,medium,false,none,no_new_information,steps 54-63 are ten identical empty terminal polls; no change or verification movement
+d_tb2_extract-moves-from-video__ZE44RbF_67,STAGNANT,medium,false,none,no_new_information,steps 58-64 empty polls; step 65 repeats known parse error before step 66 reads output
+d_tb2_extract-moves-from-video__ZE44RbF_71,PRODUCTIVE,high,false,E/I,,"step 66 checks raw_commands.txt; step 67 reads it; step 68 writes extract_ambiguous.py; step 69 reads a frame"
+d_tb2_extract-moves-from-video__ZE44RbF_75,PRODUCTIVE,high,false,E/I,,"steps 66-75 inspect raw_commands.txt; write extract_ambiguous.py; stitch output; read stitched image"
+d_tb2_extract-moves-from-video__ZE44RbF_77,PRODUCTIVE,high,false,E/I,,"steps 68-75 create extract_ambiguous.py and description.txt; read frame giving text 'open trap'"
+d_tb2_extract-moves-from-video__ZE44RbF_81,PRODUCTIVE,medium,false,I/V,,"steps 72-75 confirm stitched_commands.png saved; read it; write description.txt; work continues"
+d_tb2_extract-moves-from-video__ZE44RbF_85,STAGNANT,medium,false,none,no_new_information,steps 76-81 empty polls; step 85 re-polls after writing already-known transcript content
+d_tb2_extract-moves-from-video__ZE44RbF_89,STAGNANT,medium,false,none,no_new_information,steps 80-81 and 85-89 empty polls around transcript already derived at step 82
+d_tb2_extract-moves-from-video__ZE44RbF_93,PRODUCTIVE,medium,false,E/I/V,,"step 91 reads transcript head; step 92 reveals absent test_solution.py; step 93 creates that file"
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_10,PRODUCTIVE,high,false,E/I,,"step 6 reads feal.py; step 9 identifies key[5] in round 3; step 10 writes attack.py"
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_101,PRODUCTIVE,high,false,I/V,,"step 94 timeout; step 97 still fails; step 100 attack finally recovers key[5] SUCCESS"
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_13,PRODUCTIVE,high,false,E/I,,"step 6 reads feal.py; step 9 localizes key[5] to round 3; steps 10 and 13 write attack.py and test"
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_15,PRODUCTIVE,high,false,E/I/V,,"step 6 reads feal.py; step 10 writes attack.py; step 14 first run returns 0 revealing failure"

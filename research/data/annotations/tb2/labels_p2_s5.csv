@@ -1,0 +1,29 @@
+card_id,label5b,confidence5b,channels5b,detail5b,justification5b
+tb2_bn-fit-modify__MXHjNK8_13_ctrlPROD,PRODUCTIVE,high,E/V,,Steps 6-13 install deps and each rerun moves past the previous ModuleNotFound/ImportError; step 13 localises the pgmpy API rename.
+tb2_build-pov-ray__RLBcWPD_21,PRODUCTIVE,medium,E/I,,Steps 12-19 read unix.doc and durably stage build dir plus makefile/config.h; step 20 reveals only that make is missing.
+tb2_chess-best-move__BjEPAPq_27,DONE_REDUNDANT,medium,I,,move.txt already written and confirmed at step 16 (e2e4); steps 18-27 re-report and re-verify the finished answer with no new goal.
+tb2_cobol-modernization__wX7wSXK_10_ctrlPROD,PRODUCTIVE,high,I/V,,Step 4 durably writes program.py; steps 9-10 turn a generic crash into a concrete INPUT.DAT size mismatch.
+tb2_compile-compcert__DkH2JMz_41,PRODUCTIVE,medium,E/I,,Steps 32-41 convert a vague configure exit 2 into a precise Coq-version constraint and start fetching Coq 8.16.1.
+tb2_compile-compcert__qeLnFSj_49,STAGNANT,medium,no_new_information,,Steps 40-49 never compile: make stays at "up to date" with ccomp missing; opam fails, then timeout and a sandbox kill.
+tb2_configure-git-webserver__KfqGfWa_46,PRODUCTIVE,high,I/V,,Steps 37-46 complete the clone/commit/push/curl chain and it returns hello world, then reconfirm via a fresh run.
+tb2_custom-memory-heap-crash__dE3EWmb_202,STAGNANT,medium,no_new_information,,Same user.cpp edits and compiles from 193-197 without new evidence; step 196 only restates the known-override failure. Step 198 adds a small nuance.
+tb2_db-wal-recovery__6nzz2fq_78,STAGNANT,medium,irrelevant_exploration,,Steps 69-78 wander through /root/.daytona session logs; no WAL evidence and no /app/recovered.json progress toward the 11 records.
+tb2_db-wal-recovery__rwGVtyu_25_ctrlSTAG,STAGNANT,high,no_new_information,,Steps 16-25 re-probe /dev/md1 and docker/ctr/crictl and find only /app/main.db; identical dead ends, no WAL recovered.
+tb2_db-wal-recovery__urEH2nP_38,PRODUCTIVE,medium,E/I,,Steps 30-37 reveal the WAL row set and the five base rows and write recovered.json; python naming only fails later.
+tb2_dna-assembly__b5N2XyK_56,PRODUCTIVE,high,E,,Steps 47-56 localise boundaries and iterate primers with measured Tm 54.6-68.2 C inside the required 58-72 window.
+tb2_dna-assembly__o5NzHz7_56,PRODUCTIVE,high,E/I,,Steps 52-56 report per-pair Tm and length data within limits and confirm assembled length 3591 equals output length.
+tb2_extract-moves-from-video__ZE44RbF_46,PRODUCTIVE,high,E,,Steps 37-46 accumulate new timestamped OCR transcriptions spanning 22-118 s of the video being transcribed.
+tb2_feal-linear-cryptanalysis__923TJt4_89,BLOCKED_EXTERNAL,medium,none,,Steps 80-89 poll a background gcc build and attack that stays status running; no new observations and no result inside the window.
+tb2_financial-document-processor__w7XM5qk_35,PRODUCTIVE,medium,E/I,,Steps 27-35 obtain OCR totals and amount-due text and regenerate the summary CSV, though fields stay blank.
+tb2_financial-document-processor__yFUb7zw_57,STAGNANT,medium,no_new_information,,Five script runs from 48-57 oscillate: PDFs flip from 4031/896/440 to 0 to 4031 while an awk syntax error appears.
+tb2_fix-code-vulnerability__uLGMMUD_156,PRODUCTIVE,high,E/I,,Step 150 creates report.jsonl with cwe-113; steps 148-156 localise the risky _hval definition in bottle.py.
+tb2_fix-ocaml-gc__EE2S8BX_88,STAGNANT,medium,edit_revert,,Builds at 80/83 keep failing with the same segfault and invalid-size error while steps 84-88 revert the earlier pool changes to original form.
+tb2_headless-terminal__jL4JdXw_40,PRODUCTIVE,medium,I,,Steps 31-40 retry an edit twice with the same insert_line error then patch successfully, so a durable change survives.
+tb2_install-windows-3.11__2UtJ22k_40,DONE_REDUNDANT,high,V,,Steps 32-40 only re-verify an already finished setup: QEMU -snapshot -vnc :1 running, nginx 200, desktop screenshot seen.
+tb2_install-windows-3.11__mUYmJ4a_21,PRODUCTIVE,medium,E/I,,Step 13-15 durably write the startup script and identify the disk image, then 18-21 map nginx configuration sites.
+tb2_install-windows-3.11__S59DCLX_46,STAGNANT,high,no_tool_text_loop,,Steps 37-46 repeat the identical Slirp line and the same analysis verbatim and mark the task complete without any new evidence.
+tb2_largest-eigenval__KJWcZ8D_23,PRODUCTIVE,medium,E/V,,Steps 15-19 rule out power iteration and Numba on accuracy and speed, and step 23 confirms residuals near 1e-15 with timings.
+tb2_llm-inference-batching-scheduler__ubwAnFp_53,PRODUCTIVE,high,I/V,,Steps 44-50 write the plans and self-validate 800 requests with 8 unique shapes and a falling pad ratio.
+tb2_mailman__cC4XxG9_22,PRODUCTIVE,medium,E/I,,Step 17 creates reading-group@local.edu; steps 19-22 learn mailman conf syntax and the /app var permission trap.
+tb2_make-doom-for-mips__7QckTNB_65,STAGNANT,medium,no_new_information,,Edits and rebuilds at 58-65 clear the Unknown opcode error in name only; the program still executes just 8 instructions and terminates.
+tb2_make-doom-for-mips__s3rm6vN_66,PRODUCTIVE,medium,E/V,,Steps 58-66 diagnose the big vs little endian mismatch, install mipsel and move past the Unknown opcode 0x19 failure.

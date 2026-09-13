@@ -1,0 +1,30 @@
+card_id,label3b,confidence3b,channels3b,detail3b,justification3b
+tb2_adaptive-rejection-sampler__sNuF5zZ_70,PRODUCTIVE,low,I,,Edits at 64/66/69 change ars.R (I); runs 62/68 both exit -1 with truncated output, so verification state unreadable.
+tb2_bn-fit-modify__MXHjNK8_53,PRODUCTIVE,high,E/V,,Failure signature moves: TypeError (44) to IndentationError (49) to sed error (53); 50-52 read and fix stray lines.
+tb2_chess-best-move__BjEPAPq_15,PRODUCTIVE,high,E/I/V,,Identified missing white king (10-11); valid position, confirmed Qe2-e4 mate (12-14); wrote app/move.txt (15).
+tb2_cobol-modernization__D37VA7b_56,STAGNANT,medium,none,no_new_information,Steps 48/54 both print identical "Transaction failed due to validation errors"; INPUT.DAT probing (49-50) yields no stated new fact.
+tb2_cobol-modernization__wX7wSXK_67,PRODUCTIVE,medium,E/I,,Found golden COBOL outputs in /tmp (59-60); fixed zero-padding in program.py (62); error narrowed to wrong INPUT.DAT (67).
+tb2_compile-compcert__qeLnFSj_32,PRODUCTIVE,medium,E/V,,Error moved past missing Str/Unix (27) to missing Driver.cmx (28,31); 29-32 inspect .depend.extr dependency file.
+tb2_configure-git-webserver__KfqGfWa_26,DONE_REDUNDANT,high,none,post_completion,End-to-end clone/add/commit/push succeeded (22-23) and curl returned "hello world" (24); 25-26 only cleanup.
+tb2_configure-git-webserver__Noh5oyF_39,DONE_REDUNDANT,high,none,post_completion,curl already served srv/www before window (27) and again at 34; 30-39 re-init bare repo and hook, then restate completed work.
+tb2_db-wal-recovery__6nzz2fq_20,PRODUCTIVE,medium,E,,Step 20 reveals SQLite main.db schema, table items and record data; 11-19 narrow tool availability and files present.
+tb2_db-wal-recovery__mUwQ8nv_54,STAGNANT,high,none,no_tool_text_loop,Steps 45-54 are no-tool text restating the missing-WAL conclusion; only 47 repeats ls showing unchanged /app.
+tb2_db-wal-recovery__urEH2nP_14_ctrlSTAG,PRODUCTIVE,high,E,,Steps 6/8/10/12/14 reveal schema, dump, integrity ok, 5 records only; 16 shows no main.db-wal exists.
+tb2_dna-assembly__b5N2XyK_22,PRODUCTIVE,high,E,,Windows 13-17 localize egfp at 3 mismatches from position 715; 19-20 find index 924 and flanking context.
+tb2_dna-assembly__o5NzHz7_33,PRODUCTIVE,high,E,,Steps 24-30 establish fragment overlaps and absence of BsaI sites; 32 gives oligotm values meeting rule 3.
+tb2_extract-moves-from-video__vRcGj7U_92,PRODUCTIVE,medium,E,,OCR finishes 134 frames (84-86); 89-90 save and read ordered full_commands images giving candidate "get bag"/"open case" moves.
+tb2_feal-linear-cryptanalysis__923TJt4_21,PRODUCTIVE,high,E/I,,Step 13 states cipher structure; 16 gives working C ciphertext; 14/18 write attack.py testing it.
+tb2_feal-linear-cryptanalysis__jbbLGgC_81,BLOCKED_EXTERNAL,medium,none,,Steps 72-83: /app holds none of feal.c, decrypt.c, pairs.txt or ciphertexts.txt, so the known-plaintext attack cannot begin.
+tb2_financial-document-processor__yFUb7zw_31,PRODUCTIVE,high,E/I,,Step 25 moves 10 invoices and 7 others; 27-31 show summary.csv zeros and narrow the failure to multi-line PDF totals.
+tb2_financial-document-processor__ygK3UcB_98,PRODUCTIVE,medium,E/I,,Step 94 exposes exact VAT line layout "VAT 623,68" driving the regex; 97-98 durably edit process_documents.py extraction.
+tb2_fix-ocaml-gc__EE2S8BX_23,PRODUCTIVE,high,E/I,,Step 19 corrects a wrong wosize assumption; 21 confirms 7 POOL_FREE_HEADER sites; 14/22-23 edit shared_heap.c.
+tb2_fix-ocaml-gc__wouZCwt_78,STAGNANT,high,none,edit_revert,Steps 70/77 restore shared_heap.c.backup, rebuilds 69/75/76 still crash, and 77-78 abandon the fix with no verification gain.
+tb2_install-windows-3.11__2UtJ22k_24,PRODUCTIVE,high,E/V,,Step 19 finds DOS prompt; 21 sends "win" via QMP; 22-23 mode change to 1024x768 and desktop confirm Windows booted.
+tb2_install-windows-3.11__er9h2Gw_80,PRODUCTIVE,medium,E/V,,Step 77 boot log shows MS-DOS V6.22 still loading; step 79 verifies websockify and nginx connectivity.
+tb2_install-windows-3.11__S59DCLX_28_ctrlSTAG,STAGNANT,high,none,repeat_verify,Steps 19-28 resend Ctrl+C and clear against a terminal stuck on "echo ' - Web interface on po"; no new fact or verification move.
+tb2_kv-store-grpc__FzjoxkQ_54,PRODUCTIVE,medium,E/I,,Step 48 starts server.py in background; 56 shows the job still running after ps and pgrep proved unavailable (52-54).
+tb2_llm-inference-batching-scheduler__ubwAnFp_19,PRODUCTIVE,high,E/I,,Steps 14-16 give 800 requests per bucket and baseline plans; 19-22 measure sequence-length distribution for shape choice.
+tb2_mailman__7MqVPwC_81,PRODUCTIVE,medium,E/I,,Each eval.py rerun (73/76/78/80) yields a new failure reason; 81 diagnoses direct-mail delivery and edits postfix main.cf.
+tb2_make-doom-for-mips__7QckTNB_24,STAGNANT,medium,none,repeat_search,Steps 16/19/21 repeat malformed greps returning "Unmatched ( or \"; 22-24 re-read doomgeneric with no stated new fact.
+tb2_make-doom-for-mips__s3rm6vN_40,PRODUCTIVE,high,E,,Steps 34-40 localize the default case throwing "Unknown opcode"; 31-32 find trap instructions and the faulting address.
+tb2_make-doom-for-mips__tHguAnp_51,PRODUCTIVE,medium,E,,Steps 42-49 read VM syscalls plus i_system/M_MakeDirectory, converging on a mini-libc plan; headers created at 52.

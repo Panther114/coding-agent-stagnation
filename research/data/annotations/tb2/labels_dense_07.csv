@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_45,PRODUCTIVE,medium,false,E,,Steps 36-44 test distinct payload classes and 37-38 probe filter null-byte handling; each rejection narrows the remaining bypass space.
+d_tb2_build-pov-ray__6eHBkqP_27,PRODUCTIVE,high,false,I/V,,Step 23 edits the Makefile; 24-25 compile and build the povray binary; 26-27 render the sanity scene with full statistics.
+d_tb2_build-pov-ray__KS3ejPb_19,PRODUCTIVE,high,false,E/I/V,,Step 11-15 copies sources then the make error moves from missing make (12) to missing config.h (15); 18 reads unix.doc build steps.
+d_tb2_caffe-cifar-10__zjg6gBb_12,PRODUCTIVE,medium,false,E/I,,Step 7 clones Caffe 1.0.0 into /app/caffe; 8-9 verify the commit and read the cifar10 solver file.
+d_tb2_cobol-modernization__z8rbv6p_52,PRODUCTIVE,medium,false,V,,Steps 43 and 49 compare Python output against COBOL-produced expected files and report zero differences on success and failure paths.
+d_tb2_compile-compcert__ArM52Gs_43,PRODUCTIVE,medium,false,E/I/V,,Step 41 downloads a prebuilt Coq 8.16.1 and 42-43 install it; the earlier Coq 8.18 incompatibility at 27 is resolved.
+d_tb2_compile-compcert__pvBcxmV_37,PRODUCTIVE,medium,true,E,,Steps 28-37 eliminate routes: no coq (28); opam build killed (32); coq stable ppa missing (37); narrowing toward patching the source.
+d_tb2_crack-7z-hash__M36nRdr_30,STAGNANT,medium,false,none,repeat_search,Steps 24;27;29 repeat greps that return empty output; 21-23 and 25-26 change nothing durable and no verification moves.
+d_tb2_crack-7z-hash__X4cK7Hr_16,PRODUCTIVE,high,false,E/I/V,,Steps 11-12 fix the missing LZMA Perl module; 13 extracts secrets.hash where 8 had failed; 9-10 diagnose the cpanm build log.
+d_tb2_custom-memory-heap-crash__E322Lxp_59,STAGNANT,medium,false,none,edit_revert,Steps 50-56 rewrite user.cpp five times yet the release binary still exits 139 with the same crash; 59 breaks compilation.
+d_tb2_db-wal-recovery__rwGVtyu_39,STAGNANT,low,false,none,irrelevant_exploration,Steps 30-38 return empty terminal output or missing directories (36); 39 writes recovered.json with no evidence it holds 11 records.
+d_tb2_distribution-search__ZJDezEN_42,PRODUCTIVE,high,false,E/I/V,,Step 36 reveals the venv python path and 39 shows scipy missing there; 42 installs scipy==1.16.3 into that environment.
+d_tb2_dna-assembly__Xbp9Bz3_31,PRODUCTIVE,high,false,E,,Steps 23-31 compute oligotm melting temperatures for successive candidate primer regions; new Tm evidence accumulates at every step.
+d_tb2_extract-moves-from-video__vRcGj7U_29,PRODUCTIVE,medium,false,E,,Steps 20-29 transcribe successive new frame ranges (510 to 1415) yielding new command text; the OCR scan keeps advancing.
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_15,PRODUCTIVE,high,false,E/I,,Step 6 reads the FEAL implementation; 10 creates attack.py and 13 the test harness; 14 shows the attack returns 0.
+d_tb2_feal-linear-cryptanalysis__923TJt4_9,PRODUCTIVE,high,false,E,,Steps 6-8 read feal.c; decrypt.c and pairs.txt named in the task statement; the cipher structure and test pairs become known.
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_49,STAGNANT,high,false,none,no_new_information,Steps 40-49 repeat one identical analysis text and the same interrupt command; the counter advances but nothing new is learned.
+d_tb2_fix-code-vulnerability__7wXM79N_36,PRODUCTIVE,medium,false,E,,Steps 31-36 enumerate tests and locate test_prevent_control_characters_in_headers; 27-30 show test_wsgi.py has no add_header match.
+d_tb2_fix-ocaml-gc__4FMyNtb_29,PRODUCTIVE,medium,false,E,,Steps 23-26 list runtime sources by mtime and open major_gc.c; 28-29 grep the run-length compression code the task describes.
+d_tb2_fix-ocaml-gc__EE2S8BX_15,PRODUCTIVE,medium,false,E/I,,Steps 7-14 edit pool_sweep in shared_heap.c and rebuild; 12 rules out its own first fix by re-analysis; changes persist.
+d_tb2_fix-ocaml-gc__yoU3Mrz_60,PRODUCTIVE,high,false,V,,Step 54 shows the build completing without the segmentation fault; 57-58 run the basic testsuite with all 40 tests passing.
+d_tb2_git-multibranch__zEK52fz_52,PRODUCTIVE,high,false,E/I/V,,Steps 49-50 fix the hook permission error; 51 curl returns main branch content from the HTTPS endpoint; 52 starts dev branch.
+d_tb2_install-windows-3.11__mUYmJ4a_46,PRODUCTIVE,medium,false,E/V,,Step 37 confirms snapshot overlay; 38 sends keys via QMP; 43 verifies VNC on port 5901; 42 shows the screen still black.
+d_tb2_llm-inference-batching-scheduler__7vihvYk_33,PRODUCTIVE,medium,false,I/V,,Steps 24 and 28 show cost falling from 1.467e+12 to 7.287e+11 and pad_ratio from 0.3605 to 0.1908 after edits at 22 and 26.
+d_tb2_mailman__dbiKZhc_23,PRODUCTIVE,medium,false,E/I,,Step 18 reveals mydestination lacks local.edu and 19 adds it; 22 shows Postfix listening on 25; 23 finds home_mailbox empty.
+d_tb2_mailman__qzvMMtK_12,PRODUCTIVE,high,false,E/I,,Step 4 reads eval.py plus tool versions; 6 lists mailman config files; 11-12 read mailman.cfg and postfix main.cf.
+d_tb2_mailman__tQhp5VL_30,PRODUCTIVE,medium,false,E,,Step 26 locates the mailman package path and 30 lists the actual mailman3 bin scripts; the next start attempt follows.
+d_tb2_make-doom-for-mips__DU5GBNE_42,STAGNANT,medium,false,none,no_new_information,Steps 34-42 keep writing summary documents (34;36;38;41) that restate prior analysis; no build artefact or verification changes.
