@@ -1,0 +1,255 @@
+{
+  "n_edits": 236137,
+  "n_surviving": 37154,
+  "n_wasted": 198983,
+  "perfect_curve_note": "cov means the lowest possible admission rate that still keeps every surviving edit; it is the fraction of the corpus that is genuinely discardable.",
+  "curves": {
+    "perfect": [
+      {
+        "refuse_frac": 0.0,
+        "admit_rate": 1.0,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.15734086568390385,
+        "discarded_edits": 0
+      },
+      {
+        "refuse_frac": 0.1,
+        "admit_rate": 0.8999987295510657,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.17482343087571697,
+        "discarded_edits": 23614
+      },
+      {
+        "refuse_frac": 0.2,
+        "admit_rate": 0.8000016939319124,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.19667566566089673,
+        "discarded_edits": 47227
+      },
+      {
+        "refuse_frac": 0.3,
+        "admit_rate": 0.7000004234829781,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.22477252928080535,
+        "discarded_edits": 70841
+      },
+      {
+        "refuse_frac": 0.4,
+        "admit_rate": 0.5999991530340438,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.2622351463135755,
+        "discarded_edits": 94455
+      },
+      {
+        "refuse_frac": 0.5,
+        "admit_rate": 0.5000021174148905,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.3146803987498835,
+        "discarded_edits": 118068
+      },
+      {
+        "refuse_frac": 0.6,
+        "admit_rate": 0.4000008469659562,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.39335133132179345,
+        "discarded_edits": 141682
+      },
+      {
+        "refuse_frac": 0.7,
+        "admit_rate": 0.2999995765170219,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.524470292627151,
+        "discarded_edits": 165296
+      }
+    ],
+    "learned": [
+      {
+        "refuse_frac": 0.0,
+        "admit_rate": 1.0,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.15734086568390385,
+        "discarded_edits": 0
+      },
+      {
+        "refuse_frac": 0.1,
+        "admit_rate": 0.8999987295510657,
+        "retained_survivor_share": 0.77359099962319,
+        "survival_rate_of_admitted": 0.13524183264870154,
+        "discarded_edits": 23614
+      },
+      {
+        "refuse_frac": 0.2,
+        "admit_rate": 0.8000016939319124,
+        "retained_survivor_share": 0.5904613231415191,
+        "survival_rate_of_admitted": 0.11612937377587211,
+        "discarded_edits": 47227
+      },
+      {
+        "refuse_frac": 0.3,
+        "admit_rate": 0.7000004234829781,
+        "retained_survivor_share": 0.436749744307477,
+        "survival_rate_of_admitted": 0.09816934469073661,
+        "discarded_edits": 70841
+      },
+      {
+        "refuse_frac": 0.4,
+        "admit_rate": 0.5999991530340438,
+        "retained_survivor_share": 0.30691177262205954,
+        "survival_rate_of_admitted": 0.08048305359890459,
+        "discarded_edits": 94455
+      },
+      {
+        "refuse_frac": 0.5,
+        "admit_rate": 0.5000021174148905,
+        "retained_survivor_share": 0.2119825590784303,
+        "survival_rate_of_admitted": 0.0667067562188212,
+        "discarded_edits": 118068
+      },
+      {
+        "refuse_frac": 0.6,
+        "admit_rate": 0.4000008469659562,
+        "retained_survivor_share": 0.1422457878021209,
+        "survival_rate_of_admitted": 0.055952570006881586,
+        "discarded_edits": 141682
+      },
+      {
+        "refuse_frac": 0.7,
+        "admit_rate": 0.2999995765170219,
+        "retained_survivor_share": 0.07926468213382139,
+        "survival_rate_of_admitted": 0.04157197103372341,
+        "discarded_edits": 165296
+      }
+    ],
+    "free_lines": [
+      {
+        "refuse_frac": 0.0,
+        "admit_rate": 1.0,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.15734086568390385,
+        "discarded_edits": 0
+      },
+      {
+        "refuse_frac": 0.1,
+        "admit_rate": 0.8999987295510657,
+        "retained_survivor_share": 0.7755019647951769,
+        "survival_rate_of_admitted": 0.1355759141363523,
+        "discarded_edits": 23614
+      },
+      {
+        "refuse_frac": 0.2,
+        "admit_rate": 0.8000016939319124,
+        "retained_survivor_share": 0.6033266942994024,
+        "survival_rate_of_admitted": 0.11865967921232333,
+        "discarded_edits": 47227
+      },
+      {
+        "refuse_frac": 0.3,
+        "admit_rate": 0.7000004234829781,
+        "retained_survivor_share": 0.4636109167249825,
+        "survival_rate_of_admitted": 0.10420699835446713,
+        "discarded_edits": 70841
+      },
+      {
+        "refuse_frac": 0.4,
+        "admit_rate": 0.5999991530340438,
+        "retained_survivor_share": 0.3540130268611724,
+        "survival_rate_of_admitted": 0.09283465789585127,
+        "discarded_edits": 94455
+      },
+      {
+        "refuse_frac": 0.5,
+        "admit_rate": 0.5000021174148905,
+        "retained_survivor_share": 0.27439844969586047,
+        "survival_rate_of_admitted": 0.08634781356664323,
+        "discarded_edits": 118068
+      },
+      {
+        "refuse_frac": 0.6,
+        "admit_rate": 0.4000008469659562,
+        "retained_survivor_share": 0.20433869839048285,
+        "survival_rate_of_admitted": 0.08037689905245884,
+        "discarded_edits": 141682
+      },
+      {
+        "refuse_frac": 0.7,
+        "admit_rate": 0.2999995765170219,
+        "retained_survivor_share": 0.11756473058082575,
+        "survival_rate_of_admitted": 0.061659208650357844,
+        "discarded_edits": 165296
+      }
+    ],
+    "random": [
+      {
+        "refuse_frac": 0.0,
+        "admit_rate": 1.0,
+        "retained_survivor_share": 1.0,
+        "survival_rate_of_admitted": 0.15734086568390385,
+        "discarded_edits": 0
+      },
+      {
+        "refuse_frac": 0.1,
+        "admit_rate": 0.8999987295510657,
+        "retained_survivor_share": 0.9015449211390429,
+        "survival_rate_of_admitted": 0.15761117620210519,
+        "discarded_edits": 23614
+      },
+      {
+        "refuse_frac": 0.2,
+        "admit_rate": 0.8000016939319124,
+        "retained_survivor_share": 0.8026861172417505,
+        "survival_rate_of_admitted": 0.15786882642528188,
+        "discarded_edits": 47227
+      },
+      {
+        "refuse_frac": 0.3,
+        "admit_rate": 0.7000004234829781,
+        "retained_survivor_share": 0.7032620982935889,
+        "survival_rate_of_admitted": 0.1580740005807763,
+        "discarded_edits": 70841
+      },
+      {
+        "refuse_frac": 0.4,
+        "admit_rate": 0.5999991530340438,
+        "retained_survivor_share": 0.6028960542606449,
+        "survival_rate_of_admitted": 0.15810053500091756,
+        "discarded_edits": 94455
+      },
+      {
+        "refuse_frac": 0.5,
+        "admit_rate": 0.5000021174148905,
+        "retained_survivor_share": 0.5029606502664585,
+        "survival_rate_of_admitted": 0.15827185798134988,
+        "discarded_edits": 118068
+      },
+      {
+        "refuse_frac": 0.6,
+        "admit_rate": 0.4000008469659562,
+        "retained_survivor_share": 0.40345588631102974,
+        "survival_rate_of_admitted": 0.1586999100100577,
+        "discarded_edits": 141682
+      },
+      {
+        "refuse_frac": 0.7,
+        "admit_rate": 0.2999995765170219,
+        "retained_survivor_share": 0.30150185713516714,
+        "survival_rate_of_admitted": 0.15812876723931057,
+        "discarded_edits": 165296
+      }
+    ]
+  },
+  "discardable_fraction": 0.8426591343160962,
+  "matched": {
+    "refuse_0.2": {
+      "learned_retained_share": 0.9730042525703827,
+      "free_retained_share": 0.9663024169672175,
+      "perfect_retained_share": 1.0,
+      "random_retained_share": 0.8000016939319124
+    },
+    "refuse_0.4": {
+      "learned_retained_share": 0.8577542121978791,
+      "free_retained_share": 0.7956613016095171,
+      "perfect_retained_share": 1.0,
+      "random_retained_share": 0.5999991530340438
+    }
+  }
+}

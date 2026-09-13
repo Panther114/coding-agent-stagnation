@@ -1,0 +1,55 @@
+{
+  "n_runs": 20408,
+  "overall_on_target": 0.6577926147783115,
+  "n_features": 46,
+  "opening": 0.4,
+  "O1_classification": {
+    "top_quartile_on_target": {
+      "auc": 0.7228422845330645,
+      "auc_within_task": 0.6578868647979803,
+      "base_rate": 0.3325656605252842
+    },
+    "bottom_quartile_on_target": {
+      "auc": 0.6807036013429393,
+      "auc_within_task": 0.6429972627270524,
+      "base_rate": 0.3285966287730302
+    }
+  },
+  "O1_regression_spearman": 0.3420759226963785,
+  "O2_free_alternatives": {
+    "n_windows_opening": 0.5025811576991546,
+    "n_edits_total": 0.30635289395257825
+  },
+  "O2_model_beats_free": true,
+  "O3_success_by_on_target": [
+    {
+      "band": "Q1 lowest",
+      "n": 5102,
+      "success": 0.15405723245785966,
+      "mean_on_target": 0.1212210720409392,
+      "median_edits": 7.0
+    },
+    {
+      "band": "Q2",
+      "n": 5102,
+      "success": 0.25891807134457073,
+      "mean_on_target": 0.48172404604495034,
+      "median_edits": 5.0
+    },
+    {
+      "band": "Q3",
+      "n": 5102,
+      "success": 0.06605252842022737,
+      "mean_on_target": 0.9408445716955052,
+      "median_edits": 14.0
+    },
+    {
+      "band": "Q4 highest",
+      "n": 5102,
+      "success": 0.09388475107800863,
+      "mean_on_target": 1.0,
+      "median_edits": 4.0
+    }
+  ],
+  "caution": "on-target rate is HIGHER for failing runs (0.620 vs 0.576 on the within-instance comparison), so a monitor for file choice is not a success predictor; the payoff question in O3 is reported per quartile rather than assumed"
+}

@@ -1,0 +1,10 @@
+{
+  "trajectories": 40,
+  "steps": 2016,
+  "windows": 2016,
+  "seconds_parse_and_normalize": 0.8972072601318359,
+  "seconds_features": 0.6575124263763428,
+  "ms_per_window_feature_vector": 0.32614703689302715,
+  "seconds_score_and_alarm_all_monitors_sample": 0.006249427795410156,
+  "ms_per_step_scoring_one_monitor": 0.003099914581056625
+}

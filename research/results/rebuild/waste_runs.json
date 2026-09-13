@@ -1,0 +1,58 @@
+{
+  "split_half_spearman_mean": 0.5600962582252411,
+  "split_half_spearman_sd": 0.0034370552771197977,
+  "n_splits": 20,
+  "waste_share_variance": {
+    "observed": 0.06497013504117724,
+    "expected_if_independent": 0.01702550649352352,
+    "ratio": 3.8160471211762066,
+    "pooled_waste_rate": 0.8426591343160962,
+    "n_runs": 15686
+  },
+  "temporal_profile": [
+    {
+      "segment": "first_quarter",
+      "n": 61982,
+      "waste": 0.8416153076699687
+    },
+    {
+      "segment": "second_quarter",
+      "n": 48765,
+      "waste": 0.8506715882292628
+    },
+    {
+      "segment": "third_quarter",
+      "n": 56187,
+      "waste": 0.855233416982576
+    },
+    {
+      "segment": "last_quarter",
+      "n": 66126,
+      "waste": 0.8364485981308412
+    }
+  ],
+  "waste_distribution": {
+    "p10": 0.4285714285714286,
+    "median": 1.0,
+    "p90": 1.0,
+    "frac_runs_above_0.5": 0.8568787453780441,
+    "frac_runs_below_0.1": 0.028050490883590462
+  },
+  "opening_targets": {
+    "n_runs_with_opening": 15106,
+    "worst_waste_quartile": {
+      "auc": 0.5803809654096043,
+      "base_rate": 0.5227724083145769,
+      "n": 15106,
+      "n_features": 46,
+      "auc_from_nsteps_alone": 0.4986774337433266
+    },
+    "failed": {
+      "auc": 0.7425445787017892,
+      "base_rate": 0.8687276578842844,
+      "n": 15106,
+      "n_features": 46,
+      "auc_from_nsteps_alone": 0.6703889830302984
+    }
+  }
+}

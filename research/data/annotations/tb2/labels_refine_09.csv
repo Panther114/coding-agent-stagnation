@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_compile-compcert__ArM52Gs_17,PRODUCTIVE,high,false,E/I,,Steps 11/12/14 download source; reject -toolchain; report Coq NOT FOUND; step 10 confirms OCaml and menhir
+d_tb2_compile-compcert__ArM52Gs_18,PRODUCTIVE,high,false,E/I,,Step 11 fetches source; step 12 shows configure option error; step 14 reports Coq NOT FOUND; step 18 lists packages
+d_tb2_compile-compcert__ArM52Gs_19,PRODUCTIVE,high,false,E/I,,Step 11 downloads source; step 12 exposes bad option; step 14 shows Coq missing; step 18 lists candidate packages
+d_tb2_compile-compcert__ArM52Gs_21,PRODUCTIVE,high,false,E,,Step 12 rejects -toolchain; step 14 reports Coq NOT FOUND; step 18 names installable Coq packages
+d_tb2_compile-compcert__ArM52Gs_22,PRODUCTIVE,high,false,E,,Step 14 pins Coq NOT FOUND as blocker; step 18 lists Coq and menhir packages; steps 15-17 try installation
+d_tb2_compile-compcert__ArM52Gs_23,PRODUCTIVE,high,false,E,,Step 14 identifies missing Coq; step 18 finds package candidates; subsequent steps act on that finding
+d_tb2_compile-compcert__ArM52Gs_25,PRODUCTIVE,medium,false,E,,Step 18 reveals available Coq and menhir packages; remaining steps opaque so confidence is limited
+d_tb2_compile-compcert__ArM52Gs_27,PRODUCTIVE,high,false,E,,Step 18 lists packages; step 26 locates extraction.v; step 27 produces concrete Coq make-proof failure
+d_tb2_compile-compcert__ArM52Gs_29,PRODUCTIVE,high,false,E,,Step 26 locates extraction.v; step 27 yields Coq proof error; step 29 confirms switch Coq 8.18.0
+d_tb2_compile-compcert__ArM52Gs_31,PRODUCTIVE,high,false,E,,Step 26 finds extraction.v; step 27 exposes new Coq error; step 29 reports switch Coq 8.18.0
+d_tb2_compile-compcert__ArM52Gs_33,PRODUCTIVE,high,false,E,,Step 26 finds extraction.v; step 27 exposes Coq error; step 33 validates downloaded source tarball
+d_tb2_compile-compcert__ArM52Gs_35,PRODUCTIVE,high,false,E,,Step 26 locates extraction.v; step 27 gives Coq proof failure; step 33 confirms tarball integrity
+d_tb2_compile-compcert__ArM52Gs_37,PRODUCTIVE,high,false,E,,Step 29 confirms Coq 8.18.0 in switch; step 33 validates tarball; step 36 reports jq missing
+d_tb2_compile-compcert__ArM52Gs_39,PRODUCTIVE,medium,false,E,,Step 33 validates tarball; step 36 reports jq missing; steps 32/39 opam killed by sandbox
+d_tb2_compile-compcert__ArM52Gs_41,PRODUCTIVE,medium,true,E,,Step 33 validates tarball; step 36 finds jq missing; step 41 starts fetching Coq 8.16.1
+d_tb2_compile-compcert__ArM52Gs_43,PRODUCTIVE,high,false,E/I,,Steps 42/43 plan and install Coq 8.16.1 in opam switch resolving the blocker
+d_tb2_compile-compcert__ArM52Gs_45,PRODUCTIVE,high,false,E/I,,Steps 42/43 install Coq 8.16.1; step 45 installs ccomp into /tmp/CompCert/bin
+d_tb2_compile-compcert__ArM52Gs_47,PRODUCTIVE,high,false,E/I,,Steps 42/43 install Coq 8.16.1; step 45 installs ccomp; steps 46/47 confirm version 3.13
+d_tb2_compile-compcert__ArM52Gs_49,PRODUCTIVE,high,false,I/V,,Steps 42-45 install Coq and ccomp; step 48 compiles hello.c printing hello from CompCert
+d_tb2_compile-compcert__ArM52Gs_50,PRODUCTIVE,high,true,I/V,,Steps 42-48 install Coq and ccomp and verify hello run; steps 49/50 are wrap-up
+d_tb2_compile-compcert__ArM52Gs_9,PRODUCTIVE,medium,false,E,,Step 4 identifies Ubuntu 24.04 x86_64; step 5 shows sudo missing; step 7 reports dpkg interrupted
+d_tb2_compile-compcert__PdkzfMV_10,PRODUCTIVE,high,false,E,,Steps 2-6 establish Linux x86_64 Ubuntu 24.04 with ocamlc absent; step 9 refreshes apt lists
+d_tb2_compile-compcert__PdkzfMV_11,PRODUCTIVE,high,false,E,,Steps 4-6 show ocamlc and lsb_release absent on Ubuntu 24.04; step 9 apt refresh succeeds
+d_tb2_compile-compcert__PdkzfMV_13,PRODUCTIVE,high,false,E,,Steps 4-6 learn ocamlc and lsb_release missing; steps 8/9 confirm root and apt ready
+d_tb2_compile-compcert__PdkzfMV_14,PRODUCTIVE,high,false,E/I,,Step 6 identifies Ubuntu 24.04; step 9 apt refresh; step 14 downloads CompCert source
+d_tb2_compile-compcert__PdkzfMV_15,PRODUCTIVE,high,false,E/I,,Step 6 identifies Ubuntu 24.04; step 14 downloads CompCert tarball; step 15 extracts it
+d_tb2_compile-compcert__PdkzfMV_17,PRODUCTIVE,high,false,E/I,,Steps 14/15 download and extract CompCert; step 16 shows CompCert-3.13.1 directory present
+d_tb2_compile-compcert__PdkzfMV_19,PRODUCTIVE,high,false,E/I,,Steps 14/15 fetch and extract source; step 19 reports Coq 8.18.0 UNSUPPORTED needing 8.12-8.16.1
+d_tb2_compile-compcert__PdkzfMV_21,PRODUCTIVE,high,false,E/I,,Steps 14-16 download and unpack CompCert; step 19 gives Coq version constraint; step 21 checks apt
+d_tb2_compile-compcert__PdkzfMV_23,PRODUCTIVE,high,false,E/I,,Step 16 shows extracted source tree; step 19 gives exact Coq constraint; steps 20/21 query packages

@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_44,STAGNANT,medium,false,none,no_tool_text_loop,Steps 35-44 restate the same network blocker with no tool call and no new fact; nothing learned changed or verified
+d_tb2_build-pov-ray__bMc6qiA_39,STAGNANT,high,false,none,repeat_search,Steps 30-39 re-query GitHub or the same archives; identical empty match sets; step 38's branch check adds nothing usable
+d_tb2_build-pov-ray__oboi8x8_21,PRODUCTIVE,high,false,E/I/V,,"Steps 12-16 locate build docs; 17-20 create the build tree and makefile; 21 make proves the toolchain gap"
+d_tb2_cobol-modernization__z8rbv6p_15,PRODUCTIVE,high,false,E/I,,Steps 6-11 pin byte layout and compile the reference COBOL; 13-15 build a probe harness that yields new field values
+d_tb2_compile-compcert__3AjSGCy_41,PRODUCTIVE,high,false,I/V,,Step 37 installs Coq 8.16.1; 38-39 build and install ccomp; 40 reports CompCert version 3.13
+d_tb2_compile-compcert__PdkzfMV_48,PRODUCTIVE,high,false,E/I/V,,Steps 39-41 confirm Coq and menhir then configure; 46-47 build install and report ccomp version 3.13
+d_tb2_crack-7z-hash__gpBub6y_32,PRODUCTIVE,high,false,E/I,,"Steps 23-26 extract the archive and inspect it; 29-32 diagnose the missing Lzma module and add the package repo"
+d_tb2_crack-7z-hash__Mp364LH_31,PRODUCTIVE,medium,false,E,,Steps 24-26 exclude a loose secret_file and a targeted wordlist; 28-31 reveal the log files and grep for hints
+d_tb2_custom-memory-heap-crash__E322Lxp_24,STAGNANT,medium,false,none,edit_revert,Steps 15-24 rewrite user.cpp five times; every build still dies with the identical SIGSEGV signature; no new knowledge survives
+d_tb2_db-wal-recovery__rwGVtyu_16,STAGNANT,high,false,none,irrelevant_exploration,Steps 7-16 hunt the WAL through overlay dirs devices and mtimes; step 12 re-confirms five records; no artefact is created
+d_tb2_db-wal-recovery__tQJsCmY_9,PRODUCTIVE,high,false,E/I,,Steps 6-9 back up the database validate checksums and identify the 0x42 WAL XOR key; base data confirmed
+d_tb2_dna-assembly__o5NzHz7_45,STAGNANT,medium,false,none,no_new_information,Step 37 already declares primers.fasta done; 38-45 only re-check enzyme sites and fail on absent tools
+d_tb2_extract-elf__rUUxEg5_38,DONE_REDUNDANT,high,false,none,post_completion,Step 34 verifies 700 extracted values against the binary; 29-38 re-verify and clean an already finished deliverable
+d_tb2_extract-moves-from-video__ZE44RbF_32,STAGNANT,medium,false,none,other,Steps 23-32 mostly return empty shell output; only step 28 yields frame-diff data; malformed replies repeat at 25 and 27
+d_tb2_feal-linear-cryptanalysis__923TJt4_24,PRODUCTIVE,medium,true,E/I/V,,"Step 16 confirms the reference ciphertext; 20-24 poll a background self-test; 30's timeout rules out brute force"
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_12,STAGNANT,high,false,none,repeat_verify,Steps 9-12 only watch the same truncated brute-force counter advance; timeout never arrives; no keyspace insight gained
+d_tb2_financial-document-processor__fZuguYf_53,PRODUCTIVE,high,false,E/I,,Steps 45-53 read three more documents classify them and move each into invoices or other; docs directory empties
+d_tb2_fix-code-vulnerability__uLGMMUD_40,PRODUCTIVE,high,false,E,,Steps 36-37 locate the eval and exec lines by number; 39-40 read those exact regions; localisation narrows
+d_tb2_fix-ocaml-gc__awEK6tj_28,PRODUCTIVE,medium,true,E/I/V,,"Step 20 patches line 650; 21 still segfaults; 23 replaces it with p += wh; 25 shows the coldstart segfault is gone"
+d_tb2_fix-ocaml-gc__yoU3Mrz_22,PRODUCTIVE,high,false,E/V,,Step 15 reproduces the bootstrap segfault; 17-22 localise sweep code and confirm shared_heap.c is the file to inspect
+d_tb2_git-multibranch__zEK52fz_15,PRODUCTIVE,high,false,I,,Steps 6-15 enable ssh password auth restart sshd init the bare repo chown targets and install the post-receive hook
+d_tb2_install-windows-3.11__2UtJ22k_9,PRODUCTIVE,medium,false,E,,Steps 4-6 establish QEMU is absent and map supervisor nginx noVNC websockify; step 9 fixes the plan accordingly
+d_tb2_large-scale-text-editing__KdK777C_45,REGRESSION,high,false,none,edit_revert,"Steps 36-40 build a working vim transform; step 42 stores it via setreg and 43-44 shows running it with -S changes nothing"
+d_tb2_llm-inference-batching-scheduler__evStmDE_34,PRODUCTIVE,high,false,I/V,,Steps 26-34 rewrite my_packer.py and rerun pack and evaluate; the shape set and measured plan costs keep moving
+d_tb2_mailman__jVyKJJk_27,PRODUCTIVE,high,false,E/I,,Steps 18-23 confirm mailman.cfg already suits Postfix then edit main.cf and master.cf; 26-27 create runtime dirs
+d_tb2_mailman__tQhp5VL_12,PRODUCTIVE,medium,true,E,,Steps 3-12 read /etc/mailman3 and the postfix config set; the configuration surface and mailman.cfg contents become known
+d_tb2_mailman__vQauci9_9,PRODUCTIVE,medium,false,E,,Steps 1-9 read eval.py three times then enumerate /etc and read mailman.cfg main.cf master.cf; relevant config known
+d_tb2_make-doom-for-mips__YWJGKe2_45,PRODUCTIVE,high,false,E/I/V,,"Step 37 reveals an endianness mismatch; 38-39 fix and link the MIPS ELF; 40-42 move the emulator failure past the old blocker"

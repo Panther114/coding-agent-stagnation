@@ -1,0 +1,82 @@
+[6s] 1500 trajectories; gold 654 windows over 81 trajectories {'PRODUCTIVE': 453, 'STAGNANT': 116, 'UNCERTAIN': 44, 'DONE_REDUNDANT': 27, 'BLOCKED_EXTERNAL': 10, 'REGRESSION': 4}
+[107s] views built; semantic embeddings: True
+[107s] caches 0/1500
+[134s] caches 400/1500
+[166s] caches 800/1500
+[191s] caches 1200/1500
+[223s] caches built for 1489 trajectories
+folds: [11, 9, 9, 8, 8] tasks; annotated windows per fold: [129, 132, 130, 132, 131]
+[236s] fold 0: test traj 329, train labelled windows 117 (pos 40), test labelled windows 125
+[255s] fold 1: test traj 323, train labelled windows 116 (pos 40), test labelled windows 115
+[273s] fold 2: test traj 343, train labelled windows 113 (pos 28), test labelled windows 107
+[297s] fold 3: test traj 239, train labelled windows 125 (pos 37), test labelled windows 131
+[310s] fold 4: test traj 266, train labelled windows 117 (pos 31), test labelled windows 117
+[310s] exported 100848 window rows, 3025440 score rows
+window-alarm evaluation over 80 trajectories, 138 stagnant and 457 productive windows
+alarm evaluation over 81 annotated trajectories (45 with >=1 stagnant region)
+
+=== window level (ROC-AUC / PR-AUC / best F1 / F1@best) ===
+B1_step30                  w=10  n=  595 pos=0.232 roc=0.580 pr=0.268 f1=0.453 thr=0.55
+B1_step60                  w=10  n=  595 pos=0.232 roc=0.433 pr=0.217 f1=0.382 thr=0.05
+B2_exact_rep3              w=10  n=  595 pos=0.232 roc=0.556 pr=0.300 f1=0.382 thr=0.56
+B2_exact_rep5              w=10  n=  595 pos=0.232 roc=0.546 pr=0.297 f1=0.377 thr=0.00
+B3_rep_channel             w=10  n=  595 pos=0.232 roc=0.527 pr=0.237 f1=0.397 thr=0.39
+B3_rep_target              w=10  n=  595 pos=0.232 roc=0.535 pr=0.241 f1=0.393 thr=0.37
+B4_sem_diversity           w=10  n=  595 pos=0.232 roc=0.525 pr=0.247 f1=0.378 thr=0.23
+B4_semantic                w=10  n=  595 pos=0.232 roc=0.610 pr=0.285 f1=0.440 thr=0.50
+B5_novelty                 w=10  n=  595 pos=0.232 roc=0.617 pr=0.310 f1=0.435 thr=0.53
+B5_novelty_sig             w=10  n=  595 pos=0.232 roc=0.544 pr=0.259 f1=0.380 thr=0.19
+B6_ver_stall               w=10  n=  595 pos=0.232 roc=0.530 pr=0.256 f1=0.377 thr=0.21
+B6_verification            w=10  n=  595 pos=0.232 roc=0.478 pr=0.227 f1=0.377 thr=0.17
+B7_workspace               w=10  n=  595 pos=0.232 roc=0.557 pr=0.246 f1=0.432 thr=0.50
+C1_evidence                w=10  n=  595 pos=0.232 roc=0.592 pr=0.279 f1=0.420 thr=0.44
+C1_evidence_rel            w=10  n=  595 pos=0.232 roc=0.618 pr=0.338 f1=0.433 thr=0.53
+C2_evid_ver                w=10  n=  595 pos=0.232 roc=0.586 pr=0.285 f1=0.412 thr=0.44
+C2_evid_ver_work           w=10  n=  595 pos=0.232 roc=0.587 pr=0.274 f1=0.416 thr=0.43
+C3_evid_sem                w=10  n=  595 pos=0.232 roc=0.603 pr=0.286 f1=0.424 thr=0.41
+C4_all_hand                w=10  n=  595 pos=0.232 roc=0.588 pr=0.290 f1=0.418 thr=0.55
+L_all_hand                 w=10  n=  595 pos=0.232 roc=0.526 pr=0.242 f1=0.385 thr=0.32
+L_all_sem                  w=10  n=  595 pos=0.232 roc=0.531 pr=0.251 f1=0.383 thr=0.29
+L_evid                     w=10  n=  595 pos=0.232 roc=0.569 pr=0.256 f1=0.416 thr=0.51
+L_evid_nov                 w=10  n=  595 pos=0.232 roc=0.520 pr=0.244 f1=0.382 thr=0.23
+L_evid_sem                 w=10  n=  595 pos=0.232 roc=0.565 pr=0.264 f1=0.400 thr=0.47
+L_evid_ver                 w=10  n=  595 pos=0.232 roc=0.493 pr=0.218 f1=0.377 thr=0.00
+L_nov                      w=10  n=  595 pos=0.232 roc=0.554 pr=0.261 f1=0.383 thr=0.42
+L_rep                      w=10  n=  595 pos=0.232 roc=0.568 pr=0.275 f1=0.395 thr=0.39
+L_sem                      w=10  n=  595 pos=0.232 roc=0.530 pr=0.250 f1=0.386 thr=0.34
+L_ver                      w=10  n=  595 pos=0.232 roc=0.501 pr=0.230 f1=0.377 thr=0.00
+L_work                     w=10  n=  595 pos=0.232 roc=0.579 pr=0.258 f1=0.447 thr=0.50
+
+=== alarm frontier (annotated trajectories) ===
+B1_step30                  w=10  b=0.01[fs=0.00 det=0.00 saved=0.0] b=0.02[fs=0.00 det=0.00 saved=0.0] b=0.05[fs=0.00 det=0.00 saved=0.0] b=0.10[fs=0.00 det=0.00 saved=0.0] b=0.20[fs=0.00 det=0.00 saved=0.0]
+B1_step60                  w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.05 det=0.00 saved=0.0] b=0.10[fs=0.05 det=0.00 saved=0.0] b=0.20[fs=0.05 det=0.00 saved=0.0]
+B2_exact_rep3              w=10  b=0.01[--] b=0.02[--] b=0.05[--] b=0.10[fs=0.07 det=0.01 saved=-5.4] b=0.20[fs=0.07 det=0.01 saved=-5.4]
+B2_exact_rep5              w=10  b=0.01[--] b=0.02[--] b=0.05[--] b=0.10[--] b=0.20[fs=0.12 det=0.01 saved=-23.8]
+B3_rep_channel             w=10  b=0.01[--] b=0.02[fs=0.01 det=0.00 saved=-0.3] b=0.05[fs=0.01 det=0.00 saved=-0.3] b=0.10[fs=0.01 det=0.00 saved=-0.3] b=0.20[fs=0.01 det=0.00 saved=-0.3]
+B3_rep_target              w=10  b=0.01[--] b=0.02[fs=0.01 det=0.00 saved=-4.1] b=0.05[fs=0.02 det=0.00 saved=-3.6] b=0.10[fs=0.02 det=0.00 saved=-3.6] b=0.20[fs=0.02 det=0.00 saved=-3.6]
+B4_sem_diversity           w=10  b=0.01[fs=0.00 det=0.00 saved=0.0] b=0.02[fs=0.00 det=0.00 saved=0.0] b=0.05[fs=0.00 det=0.00 saved=0.0] b=0.10[fs=0.00 det=0.00 saved=0.0] b=0.20[fs=0.00 det=0.00 saved=0.0]
+B4_semantic                w=10  b=0.01[fs=0.00 det=0.00 saved=0.0] b=0.02[fs=0.00 det=0.00 saved=0.0] b=0.05[fs=0.00 det=0.00 saved=0.0] b=0.10[fs=0.00 det=0.00 saved=0.0] b=0.20[fs=0.00 det=0.00 saved=0.0]
+B5_novelty                 w=10  b=0.01[fs=0.00 det=0.01 saved=0.5] b=0.02[fs=0.00 det=0.01 saved=0.5] b=0.05[fs=0.00 det=0.01 saved=0.5] b=0.10[fs=0.00 det=0.01 saved=0.5] b=0.20[fs=0.00 det=0.01 saved=0.5]
+B5_novelty_sig             w=10  b=0.01[--] b=0.02[fs=0.01 det=0.01 saved=0.0] b=0.05[fs=0.01 det=0.01 saved=0.0] b=0.10[fs=0.01 det=0.01 saved=0.0] b=0.20[fs=0.01 det=0.01 saved=0.0]
+B6_ver_stall               w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.02 det=0.00 saved=0.3] b=0.10[fs=0.02 det=0.00 saved=0.3] b=0.20[fs=0.02 det=0.00 saved=0.3]
+B6_verification            w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.05 det=0.02 saved=3.2] b=0.10[fs=0.06 det=0.02 saved=3.4] b=0.20[fs=0.06 det=0.02 saved=3.4]
+B7_workspace               w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.04 det=0.01 saved=-6.3] b=0.10[fs=0.04 det=0.01 saved=-6.3] b=0.20[fs=0.04 det=0.01 saved=-6.3]
+C1_evidence                w=10  b=0.01[--] b=0.02[fs=0.01 det=0.00 saved=-1.9] b=0.05[fs=0.01 det=0.00 saved=-1.9] b=0.10[fs=0.01 det=0.00 saved=-1.9] b=0.20[fs=0.01 det=0.00 saved=-1.9]
+C1_evidence_rel            w=10  b=0.01[fs=0.00 det=0.00 saved=0.0] b=0.02[fs=0.00 det=0.00 saved=0.0] b=0.05[fs=0.00 det=0.00 saved=0.0] b=0.10[fs=0.00 det=0.00 saved=0.0] b=0.20[fs=0.00 det=0.00 saved=0.0]
+C2_evid_ver                w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.02 det=0.01 saved=1.2] b=0.10[fs=0.02 det=0.01 saved=1.2] b=0.20[fs=0.02 det=0.01 saved=1.2]
+C2_evid_ver_work           w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.05 det=0.01 saved=-2.9] b=0.10[fs=0.05 det=0.01 saved=-2.9] b=0.20[fs=0.11 det=0.02 saved=-1.0]
+C3_evid_sem                w=10  b=0.01[fs=0.00 det=0.00 saved=0.1] b=0.02[fs=0.00 det=0.00 saved=0.1] b=0.05[fs=0.00 det=0.00 saved=0.1] b=0.10[fs=0.00 det=0.00 saved=0.1] b=0.20[fs=0.00 det=0.00 saved=0.1]
+C4_all_hand                w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.04 det=0.00 saved=-1.7] b=0.10[fs=0.09 det=0.01 saved=0.5] b=0.20[fs=0.09 det=0.01 saved=0.5]
+L_all_hand                 w=10  b=0.01[--] b=0.02[--] b=0.05[--] b=0.10[fs=0.06 det=0.01 saved=-8.2] b=0.20[fs=0.06 det=0.01 saved=-8.2]
+L_all_sem                  w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.04 det=0.00 saved=-7.1] b=0.10[fs=0.04 det=0.00 saved=-7.1] b=0.20[fs=0.15 det=0.04 saved=-6.5]
+L_evid                     w=10  b=0.01[--] b=0.02[fs=0.01 det=0.00 saved=-0.4] b=0.05[fs=0.01 det=0.00 saved=-0.4] b=0.10[fs=0.01 det=0.00 saved=-0.4] b=0.20[fs=0.01 det=0.00 saved=-0.4]
+L_evid_nov                 w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.04 det=0.01 saved=-16.5] b=0.10[fs=0.04 det=0.01 saved=-16.5] b=0.20[fs=0.04 det=0.01 saved=-16.5]
+L_evid_sem                 w=10  b=0.01[--] b=0.02[fs=0.01 det=0.00 saved=-10.0] b=0.05[fs=0.01 det=0.00 saved=-10.0] b=0.10[fs=0.07 det=0.01 saved=-9.4] b=0.20[fs=0.07 det=0.01 saved=-9.4]
+L_evid_ver                 w=10  b=0.01[--] b=0.02[fs=0.01 det=0.01 saved=0.8] b=0.05[fs=0.01 det=0.01 saved=0.8] b=0.10[fs=0.01 det=0.01 saved=0.8] b=0.20[fs=0.01 det=0.01 saved=0.8]
+L_nov                      w=10  b=0.01[--] b=0.02[--] b=0.05[fs=0.05 det=0.00 saved=-19.1] b=0.10[fs=0.05 det=0.00 saved=-19.1] b=0.20[fs=0.05 det=0.00 saved=-19.1]
+L_rep                      w=10  b=0.01[--] b=0.02[fs=0.01 det=0.00 saved=-4.2] b=0.05[fs=0.01 det=0.00 saved=-4.2] b=0.10[fs=0.01 det=0.00 saved=-4.2] b=0.20[fs=0.01 det=0.00 saved=-4.2]
+L_sem                      w=10  b=0.01[--] b=0.02[fs=0.01 det=0.00 saved=-10.0] b=0.05[fs=0.02 det=0.00 saved=-7.0] b=0.10[fs=0.02 det=0.00 saved=-7.0] b=0.20[fs=0.02 det=0.00 saved=-7.0]
+L_ver                      w=10  b=0.01[fs=0.00 det=0.00 saved=0.6] b=0.02[fs=0.00 det=0.00 saved=0.6] b=0.05[fs=0.00 det=0.00 saved=0.6] b=0.10[fs=0.00 det=0.00 saved=0.6] b=0.20[fs=0.00 det=0.00 saved=0.6]
+L_work                     w=10  b=0.01[fs=0.00 det=0.00 saved=0.0] b=0.02[fs=0.00 det=0.00 saved=0.0] b=0.05[fs=0.00 det=0.00 saved=0.0] b=0.10[fs=0.00 det=0.00 saved=0.0] b=0.20[fs=0.00 det=0.00 saved=0.0]
+
+wrote results/final/tb2_v3 in 462s

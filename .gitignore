@@ -1,0 +1,36 @@
+# =============================================================================
+# Raw corpora are NOT versioned: 6.1 GB, and every byte is re-downloadable.
+#   research/scripts/download_data.py          HF parquet datasets
+#   research/scripts/fetch_missing_shards.py   remaining shards (via hf-mirror)
+#   research/scripts/xscaffold_download.py     cross-scaffold corpora
+#   research/scripts/fetch_gold_patches.py     independent gold patches
+#
+# What IS versioned: research/data/processed (283 MB) and research/data/annotations,
+# so that the five verification gates run immediately after a clone.
+# =============================================================================
+research/data/raw/
+research/data/cache/
+research/_cache/
+
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# LaTeX intermediates (main.pdf and main.bbl are kept)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.blg
+paper/*.synctex.gz
+
+# Local secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
+credentials.json

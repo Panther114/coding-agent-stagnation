@@ -1,0 +1,104 @@
+{
+  "n_runs": 25681,
+  "overall_success": 0.16081928273821114,
+  "D1_success_by_dead_count": [
+    {
+      "dead_ends": "0",
+      "n_runs": 3283,
+      "success": 0.2120012183978069,
+      "median_edits": 2.0
+    },
+    {
+      "dead_ends": "1",
+      "n_runs": 9832,
+      "success": 0.18205858421480878,
+      "median_edits": 3.0
+    },
+    {
+      "dead_ends": "2-3",
+      "n_runs": 11232,
+      "success": 0.13879985754985755,
+      "median_edits": 7.0
+    },
+    {
+      "dead_ends": "4-7",
+      "n_runs": 1170,
+      "success": 0.07008547008547009,
+      "median_edits": 16.0
+    },
+    {
+      "dead_ends": "8+",
+      "n_runs": 164,
+      "success": 0.018292682926829267,
+      "median_edits": 28.5
+    }
+  ],
+  "D1_within_instance_any_dead": {
+    "n_true": 9869,
+    "n_false": 1454,
+    "success_true": 0.33985206201236196,
+    "success_false": 0.45254470426409904
+  },
+  "D2_survivors": {
+    "n_runs": 3434,
+    "share_of_successes": 0.8314769975786925,
+    "median_dead_ends": 1.0,
+    "max_dead_ends_then_success": 24,
+    "mean_dead_ends": 1.6019219569015726
+  },
+  "D3_position": {
+    "dead_end_median_relpos": 0.9166666666666666,
+    "non_dead_end_median_relpos": 0.46153846153846156,
+    "mannwhitney_p": 0.0,
+    "n_dead": 43151,
+    "n_other": 189909
+  },
+  "D4_by_exact_count": [
+    {
+      "dead_ends": 0,
+      "n_runs": 3283,
+      "success": 0.2120012183978069
+    },
+    {
+      "dead_ends": 1,
+      "n_runs": 9832,
+      "success": 0.18205858421480878
+    },
+    {
+      "dead_ends": 2,
+      "n_runs": 8436,
+      "success": 0.16228070175438597
+    },
+    {
+      "dead_ends": 3,
+      "n_runs": 2796,
+      "success": 0.06795422031473533
+    },
+    {
+      "dead_ends": 4,
+      "n_runs": 736,
+      "success": 0.07201086956521739
+    },
+    {
+      "dead_ends": 5,
+      "n_runs": 280,
+      "success": 0.08214285714285714
+    },
+    {
+      "dead_ends": 6,
+      "n_runs": 109,
+      "success": 0.05504587155963303
+    },
+    {
+      "dead_ends": 7,
+      "n_runs": 45,
+      "success": 0.0
+    },
+    {
+      "dead_ends": 8,
+      "n_runs": 31,
+      "success": 0.06451612903225806
+    }
+  ],
+  "interpretation": "Survivable dead ends with a bounded cost mean the admission policy's value is measured in wasted turns rather than in rescued runs; the runs that succeed after several dead ends are the evidence, and they are the reason the paper must not claim a refusal would have saved the run."
+}

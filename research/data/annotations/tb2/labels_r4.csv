@@ -1,0 +1,30 @@
+card_id,label4,confidence4,boundary4,channels4,detail4,justification4
+tb2_adaptive-rejection-sampler__sNuF5zZ_79,STAGNANT,medium,false,none,repeat_verify,Steps 75-76 re-run the same Rscript test with identical exit -1; edits at 70 and 72 fail and no channel moves.
+tb2_bn-fit-modify__MXHjNK8_78,PRODUCTIVE,high,false,I/V,,"Steps 71-73 move past the BayesianModelSampling error to a new topological_sort error; edits at 74-78 survive into the successful run."
+tb2_chess-best-move__BjEPAPq_21,PRODUCTIVE,medium,false,I/V,,Steps 12-16 confirm Qe2e4 checkmate with python-chess and write plus verify app/move.txt; steps 18-21 are harness-forced reporting.
+tb2_cobol-modernization__D37VA7b_74,PRODUCTIVE,high,false,V,,Steps 66-72 show python3 program.py succeeding and all three DAT files diff-identical to the COBOL output.
+tb2_compile-compcert__DkH2JMz_20,PRODUCTIVE,medium,false,E,,Steps 13-20 rule out the compcert.org release URL (HTML payload; HTTP 404 at 20) and pin the missing CA certificate blocker.
+tb2_compile-compcert__qeLnFSj_48_ctrlPROD,PRODUCTIVE,medium,false,E/I,,Step 45 reveals the correct opam switch options and step 48 initialises the coq-released repo inside the CompCert switch despite the timeout.
+tb2_configure-git-webserver__KfqGfWa_34,DONE_REDUNDANT,medium,false,none,,Step 24 already returned "hello world" from the clone-push-curl workflow; steps 25-34 only clean up and re-report.
+tb2_custom-memory-heap-crash__dE3EWmb_145,PRODUCTIVE,low,true,E,,Steps 136-145 add new binary evidence (no operator delete at 143; CustomHeapManager destructor at 0x16ce0 at 145) though step 141 still segfaults.
+tb2_db-wal-recovery__6nzz2fq_46,PRODUCTIVE,low,false,E,,Step 45 greps the items schema and step 46 reveals item-name strings in main.db; steps 37-44 are mostly silent filesystem probing.
+tb2_db-wal-recovery__rwGVtyu_16,STAGNANT,medium,false,none,irrelevant_exploration,Steps 7-16 hunt the missing WAL through docker layers and /dev/md1; step 16 mknod-then-removes it; nothing task-relevant is learned.
+tb2_db-wal-recovery__urEH2nP_17,PRODUCTIVE,low,false,E,,Step 8 dumps the five base records; step 10 returns integrity ok; step 16 establishes that main.db-wal does not exist.
+tb2_dna-assembly__b5N2XyK_37,PRODUCTIVE,medium,false,E,,Steps 28-37 accumulate new junction and mismatch data for primer design (flag index mismatches at 30-31; egfp/flag contexts at 37).
+tb2_dna-assembly__o5NzHz7_45,PRODUCTIVE,low,true,V,,Step 41 verifies that the designed BsaI fusion sites yield the expected TGAG/ACCT fragment though steps 42-45 only fail to find oligotm.
+tb2_extract-moves-from-video__ZE44RbF_24,STAGNANT,low,false,none,no_new_information,Steps 15-24 return eight empty terminal outputs with one interrupt at 22; no new information and no durable change.
+tb2_feal-linear-cryptanalysis__923TJt4_52,BLOCKED_EXTERNAL,low,false,none,,Steps 43-52 only poll a still-running background smart_attack job (<status>running</status>) whose compute has not returned; no channel can advance.
+tb2_financial-document-processor__w7XM5qk_114,PRODUCTIVE,medium,false,I/E,,Steps 105-113 edit process_final.sh and fill the empty ivE2mt3HwvEO.jpg total (819.06) found at 111; the summary total updates.
+tb2_financial-document-processor__yFUb7zw_48,PRODUCTIVE,high,false,I/V,,Steps 42 and 45 show the extraction script progressing from zeros to correct PDF totals and 6558 for 2lgKzDuI4E4g.jpg.
+tb2_fix-code-vulnerability__uLGMMUD_124,STAGNANT,medium,false,none,repeat_read,Steps 116-122 restart the analysis already done at 101-113; bottle.py is re-read and no edit or test occurs.
+tb2_fix-ocaml-gc__EE2S8BX_64,STAGNANT,medium,false,none,edit_revert,Steps 55-59 re-apply edits that step 65 reverts again; the build at 60 leaves the same segfault reported at 61.
+tb2_headless-terminal__jL4JdXw_26,STAGNANT,medium,false,none,no_tool_text_loop,Steps 17-24 alternate repeated no-tool replies with harness continue prompts; the step 26 edit fails and nothing advances.
+tb2_install-windows-3.11__2UtJ22k_33,DONE_REDUNDANT,medium,false,none,,Steps 22-24 already show the Windows desktop plus HTTP 200 and a working send-key; steps 25-33 only clean up and re-verify.
+tb2_install-windows-3.11__mUYmJ4a_130,STAGNANT,medium,false,none,repeat_verify,Steps 121-130 repeat the screendump-convert-read cycle (123-125 and 129-130) and relaunch QEMU identically at 128 with no new evidence.
+tb2_install-windows-3.11__S59DCLX_34,STAGNANT,medium,false,none,no_new_information,Steps 25-34 report the identical stuck-terminal observation every step; repeated Ctrl+C and verification commands never reach a clean prompt.
+tb2_kv-store-grpc__FzjoxkQ_69,PRODUCTIVE,high,false,I/V,,Steps 62-64 create and run test_client.py which returns val=42 for SetVal and GetVal and 0 for a missing key; server.py edited at 68.
+tb2_llm-inference-batching-scheduler__ubwAnFp_39,PRODUCTIVE,low,false,I/E,,Steps 30 and 37-38 rewrite the plan_b1 and plan_b2 output files with new packing logic; later metrics show improving cost and pad_ratio.
+tb2_mailman__7MqVPwC_93,PRODUCTIVE,high,false,I/V,,Step 90 notes the eval error moved from SMTPRecipientsRefused to "User unknown" after the postfix_lmtp work of steps 84-92.
+tb2_make-doom-for-mips__7QckTNB_48,PRODUCTIVE,medium,false,I,,Steps 47-48 durably patch my_stdlib.c and the Makefile after the failed patch at 39; the binary appears by step 56.
+tb2_make-doom-for-mips__s3rm6vN_55,PRODUCTIVE,high,false,E,,Steps 50-55 rule out opcode 0x33 and identify the big-endian build as the VM mismatch (objdump at 50-51; readelf at 55).
+tb2_make-doom-for-mips__tHguAnp_64,PRODUCTIVE,high,false,V/I,,Step 58 reports no failed files (all doom sources compile); steps 60-64 identify six missing symbols and add the support code.

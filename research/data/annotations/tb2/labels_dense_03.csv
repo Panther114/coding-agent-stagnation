@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_21,PRODUCTIVE,high,true,E,,Steps 18-20 showed meta refresh to a local file navigates but a data: URL does not; hypotheses narrowed inside the window
+d_tb2_build-pov-ray__6eHBkqP_13,PRODUCTIVE,high,false,E/I,,Steps 8-13 located a working FTP mirror and downloaded the POVSRC POVDOC and POVSCN archives after earlier mirror attempts failed
+d_tb2_build-pov-ray__KS3ejPb_39,PRODUCTIVE,high,false,E/I/V,,Step 31 sanity check passed; steps 32-38 rendered illum1.png and learned POV-Ray 2.2 lacks PNG support; new deliverable produced
+d_tb2_build-pov-ray__oboi8x8_29,PRODUCTIVE,high,true,E/I/V,,Steps 25-27 created config.h then make succeeded and povray installed to /usr/local/bin; step 29 diagnosed missing POVDOC includes
+d_tb2_cobol-modernization__z8rbv6p_30,PRODUCTIVE,high,true,E,,Steps 21-30 ran COBOL probe programs yielding byte layouts field lengths and character ordinals needed to replicate the semantics in Python
+d_tb2_compile-compcert__ArM52Gs_22,PRODUCTIVE,medium,true,E/I,,Step 14 revealed Coq NOT FOUND the central blocker; step 18 enumerated candidate Coq and menhir packages; installs followed at 19-22
+d_tb2_compile-compcert__pvBcxmV_18,PRODUCTIVE,high,true,E/I/V,,Steps 11-15 diagnosed the Coq version and missing menhir library; step 16 configure succeeded; step 18 moved to a later Coq blocker
+d_tb2_crack-7z-hash__M36nRdr_9,PRODUCTIVE,high,false,E,,Steps 3-8 discovered the John the Ripper install and 7z2john.pl then ruled out perl and python paths via concrete errors
+d_tb2_crack-7z-hash__X4cK7Hr_46,STAGNANT,high,false,none,no_new_information,Steps 37-43 and 45 repeat single-guess 7z attempts returning the identical exit-2 failure; step 44 hostname yielded nothing usable
+d_tb2_custom-memory-heap-crash__E322Lxp_39,PRODUCTIVE,medium,true,E/I/V,,Steps 31 and 35 exposed new compile errors and rewrote user.cpp; by step 37 the program completed its computation before segfaulting at exit
+d_tb2_db-wal-recovery__rwGVtyu_26,STAGNANT,medium,false,none,no_tool_text_loop,Steps 19-20 re-confirm the already-known absent WAL; steps 22-25 return empty output; step 26 only repeats that scanning continues
+d_tb2_distribution-search__ZJDezEN_22,STAGNANT,high,false,none,no_tool_text_loop,Steps 16-19 and 21 repeat the identical malformed str_replace_editor parameter errors already seen at steps 6 and 9; no file created
+d_tb2_dna-assembly__o5NzHz7_16,PRODUCTIVE,high,true,E/I,,Steps 9-16 established perl availability found and installed primer3 packages and extracted sequence lengths and fragment positions from the fasta
+d_tb2_extract-elf__rUUxEg5_53,DONE_REDUNDANT,high,false,none,,All 700 values were verified at steps 34-35 before the window; steps 44-53 only re-run re-read and re-explain the finished deliverable
+d_tb2_extract-moves-from-video__vRcGj7U_51,STAGNANT,medium,false,none,no_new_information,Steps 42-51 issue shell actions that return empty output; only step 43 shows a stopped OCR process with no task-relevant advance
+d_tb2_feal-linear-cryptanalysis__923TJt4_42,PRODUCTIVE,medium,true,E/I,,Step 34 exposed the key-expansion mapping; step 38 ruled out the C brute force by timeout; steps 36-42 wrote three distinct attack implementations
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_25,STAGNANT,medium,false,none,no_new_information,Steps 16-25 repeat ten identical echo commands asserting the same missing-files message with identical observations; nothing new learned or changed
+d_tb2_fix-code-vulnerability__7wXM79N_15,PRODUCTIVE,high,true,E,,Steps 9-14 located static_file at line 2735 in bottle.py and read the surrounding code narrowing the vulnerability search space
+d_tb2_fix-code-vulnerability__uLGMMUD_56,PRODUCTIVE,medium,true,E,,Steps 49-55 read the cookie and error-handling sections and located default_error_handler at line 937 and _cast at line 981
+d_tb2_fix-ocaml-gc__EE2S8BX_44,STAGNANT,medium,false,none,edit_revert,Steps 42-44 begin reverting all MAKE_FREE_HEADER edits; the build still fails at steps 37 and 40 with no surviving change
+d_tb2_fix-ocaml-gc__yoU3Mrz_39,PRODUCTIVE,high,true,E/I,,Steps 31-35 localized the pool_sweep bug at line 650 by comparing correct loops elsewhere; step 37 applied the fix and step 39 rebuilt
+d_tb2_git-multibranch__zEK52fz_28,PRODUCTIVE,high,true,E/I,,Step 22 confirmed nginx listening on 8443; steps 25-26 diagnosed the 404 through the error log; step 27 rewrote the nginx configuration accordingly
+d_tb2_install-windows-3.11__mUYmJ4a_22,PRODUCTIVE,medium,true,E/I,,Steps 13-15 created the VM start script and identified the disk image format; steps 18-22 mapped the nginx site layout
+d_tb2_llm-inference-batching-scheduler__7vihvYk_10,PRODUCTIVE,high,false,E/I,,Steps 3-5 read cost_model.py and baseline_packer.py; step 6 created shape_aware_packer.py and step 9 ran it successfully
+d_tb2_llm-inference-batching-scheduler__evStmDE_50,PRODUCTIVE,low,true,I,,Steps 41-49 modify my_packer.py three times and re-run the packer and evaluator; metric outputs are truncated so improvement is unverified
+d_tb2_mailman__jVyKJJk_40,PRODUCTIVE,high,true,E/I,,Step 31 showed mailman starting; step 34 ruled out the domains subcommand; step 39 found SubscriptionPolicy and step 40 fixed setup_list.py
+d_tb2_mailman__tQhp5VL_20,PRODUCTIVE,medium,true,E,,Steps 11-20 read postfix master.cf established at step 14 that systemd is unavailable and mapped /var/lib/mailman3 at step 20
+d_tb2_make-doom-for-mips__DU5GBNE_24,PRODUCTIVE,medium,true,E,,Steps 15-23 read the core doomgeneric sources and headers and enumerated the platform backends and Makefile variants

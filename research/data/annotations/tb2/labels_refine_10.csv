@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_compile-compcert__PdkzfMV_24,PRODUCTIVE,high,true,E,,step 19 names the Coq 8.18 blocker; step 24 downloads Coq 8.16.1
+d_tb2_compile-compcert__PdkzfMV_25,PRODUCTIVE,high,true,E,,step 19 fixes the Coq range; steps 20-25 fetch and unpack Coq 8.16.1
+d_tb2_compile-compcert__PdkzfMV_27,PRODUCTIVE,high,true,E,,step 19 pins the Coq requirement; steps 24-27 obtain and inspect coq-8.16.1
+d_tb2_compile-compcert__PdkzfMV_29,PRODUCTIVE,medium,true,E,,steps 24-28 unpack Coq 8.16.1; step 28 reveals the dune blocker
+d_tb2_compile-compcert__PdkzfMV_31,PRODUCTIVE,medium,true,E,,step 28 reports missing dune; step 32 shows configure past the Coq blocker
+d_tb2_compile-compcert__PdkzfMV_33,PRODUCTIVE,high,true,E,,step 32 shows configure advancing past the dune error; step 24 fetched Coq
+d_tb2_compile-compcert__PdkzfMV_35,PRODUCTIVE,medium,true,E,,steps 28-32 replace the dune error with real configure progress
+d_tb2_compile-compcert__PdkzfMV_37,PRODUCTIVE,medium,true,E,,step 32 shows configure progressing; steps 36-37 continue building past the window
+d_tb2_compile-compcert__PdkzfMV_39,PRODUCTIVE,high,true,E,,steps 32-39 show configure progress and Coq 8.16.1 now installed
+d_tb2_compile-compcert__PdkzfMV_40,PRODUCTIVE,high,true,E,,steps 32-40 show configure progress; steps 39-40 verify Coq and menhir
+d_tb2_compile-compcert__PdkzfMV_41,PRODUCTIVE,medium,true,E,,steps 32-34 configure gets further; steps 39-40 verify Coq and menhir
+d_tb2_compile-compcert__PdkzfMV_43,PRODUCTIVE,medium,true,E,,steps 39-41 verify Coq 8.16.1 and menhir then reconfigure CompCert
+d_tb2_compile-compcert__PdkzfMV_44,PRODUCTIVE,medium,true,E,,steps 39-40 verify Coq and menhir; step 41 reconfigures CompCert
+d_tb2_compile-compcert__PdkzfMV_45,PRODUCTIVE,medium,true,E,,steps 39-40 verify the built Coq 8.16.1 and menhir 20231231
+d_tb2_compile-compcert__PdkzfMV_47,PRODUCTIVE,medium,true,E/I,,step 46 installs ccomp under /tmp/CompCert; step 47 invokes it
+d_tb2_compile-compcert__PdkzfMV_48,PRODUCTIVE,high,true,E/I,,step 46 installs ccomp; steps 39-47 verify Coq 8.16.1 and menhir
+d_tb2_compile-compcert__PdkzfMV_49,PRODUCTIVE,medium,true,E/I,,step 46 installs ccomp; step 49 prints CompCert version 3.13
+d_tb2_compile-compcert__PdkzfMV_51,PRODUCTIVE,high,true,E/I/V,,step 46 installs ccomp; step 51 compiles hello.c through it
+d_tb2_compile-compcert__PdkzfMV_53,PRODUCTIVE,high,true,E/I/V,,step 51 compiles and step 52 runs hello; task verified in-window
+d_tb2_compile-compcert__PdkzfMV_9,PRODUCTIVE,medium,true,E,,steps 2-6 map the OS and missing ocamlc; step 9 refreshes packages
+d_tb2_compile-compcert__pvBcxmV_11,PRODUCTIVE,high,true,E/I,,steps 2-11 build the toolchain; steps 6-11 fetch source and expose the Coq blocker
+d_tb2_compile-compcert__pvBcxmV_12,PRODUCTIVE,high,true,E/I,,steps 4-12 install toolchain; steps 11-12 pin the Coq and menhir blockers
+d_tb2_compile-compcert__pvBcxmV_13,PRODUCTIVE,high,true,E/I,,step 12 installs menhir; step 13 moves past the Coq error to a menhir error
+d_tb2_compile-compcert__pvBcxmV_15,PRODUCTIVE,high,true,E/I,,step 13 exposes the menhir error; steps 14-15 isolate the missing library
+d_tb2_compile-compcert__pvBcxmV_17,PRODUCTIVE,high,true,E/I/V,,step 13 narrows the blocker to menhir; steps 15-17 fix it and configure succeeds
+d_tb2_compile-compcert__pvBcxmV_18,PRODUCTIVE,high,true,E/I,,steps 13-18 install the menhir library; step 17 configures; step 18 exposes the Coq error
+d_tb2_compile-compcert__pvBcxmV_19,PRODUCTIVE,high,true,E,,steps 16-19 complete configure then build; step 18 reveals the Coq failure
+d_tb2_compile-compcert__pvBcxmV_23,PRODUCTIVE,high,true,E/I,,steps 15-22 install the menhir library then OPAM; step 22 starts Coq 8.16.1
+d_tb2_compile-compcert__pvBcxmV_24,PRODUCTIVE,medium,true,E,,step 18 exposes the Coq build failure; step 19 confirms apt has no old Coq
+d_tb2_compile-compcert__pvBcxmV_25,PRODUCTIVE,high,true,E,,steps 17-19 expose the Coq compatibility failure then give up on apt Coq

@@ -1,0 +1,84 @@
+{
+  "n_edits": 197627,
+  "overall_survival": 0.18800062744463053,
+  "by_size": [
+    {
+      "n_lines": 1,
+      "n": 197627,
+      "survival": 0.18800062744463053
+    },
+    {
+      "n_lines": 2,
+      "n": 96441,
+      "survival": 0.2527659397973891
+    },
+    {
+      "n_lines": 3,
+      "n": 79017,
+      "survival": 0.27185289241555616
+    },
+    {
+      "n_lines": 4,
+      "n": 12438,
+      "survival": 0.18636436726161762
+    },
+    {
+      "n_lines": 5,
+      "n": 20983,
+      "survival": 0.2001620359338512
+    },
+    {
+      "n_lines": 6,
+      "n": 29416,
+      "survival": 0.2088659233070438
+    },
+    {
+      "n_lines": 8,
+      "n": 11053,
+      "survival": 0.23342079073554692
+    },
+    {
+      "n_lines": 12,
+      "n": 25113,
+      "survival": 0.2689841914546251
+    },
+    {
+      "n_lines": 20,
+      "n": 24488,
+      "survival": 0.3504573668735707
+    }
+  ],
+  "single_line_stratum": {
+    "n": 101186,
+    "survival": 0.12627240922657285,
+    "auc_file_size": 0.4785870855996418,
+    "auc_file_edits_before": 0.3654718322494731,
+    "auc_relpos": 0.4031298508730059,
+    "auc_edit_lines": 0.550743447253009
+  },
+  "S2_note": "the arithmetic baseline is estimated as the survival of the smallest edit class, since a one-line edit has exactly one chance to match",
+  "S3_within_instance": {
+    "all_edits": {
+      "n_instances": 271,
+      "mean_delta": 0.17355768987537107,
+      "p": 3.9387857947677036e-15,
+      "n": 197627,
+      "survival": 0.18800062744463053
+    },
+    "single_line_only": {
+      "n_instances": 265,
+      "mean_delta": 0.06322015522151041,
+      "p": 0.006780522885651786,
+      "n": 101186,
+      "survival": 0.12627240922657285
+    },
+    "five_plus_lines": {
+      "n_instances": 215,
+      "mean_delta": 0.2048163051652577,
+      "p": 1.3737163634626348e-08,
+      "n": 58034,
+      "survival": 0.29777371885446463
+    }
+  },
+  "interpretation": "Size explains part of the survival trend by arithmetic. What matters is whether the outcome relation survives inside a single size stratum; if it does, the headline is not a size artefact."
+}

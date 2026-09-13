@@ -1,0 +1,2882 @@
+{
+  "B1_step30": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B1_step60": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B2_exact_rep3": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B2_exact_rep5": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B3_rep_channel": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B3_rep_target": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B4_semantic": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.2,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 6.3,
+        "savings_ratio": 0.14109742441209405,
+        "median_latency": 4.5
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.74,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.1,
+        "savings_ratio": 0.04703247480403135,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.74,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.1,
+        "savings_ratio": 0.04703247480403135,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.74,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.1,
+        "savings_ratio": 0.04703247480403135,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.74,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.1,
+        "savings_ratio": 0.04703247480403135,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.2,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 6.3,
+        "savings_ratio": 0.14109742441209405,
+        "median_latency": 4.5
+      }
+    ]
+  },
+  "B4_sem_diversity": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.88,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.45,
+        "savings_ratio": 0.010078387458006719,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.88,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.45,
+        "savings_ratio": 0.010078387458006719,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.88,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.45,
+        "savings_ratio": 0.010078387458006719,
+        "median_latency": 5.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.88,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.88,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.88,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.88,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.78,
+        "false_stop_rate": 0.15,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.2,
+        "savings_ratio": 0.004479283314669653,
+        "median_latency": 4.0
+      }
+    ]
+  },
+  "B5_novelty": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 7.1,
+        "savings_ratio": 0.1590145576707727,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 7.1,
+        "savings_ratio": 0.1590145576707727,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 7.1,
+        "savings_ratio": 0.1590145576707727,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 7.1,
+        "savings_ratio": 0.1590145576707727,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 7.1,
+        "savings_ratio": 0.1590145576707727,
+        "median_latency": 5.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B5_novelty_sig": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B6_verification": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "B6_ver_stall": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.46,
+        "false_stop_rate": 0.15,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 11.2,
+        "savings_ratio": 0.25083986562150057,
+        "median_latency": 4.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.5,
+        "savings_ratio": 0.055991041433370664,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.46,
+        "false_stop_rate": 0.15,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 11.2,
+        "savings_ratio": 0.25083986562150057,
+        "median_latency": 4.0
+      }
+    ]
+  },
+  "B7_workspace": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.78,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.78,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.78,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.78,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.78,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.84,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.5,
+        "savings_ratio": 0.07838745800671892,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.84,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.5,
+        "savings_ratio": 0.07838745800671892,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.84,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.5,
+        "savings_ratio": 0.07838745800671892,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.84,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.5,
+        "savings_ratio": 0.07838745800671892,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.84,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.5,
+        "savings_ratio": 0.07838745800671892,
+        "median_latency": 4.0
+      }
+    ]
+  },
+  "C1_evidence": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "C1_evidence_rel": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "C2_evid_ver": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.4,
+        "savings_ratio": 0.008958566629339306,
+        "median_latency": 19.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.4,
+        "savings_ratio": 0.008958566629339306,
+        "median_latency": 19.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.4,
+        "savings_ratio": 0.008958566629339306,
+        "median_latency": 19.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.4,
+        "savings_ratio": 0.008958566629339306,
+        "median_latency": 19.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.4,
+        "savings_ratio": 0.008958566629339306,
+        "median_latency": 19.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "C2_evid_ver_work": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.35,
+        "savings_ratio": 0.05263157894736842,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.35,
+        "savings_ratio": 0.05263157894736842,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.35,
+        "savings_ratio": 0.05263157894736842,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.35,
+        "savings_ratio": 0.05263157894736842,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.35,
+        "savings_ratio": 0.05263157894736842,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 5.85,
+        "savings_ratio": 0.13101903695408734,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 5.85,
+        "savings_ratio": 0.13101903695408734,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 5.85,
+        "savings_ratio": 0.13101903695408734,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 5.85,
+        "savings_ratio": 0.13101903695408734,
+        "median_latency": 4.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 5.85,
+        "savings_ratio": 0.13101903695408734,
+        "median_latency": 4.0
+      }
+    ]
+  },
+  "C3_evid_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.66,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.62,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 13.0,
+        "savings_ratio": 0.2911534154535274,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.62,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 13.0,
+        "savings_ratio": 0.2911534154535274,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.62,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 13.0,
+        "savings_ratio": 0.2911534154535274,
+        "median_latency": 5.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.66,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.5,
+        "savings_ratio": 0.011198208286674132,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.66,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.5,
+        "savings_ratio": 0.011198208286674132,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.6,
+        "false_stop_rate": 0.2,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 5.65,
+        "savings_ratio": 0.1265397536394177,
+        "median_latency": 6.0
+      }
+    ]
+  },
+  "C4_all_hand": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.68,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.85,
+        "savings_ratio": 0.08622620380739082,
+        "median_latency": 9.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.85,
+        "savings_ratio": 0.08622620380739082,
+        "median_latency": 9.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 3.85,
+        "savings_ratio": 0.08622620380739082,
+        "median_latency": 9.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.64,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.65,
+        "savings_ratio": 0.0593505039193729,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.64,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.65,
+        "savings_ratio": 0.0593505039193729,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.64,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.65,
+        "savings_ratio": 0.0593505039193729,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "L_rep": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.96,
+        "false_stop_rate": 0.15,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 0.95,
+        "savings_ratio": 0.02127659574468085,
+        "median_latency": 4.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "L_nov": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 4.65,
+        "savings_ratio": 0.10414333706606943,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 4.65,
+        "savings_ratio": 0.10414333706606943,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.94,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 6.2,
+        "savings_ratio": 0.13885778275475924,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.94,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 6.2,
+        "savings_ratio": 0.13885778275475924,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.94,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 6.2,
+        "savings_ratio": 0.13885778275475924,
+        "median_latency": 5.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.88,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 7.65,
+        "savings_ratio": 0.1713325867861142,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.88,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 7.65,
+        "savings_ratio": 0.1713325867861142,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.88,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 7.65,
+        "savings_ratio": 0.1713325867861142,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "L_evid": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.62,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "L_ver": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.88,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.9,
+        "savings_ratio": 0.06494960806270997,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.88,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.9,
+        "savings_ratio": 0.06494960806270997,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.82,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.82,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.82,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.15,
+        "savings_ratio": 0.0929451287793953,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 1.55,
+        "savings_ratio": 0.03471444568868981,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 1.55,
+        "savings_ratio": 0.03471444568868981,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.8,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.4,
+        "savings_ratio": 0.09854423292273236,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.8,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.4,
+        "savings_ratio": 0.09854423292273236,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.72,
+        "false_stop_rate": 0.15,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 5.2,
+        "savings_ratio": 0.11646136618141098,
+        "median_latency": 4.0
+      }
+    ]
+  },
+  "L_work": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.7,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "L_evid_ver": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.76,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 10.05,
+        "savings_ratio": 0.22508398656215006,
+        "median_latency": 16.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.76,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 10.05,
+        "savings_ratio": 0.22508398656215006,
+        "median_latency": 16.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.76,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 10.05,
+        "savings_ratio": 0.22508398656215006,
+        "median_latency": 16.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.76,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 10.05,
+        "savings_ratio": 0.22508398656215006,
+        "median_latency": 16.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.76,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 10.05,
+        "savings_ratio": 0.22508398656215006,
+        "median_latency": 16.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.6,
+        "savings_ratio": 0.05823068309070549,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 2.6,
+        "savings_ratio": 0.05823068309070549,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.76,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 9.4,
+        "savings_ratio": 0.21052631578947367,
+        "median_latency": 8.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.66,
+        "false_stop_rate": 0.1,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 10.25,
+        "savings_ratio": 0.22956326987681971,
+        "median_latency": 3.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.66,
+        "false_stop_rate": 0.1,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 10.25,
+        "savings_ratio": 0.22956326987681971,
+        "median_latency": 3.0
+      }
+    ]
+  },
+  "L_evid_nov": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 4.6,
+        "savings_ratio": 0.10302351623740201,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 4.6,
+        "savings_ratio": 0.10302351623740201,
+        "median_latency": 5.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.98,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.05,
+        "mean_saved_steps": 4.6,
+        "savings_ratio": 0.10302351623740201,
+        "median_latency": 5.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.25,
+        "savings_ratio": 0.09518477043673013,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 4.25,
+        "savings_ratio": 0.09518477043673013,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.96,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 7.9,
+        "savings_ratio": 0.1769316909294513,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.96,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 7.9,
+        "savings_ratio": 0.1769316909294513,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.96,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 7.9,
+        "savings_ratio": 0.1769316909294513,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "L_all_hand": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  },
+  "L_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.84,
+        "false_stop_rate": 0.15,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 2.25,
+        "savings_ratio": 0.05039193729003359,
+        "median_latency": 4.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.82,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 6.1,
+        "savings_ratio": 0.1366181410974244,
+        "median_latency": 6.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.82,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 6.1,
+        "savings_ratio": 0.1366181410974244,
+        "median_latency": 6.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.82,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 6.1,
+        "savings_ratio": 0.1366181410974244,
+        "median_latency": 6.0
+      }
+    ]
+  },
+  "L_evid_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.88,
+        "false_stop_rate": 0.15,
+        "detection_rate": 0.15,
+        "mean_saved_steps": 3.1,
+        "savings_ratio": 0.06942889137737962,
+        "median_latency": 4.0
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.86,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 5.8,
+        "savings_ratio": 0.12989921612541994,
+        "median_latency": 9.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.86,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 5.8,
+        "savings_ratio": 0.12989921612541994,
+        "median_latency": 9.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.86,
+        "false_stop_rate": 0.05,
+        "detection_rate": 0.1,
+        "mean_saved_steps": 5.8,
+        "savings_ratio": 0.12989921612541994,
+        "median_latency": 9.0
+      }
+    ]
+  },
+  "L_all_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ],
+    "20": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN
+      }
+    ]
+  }
+}

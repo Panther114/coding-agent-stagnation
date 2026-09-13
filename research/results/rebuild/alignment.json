@@ -1,0 +1,34 @@
+{
+  "kind_shares": {
+    "abandoned": 0.5153237315626098,
+    "wrong_address": 0.3273354027534863,
+    "genuine": 0.15734086568390385
+  },
+  "steps": 236137,
+  "runs": 25681,
+  "pooled": {
+    "mean_precise": 0.1947032860805296,
+    "mean_on_target": 0.6577926147783115,
+    "median_precise": 0.0,
+    "resolved_mean_precise": 0.30335639492145533,
+    "unresolved_mean_precise": 0.17388117390415622,
+    "resolved_mean_on_target": 0.5935794662627814,
+    "unresolved_mean_on_target": 0.6700983223264133
+  },
+  "within_instance": {
+    "n_instances": 263,
+    "n_runs": 9849,
+    "precise_ok": 0.2999749485476614,
+    "precise_no": 0.19772362947908573,
+    "ontgt_ok": 0.5755329187494819,
+    "ontgt_no": 0.6204559059868304,
+    "wilcoxon_precise_p": 1.898153783231925e-09,
+    "wilcoxon_ontgt_p": 0.0003274560166027009
+  },
+  "concentration": {
+    "total_wasted_edits": 198983,
+    "frac_runs_for_50pct": 0.11946575289124255,
+    "frac_runs_for_80pct": 0.35781316926910944,
+    "zero_waste_run_frac": 0.06253650558778864
+  }
+}

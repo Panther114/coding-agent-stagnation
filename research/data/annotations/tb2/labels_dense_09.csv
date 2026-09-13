@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_56,PRODUCTIVE,high,false,E,,Steps 48-53 rule out distinct XSS vectors; steps 54-55 reveal null-byte iframe reconstruction; the candidate space narrows each time.
+d_tb2_build-pov-ray__6eHBkqP_34,DONE_REDUNDANT,medium,true,I/V,,Build and sanity check verified at 25-27; steps 28-34 only report and re-verify the installed binary with no new goal.
+d_tb2_build-pov-ray__KS3ejPb_26,PRODUCTIVE,high,false,E/I/V,,Steps 17-20 find the config.h fix; 21-23 install gcc and patch CC; 24-26 advance the error to unix_init_povray and rename it.
+d_tb2_caffe-cifar-10__zjg6gBb_22,PRODUCTIVE,high,false,E/I,,Steps 15-18 learn dependency and OpenCV4 paths; 19-22 write Makefile.config and patch pkg-config after the step-20 build failure.
+d_tb2_compile-compcert__3AjSGCy_11,PRODUCTIVE,medium,false,E/I,,Steps 3-5 discover the missing OCaml toolchain and install it; 8-11 locate the CompCert sources and build files.
+d_tb2_compile-compcert__ArM52Gs_50,PRODUCTIVE,high,false,E/I/V,,Steps 42-43 install Coq 8.16.1; 45-47 confirm version 3.13; 48 compiles hello.c with ccomp and prints the expected output.
+d_tb2_compile-compcert__pvBcxmV_46,PRODUCTIVE,medium,false,E/I,,Steps 38-40 localise the failure to Bracket.v line 654; 41-45 rule out lemma variants via distinct errors; 46 leaves a surviving edit.
+d_tb2_crack-7z-hash__M36nRdr_39,STAGNANT,medium,false,none,repeat_search,Steps 30-39 repeat password guesses and hint greps; observations stay empty or negative; nothing new is learned or durably changed.
+d_tb2_crack-7z-hash__X4cK7Hr_26,PRODUCTIVE,medium,false,E,,Steps 20-22 build a dummy archive with a known password and john still times out; this rules out the cracking tool as usable.
+d_tb2_custom-memory-heap-crash__NAMeUua_15,PRODUCTIVE,high,false,I/V,,Step 8 edits user.cpp; steps 9-10 make the release run exit 0 instead of SIGSEGV 139; step 12 confirms debug still passes.
+d_tb2_db-wal-recovery__tQJsCmY_12,PRODUCTIVE,high,false,E/I,,Step 9 identifies the WAL XORed with 0x42; backups restored at 10-11; step 12 rewrites the correct WAL magic 377f0682.
+d_tb2_distribution-search__ZJDezEN_53,STAGNANT,medium,true,none,no_tool_text_loop,Steps 47-53 emit seven malformed str_replace_editor calls rejected identically; step 44's run output advances nothing.
+d_tb2_dna-assembly__Xbp9Bz3_42,PRODUCTIVE,medium,false,E,,Steps 34-42 locate the assembly junction and derive annealing regions whose primer3 Tm values satisfy the stated rules.
+d_tb2_extract-moves-from-video__vRcGj7U_39,PRODUCTIVE,medium,false,E,,Step 34 finds 127 command frames; step 35 reads commands_0.png and recovers the actual typed Zork command list.
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_25,PRODUCTIVE,high,false,E/I,,Steps 21-24 diagnose the always-zero scoring and find R3 constant while L3 varies; step 25 rewrites attack.py accordingly.
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_16,STAGNANT,medium,false,none,no_new_information,Steps 8-16 re-issue the same echo about missing /app files with identical output; no investigation and no change anywhere.
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_57,STAGNANT,high,false,none,no_new_information,Steps 48-57 interrupt the same brute-force run; each analysis repeats the identical plan to write a proper attack and no edit occurs.
+d_tb2_fix-code-vulnerability__7wXM79N_48,PRODUCTIVE,high,false,E/V,,Steps 43-46 identify TestResponse and the test at line 735; step 48 moves pytest from exit 4 to an executed failing test.
+d_tb2_fix-ocaml-gc__4FMyNtb_39,PRODUCTIVE,medium,false,E,,After protocol errors at 30-33; steps 34-39 grep runtime/major_gc.c and reveal sweep symbols at lines 64 79 412 1707 and 1744.
+d_tb2_fix-ocaml-gc__EE2S8BX_25,PRODUCTIVE,medium,false,E/I,,Steps 18-19 establish that wosize holds the total word size not extra blocks; 20-25 durably replace the POOL_FREE_HEADER call sites.
+d_tb2_git-leak-recovery__3MYVn6Q_14,PRODUCTIVE,high,false,E/I,,Steps 5-6 inspect the pre-reset commit; steps 7-8 write /app/secret.txt with the recovered secret; objective one is complete.
+d_tb2_install-windows-3.11__2UtJ22k_12,PRODUCTIVE,high,false,E/I,,Steps 4-5 discover QEMU missing plus nginx and supervisor state; step 11 installs QEMU and clears the nginx conflict; step 12 starts QEMU.
+d_tb2_install-windows-3.11__mUYmJ4a_57,PRODUCTIVE,medium,true,E/I,,Steps 48-54 only re-probe sockets and processes; step 52 exposes the running flags; step 55 relaunches QEMU pinned to pc-i440fx-5.2 as 56 confirms.
+d_tb2_llm-inference-batching-scheduler__7vihvYk_42,PRODUCTIVE,medium,false,E/I,,Steps 34-40 test the corrected greedy and pseudo-cost k-means; each evaluation returns new cost and pad numbers that rule out both approaches.
+d_tb2_mailman__dbiKZhc_33,PRODUCTIVE,medium,false,E/I,,Step 25's mailq exposes the MX and alias failures; 26-33 fix mydomain and aliases; step 28 shows only the alias error remaining.
+d_tb2_mailman__qzvMMtK_21,PRODUCTIVE,high,false,E/I,,Steps 12-19 map the mailman3 paths and debian layout; step 20 edits the required /etc/mailman3/mailman.cfg file.
+d_tb2_mailman__vQauci9_13,PRODUCTIVE,high,false,E,,Steps 5-9 read mailman.cfg and postfix main.cf and master.cf; steps 11-13 learn the run-as-root requirement and the active config.
+d_tb2_make-doom-for-mips__DU5GBNE_54,STAGNANT,medium,true,none,repeat_verify,Steps 45-50 repeatedly verify the same /app documentation listing and add another redundant index; nothing advances the required MIPS ELF.

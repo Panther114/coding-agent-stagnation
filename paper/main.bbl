@@ -1,0 +1,93 @@
+\begin{thebibliography}{10}
+
+\bibitem{jimenez2024swebench}
+Carlos~E. Jimenez, John Yang, Alexander Wettig, Shunyu Yao, Kexin Pei, Ofir
+  Press, and Karthik Narasimhan.
+\newblock {SWE-bench}: Can language models resolve real-world {GitHub} issues?
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2024.
+\newblock arXiv:2310.06770.
+
+\bibitem{khanna2026zombie}
+Simarjot Khanna.
+\newblock Zombie agents: Detecting semantic livelock in long-horizon autonomous
+  software.
+\newblock In {\em Proceedings of the 3rd ACM International Conference on
+  AI-Powered Software (AIware)}, 2026.
+\newblock Main track. Reports semantic livelock in 25\% of analysed
+  long-duration SWE-agent failures and a 208-step checkerboard oscillation;
+  OpenReview \texttt{BlVgsZzg0N}.
+
+\bibitem{kwok2026verifier}
+James Kwok et~al.
+\newblock {LLM-as-a-Verifier}: A general-purpose verification framework.
+\newblock arXiv preprint arXiv:2607.05391, 2026.
+
+\bibitem{yoonholee2026tb2}
+Yoonho Lee.
+\newblock {Terminal-Bench} 2.0 trajectories.
+\newblock Hugging Face dataset \texttt{yoonholee/terminalbench-trajectories},
+  2026.
+\newblock Full agent trajectories from the Terminal-Bench 2.0 leaderboard;
+  accessed 2026-09-10.
+
+\bibitem{nebius2024sweagenttraj}
+{Nebius}.
+\newblock {SWE-agent} trajectories.
+\newblock Hugging Face dataset \texttt{nebius/SWE-agent-trajectories}, 2024.
+\newblock 80{,}036 SWE-agent trajectories over SWE-bench and SWE-bench-extra;
+  accessed 2026-09-10.
+
+\bibitem{opencode43603}
+{Opencode}.
+\newblock Agent has no effective no-progress/loop detection during repeated
+  file investigation.
+\newblock Issue \#43603, anomalyco/opencode, 2026.
+
+\bibitem{opencode45442}
+{Opencode}.
+\newblock Subagent: infinite loop of identical tool calls for $\sim$50\,min
+  with no loop protection.
+\newblock Issue \#45442, anomalyco/opencode, 2026.
+
+\bibitem{pham2026agentstop}
+Dzung Pham, Kleomenis Katevas, et~al.
+\newblock {AgentStop}: Terminating local {AI} agents early to save energy in
+  consumer devices.
+\newblock arXiv preprint arXiv:2605.15206, 2026.
+
+\bibitem{shu2026traceprobe}
+Rui Shu et~al.
+\newblock What resolve rate hides: Trajectory structure diagnostics for coding
+  agents.
+\newblock arXiv preprint arXiv:2607.06184, 2026.
+
+\bibitem{wang2026failfast}
+Chenyu Wang, Yunbo Lyu, Junda He, Zhou Yang, Chenxing Zhong, Yaniv Harel, and
+  David Lo.
+\newblock Fail-fast, restart-smart: Early failure prediction and restart for
+  {SWE} agentic tasks.
+\newblock arXiv preprint arXiv:2608.03222, 2026.
+
+\bibitem{yang2024sweagent}
+John Yang, Carlos~E. Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao,
+  Karthik Narasimhan, and Ofir Press.
+\newblock {SWE-agent}: Agent--computer interfaces enable automated software
+  engineering.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2024.
+\newblock arXiv:2405.15793.
+
+\bibitem{zhang2026trca}
+Huan Zhang, Mingju Chen, Dongxu Zhou, Can Lv, Heng Chang, Sen Cui, Faguo Wu,
+  and Shiji Zhou.
+\newblock {TRCA}: Transition-wise rubric credit assignment for long-horizon
+  {LLM} agents.
+\newblock arXiv preprint arXiv:2608.16156, 2026.
+
+\bibitem{zhao2026failure}
+Xu~Zhao et~al.
+\newblock Failure as a process: An anatomy of {CLI} coding agent trajectories.
+\newblock arXiv preprint arXiv:2607.09510, 2026.
+
+\end{thebibliography}

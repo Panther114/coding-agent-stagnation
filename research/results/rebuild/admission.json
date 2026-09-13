@@ -1,0 +1,101 @@
+{
+  "n_edits": 236137,
+  "n_runs": 25681,
+  "base_survival": 0.15734086568390385,
+  "base_run_failure_rate": 0.9054955386068257,
+  "note": "Counters are approximate: r counts edits whose *hashes survived*. For a range edit the count includes anchored lines, so it over-counts genuine survival uniformly; it cannot inflate the size trend, only shift the level.",
+  "curve": [
+    {
+      "refuse_bottom_quantile": 0.0,
+      "admit_rate": 1.0,
+      "survival_of_admitted": 0.15734086568390385,
+      "survival_lift": 0.0,
+      "n_refused": 0,
+      "refused_run_failure_rate": NaN
+    },
+    {
+      "refuse_bottom_quantile": 0.1,
+      "admit_rate": 0.8999944947212847,
+      "survival_of_admitted": 0.17469250242327852,
+      "survival_lift": 0.017351636739374676,
+      "n_refused": 23615,
+      "refused_run_failure_rate": 0.8497565106923566
+    },
+    {
+      "refuse_bottom_quantile": 0.2,
+      "admit_rate": 0.7999974591021314,
+      "survival_of_admitted": 0.19163194977475928,
+      "survival_lift": 0.034291084090855434,
+      "n_refused": 47228,
+      "refused_run_failure_rate": 0.90048276446176
+    },
+    {
+      "refuse_bottom_quantile": 0.3,
+      "admit_rate": 0.7000004234829781,
+      "survival_of_admitted": 0.20728874261930114,
+      "survival_lift": 0.04994787693539729,
+      "n_refused": 70841,
+      "refused_run_failure_rate": 0.9076099998588388
+    },
+    {
+      "refuse_bottom_quantile": 0.4,
+      "admit_rate": 0.5999991530340438,
+      "survival_of_admitted": 0.22530737849550403,
+      "survival_lift": 0.06796651281160018,
+      "n_refused": 94455,
+      "refused_run_failure_rate": 0.906971573765285
+    },
+    {
+      "refuse_bottom_quantile": 0.5,
+      "admit_rate": 0.49999788258510947,
+      "survival_of_admitted": 0.24840769725920656,
+      "survival_lift": 0.09106683157530271,
+      "n_refused": 118069,
+      "refused_run_failure_rate": 0.905504408439133
+    }
+  ],
+  "free_rule": [
+    {
+      "refuse_edits_under_n_lines": 1,
+      "admit_rate": 0.8369167051330372,
+      "survival_of_admitted": 0.18800062744463053,
+      "survival_lift": 0.030659761760726684
+    },
+    {
+      "refuse_edits_under_n_lines": 2,
+      "admit_rate": 0.40770400233762605,
+      "survival_of_admitted": 0.2531005255832312,
+      "survival_lift": 0.09575965989932736
+    },
+    {
+      "refuse_edits_under_n_lines": 3,
+      "admit_rate": 0.3337299957228219,
+      "survival_of_admitted": 0.2721747075095805,
+      "survival_lift": 0.11483384182567666
+    },
+    {
+      "refuse_edits_under_n_lines": 5,
+      "admit_rate": 0.24307922943037305,
+      "survival_of_admitted": 0.29735191637630665,
+      "survival_lift": 0.1400110506924028
+    },
+    {
+      "refuse_edits_under_n_lines": 8,
+      "admit_rate": 0.1590813807239018,
+      "survival_of_admitted": 0.3330227605483828,
+      "survival_lift": 0.17568189486447897
+    }
+  ],
+  "matched_comparison": {
+    "learned": {
+      "admit_rate": 0.5999991530340438,
+      "survival_of_admitted": 0.22530737849550403
+    },
+    "free_rule": {
+      "admit_rate": 0.40770400233762605,
+      "survival_of_admitted": 0.2531005255832312,
+      "n_lines": 2
+    },
+    "difference": -0.027793147087727177
+  }
+}

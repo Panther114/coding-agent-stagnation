@@ -1,0 +1,244 @@
+{
+  "n_cards": 654,
+  "n_readings": {
+    "round1": 172,
+    "round2": 172,
+    "dense": 505,
+    "refine": 936
+  },
+  "cross_round": {
+    "n": 159,
+    "exact_agreement": 0.8301886792452831,
+    "binary_agreement": 0.8807947019867549,
+    "cohen_kappa": 0.6987364220793614,
+    "positive_jaccard": 0.5614035087719298,
+    "n_positive_a": 43,
+    "n_positive_b": 46,
+    "n_binary": 151
+  },
+  "round1_vs_dense": {
+    "n": 0
+  },
+  "dense_vs_round2": {
+    "n": 0
+  },
+  "reader_calibration": {
+    "n_readers": 60,
+    "positive_rate_median": 0.25,
+    "robust_sd": 0.14059137931034485,
+    "flagged_readers": [],
+    "rates": {
+      "labels_dense_01.csv": 0.2414,
+      "labels_dense_02.csv": 0.2857,
+      "labels_dense_03.csv": 0.25,
+      "labels_dense_04.csv": 0.2222,
+      "labels_dense_05.csv": 0.1852,
+      "labels_dense_06.csv": 0.2,
+      "labels_dense_07.csv": 0.1786,
+      "labels_dense_08.csv": 0.2593,
+      "labels_dense_09.csv": 0.2143,
+      "labels_dense_10.csv": 0.4074,
+      "labels_dense_11.csv": 0.2857,
+      "labels_dense_12.csv": 0.1481,
+      "labels_dense_13.csv": 0.1852,
+      "labels_dense_14.csv": 0.2222,
+      "labels_dense_15.csv": 0.2917,
+      "labels_dense_16.csv": 0.25,
+      "labels_dense_17.csv": 0.3214,
+      "labels_dense_18.csv": 0.2857,
+      "labels_p2_s1.csv": 0.25,
+      "labels_p2_s2.csv": 0.3448,
+      "labels_p2_s3.csv": 0.25,
+      "labels_p2_s4.csv": 0.3103,
+      "labels_p2_s5.csv": 0.3704,
+      "labels_p2_s6.csv": 0.2222,
+      "labels_r1.csv": 0.3077,
+      "labels_r2.csv": 0.3448,
+      "labels_r3.csv": 0.2069,
+      "labels_r4.csv": 0.3571,
+      "labels_r5.csv": 0.2593,
+      "labels_r6.csv": 0.25,
+      "labels_refine_01.csv": 0.0,
+      "labels_refine_03.csv": 0.0,
+      "labels_refine_04.csv": 0.7,
+      "labels_refine_05.csv": 0.2333,
+      "labels_refine_07.csv": 0.0,
+      "labels_refine_08.csv": 0.0645,
+      "labels_refine_09.csv": 0.0,
+      "labels_refine_10.csv": 0.0,
+      "labels_refine_11.csv": 0.08,
+      "labels_refine_12.csv": 0.3667,
+      "labels_refine_13.csv": 0.6667,
+      "labels_refine_14.csv": 0.68,
+      "labels_refine_15.csv": 0.6667,
+      "labels_refine_16.csv": 0.7,
+      "labels_refine_17.csv": 0.7,
+      "labels_refine_18.csv": 0.6333,
+      "labels_refine_19.csv": 0.2963,
+      "labels_refine_20.csv": 0.1136,
+      "labels_refine_21.csv": 0.0,
+      "labels_refine_22.csv": 0.7333,
+      "labels_refine_23.csv": 0.1667,
+      "labels_refine_24.csv": 0.3,
+      "labels_refine_25.csv": 0.7333,
+      "labels_refine_26.csv": 0.4,
+      "labels_refine_27.csv": 1.0,
+      "labels_refine_28.csv": 0.9667,
+      "labels_refine_29.csv": 0.1,
+      "labels_refine_30.csv": 0.0333,
+      "labels_refine_31.csv": 0.1333,
+      "labels_refine_32.csv": 0.1818
+    }
+  },
+  "reader_qc": {
+    "round1": {
+      "median_positive_rate": 0.2834757834757835,
+      "flagged": []
+    },
+    "round2": {
+      "median_positive_rate": 0.2801724137931034,
+      "flagged": []
+    },
+    "dense": {
+      "median_positive_rate": 0.2456896551724138,
+      "flagged": []
+    },
+    "refine": {
+      "median_positive_rate": 0.26481481481481484,
+      "flagged": []
+    }
+  },
+  "dense_split": {
+    "n": 30,
+    "exact_agreement": 0.8666666666666667,
+    "binary_agreement": 0.8666666666666667,
+    "cohen_kappa": 0.7333333333333334,
+    "positive_jaccard": 0.7333333333333333,
+    "n_positive_a": 15,
+    "n_positive_b": 11,
+    "n_binary": 30
+  },
+  "labels": {
+    "PRODUCTIVE": 453,
+    "STAGNANT": 116,
+    "UNCERTAIN": 44,
+    "DONE_REDUNDANT": 27,
+    "BLOCKED_EXTERNAL": 10,
+    "REGRESSION": 4
+  },
+  "n_binary": 600,
+  "positive_rate": 0.23833333333333334,
+  "n_held_out": 54,
+  "details": {
+    "no_new_information": 36,
+    "post_completion": 36,
+    "repeat_verify": 34,
+    "no_tool_text_loop": 32,
+    "edit_revert": 17,
+    "repeat_search": 16,
+    "irrelevant_exploration": 8,
+    "other": 5,
+    "repeat_read": 2
+  },
+  "channels": {
+    "NONE": 173,
+    "E": 150,
+    "E/I": 142,
+    "E/I/V": 61,
+    "I/V": 43,
+    "E/V": 35,
+    "V": 18,
+    "I": 15,
+    "I/E": 13,
+    "V/I": 3,
+    "V/E": 1
+  },
+  "by_kind": {
+    "control_productive": {
+      "n": 4,
+      "n_binary": 4,
+      "positive_rate": 0.0
+    },
+    "control_stagnant": {
+      "n": 7,
+      "n_binary": 7,
+      "positive_rate": 0.2857142857142857
+    },
+    "dense": {
+      "n": 491,
+      "n_binary": 442,
+      "positive_rate": 0.21945701357466063
+    },
+    "position": {
+      "n": 152,
+      "n_binary": 147,
+      "positive_rate": 0.29931972789115646
+    }
+  },
+  "by_agent": {
+    "claude-code": {
+      "n": 72,
+      "positive_rate": 0.16666666666666666,
+      "mean_steps": 125.83132530120481,
+      "positive_fraction": 0.16666666666666666
+    },
+    "codex": {
+      "n": 72,
+      "positive_rate": 0.06944444444444445,
+      "mean_steps": 59.17333333333333,
+      "positive_fraction": 0.06944444444444445
+    },
+    "deepagent-harbor": {
+      "n": 69,
+      "positive_rate": 0.07246376811594203,
+      "mean_steps": 85.61333333333333,
+      "positive_fraction": 0.07246376811594203
+    },
+    "gemini-cli": {
+      "n": 69,
+      "positive_rate": 0.07246376811594203,
+      "mean_steps": 80.11111111111111,
+      "positive_fraction": 0.07246376811594203
+    },
+    "judy": {
+      "n": 70,
+      "positive_rate": 0.34285714285714286,
+      "mean_steps": 50.38666666666666,
+      "positive_fraction": 0.34285714285714286
+    },
+    "mini-swe-agent": {
+      "n": 70,
+      "positive_rate": 0.38571428571428573,
+      "mean_steps": 150.72602739726028,
+      "positive_fraction": 0.38571428571428573
+    },
+    "openhands": {
+      "n": 83,
+      "positive_rate": 0.13253012048192772,
+      "mean_steps": 256.35632183908046,
+      "positive_fraction": 0.13253012048192772
+    },
+    "terminus-2": {
+      "n": 61,
+      "positive_rate": 0.6229508196721312,
+      "mean_steps": 116.14666666666666,
+      "positive_fraction": 0.6229508196721312
+    },
+    "terminus-3-3": {
+      "n": 34,
+      "positive_rate": 0.47058823529411764,
+      "mean_steps": 79.46153846153847,
+      "positive_fraction": 0.47058823529411764
+    }
+  },
+  "label_by_reward": {
+    "1": {
+      "NEG": 210,
+      "POS": 32
+    },
+    "0": {
+      "NEG": 247,
+      "POS": 111
+    }
+  }
+}

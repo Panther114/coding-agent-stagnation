@@ -1,0 +1,136 @@
+{
+  "n_runs": 21248,
+  "n_with_dead_end": 18406,
+  "n_without_dead_end": 2842,
+  "frac_without": 0.13375376506024098,
+  "table": [
+    {
+      "monitor": "ws_noop_edit_frac",
+      "budget": 0.2,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -6.0
+    },
+    {
+      "monitor": "ws_noop_edit_frac",
+      "budget": 0.1,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -4.0
+    },
+    {
+      "monitor": "ws_noop_edit_frac",
+      "budget": 0.05,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -4.0
+    },
+    {
+      "monitor": "ws_noop_edit_frac",
+      "budget": 0.02,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -3.0
+    },
+    {
+      "monitor": "mix_edit_frac",
+      "budget": 0.2,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -11.0
+    },
+    {
+      "monitor": "mix_edit_frac",
+      "budget": 0.1,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -9.0
+    },
+    {
+      "monitor": "mix_edit_frac",
+      "budget": 0.05,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -8.0
+    },
+    {
+      "monitor": "mix_edit_frac",
+      "budget": 0.02,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -8.0
+    },
+    {
+      "monitor": "mix_n_edit",
+      "budget": 0.2,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -7.0
+    },
+    {
+      "monitor": "mix_n_edit",
+      "budget": 0.1,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -6.0
+    },
+    {
+      "monitor": "mix_n_edit",
+      "budget": 0.05,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -4.0
+    },
+    {
+      "monitor": "mix_n_edit",
+      "budget": 0.02,
+      "recall": 1.0,
+      "false_alarm_rate": 1.0,
+      "precision": 0.866246234939759,
+      "n_detected": 18406,
+      "n_false_alarms": 2842,
+      "median_leadtime_steps": -4.0
+    }
+  ],
+  "summary": {
+    "verdict": "NEGATIVE: the dead-end event is present in 86.6% of runs, so a sequential detection task on it has almost no negatives. The sweep reports recall 1.000 and false-alarm rate 1.000 simultaneously, which is what a degenerate task looks like, not a working detector.",
+    "n_runs": 21248,
+    "n_with_dead_end": 18406,
+    "n_without_dead_end": 2842,
+    "frac_without": 0.13375376506024098,
+    "consequence": "window-level sequential detection of dead ends is not a well-posed task on this corpus. The run-level question ('how much of this run will be dead-ended') is well-posed and answerable, and is what waste_runs.json and dead_end_cost.json address."
+  }
+}

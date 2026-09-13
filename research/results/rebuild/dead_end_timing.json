@@ -1,0 +1,23 @@
+{
+  "n_runs": 25681,
+  "n_analysed": 10287,
+  "cut": 0.25,
+  "naive": {
+    "success_early": 0.10104046242774567,
+    "success_late": 0.10164374371016438,
+    "n_early": 4325,
+    "n_late": 5962
+  },
+  "matched": {
+    "n_pairs": 2054,
+    "success_early": 0.13972736124634857,
+    "success_matched_late": 0.13074076064582393,
+    "paired_difference": 0.008986600600524652,
+    "wilcoxon_p": 0.10314071079702788
+  },
+  "verdict": "The naive timing effect does not survive the controls: once the run's task and length are held fixed, a dead end in the first quarter is indistinguishable from one later on. What matters is how much a run wastes, not when.",
+  "length_confound": {
+    "median_edits_early": 14.0,
+    "median_edits_late": 11.0
+  }
+}

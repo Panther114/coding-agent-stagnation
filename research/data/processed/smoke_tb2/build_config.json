@@ -1,0 +1,16 @@
+{
+  "args": {
+    "corpus": "tb2",
+    "n": 40,
+    "out": "data/processed/smoke_tb2",
+    "windows": "10",
+    "stride": 5,
+    "seed": 0,
+    "rel_threshold": 0.5
+  },
+  "n_views": 40,
+  "n_window_rows": 428,
+  "n_idf_terms": 1133,
+  "seconds": 12.84785270690918,
+  "built_at": "2026-09-10 22:31:06"
+}

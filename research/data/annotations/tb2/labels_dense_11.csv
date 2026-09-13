@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_10,STAGNANT,high,false,none,no_tool_text_loop,Steps 5-7 and 9 restate the same clone-failure conclusion with no new action or evidence
+d_tb2_build-pov-ray__6eHBkqP_40,DONE_REDUNDANT,high,false,none,post_completion,Steps 31-40 only re-confirm artefacts already built and tested in steps 23-27 with no new goal
+d_tb2_build-pov-ray__KS3ejPb_33,PRODUCTIVE,high,false,V,post_completion,Steps 29-31 install the binary and pass the task's own sanity check; steps 32-33 advance to rendering illum1
+d_tb2_caffe-cifar-10__zjg6gBb_31,PRODUCTIVE,medium,true,E/I,post_completion,Steps 22 and 25 fix pkg-config and listed OpenCV4 constants; later steps are an unreturned build
+d_tb2_compile-compcert__3AjSGCy_18,PRODUCTIVE,medium,false,E,post_completion,Steps 11-17 install toolchain and probe sources; step 18 yields the concrete Coq-version blocker signature
+d_tb2_compile-compcert__PdkzfMV_14,PRODUCTIVE,high,false,E/I,post_completion,Steps 6-11 gather OS and root facts then step 14 downloads the 3.13.1 source tarball successfully
+d_tb2_compile-compcert__pvBcxmV_57,PRODUCTIVE,high,false,V,post_completion,Step 49 makes the blocked proof compile; steps 50-54 complete the build and install CompCert
+d_tb2_crack-7z-hash__M36nRdr_48,STAGNANT,high,false,none,no_new_information,Steps 39-48 re-test near-identical wordlist batches with no new information and no solution.txt
+d_tb2_crack-7z-hash__X4cK7Hr_37,STAGNANT,high,false,none,no_new_information,Steps 28-37 retry the same 7z guess-and-fail pattern with an unchanged exit code 2 signature
+d_tb2_custom-memory-heap-crash__NAMeUua_22,PRODUCTIVE,medium,false,V,post_completion,Step 17 adds the previously unrun valgrind leak check on the fix verified in steps 10 and 16
+d_tb2_db-wal-recovery__tQJsCmY_17,PRODUCTIVE,high,false,E/I/V,post_completion,Steps 9-15 diagnose the XORed WAL; fix it; write and validate all 11 records in recovered.json
+d_tb2_dna-assembly__o5NzHz7_11,PRODUCTIVE,medium,false,E,post_completion,Steps 7-9 rule out python and establish a usable perl toolchain for the primer design
+d_tb2_dna-assembly__Xbp9Bz3_54,PRODUCTIVE,high,false,I,post_completion,Step 45 writes primers.fasta and steps 46-53 verify primer lengths and Tm deltas within the stated rules
+d_tb2_extract-moves-from-video__vRcGj7U_51,STAGNANT,medium,false,none,no_new_information,Steps 44-51 repeat empty shell output and fruitless greps with no new transcript information or solution progress
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_34,PRODUCTIVE,medium,false,I,post_completion,Steps 25-28 fix the syntax error and rerun showing a fresh failure; step 30 revises attack.py again
+d_tb2_feal-linear-cryptanalysis__jbbLGgC_25,STAGNANT,high,false,none,no_tool_text_loop,Steps 16-25 re-echo the identical missing-files message ten times without inspecting the filesystem further
+d_tb2_financial-document-processor__fZuguYf_17,PRODUCTIVE,high,false,E/I,post_completion,Steps 9-16 classify four more documents and durably move them into the correct target directories
+d_tb2_fix-code-vulnerability__7wXM79N_58,PRODUCTIVE,high,false,E,post_completion,Steps 49-58 localise the vulnerable header handling by locating HeaderDict BaseResponse and MultiDict in bottle.py
+d_tb2_fix-ocaml-gc__4FMyNtb_48,PRODUCTIVE,medium,false,E,post_completion,Steps 44-48 locate and read the sweep-region code in major_gc.c despite malformed tool calls at 40 and 46
+d_tb2_fix-ocaml-gc__EE2S8BX_35,PRODUCTIVE,medium,false,E/I,post_completion,Steps 26-35 apply the Wosize conversion across sixteen shared_heap.c sites and verify it by reading the file
+d_tb2_git-leak-recovery__3MYVn6Q_22,PRODUCTIVE,medium,false,E,post_completion,Steps 13-19 rule out pip and python3 and then locate alternative interpreters via find under /opt
+d_tb2_install-windows-3.11__2UtJ22k_20,PRODUCTIVE,high,false,E/I/V,post_completion,Steps 11-16 install and launch QEMU in snapshot VNC mode and confirm QMP status running via unix socket
+d_tb2_large-scale-text-editing__KdK777C_12,PRODUCTIVE,high,false,E,post_completion,Steps 7-12 bypass the size limit and reveal the exact input-to-expected transformation pattern
+d_tb2_llm-inference-batching-scheduler__7vihvYk_52,STAGNANT,medium,true,none,no_new_information,Steps 43-52 show repeated rewrites and reruns with no run beating step 40 cost and pad ratio
+d_tb2_mailman__dbiKZhc_43,STAGNANT,medium,false,none,no_new_information,Steps 34-43 apply four different permission and chroot fixes yet eval.py times out identically every time
+d_tb2_mailman__qzvMMtK_32,PRODUCTIVE,medium,false,E/I,post_completion,Steps 23-27 start Mailman and step 28 diagnoses that the wrong mailman.cfg path was loaded
+d_tb2_mailman__vQauci9_21,PRODUCTIVE,medium,false,E,post_completion,Steps 12-20 confirm mailman.cfg paths and locate the postfix LMTP configuration section
+d_tb2_make-doom-for-mips__YWJGKe2_13,PRODUCTIVE,high,false,E,post_completion,Steps 11-13 read doomgeneric_img.c and vm.js to learn how the MIPS ELF is built and invoked

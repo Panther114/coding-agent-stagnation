@@ -1,0 +1,93 @@
+{
+  "label_stats": {
+    "labels": {
+      "PRODUCTIVE": 780,
+      "UNCERTAIN": 59,
+      "BLOCKED_EXTERNAL": 36,
+      "STAGNANT": 260,
+      "DONE_REDUNDANT": 59,
+      "REGRESSION": 4
+    },
+    "by_agent": {
+      "deepagent-harbor": {
+        "NEG": 120,
+        "POS": 9
+      },
+      "judy": {
+        "NEG": 64,
+        "POS": 43
+      },
+      "gemini-cli": {
+        "NEG": 104,
+        "POS": 10
+      },
+      "terminus-2": {
+        "NEG": 41,
+        "POS": 77
+      },
+      "codex": {
+        "NEG": 146,
+        "POS": 6
+      },
+      "mini-swe-agent": {
+        "NEG": 64,
+        "POS": 76
+      },
+      "terminus-3-3": {
+        "POS": 38,
+        "NEG": 32
+      },
+      "openhands": {
+        "POS": 21,
+        "NEG": 102
+      },
+      "claude-code": {
+        "NEG": 111,
+        "POS": 39
+      }
+    },
+    "subtypes": {
+      "repeat_verify": 93,
+      "no_new_information": 64,
+      "no_tool_text_loop": 63,
+      "post_completion": 57,
+      "repeat_search": 31,
+      "irrelevant_exploration": 9,
+      "other": 5,
+      "edit_revert": 30,
+      "repeat_read": 3
+    }
+  },
+  "signal_example_trajectories": [
+    "install-windows-3.11__mUYmJ4a",
+    "install-windows-3.11__2UtJ22k",
+    "fix-code-vulnerability__uLGMMUD"
+  ],
+  "best_feature_per_channel": {
+    "REP": {
+      "feature": "rep_global_recurrence",
+      "roc_auc": 0.6583
+    },
+    "NOV": {
+      "feature": "nov_new_entity_frac",
+      "roc_auc": 0.3175
+    },
+    "EVID": {
+      "feature": "ev_rel_weighted_novelty",
+      "roc_auc": 0.407
+    },
+    "VER": {
+      "feature": "ver_exit_success_frac",
+      "roc_auc": 0.4358
+    },
+    "WORK": {
+      "feature": "wk_n_edit",
+      "roc_auc": 0.3457
+    },
+    "SEM": {
+      "feature": "sem_novelty_rate",
+      "roc_auc": 0.292
+    }
+  },
+  "summary_rows": 5
+}

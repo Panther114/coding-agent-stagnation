@@ -1,0 +1,142 @@
+{
+  "corpus": "tb2",
+  "n_runs": 14750,
+  "coverage": {
+    "duration_seconds": 14750,
+    "input_tokens": 12948,
+    "output_tokens": 12948,
+    "cost_cents": 14750
+  },
+  "n_priced_runs": 14750,
+  "n_negative_cost_excluded": 141,
+  "n_positive_cost_runs": 14609,
+  "C1_cost_bands": [
+    {
+      "cost_band": "Q1 cheapest",
+      "n": 2922,
+      "success": 0.4469541409993155,
+      "cost_median": 0.0,
+      "steps_median": 12.0,
+      "edits_median": 0.0
+    },
+    {
+      "cost_band": "Q2",
+      "n": 2922,
+      "success": 0.2796030116358659,
+      "cost_median": 1.5708979964256287,
+      "steps_median": 8.0,
+      "edits_median": 0.0
+    },
+    {
+      "cost_band": "Q3",
+      "n": 2921,
+      "success": 0.42416980486134886,
+      "cost_median": 9.446969985961914,
+      "steps_median": 14.0,
+      "edits_median": 0.0
+    },
+    {
+      "cost_band": "Q4",
+      "n": 2922,
+      "success": 0.4240246406570842,
+      "cost_median": 31.366256713867188,
+      "steps_median": 22.0,
+      "edits_median": 0.0
+    },
+    {
+      "cost_band": "Q5 dearest",
+      "n": 2922,
+      "success": 0.2683093771389459,
+      "cost_median": 114.87742614746094,
+      "steps_median": 49.0,
+      "edits_median": 1.0
+    }
+  ],
+  "C1_deciles": [
+    {
+      "cost_cents": "(0.0192, 0.658]",
+      "success": 0.143317230273752,
+      "n": 1242,
+      "cost": 0.288163498044014
+    },
+    {
+      "cost_cents": "(0.658, 1.978]",
+      "success": 0.2610797743755036,
+      "n": 1241,
+      "cost": 1.203434944152832
+    },
+    {
+      "cost_cents": "(1.978, 4.574]",
+      "success": 0.3389694041867955,
+      "n": 1242,
+      "cost": 3.0956519842147827
+    },
+    {
+      "cost_cents": "(4.574, 8.881]",
+      "success": 0.39161966156325545,
+      "n": 1241,
+      "cost": 6.520619869232178
+    },
+    {
+      "cost_cents": "(8.881, 15.325]",
+      "success": 0.4533011272141707,
+      "n": 1242,
+      "cost": 11.752412796020508
+    },
+    {
+      "cost_cents": "(15.325, 24.785]",
+      "success": 0.46091861402095086,
+      "n": 1241,
+      "cost": 19.5310001373291
+    },
+    {
+      "cost_cents": "(24.785, 40.501]",
+      "success": 0.41901692183722805,
+      "n": 1241,
+      "cost": 31.95199966430664
+    },
+    {
+      "cost_cents": "(40.501, 67.146]",
+      "success": 0.3864734299516908,
+      "n": 1242,
+      "cost": 51.668169021606445
+    },
+    {
+      "cost_cents": "(67.146, 132.717]",
+      "success": 0.3045930701047542,
+      "n": 1241,
+      "cost": 91.83026885986328
+    },
+    {
+      "cost_cents": "(132.717, 7318.387]",
+      "success": 0.19162640901771336,
+      "n": 1242,
+      "cost": 244.28519439697266
+    }
+  ],
+  "C1_saturation": {
+    "success_min": 0.143317230273752,
+    "success_max": 0.46091861402095086,
+    "success_iqr": 0.14020950846091862,
+    "cost_ratio_top_over_bottom": 847.7312222232277,
+    "note": "success across cost deciles is the saturation curve: if it is flat, spending more does not buy a higher chance of solving"
+  },
+  "C1_cost_per_success": {
+    "total_cost_cents": 784627.9698402472,
+    "n_success": 5385,
+    "cost_per_success_cents": 145.7062153835185,
+    "cost_per_success_cents_if_failures_free": 33.00524387861928
+  },
+  "C2_zero_edit": {
+    "n_runs": 8543,
+    "cost_share": 0.40835885671969485,
+    "success_rate": 0.36052908814233875,
+    "success_rate_others": 0.37998681173755355
+  },
+  "C3_duration_cost_rho": 0.40633376778445035,
+  "C_outcome_from_cost": {
+    "auc_cost_predicts_success": 0.5451993044667296,
+    "auc_steps_predicts_success": 0.5340867572462455
+  },
+  "caveat": "cost telemetry is missing for some scaffolds, so every figure here carries its own denominator; the coverage table above is part of the result"
+}

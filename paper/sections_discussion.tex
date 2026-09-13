@@ -1,0 +1,223 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Activity, novelty and task-relevant evidence are three different things}
+The empirical ordering is not the one the naive framing predicts. Raw activity is useless as a progress
+signal: agents in our sample spend tens of steps busy and unproductive. Raw novelty is barely better --- an
+agent that has lost the thread still reads new files and still produces new text, so ``the observation is
+new'' alarms as readily on a productive window as on a stagnant one. What separates the two is whether the
+new material concerns the task that was assigned. Our \evid{} channel implements that test in the cheapest
+possible way: the entity is new, and its subtokens overlap the task statement more than they overlap the
+rest of the corpus. It is also the largest single source of improvement over the repetition and semantic
+baselines in the ablation.
+
+That reframes the practical problem. The interesting question is not ``is the agent looping?'' but ``is the
+agent learning anything about \emph{this} task?''. Looping is one symptom; irrelevant exploration is
+another, and it is more common in our data.
+
+\subsection{Why a semantic-redundancy baseline is strong but insufficient}
+The livelock-detection family represents each step in an embedding space and watches for steps that stop
+moving. We reproduce that idea and find it a genuinely good ranking signal (ROC-AUC \paucBFoursemantic{},
+and \paucLsem{} when learned), better than repetition and much better than workspace churn. Its limitation
+is structural rather than tuning-related: two consecutive steps can be maximally far apart in embedding
+space while both are irrelevant to the task, which is exactly the case our labels call stagnant.
+Similarity to the previous step measures \emph{information flow}, not \emph{directed} information flow. The
+fix --- conditioning on the task --- is what our evidence channel adds without a second model in the loop,
+which matters for deployment: a monitor that costs nothing but tokenization can run at every step of every
+session, whereas a model-based judge cannot.
+
+\subsection{The workspace channel is a trap}
+Every practical monitor we know of begins with ``did the files change?''. In our labels that channel is the
+weakest of the six (\paucBSevenworkspace{}), and the reason is visible in the subtypes: many stagnant
+windows contain edits (edit/revert cycles, churn on the same file, edits after completion) and many
+productive windows contain none (localization, hypothesis elimination, narrowing). We would keep workspace
+signals in a production system --- they are cheap and catch a specific pathology --- but as one feature
+among others, never the criterion.
+
+\subsection{What a runtime should do with an alarm}
+An alarm should trigger \emph{inspection}, not termination: the monitor's precision at low false-stop
+budgets is high enough that a human or a supervisor model can afford to look, and the failure-predictor
+literature shows that restarting is only worthwhile when the restarted trajectory gets an overlay of the
+progress made so far. The alarm should carry its evidence: because our features are symbolic, an alarm can
+print the entities that stopped appearing and the verification state that stopped moving, which lets an
+operator decide in one glance. And budgets should be per-task rather than global, because the threshold
+that is conservative on a long task is aggressive on a ten-step one.
+
+\subsection{What we would do with more annotated data}
+The limiting factor in this study is labels, not features. Two additions would change the conclusions
+materially: trajectories from longer-horizon repository tasks, where stagnation can last for dozens of
+steps and the annotation unit would be a genuine work episode rather than a fixed window; and an
+intervention experiment --- stopping a run at an alarm and restarting it with the current diff --- which is
+the only way to measure whether an alarm at a given false-stop rate produces a net improvement in task
+completion rather than merely removing steps.
+
+\section{Limitations}
+\label{sec:limits}
+
+\paragraph{Corpus.} Every quantitative claim comes from Terminal-Bench~2.0, a corpus of short,
+self-contained terminal tasks (mean \pcorpusStepsMean{} steps). Our conclusions are about runs of that
+length; extending them to hour-long repository work is an extrapolation, and the cross-scaffold check in
+Appendix~\ref{app:transfer} is a first step rather than a substitute.
+
+\paragraph{Annotation.} Labels were produced by language-model readers applying a written codebook, not by
+human domain experts, and we state that plainly. The codebook was written before any monitor, every window
+was re-read by a second reader under reduced context, and we report the resulting agreement
+(\pannBinaryAgr{}\% binary, $\kappa=\pannKappa$) with where it breaks down: on window boundaries and on
+partly redacted observations. Every label carries a justification citing step numbers, so the process is
+auditable, but it is strong consensus annotation rather than expert adjudication. Two consequences follow.
+A fixed window that cuts a productive interval in half is inherently ambiguous, which is the main source of
+cross-round disagreement; and where a window contains the moment of completion, readers split and the
+window is held out, so the post-completion class holds only the agreed instances of a boundary the
+codebook does not define.
+
+\paragraph{The semantic channel is a surrogate, and a real encoder did not improve it.} The intended
+rolling-diversity baseline uses a pretrained sentence encoder; the model host was unreachable when the
+study was run, so we substituted a hashing bag-of-words representation with the same downstream statistics.
+This invalidates cross-paper numeric comparison, and our \sem{} figure should not be quoted as the state of
+the art for that family. We later obtained the encoder (all-MiniLM-L6-v2) and re-ran the same four features
+on the same windows and folds, changing only the representation: it scored \pprobeRocEnc{} against
+\pprobeRocBoW{}. Dense embeddings make every step of a trajectory resemble every other, so rolling diversity
+keeps its discriminative strength (\pprobeFeatDiversity{} two-sided) with its sign reversed, and only
+nearest-neighbour similarity survives (\pprobeFeatNearest{}). Sensitivity to exact token reuse therefore
+helps on this task rather than hurting, because an agent that has stopped progressing tends to reissue
+identical commands.
+
+\paragraph{The reported performance is robust, not a tuning artifact.} We tried five architecturally
+distinct routes to beat the single-family baseline on the identical windows and folds: a joint model over
+all six families (\pjointAuc{} against \pceilBase{}, paired difference \pjointDiff{} on
+$[\pjointLo{},\pjointHi{}]$, $p=\pjointP{}$), the pretrained encoder (\pprobeRocEnc{}), multi-scale context
+(0.727), a semantic relevance function (0.566) and a learned semantic model at a longer window (0.766).
+None exceeds the baseline, whose task-clustered bootstrap spans $[\pceilLo{},\pceilHi{}]$ and therefore
+contains every attempt. The limit appears to belong to the corpus rather than to our design choices.
+
+\paragraph{The score is non-stationary, and that shapes the detector.} Information flow rises with run
+progress --- the trend is positive in \pdrRunsPositiveTrend{} of \pdrRunsPositiveTrendMax{} runs at
+\pdrMeanSlope{} per step, and the score correlates \pdrCorrStep{} with step index. Pooled thresholds and
+trailing-window references therefore both fail, for opposite reasons: a pooled threshold drifts out of
+calibration as the run proceeds, while a trailing reference is contaminated by the stall it is meant to
+detect. The reference must be fixed early and the series smoothed before thresholding, which is what the
+detector of Section~\ref{sec:res-alarm2} does. We have not established \emph{why} smoothing is sufficient,
+only that it is, and the detector remains sensitive to the opening fraction: a run whose first steps are
+already unproductive gives a poor reference.
+
+\paragraph{What the release cannot support.} The natural repair for a judged label is a measured one, and
+this corpus does not permit it. \pprobeRunsNoEvent{}\% of the sampled trajectories contain no verifiable
+success event at all: explicit test output appears in \pprobeRunsPytest{}\% of runs and successful builds
+in \pprobeRunsBuild{}\%. The one abundant marker, an exit code of zero, is anti-correlated with success ---
+failed runs carry \pprobeEventsFail{} of them on average against \pprobeEventsPass{} in solved runs ---
+because it records that a command did not raise, not that the task advanced. Two further weaknesses
+compound this. Redaction (\pcorpusRedactFrac{}\% of observations carrying any content,
+\pcorpusRedactMean{}\% averaged per trajectory) degrades precisely the evidence and verification channels
+we analyse, and it is the largest single driver of annotator disagreement: fully legible windows tie
+between readers at \predactTieZero{}\%, partly redacted ones at \predactTieOne{}. And relevance is computed
+lexically, so a discovery described in different words than the task scores zero --- one reason the
+evidence channel underperforms, and a limitation of our implementation rather than of the idea behind it.
+
+\section{Reproducibility}
+\label{sec:repro}
+
+The pipeline is deterministic and split into stages, each writing a frozen artifact:
+\code{build\_dataset.py} draws the stratified sample and writes window features;
+\code{embed\_semantics.py} writes the step representations used by the semantic channel;
+\code{make\_annotation\_cards.py} and its two companions write the annotation cards;
+\code{build\_gold.py} merges all annotation rounds into \code{adjudicated.csv}, \code{agreement.json}
+and \code{regions.json}; \code{run\_experiments.py} runs task-level cross-validation and writes
+\code{window\_features.parquet} and \code{monitor\_scores.parquet} with the metric tables; and
+\code{make\_figures.py} with \code{export\_results\_tex.py} regenerates every figure and every number
+in this paper from those artifacts. Data are public: Terminal-Bench~2.0 trajectories
+\cite{yoonholee2026tb2} and SWE-agent trajectories \cite{nebius2024sweagenttraj}. The monitor itself is
+about six hundred lines of dependency-free Python (standard library plus NumPy) and runs in milliseconds
+per step on one CPU core: on \prtWindows{} windows it takes \prtMsPerWindow\,ms to compute a window's
+feature vector and \prtMsPerStep\,ms to score it and evaluate the alarm rule, so monitoring a
+thousand-step run costs under a second. The only external service used anywhere in the pipeline is the
+annotation step. A test suite (\code{run\_tests.py}) asserts the invariants the protocol depends on, in
+particular that truncating a trajectory leaves the features of the surviving windows unchanged, which is
+the online restriction, and a number audit (\code{audit\_numbers.py}) re-derives the headline quantities
+straight from the frozen artifacts and compares them with the macros the paper prints; at the time of
+writing all \pauditChecked{} checked values matched. The figures are checked the same way, by
+\code{audit\_figure\_text.py}, which measures the bounding box of every drawn label and fails on any
+label-on-label overlap, any label printed outside its own panel, any glyph cut at the raster border, and
+any label that falls below five points once the figure is scaled to the text width.
+
+\section{Conclusion}
+
+We asked which observable signals let an online monitor recognise that a coding agent has stopped making
+progress without knowing the correct solution. The answer our data supports is narrower and more useful
+than ``detect loops''. Exact repetition is a precise but partial detector; semantic redundancy of
+successive steps is a good ranking signal but blind to direction; workspace churn is close to worthless;
+verification deltas are rare but nearly decisive; and the signal that adds the most is the cheapest to
+compute --- whether the material the agent is currently uncovering is new \emph{and} about the task. That
+finding is the one we would want a runtime builder to take away, together with the negative results: the
+signals that look most natural are not the ones that work, and a monitor that stops healthy runs is worse
+than no monitor at all.
+
+\section{Author contributions and use of AI tools}
+
+Both authors contributed to the conception of the study, the design of the codebook, the annotation
+protocol, the interpretation of the results and the writing of this report. The implementation, the
+annotation pipeline and the first drafts were produced with an autonomous AI coding agent; its role, the
+stages it touched, the tools and versions involved and the errors it made are recorded in full in the
+accompanying AI-assistance log, submitted as supporting material together with the annotation cards, the
+frozen feature matrices and the monitor implementation. No result reported here was taken on trust from
+that log: every number in the paper is regenerated from the frozen artifacts by the released scripts
+(Section~\ref{sec:repro}), and the label set remains open to independent human re-reading.
+
+\appendix
+
+\section{Budget-calibrated operating points}
+\label{app:calibration}
+The main text reports the raw threshold sweep, in which every monitor uses the same score threshold. That
+view favours monitors whose scores happen to sit on a convenient scale, so we also calibrated each
+monitor's threshold on the training trajectories: for a firing budget $b$, the threshold is the $(1-b)$
+quantile of that monitor's training step scores, so every monitor alarms at a comparable rate before the
+persistence rule is applied. Under this calibration the ordering changes and detection collapses for most
+monitors: at the $5\%$ budget the hand-designed evidence--semantic monitor catches
+\pcalCThreeevidSemBFiveDet{} of annotated stagnant windows with \pcalCThreeevidSemBFiveFs{} false stops,
+and the best learned semantic mixture reaches \pcalLsemBFiveDet{} with \pcalLsemBFiveFs{}. The reason is
+informative rather than disappointing: the extreme scores inside a run are frequently \emph{productive}
+moments --- the one decisive discovery, the test that finally passes --- so a monitor tuned to alarm only
+at its own extremes is tuned to alarm in the wrong place. We therefore report both views and treat the raw
+sweep as an optimistic bound.
+
+\section{Annotation codebook}
+\label{app:codebook}
+The codebook given to annotators is reproduced verbatim in the released artifact
+(\code{docs/annotation}\-\code{\_guide.md}). Its core is the three-channel progress test
+(\S\ref{sec:definition}): a window is productive if new task-relevant information became known, or a
+plausible artefact changed durably, or verification state improved; it is stagnant if none of those
+happened while the agent kept acting. Six labels are available, of which two
+(\textsc{blocked\_external}, \textsc{uncertain}) are held out of the binary task.
+
+\section{Window-size sensitivity}
+\label{app:windows}
+The window length $w$ is the one hyperparameter the feature set has, so we re-ran the whole protocol at
+$w=6$, $20$ and $30$. The window matters, and it is not monotone: at $w=6$ the monitors have too little
+context and the semantic family falls to \pwSixBFoursemantic{}, with per-window detection at a $5\%$
+budget about a fifth of its $w=10$ value; at $w=20$ the global ranking is similar (semantic reaches
+\pwTwoZeroBFoursemantic{}) but the within-run numbers move substantially; and at $w=30$ the window is long
+enough that productive work inside it masks earlier stagnation, costing the evidence channel heavily. The
+$w=10$ point used throughout is thus a compromise between context and resolution rather than an optimum we
+would defend on principle, and a deployment should tune it.
+
+\section{Cross-scaffold transfer}
+\label{app:transfer}
+Does a monitor fitted on some agent scaffolds work on one it has never seen? We trained
+the same feature sets on annotated windows from every scaffold except one and evaluated on the held-out
+scaffold, for each of the nine scaffolds in the sample. The ordering from the main experiments survives,
+but the numbers are lower and the spread is wide: the semantic family averages \pcssemanticMean{} (range
+\pcssemanticMin{}--\pcssemanticMax{}), against \paucBFoursemantic{} trained and evaluated inside the
+corpus, and every family is close to chance on at least one scaffold. Repetition (\pcsrepetitionMean{})
+and workspace (\pcsworkspaceMean{}) transfer about as well as each other, and task-grounded evidence alone
+transfers worst (\pcsevidenceMean{}), again improving only in combination with the semantic channel
+(\pcsevidencesemanticMean{}). These signals are portable in kind but not in calibration: a deployment
+should re-fit its threshold per scaffold rather than carry one across agents. A genuine cross-corpus check
+--- the same extractor applied to SWE-agent trajectories over SWE-bench --- was prepared but could not be
+evaluated here, because that corpus carries no stagnation annotations, and reporting alarm rates there
+without labels would be a claim we cannot support. Adding that annotation set is the first item of future
+work.
+
+\section{Channel behaviour, per trajectory}
+\label{app:signals}
+Figure~\ref{fig:signals} in Section~\ref{sec:results} shows the three channels step by step for three
+annotated trajectories, each containing both labels, so the shaded bands show where the same run stopped
+progressing.

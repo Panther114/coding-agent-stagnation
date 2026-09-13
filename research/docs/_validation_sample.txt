@@ -1,0 +1,35 @@
+scanned 1200 runs / 31440 observations in 47s
+observations proving tests ran : 267
+  ...with a recovered verdict  : 267 (100.00%)  <- data ceiling
+observations with a verdict-shaped phrase: 265
+  ...that the parser did NOT resolve    : 0 (sampled, cap 40)
+unknown-but-has-failure-ids events      : 0
+
+### No parser misses found: every verdict-shaped observation resolved.
+
+### resolved-step sample (raw matched substring)
+  collection_error  AnalogJ__lexicon-336                          =============================== 1 error in 0.64s ===============================
+  no_tests          AnalogJ__lexicon-336                          ============================== 1 skipped in 0.16s ==============================
+  no_tests          AnalogJ__lexicon-336                          ============================== 1 skipped in 0.16s ==============================
+  some_fail         Azure__azure-functions-python-worker-890      FAILED (failures=6, skipped=6)
+  all_pass          Azure__azure-functions-python-worker-890      OK (skipped=6)
+  all_pass          Azure__azure-functions-python-worker-890      OK (skipped=6)
+  some_fail         Melevir__cognitive_complexity-15              ========================= 2 failed, 18 passed in 0.66s =========================
+  all_pass          Melevir__cognitive_complexity-15              ============================== 20 passed in 0.18s ==============================
+  some_fail         Melevir__cognitive_complexity-15              ========================= 2 failed, 18 passed in 0.67s =========================
+  all_pass          Melevir__cognitive_complexity-15              ============================== 20 passed in 0.16s ==============================
+  all_pass          Melevir__cognitive_complexity-15              ============================== 20 passed in 0.61s ==============================
+  some_fail         Melevir__cognitive_complexity-15              ========================= 1 failed, 19 passed in 0.63s =========================
+  all_pass          Melevir__cognitive_complexity-15              ============================== 20 passed in 0.17s ==============================
+  some_fail         Melevir__cognitive_complexity-15              ========================= 5 failed, 15 passed in 0.71s =========================
+  some_fail         Melevir__cognitive_complexity-15              ========================= 5 failed, 15 passed in 0.20s =========================
+  some_fail         Melevir__cognitive_complexity-15              ========================= 5 failed, 15 passed in 0.19s =========================
+  some_fail         Melevir__cognitive_complexity-15              FAILED (errors=1)
+  no_tests          Melevir__cognitive_complexity-15              OK
+  some_fail         Melevir__cognitive_complexity-15              ========================= 1 failed, 19 passed in 0.73s =========================
+  no_tests          Melevir__cognitive_complexity-15              ============================ no tests ran in 0.60s =============================
+  some_fail         Melevir__cognitive_complexity-15              ============================== 1 failed in 0.19s ===============================
+  all_pass          Melevir__cognitive_complexity-15              ============================== 1 passed in 0.14s ===============================
+  some_fail         Melevir__cognitive_complexity-15              ========================= 1 failed, 19 passed in 0.69s =========================
+  some_fail         Melevir__cognitive_complexity-15              ========================= 1 failed, 19 passed in 0.22s =========================
+  all_pass          Melevir__cognitive_complexity-15              ============================== 20 passed in 0.18s ==============================

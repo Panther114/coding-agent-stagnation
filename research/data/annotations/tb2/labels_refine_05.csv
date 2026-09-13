@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_cobol-modernization__z8rbv6p_45,PRODUCTIVE,high,true,E/V,,steps 39-43 run COBOL then Python on the valid input; cmp at 43 reports identical output
+d_tb2_cobol-modernization__z8rbv6p_47,PRODUCTIVE,high,true,E/V,,step 43 proves the valid-transaction case matches COBOL; 44-47 begin the original-input case
+d_tb2_cobol-modernization__z8rbv6p_51,PRODUCTIVE,high,true,V,,cmp at 43 and 49 both report zero differences against COBOL; two input cases now verified
+d_tb2_cobol-modernization__z8rbv6p_53,PRODUCTIVE,medium,true,V,,step 49 compares Python against COBOL for the original input; cmp reports zero differences
+d_tb2_cobol-modernization__z8rbv6p_59,DONE_REDUNDANT,medium,false,I,post_completion,both cases verified at 43 and 49; 50-59 clean up; re-read; re-edit and re-summarise the finished script
+d_tb2_cobol-modernization__z8rbv6p_63,DONE_REDUNDANT,medium,false,I,post_completion,verified at 43 and 49; 54-56 re-edit program.py with no failing signal; 59 re-summarises; 60-63 rebuild the same harness
+d_tb2_cobol-modernization__z8rbv6p_65,DONE_REDUNDANT,medium,false,I,post_completion,completion verified at 43 and 49; 56-65 re-edit; re-run; re-explain and rebuild the old verification harness
+d_tb2_cobol-modernization__z8rbv6p_69,DONE_REDUNDANT,high,false,none,post_completion,task verified by 49; 60-69 only rebuild the same COBOL-versus-Python harness and copy outputs; no new goal
+d_tb2_cobol-modernization__z8rbv6p_71,DONE_REDUNDANT,high,false,V,post_completion,step 70 re-confirms case1 already proven at 43; 62-71 only re-run the same comparison; no new goal
+d_tb2_cobol-modernization__z8rbv6p_75,DONE_REDUNDANT,high,false,V,post_completion,step 70 repeats the case1 comparison already zero at 43; 66-75 only set up and re-run the same cases
+d_tb2_cobol-modernization__z8rbv6p_77,DONE_REDUNDANT,high,false,V,post_completion,step 70 re-verifies case1 already passing at 43; 68-77 merely re-run the same two cases; no new goal
+d_tb2_cobol-modernization__z8rbv6p_9,PRODUCTIVE,high,false,E,,steps 1-3 read the COBOL source and every data file; 6-9 learn record bytes and compile the reference
+d_tb2_compile-compcert__3AjSGCy_13,PRODUCTIVE,high,false,E/I,,steps 8-11 locate the CompCert Makefile and extraction sources after a path error; 5 installs packages
+d_tb2_compile-compcert__3AjSGCy_17,PRODUCTIVE,high,false,E,,steps 8-14 locate the sources and expose missing jq plus a stalled download; 16-17 install Coq and Menhir
+d_tb2_compile-compcert__3AjSGCy_19,PRODUCTIVE,high,false,E/V,,step 18 configure reports Coq 8.18 unsupported and names the required range; 16 installs Coq and Menhir
+d_tb2_compile-compcert__3AjSGCy_21,PRODUCTIVE,high,false,E/V,,step 18 configure runs and reports the exact Coq version constraint; 16-19 install dependencies
+d_tb2_compile-compcert__3AjSGCy_23,PRODUCTIVE,medium,false,E,,step 18 reveals the Coq version incompatibility and the precise supported range; 16 and 19 install packages
+d_tb2_compile-compcert__3AjSGCy_25,PRODUCTIVE,medium,false,E/I,,steps 16-18 install Coq and Menhir then configure names the exact Coq version constraint; 24-25 retry the build
+d_tb2_compile-compcert__3AjSGCy_27,PRODUCTIVE,high,false,E,,step 18 gives the exact Coq version constraint; 27 finds menhirLib installed in the opam switch
+d_tb2_compile-compcert__3AjSGCy_31,PRODUCTIVE,medium,false,E,,steps 27-28 read the opam menhirLib and CompCert MenhirLib sources; 31 exposes a wrong opam option
+d_tb2_compile-compcert__3AjSGCy_33,PRODUCTIVE,medium,false,E,,steps 27-28 inventory the Menhir libraries; 31-32 reveal the opam CLI mismatch and available packages
+d_tb2_compile-compcert__3AjSGCy_35,PRODUCTIVE,medium,false,E,,steps 27-28 confirm the opam menhirLib and CompCert MenhirLib sources; 31-32 expose the opam option and package state
+d_tb2_compile-compcert__3AjSGCy_37,PRODUCTIVE,high,false,E/I,,steps 28-32 map the Menhir libraries and opam packages; 37 installs Coq 8.16.1 successfully
+d_tb2_compile-compcert__3AjSGCy_39,PRODUCTIVE,high,false,E/I,,step 37 installs Coq 8.16.1 through opam; 39 installs ccomp into /tmp/CompCert/bin
+d_tb2_compile-compcert__3AjSGCy_43,PRODUCTIVE,high,false,I/V,,step 37 installs Coq 8.16.1; 39 installs ccomp; 40-42 run ccomp and generate hello.s
+d_tb2_compile-compcert__3AjSGCy_9,PRODUCTIVE,medium,false,E,,steps 3-4 find no OCaml compiler but a root shell; 8-9 locate the CompCert source tree
+d_tb2_compile-compcert__ArM52Gs_11,PRODUCTIVE,high,false,E/I,,steps 4-7 detect Ubuntu x86_64 plus the sudo and dpkg blockers; 10-11 fetch the CompCert source
+d_tb2_compile-compcert__ArM52Gs_13,PRODUCTIVE,high,false,E/I,,steps 4-10 detect the host toolchain versions; 11 downloads the source; 12 shows configure rejecting -toolchain
+d_tb2_compile-compcert__ArM52Gs_15,PRODUCTIVE,high,false,E/I,,step 11 downloads the source; 14 reports Coq missing and names 8.13.2 while OCaml 4.14.1 is fine
+d_tb2_compile-compcert__ArM52Gs_17,PRODUCTIVE,medium,false,E,,steps 10-12 learn the toolchain versions and the configure option error; 14 reports Coq 8.13.2 missing

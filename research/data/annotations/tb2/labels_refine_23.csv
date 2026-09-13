@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_fix-ocaml-gc__EE2S8BX_13,PRODUCTIVE,high,false,E/I,,Steps 5-7 locate caml_sweep and patch pool_sweep in shared_heap.c; 10-12 re-evaluate that fix; 13 rebuilds.
+d_tb2_fix-ocaml-gc__EE2S8BX_23,PRODUCTIVE,medium,false,E/I,,Steps 18-19 correct the wosize misconception; 20-23 durably replace POOL_FREE_HEADER call sites with MAKE_FREE_HEADER.
+d_tb2_fix-ocaml-gc__EE2S8BX_29,PRODUCTIVE,medium,false,E/I,,Steps 22-27 replace POOL_FREE_HEADER call sites; 28-29 begin converting Wosize_hd usages; the edits survive the window.
+d_tb2_fix-ocaml-gc__EE2S8BX_33,PRODUCTIVE,medium,false,I,,Steps 24-33 apply the wosize conversion across shared_heap.c sites; no verification until the rebuild at 37.
+d_tb2_fix-ocaml-gc__EE2S8BX_39,PRODUCTIVE,medium,false,E/I,,Step 37 build fails with a MAKE_FREE_HEADER syntax error; 38-39 diagnose NOT_MARKABLE and repair it.
+d_tb2_fix-ocaml-gc__EE2S8BX_43,PRODUCTIVE,medium,true,E,,Steps 37-41 yield new error signatures (syntax error; free(): invalid size) that rule out the wosize fix.
+d_tb2_fix-ocaml-gc__EE2S8BX_49,STAGNANT,medium,true,none,edit_revert,Step 40 rebuild still fails; 42-49 revert every MAKE_FREE_HEADER and wosize edit; no verification movement.
+d_tb2_fix-ocaml-gc__EE2S8BX_53,STAGNANT,high,false,none,edit_revert,Steps 44-53 only revert the MAKE_FREE_HEADER and Wosize_hd edits; no build run and nothing new learned.
+d_tb2_fix-ocaml-gc__EE2S8BX_59,STAGNANT,high,false,none,edit_revert,Steps 50-54 finish the reverts then 55-59 re-apply the same edits; the rebuild at 60 fails again.
+d_tb2_fix-ocaml-gc__EE2S8BX_63,STAGNANT,high,false,none,edit_revert,Steps 55-59 re-apply edits that step 65 reverts again; the make at 60 leaves the same segfault.
+d_tb2_fix-ocaml-gc__EE2S8BX_69,PRODUCTIVE,medium,true,I/E,,Step 61 rules out the wosize interpretation; 63-69 implement a targeted removal of the pool_sweep merging logic.
+d_tb2_fix-ocaml-gc__EE2S8BX_73,PRODUCTIVE,medium,false,I,,Steps 64-73 apply the merging-logic removal and wosize=1 conversions across shared_heap.c sites; the edits persist.
+d_tb2_fix-ocaml-gc__EE2S8BX_79,PRODUCTIVE,medium,false,V/I,,Steps 76-79 move the build past the syntax failure to unused-variable errors and remove them; the edits survive.
+d_tb2_fix-ocaml-gc__EE2S8BX_83,PRODUCTIVE,medium,false,V/I,,Steps 76-80 remove successive compile errors; step 80 compiles again and reaches the bootstrap segfault.
+d_tb2_fix-ocaml-gc__EE2S8BX_89,PRODUCTIVE,medium,true,E,,Steps 83-84 establish that removing the merging logic caused free(): invalid size; 85-89 revert those edits.
+d_tb2_fix-ocaml-gc__EE2S8BX_9,PRODUCTIVE,high,false,E/I,,Steps 1-6 locate caml_sweep in shared_heap.c; step 7 patches pool_sweep; 8-9 build.
+d_tb2_fix-ocaml-gc__EE2S8BX_93,STAGNANT,high,false,none,edit_revert,Steps 85-93 revert the POOL_FREE_HEADER and Wosize_hd changes; no build run and nothing new learned.
+d_tb2_fix-ocaml-gc__EE2S8BX_99,PRODUCTIVE,medium,true,E/I,,Step 97 reports the Killed/OOM message and re-examines pool_allocate; 98-99 correct the pool_sweep pointer advancement.
+d_tb2_fix-ocaml-gc__yoU3Mrz_11,PRODUCTIVE,high,true,E,,Steps 2-5 are warmup chatter; 6-11 locate the ocaml tree and find and read HACKING.adoc.
+d_tb2_fix-ocaml-gc__yoU3Mrz_13,PRODUCTIVE,high,true,E,,Steps 6-11 find the repository root and HACKING.adoc after the failed read; 13 plans the build.
+d_tb2_fix-ocaml-gc__yoU3Mrz_15,PRODUCTIVE,high,true,E/V,,Steps 9-11 locate the ocaml root and HACKING.adoc; 14-15 configure and rebuild reproduce the segfault.
+d_tb2_fix-ocaml-gc__yoU3Mrz_17,PRODUCTIVE,high,true,E/V,,Steps 9-10 locate the ocaml tree; 14-15 reproduce the bootstrap segfault; 17 finds major_gc.c too large.
+d_tb2_fix-ocaml-gc__yoU3Mrz_19,PRODUCTIVE,high,false,E/V,,Steps 14-15 configure and rebuild reproducing the segfault; 17-19 grep major_gc.c and narrow the sweep search.
+d_tb2_fix-ocaml-gc__yoU3Mrz_21,PRODUCTIVE,high,false,E/V,,Steps 14-15 reproduce the segfault; 18-21 grep the sweep code in major_gc.c and shared_heap.c.
+d_tb2_fix-ocaml-gc__yoU3Mrz_23,PRODUCTIVE,high,false,E/V,,Steps 14-15 reproduce the crash; 18-23 narrow the sweep code to three runtime files including shared_heap.c.
+d_tb2_fix-ocaml-gc__yoU3Mrz_25,PRODUCTIVE,high,false,E,,Steps 23-25 isolate shared_heap.c pool_sweep free-block handling near lines 614-644.
+d_tb2_fix-ocaml-gc__yoU3Mrz_29,PRODUCTIVE,high,false,E,,Steps 23-25 read shared_heap.c and narrow to pool_sweep lines 614-644; 28-29 continue that inspection.
+d_tb2_fix-ocaml-gc__yoU3Mrz_31,PRODUCTIVE,high,false,E,,Steps 23-31 read shared_heap.c repeatedly and confirm free blocks are spaced wsize_sizeclass[sz] apart at line 460.
+d_tb2_fix-ocaml-gc__yoU3Mrz_35,PRODUCTIVE,high,false,E,,Steps 31-35 diagnose line 650 p += Whsize_hd(hd) against the correct p += wh used elsewhere.
+d_tb2_fix-ocaml-gc__yoU3Mrz_37,PRODUCTIVE,high,false,E/I,,Steps 31-35 localise the bug to line 650 and confirm the correct pattern; 37 applies the fix.

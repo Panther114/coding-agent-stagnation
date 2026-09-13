@@ -1,0 +1,2072 @@
+{
+  "B1_step30": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.037037037037037035,
+        "savings_ratio": 0.0008262186725419994,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.037037037037037035,
+        "savings_ratio": 0.0008262186725419994,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.037037037037037035,
+        "savings_ratio": 0.0008262186725419994,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.037037037037037035,
+        "savings_ratio": 0.0008262186725419994,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.92,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.037037037037037035,
+        "savings_ratio": 0.0008262186725419994,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B1_step60": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.88,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.012345679012345678,
+        "savings_ratio": 0.0002754062241806665,
+        "median_latency": NaN,
+        "alarm_rate": 0.1111111111111111,
+        "n_alarms": 9.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.88,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.012345679012345678,
+        "savings_ratio": 0.0002754062241806665,
+        "median_latency": NaN,
+        "alarm_rate": 0.1111111111111111,
+        "n_alarms": 9.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.88,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.012345679012345678,
+        "savings_ratio": 0.0002754062241806665,
+        "median_latency": NaN,
+        "alarm_rate": 0.1111111111111111,
+        "n_alarms": 9.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B2_exact_rep3": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.07407407407407407,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -5.395061728395062,
+        "savings_ratio": -0.12035251996695125,
+        "median_latency": 18.0,
+        "alarm_rate": 0.09876543209876543,
+        "n_alarms": 8.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.07407407407407407,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -5.395061728395062,
+        "savings_ratio": -0.12035251996695125,
+        "median_latency": 18.0,
+        "alarm_rate": 0.09876543209876543,
+        "n_alarms": 8.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B2_exact_rep5": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.12345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -23.753086419753085,
+        "savings_ratio": -0.5298815753236024,
+        "median_latency": 18.0,
+        "alarm_rate": 0.14814814814814814,
+        "n_alarms": 12.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B3_rep_channel": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.2962962962962963,
+        "savings_ratio": -0.006609749380335995,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.2962962962962963,
+        "savings_ratio": -0.006609749380335995,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.2962962962962963,
+        "savings_ratio": -0.006609749380335995,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.2962962962962963,
+        "savings_ratio": -0.006609749380335995,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B3_rep_target": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -4.148148148148148,
+        "savings_ratio": -0.09253649132470394,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.94,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -3.6419753086419755,
+        "savings_ratio": -0.08124483613329661,
+        "median_latency": NaN,
+        "alarm_rate": 0.037037037037037035,
+        "n_alarms": 3.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.94,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -3.6419753086419755,
+        "savings_ratio": -0.08124483613329661,
+        "median_latency": NaN,
+        "alarm_rate": 0.037037037037037035,
+        "n_alarms": 3.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.94,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -3.6419753086419755,
+        "savings_ratio": -0.08124483613329661,
+        "median_latency": NaN,
+        "alarm_rate": 0.037037037037037035,
+        "n_alarms": 3.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B4_sem_diversity": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B4_semantic": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B5_novelty": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.4567901234567901,
+        "savings_ratio": 0.01019003029468466,
+        "median_latency": 27.0,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.4567901234567901,
+        "savings_ratio": 0.01019003029468466,
+        "median_latency": 27.0,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.4567901234567901,
+        "savings_ratio": 0.01019003029468466,
+        "median_latency": 27.0,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.4567901234567901,
+        "savings_ratio": 0.01019003029468466,
+        "median_latency": 27.0,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.9,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.4567901234567901,
+        "savings_ratio": 0.01019003029468466,
+        "median_latency": 27.0,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B5_novelty_sig": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": 1.0,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": 1.0,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": 1.0,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": 1.0,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B6_ver_stall": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.2962962962962963,
+        "savings_ratio": 0.006609749380335995,
+        "median_latency": NaN,
+        "alarm_rate": 0.1111111111111111,
+        "n_alarms": 9.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.2962962962962963,
+        "savings_ratio": 0.006609749380335995,
+        "median_latency": NaN,
+        "alarm_rate": 0.1111111111111111,
+        "n_alarms": 9.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.2962962962962963,
+        "savings_ratio": 0.006609749380335995,
+        "median_latency": NaN,
+        "alarm_rate": 0.1111111111111111,
+        "n_alarms": 9.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B6_verification": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.024691358024691357,
+        "detection_rate_where_possible": 0.044444444444444446,
+        "mean_saved_steps": 3.1604938271604937,
+        "savings_ratio": 0.07050399339025062,
+        "median_latency": 10.0,
+        "alarm_rate": 0.1111111111111111,
+        "n_alarms": 9.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.06172839506172839,
+        "detection_rate": 0.024691358024691357,
+        "detection_rate_where_possible": 0.044444444444444446,
+        "mean_saved_steps": 3.4074074074074074,
+        "savings_ratio": 0.07601211787386394,
+        "median_latency": 10.0,
+        "alarm_rate": 0.13580246913580246,
+        "n_alarms": 11.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.98,
+        "false_stop_rate": 0.06172839506172839,
+        "detection_rate": 0.024691358024691357,
+        "detection_rate_where_possible": 0.044444444444444446,
+        "mean_saved_steps": 3.4074074074074074,
+        "savings_ratio": 0.07601211787386394,
+        "median_latency": 10.0,
+        "alarm_rate": 0.13580246913580246,
+        "n_alarms": 11.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "B7_workspace": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -6.271604938271605,
+        "savings_ratio": -0.13990636188377858,
+        "median_latency": 1.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -6.271604938271605,
+        "savings_ratio": -0.13990636188377858,
+        "median_latency": 1.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.98,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -6.271604938271605,
+        "savings_ratio": -0.13990636188377858,
+        "median_latency": 1.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "C1_evidence": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -1.876543209876543,
+        "savings_ratio": -0.0418617460754613,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -1.876543209876543,
+        "savings_ratio": -0.0418617460754613,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -1.876543209876543,
+        "savings_ratio": -0.0418617460754613,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -1.876543209876543,
+        "savings_ratio": -0.0418617460754613,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "C1_evidence_rel": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.86,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "C2_evid_ver": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 1.2222222222222223,
+        "savings_ratio": 0.027265216193885982,
+        "median_latency": 9.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 1.2222222222222223,
+        "savings_ratio": 0.027265216193885982,
+        "median_latency": 9.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.98,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 1.2222222222222223,
+        "savings_ratio": 0.027265216193885982,
+        "median_latency": 9.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "C2_evid_ver_work": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -2.876543209876543,
+        "savings_ratio": -0.0641696502340953,
+        "median_latency": 12.0,
+        "alarm_rate": 0.06172839506172839,
+        "n_alarms": 5.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -2.876543209876543,
+        "savings_ratio": -0.0641696502340953,
+        "median_latency": 12.0,
+        "alarm_rate": 0.06172839506172839,
+        "n_alarms": 5.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.88,
+        "false_stop_rate": 0.1111111111111111,
+        "detection_rate": 0.024691358024691357,
+        "detection_rate_where_possible": 0.044444444444444446,
+        "mean_saved_steps": -1.0246913580246915,
+        "savings_ratio": -0.02285871660699532,
+        "median_latency": 10.5,
+        "alarm_rate": 0.16049382716049382,
+        "n_alarms": 13.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "C3_evid_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.1111111111111111,
+        "savings_ratio": 0.0024786560176259984,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.1111111111111111,
+        "savings_ratio": 0.0024786560176259984,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.1111111111111111,
+        "savings_ratio": 0.0024786560176259984,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.1111111111111111,
+        "savings_ratio": 0.0024786560176259984,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.94,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.1111111111111111,
+        "savings_ratio": 0.0024786560176259984,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "C4_all_hand": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -1.7407407407407407,
+        "savings_ratio": -0.03883227760947398,
+        "median_latency": NaN,
+        "alarm_rate": 0.037037037037037035,
+        "n_alarms": 3.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.9,
+        "false_stop_rate": 0.08641975308641975,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.48148148148148145,
+        "savings_ratio": 0.010740842743045993,
+        "median_latency": 12.0,
+        "alarm_rate": 0.12345679012345678,
+        "n_alarms": 10.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.9,
+        "false_stop_rate": 0.08641975308641975,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.48148148148148145,
+        "savings_ratio": 0.010740842743045993,
+        "median_latency": 12.0,
+        "alarm_rate": 0.12345679012345678,
+        "n_alarms": 10.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_all_hand": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.06172839506172839,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -8.160493827160494,
+        "savings_ratio": -0.18204351418342055,
+        "median_latency": 7.0,
+        "alarm_rate": 0.09876543209876543,
+        "n_alarms": 8.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.06172839506172839,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -8.160493827160494,
+        "savings_ratio": -0.18204351418342055,
+        "median_latency": 7.0,
+        "alarm_rate": 0.09876543209876543,
+        "n_alarms": 8.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_all_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.96,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -7.08641975308642,
+        "savings_ratio": -0.15808317267970257,
+        "median_latency": NaN,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.96,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -7.08641975308642,
+        "savings_ratio": -0.15808317267970257,
+        "median_latency": NaN,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.84,
+        "false_stop_rate": 0.14814814814814814,
+        "detection_rate": 0.037037037037037035,
+        "detection_rate_where_possible": 0.06666666666666667,
+        "mean_saved_steps": -6.45679012345679,
+        "savings_ratio": -0.14403745524648856,
+        "median_latency": 8.0,
+        "alarm_rate": 0.20987654320987653,
+        "n_alarms": 17.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_evid": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.9,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.4444444444444444,
+        "savings_ratio": -0.009914624070503994,
+        "median_latency": NaN,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.9,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.4444444444444444,
+        "savings_ratio": -0.009914624070503994,
+        "median_latency": NaN,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.9,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.4444444444444444,
+        "savings_ratio": -0.009914624070503994,
+        "median_latency": NaN,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.9,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -0.4444444444444444,
+        "savings_ratio": -0.009914624070503994,
+        "median_latency": NaN,
+        "alarm_rate": 0.024691358024691357,
+        "n_alarms": 2.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_evid_nov": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -16.48148148148148,
+        "savings_ratio": -0.36766730928118974,
+        "median_latency": 0.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -16.48148148148148,
+        "savings_ratio": -0.36766730928118974,
+        "median_latency": 0.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.037037037037037035,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -16.48148148148148,
+        "savings_ratio": -0.36766730928118974,
+        "median_latency": 0.0,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_evid_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.9,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -10.037037037037036,
+        "savings_ratio": -0.22390526025888186,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.9,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -10.037037037037036,
+        "savings_ratio": -0.22390526025888186,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.82,
+        "false_stop_rate": 0.07407407407407407,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -9.358024691358025,
+        "savings_ratio": -0.20875791792894519,
+        "median_latency": 9.0,
+        "alarm_rate": 0.14814814814814814,
+        "n_alarms": 12.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.82,
+        "false_stop_rate": 0.07407407407407407,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": -9.358024691358025,
+        "savings_ratio": -0.20875791792894519,
+        "median_latency": 9.0,
+        "alarm_rate": 0.14814814814814814,
+        "n_alarms": 12.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_evid_ver": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.7530864197530864,
+        "savings_ratio": 0.016799779675020655,
+        "median_latency": 4.0,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.7530864197530864,
+        "savings_ratio": 0.016799779675020655,
+        "median_latency": 4.0,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.7530864197530864,
+        "savings_ratio": 0.016799779675020655,
+        "median_latency": 4.0,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.94,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.012345679012345678,
+        "detection_rate_where_possible": 0.022222222222222223,
+        "mean_saved_steps": 0.7530864197530864,
+        "savings_ratio": 0.016799779675020655,
+        "median_latency": 4.0,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_nov": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -19.123456790123456,
+        "savings_ratio": -0.4266042412558524,
+        "median_latency": NaN,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -19.123456790123456,
+        "savings_ratio": -0.4266042412558524,
+        "median_latency": NaN,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.04938271604938271,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -19.123456790123456,
+        "savings_ratio": -0.4266042412558524,
+        "median_latency": NaN,
+        "alarm_rate": 0.04938271604938271,
+        "n_alarms": 4.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_rep": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -4.185185185185185,
+        "savings_ratio": -0.09336270999724594,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -4.185185185185185,
+        "savings_ratio": -0.09336270999724594,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -4.185185185185185,
+        "savings_ratio": -0.09336270999724594,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.98,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -4.185185185185185,
+        "savings_ratio": -0.09336270999724594,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_sem": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": NaN,
+        "false_stop_rate": NaN,
+        "detection_rate": NaN,
+        "detection_rate_where_possible": NaN,
+        "mean_saved_steps": NaN,
+        "savings_ratio": NaN,
+        "median_latency": NaN,
+        "alarm_rate": NaN,
+        "n_alarms": NaN,
+        "available": 0.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.92,
+        "false_stop_rate": 0.012345679012345678,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -10.037037037037036,
+        "savings_ratio": -0.22390526025888186,
+        "median_latency": NaN,
+        "alarm_rate": 0.012345679012345678,
+        "n_alarms": 1.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.88,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -6.987654320987654,
+        "savings_ratio": -0.15587992288625724,
+        "median_latency": NaN,
+        "alarm_rate": 0.037037037037037035,
+        "n_alarms": 3.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.88,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -6.987654320987654,
+        "savings_ratio": -0.15587992288625724,
+        "median_latency": NaN,
+        "alarm_rate": 0.037037037037037035,
+        "n_alarms": 3.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.88,
+        "false_stop_rate": 0.024691358024691357,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": -6.987654320987654,
+        "savings_ratio": -0.15587992288625724,
+        "median_latency": NaN,
+        "alarm_rate": 0.037037037037037035,
+        "n_alarms": 3.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_ver": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.5555555555555556,
+        "savings_ratio": 0.012393280088129992,
+        "median_latency": NaN,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.5555555555555556,
+        "savings_ratio": 0.012393280088129992,
+        "median_latency": NaN,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.5555555555555556,
+        "savings_ratio": 0.012393280088129992,
+        "median_latency": NaN,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.5555555555555556,
+        "savings_ratio": 0.012393280088129992,
+        "median_latency": NaN,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 0.96,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.5555555555555556,
+        "savings_ratio": 0.012393280088129992,
+        "median_latency": NaN,
+        "alarm_rate": 0.07407407407407407,
+        "n_alarms": 6.0,
+        "available": 1.0
+      }
+    ]
+  },
+  "L_work": {
+    "10": [
+      {
+        "budget": 0.01,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.02,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.05,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.1,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      },
+      {
+        "budget": 0.2,
+        "threshold": 1.0,
+        "false_stop_rate": 0.0,
+        "detection_rate": 0.0,
+        "detection_rate_where_possible": 0.0,
+        "mean_saved_steps": 0.0,
+        "savings_ratio": 0.0,
+        "median_latency": NaN,
+        "alarm_rate": 0.0,
+        "n_alarms": 0.0,
+        "available": 1.0
+      }
+    ]
+  }
+}

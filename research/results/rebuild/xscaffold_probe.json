@@ -1,0 +1,173 @@
+{
+  "thoughtworks": {
+    "repo": "thoughtworks/agentic-coding-trajectories",
+    "scaffold": "multi-framework (agent_framework column)",
+    "n_files": 4,
+    "n_parquet": 1,
+    "parquet_bytes_total": 325563194,
+    "parquet_files": [
+      {
+        "name": "sessions.parquet",
+        "bytes": 325563194
+      }
+    ],
+    "card_data": {},
+    "first_shard": {
+      "name": "sessions.parquet",
+      "meta": {
+        "num_rows": 15000,
+        "num_row_groups": 8,
+        "num_columns": 10
+      },
+      "schema": [
+        {
+          "name": "session_id",
+          "type": "string"
+        },
+        {
+          "name": "source_dataset",
+          "type": "string"
+        },
+        {
+          "name": "source_id",
+          "type": "string"
+        },
+        {
+          "name": "agent_framework",
+          "type": "string"
+        },
+        {
+          "name": "recorded_model",
+          "type": "string"
+        },
+        {
+          "name": "messages_json",
+          "type": "string"
+        },
+        {
+          "name": "n_turns",
+          "type": "int64"
+        },
+        {
+          "name": "max_isl",
+          "type": "int64"
+        },
+        {
+          "name": "total_tokens",
+          "type": "int64"
+        },
+        {
+          "name": "ground_truth_meta_json",
+          "type": "string"
+        }
+      ]
+    },
+    "n_string_leaves_sampled": 192,
+    "sample_row_keys": [
+      "agent_framework",
+      "ground_truth_meta_json",
+      "max_isl",
+      "messages_json",
+      "n_turns",
+      "recorded_model",
+      "session_id",
+      "source_dataset",
+      "source_id",
+      "total_tokens"
+    ],
+    "markers": {
+      "swe_agent_footer": {
+        "desc": "SWE-agent editor footer: names the file and its total line count",
+        "regex": "\\[File:\\s*[^\\]]*?\\((\\d+) lines? total\\)\\]",
+        "leaf_hits": 0,
+        "leaf_rate": 0.0,
+        "total_matches": 0
+      },
+      "openhands_editor_block": {
+        "desc": "any [File: ...] header, with or without a line count",
+        "regex": "\\[File:\\s*[^\\]\\n]{1,300}\\]",
+        "leaf_hits": 0,
+        "leaf_rate": 0.0,
+        "total_matches": 0
+      },
+      "openhands_file_line": {
+        "desc": "OpenHands numbered read with a pipe gutter ('12|code')",
+        "regex": "^\\s*\\d+\\|.*$",
+        "leaf_hits": 0,
+        "leaf_rate": 0.0,
+        "total_matches": 0
+      },
+      "colon_numbered_lines": {
+        "desc": "numbered source lines (SWE-agent '12:code' or OpenHands '12|code')",
+        "regex": "^\\s*\\d+[:|]\\s*\\S",
+        "leaf_hits": 0,
+        "leaf_rate": 0.0,
+        "total_matches": 0
+      },
+      "bash_output_marker": {
+        "desc": "bracketed tool-result header",
+        "regex": "\\[(?:File|Output|Result):",
+        "leaf_hits": 0,
+        "leaf_rate": 0.0,
+        "total_matches": 0
+      },
+      "ellipsis_truncation": {
+        "desc": "explicit truncation notice that states how many lines were elided",
+        "regex": "<\\.\\.\\. \\d+ lines? (?:hidden|omitted) \\.\\.\\.>|\\.\\.\\. \\(\\d+ more lines?\\)",
+        "leaf_hits": 0,
+        "leaf_rate": 0.0,
+        "total_matches": 0
+      }
+    },
+    "marker_examples": {},
+    "row0_summary": {
+      "session_id": {
+        "type": "str",
+        "len": 69,
+        "head": "swe-smith-claude-3-7-sonnet::iterative__dvc.1d6ea681.pr_3727.1zmen2ge"
+      },
+      "source_dataset": {
+        "type": "str",
+        "len": 27,
+        "head": "swe-smith-claude-3-7-sonnet"
+      },
+      "source_id": {
+        "type": "str",
+        "len": 40,
+        "head": "iterative__dvc.1d6ea681.pr_3727.1zmen2ge"
+      },
+      "agent_framework": {
+        "type": "str",
+        "len": 9,
+        "head": "swe-agent"
+      },
+      "recorded_model": {
+        "type": "str",
+        "len": 17,
+        "head": "gpt-4o-2024-08-06"
+      },
+      "messages_json": {
+        "type": "str",
+        "len": 7235,
+        "head": "[{\"role\": \"system\", \"content\": \"You are a helpful assistant that can interact with a computer to solve tasks.\", \"tool_calls_json\": null, \"tool_call_id\": null}, {\"role\": \"user\", \"content\": \"<uploaded_f"
+      },
+      "n_turns": {
+        "type": "int",
+        "value": 3
+      },
+      "max_isl": {
+        "type": "int",
+        "value": 1815
+      },
+      "total_tokens": {
+        "type": "int",
+        "value": 1829
+      },
+      "ground_truth_meta_json": {
+        "type": "str",
+        "len": 92,
+        "head": "{\"instance_id\": \"iterative__dvc.1d6ea681.pr_3727\", \"resolved\": false, \"patch_present\": true}"
+      }
+    }
+  }
+}

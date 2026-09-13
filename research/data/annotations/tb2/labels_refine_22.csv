@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_extract-elf__rUUxEg5_21,PRODUCTIVE,medium,true,I/V,,step 12 unsigned fix survived; step 14 negatives 48 to 0; steps 18-21 reporting only
+d_tb2_extract-elf__rUUxEg5_23,PRODUCTIVE,medium,true,V,,step 14 confirms 700 keys and zero negatives; step 15 cross-checks values; steps 18-23 redundant
+d_tb2_extract-elf__rUUxEg5_25,DONE_REDUNDANT,high,false,none,,task verified by step 15; steps 16-25 only re-read and re-list unchanged deliverable
+d_tb2_extract-elf__rUUxEg5_27,DONE_REDUNDANT,high,false,none,,completion verified at step 15; steps 23-27 re-verify unchanged script and directory
+d_tb2_extract-elf__rUUxEg5_29,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 23-29 repeat existing directory and value checks
+d_tb2_extract-elf__rUUxEg5_31,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 23-31 repeat checks with no new goal
+d_tb2_extract-elf__rUUxEg5_33,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 24-33 re-run identical checks; step 32 restates known unsigned conversion
+d_tb2_extract-elf__rUUxEg5_34,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 25-34 repeat checks; step 34 re-verifies unchanged output
+d_tb2_extract-elf__rUUxEg5_35,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 26-35 repeat verification and directory listing; no new goal
+d_tb2_extract-elf__rUUxEg5_37,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 28-37 replay existing checks then report; nothing new learned
+d_tb2_extract-elf__rUUxEg5_38,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 29-38 repeat prior checks and reporting; no new information
+d_tb2_extract-elf__rUUxEg5_39,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 30-39 re-run existing checks; steps 36-39 only reporting
+d_tb2_extract-elf__rUUxEg5_41,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 32-41 repeat checks and reporting; step 41 repeats listing
+d_tb2_extract-elf__rUUxEg5_42,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 33-42 repeat verification; step 42 moves unrelated hi.c
+d_tb2_extract-elf__rUUxEg5_45,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 36-45 repeat reports and directory checks; step 44 reruns unchanged script
+d_tb2_extract-elf__rUUxEg5_47,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 38-47 repeat cleanup and reporting; no new goal
+d_tb2_extract-elf__rUUxEg5_48,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 39-48 repeat cleanup reports and directory listings
+d_tb2_extract-elf__rUUxEg5_49,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 40-49 repeat cleanup; rerun and reports; no new information
+d_tb2_extract-elf__rUUxEg5_51,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 42-51 repeat cleanup and start redundant re-verification
+d_tb2_extract-elf__rUUxEg5_53,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 44-53 replay checks and re-read the unchanged script
+d_tb2_extract-elf__rUUxEg5_55,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 46-55 repeat reports and rerun the already-valid script
+d_tb2_extract-elf__rUUxEg5_57,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 48-57 re-verify unchanged output via a redundant verifier pass
+d_tb2_extract-elf__rUUxEg5_59,DONE_REDUNDANT,high,false,none,,verified at step 15; steps 50-59 re-verify unchanged script; step 59 readelf cross-check adds nothing
+d_tb2_extract-elf__rUUxEg5_9,PRODUCTIVE,high,true,E/I,,steps 5-7 recon the ELF; step 8 writes extract.js; productive stretch continues past step 9
+d_tb2_extract-moves-from-video__vRcGj7U_101,STAGNANT,medium,false,none,no_new_information,step 92 repeats earlier command; steps 93 and 101 repeat identical checklist; outputs are fragments
+d_tb2_extract-moves-from-video__vRcGj7U_12,PRODUCTIVE,high,true,E/I,,steps 5-6 download video and frames; step 7 reads frame showing Zork screen
+d_tb2_extract-moves-from-video__vRcGj7U_13,PRODUCTIVE,high,true,E/I,,steps 5-7 fetch video and frames; step 13 reads raw_commands.txt size
+d_tb2_extract-moves-from-video__vRcGj7U_17,PRODUCTIVE,medium,true,E/I,,step 14 creates and runs extract_moves.py; steps 15-16 show OCR progress and output
+d_tb2_extract-moves-from-video__vRcGj7U_21,PRODUCTIVE,high,true,E/I,,step 14 runs pipeline; steps 18-21 detect new moves like n; u; light lamp
+d_tb2_extract-moves-from-video__vRcGj7U_23,PRODUCTIVE,high,true,E/I,,step 14 runs script; steps 18-21 emit newly detected commands progressively

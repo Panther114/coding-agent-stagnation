@@ -1,0 +1,23 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_fix-code-vulnerability__uLGMMUD_77,PRODUCTIVE,medium,false,E,,steps 70-77 read parse_auth/FileUpload and grep new line refs; relevant source becomes known
+d_tb2_fix-code-vulnerability__uLGMMUD_83,PRODUCTIVE,medium,false,E,,steps 74-83 read FileUpload and grep Request/Response; new relevant locations and escape code
+d_tb2_fix-code-vulnerability__uLGMMUD_9,PRODUCTIVE,high,false,E,,step 6 read failed on size; step 7 measured 4576 lines; step 9 started grep
+d_tb2_fix-code-vulnerability__uLGMMUD_91,PRODUCTIVE,medium,false,E,,steps 85-91 read escape_func and subprocess sites; error-output area under review
+d_tb2_fix-code-vulnerability__uLGMMUD_97,PRODUCTIVE,medium,false,E,,steps 89-97 read subprocess context and HTTPError region; no edit survives or fails
+d_tb2_fix-ocaml-gc__4FMyNtb_121,PRODUCTIVE,high,false,I/V,,step 113 edit confirmed by cat -n; step 115 make emits SIGSEGV signature
+d_tb2_fix-ocaml-gc__4FMyNtb_15,PRODUCTIVE,high,false,E/I/V,,steps 7-10 read HACKING.adoc and found boot dir; step 15 showed config missing
+d_tb2_fix-ocaml-gc__4FMyNtb_159,STAGNANT,medium,true,none,edit_revert,"sed at 152 then reverted at 156; step 155 read shows no durable change; edits resume at 163"
+d_tb2_fix-ocaml-gc__4FMyNtb_19,PRODUCTIVE,high,false,E/I/V,,step 15 established config missing; steps 17-19 configure and make establish the build baseline
+d_tb2_fix-ocaml-gc__4FMyNtb_195,STAGNANT,high,false,none,repeat_read,"step 187 grep empty; step 188 distclean no-op; reads repeat known 620-655 lines"
+d_tb2_fix-ocaml-gc__4FMyNtb_23,PRODUCTIVE,high,false,I/V,,steps 15-19 configure and make fix the missing Makefile.config; build output advances
+d_tb2_fix-ocaml-gc__4FMyNtb_233,PRODUCTIVE,high,true,I,,step 233 edit succeeds and is confirmed at 234; window halves the fix interval
+d_tb2_fix-ocaml-gc__4FMyNtb_271,PRODUCTIVE,low,true,I/E,,step 267 sed applied editor change confirmed at 269; step 285 located the target line
+d_tb2_fix-ocaml-gc__4FMyNtb_29,PRODUCTIVE,medium,false,E,,steps 24-29 read runtime listing and major_gc.c head; step 29 greps compression symbols
+d_tb2_fix-ocaml-gc__4FMyNtb_309,PRODUCTIVE,medium,false,I,,steps 300-308 iterate sed edits on pool_sweep; step 309 build attempt follows
+d_tb2_fix-ocaml-gc__4FMyNtb_33,PRODUCTIVE,low,false,E,,steps 24-29 read major_gc.c head and grep compression symbols; incremental narrowing
+d_tb2_fix-ocaml-gc__4FMyNtb_345,PRODUCTIVE,high,false,E/V,,"steps 336-341 cleared hung make; step 345 new build output replaces earlier exit -1 failures"
+d_tb2_fix-ocaml-gc__4FMyNtb_383,DONE_REDUNDANT,high,false,none,post_completion,"task verified at 347; steps 374-383 only repeat finish messages with no new goal"
+d_tb2_fix-ocaml-gc__4FMyNtb_39,PRODUCTIVE,low,false,E,,"steps 34-39 successive greps over major_gc.c; sweep-symbol region narrows each time"
+d_tb2_fix-ocaml-gc__4FMyNtb_421,STAGNANT,high,false,none,no_tool_text_loop,"steps 412-421 only finish messages; no tool call and nothing new after 347"
+d_tb2_fix-ocaml-gc__4FMyNtb_43,PRODUCTIVE,low,false,E,,"steps 34-45 refine grep patterns over major_gc.c; each run maps sweep-related symbols"
+d_tb2_fix-ocaml-gc__4FMyNtb_45,PRODUCTIVE,low,false,E,,"steps 36-45 repeat greps over major_gc.c; sweep symbols and free paths get narrowed"

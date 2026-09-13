@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_26,BLOCKED_EXTERNAL,high,false,none,,GitHub/PyPI unreachable throughout steps 17-26; no source obtainable; progress impossible for external reasons.
+d_tb2_build-pov-ray__KS3ejPb_15,PRODUCTIVE,high,false,E/I/V,,Steps 6-11 extract sources and locate machine/unix; step 14 installs make; step 15 error moves past missing make to config.h.
+d_tb2_build-pov-ray__bMc6qiA_58,STAGNANT,high,false,none,repeat_search,Steps 49-58 repeat the same GitHub API/archive searches with empty results; no edit and no verification movement.
+d_tb2_caffe-cifar-10__zjg6gBb_46,PRODUCTIVE,medium,true,V,,Steps 40 and 43 show compilation advancing past previously failing OpenCV files; steps 39-46 otherwise only poll the running build.
+d_tb2_compile-compcert__3AjSGCy_29,PRODUCTIVE,medium,false,E,,Steps 26-28 read the opam Coq 8.16 and MenhirLib layouts; narrowing why the build cannot find MenhirLib.
+d_tb2_compile-compcert__PdkzfMV_29,PRODUCTIVE,high,false,E/I/V,,Steps 24-26 fetch and extract Coq 8.16.1; step 28 error moves past the Coq blocker to missing dune.
+d_tb2_crack-7z-hash__M36nRdr_25,PRODUCTIVE,medium,false,E,,Steps 22-23 discover a prebuilt john binary and that it cannot load the archive; that rules out the direct route.
+d_tb2_crack-7z-hash__X4cK7Hr_10,PRODUCTIVE,high,false,E/I/V,,Steps 3-8 install p7zip and find 7z2john.pl; step 10 build log reveals the lzma.h blocker behind the Perl module error.
+d_tb2_crack-7z-hash__gpBub6y_38,PRODUCTIVE,high,false,E/I/V,,Steps 30-33 install the Perl module and 7z2john succeeds producing the hash; step 35-36 john loads it.
+d_tb2_custom-memory-heap-crash__NAMeUua_34,PRODUCTIVE,high,false,E/I/V,,Steps 25-31 read libsupc++ eh_alloc.cc for the custom heap; steps 32-33 durably edit user.cpp; step 34 rebuild succeeds.
+d_tb2_db-wal-recovery__tQJsCmY_25,DONE_REDUNDANT,high,false,none,,Task completed and validated by steps 14-15; steps 16-25 only re-verify and re-explain with no new goal.
+d_tb2_dna-assembly__Xbp9Bz3_25,PRODUCTIVE,high,false,E,,Steps 17-22 find an exact 546bp output match and map junctions; steps 23-25 compute primer melting temperatures.
+d_tb2_extract-elf__rUUxEg5_20,PRODUCTIVE,medium,true,E/I/V,,Step 12 edits extract.js to unsigned; step 14 shows zero negatives and step 15 cross-checks values against binary bytes.
+d_tb2_extract-moves-from-video__vRcGj7U_12,PRODUCTIVE,medium,false,E/I,,Steps 5-6 download the video and extract a frame; step 7 reads it and confirms the Zork I screen content.
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_48,STAGNANT,medium,false,none,repeat_verify,Steps 39-48 poll one background test ten times; identical running status every time; no edit and no new information.
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_45,STAGNANT,high,false,none,no_new_information,Steps 36-45 re-observe the same hopeless brute force; identical analysis repeats; the announced proper attack is never implemented.
+d_tb2_financial-document-processor__fZuguYf_33,PRODUCTIVE,high,false,E/I,,Steps 24-33 read each document and move invoices into /app/invoices; new totals and VAT values extracted each step.
+d_tb2_fix-code-vulnerability__uLGMMUD_21,PRODUCTIVE,low,false,E,,Steps 12-21 grep bottle.py for distinct vulnerability patterns; step 12 surfaces the subprocess import; step 18 reports good findings.
+d_tb2_fix-ocaml-gc__EE2S8BX_11,PRODUCTIVE,high,false,E/I,,Step 5 localises caml_sweep to shared_heap.c L730; steps 7 and 10 durably patch pool_sweep.
+d_tb2_fix-ocaml-gc__awEK6tj_48,STAGNANT,medium,false,none,edit_revert,Step 40 edits the Makefile; step 43 reverts it; step 44 retries another flag; every make still fails at ocamlc.
+d_tb2_git-leak-recovery__3MYVn6Q_35,PRODUCTIVE,high,false,E/I,,Steps 26-28 install pip and git-filter-repo; step 34 rules out --forget-paths; step 35 switches to --path-glob --invert-paths.
+d_tb2_install-windows-3.11__2UtJ22k_30,PRODUCTIVE,medium,true,E/I/V,,Steps 21-24 send win via QMP; screenshot shows Program Manager desktop; nginx 200 and send-key verified; steps 25-30 are wind-down.
+d_tb2_large-scale-text-editing__KdK777C_26,PRODUCTIVE,high,false,E/I,,Step 20 writes the macro script; step 22 shows the run leaves input unchanged; step 24 reveals exit code 1 for ggvGgU.
+d_tb2_llm-inference-batching-scheduler__evStmDE_14,PRODUCTIVE,medium,false,E/I,,Step 6 builds an evaluation harness; steps 8-12 iterate the packer and the selected shape set changes measurably.
+d_tb2_mailman__dbiKZhc_49,PRODUCTIVE,high,false,E/I/V,,Steps 45-47 identify the bad alias_maps path; step 47 fixes it; step 49 eval.py finally runs instead of timing out.
+d_tb2_mailman__qzvMMtK_49,DONE_REDUNDANT,high,false,none,,All three tests passed at step 39-40; steps 41-49 only re-run eval; clean up and save the plan with no new goal.
+d_tb2_mailman__vQauci9_34,PRODUCTIVE,medium,false,E,,Step 31 reveals the SubscriptionPolicy enum including open; steps 25 and 30 read postfix.cfg and /etc/aliases.
+d_tb2_make-doom-for-mips__YWJGKe2_28,PRODUCTIVE,high,false,E/I,,Step 22 installs the MIPS cross-compiler; step 28 creates doomgeneric_mips.S; steps 23-25 read the Makefile and toolchain.

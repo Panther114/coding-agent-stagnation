@@ -1,0 +1,13 @@
+{
+  "detection": 0.5588235294117647,
+  "fa_window": 0.18112244897959184,
+  "fa_region": 0.39814814814814814,
+  "episodes_detected": 38,
+  "episodes_total": 68,
+  "target_met": true,
+  "chosen": {
+    "('B5_novelty', 3, 1.0, 1)": 4,
+    "('B5_novelty', 1, 1.0, 1)": 1
+  },
+  "n_runs": 80
+}

@@ -1,0 +1,91 @@
+# Annotation card `d_tb2_crack-7z-hash__X4cK7Hr_145`
+
+- corpus: `tb2`
+- task id: `crack-7z-hash`
+- scaffold: `mini-swe-agent`   model: `gemini-2.5-flash@gemini`
+- trajectory length: 243 steps   final task reward: 0
+- **window under judgement: steps 136–145 (w=10)**
+- sampling note: dense sample, stride-2 refinement
+
+## Task statement (all the information the agent was given)
+```text
+<environment_context>
+  <cwd>/app</cwd>
+  <approval_policy>never</approval_policy>
+  <sandbox_mode>danger-full-access</sandbox_mode>
+  <network_access>enabled</network_access>
+  <shell>bash</shell>
+</environment_context>
+```
+
+## Before the window (steps 122–135)
+```text
+[122] execute:7z  {exit=2}  say="THOUGHT: "admin" failed again. I am completely stuck on finding the password. The `john` tool is unusable due to the tim"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[123] execute:7z  {exit=2}  say="THOUGHT: "Password123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[124] execute:7z  {exit=2}  say="THOUGHT: "root123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the ti"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[125] execute:7z  {exit=2}  say="THOUGHT: "Secret123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is u"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[126] execute:7z  {exit=2}  say="THOUGHT: "password123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to th"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[127] execute:7z  {exit=2}  say="THOUGHT: "John" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusab"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[128] execute:7z  {exit=2}  say="THOUGHT: "admin" failed again. I am completely stuck on finding the password. The `john` tool is unusable due to the tim"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[129] execute:7z  {exit=2}  say="THOUGHT: "Password123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[130] execute:7z  {exit=2}  say="THOUGHT: "root123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the ti"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[131] execute:7z  {exit=2}  say="THOUGHT: "Secret123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is u"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[132] execute:7z  {exit=2}  say="THOUGHT: "password123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to th"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[133] execute:7z  {exit=2}  say="THOUGHT: "John" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusab"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[134] execute:7z  {exit=2}  say="THOUGHT: "admin" failed again. I am completely stuck on finding the password. The `john` tool is unusable due to the tim"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[135] execute:7z  {exit=2}  say="THOUGHT: "Password123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+```
+
+## WINDOW UNDER JUDGEMENT (steps 136–145)
+```text
+[136] execute:7z  {exit=2}  say="THOUGHT: "root123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the timeout, and direct guessing is not working. I am going to try one last, very specific password that is sometimes used in challenges: the word"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[137] execute:7z  {exit=2}  say="THOUGHT: "Secret123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusable due to the timeout. I am going to try a very simple, short password that is often used in default configurations or simple challenge"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[138] execute:7z  {exit=2}  say="THOUGHT: "password123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the timeout, and direct guessing is not working. I am going to try one last, very specific password that is sometimes used in challenges: the "  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[139] execute:7z  {exit=2}  say="THOUGHT: "John" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusable due to the timeout. I am going to try a very simple, short password that is often used in default configurations or simple challenges: "a"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[140] execute:7z  {exit=2}  say="THOUGHT: "admin" failed again. I am completely stuck on finding the password. The `john` tool is unusable due to the timeout, and direct guessing is not working. I am going to try one last, very specific password that is sometimes used in challenges: the word "  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[141] execute:7z  {exit=2}  say="THOUGHT: "Password123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusable due to the timeout. I am going to try a very simple, short password that is often used in default configurations or simple challen"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[142] execute:7z  {exit=2}  say="THOUGHT: "root123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the timeout, and direct guessing is not working. I am going to try one last, very specific password that is sometimes used in challenges: the word"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[143] execute:7z  {exit=2}  say="THOUGHT: "Secret123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusable due to the timeout. I am going to try a very simple, short password that is often used in default configurations or simple challenge"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[144] execute:7z  {exit=2}  say="THOUGHT: "password123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the timeout, and direct guessing is not working. I am going to try one last, very specific password that is sometimes used in challenges: the "  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+[145] execute:7z  {exit=2}  say="THOUGHT: "John" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusable due to the timeout. I am going to try a very simple, short password that is often used in default configurations or simple challenges: "a"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scanning the drive for archives: 1 file, 215 bytes (1 KiB) Extracting archive: secrets.7z -- Path = secrets.7z Type = 7z Physical Size = 215 Head"
+```
+
+## After the window (steps 146–159)
+```text
+[146] execute:7z  {exit=2}  say="THOUGHT: "admin" failed again. I am completely stuck on finding the password. The `john` tool is unusable due to the tim"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[147] execute:7z  {exit=2}  say="THOUGHT: "Password123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[148] execute:7z  {exit=2}  say="THOUGHT: "root123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the ti"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[149] execute:7z  {exit=2}  say="THOUGHT: "Secret123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is u"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[150] execute:7z  {exit=2}  say="THOUGHT: "password123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to th"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[151] execute:7z  {exit=2}  say="THOUGHT: "John" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusab"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[152] execute:7z  {exit=2}  say="THOUGHT: "admin" failed again. I am completely stuck on finding the password. The `john` tool is unusable due to the tim"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[153] execute:7z  {exit=2}  say="THOUGHT: "Password123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[154] execute:7z  {exit=2}  say="THOUGHT: "root123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to the ti"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[155] execute:7z  {exit=2}  say="THOUGHT: "Secret123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is u"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[156] execute:7z  {exit=2}  say="THOUGHT: "password123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to th"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[157] execute:7z  {exit=2}  say="THOUGHT: "John" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is unusab"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[158] execute:7z  {exit=2}  say="THOUGHT: "admin" failed again. I am completely stuck on finding the password. The `john` tool is unusable due to the tim"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+[159] execute:7z  {exit=2}  say="THOUGHT: "Password123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OP"
+```
+
+## Final steps of the trajectory
+```text
+[237] execute:7z  {exit=2}  say="THOUGHT: "Secret123" also failed. I have exhausted all reasonable direct password guesses and confirmed that `john` is u"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scann"
+[238] execute:7z  {exit=2}  say="THOUGHT: "password123" also failed. I am completely stuck on finding the password. The `john` tool is unusable due to th"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scann"
+[239] execute:7z  {exit=2}  say="THOUGHT: I have exhausted all reasonable direct password guesses and confirmed that `john` is unusable due to the timeou"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scann"
+[240] execute:7z  {exit=2}  say="```bash 7z x secrets.7z -p"_" ```"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scann"
+[241] execute:7z  {exit=2}  say="```bash 7z x secrets.7z -p"_" ```"  obs="<returncode>2</returncode> <output> 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20 64-bit locale=C.UTF-8 Threads:64 OPEN_MAX:1048576 Scann"
+[242] no-tool  obs="Please always provide EXACTLY ONE action in triple backticks, found 0 actions. If you want to end the task, please issue the following command: `echo COMPLETE_T"
+```
+
+## Your label
+
+Apply `docs/annotation_guide.md` §4 in order. Record:
+
+```
+label: PRODUCTIVE | STAGNANT | REGRESSION | DONE_REDUNDANT | BLOCKED_EXTERNAL | UNCERTAIN
+confidence: high | medium | low
+boundary: true | false        (window cuts a productive interval in half)
+channels_advanced: E | I | V | none
+justification: one or two sentences citing specific step numbers
+```

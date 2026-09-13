@@ -1,0 +1,31 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_fix-code-vulnerability__7wXM79N_9,PRODUCTIVE,medium,false,E,,steps 1-6 reveal repo layout and 4576-line bottle.py; first relevant greps issued at 9
+d_tb2_fix-code-vulnerability__7wXM79N_93,PRODUCTIVE,medium,false,E/V,,step 84 suite returns green; steps 90 and 92 report PASS on control-character checks
+d_tb2_fix-code-vulnerability__7wXM79N_97,DONE_REDUNDANT,medium,false,E/V,,fix and report already in place and suite green at 84; steps 89-97 only re-verify
+d_tb2_fix-code-vulnerability__uLGMMUD_103,PRODUCTIVE,medium,false,E,,steps 94-102 surface HTTPError and Content-Disposition header sites; no artefact yet
+d_tb2_fix-code-vulnerability__uLGMMUD_11,PRODUCTIVE,medium,false,E,,steps 6-12 learn file size and reveal eval and subprocess sinks
+d_tb2_fix-code-vulnerability__uLGMMUD_111,PRODUCTIVE,low,false,E,,steps 102 and 110 reveal header and load sites; no report written inside window
+d_tb2_fix-code-vulnerability__uLGMMUD_117,PRODUCTIVE,low,false,E,,step 110 reveals load functions; window ends by restarting the analysis at 116
+d_tb2_fix-code-vulnerability__uLGMMUD_125,STAGNANT,medium,false,none,no_tool_text_loop,steps 122-123 re-derive the known 4576-line size; 116-125 restarts analysis with no new fact
+d_tb2_fix-code-vulnerability__uLGMMUD_131,PRODUCTIVE,low,true,E,,steps 126-130 open a new load-function hypothesis; results hidden but direction narrows
+d_tb2_fix-code-vulnerability__uLGMMUD_137,PRODUCTIVE,medium,false,E,,steps 131-137 move to the test suite; failing-test evidence follows at 139
+d_tb2_fix-code-vulnerability__uLGMMUD_145,PRODUCTIVE,high,false,E,,steps 139-144 read the failing test and localise HeaderDict not raising ValueError
+d_tb2_fix-code-vulnerability__uLGMMUD_15,PRODUCTIVE,medium,false,E,,steps 10-11 reveal eval and subprocess sinks; step 7 establishes file size
+d_tb2_fix-code-vulnerability__uLGMMUD_151,PRODUCTIVE,high,false,E/I,,step 144 localises the root cause; step 150 writes report.jsonl which survives to 171
+d_tb2_fix-code-vulnerability__uLGMMUD_159,PRODUCTIVE,high,false,E/I,,step 150 creates durable report.jsonl; steps 156-158 pin _hval and _hkey lines
+d_tb2_fix-code-vulnerability__uLGMMUD_165,PRODUCTIVE,high,false,I/V,,step 160 edits bottle.py; step 165 targeted test passes; fix survives to 167
+d_tb2_fix-code-vulnerability__uLGMMUD_17,PRODUCTIVE,medium,false,E,,steps 10-12 surface eval; subprocess and import sites; candidate sinks become known
+d_tb2_fix-code-vulnerability__uLGMMUD_21,STAGNANT,low,true,none,repeat_search,steps 14-21 repeat same-shape keyword greps; step 19 fails and is retried
+d_tb2_fix-code-vulnerability__uLGMMUD_25,STAGNANT,medium,true,none,repeat_search,steps 16-25 eight greps with no new visible fact; step 19 failure retried
+d_tb2_fix-code-vulnerability__uLGMMUD_29,PRODUCTIVE,medium,false,E,,steps 26-29 reveal header functions; eval and exec sites and html_escape lines
+d_tb2_fix-code-vulnerability__uLGMMUD_31,PRODUCTIVE,medium,false,E,,steps 26-31 surface header; cookie and html_escape locations at line level
+d_tb2_fix-code-vulnerability__uLGMMUD_35,PRODUCTIVE,medium,false,E,,steps 26-35 locate header; cookie and error-handling code plus load lines
+d_tb2_fix-code-vulnerability__uLGMMUD_40,PRODUCTIVE,medium,false,E,,steps 31-37 reveal cookie parsing; eval at 3771 and exec sites at 2042-4162
+d_tb2_fix-code-vulnerability__uLGMMUD_43,PRODUCTIVE,medium,false,E,,steps 35-37 pin eval and exec line numbers; reads of those sections follow
+d_tb2_fix-code-vulnerability__uLGMMUD_44,PRODUCTIVE,medium,false,E,,steps 35-44 pin eval and exec sites; step 44 reveals template classes
+d_tb2_fix-code-vulnerability__uLGMMUD_49,PRODUCTIVE,medium,false,E,,steps 44-46 locate template classes; html_escape and set_header/add_header lines
+d_tb2_fix-code-vulnerability__uLGMMUD_50,PRODUCTIVE,medium,false,E,,steps 44-46 locate header and template functions; cookie code read at 49-50
+d_tb2_fix-code-vulnerability__uLGMMUD_55,PRODUCTIVE,low,false,E,,step 46 pins header functions; step 55 locates error handler and _cast
+d_tb2_fix-code-vulnerability__uLGMMUD_56,PRODUCTIVE,low,false,E,,step 55 locates default_error_handler and _cast; cookie and template reads precede
+d_tb2_fix-code-vulnerability__uLGMMUD_63,PRODUCTIVE,medium,false,E,,steps 57-59 connect _hval to header injection and locate _hkey/_hval lines
+d_tb2_fix-code-vulnerability__uLGMMUD_69,PRODUCTIVE,low,false,E,,steps 63-68 reveal redirect; error template and parse_auth; no convergence on the fix

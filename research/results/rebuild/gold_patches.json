@@ -1,0 +1,28 @@
+{
+  "our_ids": 1213,
+  "ids_with_gold": 927,
+  "coverage": 0.7642,
+  "per_source": {
+    "princeton-nlp/SWE-bench": 84,
+    "princeton-nlp/SWE-bench_Verified": 0,
+    "princeton-nlp/SWE-bench_Lite": 0,
+    "nebius/SWE-rebench": 843
+  },
+  "n_with_empty_patch": 0,
+  "gold_file_count_distribution": {
+    "1": 509,
+    "2": 253,
+    "3": 126,
+    "4": 16,
+    "5": 9,
+    "6": 3,
+    "7": 2,
+    "8": 2,
+    "9": 1,
+    "10": 1,
+    "13": 3,
+    "38": 1,
+    "60": 1
+  },
+  "note": "gold_files come from the dataset's own patch field and do NOT depend on any agent run, so they can serve as an independent target"
+}

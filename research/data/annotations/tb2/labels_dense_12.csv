@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_16,STAGNANT,high,false,none,no_tool_text_loop,Steps 7-16 repeat the same no-network explanation with no tool call; the step-2 clone failure was already known.
+d_tb2_build-pov-ray__6eHBkqP_9,PRODUCTIVE,medium,true,E,,Steps 5-9 learn /app/deps contents and that the official site is dead (EXIT 8); archive.org then starts downloading sources.
+d_tb2_build-pov-ray__bMc6qiA_48,STAGNANT,high,false,none,repeat_search,Steps 39-48 re-issue the identical api.github.com repository search with the same reasoning text and no new match set.
+d_tb2_caffe-cifar-10__zjg6gBb_35,BLOCKED_EXTERNAL,medium,false,none,,Steps 26-35 only poll the make started at 23; no edit or build outcome until step 36 kills and restarts it with logged output.
+d_tb2_compile-compcert__3AjSGCy_22,PRODUCTIVE,medium,false,E/I,,Steps 13-16 probe download routes and install Coq/Menhir; step 18 configure reveals Coq 8.18 unsupported (needs 8.12-8.16.1).
+d_tb2_compile-compcert__PdkzfMV_19,PRODUCTIVE,high,false,E/I,,Steps 13-16 download and extract CompCert-3.13.1 into /tmp/CompCert; step 19 configure exposes the Coq version blocker.
+d_tb2_crack-7z-hash__M36nRdr_14,PRODUCTIVE,medium,true,E,,Step 6 finds 7z2john.pl; 7 reports the missing Perl Lzma module; 8 rules out python; 13-14 show /app/secrets is empty.
+d_tb2_crack-7z-hash__Mp364LH_53,STAGNANT,high,false,none,repeat_verify,Steps 44-53 try one password after another; every 7z extraction fails identically and the john.conf hint changes nothing.
+d_tb2_crack-7z-hash__gpBub6y_32,PRODUCTIVE,high,false,E/I,,Steps 23-29 map the john and 7z tooling and expose the missing Compress::Raw::Lzma module; 31-32 install it.
+d_tb2_custom-memory-heap-crash__NAMeUua_26,PRODUCTIVE,medium,true,E,,Valgrind runs at 17-19 and searches 20-26 locate the /build gcc libstdc++ source tree that later yields eh_alloc.cc.
+d_tb2_db-wal-recovery__tQJsCmY_20,PRODUCTIVE,medium,true,I/V,,Steps 12-15 XOR-fix the WAL magic recover all 11 records and write a validated recovered.json; 16-20 only report the finished task.
+d_tb2_dna-assembly__Xbp9Bz3_16,PRODUCTIVE,high,false,E,,Steps 10-15 locate egfp at index 210 identify the flag start and extract junction context; the junction analysis continues beyond 16.
+d_tb2_extract-elf__rUUxEg5_11,PRODUCTIVE,high,false,E/I,,Steps 5-7 characterize a.out; step 8 writes extract.js and 10-11 run it producing address JSON and checking signed values.
+d_tb2_extract-moves-from-video__ZE44RbF_51,PRODUCTIVE,medium,false,E,,Steps 42-51 stream new OCR transcript lines from later video timestamps (73s-183s) that feed the required move list.
+d_tb2_feal-differential-cryptanalysis__WrYCeFB_39,PRODUCTIVE,low,false,I,,Step 30 edits attack.py then 31-39 only poll the background test; the edit is new but no verification arrives inside the window.
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_33,STAGNANT,high,false,none,no_new_information,Steps 24-33 repeat the same Ctrl-C with identical restated analysis; brute-force counters advance but nothing new is learned or changed.
+d_tb2_financial-document-processor__fZuguYf_23,PRODUCTIVE,high,false,E/I,,Steps 14-23 read and durably move further distinct documents to /app/other; each cycle classifies a new file.
+d_tb2_fix-code-vulnerability__uLGMMUD_11,PRODUCTIVE,medium,true,E,,Step 6 hits the token limit and 7 gives 4576 lines; 10-11 grep out delete eval and subprocess.Popen candidates.
+d_tb2_fix-ocaml-gc__4FMyNtb_54,PRODUCTIVE,medium,false,E,,Steps 45-53 read major_gc.c lines 500-700 and grep sweep and free-list symbols; step 53 rules out runtime/memory.c.
+d_tb2_fix-ocaml-gc__awEK6tj_39,PRODUCTIVE,medium,false,E/V,,Steps 30-34 trace CAMLC and the bytecode link rule; step 37 fails with a new linker error past the earlier ocamltest blocker.
+d_tb2_git-leak-recovery__3MYVn6Q_27,PRODUCTIVE,high,false,E/I,,Steps 18-22 locate /opt/openhands-venv/bin/python3; 26 ensurepip installs pip; 27-28 install git-filter-repo for the history purge.
+d_tb2_install-windows-3.11__2UtJ22k_23,PRODUCTIVE,high,false,E/I/V,,Steps 15-16 verify QEMU and QMP send-key; 21 sends win plus Enter; 22 the screenshot turns graphical at 1024x768.
+d_tb2_large-scale-text-editing__KdK777C_16,PRODUCTIVE,high,false,E/I,,Steps 7-14 diff head and tail of input versus expected revealing the reorder and uppercase format; 15-16 write apply_macros.vim.
+d_tb2_llm-inference-batching-scheduler__7vihvYk_57,PRODUCTIVE,medium,false,E/I,,Steps 49-52 inspect request files and compute prompt_len percentiles; 54 edits the packer with shapes chosen from that distribution.
+d_tb2_mailman__dbiKZhc_47,PRODUCTIVE,medium,false,E/I,,Steps 39 and 42 apply durable postfix chroot and bind-mount fixes; 45-46 reveal a missing postfix_aliases file.
+d_tb2_mailman__qzvMMtK_37,PRODUCTIVE,high,false,E/I/V,,Steps 28-30 load the correct config and start mailman; 33 creates reading-group@local.edu; 35-37 configure postfix transport maps.
+d_tb2_mailman__vQauci9_25,PRODUCTIVE,high,false,E,,Step 20 locates the LMTP and postfix settings; 23-25 read mailman postfix.cfg describing transport-map regeneration.
+d_tb2_make-doom-for-mips__YWJGKe2_18,PRODUCTIVE,medium,true,E,,Step 15 shows vm.js expects the doomgeneric_mips ELF; 11-16 read the image source and VM wiring.

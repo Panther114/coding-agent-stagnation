@@ -1,0 +1,152 @@
+{
+  "B1_step30|w10": {
+    "auc_mean_score_vs_success": 0.526736901021919,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B1_step60|w10": {
+    "auc_mean_score_vs_success": 0.4958184378723866,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B2_exact_rep3|w10": {
+    "auc_mean_score_vs_success": 0.4870201856064709,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B2_exact_rep5|w10": {
+    "auc_mean_score_vs_success": 0.4882479326905716,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B3_rep_channel|w10": {
+    "auc_mean_score_vs_success": 0.522012783013758,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B3_rep_target|w10": {
+    "auc_mean_score_vs_success": 0.5243500162495938,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B4_sem_diversity|w10": {
+    "auc_mean_score_vs_success": 0.5415781966561947,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B4_semantic|w10": {
+    "auc_mean_score_vs_success": 0.5299227241541183,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B5_novelty|w10": {
+    "auc_mean_score_vs_success": 0.537663850070415,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B5_novelty_sig|w10": {
+    "auc_mean_score_vs_success": 0.5270402267721085,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B6_ver_stall|w10": {
+    "auc_mean_score_vs_success": 0.5161177914996569,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B6_verification|w10": {
+    "auc_mean_score_vs_success": 0.4702632434189145,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "B7_workspace|w10": {
+    "auc_mean_score_vs_success": 0.5063418553425053,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "C1_evidence|w10": {
+    "auc_mean_score_vs_success": 0.5522325136316036,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "C1_evidence_rel|w10": {
+    "auc_mean_score_vs_success": 0.549480012999675,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "C2_evid_ver|w10": {
+    "auc_mean_score_vs_success": 0.5514606579279963,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "C2_evid_ver_work|w10": {
+    "auc_mean_score_vs_success": 0.5237523923013035,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "C3_evid_sem|w10": {
+    "auc_mean_score_vs_success": 0.5508142851984256,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "C4_all_hand|w10": {
+    "auc_mean_score_vs_success": 0.5230681038529591,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_all_hand|w10": {
+    "auc_mean_score_vs_success": 0.5208581591015781,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_all_sem|w10": {
+    "auc_mean_score_vs_success": 0.5194272920954752,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_evid|w10": {
+    "auc_mean_score_vs_success": 0.574585635359116,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_evid_nov|w10": {
+    "auc_mean_score_vs_success": 0.5206117069295491,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_evid_sem|w10": {
+    "auc_mean_score_vs_success": 0.5676533781099917,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_evid_ver|w10": {
+    "auc_mean_score_vs_success": 0.5156294009316433,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_nov|w10": {
+    "auc_mean_score_vs_success": 0.538245224424945,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_rep|w10": {
+    "auc_mean_score_vs_success": 0.5229317878164157,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_sem|w10": {
+    "auc_mean_score_vs_success": 0.5578729281767956,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_ver|w10": {
+    "auc_mean_score_vs_success": 0.4828530675621999,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  },
+  "L_work|w10": {
+    "auc_mean_score_vs_success": 0.5518199545011374,
+    "n": 1489,
+    "pass_rate": 0.4862323707186031
+  }
+}

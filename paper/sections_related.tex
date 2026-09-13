@@ -1,0 +1,62 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Failure and inefficiency in agent trajectories.}
+Recent work has moved from final success rates to process-level diagnostics. An anatomy study of CLI
+coding-agent trajectories annotated thousands of runs and found that failures are predominantly
+epistemic, usually begin within the first few steps, and often stay hidden until recovery is no longer
+possible \cite{zhao2026failure}. Trace-structure diagnostics argue that resolve rate hides behavioural
+pathologies, naming anti-patterns such as search loops and verification skips \cite{shu2026traceprobe}. We
+share that diagnostic motivation but differ in what we compute: rather than classifying trajectories after
+the fact, we estimate at every step whether the last window of activity moved the task, using signals a
+runtime can compute from the prefix alone.
+
+\paragraph{Early failure prediction and early termination.}
+Fail-Fast/Restart-Smart trains a small monitor on terminal and dense fail-to-pass supervision and restarts
+the trajectory when it alarms, reporting token savings at a target false-positive rate
+\cite{wang2026failfast}; AgentStop terminates local agents on platform-level signals to save energy
+\cite{pham2026agentstop}. Both are close in spirit to our alarm setting, and we adopt their central
+evaluation device --- savings at a fixed false-stop rate. Two differences matter. Their supervision is the
+final outcome, so their monitor learns ``this run will fail'', whereas our labels are independent window
+annotations of whether progress happened, and Section~\ref{sec:results} shows the two are not
+interchangeable. And our features are symbolic and reference-free, which makes each alarm explainable by
+the entities and verification deltas that produced it.
+
+\paragraph{Livelock and semantic redundancy.}
+The closest antecedent frames the phenomenon as \emph{semantic livelock} --- an agent that keeps generating
+tokens and calling tools without progressing --- and reports that it accounts for $25\%$ of the
+long-duration failures in a forensic analysis of SWE-agent runs, including one agent that spent $208$ steps
+in a checkerboard oscillation invisible to string-matching repetition guards \cite{khanna2026zombie}. That
+work proposes a sidecar that fingerprints agent state in embedding space. Our corpus and measurements
+differ in kind, so the comparison is specific rather than general: they characterise how often livelock
+occurs and propose a monitor, whereas we build a labelled benchmark and ask \emph{which} observable signal
+detects it. Two of our results bear on that proposal. Embedding-space similarity between successive steps
+is the strongest single family we tested at window level (\paucBFoursemantic{} ROC-AUC), which independently
+supports the choice of representation --- but it is not the signal we could alarm on, because the semantic
+score rises monotonically with run progress and no fixed threshold on it stayed calibrated; a sidecar built
+on embedding similarity therefore needs an explicit treatment of drift that the proposal does not address.
+We also quantify what the string-matching guard misses and find it narrower than expected: exact repetition
+still reaches \paucBTworepThree{}, so the gap between naive guards and semantic ones is real but not the
+order of magnitude the oscillation example suggests.
+
+\paragraph{Credit assignment, verification, benchmarks and data.}
+Transition-wise credit assignment evaluates each transition with evidence, execution and invalidity
+rubrics, and rewards newly covered conditions \cite{zhang2026trca}; verification frameworks score candidate
+solutions and track progress toward them \cite{kwok2026verifier}. These are training-time or offline
+instruments, and our evidence channel is the cheap deterministic cousin of their evidence rubric: instead
+of asking a model whether a transition acquired task-relevant information, we check whether an entity the
+observation exposed is new and lexically connected to the task statement. SWE-bench established
+repository-level issue resolution as an evaluation target \cite{jimenez2024swebench}, and SWE-agent showed
+how much the agent--computer interface matters \cite{yang2024sweagent}; we use Terminal-Bench~2.0
+trajectories \cite{yoonholee2026tb2} because they cover many scaffolds and models on a common task set, and
+SWE-agent trajectories \cite{nebius2024sweagenttraj} for a cross-corpus check. Production issue trackers
+document the practical failure mode this paper targets: agents that keep investigating without progress,
+long runs of identical calls with no loop protection, and stall watchdogs that kill healthy requests
+because they cannot tell stagnation from slow work \cite{opencode43603,opencode45442}.
+
+\paragraph{Position of this paper.}
+We propose no new learning method. We take the signals the literature suggests --- repetition, semantic
+diversity, novelty, verification movement, credit-style evidence --- implement them all on the same feature
+matrix, and measure them against the same independent labels under the same constraint (online,
+reference-free, task-disjoint training). The contribution is the comparison and the negative results, plus
+a task-grounded evidence signal cheap enough to run at every step.

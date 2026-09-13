@@ -1,0 +1,185 @@
+{
+  "corpus": "tb2",
+  "w": 10,
+  "event_col": "y_stagnation",
+  "event_level": 0.5,
+  "n_runs": 8742,
+  "n_never_stalls": 3957,
+  "n_stalls": 4785,
+  "frac_never_stalls": 0.4526424159231297,
+  "persistence_sweep": [
+    {
+      "k": 1,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "median_stall_share_observed": 0.037037037037037035
+    },
+    {
+      "k": 2,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 1.0,
+      "median_stall_share_observed": 0.07407407407407407
+    },
+    {
+      "k": 3,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 2.0,
+      "median_stall_share_observed": 0.1111111111111111
+    },
+    {
+      "k": 4,
+      "recall": 0.6509926854754441,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3115,
+      "n_false_alarms": 0,
+      "median_latency_steps": 3.0,
+      "median_stall_share_observed": 0.12121212121212122
+    },
+    {
+      "k": 5,
+      "recall": 0.6509926854754441,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3115,
+      "n_false_alarms": 0,
+      "median_latency_steps": 4.0,
+      "median_stall_share_observed": 0.15151515151515152
+    },
+    {
+      "k": 6,
+      "recall": 0.6509926854754441,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3115,
+      "n_false_alarms": 0,
+      "median_latency_steps": 5.0,
+      "median_stall_share_observed": 0.18181818181818182
+    },
+    {
+      "k": 8,
+      "recall": 0.5882967607105538,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 2815,
+      "n_false_alarms": 0,
+      "median_latency_steps": 7.0,
+      "median_stall_share_observed": 0.20512820512820512
+    }
+  ],
+  "curves": [
+    {
+      "budget": 0.2,
+      "threshold": 0.0,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.1,
+      "threshold": 0.0,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.05,
+      "threshold": 0.0,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.02,
+      "threshold": 0.0,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "budget": 0.01,
+      "threshold": 0.0,
+      "recall": 0.7408568443051202,
+      "false_alarm_rate": 0.0,
+      "precision": 1.0,
+      "n_detected": 3545,
+      "n_false_alarms": 0,
+      "median_latency_steps": 0.0,
+      "fold_thresholds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "oracle": {
+    "recall": 0.7408568443051202,
+    "false_alarm_rate": 0.0,
+    "precision": 1.0,
+    "median_latency_steps": 0.0
+  },
+  "cost_model": {
+    "total_steps": 505145.0,
+    "steps_saved": 270547.0,
+    "step_saving_frac": 0.535582852448307,
+    "frac_runs_stopped": 0.4055136124456646,
+    "success_among_stopped": 0.28095909732016927,
+    "success_overall": 0.3522077327842599,
+    "budget": 0.1,
+    "precision_at_budget": 1.0
+  }
+}

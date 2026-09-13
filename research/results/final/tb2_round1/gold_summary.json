@@ -1,0 +1,2631 @@
+{
+  "agreement": {
+    "n_cards": 163,
+    "n_labelers": 6,
+    "labels": {
+      "PRODUCTIVE": 112,
+      "STAGNANT": 37,
+      "DONE_REDUNDANT": 9,
+      "BLOCKED_EXTERNAL": 4,
+      "UNCERTAIN": 1
+    },
+    "pairwise": {},
+    "unanimous_rate": 1.0,
+    "n_unanimous": 163,
+    "n_binary": 158,
+    "positive_rate": 0.2911392405063291,
+    "by_kind": {
+      "control_productive": {
+        "n": 4,
+        "positive_rate": 0.0,
+        "unanimous_rate": 1.0
+      },
+      "control_stagnant": {
+        "n": 7,
+        "positive_rate": 0.2857142857142857,
+        "unanimous_rate": 1.0
+      },
+      "position": {
+        "n": 152,
+        "positive_rate": 0.2894736842105263,
+        "unanimous_rate": 1.0
+      }
+    },
+    "by_agent": {
+      "claude-code": {
+        "n": 23,
+        "positive_rate": 0.21739130434782608,
+        "unanimous_rate": 1.0
+      },
+      "codex": {
+        "n": 18,
+        "positive_rate": 0.2777777777777778,
+        "unanimous_rate": 1.0
+      },
+      "deepagent-harbor": {
+        "n": 16,
+        "positive_rate": 0.25,
+        "unanimous_rate": 1.0
+      },
+      "gemini-cli": {
+        "n": 16,
+        "positive_rate": 0.0625,
+        "unanimous_rate": 1.0
+      },
+      "judy": {
+        "n": 16,
+        "positive_rate": 0.375,
+        "unanimous_rate": 1.0
+      },
+      "mini-swe-agent": {
+        "n": 17,
+        "positive_rate": 0.058823529411764705,
+        "unanimous_rate": 1.0
+      },
+      "openhands": {
+        "n": 29,
+        "positive_rate": 0.20689655172413793,
+        "unanimous_rate": 1.0
+      },
+      "terminus-2": {
+        "n": 16,
+        "positive_rate": 0.8125,
+        "unanimous_rate": 1.0
+      },
+      "terminus-3-3": {
+        "n": 12,
+        "positive_rate": 0.4166666666666667,
+        "unanimous_rate": 1.0
+      }
+    },
+    "details": {
+      "no_new_information": 11,
+      "repeat_verify": 9,
+      "no_tool_text_loop": 9,
+      "repeat_search": 3,
+      "post_completion": 2,
+      "irrelevant_exploration": 2,
+      "edit_revert": 2,
+      "repeat_read": 1
+    }
+  },
+  "regions": {
+    "adaptive-rejection-sampler__sNuF5zZ": {
+      "task": "adaptive-rejection-sampler",
+      "agent": "openhands",
+      "model": "gemini-2.5-pro@gemini",
+      "reward": "0",
+      "n_steps": 96,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          70,
+          79
+        ]
+      ],
+      "productive_ranges": [
+        [
+          9,
+          18
+        ],
+        [
+          32,
+          41
+        ],
+        [
+          61,
+          70
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_adaptive-rejection-sampler__sNuF5zZ_18",
+          "t": 18,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_adaptive-rejection-sampler__sNuF5zZ_41",
+          "t": 41,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_adaptive-rejection-sampler__sNuF5zZ_70",
+          "t": 70,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_adaptive-rejection-sampler__sNuF5zZ_79",
+          "t": 79,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        }
+      ]
+    },
+    "bn-fit-modify__MXHjNK8": {
+      "task": "bn-fit-modify",
+      "agent": "mini-swe-agent",
+      "model": "gemini-2.5-flash@gemini",
+      "reward": "0",
+      "n_steps": 83,
+      "w": 10,
+      "n_windows": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          4,
+          18
+        ],
+        [
+          26,
+          35
+        ],
+        [
+          44,
+          53
+        ],
+        [
+          69,
+          78
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_bn-fit-modify__MXHjNK8_13_ctrlPROD",
+          "t": 13,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_bn-fit-modify__MXHjNK8_18_ctrlSTAG",
+          "t": 18,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_bn-fit-modify__MXHjNK8_35",
+          "t": 35,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_bn-fit-modify__MXHjNK8_53",
+          "t": 53,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_bn-fit-modify__MXHjNK8_78",
+          "t": 78,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "build-pov-ray__RLBcWPD": {
+      "task": "build-pov-ray",
+      "agent": "gemini-cli",
+      "model": "gemini-2.5-pro@gemini",
+      "reward": "0",
+      "n_steps": 97,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          12,
+          21
+        ],
+        [
+          32,
+          41
+        ],
+        [
+          54,
+          63
+        ],
+        [
+          76,
+          85
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_build-pov-ray__RLBcWPD_21",
+          "t": 21,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_build-pov-ray__RLBcWPD_41",
+          "t": 41,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_build-pov-ray__RLBcWPD_63",
+          "t": 63,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_build-pov-ray__RLBcWPD_85",
+          "t": 85,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "chess-best-move__BjEPAPq": {
+      "task": "chess-best-move",
+      "agent": "judy",
+      "model": "claude-opus-4.6@anthropic",
+      "reward": "0",
+      "n_steps": 34,
+      "w": 10,
+      "n_windows": 3,
+      "n_positive": 1,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          20,
+          29
+        ]
+      ],
+      "productive_ranges": [
+        [
+          6,
+          21
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_chess-best-move__BjEPAPq_15",
+          "t": 15,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_chess-best-move__BjEPAPq_21",
+          "t": 21,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_chess-best-move__BjEPAPq_29",
+          "t": 29,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "cobol-modernization__D37VA7b": {
+      "task": "cobol-modernization",
+      "agent": "openhands",
+      "model": "claude-sonnet-4-5-20250929@anthropic",
+      "reward": "1",
+      "n_steps": 126,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          107,
+          116
+        ]
+      ],
+      "productive_ranges": [
+        [
+          18,
+          27
+        ],
+        [
+          47,
+          56
+        ],
+        [
+          65,
+          74
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_cobol-modernization__D37VA7b_27",
+          "t": 27,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_cobol-modernization__D37VA7b_56",
+          "t": 56,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_cobol-modernization__D37VA7b_74",
+          "t": 74,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_cobol-modernization__D37VA7b_116",
+          "t": 116,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "post_completion"
+        }
+      ]
+    },
+    "cobol-modernization__wX7wSXK": {
+      "task": "cobol-modernization",
+      "agent": "gemini-cli",
+      "model": "gemini-2.5-pro@gemini",
+      "reward": "0",
+      "n_steps": 77,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          15,
+          32
+        ],
+        [
+          46,
+          55
+        ],
+        [
+          58,
+          67
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_cobol-modernization__wX7wSXK_24",
+          "t": 24,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_cobol-modernization__wX7wSXK_32",
+          "t": 32,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_cobol-modernization__wX7wSXK_55",
+          "t": 55,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_cobol-modernization__wX7wSXK_67",
+          "t": 67,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "compile-compcert__DkH2JMz": {
+      "task": "compile-compcert",
+      "agent": "deepagent-harbor",
+      "model": "gpt-5.2-codex@openai",
+      "reward": "0",
+      "n_steps": 81,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          60,
+          69
+        ]
+      ],
+      "productive_ranges": [
+        [
+          11,
+          20
+        ],
+        [
+          32,
+          41
+        ],
+        [
+          51,
+          60
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_compile-compcert__DkH2JMz_20",
+          "t": 20,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_compile-compcert__DkH2JMz_41",
+          "t": 41,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_compile-compcert__DkH2JMz_60",
+          "t": 60,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_compile-compcert__DkH2JMz_69",
+          "t": 69,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "post_completion"
+        }
+      ]
+    },
+    "compile-compcert__qeLnFSj": {
+      "task": "compile-compcert",
+      "agent": "codex",
+      "model": "gpt-5@openai",
+      "reward": "0",
+      "n_steps": 71,
+      "w": 10,
+      "n_windows": 5,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          51,
+          60
+        ]
+      ],
+      "productive_ranges": [
+        [
+          9,
+          18
+        ],
+        [
+          23,
+          32
+        ],
+        [
+          39,
+          48
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_compile-compcert__qeLnFSj_18",
+          "t": 18,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_compile-compcert__qeLnFSj_32",
+          "t": 32,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_compile-compcert__qeLnFSj_48_ctrlPROD",
+          "t": 48,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_compile-compcert__qeLnFSj_49",
+          "t": 49,
+          "gold": "BLOCKED_EXTERNAL",
+          "binary": null,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_compile-compcert__qeLnFSj_60",
+          "t": 60,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_search"
+        }
+      ]
+    },
+    "configure-git-webserver__KfqGfWa": {
+      "task": "configure-git-webserver",
+      "agent": "judy",
+      "model": "claude-opus-4.6@anthropic",
+      "reward": "0",
+      "n_steps": 50,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 3,
+      "n_negative": 1,
+      "stagnant_ranges": [
+        [
+          17,
+          34
+        ],
+        [
+          37,
+          46
+        ]
+      ],
+      "productive_ranges": [
+        [
+          7,
+          16
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_configure-git-webserver__KfqGfWa_16_ctrlPROD",
+          "t": 16,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_configure-git-webserver__KfqGfWa_26",
+          "t": 26,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_configure-git-webserver__KfqGfWa_34",
+          "t": 34,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_configure-git-webserver__KfqGfWa_46",
+          "t": 46,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "configure-git-webserver__Noh5oyF": {
+      "task": "configure-git-webserver",
+      "agent": "deepagent-harbor",
+      "model": "gpt-5.2-codex@openai",
+      "reward": "0",
+      "n_steps": 45,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          30,
+          39
+        ]
+      ],
+      "productive_ranges": [
+        [
+          6,
+          32
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_configure-git-webserver__Noh5oyF_15",
+          "t": 15,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_configure-git-webserver__Noh5oyF_25",
+          "t": 25,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_configure-git-webserver__Noh5oyF_32",
+          "t": 32,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_configure-git-webserver__Noh5oyF_39",
+          "t": 39,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "custom-memory-heap-crash__dE3EWmb": {
+      "task": "custom-memory-heap-crash",
+      "agent": "claude-code",
+      "model": "claude-haiku-4-5-20251001@anthropic",
+      "reward": "0",
+      "n_steps": 241,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          47,
+          56
+        ],
+        [
+          88,
+          97
+        ],
+        [
+          136,
+          145
+        ],
+        [
+          193,
+          202
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_custom-memory-heap-crash__dE3EWmb_56",
+          "t": 56,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_custom-memory-heap-crash__dE3EWmb_97",
+          "t": 97,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_custom-memory-heap-crash__dE3EWmb_145",
+          "t": 145,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_custom-memory-heap-crash__dE3EWmb_202",
+          "t": 202,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "db-wal-recovery__6nzz2fq": {
+      "task": "db-wal-recovery",
+      "agent": "codex",
+      "model": "gpt-5-codex@openai",
+      "reward": "0",
+      "n_steps": 117,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 2,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          69,
+          78
+        ],
+        [
+          97,
+          106
+        ]
+      ],
+      "productive_ranges": [
+        [
+          11,
+          20
+        ],
+        [
+          37,
+          46
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_db-wal-recovery__6nzz2fq_20",
+          "t": 20,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__6nzz2fq_46",
+          "t": 46,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__6nzz2fq_78",
+          "t": 78,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_search"
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__6nzz2fq_106",
+          "t": 106,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "irrelevant_exploration"
+        }
+      ]
+    },
+    "db-wal-recovery__mUwQ8nv": {
+      "task": "db-wal-recovery",
+      "agent": "terminus-2",
+      "model": "gpt-5.1-codex@openai",
+      "reward": "0",
+      "n_steps": 63,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 4,
+      "n_negative": 0,
+      "stagnant_ranges": [
+        [
+          14,
+          33
+        ],
+        [
+          38,
+          54
+        ]
+      ],
+      "productive_ranges": [],
+      "windows": [
+        {
+          "card_id": "tb2_db-wal-recovery__mUwQ8nv_23",
+          "t": 23,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__mUwQ8nv_33",
+          "t": 33,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__mUwQ8nv_47",
+          "t": 47,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__mUwQ8nv_54",
+          "t": 54,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        }
+      ]
+    },
+    "db-wal-recovery__rwGVtyu": {
+      "task": "db-wal-recovery",
+      "agent": "terminus-3-3",
+      "model": "gemini-3.1-pro-preview@Google",
+      "reward": "0",
+      "n_steps": 45,
+      "w": 10,
+      "n_windows": 5,
+      "n_positive": 3,
+      "n_negative": 1,
+      "stagnant_ranges": [
+        [
+          7,
+          16
+        ],
+        [
+          18,
+          37
+        ]
+      ],
+      "productive_ranges": [
+        [
+          16,
+          25
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_db-wal-recovery__rwGVtyu_16",
+          "t": 16,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "irrelevant_exploration"
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__rwGVtyu_25_ctrlSTAG",
+          "t": 25,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__rwGVtyu_27",
+          "t": 27,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__rwGVtyu_32",
+          "t": 32,
+          "gold": "BLOCKED_EXTERNAL",
+          "binary": null,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__rwGVtyu_37",
+          "t": 37,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        }
+      ]
+    },
+    "db-wal-recovery__urEH2nP": {
+      "task": "db-wal-recovery",
+      "agent": "openhands",
+      "model": "gpt-5-nano@openai",
+      "reward": "0",
+      "n_steps": 71,
+      "w": 10,
+      "n_windows": 5,
+      "n_positive": 1,
+      "n_negative": 4,
+      "stagnant_ranges": [
+        [
+          37,
+          46
+        ]
+      ],
+      "productive_ranges": [
+        [
+          5,
+          17
+        ],
+        [
+          29,
+          38
+        ],
+        [
+          58,
+          67
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_db-wal-recovery__urEH2nP_14_ctrlSTAG",
+          "t": 14,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__urEH2nP_17",
+          "t": 17,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__urEH2nP_38",
+          "t": 38,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__urEH2nP_46",
+          "t": 46,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        },
+        {
+          "card_id": "tb2_db-wal-recovery__urEH2nP_67",
+          "t": 67,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "dna-assembly__b5N2XyK": {
+      "task": "dna-assembly",
+      "agent": "codex",
+      "model": "gpt-5-codex@openai",
+      "reward": "0",
+      "n_steps": 89,
+      "w": 10,
+      "n_windows": 5,
+      "n_positive": 1,
+      "n_negative": 4,
+      "stagnant_ranges": [
+        [
+          2,
+          11
+        ]
+      ],
+      "productive_ranges": [
+        [
+          13,
+          22
+        ],
+        [
+          28,
+          37
+        ],
+        [
+          47,
+          56
+        ],
+        [
+          64,
+          73
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_dna-assembly__b5N2XyK_11_ctrlSTAG",
+          "t": 11,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        },
+        {
+          "card_id": "tb2_dna-assembly__b5N2XyK_22",
+          "t": 22,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_dna-assembly__b5N2XyK_37",
+          "t": 37,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_dna-assembly__b5N2XyK_56",
+          "t": 56,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_dna-assembly__b5N2XyK_73",
+          "t": 73,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "dna-assembly__o5NzHz7": {
+      "task": "dna-assembly",
+      "agent": "deepagent-harbor",
+      "model": "gpt-5.2-codex@openai",
+      "reward": "0",
+      "n_steps": 68,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          10,
+          19
+        ],
+        [
+          24,
+          33
+        ],
+        [
+          36,
+          45
+        ],
+        [
+          47,
+          56
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_dna-assembly__o5NzHz7_19_ctrlSTAG",
+          "t": 19,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_dna-assembly__o5NzHz7_33",
+          "t": 33,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_dna-assembly__o5NzHz7_45",
+          "t": 45,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_dna-assembly__o5NzHz7_56",
+          "t": 56,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "extract-moves-from-video__ZE44RbF": {
+      "task": "extract-moves-from-video",
+      "agent": "terminus-3-3",
+      "model": "gemini-3.1-pro-preview@Google",
+      "reward": "0",
+      "n_steps": 97,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 2,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          15,
+          24
+        ],
+        [
+          72,
+          81
+        ]
+      ],
+      "productive_ranges": [
+        [
+          37,
+          46
+        ],
+        [
+          61,
+          70
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_extract-moves-from-video__ZE44RbF_24",
+          "t": 24,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        },
+        {
+          "card_id": "tb2_extract-moves-from-video__ZE44RbF_46",
+          "t": 46,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_extract-moves-from-video__ZE44RbF_70",
+          "t": 70,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_extract-moves-from-video__ZE44RbF_81",
+          "t": 81,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        }
+      ]
+    },
+    "extract-moves-from-video__vRcGj7U": {
+      "task": "extract-moves-from-video",
+      "agent": "terminus-3-3",
+      "model": "gemini-3.1-pro-preview@Google",
+      "reward": "0",
+      "n_steps": 105,
+      "w": 10,
+      "n_windows": 3,
+      "n_positive": 0,
+      "n_negative": 2,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          9,
+          18
+        ],
+        [
+          83,
+          92
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_extract-moves-from-video__vRcGj7U_18",
+          "t": 18,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_extract-moves-from-video__vRcGj7U_50",
+          "t": 50,
+          "gold": "BLOCKED_EXTERNAL",
+          "binary": null,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_extract-moves-from-video__vRcGj7U_92",
+          "t": 92,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "feal-linear-cryptanalysis__923TJt4": {
+      "task": "feal-linear-cryptanalysis",
+      "agent": "claude-code",
+      "model": "claude-haiku-4-5-20251001@anthropic",
+      "reward": "0",
+      "n_steps": 131,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 2,
+      "n_negative": 1,
+      "stagnant_ranges": [
+        [
+          80,
+          89
+        ],
+        [
+          110,
+          119
+        ]
+      ],
+      "productive_ranges": [
+        [
+          12,
+          21
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__923TJt4_21",
+          "t": 21,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__923TJt4_52",
+          "t": 52,
+          "gold": "BLOCKED_EXTERNAL",
+          "binary": null,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__923TJt4_89",
+          "t": 89,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        },
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__923TJt4_119",
+          "t": 119,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        }
+      ]
+    },
+    "feal-linear-cryptanalysis__jbbLGgC": {
+      "task": "feal-linear-cryptanalysis",
+      "agent": "terminus-2",
+      "model": "openai/gpt-oss-20b@together_ai",
+      "reward": "0",
+      "n_steps": 85,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 4,
+      "n_negative": 0,
+      "stagnant_ranges": [
+        [
+          13,
+          22
+        ],
+        [
+          27,
+          36
+        ],
+        [
+          53,
+          62
+        ],
+        [
+          72,
+          81
+        ]
+      ],
+      "productive_ranges": [],
+      "windows": [
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__jbbLGgC_22",
+          "t": 22,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        },
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__jbbLGgC_36",
+          "t": 36,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        },
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__jbbLGgC_62",
+          "t": 62,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        },
+        {
+          "card_id": "tb2_feal-linear-cryptanalysis__jbbLGgC_81",
+          "t": 81,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        }
+      ]
+    },
+    "financial-document-processor__w7XM5qk": {
+      "task": "financial-document-processor",
+      "agent": "claude-code",
+      "model": "minimax-m2.1@minimax",
+      "reward": "0",
+      "n_steps": 124,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          26,
+          35
+        ]
+      ],
+      "productive_ranges": [
+        [
+          49,
+          58
+        ],
+        [
+          75,
+          84
+        ],
+        [
+          105,
+          114
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_financial-document-processor__w7XM5qk_35",
+          "t": 35,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        },
+        {
+          "card_id": "tb2_financial-document-processor__w7XM5qk_58",
+          "t": 58,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_financial-document-processor__w7XM5qk_84",
+          "t": 84,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_financial-document-processor__w7XM5qk_114",
+          "t": 114,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "financial-document-processor__yFUb7zw": {
+      "task": "financial-document-processor",
+      "agent": "mini-swe-agent",
+      "model": "claude-sonnet-4-5-20250929@anthropic",
+      "reward": "0",
+      "n_steps": 64,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          10,
+          19
+        ],
+        [
+          22,
+          31
+        ],
+        [
+          39,
+          57
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_financial-document-processor__yFUb7zw_19",
+          "t": 19,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_financial-document-processor__yFUb7zw_31",
+          "t": 31,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_financial-document-processor__yFUb7zw_48",
+          "t": 48,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_financial-document-processor__yFUb7zw_57",
+          "t": 57,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "financial-document-processor__ygK3UcB": {
+      "task": "financial-document-processor",
+      "agent": "openhands",
+      "model": "Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8@together_ai",
+      "reward": "0",
+      "n_steps": 146,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          48,
+          57
+        ]
+      ],
+      "productive_ranges": [
+        [
+          18,
+          27
+        ],
+        [
+          89,
+          98
+        ],
+        [
+          108,
+          117
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_financial-document-processor__ygK3UcB_27",
+          "t": 27,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_financial-document-processor__ygK3UcB_57",
+          "t": 57,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        },
+        {
+          "card_id": "tb2_financial-document-processor__ygK3UcB_98",
+          "t": 98,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_financial-document-processor__ygK3UcB_117",
+          "t": 117,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "fix-code-vulnerability__uLGMMUD": {
+      "task": "fix-code-vulnerability",
+      "agent": "claude-code",
+      "model": "claude-opus-4-1-20250805@anthropic",
+      "reward": "0",
+      "n_steps": 173,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          115,
+          124
+        ]
+      ],
+      "productive_ranges": [
+        [
+          19,
+          28
+        ],
+        [
+          63,
+          72
+        ],
+        [
+          147,
+          156
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_fix-code-vulnerability__uLGMMUD_28",
+          "t": 28,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_fix-code-vulnerability__uLGMMUD_72",
+          "t": 72,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_fix-code-vulnerability__uLGMMUD_124",
+          "t": 124,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_read"
+        },
+        {
+          "card_id": "tb2_fix-code-vulnerability__uLGMMUD_156",
+          "t": 156,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "fix-ocaml-gc__EE2S8BX": {
+      "task": "fix-ocaml-gc",
+      "agent": "gemini-cli",
+      "model": "gemini-2.5-flash@gemini",
+      "reward": "0",
+      "n_steps": 129,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          55,
+          64
+        ]
+      ],
+      "productive_ranges": [
+        [
+          14,
+          23
+        ],
+        [
+          79,
+          88
+        ],
+        [
+          101,
+          110
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_fix-ocaml-gc__EE2S8BX_23",
+          "t": 23,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_fix-ocaml-gc__EE2S8BX_64",
+          "t": 64,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "edit_revert"
+        },
+        {
+          "card_id": "tb2_fix-ocaml-gc__EE2S8BX_88",
+          "t": 88,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_fix-ocaml-gc__EE2S8BX_110",
+          "t": 110,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "fix-ocaml-gc__wouZCwt": {
+      "task": "fix-ocaml-gc",
+      "agent": "terminus-2",
+      "model": "claude-haiku-4-5-20251001@anthropic",
+      "reward": "0",
+      "n_steps": 92,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          49,
+          58
+        ]
+      ],
+      "productive_ranges": [
+        [
+          12,
+          21
+        ],
+        [
+          69,
+          78
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_fix-ocaml-gc__wouZCwt_21",
+          "t": 21,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_fix-ocaml-gc__wouZCwt_37",
+          "t": 37,
+          "gold": "UNCERTAIN",
+          "binary": null,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_fix-ocaml-gc__wouZCwt_58",
+          "t": 58,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "edit_revert"
+        },
+        {
+          "card_id": "tb2_fix-ocaml-gc__wouZCwt_78",
+          "t": 78,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "headless-terminal__jL4JdXw": {
+      "task": "headless-terminal",
+      "agent": "openhands",
+      "model": "gpt-5-nano@openai",
+      "reward": "1",
+      "n_steps": 105,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          17,
+          26
+        ]
+      ],
+      "productive_ranges": [
+        [
+          31,
+          40
+        ],
+        [
+          59,
+          68
+        ],
+        [
+          90,
+          99
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_headless-terminal__jL4JdXw_26",
+          "t": 26,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        },
+        {
+          "card_id": "tb2_headless-terminal__jL4JdXw_40",
+          "t": 40,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_headless-terminal__jL4JdXw_68",
+          "t": 68,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_headless-terminal__jL4JdXw_99",
+          "t": 99,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "install-windows-3.11__2UtJ22k": {
+      "task": "install-windows-3.11",
+      "agent": "judy",
+      "model": "claude-opus-4.6@anthropic",
+      "reward": "0",
+      "n_steps": 44,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 2,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          24,
+          40
+        ]
+      ],
+      "productive_ranges": [
+        [
+          10,
+          24
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_install-windows-3.11__2UtJ22k_19",
+          "t": 19,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__2UtJ22k_24",
+          "t": 24,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__2UtJ22k_33",
+          "t": 33,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__2UtJ22k_40",
+          "t": 40,
+          "gold": "DONE_REDUNDANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "install-windows-3.11__S59DCLX": {
+      "task": "install-windows-3.11",
+      "agent": "terminus-2",
+      "model": "moonshotai/Kimi-K2-Thinking@together_ai",
+      "reward": "0",
+      "n_steps": 63,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 4,
+      "n_negative": 0,
+      "stagnant_ranges": [
+        [
+          19,
+          34
+        ],
+        [
+          37,
+          52
+        ]
+      ],
+      "productive_ranges": [],
+      "windows": [
+        {
+          "card_id": "tb2_install-windows-3.11__S59DCLX_28_ctrlSTAG",
+          "t": 28,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__S59DCLX_34",
+          "t": 34,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_tool_text_loop"
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__S59DCLX_46",
+          "t": 46,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__S59DCLX_52",
+          "t": 52,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "no_new_information"
+        }
+      ]
+    },
+    "install-windows-3.11__er9h2Gw": {
+      "task": "install-windows-3.11",
+      "agent": "claude-code",
+      "model": "claude-haiku-4-5-20251001@anthropic",
+      "reward": "0",
+      "n_steps": 98,
+      "w": 10,
+      "n_windows": 3,
+      "n_positive": 1,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          40,
+          49
+        ]
+      ],
+      "productive_ranges": [
+        [
+          21,
+          30
+        ],
+        [
+          71,
+          80
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_install-windows-3.11__er9h2Gw_30",
+          "t": 30,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__er9h2Gw_49",
+          "t": 49,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__er9h2Gw_80",
+          "t": 80,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "install-windows-3.11__mUYmJ4a": {
+      "task": "install-windows-3.11",
+      "agent": "deepagent-harbor",
+      "model": "gpt-5.2-codex@openai",
+      "reward": "0",
+      "n_steps": 146,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 2,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          87,
+          96
+        ],
+        [
+          121,
+          130
+        ]
+      ],
+      "productive_ranges": [
+        [
+          12,
+          21
+        ],
+        [
+          44,
+          53
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_install-windows-3.11__mUYmJ4a_21",
+          "t": 21,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__mUYmJ4a_53",
+          "t": 53,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__mUYmJ4a_96",
+          "t": 96,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        },
+        {
+          "card_id": "tb2_install-windows-3.11__mUYmJ4a_130",
+          "t": 130,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        }
+      ]
+    },
+    "kv-store-grpc__FzjoxkQ": {
+      "task": "kv-store-grpc",
+      "agent": "openhands",
+      "model": "claude-sonnet-4-5-20250929@anthropic",
+      "reward": "0",
+      "n_steps": 80,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          17,
+          26
+        ]
+      ],
+      "productive_ranges": [
+        [
+          25,
+          34
+        ],
+        [
+          45,
+          54
+        ],
+        [
+          60,
+          69
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_kv-store-grpc__FzjoxkQ_26",
+          "t": 26,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        },
+        {
+          "card_id": "tb2_kv-store-grpc__FzjoxkQ_34",
+          "t": 34,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_kv-store-grpc__FzjoxkQ_54",
+          "t": 54,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_kv-store-grpc__FzjoxkQ_69",
+          "t": 69,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "largest-eigenval__KJWcZ8D": {
+      "task": "largest-eigenval",
+      "agent": "claude-code",
+      "model": "claude-haiku-4-5-20251001@anthropic",
+      "reward": "0",
+      "n_steps": 81,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          14,
+          23
+        ],
+        [
+          27,
+          36
+        ],
+        [
+          46,
+          55
+        ],
+        [
+          61,
+          70
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_largest-eigenval__KJWcZ8D_23",
+          "t": 23,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_largest-eigenval__KJWcZ8D_36",
+          "t": 36,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_largest-eigenval__KJWcZ8D_55",
+          "t": 55,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_largest-eigenval__KJWcZ8D_70",
+          "t": 70,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "llm-inference-batching-scheduler__ubwAnFp": {
+      "task": "llm-inference-batching-scheduler",
+      "agent": "openhands",
+      "model": "gpt-5-mini@openai",
+      "reward": "1",
+      "n_steps": 72,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          10,
+          19
+        ],
+        [
+          30,
+          39
+        ],
+        [
+          44,
+          53
+        ],
+        [
+          57,
+          66
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_llm-inference-batching-scheduler__ubwAnFp_19",
+          "t": 19,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_llm-inference-batching-scheduler__ubwAnFp_39",
+          "t": 39,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_llm-inference-batching-scheduler__ubwAnFp_53",
+          "t": 53,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_llm-inference-batching-scheduler__ubwAnFp_66",
+          "t": 66,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "mailman__7MqVPwC": {
+      "task": "mailman",
+      "agent": "gemini-cli",
+      "model": "gemini-2.5-pro@gemini",
+      "reward": "0",
+      "n_steps": 111,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 0,
+      "n_negative": 4,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          22,
+          31
+        ],
+        [
+          46,
+          55
+        ],
+        [
+          72,
+          81
+        ],
+        [
+          84,
+          93
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_mailman__7MqVPwC_31",
+          "t": 31,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_mailman__7MqVPwC_55",
+          "t": 55,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_mailman__7MqVPwC_81",
+          "t": 81,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_mailman__7MqVPwC_93",
+          "t": 93,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "mailman__cC4xXg9": {
+      "task": "mailman",
+      "agent": "mini-swe-agent",
+      "model": "gemini-2.5-pro@gemini",
+      "reward": "0",
+      "n_steps": 96,
+      "w": 10,
+      "n_windows": 3,
+      "n_positive": 1,
+      "n_negative": 2,
+      "stagnant_ranges": [
+        [
+          73,
+          82
+        ]
+      ],
+      "productive_ranges": [
+        [
+          35,
+          44
+        ],
+        [
+          53,
+          62
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_mailman__cC4xXg9_44",
+          "t": 44,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_mailman__cC4xXg9_62",
+          "t": 62,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_mailman__cC4xXg9_82",
+          "t": 82,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_verify"
+        }
+      ]
+    },
+    "make-doom-for-mips__7QckTNB": {
+      "task": "make-doom-for-mips",
+      "agent": "codex",
+      "model": "gpt-5@openai",
+      "reward": "0",
+      "n_steps": 93,
+      "w": 10,
+      "n_windows": 4,
+      "n_positive": 1,
+      "n_negative": 3,
+      "stagnant_ranges": [
+        [
+          15,
+          24
+        ]
+      ],
+      "productive_ranges": [
+        [
+          39,
+          48
+        ],
+        [
+          56,
+          65
+        ],
+        [
+          72,
+          81
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_make-doom-for-mips__7QckTNB_24",
+          "t": 24,
+          "gold": "STAGNANT",
+          "binary": 1,
+          "unanimous": 1,
+          "detail": "repeat_search"
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__7QckTNB_48",
+          "t": 48,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__7QckTNB_65",
+          "t": 65,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__7QckTNB_81",
+          "t": 81,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "make-doom-for-mips__s3rm6vN": {
+      "task": "make-doom-for-mips",
+      "agent": "mini-swe-agent",
+      "model": "claude-opus-4-1-20250805@anthropic",
+      "reward": "0",
+      "n_steps": 75,
+      "w": 10,
+      "n_windows": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          5,
+          22
+        ],
+        [
+          31,
+          40
+        ],
+        [
+          46,
+          55
+        ],
+        [
+          57,
+          66
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_make-doom-for-mips__s3rm6vN_14_ctrlPROD",
+          "t": 14,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__s3rm6vN_22",
+          "t": 22,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__s3rm6vN_40",
+          "t": 40,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__s3rm6vN_55",
+          "t": 55,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__s3rm6vN_66",
+          "t": 66,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    },
+    "make-doom-for-mips__tHguAnp": {
+      "task": "make-doom-for-mips",
+      "agent": "judy",
+      "model": "claude-opus-4.6@anthropic",
+      "reward": "0",
+      "n_steps": 78,
+      "w": 10,
+      "n_windows": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "stagnant_ranges": [],
+      "productive_ranges": [
+        [
+          1,
+          10
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          30,
+          39
+        ],
+        [
+          42,
+          51
+        ],
+        [
+          55,
+          64
+        ]
+      ],
+      "windows": [
+        {
+          "card_id": "tb2_make-doom-for-mips__tHguAnp_10_ctrlSTAG",
+          "t": 10,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__tHguAnp_24",
+          "t": 24,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__tHguAnp_39",
+          "t": 39,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__tHguAnp_51",
+          "t": 51,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        },
+        {
+          "card_id": "tb2_make-doom-for-mips__tHguAnp_64",
+          "t": 64,
+          "gold": "PRODUCTIVE",
+          "binary": 0,
+          "unanimous": 1,
+          "detail": ""
+        }
+      ]
+    }
+  }
+}

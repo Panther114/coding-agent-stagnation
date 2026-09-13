@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_break-filter-js-from-html__J2d7BGR_15,PRODUCTIVE,high,false,E/V,none,Steps 7-15 test meta-refresh and data-URI bypasses; steps 8/14 verify no alert; step 15 rejects the data-URI route
+d_tb2_build-cython-ext__JrNsKeV_55,STAGNANT,high,false,none,no_tool_text_loop,Steps 46-55 emit the same no-network analysis with no tool call and no new fact
+d_tb2_build-pov-ray__bMc6qiA_48,STAGNANT,high,false,none,repeat_search,Steps 39-48 repeat the identical GitHub repositories search with identical results; nothing new learned
+d_tb2_build-pov-ray__oboi8x8_26,PRODUCTIVE,high,true,I/V,none,Build dir created 17-20; missing make fixed at 22; config.h copied at 25; make at 26 proceeds past the 127/2 failures
+d_tb2_cobol-modernization__z8rbv6p_25,PRODUCTIVE,high,false,E,none,Steps 16-25 run new COBOL probes revealing numeric rounding and byte layouts needed for the Python port
+d_tb2_compile-compcert__ArM52Gs_18,PRODUCTIVE,high,true,E,none,Steps 12-18 narrow configure failure to Coq/menhir plus package search; steps 20-27 continue on the same path
+d_tb2_compile-compcert__pvBcxmV_12,PRODUCTIVE,high,false,E/V,none,Steps 6-11 fetch and unpack CompCert and configure reports concrete Coq-version and menhir deficits; step 12 installs menhir
+d_tb2_crack-7z-hash__gpBub6y_38,PRODUCTIVE,high,true,E/V,none,Steps 30-34 install the module and extract the hash; step 38 decrypts via 7zz continuing into step 39
+d_tb2_crack-7z-hash__Mp364LH_41,STAGNANT,high,false,none,other,Steps 34-41 loop on wrong passwords and timed-out john runs after step 33 already concluded cracking was not the route
+d_tb2_custom-memory-heap-crash__E322Lxp_34,STAGNANT,high,false,none,edit_revert,Steps 25-34 alternate further user.cpp rewrites with signoff/SEGV runs; the same crash signature and same log reappear
+d_tb2_db-wal-recovery__rwGVtyu_23,PRODUCTIVE,medium,false,E/I,none,Steps 14-21 rule out /dev/md1 and the filesystem; step 16 attempts mknod then removes the WAL; step 18 discovers no container tooling
+d_tb2_distribution-search__ZJDezEN_16,STAGNANT,high,false,none,other,Steps 7-16 repeat malformed tool calls; step 13 proves the script was never created and no new information appears
+d_tb2_dna-assembly__o5NzHz7_54,PRODUCTIVE,high,true,E/V,none,Steps 46-54 test overhang candidates and recompute length/TM checks; steps 55-57 continue the redesign
+d_tb2_extract-elf__rUUxEg5_48,DONE_REDUNDANT,high,true,none,post_completion,Output verified at 29-35; steps 39-48 only move hi.c re-run extract.js and re-report the finished result
+d_tb2_extract-moves-from-video__ZE44RbF_40,PRODUCTIVE,high,false,E,none,Step 35 finds 140 key frames and steps 35-40 accumulate OCR command text building the move transcript
+d_tb2_feal-linear-cryptanalysis__923TJt4_36,PRODUCTIVE,high,true,E/I,none,Step 30 exposes the timeout; step 32 rewrites attack.py and step 34 yields new key-expansion values; edits continue to 40
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_23,STAGNANT,high,false,none,other,Steps 14-23 only retry killing the same runaway brute force; search advanced merely from k1 170 to 409 of the keyspace
+d_tb2_fix-code-vulnerability__7wXM79N_11,PRODUCTIVE,high,false,E,none,Steps 2-11 enumerate the repo then localize static_file at 2735 and the header helpers at 1560-1565 narrowing the CWE
+d_tb2_fix-code-vulnerability__uLGMMUD_50,PRODUCTIVE,medium,false,E,none,Steps 36-50 grep and read new bottle.py regions locating eval exec header and cookie handling; no edit yet but localizations are new
+d_tb2_fix-ocaml-gc__awEK6tj_39,PRODUCTIVE,medium,true,E/V,none,Steps 30-34 trace the ocamltest failure to CAMLC scoping; steps 35-36 build past the earlier segfault though ocamltest still fails
+d_tb2_fix-ocaml-gc__yoU3Mrz_33,PRODUCTIVE,high,true,E,none,Steps 24-33 read shared_heap.c and diagnose line 650 p += Whsize_hd(hd) against the correct p += wh at line 1126
+d_tb2_git-multibranch__zEK52fz_23,PRODUCTIVE,high,true,I/V,none,Steps 16-22 create the cert and nginx site then get it listening on 8443; steps 23-37 keep fixing the deploy path until curl succeeds
+d_tb2_install-windows-3.11__mUYmJ4a_17,PRODUCTIVE,high,true,E/I,none,Steps 8-15 start QEMU confirm 5901 and 80 listening query QMP and write the startup script; steps 18-26 configure nginx
+d_tb2_large-scale-text-editing__KdK777C_56,REGRESSION,medium,false,V,edit_revert,Steps 49-56 rewrite apply_macros.vim between setreg and raw-keystroke forms; output stays unchanged and step 56 fails with exit 1
+d_tb2_llm-inference-batching-scheduler__evStmDE_45,STAGNANT,medium,false,none,no_new_information,Steps 36-44 repeat the packer-edit and evaluate cycle with the same eight selected shapes; evaluate outputs are hidden so only the same state shows
+d_tb2_mailman__jVyKJJk_36,PRODUCTIVE,high,true,I,edit_revert,Steps 27-31 set ownership and start mailman as root then step 35 runs the command the step 34 error demanded; list creation follows at 43
+d_tb2_mailman__tQhp5VL_18,PRODUCTIVE,medium,false,E,none,Steps 9-18 read the postfix configs then learn systemd is unusable and mailman CLI has no start subcommand
+d_tb2_make-doom-for-mips__DU5GBNE_20,PRODUCTIVE,high,false,E,none,Steps 11-19 read doomgeneric_img.c Makefile and config.h and enumerate all platform backends building real codebase understanding

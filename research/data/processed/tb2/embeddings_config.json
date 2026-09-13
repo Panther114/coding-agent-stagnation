@@ -1,0 +1,9 @@
+{
+  "representation": "hashing bag-of-words (uni+bi-grams) over action+message+observation tokens",
+  "dim": 512,
+  "n_traj": 1500,
+  "n_steps": 100848,
+  "why_not_pretrained": "huggingface.co was unreachable from the execution environment (connection timeout), so no sentence encoder could be downloaded; the rolling-diversity statistics are unchanged",
+  "seconds": 35.450037717819214,
+  "built_at": "2026-09-10 22:41:43"
+}

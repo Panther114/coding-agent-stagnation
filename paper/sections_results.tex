@@ -1,0 +1,357 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{What the labels contain}
+\label{sec:res-labels}
+Of \pannWindowsTotal{} annotated windows over \pannTrajTotal{} trajectories, \pannBinaryN{} enter the
+binary task and \pannPosRate{}\% are stagnant, a prevalence estimated from the evenly spaced position
+sample that no detector influenced. The most common subtype is not repetition: \emph{no new information}
+(\pannSubNoNewInformation{} windows), \emph{post-completion work} (\pannSubPostCompletion{}) and
+\emph{repeated verification with no movement} (\pannSubRepeatVerify{}) are each more frequent than
+\emph{search repetition} (\pannSubRepeatSearch{}), and the harness-level text loop --- the agent emitting
+the same message for twenty steps without calling a tool --- is also common (\pannSubNoToolTextLoop{}). A
+guard built around ``three identical tool calls'' addresses a minority of what goes wrong.
+Figure~\ref{fig:labels} shows the distribution overall, per scaffold, and by subtype.
+
+\begin{figure}[t]\centering
+ \includegraphics[width=\linewidth]{fig_labels_\ptag.png}
+ \caption{The annotation set: label distribution, positive rate per scaffold, and the subtype of each
+ stagnant window. Repeated verification, post-completion work and the no-tool text loop are individually
+ more common than search repetition.}
+ \label{fig:labels}
+\end{figure}
+
+Annotated stagnation is about twice as frequent in failed runs (\pannPosRateRewardwFail{}\% of their
+windows) as in successful ones (\pannPosRateRewardwPass{}\%). A monitor trained on final outcomes would
+therefore pick up a real signal --- but one window in eight of a \emph{successful} run is still stagnant,
+so treating stagnation as a proxy for failure would be wrong roughly half the time. The window metrics
+below are reported against the stagnation labels, not against the outcome.
+
+Every window of the first round was re-read by a different reader who saw the window with three steps of
+context instead of fourteen. Binary agreement is \pannBinaryAgr{}\% ($\kappa=\pannKappa$ on
+\pannAgreeN{} windows) with \pannExactAgr{}\% exact agreement and positive-class Jaccard
+\pannJaccard{}. Disagreement concentrates where the codebook predicts --- on windows that cut a productive
+stretch in half --- which is why every monitor is reported at several thresholds and why we treat the
+labels as a lower bound on achievable performance.
+
+\subsection{Which signal families carry signal}
+Tables~\ref{tab:window}--\ref{tab:evidence} report window-level discrimination on held-out tasks and
+Figure~\ref{fig:auc} plots the same numbers by family. The ordering is not the one we expected.
+
+\begin{table}[t]\centering\small
+\setlength{\tabcolsep}{4.5pt}
+\caption{Window-level discrimination on held-out tasks ($w=10$). Higher is better; prevalence is the share
+of annotated windows that annotators called stagnant. ``within'' averages ROC-AUC inside each trajectory,
+removing between-run differences. One representative monitor per family plus the combinations; the released
+artifacts carry all \pnMonitors{} monitors.}
+\label{tab:window}
+\begin{tabular}{lrrrr}
+\toprule
+Monitor & ROC-AUC & within & PR-AUC & best F1 \\
+\midrule
+B1 step budget 30 & 0.640 & 0.644 & 0.360 & 0.515 \\
+B2 exact repeat $k{=}3$ & 0.608 & 0.584 & 0.391 & 0.471 \\
+B3 repetition channel & 0.632 & 0.593 & 0.376 & 0.482 \\
+B4 rolling diversity & 0.710 & 0.515 & 0.509 & 0.555 \\
+B4 semantic redundancy & 0.775 & 0.633 & 0.620 & 0.581 \\
+B5 novelty (relevance-blind) & 0.725 & 0.660 & 0.566 & 0.550 \\
+B6 verification channel & 0.558 & 0.504 & 0.316 & 0.449 \\
+B7 workspace churn & 0.557 & 0.571 & 0.320 & 0.506 \\
+C1 task-grounded evidence & 0.587 & 0.605 & 0.355 & 0.475 \\
+C2 evidence + verification & 0.597 & 0.606 & 0.345 & 0.494 \\
+C3 evidence + semantic & 0.688 & 0.650 & 0.570 & 0.493 \\
+C4 all hand-designed & 0.689 & 0.610 & 0.434 & 0.512 \\
+L semantic (learned) & 0.730 & 0.562 & 0.634 & 0.542 \\
+L evidence + semantic (learned) & 0.729 & 0.566 & 0.613 & 0.518 \\
+L all + semantic (learned) & 0.637 & 0.589 & 0.417 & 0.474 \\
+\midrule
+\multicolumn{5}{l}{positive prevalence 0.284; $1091$ annotated windows; within column over $45$
+trajectories holding both labels} \\
+\bottomrule\end{tabular}\end{table}
+
+\begin{figure}[t]\centering
+ \includegraphics[width=\linewidth]{fig_auc_\ptag.png}
+ \caption{Window-level discrimination for the monitors the text discusses, coloured by family: orange =
+ repetition, grey = step budget, indigo = semantic redundancy, purple = relevance-blind novelty, green =
+ verification, crimson = workspace, blue = task-grounded evidence. Dashed lines mark chance and the
+ positive prevalence.}
+ \label{fig:auc}
+\end{figure}
+
+\textbf{(1) Rolling semantic redundancy is the strongest single family.} Representing each step and
+scoring how much the representation moves reaches \paucBFoursemantic{} globally and
+\pwithinBFoursemantic{} inside a run. Every other family except the combinations is significantly worse:
+workspace churn ($\Delta=\ppairBSevenwkvsBFoursemDelta{}$, interval
+$[\ppairBSevenwkvsBFoursemLo{},\ppairBSevenwkvsBFoursemHi{}]$), exact repetition
+($\ppairBTworThreevsBFoursemDelta{}$) and verification deltas ($\ppairBSixvervsBFoursemDelta{}$) all lose
+with intervals excluding zero.
+
+\textbf{(2) Task-grounded evidence alone does not beat it --- and does not beat exact repetition either.}
+Weighting newly observed entities by whether they concern the task statement --- the idea we expected to
+carry the paper --- reaches \paucCOneevidence{}, a significant loss against the semantic baseline
+($\ppairCOneevvsBFoursemDelta{}$, $[\ppairCOneevvsBFoursemLo{},\ppairCOneevvsBFoursemHi{}]$), and it also
+trails the plain exact-repeat detector (\paucBTworepThree{}). The channel is not empty: its features point
+the right way, and relevance-restricted novelty is among the stronger single features in the matrix
+(Table~\ref{tab:evidence}). It is that the semantic channel already captures most of what
+relevance-weighted novelty captures, and more besides --- a monitor tracking whether new entities resemble
+the task statement is less informative than one tracking whether the agent's behaviour is still changing
+at all.
+
+\textbf{(3) The two together are as good as either alone.} Evidence combined with semantic redundancy
+reaches \paucCThreeevidSem{} (\pwithinCThreeevidSem{} within a run), statistically indistinguishable from
+semantic redundancy alone ($\ppairCThreeesvsBFoursemDelta{}$, interval
+$[\ppairCThreeesvsBFoursemLo{},\ppairCThreeesvsBFoursemHi{}]$). Combination buys stability rather than
+accuracy.
+
+\textbf{(4) Workspace change is the weakest family by a wide margin} (\paucBSevenworkspace{} globally,
+\pwithinBSevenworkspace{} within a run), the empirical case against progress-as-file-change: the signal a
+practitioner reaches for first is the least informative of the six. Verification deltas
+(\paucBSixverification{}) are nearly as weak for the opposite reason --- informative when they fire, but
+too rare for a window-level ranking.
+
+\begin{table}[t]\centering\small
+\caption{Strongest single feature per channel, as window-level ROC-AUC against the annotated labels. A
+value below $0.5$ means the feature runs the other way: more of it means \emph{less} stagnation.}
+\label{tab:evidence}
+\begin{tabular}{llr}\toprule
+Channel & Feature & ROC-AUC \\ \midrule
+REP & \texttt{rep\_global\_recurrence} & 0.662 \\
+NOV & \texttt{nov\_obs\_chars} & 0.643 \\
+EVID & \texttt{ev\_new\_highrel\_rate} & 0.449 \\
+VER & \texttt{ver\_stall\_len} & 0.569 \\
+WORK & \texttt{wk\_edit\_after\_complete} & 0.505 \\
+SEM & \texttt{sem\_nearest\_sim} & 0.702 \\
+\bottomrule\end{tabular}\end{table}
+
+\subsection{Most of the accuracy is between runs, not within a run}
+\label{sec:res-within}
+The dense annotation sample places windows only a few steps apart, so adjacent windows share almost all
+their history and a classifier can score well globally by recognising \emph{which run} a window belongs to
+without distinguishing a productive moment from a stagnant one inside it. We therefore also compute the
+mean AUC \emph{inside each trajectory} (Table~\ref{tab:window}, ``within-run''; runs with both classes
+only).
+
+Inside a run every monitor falls to \textsc{auc}-$0.51$--$0.66$, and a trivial baseline alarming purely on
+how far into the run we are reaches \pwithinBOnestepThreeZero{}, comparable to most monitors and better
+than several. Read as a statement about the average run that would be too pessimistic, because the per-run
+distribution is bimodal. Taking the best monitor over the \pwithinRunsBfourSemanticStrict{} trajectories
+containing both labels: the \emph{median} within-run AUC is \pwithinMedianBfourSemanticStrict{}, it exceeds
+chance in \pwithinWinsBfourSemanticStrict{} runs against \pwithinLossesBfourSemanticStrict{} (two-sided
+sign test $p=\pwithinSignPBfourSemanticStrict{}$), and reaches $0.70$ or better in
+\pwithinHighBfourSemanticStrict{} of them --- but the worst runs are at $0.00$ and drag the pooled estimate
+down to \pwithinBFoursemantic{}. The conservative reading is that the signal is \emph{unreliable} rather
+than absent: in a typical run the monitor separates the two classes well, and in about a third of runs it
+carries no temporal information at all --- \pwithinTieMonitors{} of the \pnMonitors{} monitors sit at
+exactly $0.50$ as a median, including a hand-designed and a learned verification monitor, so this is not
+an artefact of score calibration.
+
+Two checks bound what this means. The step-budget baseline is not the whole story: on the same runs the
+semantic monitor beats it in \pwithinVsBudgetWins{} of them, with a median gain of
+\pwithinVsBudgetMedian{}. And the between-run variation that flatters the global numbers is mostly
+\emph{between-task}: the standard deviation of per-task positive rates is \pvarianceTaskSdStrict{} against
+\pvarianceRunSdStrict{} across runs, with some tasks never stagnating at all
+(\pvarianceZeroTasksStrict{} at $0.00$) and others stagnant in three windows out of four. Since our
+cross-validation holds out whole tasks, a monitor cannot win by recognising the task --- and indeed the
+per-task positive rate as a classifier scores only \pvarianceTaskAucStrict{}. The global numbers therefore
+reflect that some windows are genuinely easier than others, not task recognition.
+
+\subsection{Stagnation is an episode, not a window}
+\label{sec:res-regimes}
+The labels have always been defined as \emph{regions}: consecutive windows sharing a label merge into
+contiguous episodes. Every metric above nonetheless scores windows independently, which is the wrong unit
+for two reasons. It treats a hundred windows inside one long stall as a hundred independent tests,
+inflating the apparent sample; and a runtime does not react to a window, it reacts to an \emph{episode},
+and what it needs to know is whether such an episode has begun.
+
+Merging consecutive same-label windows in the gold set yields \pregEpisodes{} stagnant episodes over
+\pnAlarmTrajPos{} runs, containing \pregEpWindows{} windows, against \pregProdRegions{} productive
+regions. The episodes are long --- median \pregMedianSteps{} steps, maximum \pregMaxSteps{}, with
+\pregGeTwenty{} lasting twenty steps or more --- so these are sustained regime shifts, not flickers.
+
+Scoring the same monitor at this unit changes the picture. Taking the best monitor and asking, for each
+episode, whether its mean score exceeds the mean of that same run's productive regions, we separate
+\pregSep{} of \pregTot{} episodes (\pregSepPct{}\%) with a mean score gap of \pregDiff{}
+(trajectory-clustered interval $[\pregDiffLo{},\pregDiffHi{}]$, $p=\pregP{}$). The obvious objection is
+run position: stagnant episodes might simply sit later in runs, in which case a position proxy would
+achieve the same separation. It does not. Stratifying each episode against its own run's productive
+regions falling in the \emph{same third} of the run --- which removes position entirely --- the monitor
+separates \pregPmSep{} of \pregPmTot{} episodes (\pregPmPct{}\%) with a gap of \pregPmDiff{}
+($[\pregPmLo{},\pregPmHi{}]$, $p=\pregPmP{}$), while the position proxy separates only \pregProxySep{} of
+\pregProxyTot{} on the identical test. Position alone explains some of the effect --- as it must, since
+runs do stall more in their later half --- but the monitor's separation is roughly two and a half times
+the proxy's on matched windows.
+
+This is the study's positive finding: \textbf{inside a single run, and at matched positions, the flow of
+new information separates sustained stalls from productive work at a level a runtime could act on}. The
+corresponding negative finding is that converting that separation into a \emph{detection} decision is where
+it breaks down: thresholding the same scores on labelled productive windows catches \pregSepPct{}\% of
+episodes but alarms on a large share of productive regions, and the label-free self-referential variants
+we tried were worse, not better. Distinguishing a regime is easier than deciding when to speak.
+
+\begin{figure}[t]\centering
+ \includegraphics[width=\linewidth]{fig_regimes_\ptag.png}
+ \caption{Stagnation is an episode. \textbf{Left}: each point is one stagnant episode, plotting its mean
+ score against the mean score of the productive regions of \emph{the same run}; points above the diagonal
+ are episodes the monitor separates from that run's own productive work, which no run-level recognition
+ can achieve. \textbf{Centre}: the same comparison restricted to episodes matched in run position, with
+ the position proxy alongside --- the proxy collapses while the monitor does not. \textbf{Right}: episode
+ lengths, showing sustained regimes rather than single flickering windows.}
+ \label{fig:regimes}
+\end{figure}
+
+\subsection{A calibrated stagnation alarm}
+\label{sec:res-alarm2}
+The information-flow signal separates a run's own stall episodes from its own productive work, and no
+threshold on the same score stays calibrated because it drifts upward with run progress. Those two facts
+together specify the detector: the reference must be fixed before the drift can matter, and the series must
+be smoothed before it is thresholded. We state the resulting alarm in full, because a detector is only a
+result if it can be reconstructed exactly.
+
+\begin{enumerate}[leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+\item \textbf{Score.} The relevance-blind novelty monitor above, which reports how much previously unseen
+material a window contains; higher means more stagnant.
+\item \textbf{Smoothing.} Average the last \palSmooth{} consecutive window scores. A window score is itself
+an estimate over ten steps, so the raw series is noisy; smoothing is worth roughly nine points of
+detection and was the single largest contributor.
+\item \textbf{Reference.} Take the mean $\mu$ and standard deviation $\sigma$ of the smoothed series over
+the run's own first \palOpen{}\% of steps. This needs no labels and no other runs, and it is observed
+before a stall can plausibly have begun --- only five of the \pregEpisodes{} labelled episodes start that
+early. Anchoring here rather than to a pooled threshold is what removes the drift.
+\item \textbf{Alarm rule.} Alarm at the first step at which the smoothed score exceeds
+$\mu + \palKsd{}\sigma$.
+\item \textbf{Episode decision.} A stall episode is flagged if any of its windows alarms.
+\end{enumerate}
+
+Applied to all \pnTraj{} trajectories, this flags \palDetN{} of the \palDetTot{} labelled stall episodes, a
+detection rate of \palDet{}\%, with a median detection latency of \palLatency{} steps, at a
+\palFaWin{}\% per-window false-alarm rate. The operating point satisfies the natural design target of
+better than half the episodes detected at a false-alarm rate below one in five.
+
+\begin{table}[t]\centering
+\small
+\caption{The alarm, in two accountings of the false-alarm rate. The window-level rate is the stricter of
+the two and is the one quoted in the text: a single spurious alarm anywhere in a productive region is
+counted, even though such a region typically spans several windows. The region-level rate counts each
+productive region once.}
+\label{tab:alarm}
+\begin{tabular}{lrr}
+\toprule
+ & Nested, held-out runs & Single specification \\
+\midrule
+Stall episodes detected & \pnestedDetN{}/\pnestedTot{} (\pnestedDet{}\%) & \palDetN{}/\palDetTot{} (\palDet{}\%) \\
+False alarms, per productive window & \pnestedFa{}\% & \palFaWin{}\% \\
+False alarms, per productive region & --- & \palFaRegion{}\% \\
+Median latency (steps) & --- & \palLatency{} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The operating point is not tuned on the evaluation data.} A sweep of monitor, smoothing,
+threshold multiple and persistence chose the best configuration on the same windows it was scored on,
+which is optimistically biased, so Table~\ref{tab:alarm} also reports a nested protocol: five folds of
+\pnestedRuns{} runs, in which the configuration is selected on the training folds by the stated objective
+--- maximise detection subject to a window-level false-alarm rate below $20\%$ --- frozen, and then applied
+to the held-out folds whose data it never saw. It returns \pnestedDet{}\% detection at \pnestedFa{}\%
+false alarms, and the selection chose the same configuration in four of the five folds, so the result does
+not depend on a lucky per-fold choice.
+
+\paragraph{What the detector is and is not.} It is a run-level alarm built from a run's own opening
+behaviour, requiring no labels, no reference trajectories and no task-specific tuning, and it emits an
+alarm within zero steps of episode onset at the median. It is not a claim that every stall is caught ---
+roughly two in five are missed --- and it is calibrated to a false-alarm budget rather than to a
+probability. The remaining error is dominated by short episodes: those lasting ten to fifteen steps are
+frequently missed while the long ones are detected reliably, consistent with a statistic that must observe
+a sustained absence of new information before it can respond.
+
+\subsection{Threshold sweeps and the run-level view}
+\label{sec:res-alarm}
+The detector above is specified once; here we sweep the threshold across the whole monitor zoo, so the
+comparison is not an artifact of one operating point. An alarm is credited to an annotated window when it
+falls inside that window's step range plus two steps, and detection is then the share of annotated
+stagnant windows that drew an alarm, false stops the share of productive windows. This view uses the
+\pnAlarmTraj{} annotated runs, which supply 138 stagnant and 457 productive windows. The run-level view is
+harsher --- only the first alarm per run counts --- and it is the right-hand panel of
+Figure~\ref{fig:ops}. Figure~\ref{fig:ops} carries both views for the monitors the text discusses; the
+released artifacts carry the full per-monitor table for every budget.
+
+\begin{figure}[t]\centering
+ \includegraphics[width=\linewidth]{fig_ops_\ptag.png}
+ \caption{Operating characteristics. Left: detection against false-stop rate per annotated window.
+ Middle: the cost side of the trade, false-stop rate against threshold. Right: the per-run view, share of
+ stagnating runs caught against false-stop rate, where only the first alarm per run counts and most
+ monitors never reach these low rates at all. Colour and line style identify families as in
+ Figure~\ref{fig:auc}.}
+ \label{fig:ops}
+\end{figure}
+
+The ranking matches the window-level result: the semantic and novelty families and the learned mixtures
+reach usable detection while repetition, verification and workspace churn do not. Detection is nevertheless
+partial --- the best monitor alarms on about a third of stagnant windows at a $5\%$ budget, at the cost of
+covering roughly a quarter of unannotated windows --- and the run-level view is much harsher: only
+\pnAlarmTrajPos{} of the \pnAlarmTraj{} annotated runs contain a stagnant region, most monitors cannot
+reach a $5\%$ run-level false-stop rate at all, and those that do catch one or two runs. We therefore
+report the per-window numbers as the estimate and the per-run numbers as a lower bound, and claim neither
+as grounds for automatic termination. Calibrating each monitor so its \emph{alarm rate} on training
+trajectories matches the budget --- the natural way to compare scores on different scales --- changes the
+ordering and collapses detection for most monitors, because a monitor's extreme scores inside a run are
+often productive moments rather than stagnant ones; we therefore treat the raw sweep as an optimistic
+bound.
+
+\subsection{What the signals look like}
+Figure~\ref{fig:signals} plots the main channels against step index for two annotated trajectories, each
+chosen because it contains both labels. The pattern the labels describe is visible directly: inside the
+hatched stagnant regions the relevant-evidence rate falls away while exact repetition does not rise, which
+is why repetition-based guards miss them.
+
+\begin{figure}[t]\centering
+ \includegraphics[width=\linewidth]{fig_signals_\ptag.png}
+ \caption{Channel behaviour on two annotated trajectories, chosen for contrast. Hatched bands are
+ annotated stagnant regions and pale green bands productive ones, so each run is shown both progressing
+ and stalled. Series are drawn step-wise because each value is a per-window quantity, and the green line
+ ticks in each window where verification state improved.}
+ \label{fig:signals}
+\end{figure}
+
+\subsection{Two kinds of stagnation}
+\label{sec:res-subtypes}
+Aggregating all stagnant windows hides a real split, and the split explains why the strongest single
+features are counter-intuitive. The subtype field is recorded for every \pannLabelStagnant{} stagnant
+window but for only some post-completion ones, so we count support per class: \pannSubNothingNew{} windows
+of the ``nothing new'' kind over \pannSubNothingNewTraj{} trajectories, against
+\pannLabelDoneRedundant{} post-completion windows over \pannSubPostCompletionTraj{} trajectories. We treat
+the second as a hypothesis with named support rather than an established result, for a specific reason:
+where a window contains the moment of completion rather than following it, our annotators split and the
+window is held out rather than adjudicated. Twenty windows carry that split and all twenty were held out,
+against only twelve corroborated post-completion windows that survived --- so this class contains the
+agreed instances of a boundary the codebook does not define, and regressing on it describes the clearest
+instances of post-completion churn rather than the category.
+
+\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=2pt]
+\item \emph{Nothing new is happening.} In \emph{no new information} and \emph{repeated verification}
+windows, the rate of newly observed entities is a third of the productive average, as is the semantic
+novelty rate. These windows are detectable because information has stopped flowing.
+\item \emph{Plenty is happening, none of it relevant.} In \emph{post-completion} windows the rate of newly
+observed entities is \emph{higher} than in productive windows, while relevance-weighted novelty is lower.
+These windows are invisible to any novelty- or similarity-based monitor and are the clearest argument for
+a task-conditioned signal.
+\end{itemize}
+
+The data therefore supports a two-part statement rather than the one-part statement we started with:
+stagnation is usually the absence of new information, and the exception --- churn after the work is done,
+or exploration of things the task never asked about --- is new information that does not concern the task.
+A monitor that only watches information flow catches the first kind and misses the second; a monitor that
+only watches task relevance catches the second and misses the first.
+
+\subsection{Ablation and outcome association}
+\label{sec:res-ablation}
+Deleting one channel at a time from a learned model and retraining (Table~\ref{tab:ablation}) agrees with
+the aggregate view: removing the semantic channel costs the most, removing task-grounded evidence costs the
+second most, and removing repetition or novelty \emph{helps} on this label set, those families contributing
+noise once better channels are present. The learned model over all hand-designed channels is also worse
+than the two-channel evidence-plus-semantic model.
+
+Finally, a monitor that predicted final success would be a different object. Scoring each sampled
+trajectory by its mean monitor value and predicting final success gives an AUC of \poutcomeAssocBestAuc{}
+at best, well below what a purpose-built failure predictor reports on similar benchmarks, and the
+monitors' ordering by ``predicts failure'' is not their ordering by ``detects stagnation''. A runtime
+should treat an alarm as an instruction to \emph{look}, not as a verdict.

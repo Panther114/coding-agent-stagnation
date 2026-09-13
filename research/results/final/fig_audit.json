@@ -1,0 +1,1165 @@
+[
+  {
+    "figsize_in": [
+      7.202,
+      2.3
+    ],
+    "dpi": 110.0,
+    "n_text": 55,
+    "n_footprints": 32,
+    "undrawable": [
+      {
+        "kind": "xlabel",
+        "text": "false-stop rate",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "xlabel",
+        "text": "score threshold",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "xlabel",
+        "text": "false-stop rate",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "step budget 60",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "exact repetition",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "target repetition",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "semantic redundancy",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "novelty (relevance-blind)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "verification deltas",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "workspace churn",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "task-grounded evidence",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "evidence + verification",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "evidence + semantic",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "all hand-designed",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "repetition (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "novelty (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "verification (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "workspace (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "semantic (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "evidence (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "all hand (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "all + semantic (learned)",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "evidence + semantic (learned)",
+        "why": "outside canvas at probe"
+      }
+    ],
+    "min_fontsize_pt": 6.2,
+    "overlaps": [],
+    "overlaps_reserved_extra": [],
+    "reserved_box_error": {
+      "worst_px": 456.8,
+      "worst_text": "ytick:0.0",
+      "n_box_error_over_4px": 27
+    },
+    "intrusions": [],
+    "canvas_exit": [
+      {
+        "text": "xlabel:false-stop rate",
+        "box": [
+          130.8,
+          -14.2,
+          225.5,
+          -1.2
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "xlabel:score threshold",
+        "box": [
+          355.5,
+          -14.2,
+          456.5,
+          -1.2
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "xlabel:false-stop rate",
+        "box": [
+          586.5,
+          -14.2,
+          681.3,
+          -1.2
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:step budget 60",
+        "box": [
+          81.3,
+          323.7,
+          163.8,
+          333.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:exact repetition",
+        "box": [
+          81.3,
+          308.4,
+          167.0,
+          318.4
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:target repetition",
+        "box": [
+          81.3,
+          293.0,
+          170.3,
+          303.0
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:semantic redundancy",
+        "box": [
+          81.3,
+          277.7,
+          198.5,
+          287.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:novelty (relevance-blind)",
+        "box": [
+          81.3,
+          262.3,
+          217.2,
+          272.3
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:verification deltas",
+        "box": [
+          252.5,
+          323.7,
+          349.7,
+          333.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:workspace churn",
+        "box": [
+          252.5,
+          308.4,
+          344.7,
+          318.4
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:task-grounded evidence",
+        "box": [
+          252.5,
+          293.0,
+          383.8,
+          303.0
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:evidence + verification",
+        "box": [
+          252.5,
+          277.7,
+          378.3,
+          287.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:evidence + semantic",
+        "box": [
+          252.5,
+          262.3,
+          367.1,
+          272.3
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:all hand-designed",
+        "box": [
+          419.1,
+          323.7,
+          515.9,
+          333.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:repetition (learned)",
+        "box": [
+          419.1,
+          308.4,
+          524.6,
+          318.4
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:novelty (learned)",
+        "box": [
+          419.1,
+          293.0,
+          512.2,
+          303.0
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:verification (learned)",
+        "box": [
+          419.1,
+          277.7,
+          532.7,
+          287.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:workspace (learned)",
+        "box": [
+          419.1,
+          262.3,
+          530.0,
+          272.3
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:semantic (learned)",
+        "box": [
+          568.0,
+          323.7,
+          670.4,
+          333.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:evidence (learned)",
+        "box": [
+          568.0,
+          308.4,
+          670.3,
+          318.4
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:all hand (learned)",
+        "box": [
+          568.0,
+          293.0,
+          664.2,
+          303.0
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:all + semantic (learned)",
+        "box": [
+          568.0,
+          277.7,
+          698.8,
+          287.7
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      },
+      {
+        "text": "figlegend:evidence + semantic (learned)",
+        "box": [
+          568.0,
+          262.3,
+          735.5,
+          272.3
+        ],
+        "canvas": [
+          792.0,
+          252.0
+        ]
+      }
+    ],
+    "axes_collide": [],
+    "orphan_ink": [],
+    "stem": "fig_ops_tb2_w10",
+    "saved": false,
+    "tight_crop": false,
+    "print_width_in": 6.5,
+    "raster": {
+      "px": [
+        2524,
+        1198
+      ],
+      "aspect": 2.107,
+      "ink_frac": 0.08192,
+      "border_ink_px": 0,
+      "border_detail": {
+        "top": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "bottom": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "left": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "right": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        }
+      },
+      "glyph_at_border": 0,
+      "blank_rows": 229,
+      "blank_cols": 92
+    }
+  },
+  {
+    "figsize_in": [
+      6.5,
+      5.25
+    ],
+    "dpi": 110.0,
+    "n_text": 34,
+    "n_footprints": 34,
+    "undrawable": [],
+    "min_fontsize_pt": 6.6,
+    "overlaps": [],
+    "overlaps_reserved_extra": [],
+    "reserved_box_error": {
+      "worst_px": 506.4,
+      "worst_text": "xtick:0.4",
+      "n_box_error_over_4px": 17
+    },
+    "intrusions": [],
+    "canvas_exit": [
+      {
+        "text": "ytick:semantic redundancy",
+        "box": [
+          -29.0,
+          72.8,
+          84.0,
+          82.8
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:semantic (learned)",
+        "box": [
+          -14.7,
+          94.6,
+          84.0,
+          104.6
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:evid.+sem. (learned)",
+        "box": [
+          -26.3,
+          116.4,
+          84.0,
+          126.4
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:all hand-designed",
+        "box": [
+          -9.3,
+          160.0,
+          84.0,
+          170.0
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:evid. + semantic",
+        "box": [
+          -4.5,
+          181.8,
+          84.0,
+          191.8
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:novelty (learned)",
+        "box": [
+          -5.6,
+          203.6,
+          84.0,
+          213.6
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:all+sem. (learned)",
+        "box": [
+          -13.2,
+          225.4,
+          84.0,
+          235.4
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:target repetition",
+        "box": [
+          -1.8,
+          247.2,
+          84.0,
+          257.2
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:workspace (learned)",
+        "box": [
+          -22.8,
+          269.0,
+          84.0,
+          279.0
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:all hand (learned)",
+        "box": [
+          -8.7,
+          290.8,
+          84.0,
+          300.8
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:repetition (learned)",
+        "box": [
+          -17.6,
+          334.4,
+          84.0,
+          344.4
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:task-grounded evid.",
+        "box": [
+          -20.6,
+          399.8,
+          84.0,
+          409.8
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:verification deltas",
+        "box": [
+          -10.1,
+          421.5,
+          84.0,
+          431.5
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:workspace churn",
+        "box": [
+          -5.1,
+          443.3,
+          84.0,
+          453.3
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:evidence (learned)",
+        "box": [
+          -14.1,
+          465.1,
+          84.0,
+          475.1
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "ytick:verification (learned)",
+        "box": [
+          -25.7,
+          486.9,
+          84.0,
+          496.9
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "legend:chance (0.50)",
+        "box": [
+          116.6,
+          -1.6,
+          186.5,
+          8.4
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      },
+      {
+        "text": "legend:positive prevalence (0.28)",
+        "box": [
+          225.8,
+          -1.6,
+          358.2,
+          8.4
+        ],
+        "canvas": [
+          715.0,
+          577.0
+        ]
+      }
+    ],
+    "axes_collide": [],
+    "orphan_ink": [],
+    "stem": "fig_auc_tb2_w10",
+    "saved": false,
+    "tight_crop": false,
+    "print_width_in": 6.5,
+    "raster": {
+      "px": [
+        2474,
+        1480
+      ],
+      "aspect": 1.672,
+      "ink_frac": 0.26209,
+      "border_ink_px": 0,
+      "border_detail": {
+        "top": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "bottom": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "left": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "right": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        }
+      },
+      "glyph_at_border": 0,
+      "blank_rows": 238,
+      "blank_cols": 62
+    }
+  },
+  {
+    "figsize_in": [
+      6.5,
+      3.0
+    ],
+    "dpi": 110.0,
+    "n_text": 46,
+    "n_footprints": 44,
+    "undrawable": [
+      {
+        "kind": "legend",
+        "text": "productive",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "legend",
+        "text": "stagnant",
+        "why": "outside canvas at probe"
+      }
+    ],
+    "min_fontsize_pt": 6.8,
+    "overlaps": [],
+    "overlaps_reserved_extra": [],
+    "reserved_box_error": {
+      "worst_px": 415.0,
+      "worst_text": "xtick:0",
+      "n_box_error_over_4px": 8
+    },
+    "intrusions": [],
+    "canvas_exit": [
+      {
+        "text": "xlabel:annotated windows",
+        "box": [
+          72.0,
+          -1.2,
+          199.5,
+          11.8
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "ytick:Done Redundant",
+        "box": [
+          -8.6,
+          136.9,
+          84.0,
+          146.9
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "ytick:Blocked External",
+        "box": [
+          -8.8,
+          218.6,
+          84.0,
+          228.6
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "xlabel:annotated windows",
+        "box": [
+          279.5,
+          -1.2,
+          407.0,
+          11.8
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "legend:productive",
+        "box": [
+          281.7,
+          -17.6,
+          339.6,
+          -7.6
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "legend:stagnant",
+        "box": [
+          377.0,
+          -17.6,
+          425.0,
+          -7.6
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "xlabel:stagnant windows",
+        "box": [
+          514.8,
+          -1.2,
+          633.0,
+          11.8
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "xtick:150",
+        "box": [
+          697.3,
+          18.0,
+          719.5,
+          31.0
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      }
+    ],
+    "axes_collide": [],
+    "orphan_ink": [],
+    "stem": "fig_labels_tb2_w10",
+    "saved": false,
+    "tight_crop": false,
+    "print_width_in": 6.5,
+    "raster": {
+      "px": [
+        2430,
+        1313
+      ],
+      "aspect": 1.851,
+      "ink_frac": 0.14967,
+      "border_ink_px": 0,
+      "border_detail": {
+        "top": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "bottom": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "left": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "right": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        }
+      },
+      "glyph_at_border": 0,
+      "blank_rows": 180,
+      "blank_cols": 61
+    }
+  },
+  {
+    "figsize_in": [
+      6.5,
+      2.2
+    ],
+    "dpi": 110.0,
+    "n_text": 31,
+    "n_footprints": 28,
+    "undrawable": [
+      {
+        "kind": "xtick",
+        "text": "70",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "annotated stagnant region",
+        "why": "outside canvas at probe"
+      },
+      {
+        "kind": "figlegend",
+        "text": "annotated productive region",
+        "why": "outside canvas at probe"
+      }
+    ],
+    "min_fontsize_pt": 6.6,
+    "overlaps": [],
+    "overlaps_reserved_extra": [],
+    "reserved_box_error": {
+      "worst_px": 352.8,
+      "worst_text": "xtick:60",
+      "n_box_error_over_4px": 17
+    },
+    "intrusions": [],
+    "canvas_exit": [
+      {
+        "text": "xtick:70",
+        "box": [
+          717.8,
+          3.7,
+          732.7,
+          16.7
+        ],
+        "canvas": [
+          715.0,
+          242.0
+        ]
+      },
+      {
+        "text": "figlegend:annotated stagnant region",
+        "box": [
+          193.5,
+          251.9,
+          341.5,
+          261.9
+        ],
+        "canvas": [
+          715.0,
+          242.0
+        ]
+      },
+      {
+        "text": "figlegend:annotated productive region",
+        "box": [
+          394.3,
+          251.9,
+          552.3,
+          261.9
+        ],
+        "canvas": [
+          715.0,
+          242.0
+        ]
+      }
+    ],
+    "axes_collide": [],
+    "orphan_ink": [],
+    "stem": "fig_signals_tb2_w10",
+    "saved": false,
+    "tight_crop": false,
+    "print_width_in": 6.5,
+    "raster": {
+      "px": [
+        2150,
+        985
+      ],
+      "aspect": 2.183,
+      "ink_frac": 0.26739,
+      "border_ink_px": 0,
+      "border_detail": {
+        "top": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "bottom": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "left": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "right": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        }
+      },
+      "glyph_at_border": 0,
+      "blank_rows": 275,
+      "blank_cols": 65
+    }
+  },
+  {
+    "figsize_in": [
+      6.5,
+      3.0
+    ],
+    "dpi": 110.0,
+    "n_text": 42,
+    "n_footprints": 42,
+    "undrawable": [],
+    "min_fontsize_pt": 6.8,
+    "overlaps": [],
+    "overlaps_reserved_extra": [],
+    "reserved_box_error": {
+      "worst_px": 247.0,
+      "worst_text": "ytick:0.0",
+      "n_box_error_over_4px": 6
+    },
+    "intrusions": [],
+    "canvas_exit": [
+      {
+        "text": "ytick:\u22120.2",
+        "box": [
+          54.2,
+          -4.4,
+          79.4,
+          5.6
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "xtick:400",
+        "box": [
+          701.8,
+          16.4,
+          721.5,
+          26.4
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      },
+      {
+        "text": "figtext:Stagnation is an episode: the detector s",
+        "box": [
+          109.8,
+          325.9,
+          605.2,
+          339.9
+        ],
+        "canvas": [
+          715.0,
+          330.0
+        ]
+      }
+    ],
+    "axes_collide": [],
+    "orphan_ink": [],
+    "stem": "fig_regimes_tb2_w10",
+    "saved": false,
+    "tight_crop": true,
+    "print_width_in": 6.5,
+    "raster": {
+      "px": [
+        2397,
+        1319
+      ],
+      "aspect": 1.817,
+      "ink_frac": 0.09675,
+      "border_ink_px": 0,
+      "border_detail": {
+        "top": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "bottom": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "left": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        },
+        "right": {
+          "px": 0,
+          "runs": 0,
+          "max_run": 0
+        }
+      },
+      "glyph_at_border": 0,
+      "blank_rows": 189,
+      "blank_cols": 230
+    }
+  }
+]

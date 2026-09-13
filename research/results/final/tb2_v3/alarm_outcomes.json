@@ -1,0 +1,272 @@
+{
+  "B1_step30": {
+    "10": {
+      "false_stop": 960,
+      "detected": 308,
+      "early": 151,
+      "ambiguous": 42,
+      "no_alarm": 1455
+    }
+  },
+  "B1_step60": {
+    "10": {
+      "false_stop": 899,
+      "ambiguous": 406,
+      "detected": 79,
+      "early": 145,
+      "no_alarm": 1387
+    }
+  },
+  "B2_exact_rep3": {
+    "10": {
+      "false_stop": 1142,
+      "detected": 156,
+      "early": 322,
+      "ambiguous": 49,
+      "no_alarm": 1247
+    }
+  },
+  "B2_exact_rep5": {
+    "10": {
+      "false_stop": 1174,
+      "detected": 155,
+      "early": 338,
+      "ambiguous": 67,
+      "no_alarm": 1182
+    }
+  },
+  "B3_rep_channel": {
+    "10": {
+      "false_stop": 1208,
+      "detected": 207,
+      "early": 197,
+      "ambiguous": 64,
+      "no_alarm": 1240
+    }
+  },
+  "B3_rep_target": {
+    "10": {
+      "false_stop": 1202,
+      "detected": 229,
+      "early": 166,
+      "ambiguous": 74,
+      "no_alarm": 1245
+    }
+  },
+  "B4_sem_diversity": {
+    "10": {
+      "false_stop": 1298,
+      "detected": 203,
+      "early": 225,
+      "no_alarm": 1144,
+      "ambiguous": 46
+    }
+  },
+  "B4_semantic": {
+    "10": {
+      "false_stop": 1178,
+      "detected": 270,
+      "early": 218,
+      "ambiguous": 63,
+      "no_alarm": 1187
+    }
+  },
+  "B5_novelty": {
+    "10": {
+      "false_stop": 1132,
+      "detected": 351,
+      "ambiguous": 64,
+      "early": 223,
+      "no_alarm": 1146
+    }
+  },
+  "B5_novelty_sig": {
+    "10": {
+      "false_stop": 1086,
+      "detected": 198,
+      "early": 228,
+      "ambiguous": 91,
+      "no_alarm": 1313
+    }
+  },
+  "B6_ver_stall": {
+    "10": {
+      "false_stop": 1178,
+      "ambiguous": 390,
+      "detected": 195,
+      "early": 146,
+      "no_alarm": 1007
+    }
+  },
+  "B6_verification": {
+    "10": {
+      "false_stop": 1334,
+      "detected": 153,
+      "early": 175,
+      "ambiguous": 157,
+      "no_alarm": 1097
+    }
+  },
+  "B7_workspace": {
+    "10": {
+      "false_stop": 1226,
+      "detected": 139,
+      "early": 214,
+      "no_alarm": 1268,
+      "ambiguous": 69
+    }
+  },
+  "C1_evidence": {
+    "10": {
+      "false_stop": 1047,
+      "detected": 240,
+      "early": 267,
+      "no_alarm": 1322,
+      "ambiguous": 40
+    }
+  },
+  "C1_evidence_rel": {
+    "10": {
+      "false_stop": 926,
+      "detected": 208,
+      "early": 225,
+      "no_alarm": 1543,
+      "ambiguous": 14
+    }
+  },
+  "C2_evid_ver": {
+    "10": {
+      "false_stop": 1266,
+      "detected": 214,
+      "early": 244,
+      "no_alarm": 1102,
+      "ambiguous": 90
+    }
+  },
+  "C2_evid_ver_work": {
+    "10": {
+      "false_stop": 1323,
+      "detected": 248,
+      "early": 244,
+      "ambiguous": 105,
+      "no_alarm": 996
+    }
+  },
+  "C3_evid_sem": {
+    "10": {
+      "false_stop": 1161,
+      "detected": 283,
+      "ambiguous": 95,
+      "early": 234,
+      "no_alarm": 1143
+    }
+  },
+  "C4_all_hand": {
+    "10": {
+      "false_stop": 1263,
+      "detected": 303,
+      "early": 216,
+      "ambiguous": 87,
+      "no_alarm": 1047
+    }
+  },
+  "L_all_hand": {
+    "10": {
+      "false_stop": 1353,
+      "ambiguous": 122,
+      "detected": 264,
+      "early": 255,
+      "no_alarm": 922
+    }
+  },
+  "L_all_sem": {
+    "10": {
+      "false_stop": 1244,
+      "ambiguous": 117,
+      "detected": 252,
+      "early": 249,
+      "no_alarm": 1054
+    }
+  },
+  "L_evid": {
+    "10": {
+      "false_stop": 1102,
+      "detected": 211,
+      "early": 230,
+      "ambiguous": 44,
+      "no_alarm": 1329
+    }
+  },
+  "L_evid_nov": {
+    "10": {
+      "false_stop": 1382,
+      "detected": 258,
+      "early": 280,
+      "ambiguous": 77,
+      "no_alarm": 919
+    }
+  },
+  "L_evid_sem": {
+    "10": {
+      "false_stop": 1192,
+      "detected": 295,
+      "early": 200,
+      "ambiguous": 104,
+      "no_alarm": 1125
+    }
+  },
+  "L_evid_ver": {
+    "10": {
+      "false_stop": 1200,
+      "ambiguous": 193,
+      "detected": 202,
+      "early": 206,
+      "no_alarm": 1115
+    }
+  },
+  "L_nov": {
+    "10": {
+      "false_stop": 1404,
+      "ambiguous": 59,
+      "detected": 250,
+      "early": 279,
+      "no_alarm": 924
+    }
+  },
+  "L_rep": {
+    "10": {
+      "false_stop": 1285,
+      "detected": 292,
+      "early": 231,
+      "ambiguous": 139,
+      "no_alarm": 969
+    }
+  },
+  "L_sem": {
+    "10": {
+      "false_stop": 1163,
+      "detected": 256,
+      "early": 218,
+      "ambiguous": 111,
+      "no_alarm": 1168
+    }
+  },
+  "L_ver": {
+    "10": {
+      "false_stop": 1131,
+      "ambiguous": 253,
+      "detected": 150,
+      "early": 173,
+      "no_alarm": 1209
+    }
+  },
+  "L_work": {
+    "10": {
+      "false_stop": 1094,
+      "detected": 133,
+      "early": 294,
+      "no_alarm": 1387,
+      "ambiguous": 8
+    }
+  }
+}

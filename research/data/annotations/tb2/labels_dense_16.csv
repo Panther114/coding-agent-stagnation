@@ -1,0 +1,29 @@
+card_id,label,confidence,boundary,channels,detail,reason
+d_tb2_build-cython-ext__JrNsKeV_36,STAGNANT,medium,false,none,no_tool_text_loop,Steps 27-36 are all no-tool repeats of the same network-unavailable conclusion; no action no new information no change.
+d_tb2_build-pov-ray__KS3ejPb_22,PRODUCTIVE,high,false,E/I/V,,14-15 make works and error moves to config.h; 16-20 read unix.doc gccconf.h; 21-22 build dir made and gcc installed.
+d_tb2_build-pov-ray__oboi8x8_15,PRODUCTIVE,high,false,E/I,,8-10 download and extract POVSRC.TAR.Z into /app/povray-2.2; 11-15 listings reveal source and machine/unix build files.
+d_tb2_caffe-cifar-10__zjg6gBb_48,PRODUCTIVE,medium,false,E/V,,40 and 43 show compilation advancing through new layers with 41 reporting no errors; polling steps wait on that same build.
+d_tb2_compile-compcert__3AjSGCy_36,PRODUCTIVE,medium,false,E,,27-29 read menhirLib and configure; 31-32 opam output reveals available coq packages; make work continues toward success.
+d_tb2_compile-compcert__PdkzfMV_40,PRODUCTIVE,high,false,I/V,,32 configure now runs and 39-40 confirm Coq 8.16.1 and menhir built; the earlier Coq-version blocker is cleared.
+d_tb2_crack-7z-hash__M36nRdr_34,STAGNANT,high,false,none,repeat_verify,25-34 repeated password guesses and greps all fail identically; nothing new learned and no artefact changed.
+d_tb2_crack-7z-hash__X4cK7Hr_22,PRODUCTIVE,medium,false,E/I,,13 produced secrets.hash; 20-22 build dummy.7z to prove john times out even on a trivial known-password case.
+d_tb2_custom-memory-heap-crash__E322Lxp_12,PRODUCTIVE,medium,true,E/I,,3-5 debug passes and release segfault localized to post-completion cleanup; 7-11 user.cpp edits persist though link errors appear.
+d_tb2_custom-memory-heap-crash__NAMeUua_38,PRODUCTIVE,high,false,I/V,,29-33 read libstdc++ eh_alloc and edit user.cpp; 34-37 both builds run and valgrind is clean.
+d_tb2_db-wal-recovery__tQJsCmY_29,DONE_REDUNDANT,high,false,none,,Task completed and validated by 14-15; 21-22 and 29 only re-read and re-confirm recovered.json and the database.
+d_tb2_dna-assembly__Xbp9Bz3_37,PRODUCTIVE,medium,false,E,,28-37 compute oligotm melting temperatures for successive candidate regions; each step yields new Tm data for primer choice.
+d_tb2_extract-elf__rUUxEg5_29,DONE_REDUNDANT,medium,false,none,,Deliverable verified before the window at 14-17; 23-29 re-read extract.js and re-run format and value checks with no new goal.
+d_tb2_extract-moves-from-video__vRcGj7U_23,PRODUCTIVE,high,false,E,,15-21 transcript extraction surfaces successive Zork moves n u move rug light lamp slay troll from the video frames.
+d_tb2_feal-linear-cryptanalysis__923TJt4_15,PRODUCTIVE,high,false,E/I,,6-10 read feal.c decrypt.c pairs.txt ciphertexts.txt; 13 derives the key expansion; 14 writes attack.py.
+d_tb2_feal-linear-cryptanalysis__L3Ts8kn_53,STAGNANT,high,false,none,no_new_information,44-53 repeat the same brute-force progress screen and identical plan text; no plan executed and no artefact changed.
+d_tb2_financial-document-processor__fZuguYf_43,PRODUCTIVE,high,false,E/I,,34-42 read each document and move it to invoices or other; 36 39 42 are durable classification moves with totals recorded.
+d_tb2_fix-code-vulnerability__uLGMMUD_31,PRODUCTIVE,medium,false,E,,Window is nine distinct greps; 26 29 31 surface new header eval exec html_escape and cookie locations relevant to the CWE hunt.
+d_tb2_fix-ocaml-gc__EE2S8BX_19,PRODUCTIVE,medium,false,E/I,,10-14 edit shared_heap.c with 12 reverting its own first fix; 18-19 corrects the wosize misconception driving the later systematic fix.
+d_tb2_fix-ocaml-gc__yoU3Mrz_10,PRODUCTIVE,medium,true,E,,1-5 warmup chatter; 6-10 locate the repo under /app/ocaml and find the HACKING.adoc files needed to build.
+d_tb2_git-leak-recovery__3MYVn6Q_45,PRODUCTIVE,high,false,I/V,,36-38 git-filter-repo --force rewrites history; 40-44 ls and git gc confirm the secret.txt object is purged.
+d_tb2_install-windows-3.11__2UtJ22k_37,DONE_REDUNDANT,medium,false,none,,Desktop VNC and HTTP checks already verified by 24-26; 28-37 re-verify the same requirements with no new goal.
+d_tb2_large-scale-text-editing__KdK777C_35,PRODUCTIVE,medium,false,E,,31-34 show the scripted macro does nothing while normal! ggVGgU uppercases the sample; that finding guides the macros.
+d_tb2_llm-inference-batching-scheduler__evStmDE_24,PRODUCTIVE,medium,false,I,,Each edit at 17 20 23 durably rewrites my_packer.py and 15-24 rerun the packer and evaluator to compare shape sets.
+d_tb2_mailman__jVyKJJk_18,PRODUCTIVE,high,false,E,,9-13 establish mailman.cfg exists and read it with postfix main.cf and master.cf; these are the files to configure.
+d_tb2_mailman__qzvMMtK_57,DONE_REDUNDANT,high,false,none,,eval.py passed three times by 39-44 and end_execution at 45; 51-57 only re-read configs and rerun the same evaluation.
+d_tb2_mailman__vQauci9_43,PRODUCTIVE,high,false,E/I,,36 41 42 durably edit /etc/mailman3/mailman.cfg and /etc/postfix/main.cf; 37-39 read the mailman schema options.
+d_tb2_make-doom-for-mips__YWJGKe2_38,PRODUCTIVE,high,false,E/I/V,,29-33 create and edit build-doom-mips.sh; 35-37 build error advances from missing .S to endianness mismatch.

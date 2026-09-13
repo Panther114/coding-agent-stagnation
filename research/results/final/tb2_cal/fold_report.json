@@ -1,0 +1,92 @@
+[
+  {
+    "fold": 0,
+    "n_test_traj": 329,
+    "n_train_traj": 1171,
+    "n_train_windows": 234,
+    "n_test_labelled_windows": 250,
+    "tasks": [
+      "build-pmars",
+      "code-from-image",
+      "constraints-scheduling",
+      "count-dataset-tokens",
+      "dna-assembly",
+      "extract-elf",
+      "financial-document-processor",
+      "git-leak-recovery",
+      "headless-terminal",
+      "hf-model-inference",
+      "mailman"
+    ]
+  },
+  {
+    "fold": 1,
+    "n_test_traj": 323,
+    "n_train_traj": 1177,
+    "n_train_windows": 232,
+    "n_test_labelled_windows": 230,
+    "tasks": [
+      "break-filter-js-from-html",
+      "circuit-fibsqrt",
+      "compile-compcert",
+      "custom-memory-heap-crash",
+      "distribution-search",
+      "dna-insert",
+      "kv-store-grpc",
+      "largest-eigenval",
+      "make-doom-for-mips"
+    ]
+  },
+  {
+    "fold": 2,
+    "n_test_traj": 343,
+    "n_train_traj": 1157,
+    "n_train_windows": 226,
+    "n_test_labelled_windows": 214,
+    "tasks": [
+      "build-cython-ext",
+      "configure-git-webserver",
+      "extract-moves-from-video",
+      "feal-differential-cryptanalysis",
+      "filter-js-from-html",
+      "fix-git",
+      "fix-ocaml-gc",
+      "gcode-to-text",
+      "install-windows-3.11"
+    ]
+  },
+  {
+    "fold": 3,
+    "n_test_traj": 239,
+    "n_train_traj": 1261,
+    "n_train_windows": 250,
+    "n_test_labelled_windows": 262,
+    "tasks": [
+      "adaptive-rejection-sampler",
+      "bn-fit-modify",
+      "build-pov-ray",
+      "feal-linear-cryptanalysis",
+      "git-multibranch",
+      "gpt2-codegolf",
+      "large-scale-text-editing",
+      "llm-inference-batching-scheduler"
+    ]
+  },
+  {
+    "fold": 4,
+    "n_test_traj": 266,
+    "n_train_traj": 1234,
+    "n_train_windows": 234,
+    "n_test_labelled_windows": 234,
+    "tasks": [
+      "caffe-cifar-10",
+      "cancel-async-tasks",
+      "chess-best-move",
+      "cobol-modernization",
+      "crack-7z-hash",
+      "db-wal-recovery",
+      "fix-code-vulnerability",
+      "log-summary-date-ranges"
+    ]
+  }
+]

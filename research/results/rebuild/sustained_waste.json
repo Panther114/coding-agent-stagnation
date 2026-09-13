@@ -1,0 +1,279 @@
+{
+  "n_windows": 187852,
+  "mean_dead_rate_per_window": 0.11386167648358095,
+  "dead_rate_histogram": {
+    "-0.0-0.1": 125132,
+    "0.1-0.2": 26386,
+    "0.2-0.3": 11879,
+    "0.3-0.4": 13213,
+    "0.4-0.5": 4460,
+    "0.5-0.6": 747,
+    "0.6-0.7": 2815,
+    "0.7-0.8": 407,
+    "0.8-0.9": 146,
+    "0.9-1.0": 2667
+  },
+  "E2_sustained": [
+    {
+      "level": 0.5,
+      "persist": 2,
+      "n_positive_runs": 928,
+      "n_negative_runs": 19319,
+      "frac_positive": 0.045833950708746976,
+      "monitors": [
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9806034482758621,
+          "false_alarm_rate": 0.8879859205963041,
+          "precision": 0.050373650705784666
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9806034482758621,
+          "false_alarm_rate": 0.8879859205963041,
+          "precision": 0.050373650705784666
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9806034482758621,
+          "false_alarm_rate": 0.8879859205963041,
+          "precision": 0.050373650705784666
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9806034482758621,
+          "false_alarm_rate": 0.8879859205963041,
+          "precision": 0.050373650705784666
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9806034482758621,
+          "false_alarm_rate": 0.8879859205963041,
+          "precision": 0.050373650705784666
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9806034482758621,
+          "false_alarm_rate": 0.8879859205963041,
+          "precision": 0.050373650705784666
+        }
+      ]
+    },
+    {
+      "level": 0.5,
+      "persist": 3,
+      "n_positive_runs": 431,
+      "n_negative_runs": 19816,
+      "frac_positive": 0.021287104262359857,
+      "monitors": [
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.1,
+          "recall": 0.988399071925754,
+          "false_alarm_rate": 0.8901392813887767,
+          "precision": 0.023581511209521174
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.05,
+          "recall": 0.988399071925754,
+          "false_alarm_rate": 0.8901392813887767,
+          "precision": 0.023581511209521174
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.02,
+          "recall": 0.988399071925754,
+          "false_alarm_rate": 0.8901392813887767,
+          "precision": 0.023581511209521174
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.1,
+          "recall": 0.988399071925754,
+          "false_alarm_rate": 0.8901392813887767,
+          "precision": 0.023581511209521174
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.05,
+          "recall": 0.988399071925754,
+          "false_alarm_rate": 0.8901392813887767,
+          "precision": 0.023581511209521174
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.02,
+          "recall": 0.988399071925754,
+          "false_alarm_rate": 0.8901392813887767,
+          "precision": 0.023581511209521174
+        }
+      ]
+    },
+    {
+      "level": 0.7,
+      "persist": 2,
+      "n_positive_runs": 151,
+      "n_negative_runs": 20096,
+      "frac_positive": 0.007457894996789648,
+      "monitors": [
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9536423841059603,
+          "false_alarm_rate": 0.8917695063694268,
+          "precision": 0.00797121505673955
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9536423841059603,
+          "false_alarm_rate": 0.8917695063694268,
+          "precision": 0.00797121505673955
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9536423841059603,
+          "false_alarm_rate": 0.8917695063694268,
+          "precision": 0.00797121505673955
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9536423841059603,
+          "false_alarm_rate": 0.8917695063694268,
+          "precision": 0.00797121505673955
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9536423841059603,
+          "false_alarm_rate": 0.8917695063694268,
+          "precision": 0.00797121505673955
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9536423841059603,
+          "false_alarm_rate": 0.8917695063694268,
+          "precision": 0.00797121505673955
+        }
+      ]
+    },
+    {
+      "level": 0.7,
+      "persist": 3,
+      "n_positive_runs": 107,
+      "n_negative_runs": 20140,
+      "frac_positive": 0.0052847335407714725,
+      "monitors": [
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9813084112149533,
+          "false_alarm_rate": 0.8917576961271102,
+          "precision": 0.005812344312205923
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9813084112149533,
+          "false_alarm_rate": 0.8917576961271102,
+          "precision": 0.005812344312205923
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9813084112149533,
+          "false_alarm_rate": 0.8917576961271102,
+          "precision": 0.005812344312205923
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9813084112149533,
+          "false_alarm_rate": 0.8917576961271102,
+          "precision": 0.005812344312205923
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9813084112149533,
+          "false_alarm_rate": 0.8917576961271102,
+          "precision": 0.005812344312205923
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9813084112149533,
+          "false_alarm_rate": 0.8917576961271102,
+          "precision": 0.005812344312205923
+        }
+      ]
+    },
+    {
+      "level": 0.9,
+      "persist": 1,
+      "n_positive_runs": 139,
+      "n_negative_runs": 20108,
+      "frac_positive": 0.006865214599693782,
+      "monitors": [
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9064748201438849,
+          "false_alarm_rate": 0.8921324845832505,
+          "precision": 0.006974813174647107
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9064748201438849,
+          "false_alarm_rate": 0.8921324845832505,
+          "precision": 0.006974813174647107
+        },
+        {
+          "monitor": "ws_noop_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9064748201438849,
+          "false_alarm_rate": 0.8921324845832505,
+          "precision": 0.006974813174647107
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.1,
+          "recall": 0.9064748201438849,
+          "false_alarm_rate": 0.8921324845832505,
+          "precision": 0.006974813174647107
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.05,
+          "recall": 0.9064748201438849,
+          "false_alarm_rate": 0.8921324845832505,
+          "precision": 0.006974813174647107
+        },
+        {
+          "monitor": "mix_edit_frac",
+          "budget": 0.02,
+          "recall": 0.9064748201438849,
+          "false_alarm_rate": 0.8921324845832505,
+          "precision": 0.006974813174647107
+        }
+      ]
+    }
+  ],
+  "E2_balanced_setting": {
+    "level": 0.5,
+    "persist": 2,
+    "frac_positive": 0.045833950708746976
+  },
+  "verdict": "A sustained-run event has real negatives, so the task is well posed where the incidental event was not. The reported cells are the detector's honest performance on it."
+}
