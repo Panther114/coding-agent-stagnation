@@ -75,3 +75,6 @@ datasets/raw/*
 !datasets/raw/README.md
 datasets/processed/*
 !datasets/processed/README.md
+
+# Experiment arms: agent working copies (cloned task instances, modified by runs).
+tasks/src-*/
