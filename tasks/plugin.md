@@ -1,4 +1,4 @@
-# Batch-workflow plugin — outline (not yet implemented)
+# Batch-workflow plugin — outline (v1 BUILT 2026-09-13: plugins/dsh-batch-flow/)
 
 ## Goal
 Cut per-task cost by collapsing multi-step mechanical work into fewer model turns,
