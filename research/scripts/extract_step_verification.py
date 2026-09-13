@@ -515,6 +515,18 @@ def assemble(args: argparse.Namespace) -> Dict[str, Any]:
             denom_steps += run_max_step[rid] + 1
     covered_steps = sum(v for k, v in agg.items() if k != EXIT_UNKNOWN)
 
+    per_model = {
+        mdl: {
+            "n_runs": model_runs[mdl],
+            "n_runs_with_any_test_obs": model_runs_cov[mdl],
+            "coverage_run_frac": (model_runs_cov[mdl] / model_runs[mdl]) if model_runs[mdl] else 0.0,
+            "n_steps": model_steps[mdl],
+            "n_steps_with_test_obs": model_steps_cov[mdl],
+            "coverage_step_frac": (model_steps_cov[mdl] / model_steps[mdl]) if model_steps[mdl] else 0.0,
+            "outcome_counts": {k: model_outcome[mdl].get(k, 0) for k in EXIT_SIGNALS},
+        }
+        for mdl in sorted(model_steps)
+    }
     summary = {
         "n_steps": n_rows,
         "n_runs": n_runs,
@@ -522,18 +534,10 @@ def assemble(args: argparse.Namespace) -> Dict[str, Any]:
         "coverage_run_frac": (n_runs_with_obs / n_runs) if n_runs else 0.0,
         "outcome_counts": {k: agg.get(k, 0) for k in EXIT_SIGNALS},
         "n_runs_with_any_test_obs": n_runs_with_obs,
-        "per_model": {
-            mdl: {
-                "n_runs": model_runs[mdl],
-                "n_runs_with_any_test_obs": model_runs_cov[mdl],
-                "coverage_run_frac": (model_runs_cov[mdl] / model_runs[mdl]) if model_runs[mdl] else 0.0,
-                "n_steps": model_steps[mdl],
-                "n_steps_with_test_obs": model_steps_cov[mdl],
-                "coverage_step_frac": (model_steps_cov[mdl] / model_steps[mdl]) if model_steps[mdl] else 0.0,
-                "outcome_counts": {k: model_outcome[mdl].get(k, 0) for k in EXIT_SIGNALS},
-            }
-            for mdl in sorted(model_steps)
-        },
+        # the same table under both names: `per_model` is what this script emits,
+        # `per_model_breakdown` is the name the study brief asked for
+        "per_model": per_model,
+        "per_model_breakdown": per_model,
         "denominator_notes": {
             "steps_denominator": denom_steps,
             "steps_denominator_source": (

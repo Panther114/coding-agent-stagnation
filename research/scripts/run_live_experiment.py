@@ -100,10 +100,40 @@ ARM_INSTRUCTIONS = {
 CMD_RE = re.compile(r"^\s*(read|write|test|done)\b\s*(.*)$", re.I)
 FENCE_RE = re.compile(r"```(?:python|py)?\s*\n(.*?)```", re.S)
 
+# Native function-calling schema.  The first pilot used a text protocol and lost 65% of the
+# model's turns to its own XML tool-call format, so the tools are declared natively instead.
+TOOLS = [
+    {"type": "function", "function": {
+        "name": "read", "description": "Show the contents of a file in the repository.",
+        "parameters": {"type": "object", "properties": {
+            "path": {"type": "string", "description": "path relative to the repository root"}},
+            "required": ["path"]}}},
+    {"type": "function", "function": {
+        "name": "write", "description": "Replace a file with new full contents.",
+        "parameters": {"type": "object", "properties": {
+            "path": {"type": "string", "description": "path relative to the repository root"},
+            "content": {"type": "string", "description": "the complete new file contents"}},
+            "required": ["path", "content"]}}},
+    {"type": "function", "function": {
+        "name": "test", "description": "Run the project's test command and see the output.",
+        "parameters": {"type": "object", "properties": {}}}},
+    {"type": "function", "function": {
+        "name": "done", "description": "Finish the task. Call this only when you believe the bug "
+                                       "is fixed and the tests pass.",
+        "parameters": {"type": "object", "properties": {}}}},
+]
+
 
 # ---------------------------------------------------------------------------- workspace
-def materialise(task: Dict[str, Any], dest: Path) -> None:
-    """Fresh copy of the package source with the mutated file written in place."""
+def materialise(task: Dict[str, Any], dest: Path) -> Path:
+    """Fresh copy of the package source with the mutated file written in place.
+
+    Also snapshots the pristine tree, because the verifier must run the ORIGINAL tests.  A pilot
+    caught the agent writing its own files into ``tests/`` (``test_debug.py``,
+    ``test_aaa_dump.py``); pytest collects those, so an agent-authored passing test could have
+    scored a run as successful without the bug being fixed at all.  Real graders run the task's
+    own tests against the agent's source patch, so that is what is done here.
+    """
     if dest.exists():
         shutil.rmtree(dest, ignore_errors=True)
     src = Path(task["repo_root"])
@@ -112,6 +142,57 @@ def materialise(task: Dict[str, Any], dest: Path) -> None:
     gold = dest / task["gold_file"]
     gold.parent.mkdir(parents=True, exist_ok=True)
     gold.write_text(task["mutated_source"], encoding="utf-8")
+
+    pristine = dest.parent / (dest.name + "__pristine")
+    if pristine.exists():
+        shutil.rmtree(pristine, ignore_errors=True)
+    shutil.copytree(dest, pristine, ignore=shutil.ignore_patterns(
+        "__pycache__", "*.pyc", ".pytest_cache"))
+    return pristine
+
+
+def is_test_path(rel: str) -> bool:
+    """pytest's default collection: test_*.py / *_test.py anywhere, plus tests|test dirs."""
+    p = Path(rel)
+    parts = [x.lower() for x in p.parts]
+    if any(x in ("tests", "test") for x in parts[:-1]):
+        return True
+    n = p.name.lower()
+    return n.startswith("test_") or n.endswith("_test.py") or n == "conftest.py"
+
+
+def restore_tests(pristine: Path, dest: Path, preserve: Optional[List[Dict[str, Any]]]) -> int:
+    """Put the original test files back; keep every non-test edit the agent made.
+
+    Returns the number of agent-authored test files removed, which is logged: attempting to edit
+    the verifier is a real behaviour worth counting, and it must never be able to look like success.
+    """
+    removed = 0
+    if pristine.exists():
+        for p in pristine.rglob("*"):
+            if not p.is_file():
+                continue
+            rel = p.relative_to(pristine)
+            if is_test_path(str(rel)):
+                tgt = dest / rel
+                tgt.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(p, tgt)
+    # delete test files that the agent created and that were never in the pristine tree
+    for p in list(dest.rglob("*")):
+        if not p.is_file():
+            continue
+        rel = p.relative_to(dest)
+        if is_test_path(str(rel)) and not (pristine / rel).exists():
+            try:
+                p.unlink()
+                removed += 1
+            except OSError:
+                pass
+    if preserve is not None:
+        for w in preserve:
+            if is_test_path(str(w.get("path", ""))):
+                pass
+    return removed
 
 
 def run_tests(dest: Path, cmd: str, timeout: int = 120) -> Tuple[bool, str]:
@@ -142,7 +223,7 @@ def tree(dest: Path, limit: int = 60) -> str:
 def run_episode(task: Dict[str, Any], arm: str, max_turns: int, seed: int,
                 tag: str) -> Dict[str, Any]:
     dest = WORK / f"{task['task_id']}__{arm}__s{seed}"
-    materialise(task, dest)
+    pristine = materialise(task, dest)
     passed0, out0 = run_tests(dest, task["test_command"])
 
     g = Gateway(session=f"live-{task['task_id']}-{arm}-{seed}", tag=tag, temperature=0.0)
@@ -165,78 +246,126 @@ def run_episode(task: Dict[str, Any], arm: str, max_turns: int, seed: int,
     transcript: List[Dict[str, Any]] = []
     write_log: List[Dict[str, Any]] = []
     turns = 0
+    n_unparsed = 0
+    used_text_fallback = 0
+    n_tamper = 0
     err = ""
 
     for turn in range(max_turns):
         turns = turn + 1
+        done_early = False
         try:
-            rep = g.chat(messages, max_tokens=2000)
+            # 3500 tokens, not 1400: this model spends a large share of the budget on reasoning
+            # tokens, which count against max_tokens, so a tight budget yields an EMPTY reply
+            # (no content, no tool call).  Empty replies were also arm-correlated in a pilot,
+            # which would have quietly biased the comparison.
+            rep = g.chat(messages, max_tokens=3500, tools=TOOLS)
+            if not (rep.get("tool_calls") or (rep.get("text") or "").strip()):
+                rep = g.chat(messages, max_tokens=3500, tools=TOOLS)
         except Exception as e:
             err = f"{type(e).__name__}: {str(e)[:160]}"
             break
         txt = (rep.get("text") or "").strip()
-        cmd_line, cmd_arg = "", ""
-        for line in txt.splitlines():
-            m = CMD_RE.match(line)
-            if m:
-                cmd_line, cmd_arg = m.group(1).lower(), m.group(2).strip()
-                break
-        obs = ""
-        if cmd_line == "read":
-            p = (dest / cmd_arg.lstrip("./"))
-            if gold_rel in cmd_arg.replace("\\", "/") or str(p).endswith(gold_rel):
-                reached_gold = True
+        tcs = rep.get("tool_calls") or []
+
+        if not tcs:
+            # No native tool call.  Fall back to the text protocol, and if that also yields
+            # nothing, nudge once -- tracking how often this happens rather than silently
+            # burning the turn, because a high rate would invalidate the experiment.
+            cmd_line, cmd_arg = "", ""
+            for line in txt.splitlines():
+                m = CMD_RE.match(line)
+                if m:
+                    cmd_line, cmd_arg = m.group(1).lower(), m.group(2).strip()
+                    break
+            if not cmd_line:
+                n_unparsed += 1
+                obs = ("[No tool call received. Use the provided tools: read, write, test, done.]")
+                transcript.append({"turn": turns, "cmd": "", "arg": "",
+                                   "reply": txt[:800], "obs": obs})
+                messages.append({"role": "assistant", "content": txt[:4000] or "(no content)"})
+                messages.append({"role": "user", "content": obs})
+                continue
+            # emulate a single native call so downstream logic is uniform
+            args = {"path": cmd_arg}
+            if cmd_line == "write":
+                blocks = FENCE_RE.findall(txt)
+                args["content"] = max(blocks, key=len) if blocks else ""
+            tcs = [{"id": f"text_{turn}", "type": "function",
+                    "function": {"name": cmd_line,
+                                 "arguments": json.dumps(args)}}]
+            used_text_fallback += 1
+
+        # execute EVERY tool call the model requested this turn
+        obs_parts: List[str] = []
+        for tc in tcs:
+            fn = (tc.get("function") or {})
+            name = (fn.get("name") or "").lower()
             try:
-                body = p.read_text(encoding="utf-8", errors="replace")
-                obs = body[:6000]
-            except Exception as e:
-                obs = f"[cannot read {cmd_arg}: {type(e).__name__}]"
-        elif cmd_line == "write":
-            # Pick the LARGEST fenced block, not the first: models routinely emit a short
-            # illustrative fragment before (or inside) their reasoning and then the real file.
-            # Taking the first block silently wrote 37-byte stubs that the agent then had to
-            # redo; taking the largest is the safer reading of "here is the file".
-            blocks = FENCE_RE.findall(txt)
-            fm_content = max(blocks, key=len) if blocks else None
-            if fm_content is None:
-                obs = ("[write needs the full new file contents in a ```python block; "
-                       "resend as: write <path> then a fenced block]")
-            else:
-                p = (dest / cmd_arg.lstrip("./"))
-                if gold_rel in cmd_arg.replace("\\", "/") or str(p).endswith(gold_rel):
+                args = json.loads(fn.get("arguments") or "{}")
+            except Exception:
+                args = {}
+            if name == "read":
+                arg = str(args.get("path", ""))
+                p = (dest / arg.lstrip("./"))
+                if gold_rel in arg.replace("\\", "/") or str(p).endswith(gold_rel):
+                    reached_gold = True
+                try:
+                    obs_parts.append(p.read_text(encoding="utf-8", errors="replace")[:6000])
+                except Exception as e:
+                    obs_parts.append(f"[cannot read {arg}: {type(e).__name__}]")
+            elif name == "write":
+                arg = str(args.get("path", ""))
+                content = args.get("content", "")
+                p = (dest / arg.lstrip("./"))
+                if gold_rel in arg.replace("\\", "/") or str(p).endswith(gold_rel):
                     reached_gold = True
                 try:
                     p.parent.mkdir(parents=True, exist_ok=True)
-                    p.write_text(fm_content, encoding="utf-8")
+                    p.write_text(content, encoding="utf-8")
                     edits += 1
-                    obs = f"[wrote {cmd_arg}, {len(fm_content)} bytes]"
-                    # record the literal bytes written, so an episode can be audited later and
-                    # so "did it edit the gold file" is checkable from the transcript alone
-                    write_log.append({"turn": turn + 1, "path": cmd_arg,
-                                      "bytes": len(fm_content),
-                                      "n_fences": len(blocks),
-                                      "content": fm_content[:4000]})
+                    obs_parts.append(f"[wrote {arg}, {len(content)} bytes]")
+                    write_log.append({"turn": turns, "path": arg, "bytes": len(content),
+                                      "content": content[:4000]})
                 except Exception as e:
-                    obs = f"[cannot write {cmd_arg}: {type(e).__name__}: {e}]"
-        elif cmd_line == "test":
-            test_calls += 1
-            ok, o = run_tests(dest, task["test_command"])
-            obs = o[-3000:] if o else "[no output]"
-        elif cmd_line == "done":
-            final_pass, outF = run_tests(dest, task["test_command"])
-            transcript.append({"turn": turns, "cmd": "done", "reply": txt[:800],
-                               "obs": outF[-1500:], "final": True})
+                    obs_parts.append(f"[cannot write {arg}: {type(e).__name__}: {e}]")
+            elif name == "test":
+                test_calls += 1
+                # Deliberately NOT restoring the tests here.  The agent may add its own debug
+                # tests, and doing so is legitimate problem-solving.  Restoring on every run
+                # deleted them mid-episode (6 and 11 removals in two pilot episodes), which
+                # wasted turns and was not what a real grader does.  The verifier is restored at
+                # the FINAL check instead, so an agent that "fixes" a test to make it pass is
+                # still scored as having failed.
+                ok, o = run_tests(dest, task["test_command"])
+                obs_parts.append(o[-3000:] if o else "[no output]")
+            elif name == "done":
+                n_tamper += restore_tests(pristine, dest, write_log)
+                final_pass, outF = run_tests(dest, task["test_command"])
+                transcript.append({"turn": turns, "cmd": "done", "arg": "",
+                                   "reply": txt[:800], "obs": outF[-1500:]})
+                messages.append({"role": "assistant", "content": txt[:4000] or "",
+                                 "tool_calls": tcs})
+                messages.append({"role": "tool", "tool_call_id": tc.get("id", ""),
+                                 "content": outF[-3000:]})
+                done_early = True
+                break
+            else:
+                obs_parts.append(f"[unknown tool {name!r}; use read, write, test or done]")
+
+        obs = "\n".join(obs_parts) if obs_parts else "[no output]"
+        transcript.append({"turn": turns, "cmd": (tcs[0].get("function") or {}).get("name", ""),
+                           "arg": str(((tcs[0].get("function") or {}).get("arguments") or ""))[:200],
+                           "reply": txt[:800], "obs": obs[-1500:], "obs_full": obs[-6000:]})
+        messages.append({"role": "assistant", "content": txt[:4000] or None, "tool_calls": tcs})
+        for tc in tcs:
+            messages.append({"role": "tool", "tool_call_id": tc.get("id", ""),
+                             "content": obs[:4000]})
+        if done_early:
             break
-        else:
-            obs = ("[unrecognised. Reply with exactly one of: read <path> | write <path> | "
-                   "test | done]")
-        transcript.append({"turn": turns, "cmd": cmd_line, "arg": cmd_arg[:200],
-                           "reply": txt[:800], "obs": obs[-1500:],
-                           "obs_full": obs[-6000:]})
-        messages.append({"role": "assistant", "content": txt[:4000]})
-        messages.append({"role": "user", "content": obs[:4000]})
 
     if not final_pass and not err:
+        n_tamper += restore_tests(pristine, dest, write_log)
         final_pass, _ = run_tests(dest, task["test_command"])
 
     return {
@@ -244,6 +373,8 @@ def run_episode(task: Dict[str, Any], arm: str, max_turns: int, seed: int,
         "n_turns": turns, "edits": edits, "test_calls": test_calls,
         "reached_gold": reached_gold, "success": bool(final_pass),
         "fail_before": not passed0, "error": err,
+        "n_unparsed": n_unparsed, "used_text_fallback": used_text_fallback,
+        "test_files_removed": n_tamper,
         "usd": round(g.spend.usd, 6), "calls": g.spend.calls,
         "route_failures": dict(g._route_fail),
         "transcript": transcript, "writes": write_log,
@@ -271,6 +402,9 @@ def main() -> None:
     ap.add_argument("--arms", nargs="+", default=["unhinted", "hinted", "verify"])
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--seeds", type=int, default=1)
+    ap.add_argument("--seed-start", type=int, default=0,
+                    help="first seed index; lets a second batch add replicates without "
+                         "re-running the ones already on disk")
     ap.add_argument("--max-turns", type=int, default=14)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--tag", default="live")
@@ -280,7 +414,8 @@ def main() -> None:
     tasks = load_tasks(args.limit, args.tasks)
     print(f"tasks: {len(tasks)}  arms: {args.arms}  seeds: {args.seeds}  "
           f"max_turns: {args.max_turns}  workers: {args.workers}")
-    episodes = [(t, a, s) for t in tasks for a in args.arms for s in range(args.seeds)]
+    episodes = [(t, a, s) for t in tasks for a in args.arms
+                for s in range(args.seed_start, args.seed_start + args.seeds)]
     print(f"episodes to run: {len(episodes)}")
 
     out_path = Path(args.out) if args.out else (OUT / "episodes.jsonl")

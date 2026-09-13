@@ -112,6 +112,29 @@ def test_pytest_all_pass():
 
 
 # ======================================================================================
+# 2b. the bare terminal form, with no `in <time>` suffix
+# ======================================================================================
+
+PYTEST_BARE_SUMMARY = """======================= 1 failed, 5 passed =======================
+"""
+
+
+def test_bare_terminal_summary_without_a_time():
+    p = parse_observation(PYTEST_BARE_SUMMARY)
+    assert p.exit_signal == EXIT_SOME_FAIL
+    assert p.n_tests_failed == 1
+    assert p.n_tests_passed == 5
+    assert p.raw_matches and "1 failed, 5 passed" in p.raw_matches[0]
+
+
+def test_bare_separator_line_is_not_a_summary():
+    """A bare rule with no counts must stay unknown rather than invent a verdict."""
+    p = parse_observation("==========================================================\n")
+    assert p.exit_signal == EXIT_UNKNOWN
+    assert p.resolved is False
+
+
+# ======================================================================================
 # 3. collection error: `collected 0 items / 1 error` + `Interrupted`
 #    (AnalogJ__lexicon-336, verbatim)
 # ======================================================================================
@@ -410,14 +433,20 @@ def test_truncated_pytest_not_misread_as_all_pass():
 
 
 def test_truncated_flag_detects_the_cut():
-    """The tail ends mid-word (`=============== FA`), so the observation was cut."""
+    """Tests visibly ran (`[ 51%]`) yet no summary is present: the tail was withheld."""
     assert parse_observation(PYTEST_TRUNCATED).truncated is True
     assert parse_observation(PYTEST_ALL_PASS).truncated is False
 
 
-def test_truncated_flag_on_elided_failure_message():
-    """`- RuntimeError: ...` is the harness eliding, not pytest's own `:::` short form."""
-    assert parse_observation(PYTEST_TRUNCATED_SUMMARY).truncated is True
+def test_truncation_flag_is_about_the_verdict_not_the_footer():
+    """SWE-agent appends its footer after the text, so a footer is not evidence either way."""
+    assert parse_observation(PYTEST_ALL_PASS).truncated is False
+    assert parse_observation(PYTEST_FAIL_PASS).truncated is False
+
+
+def test_plain_observation_is_not_flagged_truncated():
+    assert parse_observation(NOT_A_TEST).truncated is False
+    assert parse_observation("").truncated is False
 
 
 # ======================================================================================

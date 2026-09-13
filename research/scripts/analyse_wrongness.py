@@ -80,10 +80,16 @@ def boot_mean(x: np.ndarray, n: int = 2000) -> tuple:
     return float(np.percentile(m, 2.5)), float(np.percentile(m, 97.5))
 
 
-def per_run_table(corpus: str = "nebius") -> pd.DataFrame:
-    """One row per run: targeting shares under both definitions, plus the confound controls."""
-    steps_p = STEPS / corpus / "steps.parquet"
-    runs_p = STEPS / corpus / "runs.parquet"
+def per_run_table(corpus: str = "nebius", steps_root: Path = None,
+                  gold_path: Path = None) -> pd.DataFrame:
+    """One row per run: targeting shares under both definitions, plus the confound controls.
+
+    ``steps_root`` lets the same analysis be pointed at a different step table (e.g. the
+    full-corpus rebuild) without overwriting the frozen one that the published numbers rest on.
+    """
+    base = steps_root or STEPS
+    steps_p = base / corpus / "steps.parquet"
+    runs_p = base / corpus / "runs.parquet"
     cols = ["run_id", "task", "model", "reward", "step", "is_edit", "file_shown"]
     st = pd.read_parquet(steps_p, columns=cols)
     ed = st[st.is_edit == 1].copy()
@@ -103,7 +109,7 @@ def per_run_table(corpus: str = "nebius") -> pd.DataFrame:
     if missing_patch:
         print(f"  WARNING: {missing_patch:,} edit steps have no patch_files after the join")
 
-    gold = pd.read_parquet(RES / "gold_patches.parquet")
+    gold = pd.read_parquet(gold_path or (RES / "gold_patches.parquet"))
     gold_map = {r.instance_id: set(r.gold_basenames) for r in gold.itertuples(index=False)}
 
     rows = []
@@ -158,15 +164,38 @@ def paired_within_instance(df: pd.DataFrame, col: str, min_runs: int = 20) -> di
 
 
 def main() -> None:
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--steps-root", default=None,
+                    help="step-table root; default is the frozen data/processed/steps. "
+                         "Point this at data/processed/steps_full to replicate on the full "
+                         "corpus without touching the frozen table.")
+    ap.add_argument("--out", default="wrongness.json",
+                    help="output artifact name under results/rebuild/")
+    ap.add_argument("--gold", default=None,
+                    help="gold-patch parquet; default results/rebuild/gold_patches.parquet. "
+                         "Point at gold_patches_repl.parquet for the held-out replication.")
+    args = ap.parse_args()
+    steps_root = Path(args.steps_root) if args.steps_root else STEPS
+    if not steps_root.is_absolute():
+        steps_root = ROOT / steps_root
+    gold_path = Path(args.gold) if args.gold else None
+    if gold_path is not None and not gold_path.is_absolute():
+        gold_path = ROOT / gold_path
+    print(f"step table: {steps_root}")
+    replicating = steps_root.resolve() != STEPS.resolve()
+
     out: dict = {"question": "do failed runs localise WORSE (lost) or equally/better (wrong-fix)?",
+                 "steps_root": str(steps_root), "is_replication": replicating,
                  "corpora": {}}
 
     for corpus in ("nebius",):
-        p = STEPS / corpus / "steps.parquet"
+        p = steps_root / corpus / "steps.parquet"
         if not p.exists():
             continue
         print(f"\n=== {corpus} ===")
-        pr = per_run_table(corpus)
+        pr = per_run_table(corpus, steps_root, gold_path)
         gold = pr[pr.has_gold].copy()
         print(f"  runs with a gold target: {len(gold):,} of {len(pr):,} "
               f"({len(gold)/len(pr):.1%})")
@@ -282,7 +311,7 @@ def main() -> None:
         res["per_model"] = per_model
 
         # ---------- 4. gold-patch width as a difficulty control ------------------------
-        w = gold.merge(pd.read_parquet(RES / "gold_patches.parquet")[
+        w = gold.merge(pd.read_parquet(gold_path or (RES / "gold_patches.parquet"))[
             ["instance_id", "n_gold_files"]], on="instance_id", how="left")
         bywidth = []
         for k, g3 in w.groupby(w.n_gold_files.clip(upper=4)):
@@ -310,10 +339,10 @@ def main() -> None:
                      f"never did (n={fd.get('n_failed_runs_with_gold')})"),
     }
 
-    (RES / "wrongness.json").write_text(json.dumps(out, indent=2, ensure_ascii=False, default=float),
+    (RES / args.out).write_text(json.dumps(out, indent=2, ensure_ascii=False, default=float),
                                         encoding="utf-8")
     print("\n" + json.dumps(out["verdict"], indent=2, ensure_ascii=False, default=float))
-    print(f"\nwrote {RES / 'wrongness.json'}")
+    print(f"\nwrote {RES / args.out}")
 
 
 if __name__ == "__main__":

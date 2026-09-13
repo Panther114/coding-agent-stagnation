@@ -71,13 +71,25 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--corpus", default="nebius", choices=["nebius"])
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--steps-root", default=None,
+                    help="step-table root; default is the frozen data/processed/steps. Point at "
+                         "data/processed/steps_full to replicate on the full corpus without "
+                         "touching the frozen table.")
+    ap.add_argument("--out-suffix", default="",
+                    help="suffix for the output artifacts, e.g. '_full' -> alignment_full.json, "
+                         "so a replication never overwrites the frozen alignment.json")
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     OUT.mkdir(parents=True, exist_ok=True)
 
-    step_path = ROOT / "data" / "processed" / "steps" / args.corpus / "steps.parquet"
-    run_path = ROOT / "data" / "processed" / "steps" / args.corpus / "runs.parquet"
+    steps_root = Path(args.steps_root) if args.steps_root else (
+        ROOT / "data" / "processed" / "steps")
+    if not steps_root.is_absolute():
+        steps_root = ROOT / steps_root
+    step_path = steps_root / args.corpus / "steps.parquet"
+    run_path = steps_root / args.corpus / "runs.parquet"
     raw_dir = ROOT / "data" / "raw" / args.corpus
+    print(f"step table: {steps_root}  (output suffix: {args.out_suffix or '<none>'})")
 
     patch_by_instance: Dict[str, List[Tuple[str, str, bool]]] = {}
     rows: List[Dict[str, object]] = []
@@ -161,7 +173,7 @@ def main() -> None:
                 "hit": int(hit),
             })
     pstep = pd.DataFrame(per_step)
-    pstep.to_parquet(OUT / "alignment_steps.parquet", index=False)
+    pstep.to_parquet(OUT / f"alignment_steps{args.out_suffix}.parquet", index=False)
     print(f"classified {len(pstep)} edit steps")
 
     # ---- run-level description ------------------------------------------------------
@@ -235,10 +247,10 @@ def main() -> None:
     print(f"  concentration: {res['concentration']['frac_runs_for_50pct']:.0%} of runs carry "
           f"50% of wasted edits; {res['concentration']['zero_waste_run_frac']:.0%} of runs waste none")
 
-    with open(OUT / "alignment.json", "w", encoding="utf-8") as fh:
+    with open(OUT / f"alignment{args.out_suffix}.json", "w", encoding="utf-8") as fh:
         json.dump(res, fh, indent=2, default=float)
-    runlvl.to_parquet(OUT / "alignment_runs.parquet", index=False)
-    print(f"\nwrote {OUT / 'alignment.json'}")
+    runlvl.to_parquet(OUT / f"alignment_runs{args.out_suffix}.parquet", index=False)
+    print(f"\nwrote {OUT / f'alignment{args.out_suffix}.json'}")
 
 
 if __name__ == "__main__":

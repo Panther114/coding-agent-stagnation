@@ -1,0 +1,24 @@
+{
+  "smithmarines": {
+    "n_runs": 65994,
+    "n_steps": 2263549,
+    "n_tool_obs": 2196795,
+    "obs_with_footer": 0,
+    "obs_with_lines_total": 1,
+    "obs_with_catn": 0,
+    "obs_truncated": 4,
+    "first_footer_literal": null,
+    "first_footer_obs_snippet": null,
+    "first_lines_total_literal": "(10 lines total)",
+    "first_catn_literal": null,
+    "max_numbered_line_seen": 99999999,
+    "n_edits": 195707,
+    "n_edits_with_target_path": 192734,
+    "n_runs_with_patch": 1538,
+    "patch_chars_total": 3529205,
+    "added_lines_total": 2278476,
+    "n_runs_patch_from_column": 0,
+    "n_runs_patch_recovered": 1538,
+    "patch_trust": "recovered_from_transcript"
+  }
+}

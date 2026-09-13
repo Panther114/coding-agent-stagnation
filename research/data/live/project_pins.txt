@@ -1,0 +1,23 @@
+# The eight project archives shipped in ./packages, installed with --no-deps
+# because prepare_environment.txt already pins every runtime dependency.
+# PowerShell needs the names spelled out (it does not expand packages\*.zip for
+# a native command such as pip), so run this file's command verbatim:
+#
+#   python -m pip install --no-deps ^
+#     packages\boltons-26.2.0.zip packages\furl-2.1.4.zip ^
+#     packages\humanize-4.16.0.zip packages\inflect-7.5.0.zip ^
+#     packages\more-itertools-11.1.0.zip packages\tabulate-0.10.0.zip ^
+#     packages\toolz-1.1.0.zip packages\validators-0.35.0.zip
+#
+# Installing the projects matters for one reason only: importlib.metadata must
+# see their dist-info, because toolz's own suite asserts its version. The tests
+# themselves import the *source tree* in the workspace (cwd is first on
+# sys.path), so the mutation under test is always the one being exercised.
+boltons==26.2.0
+furl==2.1.4
+humanize==4.16.0
+inflect==7.5.0
+more-itertools==11.1.0
+tabulate==0.10.0
+toolz==1.1.0
+validators==0.35.0

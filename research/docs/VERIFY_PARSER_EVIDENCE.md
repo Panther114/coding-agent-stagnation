@@ -39,10 +39,9 @@ substring captured from `data/raw/nebius/train-*.parquet`.
 | parametrised node ids | 9 | `[add_repeated]`, `[1-2-X]` and `[with spaces-in id]` must stay attached to the id |
 | warnings interleaved with results | 131 | `4 warnings` must never be counted as failures or as passes |
 | deselected tests | 7 | `54 deselected` is not 54 tests |
-| truncated output | 0 | the terminal summary is cut off; the step must stay `unknown`, not `all_pass` |
-| elided failure message | 57 | pytest's own truncation, not the harness's |
+| truncated output | 392 | progress is visible but no summary follows, so the step must stay `unknown`; `truncated` is exactly `progress and not _verdict_present` |
+| elided failure message | 57 | pytest's own truncation, not the harness's: the node id survives intact |
 | no tests collected | 24 | must be `no_tests`, distinct from a pass |
-| unittest with zero tests | 0 | unittest prints `OK` for a run that tested nothing |
 
 ## 3. Literal examples per pattern
 
@@ -408,15 +407,25 @@ Regex: `\d+ deselected`
 
 ### truncated output
 
-Drives: the terminal summary is cut off; the step must stay `unknown`, not `all_pass`
+Drives: progress is visible but no summary follows, so the step must stay `unknown`; `truncated` is exactly `progress and not _verdict_present`
 
-Regex: `=[= ]{0,40}(?:FA|FAIL|shor)\s*$`
+Regex: `\[\s*\d+%\]`
 
-_No occurrence in the scanned sample._
+- `AnalogJ__lexicon-336` step 28:
+
+  ```text
+  [100%]
+  ```
+
+- `AnalogJ__lexicon-336` step 35:
+
+  ```text
+  [100%]
+  ```
 
 ### elided failure message
 
-Drives: pytest's own truncation, not the harness's
+Drives: pytest's own truncation, not the harness's: the node id survives intact
 
 Regex: `^FAILED \S+ - \w+\s*\.\.\.$`
 
@@ -449,14 +458,6 @@ Regex: `collected 0 items`
   ```text
   collected 0 items
   ```
-
-### unittest with zero tests
-
-Drives: unittest prints `OK` for a run that tested nothing
-
-Regex: `^Ran 0 tests in `
-
-_No occurrence in the scanned sample._
 
 ## 4. Twenty whole observations that contain test output
 

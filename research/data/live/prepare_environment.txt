@@ -1,0 +1,15 @@
+# Environment for the live task suite (Windows, Python 3.10.9) — pinned, pure Python.
+# 1) python -m venv .venv
+# 2) pip install -r prepare_environment.txt
+# 3) pip install the project archives listed in project_pins.txt
+pytest==9.1.1
+pytest-json-report==1.5.0
+pytest-benchmark==5.3.0
+freezegun==1.5.5
+more-itertools==11.1.0
+typeguard==4.6.0
+six==1.17.0
+orderedmultidict==1.0.2
+# wcwidth is only needed for tabulate's optional "widechars" extra; not used.
+# eth-hash[pycryptodome] is deliberately NOT installed: the 17 validators
+# crypto_addresses failures it would fix are recorded as pre_existing_failures.

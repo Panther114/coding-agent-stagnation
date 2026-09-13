@@ -254,12 +254,25 @@ def build_tb2(limit: Optional[int], out_dir: Path, fresh: bool = False) -> None:
     print(f"tb2: +{n_run} runs, +{n_step} steps -> {out_dir}")
 
 
-def build_nebius(limit: Optional[int], out_dir: Path, fresh: bool = False) -> None:
+def build_nebius(limit: Optional[int], out_dir: Path, fresh: bool = False,
+                 shards: Optional[List[int]] = None) -> None:
+    """``shards`` restricts which shard indices are parsed.
+
+    This exists so the *unseen* shards can be built on their own as a clean replication set:
+    the frozen study used shards 0-3, so building 4-11 and analysing that table separately is a
+    held-out test rather than a merge, and it never touches the frozen table.
+    """
     step_path, run_path, done = _prepare(out_dir, fresh)
     sw, rw = TableWriter(step_path), TableWriter(run_path)
     t0 = time.time()
     n_run = n_step = 0
-    for f in sorted(ROOT.glob(NEBIUS_GLOB)):
+    files = sorted(ROOT.glob(NEBIUS_GLOB))
+    if shards:
+        keep = set(shards)
+        files = [f for f in files
+                 if any(f"train-{i:05d}-of-" in f.name for i in keep)]
+        print(f"shard filter {sorted(keep)} -> {len(files)} file(s)", flush=True)
+    for f in files:
         print(f"reading {f.name}", flush=True)
         pf = pq.ParquetFile(f)
         for batch in pf.iter_batches(batch_size=BATCH):
@@ -318,6 +331,10 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--fresh", action="store_true",
                     help="delete existing tables first; required after a parser change")
+    ap.add_argument("--shards", type=int, nargs="*", default=None,
+                    help="restrict the Nebius build to these shard indices, e.g. --shards 4 5 6 7. "
+                         "Used to build the shards the frozen study never saw as a clean "
+                         "held-out replication set.")
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     base = ROOT / "data" / "processed" / "steps"
@@ -325,7 +342,8 @@ def main() -> None:
     if args.corpus in ("tb2", "all"):
         build_tb2(args.limit, (root_out / "tb2") if root_out else (base / "tb2"), args.fresh)
     if args.corpus in ("nebius", "all"):
-        build_nebius(args.limit, (root_out / "nebius") if root_out else (base / "nebius"), args.fresh)
+        build_nebius(args.limit, (root_out / "nebius") if root_out else (base / "nebius"),
+                     args.fresh, args.shards)
 
 
 if __name__ == "__main__":

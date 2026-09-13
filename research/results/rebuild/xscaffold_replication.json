@@ -1,0 +1,970 @@
+{
+  "reference": {
+    "swe_agent_nebius": {
+      "n_edits": 236137,
+      "n_runs": 25681,
+      "kept": 0.15734086568390385,
+      "revised": 0.6515751449370493,
+      "dead_end": 0.19108398937904691,
+      "footer_rate_of_edit_steps": 0.958,
+      "source": "results/rebuild/dead_end.json (SWE-agent / nebius SWE-agent-trajectories)"
+    }
+  },
+  "gold_reference": {
+    "source": "results/rebuild/wrongness.json (SWE-agent / nebius SWE-agent-trajectories)",
+    "direction": "solved > failed",
+    "pooled_on_target_gold": {
+      "solved": 0.4771,
+      "failed": 0.4069,
+      "delta": 0.0703,
+      "n_solved": 3308,
+      "n_failed": 16327
+    },
+    "pooled_ever_touched_gold": {
+      "solved": 0.9819,
+      "failed": 0.6705,
+      "delta": 0.3114,
+      "n_solved": 3308,
+      "n_failed": 16327
+    },
+    "within_instance_on_target_gold": {
+      "solved": 0.4959484844823932,
+      "failed": 0.4476850143350839,
+      "delta": 0.048263470147309306,
+      "p": 0.007006189656934297,
+      "n_instances": 228
+    },
+    "within_instance_ever_touched_gold": {
+      "solved": 0.9699588354303266,
+      "failed": 0.7799417087635024,
+      "delta": 0.19001712666682413,
+      "p": 1.608942202024541e-23,
+      "n_instances": 228
+    },
+    "self_referential_counterpoint": {
+      "delta_solved_minus_failed": -0.0765,
+      "note": "the run's own patch; the opposite sign"
+    }
+  },
+  "gold_source": {
+    "file": "results/rebuild/gold_patches.parquet",
+    "n_instances": 927,
+    "note": "gold basenames come from each dataset's own patch field and do not depend on any agent run"
+  },
+  "instrument_check": {
+    "purpose": "re-run the kept/revised/dead_end labelling with the cross-scaffold code path on the SWE-agent corpus, to prove the port is faithful and to fix the reference against which the other scaffolds are compared",
+    "n_edit_steps_recomputed": 236137,
+    "n_runs_recomputed": 25681,
+    "n_edit_steps_with_empty_patch": 39486,
+    "frac_edit_steps_with_empty_patch": 0.16721648873323536,
+    "n_runs_with_only_empty_patches": 3487,
+    "n_runs_total": 25681,
+    "frozen_headline": {
+      "kept_rate": 0.15734086568390385,
+      "revised_rate": 0.6515751449370493,
+      "dead_end_rate": 0.19108398937904691,
+      "n_edits": 236137,
+      "scope": "every edit step of every run, including runs that produced no patch at all (13.99% of the edits)"
+    },
+    "reference_all_runs": {
+      "kept_rate": 0.15734086568390385,
+      "revised_rate": 0.6515751449370493,
+      "dead_end_rate": 0.19108398937904691,
+      "n_edits": 236137,
+      "n_runs": 25681
+    },
+    "reference_nonempty_patch_runs_only": {
+      "kept_rate": 0.18893369471805382,
+      "revised_rate": 0.6239581797194014,
+      "dead_end_rate": 0.1871081255625448,
+      "n_edits": 196651,
+      "n_runs": 22194,
+      "scope": "strictly comparable with scaffolds whose final patch has to be recovered from the transcript, where a run with no patch cannot be distinguished from a run with an empty patch"
+    },
+    "abs_diff_vs_frozen": {
+      "kept_rate": 0.0,
+      "revised_rate": 0.0,
+      "dead_end_rate": 0.0
+    },
+    "reproduces_frozen": true
+  },
+  "corpora": {
+    "swegym": {
+      "label": "OpenHands \u2014 SWE-Gym/OpenHands-Sampled-Trajectories",
+      "markers": {
+        "n_steps": 106882,
+        "n_edit_steps": 28890,
+        "footer_step_rate": 0.0,
+        "footer_edit_step_rate": 0.0,
+        "lines_total_step_rate": 0.0,
+        "catn_step_rate": 0.2519507494245991,
+        "truncated_step_rate": 0.0,
+        "runs_with_any_footer": 0.0,
+        "edits_with_named_target_rate": 0.9993077189338871,
+        "n_runs": 6055,
+        "n_tool_obs": 101003,
+        "obs_with_footer": 0,
+        "obs_with_lines_total": 0,
+        "obs_with_catn": 26929,
+        "obs_truncated": 0,
+        "first_footer_literal": null,
+        "first_footer_obs_snippet": null,
+        "first_lines_total_literal": null,
+        "first_catn_literal": "Here's the result of running `cat -n` on /workspace/python__mypy__0.800/mypy/semanal.py:\n  1920\t                        self.imports.add(node.node.fullname)\n  1921\t                    existing_symbol = self.lookup_current_scope(name)\n  1922\t                    if existing_symbol and not isinstance(n",
+        "max_numbered_line_seen": 13664,
+        "n_edits": 28890,
+        "n_edits_with_target_path": 28870,
+        "n_runs_with_patch": 3675,
+        "patch_chars_total": 33335935,
+        "added_lines_total": 205542,
+        "n_runs_patch_from_column": 3675,
+        "n_runs_patch_recovered": 0,
+        "patch_trust": "own_patch_column"
+      },
+      "patch_coverage": {
+        "n_runs": 6055,
+        "n_runs_with_patch": 3675,
+        "run_patch_rate": 0.6069364161849711,
+        "empty_patch_is_a_real_outcome": true,
+        "taxonomy_scope": "every run; a run with an empty patch wrote nothing that could ship",
+        "n_edits_total": 28890,
+        "n_edits_in_scope": 28890,
+        "edit_coverage": 1.0,
+        "patch_sources": {
+          "column:test_result.git_patch": 6055
+        }
+      },
+      "taxonomy": {
+        "n_edits": 28890,
+        "n_runs": 3765,
+        "kept_rate": 0.7340602284527518,
+        "revised_rate": 0.22931810314987885,
+        "dead_end_rate": 0.036621668397369335,
+        "wasted_pooled": 0.26593977154724824,
+        "decomposition_check": 1.0,
+        "mean_edits_per_run": 7.673306772908367,
+        "volume": {
+          "kept_edits": 21207,
+          "revised_edits": 6625,
+          "dead_end_edits": 1058,
+          "mean_dead_end_per_run": 0.2810092961487384,
+          "frac_runs_with_no_dead_end": 0.7803452855245684
+        },
+        "unsuperseded_subset": {
+          "n": 8484,
+          "kept_rate": 0.8752946723243753
+        },
+        "scratch_files": {
+          "share_of_all_edits": 0.2989961924541364,
+          "share_of_kept_edits": 0.3301268449096996,
+          "share_of_dead_end_edits": 0.3601134215500945,
+          "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+        },
+        "run_shape": {
+          "mean_edits_per_run": 7.673306772908367,
+          "median_edits_per_run": 5.0,
+          "frac_runs_editing_one_file_only": 0.1197875166002656,
+          "mean_distinct_files_per_run": 2.250464807436919
+        },
+        "within_instance": {
+          "rate": {
+            "n_instances": 134,
+            "mean_delta": 0.0030247236516192893,
+            "median_delta": 0.0,
+            "frac_positive": 0.39552238805970147,
+            "p": 0.9082995868107401
+          },
+          "dead": {
+            "n_instances": 134,
+            "mean_delta": 0.029406267186688418,
+            "median_delta": 0.0,
+            "frac_positive": 0.29850746268656714,
+            "p": 0.0069551249947544455
+          }
+        }
+      },
+      "taxonomy_nonempty_patch_runs_only": {
+        "n_edits": 28432,
+        "n_runs": 3673,
+        "kept_rate": 0.7458849184018008,
+        "revised_rate": 0.22196820483961732,
+        "dead_end_rate": 0.03214687675858188,
+        "wasted_pooled": 0.2541150815981992,
+        "decomposition_check": 1.0,
+        "mean_edits_per_run": 7.740811325891642,
+        "volume": {
+          "kept_edits": 21207,
+          "revised_edits": 6311,
+          "dead_end_edits": 914,
+          "mean_dead_end_per_run": 0.2488429077048734,
+          "frac_runs_with_no_dead_end": 0.7998910971957528
+        },
+        "unsuperseded_subset": {
+          "n": 8340,
+          "kept_rate": 0.8904076738609112
+        },
+        "scratch_files": {
+          "share_of_all_edits": 0.299416150815982,
+          "share_of_kept_edits": 0.3301268449096996,
+          "share_of_dead_end_edits": 0.3424507658643326,
+          "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+        },
+        "run_shape": {
+          "mean_edits_per_run": 7.740811325891642,
+          "median_edits_per_run": 5.0,
+          "frac_runs_editing_one_file_only": 0.10971957527906344,
+          "mean_distinct_files_per_run": 2.267628641437517
+        },
+        "within_instance": {
+          "rate": {
+            "n_instances": 131,
+            "mean_delta": -0.025153311878472064,
+            "median_delta": 0.0,
+            "frac_positive": 0.366412213740458,
+            "p": 0.3422573858593907
+          },
+          "dead": {
+            "n_instances": 131,
+            "mean_delta": 0.050985954159247636,
+            "median_delta": 0.0,
+            "frac_positive": 0.31297709923664124,
+            "p": 0.00022337585241423362
+          }
+        }
+      },
+      "taxonomy_all_edits_note": "for the two corpora that ship a patch column (nebius_openhands, swegym) an empty patch is a real outcome and those runs are *in* scope, exactly as the frozen SWE-agent pipeline treated them; for the corpora whose patch is recovered from the transcript, a run with no recovered patch is unmeasurable rather than empty, so it is out of scope. See patch_coverage.edit_coverage.",
+      "gold": {
+        "n_runs_with_edits": 3765,
+        "n_instances_with_edits": 2027,
+        "n_instances_with_gold": 15,
+        "n_runs_with_gold": 35,
+        "ever_touched_gold_all_runs": 0.004780876494023904,
+        "on_target_gold_all_runs": 0.002644922953687894,
+        "pooled": {
+          "n_runs": 35,
+          "ever_touched_gold": 0.5142857142857142,
+          "on_target_gold": 0.28451814058956915,
+          "median_on_target_gold": 0.1111111111111111,
+          "solved": {
+            "n": 6,
+            "ever_touched_gold": 1.0,
+            "on_target_gold": 0.4472222222222222
+          },
+          "failed": {
+            "n": 29,
+            "ever_touched_gold": 0.41379310344827586,
+            "on_target_gold": 0.2508552271483306
+          },
+          "delta_solved_minus_failed": {
+            "ever_touched_gold": 0.5862068965517242,
+            "on_target_gold": 0.1963669950738916
+          }
+        },
+        "within_instance": {
+          "n_instances": 2,
+          "note": "too few contested instances"
+        }
+      },
+      "own_patch_target": {
+        "n_runs": 3765,
+        "mean_on_target_own_patch": 0.9290348168332896,
+        "solved": 0.9448010803407951,
+        "failed": 0.9266703588668309,
+        "delta_solved_minus_failed": 0.018130721473964218
+      },
+      "test_outcomes": {
+        "n_steps": 106882,
+        "n_runs": 6055,
+        "strict_step_rate": 0.01786081847270822,
+        "loose_step_rate": 0.09461836417731705,
+        "runs_with_any_test_step": 0.47663088356729977,
+        "runs_with_strict_summary": 0.11395540875309662,
+        "exit_code_step_rate": 0.22943994311483693,
+        "runs_with_exit_code": 0.6206440957886045
+      },
+      "verdicts": {
+        "footer": "ABSENT \u2014 no observation states a file's line count",
+        "taxonomy_l1_vs_swe_agent": 1.1534387255376959,
+        "taxonomy_vector": [
+          0.7340602284527518,
+          0.22931810314987885,
+          0.036621668397369335
+        ],
+        "taxonomy": "DOES NOT REPLICATE \u2014 kept 0.734 / revised 0.229 / dead_end 0.037 (L1 1.153 from the SWE-agent vector), over 28,890 edits in 3,765 runs, i.e. 100.0% of this corpus's edit steps",
+        "gold": "REPLICATES \u2014 pooled solved runs on_target_gold 0.447 vs failed 0.251 (delta +0.196); ever_touched_gold 1.000 vs 0.414 (delta +0.586) \u2014 but the gold-covered sample is far too small to carry the claim (6 solved / 29 failed runs)",
+        "tests": "strict pytest/unittest summary on 1.79% of steps (9.46% with any test marker, including framework summaries); 11.4% of runs contain one"
+      }
+    },
+    "pi": {
+      "label": "PI agent \u2014 whitecircle/swe-rebench-v2-glm-5.1-pi-agent-successful-traces",
+      "markers": {
+        "n_steps": 267162,
+        "n_edit_steps": 28861,
+        "footer_step_rate": 0.0,
+        "footer_edit_step_rate": 0.0,
+        "lines_total_step_rate": 0.00013100665513808102,
+        "catn_step_rate": 0.0,
+        "truncated_step_rate": 0.0,
+        "runs_with_any_footer": 0.0,
+        "edits_with_named_target_rate": 0.9401268147326842,
+        "n_runs": 7777,
+        "n_tool_obs": 267103,
+        "obs_with_footer": 0,
+        "obs_with_lines_total": 35,
+        "obs_with_catn": 0,
+        "obs_truncated": 0,
+        "first_footer_literal": null,
+        "first_footer_obs_snippet": null,
+        "first_lines_total_literal": "(95 lines total)",
+        "first_catn_literal": null,
+        "max_numbered_line_seen": 2154568,
+        "n_edits": 28861,
+        "n_edits_with_target_path": 27133,
+        "n_runs_with_patch": 1956,
+        "patch_chars_total": 8566774,
+        "added_lines_total": 555975,
+        "n_runs_patch_from_column": 0,
+        "n_runs_patch_recovered": 1956,
+        "patch_trust": "recovered_from_transcript"
+      },
+      "patch_coverage": {
+        "n_runs": 7777,
+        "n_runs_with_patch": 1956,
+        "run_patch_rate": 0.25151086537225154,
+        "empty_patch_is_a_real_outcome": false,
+        "taxonomy_scope": "runs whose final patch was recovered from the transcript",
+        "n_edits_total": 28861,
+        "n_edits_in_scope": 11131,
+        "edit_coverage": 0.3856761719968123,
+        "patch_sources": {
+          "none": 5821,
+          "derived:last git-diff in tool output": 1956
+        }
+      },
+      "taxonomy": {
+        "n_edits": 11131,
+        "n_runs": 1956,
+        "kept_rate": 0.8212200161710538,
+        "revised_rate": 0.06028209504986075,
+        "dead_end_rate": 0.11849788877908543,
+        "wasted_pooled": 0.17877998382894622,
+        "decomposition_check": 0.9999999999999999,
+        "mean_edits_per_run": 5.690695296523518,
+        "volume": {
+          "kept_edits": 9141,
+          "revised_edits": 671,
+          "dead_end_edits": 1319,
+          "mean_dead_end_per_run": 0.6743353783231084,
+          "frac_runs_with_no_dead_end": 0.7351738241308794
+        },
+        "unsuperseded_subset": {
+          "n": 6039,
+          "kept_rate": 0.7815863553568472
+        },
+        "scratch_files": {
+          "share_of_all_edits": 0.17285059743059922,
+          "share_of_kept_edits": 0.16354884585931517,
+          "share_of_dead_end_edits": 0.23881728582259287,
+          "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+        },
+        "run_shape": {
+          "mean_edits_per_run": 5.690695296523518,
+          "median_edits_per_run": 4.0,
+          "frac_runs_editing_one_file_only": 0.2985685071574642,
+          "mean_distinct_files_per_run": 2.799079754601227
+        }
+      },
+      "taxonomy_all_edits_note": "for the two corpora that ship a patch column (nebius_openhands, swegym) an empty patch is a real outcome and those runs are *in* scope, exactly as the frozen SWE-agent pipeline treated them; for the corpora whose patch is recovered from the transcript, a run with no recovered patch is unmeasurable rather than empty, so it is out of scope. See patch_coverage.edit_coverage.",
+      "gold": {
+        "n_runs_with_edits": 7777,
+        "n_instances_with_edits": 2329,
+        "n_instances_with_gold": 0,
+        "n_runs_with_gold": 0,
+        "ever_touched_gold_all_runs": 0.0,
+        "on_target_gold_all_runs": 0.0,
+        "note": "no instance of this corpus has a gold patch in gold_patches.parquet"
+      },
+      "own_patch_target": {
+        "n_runs": 7777,
+        "mean_on_target_own_patch": 0.2288229156120187
+      },
+      "test_outcomes": {
+        "n_steps": 267162,
+        "n_runs": 7777,
+        "strict_step_rate": 0.1561936203501995,
+        "loose_step_rate": 0.2748669346688526,
+        "runs_with_any_test_step": 0.9994856628519995,
+        "runs_with_strict_summary": 0.9917706056319918,
+        "exit_code_step_rate": 0.008320794124912973,
+        "runs_with_exit_code": 0.12678410698212678
+      },
+      "verdicts": {
+        "footer": "ABSENT as `[File: \u2026 (N lines total)]`; a size is stated on 0.013% of steps only (an error path), so it cannot label edits",
+        "taxonomy_l1_vs_swe_agent": 1.264572642906,
+        "taxonomy_vector": [
+          0.8212200161710538,
+          0.06028209504986075,
+          0.11849788877908543
+        ],
+        "taxonomy": "DOES NOT REPLICATE \u2014 kept 0.821 / revised 0.060 / dead_end 0.118 (L1 1.265 from the SWE-agent vector), over 11,131 edits in 1,956 runs, i.e. 38.6% of this corpus's edit steps",
+        "gold": "NOT COMPUTABLE \u2014 no instance of this corpus has a gold patch in gold_patches.parquet",
+        "tests": "strict pytest/unittest summary on 15.62% of steps (27.49% with any test marker, including framework summaries); 99.2% of runs contain one"
+      }
+    },
+    "smithmarines": {
+      "label": "mini-swe-agent-plus \u2014 Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+      "markers": {
+        "n_steps": 2263549,
+        "n_edit_steps": 195707,
+        "footer_step_rate": 0.0,
+        "footer_edit_step_rate": 0.0,
+        "lines_total_step_rate": 4.4178411865614575e-07,
+        "catn_step_rate": 0.0,
+        "truncated_step_rate": 1.767136474624583e-06,
+        "runs_with_any_footer": 0.0,
+        "edits_with_named_target_rate": 0.9848089235438692,
+        "n_runs": 65994,
+        "n_tool_obs": 2196795,
+        "obs_with_footer": 0,
+        "obs_with_lines_total": 1,
+        "obs_with_catn": 0,
+        "obs_truncated": 4,
+        "first_footer_literal": null,
+        "first_footer_obs_snippet": null,
+        "first_lines_total_literal": "(10 lines total)",
+        "first_catn_literal": null,
+        "max_numbered_line_seen": 99999999,
+        "n_edits": 195707,
+        "n_edits_with_target_path": 192734,
+        "n_runs_with_patch": 1538,
+        "patch_chars_total": 3529205,
+        "added_lines_total": 2278476,
+        "n_runs_patch_from_column": 0,
+        "n_runs_patch_recovered": 1538,
+        "patch_trust": "recovered_from_transcript"
+      },
+      "patch_coverage": {
+        "n_runs": 65994,
+        "n_runs_with_patch": 1538,
+        "run_patch_rate": 0.023305148952935114,
+        "empty_patch_is_a_real_outcome": false,
+        "taxonomy_scope": "runs whose final patch was recovered from the transcript",
+        "n_edits_total": 195707,
+        "n_edits_in_scope": 4123,
+        "edit_coverage": 0.021067207611378234,
+        "patch_sources": {
+          "none": 64456,
+          "derived:last git-diff in tool output": 1538
+        }
+      },
+      "taxonomy": {
+        "n_edits": 4123,
+        "n_runs": 1339,
+        "kept_rate": 0.48872180451127817,
+        "revised_rate": 0.275527528498666,
+        "dead_end_rate": 0.23575066699005578,
+        "wasted_pooled": 0.5112781954887218,
+        "decomposition_check": 1.0,
+        "mean_edits_per_run": 3.0791635548917102,
+        "volume": {
+          "kept_edits": 2015,
+          "revised_edits": 1136,
+          "dead_end_edits": 972,
+          "mean_dead_end_per_run": 0.7259148618371919,
+          "frac_runs_with_no_dead_end": 0.48917102315160566
+        },
+        "unsuperseded_subset": {
+          "n": 1855,
+          "kept_rate": 0.476010781671159
+        },
+        "scratch_files": {
+          "share_of_all_edits": 0.06451612903225806,
+          "share_of_kept_edits": 0.021339950372208438,
+          "share_of_dead_end_edits": 0.1697530864197531,
+          "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+        },
+        "run_shape": {
+          "mean_edits_per_run": 3.0791635548917102,
+          "median_edits_per_run": 2.0,
+          "frac_runs_editing_one_file_only": 0.7908887229275579,
+          "mean_distinct_files_per_run": 1.3517550410754293
+        }
+      },
+      "taxonomy_all_edits_note": "for the two corpora that ship a patch column (nebius_openhands, swegym) an empty patch is a real outcome and those runs are *in* scope, exactly as the frozen SWE-agent pipeline treated them; for the corpora whose patch is recovered from the transcript, a run with no recovered patch is unmeasurable rather than empty, so it is out of scope. See patch_coverage.edit_coverage.",
+      "gold": {
+        "n_runs_with_edits": 61152,
+        "n_instances_with_edits": 10879,
+        "n_instances_with_gold": 0,
+        "n_runs_with_gold": 0,
+        "ever_touched_gold_all_runs": 0.0,
+        "on_target_gold_all_runs": 0.0,
+        "note": "no instance of this corpus has a gold patch in gold_patches.parquet"
+      },
+      "own_patch_target": {
+        "n_runs": 61152,
+        "mean_on_target_own_patch": 0.01787024391334144
+      },
+      "test_outcomes": {
+        "n_steps": 2263549,
+        "n_runs": 65994,
+        "strict_step_rate": 0.042828319599001394,
+        "loose_step_rate": 0.12805333571307712,
+        "runs_with_any_test_step": 0.8732308997787678,
+        "runs_with_strict_summary": 0.46614843773676395,
+        "exit_code_step_rate": 0.9702577677797123,
+        "runs_with_exit_code": 0.9999696942146256
+      },
+      "verdicts": {
+        "footer": "ABSENT as `[File: \u2026 (N lines total)]`; a size is stated on 0.000% of steps only (an error path), so it cannot label edits",
+        "taxonomy_l1_vs_swe_agent": 0.6968613024414707,
+        "taxonomy_vector": [
+          0.48872180451127817,
+          0.275527528498666,
+          0.23575066699005578
+        ],
+        "taxonomy": "DOES NOT REPLICATE \u2014 kept 0.489 / revised 0.276 / dead_end 0.236 (L1 0.697 from the SWE-agent vector), over 4,123 edits in 1,339 runs, i.e. 2.1% of this corpus's edit steps",
+        "gold": "NOT COMPUTABLE \u2014 no instance of this corpus has a gold patch in gold_patches.parquet",
+        "tests": "strict pytest/unittest summary on 4.28% of steps (12.81% with any test marker, including framework summaries); 46.6% of runs contain one"
+      }
+    },
+    "thoughtworks": {
+      "label": "multi-framework \u2014 thoughtworks/agentic-coding-trajectories",
+      "markers": {
+        "n_steps": 619394,
+        "n_edit_steps": 113957,
+        "footer_step_rate": 0.0,
+        "footer_edit_step_rate": 0.0,
+        "lines_total_step_rate": 0.0,
+        "catn_step_rate": 0.16297219540389477,
+        "truncated_step_rate": 8.072406255146158e-06,
+        "runs_with_any_footer": 0.0,
+        "edits_with_named_target_rate": 0.9967619365199154,
+        "n_runs": 15000,
+        "n_tool_obs": 603019,
+        "obs_with_footer": 0,
+        "obs_with_lines_total": 0,
+        "obs_with_catn": 100944,
+        "obs_truncated": 5,
+        "first_footer_literal": null,
+        "first_footer_obs_snippet": null,
+        "first_lines_total_literal": null,
+        "first_catn_literal": "Here's the result of running `cat -n` on /testbed/conan/internal/cache/cache.py:\r\n    20\t\r\n    21\tclass PkgCache:\r\n    22\t    \"\"\" Class to represent the recipes and packages storage in disk\r\n    23\t    \"\"\"\r\n    24\t\r\n    25\t    def __init__(self, cache_folder, global_conf):\r\n    26\t        # paths\r\n ",
+        "max_numbered_line_seen": 106465,
+        "n_edits": 113957,
+        "n_edits_with_target_path": 113588,
+        "n_runs_with_patch": 6371,
+        "patch_chars_total": 44664839,
+        "added_lines_total": 3125249,
+        "n_runs_patch_from_column": 0,
+        "n_runs_patch_recovered": 6371,
+        "patch_trust": "recovered_from_transcript"
+      },
+      "patch_coverage": {
+        "n_runs": 15000,
+        "n_runs_with_patch": 6371,
+        "run_patch_rate": 0.42473333333333335,
+        "empty_patch_is_a_real_outcome": false,
+        "taxonomy_scope": "runs whose final patch was recovered from the transcript",
+        "n_edits_total": 113957,
+        "n_edits_in_scope": 55742,
+        "edit_coverage": 0.48914941600779244,
+        "patch_sources": {
+          "none": 8629,
+          "derived:last git-diff in tool output": 6371
+        }
+      },
+      "taxonomy": {
+        "n_edits": 55742,
+        "n_runs": 6363,
+        "kept_rate": 0.7064152703526964,
+        "revised_rate": 0.11450970542858167,
+        "dead_end_rate": 0.17907502421872196,
+        "wasted_pooled": 0.29358472964730364,
+        "decomposition_check": 1.0,
+        "mean_edits_per_run": 8.760333176174761,
+        "volume": {
+          "kept_edits": 39377,
+          "revised_edits": 6383,
+          "dead_end_edits": 9982,
+          "mean_dead_end_per_run": 1.5687568756875687,
+          "frac_runs_with_no_dead_end": 0.49583529781549585
+        },
+        "unsuperseded_subset": {
+          "n": 31943,
+          "kept_rate": 0.6875058698306358
+        },
+        "scratch_files": {
+          "share_of_all_edits": 0.49293172114384126,
+          "share_of_kept_edits": 0.49386697818523506,
+          "share_of_dead_end_edits": 0.5819475055099178,
+          "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+        },
+        "run_shape": {
+          "mean_edits_per_run": 8.760333176174761,
+          "median_edits_per_run": 7.0,
+          "frac_runs_editing_one_file_only": 0.01272984441301273,
+          "mean_distinct_files_per_run": 5.017916077322018
+        },
+        "within_instance": {
+          "rate": {
+            "n_instances": 41,
+            "mean_delta": 0.05166309764916413,
+            "median_delta": 0.0,
+            "frac_positive": 0.43902439024390244,
+            "p": 0.44168126821695186
+          },
+          "dead": {
+            "n_instances": 41,
+            "mean_delta": 0.0019578339537776553,
+            "median_delta": 0.0,
+            "frac_positive": 0.4146341463414634,
+            "p": 0.7188590881740118
+          }
+        }
+      },
+      "taxonomy_all_edits_note": "for the two corpora that ship a patch column (nebius_openhands, swegym) an empty patch is a real outcome and those runs are *in* scope, exactly as the frozen SWE-agent pipeline treated them; for the corpora whose patch is recovered from the transcript, a run with no recovered patch is unmeasurable rather than empty, so it is out of scope. See patch_coverage.edit_coverage.",
+      "gold": {
+        "n_runs_with_edits": 14895,
+        "n_instances_with_edits": 9921,
+        "n_instances_with_gold": 227,
+        "n_runs_with_gold": 348,
+        "ever_touched_gold_all_runs": 0.022356495468277945,
+        "on_target_gold_all_runs": 0.005542263947647466,
+        "pooled": {
+          "n_runs": 348,
+          "ever_touched_gold": 0.9568965517241379,
+          "on_target_gold": 0.2372184525868075,
+          "median_on_target_gold": 0.2,
+          "solved": {
+            "n": 267,
+            "ever_touched_gold": 0.9925093632958801,
+            "on_target_gold": 0.24123354718034157
+          },
+          "failed": {
+            "n": 81,
+            "ever_touched_gold": 0.8395061728395061,
+            "on_target_gold": 0.22398351114886164
+          },
+          "delta_solved_minus_failed": {
+            "ever_touched_gold": 0.153003190456374,
+            "on_target_gold": 0.017250036031479926
+          }
+        },
+        "within_instance": {
+          "n_instances": 13,
+          "n_runs": 32,
+          "ever_touched_gold": {
+            "solved": 0.9615384615384616,
+            "failed": 0.8461538461538461,
+            "mean_delta": 0.11538461538461539,
+            "frac_positive": 0.15384615384615385,
+            "p": 0.17971249487899976
+          },
+          "on_target_gold": {
+            "solved": 0.27051335416720035,
+            "failed": 0.20769614690061586,
+            "mean_delta": 0.06281720726658445,
+            "frac_positive": 0.6153846153846154,
+            "p": 0.13609738111439368
+          }
+        }
+      },
+      "own_patch_target": {
+        "n_runs": 14895,
+        "mean_on_target_own_patch": 0.31946301906808605,
+        "solved": 0.4710192172322286,
+        "failed": 0.25123248062869397,
+        "delta_solved_minus_failed": 0.21978673660353465
+      },
+      "test_outcomes": {
+        "n_steps": 619394,
+        "n_runs": 15000,
+        "strict_step_rate": 0.0623883989835226,
+        "loose_step_rate": 0.17845829956376716,
+        "runs_with_any_test_step": 0.8831333333333333,
+        "runs_with_strict_summary": 0.5155333333333333,
+        "exit_code_step_rate": 0.48455587235265435,
+        "runs_with_exit_code": 0.7237333333333333
+      },
+      "by_framework": {
+        "mini-swe-agent": {
+          "n_runs": 5000,
+          "n_steps": 137164,
+          "n_edits": 14705,
+          "footer_step_rate": 0.0,
+          "catn_step_rate": 0.0,
+          "strict_test_step_rate": 0.04063748505438745,
+          "loose_test_step_rate": 0.12815315972120964,
+          "run_patch_rate": 0.0196,
+          "n_edits_in_patched_runs": 301,
+          "edit_coverage": 0.02046922815368922,
+          "taxonomy": {
+            "n_edits": 301,
+            "n_runs": 91,
+            "kept_rate": 0.5249169435215947,
+            "revised_rate": 0.26578073089701,
+            "dead_end_rate": 0.20930232558139536,
+            "wasted_pooled": 0.4750830564784053,
+            "decomposition_check": 1.0,
+            "mean_edits_per_run": 3.3076923076923075,
+            "volume": {
+              "kept_edits": 158,
+              "revised_edits": 80,
+              "dead_end_edits": 63,
+              "mean_dead_end_per_run": 0.6923076923076923,
+              "frac_runs_with_no_dead_end": 0.4725274725274725
+            },
+            "unsuperseded_subset": {
+              "n": 119,
+              "kept_rate": 0.47058823529411764
+            },
+            "scratch_files": {
+              "share_of_all_edits": 0.04318936877076412,
+              "share_of_kept_edits": 0.0,
+              "share_of_dead_end_edits": 0.1746031746031746,
+              "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+            },
+            "run_shape": {
+              "mean_edits_per_run": 3.3076923076923075,
+              "median_edits_per_run": 2.0,
+              "frac_runs_editing_one_file_only": 0.7802197802197802,
+              "mean_distinct_files_per_run": 1.2967032967032968
+            }
+          },
+          "gold": {
+            "n_runs_with_edits": 4907,
+            "n_instances_with_edits": 3017,
+            "n_instances_with_gold": 0,
+            "n_runs_with_gold": 0,
+            "ever_touched_gold_all_runs": 0.0,
+            "on_target_gold_all_runs": 0.0,
+            "note": "no instance of this corpus has a gold patch in gold_patches.parquet"
+          }
+        },
+        "openhands": {
+          "n_runs": 5000,
+          "n_steps": 320769,
+          "n_edits": 53357,
+          "footer_step_rate": 0.0,
+          "catn_step_rate": 0.20663779854038264,
+          "strict_test_step_rate": 0.09298280070705087,
+          "loose_test_step_rate": 0.2332426138436071,
+          "run_patch_rate": 0.4096,
+          "n_edits_in_patched_runs": 19406,
+          "edit_coverage": 0.3637011076334876,
+          "taxonomy": {
+            "n_edits": 19406,
+            "n_runs": 2047,
+            "kept_rate": 0.41353189735133467,
+            "revised_rate": 0.15392146758734412,
+            "dead_end_rate": 0.43254663506132124,
+            "wasted_pooled": 0.5864681026486653,
+            "decomposition_check": 1.0,
+            "mean_edits_per_run": 9.480214948705422,
+            "volume": {
+              "kept_edits": 8025,
+              "revised_edits": 2987,
+              "dead_end_edits": 8394,
+              "mean_dead_end_per_run": 4.100635075720566,
+              "frac_runs_with_no_dead_end": 0.07669760625305325
+            },
+            "unsuperseded_subset": {
+              "n": 13429,
+              "kept_rate": 0.37493484250502646
+            },
+            "scratch_files": {
+              "share_of_all_edits": 0.5265897145212821,
+              "share_of_kept_edits": 0.34604361370716513,
+              "share_of_dead_end_edits": 0.6655944722420777,
+              "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+            },
+            "run_shape": {
+              "mean_edits_per_run": 9.480214948705422,
+              "median_edits_per_run": 8.0,
+              "frac_runs_editing_one_file_only": 0.0,
+              "mean_distinct_files_per_run": 6.556424035173425
+            },
+            "within_instance": {
+              "rate": {
+                "n_instances": 25,
+                "mean_delta": 0.017415290307873425,
+                "median_delta": 0.008333333333333331,
+                "frac_positive": 0.52,
+                "p": 0.703790354306685
+              },
+              "dead": {
+                "n_instances": 25,
+                "mean_delta": 0.040154927056461565,
+                "median_delta": 0.036363636363636376,
+                "frac_positive": 0.52,
+                "p": 0.5429658177491163
+              }
+            }
+          },
+          "gold": {
+            "n_runs_with_edits": 4999,
+            "n_instances_with_edits": 3411,
+            "n_instances_with_gold": 227,
+            "n_runs_with_gold": 348,
+            "ever_touched_gold_all_runs": 0.0666133226645329,
+            "on_target_gold_all_runs": 0.016513707041450092,
+            "pooled": {
+              "n_runs": 348,
+              "ever_touched_gold": 0.9568965517241379,
+              "on_target_gold": 0.2372184525868075,
+              "median_on_target_gold": 0.2,
+              "solved": {
+                "n": 267,
+                "ever_touched_gold": 0.9925093632958801,
+                "on_target_gold": 0.24123354718034157
+              },
+              "failed": {
+                "n": 81,
+                "ever_touched_gold": 0.8395061728395061,
+                "on_target_gold": 0.22398351114886164
+              },
+              "delta_solved_minus_failed": {
+                "ever_touched_gold": 0.153003190456374,
+                "on_target_gold": 0.017250036031479926
+              }
+            },
+            "within_instance": {
+              "n_instances": 13,
+              "n_runs": 32,
+              "ever_touched_gold": {
+                "solved": 0.9615384615384616,
+                "failed": 0.8461538461538461,
+                "mean_delta": 0.11538461538461539,
+                "frac_positive": 0.15384615384615385,
+                "p": 0.17971249487899976
+              },
+              "on_target_gold": {
+                "solved": 0.27051335416720035,
+                "failed": 0.20769614690061586,
+                "mean_delta": 0.06281720726658445,
+                "frac_positive": 0.6153846153846154,
+                "p": 0.13609738111439368
+              }
+            }
+          }
+        },
+        "swe-agent": {
+          "n_runs": 5000,
+          "n_steps": 161461,
+          "n_edits": 45895,
+          "footer_step_rate": 0.0,
+          "catn_step_rate": 0.21467103511064592,
+          "strict_test_step_rate": 0.02008534568719381,
+          "loose_test_step_rate": 0.11235530561559758,
+          "run_patch_rate": 0.845,
+          "n_edits_in_patched_runs": 36035,
+          "edit_coverage": 0.7851617823292297,
+          "taxonomy": {
+            "n_edits": 36035,
+            "n_runs": 4225,
+            "kept_rate": 0.8656583876786458,
+            "revised_rate": 0.09202164562231165,
+            "dead_end_rate": 0.042319966699042595,
+            "wasted_pooled": 0.13434161232135422,
+            "decomposition_check": 1.0,
+            "mean_edits_per_run": 8.528994082840237,
+            "volume": {
+              "kept_edits": 31194,
+              "revised_edits": 3316,
+              "dead_end_edits": 1525,
+              "mean_dead_end_per_run": 0.3609467455621302,
+              "frac_runs_with_no_dead_end": 0.6994082840236686
+            },
+            "unsuperseded_subset": {
+              "n": 18395,
+              "kept_rate": 0.91709703723838
+            },
+            "scratch_files": {
+              "share_of_all_edits": 0.4785625086721243,
+              "share_of_kept_edits": 0.5343976405719049,
+              "share_of_dead_end_edits": 0.13836065573770492,
+              "note": "scratch-named = basename matches repro*/tmp*/temp*/scratch*/debug*/check*/verify*/demo*/example*/test_*; these are files the agent itself created and left in the tree, so they land in the workspace diff without being the intended change"
+            },
+            "run_shape": {
+              "mean_edits_per_run": 8.528994082840237,
+              "median_edits_per_run": 7.0,
+              "frac_runs_editing_one_file_only": 0.002366863905325444,
+              "mean_distinct_files_per_run": 4.352662721893491
+            },
+            "within_instance": {
+              "rate": {
+                "n_instances": 13,
+                "mean_delta": 0.010856775327094349,
+                "median_delta": 0.0,
+                "frac_positive": 0.23076923076923078,
+                "p": 0.8589549227374824
+              },
+              "dead": {
+                "n_instances": 13,
+                "mean_delta": 0.015492155053334214,
+                "median_delta": 0.0,
+                "frac_positive": 0.3076923076923077,
+                "p": 0.13801073756865953
+              }
+            }
+          },
+          "gold": {
+            "n_runs_with_edits": 4989,
+            "n_instances_with_edits": 4305,
+            "n_instances_with_gold": 0,
+            "n_runs_with_gold": 0,
+            "ever_touched_gold_all_runs": 0.0,
+            "on_target_gold_all_runs": 0.0,
+            "note": "no instance of this corpus has a gold patch in gold_patches.parquet"
+          }
+        }
+      },
+      "verdicts": {
+        "footer": "ABSENT \u2014 no observation states a file's line count",
+        "taxonomy_l1_vs_swe_agent": 1.034963151269285,
+        "taxonomy_vector": [
+          0.7064152703526964,
+          0.11450970542858167,
+          0.17907502421872196
+        ],
+        "taxonomy": "DOES NOT REPLICATE \u2014 kept 0.706 / revised 0.115 / dead_end 0.179 (L1 1.035 from the SWE-agent vector), over 55,742 edits in 6,363 runs, i.e. 48.9% of this corpus's edit steps",
+        "gold": "REPLICATES \u2014 pooled solved runs on_target_gold 0.241 vs failed 0.224 (delta +0.017); ever_touched_gold 0.993 vs 0.840 (delta +0.153); within-instance on 13 contested instances 0.271 solved vs 0.208 failed (delta +0.063, p=0.13609738111439368)",
+        "tests": "strict pytest/unittest summary on 6.24% of steps (17.85% with any test marker, including framework summaries); 51.6% of runs contain one"
+      }
+    }
+  },
+  "reference_matched_scope": {
+    "swegym": {
+      "scope": null,
+      "kept": 0.15734086568390385,
+      "revised": 0.6515751449370493,
+      "dead_end": 0.19108398937904691,
+      "n_edits": 236137,
+      "source": "results/rebuild/xscaffold_calibration.json"
+    },
+    "pi": {
+      "scope": "strictly comparable with scaffolds whose final patch has to be recovered from the transcript, where a run with no patch cannot be distinguished from a run with an empty patch",
+      "kept": 0.18893369471805382,
+      "revised": 0.6239581797194014,
+      "dead_end": 0.1871081255625448,
+      "n_edits": 196651,
+      "source": "results/rebuild/xscaffold_calibration.json"
+    },
+    "smithmarines": {
+      "scope": "strictly comparable with scaffolds whose final patch has to be recovered from the transcript, where a run with no patch cannot be distinguished from a run with an empty patch",
+      "kept": 0.18893369471805382,
+      "revised": 0.6239581797194014,
+      "dead_end": 0.1871081255625448,
+      "n_edits": 196651,
+      "source": "results/rebuild/xscaffold_calibration.json"
+    },
+    "thoughtworks": {
+      "scope": "strictly comparable with scaffolds whose final patch has to be recovered from the transcript, where a run with no patch cannot be distinguished from a run with an empty patch",
+      "kept": 0.18893369471805382,
+      "revised": 0.6239581797194014,
+      "dead_end": 0.1871081255625448,
+      "n_edits": 196651,
+      "source": "results/rebuild/xscaffold_calibration.json"
+    }
+  }
+}

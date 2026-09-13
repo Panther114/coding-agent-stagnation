@@ -84,17 +84,15 @@ TRICKY: Sequence[Tuple[str, re.Pattern, str]] = (
      re.compile(r"\d+ deselected"),
      "`54 deselected` is not 54 tests"),
     ("truncated output",
-     re.compile(r"=[= ]{0,40}(?:FA|FAIL|shor)\s*$", re.M),
-     "the terminal summary is cut off; the step must stay `unknown`, not `all_pass`"),
+     re.compile(r"\[\s*\d+%\]"),
+     "progress is visible but no summary follows, so the step must stay `unknown`; "
+     "`truncated` is exactly `progress and not _verdict_present`"),
     ("elided failure message",
      re.compile(r"^FAILED \S+ - \w+\s*\.\.\.$", re.M),
-     "pytest's own truncation, not the harness's"),
+     "pytest's own truncation, not the harness's: the node id survives intact"),
     ("no tests collected",
      re.compile(r"collected 0 items"),
      "must be `no_tests`, distinct from a pass"),
-    ("unittest with zero tests",
-     re.compile(r"^Ran 0 tests in "),
-     "unittest prints `OK` for a run that tested nothing"),
 )
 
 

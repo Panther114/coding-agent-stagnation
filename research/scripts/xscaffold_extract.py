@@ -34,6 +34,7 @@ plus ``results/rebuild/xscaffold_markers.json`` (the literal marker evidence).
 from __future__ import annotations
 
 import argparse
+import gc
 import hashlib
 import json
 import re
@@ -46,7 +47,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from agentstall.corpus import parse_obs_state  # noqa: E402  (read-only reuse)
+from agentstall.corpus import _EXIT_CODE, _XML_RETCODE  # noqa: E402  (read-only reuse)
 
 RAW = ROOT / "data" / "raw" / "xscaffold"
 PROC = ROOT / "data" / "processed" / "xscaffold"
@@ -70,9 +71,9 @@ TRUNCATION = re.compile(
     r"|output was too long"
     r"|\[Output truncated", re.I)
 
-# pytest / unittest summaries (used only to *measure* coverage, never to judge)
+# pytest / unittest summaries (used only to *measure* coverage, never to judge).
 TEST_SUMMARY = re.compile(
-    r"(?:^|\s)(\d+)\s+(passed|failed|error|errors|skipped|xfailed|xpassed)\b", re.I)
+    r"(?<![\d.])(\d{1,6})\s+(passed|failed|error|errors|skipped|xfailed|xpassed)\b", re.I)
 TEST_SESSION = re.compile(
     r"test session starts|collected \d+ items?|={3,}.*\bin \d+\.\d+s"
     r"|^\s*(?:PASSED|FAILED|ERROR)\b|^[ok]+\s+\S+\s+\d+\.\d+s|^FAIL\b", re.M)
@@ -141,29 +142,45 @@ def fenced_bash(text: str) -> List[str]:
 _TESTY_HINTS = ("passed", "failed", "FAILED", "PASSED", "test session", "collected ",
                 "pytest", "unittest", "ERROR", "error", "Exit code", "exit code",
                 "returncode", "assert", "Assertion")
+_TEST_MARKERS = ("test session starts", "collected ", "passed", "failed", "PASSED",
+                 "FAILED", "ok\t", "== FAIL", "::", "pytest")
+_TEST_SESSION_SAFE = re.compile(r"test session starts|collected \d+ items?|={5,} .{0,80}? in \d+\.\d+s")
 _TRUNC_HINTS = ("...", "truncat", "too long", "hidden")
-_NUM_HINTS = ("\t",)
 
 
 def obs_test_summary(obs: str) -> Dict[str, Any]:
     """Per-step test outcome, measured exactly.  Counts only, no judgement.
 
-    Each check is guarded by a plain substring test first: the observations in
-    these corpora reach 100 kB and the trajectories reach millions of steps, so
-    running fifteen regexes over every one of them is the difference between a
-    minute and an hour.
+    The frozen ``agentstall.corpus.parse_obs_state`` is *not* called here.  Its
+    ``_PYTEST_SHORT`` pattern, ``[=!]{3,}.*?(\\d+)\\s+(passed|failed|error).*?[=!]{3,}``,
+    backtracks quadratically on a single long line, and the OpenHands observations in these
+    corpora reach 100 kB -- a watchdog traceback put the whole run inside it.  The bounded
+    pieces it is made of are reused directly (``_EXIT_CODE``, ``_XML_RETCODE``) and the test
+    markers are matched with explicitly bounded patterns.
+
+    Every check is also guarded by a plain substring test first: with millions of steps,
+    running a dozen regexes over each observation is the difference between a minute and
+    an hour.
     """
     o = obs or ""
+    base = {"test_strict": 0, "test_loose": 0, "n_pass": None, "n_fail": None,
+            "n_err": None, "exit_code": None, "has_footer": 0, "has_lines_total": 0,
+            "has_catn": 0, "truncated": 0, "max_numbered": 0}
     if not o:
-        return {"test_strict": 0, "test_loose": 0, "n_pass": None, "n_fail": None,
-                "n_err": None, "exit_code": None, "has_footer": 0, "has_lines_total": 0,
-                "has_catn": 0, "truncated": 0, "max_numbered": 0}
-    testy = any(h in o for h in _TESTY_HINTS)
-    n_pass = n_fail = n_err = None
-    strict = loose = 0
+        return base
+
+    head, tail = o[:8000], o[-8000:]
     exit_code = None
-    if testy:
-        st = parse_obs_state(o)
+    m = _EXIT_CODE.search(tail) or _EXIT_CODE.search(head)
+    if m:
+        exit_code = int(m.group(1))
+    m = _XML_RETCODE.search(head) or _XML_RETCODE.search(tail)
+    if m:
+        exit_code = int(m.group(1))
+
+    n_pass = n_fail = n_err = None
+    strict = 0
+    if any(h in o for h in _TESTY_HINTS):
         last: Dict[str, int] = {}
         for m in TEST_SUMMARY.finditer(o):
             last[m.group(2).rstrip("s").lower()] = int(m.group(1))
@@ -172,24 +189,19 @@ def obs_test_summary(obs: str) -> Dict[str, Any]:
             n_pass = last.get("passed")
             n_fail = last.get("failed")
             n_err = last.get("error")
-        loose = int(bool(st.test_ran) or bool(TEST_SESSION.search(o)) or bool(strict))
-        exit_code = st.exit_code
-    has_footer = int("[File:" in o and bool(FILE_HDR.search(o)))
-    has_lines_total = int("lines total" in o and bool(LINES_TOTAL_ANY.search(o)))
-    has_catn = int("cat -n` on" in o and bool(CATN_HEADER.search(o)))
-    truncated = int(any(h in o for h in _TRUNC_HINTS) and bool(TRUNCATION.search(o)))
-    max_numbered = 0
-    if any(h in o for h in _NUM_HINTS):
-        nums = NUMBERED_TAB.findall(o)
-        if nums:
-            max_numbered = max(int(x) for x in nums)
+    loose = int(bool(strict) or any(h in o for h in _TEST_MARKERS)
+                or bool(_TEST_SESSION_SAFE.search(o)))
+
+    nums = NUMBERED_TAB.findall(o) if "\t" in o else []
     return {
         "test_strict": strict, "test_loose": loose,
         "n_pass": n_pass, "n_fail": n_fail, "n_err": n_err,
         "exit_code": exit_code,
-        "has_footer": has_footer, "has_lines_total": has_lines_total,
-        "has_catn": has_catn, "truncated": truncated,
-        "max_numbered": max_numbered,
+        "has_footer": int("[File:" in o and bool(FILE_HDR.search(o))),
+        "has_lines_total": int("lines total" in o and bool(LINES_TOTAL_ANY.search(o))),
+        "has_catn": int("cat -n` on" in o and bool(CATN_HEADER.search(o))),
+        "truncated": int(any(h in o for h in _TRUNC_HINTS) and bool(TRUNCATION.search(o))),
+        "max_numbered": (max(int(x) for x in nums) if nums else 0),
     }
 
 
@@ -260,13 +272,19 @@ def _step_from_tool_call(i: int, fn: dict, obs: str) -> Dict[str, Any]:
         elif sub in ("str_replace", "insert", "edit"):
             is_edit = True
             lines = str(args.get("new_str") or args.get("new_string") or args.get("content") or "").splitlines()
-        elif sub == "undo_edit":
-            is_edit = True
-            lines = []
+            if not lines:
+                # the PI agent's `edit` tool: {"path": ..., "edits": [{"oldText":…, "newText":…}]}
+                # Every `newText` is text the step wrote, so all of its lines are new.
+                for e in (args.get("edits") or []):
+                    if isinstance(e, dict):
+                        lines += str(e.get("newText") or e.get("new_text")
+                                     or e.get("new_str") or "").splitlines()
         elif name == "apply_patch":
             is_edit = True
             lines = [l[1:] for l in str(args.get("patch") or args.get("input") or "").splitlines()
                      if l.startswith("+") and not l.startswith("+++")]
+        elif sub == "undo_edit":
+            is_edit = True          # an edit action that introduces no line (frozen study: same)
     elif name in ("bash", "execute_bash", "run", "terminal", "shell"):
         raw = str(args.get("command") or args.get("cmd") or args.get("input") or "")
         cmd = raw
@@ -274,25 +292,70 @@ def _step_from_tool_call(i: int, fn: dict, obs: str) -> Dict[str, Any]:
     return _mk_step(i, is_edit, target, lines, obs, name, cmd)
 
 
-_HEREDOC = re.compile(r"<<\s*'?(\w+)'?\s*\n(.*?)\n\1\s*$", re.S | re.M)
+_HEREDOC = re.compile(r"<<\s*'?\"?(\w+)'?\"?\s*\n(.*?)\n\1\s*$", re.S | re.M)
 _REDIR = re.compile(r"(?:>|>>)\s*'?\"?([\w./\-]+\.\w+)")
+
+
+def _pick_heredoc(body: str) -> Optional[Tuple[str, List[str]]]:
+    """The heredoc that carries the *new* text, when a command contains several.
+
+    mini-swe-agent edits as ``old=$(cat <<'OLD' … OLD) && new=$(cat <<'NEW' … NEW) &&
+    python edit_via_str_replace f -- "$old" "$new"``.  Taking the first heredoc -- which is
+    what a plain ``search`` does -- picks up the text being *replaced* and inverts the
+    measurement, so a delimiter containing ``new`` wins and the last heredoc is the fallback.
+    """
+    cands = [(m.group(1), m.group(2)) for m in _HEREDOC.finditer(body)]
+    if not cands:
+        return None
+    for name, text in cands:
+        if "new" in name.lower():
+            return name, text.splitlines()
+    return cands[-1][0], cands[-1][1].splitlines()
 
 
 def _bash_edit(raw: str) -> Tuple[str, List[str], bool]:
     """A bash command that writes a file: heredoc, ``sed -i``, python ``open(...,'w')``."""
     body = raw or ""
-    m = _HEREDOC.search(body)
-    if m:
+    hd = _pick_heredoc(body)
+    if hd is not None:
         r = _REDIR.search(body)
-        return (r.group(1) if r else ""), m.group(2).splitlines(), True
-    if re.search(r"\bsed\s+-i\b|\btee\b\s|(?<!<)>>?\s*\S", body) and re.search(
-            r"\bsed\s+-i|\btee\b\s|cat\s*>|printf\s*>|echo\s+.*>", body):
+        target = r.group(1) if r else ""
+        if not target:
+            m = re.search(r"edit_via_str_replace\s+(\S+)", body)
+            if m:
+                target = m.group(1)
+        return target, hd[1], True
+    if re.search(r"\bsed\s+-i|\btee\b\s|cat\s*>|printf\s*>|echo\s+.*>", body):
         r = _REDIR.search(body)
         return (r.group(1) if r else ""), [], True
     mm = re.search(r"open\(\s*['\"]([^'\"]+)['\"]\s*,\s*['\"][wa]", body)
     if mm:
         return mm.group(1), [], True
     return "", [], False
+
+
+# SWE-smith / OpenHands-command transcripts pass the text inline as a single-quoted shell
+# argument with the newlines written as literal ``\n``: 
+#   str_replace_editor create /testbed/reproduce_error.py --file_text 'import os\nimport sys\n'
+_SQ = r"'((?:[^'\\]|\\.)*)'"
+_INLINE = {
+    "file_text": re.compile(r"--file_text[\s=]+" + _SQ, re.S),
+    "new_str": re.compile(r"--new_str[\s=]+" + _SQ, re.S),
+    "new_string": re.compile(r"--new_string[\s=]+" + _SQ, re.S),
+}
+_ESC = re.compile(r"\\(.)")
+_ESC_MAP = {"n": "\n", "t": "\t", "r": "\r", "'": "'", '"': '"', "\\": "\\"}
+
+
+def _unescape_shell(s: str) -> str:
+    return _ESC.sub(lambda m: _ESC_MAP.get(m.group(1), m.group(1)), s)
+
+
+def _inline_lines(body: str, key: str) -> List[str]:
+    m = _INLINE[key].search(body)
+    if not m:
+        return []
+    return _unescape_shell(m.group(1)).splitlines()
 
 
 def check_swe_messages(msgs: Sequence[dict]) -> List[Dict[str, Any]]:
@@ -313,10 +376,11 @@ def check_swe_messages(msgs: Sequence[dict]) -> List[Dict[str, Any]]:
                     body = b
                     if sub == "create":
                         is_edit = True
-                        lines = _extract_create_text(body)
+                        lines = _extract_create_text(body) or _inline_lines(body, "file_text")
                     elif sub in ("str_replace", "insert"):
                         is_edit = True
-                        lines = _extract_new_str(body)
+                        lines = (_extract_new_str(body) or _inline_lines(body, "new_str")
+                                 or _inline_lines(body, "new_string"))
                 else:
                     target, lines, is_edit = _bash_edit(b)
                 steps.append(_mk_step(len(steps), is_edit, target, lines, "", "bash", b))
@@ -393,7 +457,16 @@ def parquet_files(corpus: str) -> List[Path]:
 
 
 def iter_rows(corpus: str, limit: Optional[int] = None) -> Iterator[Dict[str, Any]]:
-    """Yield one normalised run record per corpus row."""
+    """Yield one normalised run record per corpus row.
+
+    Every record gets a corpus-unique ``run_id``.  This matters: in
+    ``SWE-Gym/OpenHands-Sampled-Trajectories`` the ``run_id`` column is a *sampling
+    label* shared by thousands of instances (2429 rows share one value), and in the PI
+    corpus ``task_id`` repeats too, so neither column is a key.  An ordinal appended to
+    the natural id makes the identity stable across re-runs of this script and unique
+    within a corpus, which the taxonomy's "was this file edited again in this run"
+    question requires.
+    """
     import pyarrow.parquet as pq
 
     n = 0
@@ -404,6 +477,8 @@ def iter_rows(corpus: str, limit: Optional[int] = None) -> Iterator[Dict[str, An
                 rec = ROW_BUILDERS[corpus](r)
                 if rec is None:
                     continue
+                rec["run_id"] = f"{rec['run_id']}::r{n}"
+                rec["ordinal"] = n
                 yield rec
                 n += 1
                 if limit and n >= limit:
@@ -531,7 +606,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--corpus", default=None)
     ap.add_argument("--limit", type=int, default=None)
-    ap.add_argument("--chunk", type=int, default=40000,
+    ap.add_argument("--chunk", type=int, default=20000,
                     help="rows buffered before a parquet chunk is flushed")
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
@@ -569,19 +644,24 @@ def main() -> None:
         }
 
         def flush() -> None:
+            # row_group_size is passed explicitly: left to its default a ParquetWriter
+            # accumulates up to a million rows in one in-memory row group, and with
+            # 3.7 M step rows from the 2 GB OpenHands corpus that is what killed the
+            # first attempt at this corpus part-way through.
             nonlocal sw, rw, sbuf, rbuf
             if sbuf:
                 t = pa.Table.from_pylist(sbuf)
                 if sw is None:
                     sw = pq.ParquetWriter(spath, t.schema)
-                sw.write_table(t)
+                sw.write_table(t, row_group_size=len(sbuf))
                 sbuf = []
             if rbuf:
                 t = pa.Table.from_pylist(rbuf)
                 if rw is None:
                     rw = pq.ParquetWriter(rpath, t.schema)
-                rw.write_table(t)
+                rw.write_table(t, row_group_size=len(rbuf))
                 rbuf = []
+            gc.collect()
 
         for rec in iter_rows(key, args.limit):
             ev["n_runs"] += 1
@@ -666,4 +746,22 @@ def main() -> None:
         print(f"  obs with [File: ...] footer : {ev['obs_with_footer']:,} "
               f"({ev['obs_with_footer']/max(ev['n_tool_obs'],1):.4%} of {ev['n_tool_obs']:,} obs)")
         print(f"  obs with '(N lines total)'   : {ev['obs_with_lines_total']:,}")
-        print(f"  obs with 'cat -n` on X:'     : {ev['obs_with_
+        print(f"  obs with 'cat -n` on X:'     : {ev['obs_with_catn']:,}")
+        if ev["first_footer_literal"]:
+            print(f"  LITERAL footer: {ev['first_footer_literal']!r}")
+        if ev["first_lines_total_literal"]:
+            print(f"  LITERAL lines-total: {ev['first_lines_total_literal']!r}")
+        if ev["first_catn_literal"]:
+            print(f"  LITERAL cat -n head: {ev['first_catn_literal'].splitlines()[0]!r}")
+        print(f"  edits {ev['n_edits']:,}, of which with a named target "
+              f"{ev['n_edits_with_target_path']:,}; runs with a recoverable patch "
+              f"{ev['n_runs_with_patch']:,}/{ev['n_runs']:,}")
+
+        # one file per corpus so several corpora can be extracted in parallel
+        (OUT / f"xscaffold_markers_{key}.json").write_text(
+            json.dumps({key: ev}, indent=2, default=str), encoding="utf-8")
+    print(f"\nwrote per-corpus marker files under {OUT}")
+
+
+if __name__ == "__main__":
+    main()

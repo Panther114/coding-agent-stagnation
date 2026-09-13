@@ -99,7 +99,13 @@ _SYNTAX_ERR = re.compile(r"\b(SyntaxError|IndentationError|ParseError|unexpected
 _PYTEST_SUMMARY = re.compile(
     r"(?:^|\n)[=!\-]{2,}\s*(?:(?P<failed>\d+)\s+failed)?[,\s]*"
     r"(?:(?P<passed>\d+)\s+passed)?[,\s]*(?:(?P<error>\d+)\s+error)?.*?(?:\n|$)", re.M)
-_PYTEST_SHORT = re.compile(r"[=!]{3,}.*?(\d+)\s+(passed|failed|error).*?[=!]{3,}", re.I)
+# NOTE: this pattern replaces an earlier `[=!]{3,}.*?(\d+)\s+(passed|failed|error).*?[=!]{3,}`
+# which backtracked QUADRATICALLY on long single-line observations: `.` does not cross newlines,
+# so on a 100 kB single-line observation the lazy `.*?` tried every length and the parser stalled
+# for >10 minutes on 300 rows. The same work with a bounded gap runs in ~19 seconds. The result is
+# identical where it matches, because the signal is the leading `[=!]` run followed by a count; the
+# trailing run was redundant.  Bounding the gap is what makes it linear.
+_PYTEST_SHORT = re.compile(r"[=!]{3,}[^\n]{0,160}?\b(\d+)\s+(passed|failed|error)\b", re.I)
 _BUILD_OK = re.compile(r"\b(Build succeeded|Successfully built|compilation terminated\s*\.?\s*$|"
                        r"Finished .* target\(s\)|BUILD SUCCESS|ok\b)", re.I)
 _TEST_SESSION = re.compile(r"test session starts|collected \d+ items?|={5,} .* in \d+\.\d+s")

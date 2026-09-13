@@ -1,0 +1,46 @@
+{
+ "n_steps": 709264,
+ "n_runs": 26679,
+ "runs_with_a_signal": 1184,
+ "runs_with_a_signal_frac": 0.044379474493046966,
+ "runs_where_agent_saw_a_pass": 756,
+ "runs_where_agent_saw_a_failure": 837,
+ "runs_with_new_failure_event": 708,
+ "steps_with_a_signal": 3869,
+ "steps_with_a_signal_frac": 0.005454950483881883,
+ "steps_truncated_before_a_verdict": 6,
+ "steps_with_progress_no_verdict": 5,
+ "runs_with_evaluator_verdict": 17178,
+ "evaluator_vs_agent_saw_failure": {
+  "agent_saw_fail=False|evaluator_ok=False": 16468,
+  "agent_saw_fail=False|evaluator_ok=True": 119,
+  "agent_saw_fail=True|evaluator_ok=False": 568,
+  "agent_saw_fail=True|evaluator_ok=True": 23
+ },
+ "among_runs_where_the_agent_saw_a_step_outcome": {
+  "n": 841,
+  "evaluator_ok_frac": 0.029726516052318668,
+  "no_step_ever_showed_a_failure_frac": 0.2972651605231867
+ },
+ "among_runs_without_any_step_outcome": {
+  "n": 16337,
+  "evaluator_ok_frac": 0.00716165758707229
+ },
+ "per_model": {
+  "swe-agent-llama-405b": {
+   "n_runs": 436,
+   "runs_with_a_signal_frac": 0.03211009174311927,
+   "evaluator_ok_frac": 0.0
+  },
+  "swe-agent-llama-70b": {
+   "n_runs": 24779,
+   "runs_with_a_signal_frac": 0.04499778037854635,
+   "evaluator_ok_frac": 0.00730414856542703
+  },
+  "swe-agent-llama-8b": {
+   "n_runs": 1464,
+   "runs_with_a_signal_frac": 0.03756830601092896,
+   "evaluator_ok_frac": 0.0
+  }
+ }
+}

@@ -1,5 +1,50 @@
 # Executive summary — what this study found
 
+## ⚠️ Current headline (read this first)
+
+> **A widely-used localisation statistic is self-referential and inverts the sign of the
+> solved-versus-failed comparison.** The conventional measure — the share of a run's edits aimed at
+> files in *that run's own final patch* — reports failed runs localising **better** (0.673) than
+> solved runs (0.585). Against an **independent gold patch**, the direction reverses (0.477 vs
+> 0.407). The robust binary form is unambiguous: **98.2% of solved and 69.1% of failed runs reach
+> the correct file.** So localisation is *bounded*: it can address at most the **30.9%** of failures
+> that never reach the file.
+>
+> **This is causal, not just correlational.** Holding a defect fixed and varying only how easy it is
+> to find, **100% of runs in both arms reached the correct file — and 62.8% of the unhinted runs
+> still failed.** Handing over the file raised success from 37.2% to 55.0% (failure-rate drop 0.178,
+> *below* the 0.309 ceiling predicted in advance; Fisher *p* = 0.126, **not** significant at this n).
+> A re-diagnosis prompt did not help.
+>
+> **The positive deliverable.** From a run's first 10–60% we predict whether a struggling agent needs
+> *search* or *verification*: **0.676–0.751** at separating lost from wrong-fix runs, where every
+> published-style heuristic (loop, burst, redundancy, output-shape) sits **at or below chance**
+> (0.407–0.539), with genuinely controlled false alarms (α = 0.05 → 0.046). As a policy it is worth
+> **0.764–0.800** against 0.732 (always verify) and 0.518 (always search).
+>
+> **Three of these are retractions of our own headlines**: "failed runs localise better" (metric
+> artifact), "zero false alarms at every budget" (circular), "step index beats every learned monitor"
+> (the baseline *was* the run's length). The qualitative thesis is **prior art**
+> ([arXiv:2603.24631](https://arxiv.org/abs/2603.24631), 60–69% on 16,758 trajectories; our 67.1% is
+> inside that range) — we reproduce it rather than discover it.
+>
+> **And it replicates twice on unseen data.** All 12 Nebius shards are now covered (80,035 runs) as
+> one frozen table plus two held-out replications:
+>
+> | set | shards | runs | self solved → failed | gold solved | gold failed | within-inst *p* | wrong-fix |
+> |---|---|---|---|---|---|---|---|
+> | frozen | 0–3 | 26,679 | 0.594 → **0.670** | **0.477** | 0.407 | 7.0e-03 | 67.0% |
+> | held-out A | 4–7 | 26,680 | 0.593 → **0.677** | **0.492** | 0.421 | 3.6e-03 | 69.0% |
+> | held-out B | 8–11 | 26,676 | 0.614 → **0.686** | **0.512** | 0.415 | **2.8e-05** | 66.4% |
+>
+> The broken metric inverts in all three sets, the correction reverses it back in all three, and the
+> wrong-fix share varies by **2.6 points**. The **sharpest limitation** is cross-scaffold: the editor
+> footer the mechanical instrument needs exists in **one** framework (95.8% of SWE-agent steps, 0% of
+> the others), and the dead-end rate is scaffold-specific — **3.7% to 23.6% across four other
+> scaffolds**, so 19.1% must never be quoted as a universal rate.
+
+---
+
 **One page.** For the full evidence and every artifact, see `REBUILD_FINDINGS_V2.md`; for what each
 claim rests on and what it cannot support, `HANDOFF.md`. Every number here is machine-audited
 against its artifact by `scripts/audit_claims.py`.

@@ -12,27 +12,40 @@ supports, what the paper can and cannot say, and which decisions are yours.
 
 ## 1. The one-paragraph version you would write
 
-> Coding agents spend most of their editing on code that never reaches their own final answer.
-> Across 1,256,295 steps in 41,429 trajectories on 1,258 tasks, only 15.7% of edits contribute a
-> surviving line to the agent's final patch. A further 65.2% are revision; the unambiguous waste is
-> the **19.1% dead ends** — 45,122 edits whose content never shipped and whose file was never
-> touched again. Quote the dead-end rate, not the coarse one. The waste is not a
-> phase — its share is flat across every quarter of a run (84.2%, 85.1%, 85.5%, 83.6%) — and it
-> is a property of the run rather than of the moment: split-half reliability ρ = +0.56, and
-> per-run variance 3.8× what independent coin flips would give. Pooled length-and-failure
-> comparisons are the standard way to report this, and the standard way to be wrong about it, so
-> the comparison is made *within* task: on the 263 instances that contain both a solved and a
-> failed run, a solving run puts 30.0% of its edits on surviving lines against 19.8% for a
-> failing run on that same instance (*p* = 1.9 × 10⁻⁹). The waste is therefore real and
-> outcome-relevant. It is also **not where a monitor can help**: whether an edit's lines survive
-> is only weakly predictable in practice — a single monitor gets 0.539 against a 0.536 position
-> baseline, and a fitted 48-feature model lifts that only to 0.599, a third of the 0.821 the
-> idleness channel gives, with **no** help from the per-step test output in the corpus (§2.27);
-> a model given the run's own outcome improves the first number by 0.005. What does predict an
-> edit's fate is the edit itself — chiefly how much it writes (survival 12.6% at one line rising
-> to 34.8% at eleven or more) — which points at *edit admission* rather than run termination:
-> refusing the worst 40% of edits by a learned model retains 85.8% of all surviving edits,
-> against 60% for refusing at random.
+> **A widely-used measure of coding-agent localisation is self-referential, and it inverts the sign
+> of the solved-versus-failed comparison.** The conventional statistic — the share of a run's edits
+> aimed at files in *that run's own final patch* — reports that failed runs localise **better**
+> (0.673) than solved runs (0.585). Against an **independent gold patch** for 927 of the 1,213
+> instances, the direction reverses (0.477 solved vs 0.407 failed), and the binary form is
+> unambiguous: **98.2% of solved runs and 69.1% of failed runs reach the correct file** (Δ +0.311,
+> *p* = 1.6 × 10⁻²³), positive in **every** patch-width stratum. So localisation is necessary but
+> **bounded**: it can address at most the **30.9%** of failures that never reach the file, while the
+> other 69.1% happen with the agent already in the right place. We replaced the naive comparison
+> with a causal one: holding a defect fixed and varying **only** how easy it is to find, handing over
+> the exact file and function lifts success from **23.5% to 43.8%** — a failure-rate drop of 0.203,
+> *below* the 0.309 ceiling the observational result predicted in advance — and **even when the agent
+> reaches the correct file (82% of runs did), it still succeeded only 28.6% of the time.** A
+> re-diagnosis prompt did **not** help. From the first 10–60% of a run we then built a causal,
+> reference-free **router** deciding whether a struggling agent needs *search* or *verification*: it
+> reaches **0.676–0.751** at distinguishing lost from wrong-fix runs, where every published-style
+> heuristic (loop, burst, redundancy, output-shape) sits **at or below chance (0.407–0.539)**, with a
+> genuinely controlled false-alarm rate (α = 0.05 → 0.046 achieved), and as a routing policy is worth
+> **0.764–0.800** against 0.732 for always-verify and 0.518 for always-search.
+>
+> **Three of these results are retractions of our own earlier headlines**: "failed runs localise
+> better" (metric artifact), "zero false alarms at every budget" (circular — the label and the
+> detector were one statistic), and "step index beats every learned monitor" (the baseline *was* the
+> run's length, i.e. hindsight). The qualitative thesis — that capable agents fail *after* reaching
+> the right code — is **not ours**: it is published ([arXiv:2603.24631](https://arxiv.org/abs/2603.24631),
+> 60–69% of failures on 16,758 trajectories, our 67.1% inside that range). Our contribution is the
+> measurement defect, the bounded-lever quantification, and the router.
+
+> **The 19.1% dead-end rate is still true and still quotable** — 45,122 of 236,137 edits never
+> reached the final patch and their file was never touched again (kept 15.7% / revised 65.2% / dead
+> end 19.1%, summing to 1.000). Quote the dead-end figure, never the coarse 84%. And the waste is
+> **not where a monitor can help**: a single monitor reaches only 0.539 against a 0.536 baseline, and
+> a fitted 48-feature model lifts that to 0.590 ± 0.011 — real, reproducible, and a third of the
+> 0.821 the idleness channel gives.
 
 ## 2. Claim → artifact → what it does and does not support
 

@@ -34,3 +34,15 @@ paper/*.synctex.gz
 *.pem
 *.key
 credentials.json
+
+# ---------------------------------------------------------------------------
+# Added 2026-09-13 (round 3). Large DERIVED tables: regenerable from
+# research/data/raw via the documented scripts, and too big to version.
+#   xscaffold (526 MB) : cross-scaffold step tables
+#       -> scripts/xscaffold_*.py against the HF corpora listed in RECON_CORPORA.md
+#   live/work* (242 MB): per-episode agent workspaces, rebuilt by prepare_workspace.py
+# ---------------------------------------------------------------------------
+research/data/processed/xscaffold/
+research/data/live/work/
+research/data/live/work48/
+research/data/live/*/__pycache__/

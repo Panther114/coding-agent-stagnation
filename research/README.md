@@ -197,6 +197,16 @@ The new package and its stage scripts:
 | which observable channel carries the little wasted-edit signal | `scripts/analyse_channel_ablation.py` | `results/rebuild/channel_ablation.json` |
 | is that ablation stable across learner / seed / feature form | `scripts/analyse_channel_ablation_stability.py` | `results/rebuild/channel_ablation_stability.json` |
 | is the head-to-head field comparison a lucky hyperparameter cell | `scripts/analyse_field_comparison_stability.py` | `results/rebuild/field_comparison_stability.json` |
+| is the frozen localisation result a metric artefact (gold target + 3 falsified mechanisms) | `scripts/analyse_wrongness.py`, `scripts/analyse_metric_artifact.py` | `results/rebuild/wrongness.json`, `results/rebuild/metric_artifact.json` |
+| where the independent gold patches come from | `scripts/fetch_gold_patches.py` | `results/rebuild/gold_patches.json` |
+| does the withdrawn "zero false alarms" claim appear in any artifact | `scripts/check_zero_false_alarm_claim.py` | `results/rebuild/zero_false_alarm_provenance.json` |
+| the online SEARCH-vs-VERIFY router (causal, calibrated, decision curve) | `scripts/analyse_route_modes.py` | `results/rebuild/route_modes.json` |
+| per-step test-outcome parser and extraction | `scripts/extract_step_verification.py` | `results/rebuild/step_verification.json` |
+| live causal experiment, 3 arms, pre-registered | `scripts/run_live_experiment.py`, `scripts/analyse_live_experiment.py` | `results/live/live_experiment.json` |
+| live causal experiment on the 48-task suite (verifier-restoring) | `scripts/run_live48.py`, `scripts/analyse_live48_valid.py` | `results/live/live_experiment48_valid.json` |
+| build a task suite from real package sdists via the domestic mirror | `scripts/build_sdist_suite.py` | `data/live/sdist/tasks_sdist.jsonl` |
+| fetch withheld HF shards through the mirror | `scripts/fetch_missing_shards.py` | `data/raw/download_ledger.json` |
+| the rewritten paper (v2): LaTeX and its markdown twin | — | `paper/v2/main.tex`, `paper/v2/ESSAY.md` |
 | the sustained-event formulation (degenerate) | `scripts/analyse_sustained_waste.py` | `results/rebuild/sustained_waste.json` |
 | the coarse waste rate split into revision vs dead end | `scripts/analyse_dead_end.py` | `results/rebuild/dead_end.json` |
 | held-out-scaffold transfer | `scripts/analyse_scaffold_transfer.py` | `results/rebuild/scaffold_transfer.json` |

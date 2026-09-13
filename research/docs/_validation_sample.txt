@@ -1,7 +1,7 @@
-scanned 1200 runs / 31440 observations in 47s
-observations proving tests ran : 267
-  ...with a recovered verdict  : 267 (100.00%)  <- data ceiling
-observations with a verdict-shaped phrase: 265
+scanned 4000 runs / 102617 observations in 211s
+observations proving tests ran : 730
+  ...with a recovered verdict  : 730 (100.00%)  <- data ceiling
+observations with a verdict-shaped phrase: 723
   ...that the parser did NOT resolve    : 0 (sampled, cap 40)
 unknown-but-has-failure-ids events      : 0
 

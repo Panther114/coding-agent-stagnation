@@ -1,0 +1,24 @@
+{
+  "pi": {
+    "n_runs": 7777,
+    "n_steps": 267162,
+    "n_tool_obs": 267103,
+    "obs_with_footer": 0,
+    "obs_with_lines_total": 35,
+    "obs_with_catn": 0,
+    "obs_truncated": 0,
+    "first_footer_literal": null,
+    "first_footer_obs_snippet": null,
+    "first_lines_total_literal": "(95 lines total)",
+    "first_catn_literal": null,
+    "max_numbered_line_seen": 2154568,
+    "n_edits": 28861,
+    "n_edits_with_target_path": 27133,
+    "n_runs_with_patch": 1956,
+    "patch_chars_total": 8566774,
+    "added_lines_total": 555975,
+    "n_runs_patch_from_column": 0,
+    "n_runs_patch_recovered": 1956,
+    "patch_trust": "recovered_from_transcript"
+  }
+}

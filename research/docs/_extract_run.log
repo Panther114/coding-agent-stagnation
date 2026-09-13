@@ -1,1 +1,110 @@
 restricting to the published universe: 26,679 run_ids (1,415 distinct task::model pairs)
+[00] train-00000-of-00012.parquet: runs=6,669 steps=174,815 (324s, total 324s)
+[01] train-00001-of-00012.parquet: runs=13,339 steps=353,449 (444s, total 769s)
+[02] train-00002-of-00012.parquet: runs=20,009 steps=528,320 (406s, total 1175s)
+[03] train-00003-of-00012.parquet: runs=26,679 steps=709,264 (375s, total 1550s)
+[04] train-00004-of-00012.parquet: runs=26,679 steps=709,264 (15s, total 1565s)
+[05] train-00005-of-00012.parquet: runs=26,679 steps=709,264 (15s, total 1580s)
+[06] train-00006-of-00012.parquet: runs=26,679 steps=709,264 (15s, total 1596s)
+[07] train-00007-of-00012.parquet: runs=26,679 steps=709,264 (15s, total 1611s)
+[08] train-00008-of-00012.parquet: runs=26,679 steps=709,264 (15s, total 1626s)
+[09] train-00009-of-00012.parquet: runs=26,679 steps=709,264 (16s, total 1642s)
+[10] train-00010-of-00012.parquet: runs=26,679 steps=709,264 (15s, total 1657s)
+[11] train-00011-of-00012.parquet: runs=26,679 steps=709,264 (14s, total 1670s)
+partial: {
+ "n_steps": 709264,
+ "n_runs": 26679,
+ "outcome_counts": {
+  "unknown": 705395,
+  "collection_error": 290,
+  "no_tests": 700,
+  "some_fail": 2124,
+  "all_pass": 755
+ }
+}
+{
+ "n_steps": 709264,
+ "n_runs": 26679,
+ "coverage_step_frac": 0.005454950483881883,
+ "coverage_run_frac": 0.044379474493046966,
+ "outcome_counts": {
+  "all_pass": 755,
+  "some_fail": 2124,
+  "error": 0,
+  "collection_error": 290,
+  "no_tests": 700,
+  "unknown": 705395
+ },
+ "n_runs_with_any_test_obs": 1184,
+ "per_model": {
+  "swe-agent-llama-405b": {
+   "n_runs": 436,
+   "n_runs_with_any_test_obs": 14,
+   "coverage_run_frac": 0.03211009174311927,
+   "n_steps": 14838,
+   "n_steps_with_test_obs": 46,
+   "coverage_step_frac": 0.0031001482679606416,
+   "outcome_counts": {
+    "all_pass": 10,
+    "some_fail": 19,
+    "error": 0,
+    "collection_error": 10,
+    "no_tests": 7,
+    "unknown": 14792
+   }
+  },
+  "swe-agent-llama-70b": {
+   "n_runs": 24779,
+   "n_runs_with_any_test_obs": 1115,
+   "coverage_run_frac": 0.04499778037854635,
+   "n_steps": 643450,
+   "n_steps_with_test_obs": 3607,
+   "coverage_step_frac": 0.005605719170098687,
+   "outcome_counts": {
+    "all_pass": 734,
+    "some_fail": 1974,
+    "error": 0,
+    "collection_error": 249,
+    "no_tests": 650,
+    "unknown": 639843
+   }
+  },
+  "swe-agent-llama-8b": {
+   "n_runs": 1464,
+   "n_runs_with_any_test_obs": 55,
+   "coverage_run_frac": 0.03756830601092896,
+   "n_steps": 50976,
+   "n_steps_with_test_obs": 216,
+   "coverage_step_frac": 0.00423728813559322,
+   "outcome_counts": {
+    "all_pass": 11,
+    "some_fail": 131,
+    "error": 0,
+    "collection_error": 31,
+    "no_tests": 43,
+    "unknown": 50760
+   }
+  }
+ },
+ "denominator_notes": {
+  "steps_denominator": 709264,
+  "steps_denominator_source": "published runs.parquet n_steps where the run_id matches, else the parsed step count from the raw corpus",
+  "runs_denominator": 26679,
+  "runs_denominator_source": "distinct run_ids parsed from the raw corpus",
+  "n_runs_matched_in_published_table": 26679,
+  "n_runs_with_disagreeing_step_count": 0,
+  "steps_with_observation": "every parsed step produces a row; an ai turn with no following user turn contributes an empty observation and parses to `unknown`"
+ },
+ "source_counts": {
+  "none": 705395,
+  "pytest": 1872,
+  "unittest": 1997
+ },
+ "n_truncated_observations": 6,
+ "n_progress_only_observations": 5,
+ "n_steps_with_new_failure_ids": 859,
+ "n_failing_id_mentions": 5988,
+ "corpus": "data/raw/nebius (steps_full/nebius was empty while this ran)"
+}
+
+wrote results/rebuild/step_verification.parquet and results/rebuild/step_verification.json

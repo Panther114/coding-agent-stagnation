@@ -1,0 +1,24 @@
+{
+  "thoughtworks": {
+    "n_runs": 15000,
+    "n_steps": 619394,
+    "n_tool_obs": 603019,
+    "obs_with_footer": 0,
+    "obs_with_lines_total": 0,
+    "obs_with_catn": 100944,
+    "obs_truncated": 5,
+    "first_footer_literal": null,
+    "first_footer_obs_snippet": null,
+    "first_lines_total_literal": null,
+    "first_catn_literal": "Here's the result of running `cat -n` on /testbed/conan/internal/cache/cache.py:\r\n    20\t\r\n    21\tclass PkgCache:\r\n    22\t    \"\"\" Class to represent the recipes and packages storage in disk\r\n    23\t    \"\"\"\r\n    24\t\r\n    25\t    def __init__(self, cache_folder, global_conf):\r\n    26\t        # paths\r\n ",
+    "max_numbered_line_seen": 106465,
+    "n_edits": 113957,
+    "n_edits_with_target_path": 113588,
+    "n_runs_with_patch": 6371,
+    "patch_chars_total": 44664839,
+    "added_lines_total": 3125249,
+    "n_runs_patch_from_column": 0,
+    "n_runs_patch_recovered": 6371,
+    "patch_trust": "recovered_from_transcript"
+  }
+}

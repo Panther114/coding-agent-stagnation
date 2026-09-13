@@ -119,12 +119,19 @@ _PYTEST_PHRASE = re.compile(
     re.I,
 )
 
-# `<phrase>, <phrase>, ... in <N>s` -- this shape *is* the pytest terminal block
+# A pytest terminal block is a fully-separated line: `===== <outcome> =====`.  The
+# separator must balance, which is what keeps ordinary output containing the word
+# `failed` from ever being read as a summary.  Both the timed form
+# (`2 failed, 18 passed in 0.74s`) and the bare form (`1 failed, 5 passed`) occur.
 _PYTEST_TERMINAL = re.compile(
-    r"^(?P<line>=+)\s*(?P<body>[^\n=]*?)\s*(?P=line)\s*$",
+    r"^(?P<line>=+)\s*(?P<body>[^\n=][^\n=]*?)\s*(?P=line)\s*$",
     re.M,
 )
-_PYTEST_IN_TIME = re.compile(r"\bin\s+\d+(?:\.\d+)?s\b", re.I)
+_PYTEST_IN_TIME_OR_BARE = re.compile(
+    r"(?:\bin\s+\d+(?:\.\d+)?s\b"
+    r"|\bno tests ran\b"
+    r"|\A\s*\d+\s+[A-Za-z]"
+    r"|(?<=\n)\s*\d+\s+[A-Za-z])", re.I)
 _PYTEST_SUMMARY_TAIL = re.compile(
     r"^=+ .*?(?:\bin\s+\d+(?:\.\d+)?s\b|no tests ran).*? =+$", re.I | re.M)
 _PYTEST_SUMMARY_NOSTAR = re.compile(
@@ -468,7 +475,7 @@ def _read_pytest(obs: str) -> Optional[ObservationParse]:
         body = m.group("body")
         if not body:
             continue
-        if _PYTEST_IN_TIME.search(body) or _NO_TESTS_RAN.search(body):
+        if _PYTEST_IN_TIME_OR_BARE.search(body):
             if _PYTEST_PHRASE.search(body) or _NO_TESTS_RAN.search(body):
                 candidates.append((m.group(0), body))
     if not candidates:
@@ -647,29 +654,40 @@ _FOOTER = re.compile(r"\n?\((?:Open|Current) (?:file|directory):[^\n]*\)\s*")
 _BASHPROMPT = re.compile(r"\n?bash-\$\s*$")
 
 
-def _is_truncated(obs: str, resolved: bool = False) -> bool:
-    """Whether tests visibly ran but the run never reached a visible verdict.
+def _verdict_present(body: str) -> bool:
+    """Cheap check for any terminal summary; used only by ``_is_truncated``.
+
+    Delegates to the real readers rather than a separate regex, so "is there a
+    verdict" can never disagree with what ``parse_observation`` actually recovered.
+    """
+    if _read_pytest(body) is not None:
+        return True
+    uni = _read_unittest(body)
+    if uni is not None and uni.resolved:
+        return True
+    return _read_errors_only(body) is not None
+
+
+def _is_truncated(obs: str) -> bool:
+    """Whether a test run is visible here but its verdict never is.
 
     SWE-agent appends its ``(Open file: ...)`` / ``bash-$`` footer *after* producing
-    the text, so the footer is not evidence either way.  What does show through is the
-    stopping point: the progress stream and the terminal summary are written at
-    different times, so an observation that shows progress *and* never shows a summary
-    had its tail withheld.  That is the flag that makes ``unknown`` interpretable --
-    it separates "the harness did not show me the verdict" from "no tests were
-    involved".  A step that did resolve is by definition not cut short.
+    the text, so the footer proves nothing either way.  What does show through is the
+    stopping point: the pytest progress stream and the terminal summary are written at
+    different times, so an observation that shows progress *and* shows no summary had
+    its tail withheld.
+
+    This is the flag that makes ``unknown`` interpretable -- it separates "the harness
+    did not show me the verdict" from "no tests were involved at all".  It is
+    deliberately *not* a general "was this output clipped" flag: a clipped observation
+    whose verdict survived further up is a perfectly good observation, so flagging it
+    would confuse rather than inform.
     """
-    if not obs or resolved:
+    if not obs:
         return False
     body = _BASHPROMPT.sub("", _FOOTER.sub("", obs))
-    lines = [ln for ln in body.splitlines() if ln.strip()]
-    if not lines:
+    if _verdict_present(body):
         return False
-    last = lines[-1].rstrip()
-    # pytest's own elision of a failure message, and a dangling separator
-    if re.search(r"^FAILED .* -\s+\S+\s*\.\.\.\s*$", last):
-        return True
-    if re.match(r"^[=!\-_.]{2,}\s*\S{0,3}$", last) and re.search(r"[=!]{3,}", last):
-        return True
     return _read_progress(body)
 
 
@@ -689,7 +707,7 @@ def parse_observation(obs: str) -> ObservationParse:
         p = ObservationParse(exit_signal=EXIT_UNKNOWN)
         p.has_test_evidence = bool(_PYTEST_SESSION_HDR.search(obs)) or progress
         p.has_progress = progress
-        p.truncated = _is_truncated(obs, resolved=False)
+        p.truncated = _is_truncated(obs)
         p.n_collected = _read_collected(obs)[0]
         p.failure_ids = ids
         if ids:
@@ -732,7 +750,7 @@ def parse_observation(obs: str) -> ObservationParse:
             break
     best.failure_ids = ids
     best.has_progress = progress
-    best.truncated = _is_truncated(obs, resolved=best.resolved)
+    best.truncated = _is_truncated(obs)
     return best
 
 

@@ -158,11 +158,15 @@ class Gateway:
     # -- public ------------------------------------------------------------------
     def chat(self, messages: List[Dict[str, str]], max_tokens: int = 1400,
              temperature: Optional[float] = None, stop: Optional[List[str]] = None,
-             seed: Optional[int] = None) -> Dict[str, Any]:
-        """One completion.  Returns {text, reasoning, usage, usd, raw, elapsed}.
+             seed: Optional[int] = None, tools: Optional[List[Dict[str, Any]]] = None,
+             tool_choice: Optional[str] = None) -> Dict[str, Any]:
+        """One completion.  Returns {text, reasoning, tool_calls, usage, usd, raw, elapsed}.
 
-        Raises RuntimeError only after exhausting retries, so a transient gateway blip does
-        not silently truncate an experiment.
+        ``tools`` enables native function calling.  This matters: an ad-hoc text protocol
+        ("reply with: read <path>") lost 65% of the model's turns, because the model emits its
+        own XML tool-call format (``<tool_calls><invoke name="write">``) regardless.  Parsing the
+        model's native channel instead of fighting it is the difference between measuring
+        debugging ability and measuring protocol compliance.
         """
         body: Dict[str, Any] = {
             "messages": messages,
@@ -173,6 +177,9 @@ class Gateway:
             body["stop"] = stop
         if seed is not None:
             body["seed"] = seed
+        if tools:
+            body["tools"] = tools
+            body["tool_choice"] = tool_choice or "auto"
 
         last: str = ""
         # Walk the route chain; within a route, retry transient failures.  A route that keeps
@@ -219,9 +226,11 @@ class Gateway:
                             "ok": True,
                         }
                         self._record(rec)
+                        tcs = msg.get("tool_calls") or []
                         return {
                             "text": msg.get("content") or "",
                             "reasoning": msg.get("reasoning_content") or "",
+                            "tool_calls": tcs,
                             "usage": usage, "usd": rec["usd"], "raw": j,
                             "elapsed": rec["elapsed"], "route": rt["name"],
                         }

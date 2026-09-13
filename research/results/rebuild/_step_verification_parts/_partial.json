@@ -1,0 +1,44 @@
+{
+ "n_steps": 709264,
+ "n_runs": 26679,
+ "runs_with_any_test_obs": 1184,
+ "outcome_counts": {
+  "unknown": 705395,
+  "collection_error": 290,
+  "no_tests": 700,
+  "some_fail": 2124,
+  "all_pass": 755
+ },
+ "model_runs": {
+  "swe-agent-llama-70b": 24779,
+  "swe-agent-llama-8b": 1464,
+  "swe-agent-llama-405b": 436
+ },
+ "model_runs_cov": {
+  "swe-agent-llama-70b": 1115,
+  "swe-agent-llama-8b": 55,
+  "swe-agent-llama-405b": 14
+ },
+ "model_steps": {
+  "swe-agent-llama-70b": 643450,
+  "swe-agent-llama-8b": 50976,
+  "swe-agent-llama-405b": 14838
+ },
+ "model_steps_cov": {
+  "swe-agent-llama-70b": 3607,
+  "swe-agent-llama-8b": 216,
+  "swe-agent-llama-405b": 46
+ },
+ "source_counts": {
+  "none": 705395,
+  "pytest": 1872,
+  "unittest": 1997
+ },
+ "n_truncated_obs": 6,
+ "n_progress_only_obs": 5,
+ "n_new_failure_events": 859,
+ "total_runs_denominator": 26679,
+ "restricted_to_published_universe": true,
+ "published_universe_size": 26679,
+ "n_shards_processed": 12
+}

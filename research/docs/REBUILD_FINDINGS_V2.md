@@ -1045,10 +1045,18 @@ patch, on identical edit steps.
 
 | measure | solved | failed | direction |
 |---|---|---|---|
-| `on_target_self` — own patch (the frozen definition) | 0.5849 | **0.6732** | failed higher — frozen result reproduces |
+| `on_target_self` — own patch (the frozen definition), pooled | 0.5936 | **0.6701** | failed higher — frozen result reproduces |
 | `on_target_gold` — independent gold patch, basename match | **0.4771** | 0.4069 | solved higher |
 | `on_target_gold` — independent gold patch, path match | **0.5100** | 0.4298 | solved higher (match rule does not drive it) |
-| `ever_touched_gold` — did the run ever reach the right file | **0.982** | 0.671 | solved higher, Δ +0.311 |
+| `ever_touched_gold` — did the run ever reach the right file | **0.9819** | 0.6705 | solved higher, Δ +0.311 |
+
+All rows are **pooled over runs** (`wrongness.json`). The within-instance paired means for the gold
+target are 0.4959 solved vs 0.4477 failed (*p* = 0.007, 228 instances). An earlier draft of this
+document quoted 0.5849 / 0.6732 for the first row and 0.671 for the last: those came from
+`metric_artifact.json`, whose row set differs slightly because it joins patch-width information.
+Both are correct for their own row set, but the paper quotes the pooled `wrongness.json` figures, and
+`scripts/audit_paper_numbers.py` now checks that every number in the manuscript traces to the
+artifact it names — it found four such mismatches and they are fixed.
 
 **The sign inverts, and it inverts back.** The frozen direction reproduces exactly (failed 0.673 vs
 solved 0.585, cf. the frozen 0.620 / 0.576); against the independent target it reverses. The
@@ -1099,6 +1107,53 @@ where they must, and show the correction restores agreement with the published l
 **cannot** yet claim is a mechanism: three plausible ones were tested and none survived. The
 mechanism is recorded as open.
 
+**Held-out replication on eight unseen shards — three disjoint sets, all 12 shards covered.** The
+frozen table used Nebius shards 0–3. Shards 4–7 and 8–11 were downloaded and parsed into **separate**
+tables (`data/processed/steps_repl`, `data/processed/steps_repl2`) so no replication ever touches the
+frozen artifacts, with gold patches resolved independently for each set (74.6% and 77.9% coverage,
+against 76.4% for the frozen set). Together the three tables cover **12 of 12 shards and 80,035 runs**.
+
+| set | shards | runs | `on_target_self` solved → failed | `on_target_gold` solved | failed | within-inst. *p* | wrong-fix share | *n* |
+|---|---|---|---|---|---|---|---|---|
+| frozen | 0–3 | 26,679 | 0.594 → **0.670** | **0.477** | 0.407 | 7.0 × 10⁻³ | 67.0% | 16,327 |
+| held-out A | 4–7 | 26,680 | 0.593 → **0.677** | **0.492** | 0.421 | 3.6 × 10⁻³ | 69.0% | 15,837 |
+| held-out B | 8–11 | 26,676 | 0.614 → **0.686** | **0.512** | 0.415 | **2.8 × 10⁻⁵** | 66.4% | 15,953 |
+
+**All three columns agree, on three disjoint sets of ~26,000 runs each.** The self-referential metric
+inverts in every one; the independent gold target reverses it back in every one, with the paired test
+strengthening rather than weakening on the unseen data (*p* from 7.0 × 10⁻³ to 2.8 × 10⁻⁵); the gold
+gap is +0.070 / +0.071 / +0.097; and the headline **wrong-fix share of failures varies by only 2.6
+percentage points** (66.4–69.0%). A result that survives two independent replications on data the
+study never saw is not a sampling artefact.
+
+Artifacts: `wrongness.json`, `wrongness_repl.json`, `wrongness_repl2.json`,
+`gold_patches_repl{,2}.parquet`; scripts `scripts/fetch_gold_repl.py`,
+`scripts/build_step_table.py --shards 4 5 6 7 | --shards 8 9 10 11`, `scripts/show_replication_table.py`.
+
+**Scope note.** This is **not** a single merged 80k-run table. It is the full shard coverage delivered
+as one frozen table plus two held-out replications, which is methodologically stronger than a merge
+would have been (each replication is genuinely unseen) but means the pipeline was never re-run on one
+80k table. The earlier 12-shard single-table attempt failed — two builds raced on one output file and
+the surviving partial table was unreadable — and that failure is recorded rather than hidden. No claim
+here depends on a merged table.
+
+**Corpus coverage, complete as of the final pass.**
+
+| corpus | scope | runs | steps | table |
+|---|---|---|---|---|
+| Nebius / SWE-agent | shards 0–3 (frozen) | 26,679 | 709,264 | `data/processed/steps/nebius` |
+| Nebius / SWE-agent | shards 4–7 (held-out A) | 26,680 | 710,910 | `data/processed/steps_repl/nebius` |
+| Nebius / SWE-agent | shards 8–11 (held-out B) | 26,676 | 695,449 | `data/processed/steps_repl2/nebius` |
+| **Nebius total** | **12 / 12 shards** | **80,035** | **2,115,623** | — |
+| Terminal-Bench 2.0 | **2 / 2 shards** | **34,029** | **1,073,923** | `data/processed/steps_tb2_full/tb2` |
+| 4 non-SWE-agent scaffolds | see §2.33 | — | — | `xscaffold_replication.json` |
+
+Terminal-Bench's 52,104 raw trials yield 34,029 parseable runs and 1,073,923 steps; the remainder are
+the zero-action agent-crash trials documented earlier. The 2-shard TB2 table was built once at 08:19,
+**destroyed** when `steps_full` was cleared to unblock the Nebius rebuild — it was the only copy, which
+was a mistake — and rebuilt into `steps_tb2_full` in the final pass, reproducing the original run and
+step counts exactly.
+
 **Three consequences, and they are all retractions or narrowing.**
 
 1. **The frozen claim "failed runs localise better" is withdrawn** and is annotated as a
@@ -1129,7 +1184,7 @@ this host; direct page fetches work.
 | **TraceProbe** — [2607.06184](https://arxiv.org/abs/2607.06184) | Same-task alignment of failed runs to solved references: file-selection divergence 38.5–95.0%, usually the largest layer | Nearest headwind: same-task, paired, file-level, opposite sign. Different metric (divergence-from-reference vs absolute on-target share) — state explicitly. |
 | **Confident and Wrong: Silent Semantic Failures** — [2603.25764](https://arxiv.org/abs/2603.25764), 1,750 trajectories | GPT-5 submits a patch on 100% of runs, resolves 44%; "silent semantic failure" covers 68% of GPT-5's and 80% of Llama 4's failing runs; *"completion-based and consistency-based monitoring both look healthy exactly when the agent should not be trusted"* | **Prior art for the monitoring problem.** Our fixation result (lost runs are the *most* fixated of all, 0.818 vs 0.759) independently corroborates their monitor-fooling claim. Any detection claim must beat this. |
 | **TRIM** — [2607.18161](https://arxiv.org/abs/2607.18161) | CodeSlop = 20.0% on SWE-bench (23.6% of edit actions) | Closest number to our 19.1% dead-end rate, but a **different object**: TRIM measures unnecessary lines *in a passing patch* via counterfactual re-execution; we measure edit *operations* that never reach the patch, with no execution. Say so explicitly. |
-| **Beyond Resolution Rates** — [2604.02547](https://arxiv.org/abs/2604.02547), Apr 2026, 9,374 trajectories, 19 agents, 500 tasks | Two-approach design; reports a within-task reversal for trajectory length | Methodological precedent for reporting a within-task reversal. **UNVERIFIED:** the reconnaissance reported a "263 tasks / p = 1.9 × 10⁻⁹" collision with our frozen 263-instance figure; the abstract does not contain it and it could not be checked against the body. Treated as unverified and **not propagated** into any claim. |
+| **Beyond Resolution Rates** — [2604.02547](https://arxiv.org/abs/2604.02547), Mehtiyev & Assunção (NC State), 2026, 9,374 trajectories, 19 agents, 8 frameworks, 14 LLMs, 500 tasks | **VERIFIED by direct fetch:** *"The widely reported correlation between trajectory length and failure **reverses direction** once task difficulty is controlled, revealing it as a confound."* Also: the LLM, not the framework, is the primary driver of outcome. | **Methodological prior art for the reversal itself, for a different quantity.** We must not present "a within-task reversal" as a novel methodological contribution; what is ours is that a specific, widely-computable *localisation* statistic is self-referential and inverts, which no located paper reports. **Still UNVERIFIED:** the reconnaissance claimed a "263 tasks / *p* = 1.9 × 10⁻⁹" numerical collision with our frozen 263-instance figure. The abstract and introduction do not contain those numbers, and arXiv was intermittently unreachable so the results section could not be read. The qualitative reversal is confirmed; the numerical coincidence is **not**, and it is propagated into no claim. Note also that the two quantities differ: theirs is trajectory **length**, ours was edit **precision**. |
 
 **Novelty verdict, stated conservatively.** The qualitative interpretation — that capable agents
 usually reach the right code and still fail — is **not ours**; it is published twice, once at
@@ -1146,6 +1201,242 @@ metrics agree where they must, and a corrected form that restores agreement with
 ICML 2025); 82% precision at 2–3% FPR but only **18.2% recall**
 ([2607.09510](https://arxiv.org/abs/2607.09510)); step-level redundancy ceiling **24.88%**
 ([2605.29893](https://arxiv.org/abs/2605.29893)).
+
+---
+
+### 2.31 A causal, reference-free router that beats every baseline — and a correction to the study's own "position wins" claim
+
+Artifacts: `results/rebuild/route_modes.json` (273 KB), `docs/ROUTE_MODES.md` · script:
+`scripts/analyse_route_modes.py` · doc-number audit: `scripts/_verify_route_modes_doc.py`
+(re-checks 453 numbers quoted in the write-up against the artifact, **0 failures**)
+
+**The task is a decision, not a detection.** Given only a run's first fraction *f*, decide whether
+a struggling agent should spend budget on **SEARCH** (help it find the right place) or **VERIFY**
+(make it check its own fix). Two targets, both defined from the independent gold patches of §2.29
+and never from an agent's own output:
+
+* `y_fail` — will this run fail?
+* `y_mode` — among failed runs, is it **LOST** (never edited a gold file) or **WRONG-FIX** (did)?
+
+**Causality was enforced and self-tested.** The prefix is steps `0…L−1` with `L = round(f·n_steps)`;
+`n_steps` appears in no feature. A `--selftest` mode overwrites every post-cutoff step and asserts
+all 112 feature columns are unchanged — it caught a genuine leak (`obs_half_ratio` read past the
+prefix), which is now fixed. Folds are task-disjoint, 3 fold seeds, 500 task-cluster bootstraps,
+identical rows and folds for every method compared.
+
+| target | f=0.10 | f=0.20 | f=0.40 | f=0.60 |
+|---|---|---|---|---|
+| `y_fail`, this study's features | **0.693** | **0.721** | **0.721** | **0.731** |
+| `y_fail`, position baseline | 0.667 | 0.664 | 0.666 | 0.666 |
+| `y_fail`, `agentstop_shape` | 0.554 | 0.565 | 0.594 | 0.607 |
+| `y_mode`, this study's features | **0.676** | **0.701** | **0.724** | **0.751** |
+| `y_mode`, **all** baselines | 0.407–0.493 | 0.411–0.490 | 0.413–0.486 | 0.413–0.539 |
+
+**Baselines are beaten in all 8 task × fraction cells**, with bootstrap CIs excluding zero. Against
+`position` the gain is +0.026 … +0.065 on `y_fail`; against the shipped loop heuristics
+(`ngram_loop`, `exact_burst`, `tfnorm_novel`, `agentstop_shape`) it holds at every fraction. On
+`y_mode` **every baseline is at or below chance** — a length-matched, causal model separates the two
+failure modes where the field's detectors carry no signal at all. The published 0.6–0.7 AgentStop
+band is cleared from f = 0.20 for `y_fail`; at f = 0.10 the value 0.693 sits *inside* that band and
+is reported as such.
+
+**A correction to the frozen study, and it is the same species of error as §2.29.** The frozen
+findings state that *"step index still beats every learned monitor"* on one corpus. That comparison
+is **not valid**, because at a fixed prefix fraction `position` is *exactly the run's own length*
+(`round(f·n_steps)`) — verified by its AUC matching `n_steps`' to ≤0.006. It is a hindsight quantity
+unavailable to any online monitor, so it could not have been a fair baseline. Against a length-matched
+control (fixed prefix lengths of 5, 10 and 20 steps, where position is inert) the learned model holds
+at 0.63–0.76, and adding `position` to the feature set changes the result by ≤0.002. The learned
+model strictly dominates run length; the frozen claim that it did not is withdrawn.
+
+**Calibration is genuinely controlled this time — the specific thing the frozen study got wrong.**
+The withdrawn "zero false alarms" claim of §2.17 was circular because the label and the detector were
+the same statistic. Here the labels come from gold patches and the detector from prefix features, and
+the null hypothesis is explicit: for `y_mode` the null is *LOST* runs, for `y_fail` it is *successful*
+runs. Using a whole-task train/calibration/test split and a sequential union-bound rule valid under
+arbitrary dependence:
+
+| level | `y_mode` achieved FA | `y_mode` detection | `y_fail` achieved FA |
+|---|---|---|---|
+| α = 0.05 | **0.0459** (worst split 0.0605) | 0.160 | 0.0339 |
+| α = 0.10 | 0.0777 | 0.258 | — |
+| α = 0.20 | 0.1232 | 0.386 | 0.1088 |
+
+8 of 8 levels are controlled on the mean; the worst split exceeds α at only 2 levels, both at
+α = 0.05, by 1.03× and 1.21×, and that is reported rather than hidden. A null run does **not** trivially
+trigger: a raw 0.5 threshold flags 98.4% of never-failing runs, while the calibrated rule at α = 0.05
+flags **3.39%**.
+
+**The decision curve is the deployable result.** Scoring 1 for the correct routing decision and λ
+otherwise, and evaluating only on runs that actually failed:
+
+| routing policy | value (λ = 0.25) |
+|---|---|
+| **this detector** | **0.764 – 0.800** |
+| always VERIFY | 0.732 |
+| random | 0.656 |
+| always SEARCH | 0.518 |
+
+It beats all three baselines at **every** fraction and every λ ∈ {0, 0.25, 0.5} — 12 of 12 cells,
+with CIs excluding zero. At λ = 0 this is routing accuracy, 0.685 → 0.733. Gated over all runs it
+also wins (0.639–0.666 vs 0.397 / 0.547 / 0.523), but the gate fires on ~99% of runs, so that
+number measures routing rather than gating and is labelled as such.
+
+**Four honest negatives, all recorded.**
+
+1. **The e-value rule is valid but never fires** at α ≤ 0.05. A formal sequential test is available
+   and has no power on this data. Reportable as a negative, not hidden.
+2. **Recall at a 5% alert budget is ≈ 0.058 for every method including the free baseline**, because
+   the base rate is 0.837. The usable output is a *ranking*, not a tight-budget alarm.
+3. **The cutoff is placed using `n_steps`** (hindsight), so the fully online claim rests on the
+   length-matched control rather than on the main table.
+4. **`ever_touched_gold` is a coarse proxy** for wrong-fix, and gold matching is basename-only;
+   4.10% of edit steps carry no filename, which biases LOST upward. Both bound the result.
+
+---
+
+### 2.32 The causal experiment: hold the defect fixed, vary only how easy it is to find
+
+Artifacts: `results/live/episodes.jsonl`, `results/live/live_experiment.json` · scripts:
+`scripts/run_live_experiment.py`, `scripts/analyse_live_experiment.py`,
+`scripts/run_live48.py` (48-task suite) · task suites: `data/live/`
+
+§2.29 is correlational: on logged runs, 69.1% of failures had already edited a gold file. A reviewer
+can reasonably reply *"that is selection, not cause."* The only answer is to intervene on the same
+defect. So a live experiment was run using the DeepSeek gateway against a suite of real pure-Python
+packages, no Docker, with the packages' own test suites as the verifier.
+
+**Design, pre-registered before the first episode.** Three arms over the same tasks, same model,
+same step budget, differing only in what the agent is told:
+
+| arm | what the agent gets |
+|---|---|
+| `unhinted` | a defect exists; find and fix it |
+| `hinted` | the exact file **and** function — localisation solved by fiat |
+| `verify` | unhinted, plus: after a failed test, *re-diagnose before changing more code* |
+
+Predictions fixed in advance from the observational result:
+**P1** hinting should raise success only *modestly* — the failure-rate drop should be smaller than
+the 30.9% of failures attributable to never reaching the file.
+**P2** the verify arm should beat unhinted by more than hinting does.
+**P3** conditional on reaching the gold file, success should still be far below certainty.
+
+**Two harness faults had to be fixed before the result meant anything, and both were caught by
+looking at what the agent actually did rather than at the scores.**
+
+1. **65.2% of turns were unparseable.** The first protocol was ad-hoc text (`reply with: read <path>`),
+   but the model emits its *own* XML tool-call format (`<tool_calls><invoke name="write">`)
+   regardless. The pilot was therefore measuring protocol compliance, not debugging. Switching to
+   native OpenAI function-calling took unparsed turns to **0–4%**. This is the single largest
+   correction in the experiment and it was invisible in the pass/fail column.
+2. **The agent was writing its own tests into `tests/`.** Pilot transcripts show `test_debug.py`,
+   `test_aaa_dump.py`, `grouper_dump.txt`. pytest collects those, so an agent-authored passing test
+   could have scored a run as **successful without the defect being fixed**. The verifier is now
+   restored to the package's original tests before final grading (agent source edits are kept,
+   agent test edits are not) — which is what a real grader does. The count is logged as
+   `test_files_removed`; it is nonzero in many episodes, and an agent that "fixed" a test to make it
+   pass is still scored as having failed.
+
+**Results, on the larger 48-task suite (8 real packages, 2 arms, 96 episodes, $0.91).** Auditing the
+raw episode records rather than the summary showed that **13 of 96 episodes had `fail_before=False`**
+— the mutation did not actually break the invoked tests at episode start — so success is meaningless
+for those and they are excluded. On the remaining 83:
+
+| arm | n | success | 95% CI | reached gold | **success given reached gold** | mean turns |
+|---|---|---|---|---|---|---|
+| `hinted` | 40 | **0.550** | [0.40, 0.70] | **1.000** | **0.550** | 11.4 |
+| `unhinted` | 43 | **0.372** | [0.23, 0.51] | **1.000** | **0.372** | 12.2 |
+
+**Every single run in *both* arms reached the correct file — and 62.8% of the unhinted runs still
+failed.** This is the cleanest form of the whole result: in this suite localisation was never the
+barrier, at all, and the binding constraint is plainly the fix. It is the causal counterpart of the
+observational 69.1% / 98.2% gap, reproduced under a manipulation that removes search cost entirely.
+
+**The effect size is real but not statistically significant, and we say so.** Handing over the file
+raised success by **+17.8 points**, and the failure-rate drop (0.178) is below the pre-registered
+0.309 ceiling, so **P1 holds**. But Fisher's exact test on 40 vs 43 episodes gives **p = 0.126** —
+this sample cannot establish the improvement. P1 is an *inequality about magnitude*, pre-registered
+precisely so that it could be checked without significance; a reader must not read it as a shown
+effect.
+
+**An earlier, smaller run (16 tasks, 3 arms, 50 episodes, $0.40)** gave the same shape and was the
+one that carried the `verify` arm: `hinted` 0.438, `verify` 0.353, `unhinted` 0.235, with success
+given gold of 0.583 / 0.400 / 0.286. Both runs agree that reaching the file is necessary and
+nowhere near sufficient.
+
+**A behavioural finding worth its own line.** In **71 of the 83 valid episodes the agent created or
+modified files under `tests/`** — 1,048 files removed by the verifier restore in total. Agents very
+frequently write their own tests while debugging. Because the verifier is restored before grading,
+an agent that "fixes" a test to make it pass is still scored as failing; but the frequency is itself
+a measurement, and it is also why the first version of this harness would have produced a **wrong
+success measure** (§2.32's harness faults).
+
+**P1 holds.** Handing the agent the exact file and function moved success from 37.2% to 55.0% in the
+48-task run (+17.8 points), and the *failure-rate* drop of **0.178** is below the pre-registered
+0.309 bound — the ceiling §4 said localisation could be worth. The prediction was that hinting would
+not remove most failures, and it did not.
+
+**P3 holds, and it is the causal version of the whole finding.** In the 48-task run **100% of runs in
+both arms reached the gold file**, and the agent still failed **62.8%** of the time unhinted and
+45.0% hinted. In the 16-task run, 82% of unhinted runs reached the file and succeeded only 28.6% of
+the time. Being in the right place is necessary and nowhere near sufficient, and this is now an
+interventional statement rather than a correlation. It reproduces the 69.1% / 98.2% gap of §2.29
+under controlled conditions — in fact it sharpens it, because here every run reached the file and a
+majority still failed.
+
+**P2 fails, and it is reported as a failure.** The verify arm (0.353) did not beat unhinted by more
+than hinting did; hinting was the strongest arm. A prompt telling the agent to re-diagnose after a
+failed test did **not** rescue it. That is a negative result about the most obvious practical
+intervention this study could recommend, and it is the second time in this rebuild that the
+"spend the budget on verification" intuition failed to pay (§2.16–§2.17).
+
+**Limitations, stated.** The hinted-versus-unhinted difference is **not statistically significant**
+(Fisher *p* = 0.126 at n = 40/43); what is pre-registered is the *size* of the localisation ceiling,
+not the significance of an improvement, and P1 was fixed in advance so that this distinction could
+not be blurred after the fact. The tasks are single-defect mutations in eight real packages, not
+SWE-bench instances. Both `test` runs and `success` use the packages' own suites, which the mutation
+was verified to break (83 of 96 confirmed; the 13 that did not are excluded) and the pristine source
+to pass. A run that never calls `done` is graded on its final workspace state, which is the intended
+semantics.
+
+---
+
+### 2.33 The taxonomy does **not** transfer across scaffolds — the sharpest limitation in the study
+
+Artifact: `results/rebuild/xscaffold_replication.json` · script: the cross-scaffold workstream
+
+The port was validated before it was trusted: re-running the labelling on SWE-agent with the new
+code path reproduces the frozen rates **exactly** (absolute difference 0.0 on all three rates,
+236,137 edits, 25,681 runs). Then it was applied to four other corpora.
+
+| scaffold | editor footer on edit steps | kept | revised | **dead_end** | verdict |
+|---|---|---|---|---|---|
+| SWE-agent (frozen reference) | **0.958** | 0.157 | 0.652 | 0.191 | reference |
+| OpenHands (SWE-Gym) | **absent** | 0.734 | 0.229 | **0.037** | does **not** replicate |
+| PI agent | absent | 0.821 | 0.060 | 0.118 | does **not** replicate |
+| mini-swe-agent-plus | absent | 0.489 | 0.276 | **0.236** | different again |
+| multi-framework mix | absent | 0.706 | 0.115 | 0.179 | L1 1.035 |
+
+**Two negatives, and they are the most important caveats in the paper.**
+
+1. **The mechanical instrument exists in exactly one framework.** `[File: … (N lines total)]` appears
+   on 95.8% of SWE-agent edit steps and **0%** of the others (0 of 101,003 OpenHands observations;
+   0 of 267,103 PI observations). OpenHands names the file via a `cat -n` header but never its line
+   count, so an edit's *effect* — the thing the whole taxonomy rests on — is unmeasurable there.
+   Every mechanical number in this study is therefore bounded to frameworks that print comparable
+   state, and cross-framework generality is **not claimed**.
+2. **The dead-end rate is a scaffold property, not a property of coding agents.** It ranges from
+   **3.7% to 23.6%** — a factor of six. The 19.1% headline is SWE-agent's number. It must never be
+   quoted as "coding agents waste 19% of their edits", and any downstream comparison across
+   frameworks must be made on the non-empty-patch scope below.
+
+**A scope correction that came out of the same work, and it affects how 19.1% should be read.**
+**16.7%** of SWE-agent edit steps (39,486 of 236,137) sit in runs that produced **no patch at all**
+(3,487 runs have only empty patches). Restricted to runs with a non-empty patch — the strictly
+comparable scope for scaffolds where a patch must be recovered from the transcript — the reference
+becomes **kept 0.189 / revised 0.624 / dead_end 0.187** over 196,651 edits and 22,194 runs. Both
+scopes are correct for their purpose; only the second is comparable across scaffolds, and the paper
+labels which one every figure uses.
 
 ---
 

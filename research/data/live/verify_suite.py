@@ -36,7 +36,7 @@ import prepare_workspace as pw  # noqa: E402
 DEFAULT_TASKS = os.path.join(HERE, "tasks.jsonl")
 
 
-def run_pytest(rec, workspace, timeout, json_dir):
+def run_pytest(rec, workspace, timeout, json_dir, python_bin=None):
     """Run the task's own test command; return (failed node ids, passed count, info)."""
     rep = os.path.join(json_dir, "rep.json")
     cfg_args = list(rec["test_args"]) + [
@@ -44,7 +44,7 @@ def run_pytest(rec, workspace, timeout, json_dir):
         "--json-report", "--json-report-file=" + rep,
         "--json-report-omit=log,collectors,traceback",
     ]
-    cmd = [rec["python_bin"], "-m", "pytest"] + cfg_args
+    cmd = [python_bin or rec["python_bin"], "-m", "pytest"] + cfg_args
     env = dict(os.environ)
     env["PYTHONDONTWRITEBYTECODE"] = "1"
     if rec.get("env_pythonpath"):
@@ -82,13 +82,13 @@ def run_pytest(rec, workspace, timeout, json_dir):
                           "output_tail": out[-600:]}
 
 
-def verify_task(rec, timeout=900, workdir=None, keep=False):
+def verify_task(rec, timeout=900, workdir=None, keep=False, python_bin=None):
     result = {"task_id": rec["task_id"], "ok": False, "errors": []}
     tmp = workdir or tempfile.mkdtemp(prefix="live_verify_")
     try:
         ws = os.path.join(tmp, "workspace_mutated")
         pw.prepare(rec["task_id"], ws, DEFAULT_TASKS, "lost", "mutated_source", True)
-        failed, passed, info = run_pytest(rec, ws, timeout, tmp)
+        failed, passed, info = run_pytest(rec, ws, timeout, tmp, python_bin)
         result["buggy_passed"] = passed
         result["buggy_sec"] = info["sec"]
         if failed is None:
@@ -113,7 +113,7 @@ def verify_task(rec, timeout=900, workdir=None, keep=False):
 
         ws2 = os.path.join(tmp, "workspace_restored")
         pw.prepare(rec["task_id"], ws2, DEFAULT_TASKS, "lost", "original_source", True)
-        failed2, passed2, info2 = run_pytest(rec, ws2, timeout, tmp)
+        failed2, passed2, info2 = run_pytest(rec, ws2, timeout, tmp, python_bin)
         result["restored_passed"] = passed2
         result["restored_sec"] = info2["sec"]
         if failed2 is None:
@@ -139,6 +139,8 @@ def main(argv=None):
     ap.add_argument("--sample", type=int, default=0)
     ap.add_argument("--timeout", type=float, default=900)
     ap.add_argument("--json-report")
+    ap.add_argument("--python-bin", default=None,
+                    help="interpreter used to run pytest (default: python_bin from the task record)")
     ap.add_argument("--quiet", action="store_true")
     args = ap.parse_args(argv)
 
@@ -157,7 +159,7 @@ def main(argv=None):
     results, bad = [], []
     t0 = time.time()
     for i, tid in enumerate(ids, 1):
-        res = verify_task(tasks[tid], timeout=args.timeout)
+        res = verify_task(tasks[tid], timeout=args.timeout, python_bin=args.python_bin)
         results.append(res)
         flag = "OK  " if res["ok"] else "FAIL"
         if not res["ok"]:

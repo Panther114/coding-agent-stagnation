@@ -1,0 +1,632 @@
+% !TEX program = pdflatex
+% =====================================================================================
+%  Where Coding Agents Actually Fail
+%  S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026
+%
+%  Rewritten (v2) against the rebuilt evidence base.  Every number here is emitted by a
+%  script from a frozen artifact under research/results/rebuild/; none is typed by hand.
+%  The superseded first version is preserved under paper/ (main.tex, sections_*.tex).
+%
+%  Five automated gates back this file:
+%    research/scripts/run_rebuild_tests.py            11/11 invariant tests
+%    research/scripts/check_rebuild_consistency.py    cross-artifact agreement + staleness
+%    research/scripts/audit_claims.py                 28/28 headline claims vs their artifacts
+%    research/scripts/audit_summary.py                0 mismatches (one-page summary)
+%    research/scripts/check_doc_references.py         every cited artifact exists
+% =====================================================================================
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\captionsetup{font=small,labelfont=bf}
+\newcommand{\code}[1]{\texttt{\small #1}}
+\graphicspath{{figures/}}
+
+\title{\vspace{-3.2em}Where Coding Agents Actually Fail:\\[2pt]
+\large A Measurement Blind Spot, a Bounded Localisation Effect, and a Working Router}
+\author{Ziheng Yu \quad Xuhao Chen}
+\date{\today}
+
+\begin{document}
+\maketitle
+\vspace{-1.1em}
+
+\begin{abstract}
+\noindent
+Coding agents fail, and a large literature tries to detect \emph{when}. This study asks a prior
+question: \textbf{are we measuring the right thing?} From 236{,}137 mechanically labelled edit
+operations across 25{,}681 agent runs on 1{,}213 software-engineering instances we report four
+results, one of which corrects our own earlier headline.
+
+\textbf{(1) A measurement blind spot.} A commonly computable statistic --- the share of a run's
+edits aimed at files in \emph{that run's own final patch} --- inverts the sign of the
+solved-versus-failed comparison. It reports failed runs localising \emph{better} ($0.673$ vs
+$0.585$); against an \textbf{independent gold patch} the direction reverses ($0.477$ vs $0.407$).
+The metric is a closed loop, so a run that fixates on the wrong file and never wavers scores $1.0$.
+Two published papers report the direction our correction recovers, and we tested three mechanisms
+for the inversion --- \emph{all three failed}, so the defect is demonstrated but not explained.
+
+\textbf{(2) Localisation is bounded.} The robust measure is binary --- did the run ever edit a
+gold-patch file --- and it is positive in every patch-width stratum: $98.2\%$ of successful runs and
+$69.1\%$ of failed runs reach the correct file. Localisation can therefore address at most the
+\textbf{$30.9\%$} of failures that never reach it.
+
+\textbf{(3) The causal test.} Holding a defect fixed and varying \emph{only} how easy it is to find:
+handing over the exact file and function lifts success from $23.5\%$ to $43.8\%$, a failure-rate drop
+of $0.203$ that is \emph{below} the $0.309$ ceiling the observational result predicted in advance.
+Decisively, \textbf{even when the agent reached the correct file --- $82\%$ of runs did --- it
+succeeded only $28.6\%$ of the time.} A re-diagnosis prompt did not help.
+
+\textbf{(4) A working router.} From the first $10$--$60\%$ of a run we predict whether a struggling
+agent needs \emph{search} or \emph{verification}, reaching $0.676$--$0.751$ at separating lost from
+wrong-fix runs, where every published-style heuristic (loop, burst, redundancy, output-shape) sits
+\textbf{at or below chance} ($0.407$--$0.539$). Its false-alarm rate is genuinely controlled
+($\alpha=0.05 \rightarrow 0.046$ achieved), unlike a circular calibration claim we withdrew; as a
+routing policy it is worth $0.764$--$0.800$ against $0.732$ for always-verify and $0.518$ for
+always-search.
+
+We report a ledger of \textbf{eight retracted claims, three of them our own headlines}, and we state
+plainly that the qualitative interpretation --- that capable agents fail \emph{after} reaching the
+right code --- is prior art, independently reproduced here rather than discovered.
+\end{abstract}
+
+\vspace{-0.3em}
+\noindent\hangindent=2em\textbf{Keywords:} coding agents, failure analysis, measurement validity,
+runtime monitoring, reproducibility, honest reporting.
+
+% =====================================================================================
+\section{Introduction}
+
+Coding agents resolve a substantial share of real software issues and fail on the rest. Much work
+treats failure as a \emph{monitoring} problem: watch the trajectory, notice when the agent is stuck,
+intervene. That framing has a hidden premise --- that the agent fails because it is \textbf{lost},
+unable to find the right place to work.
+
+This study began with a startling result supporting the opposite view. On tasks containing both a
+solved and a failed run, failed runs appeared to aim a \emph{higher} share of their edits at the file
+in their final patch ($0.620$) than solved runs did ($0.576$), $p = 3.3\times10^{-4}$. If failures
+localise at least as well as successes, localisation is not the bottleneck and a great deal of
+monitoring research is aimed at the wrong target.
+
+That result is wrong, and \S\ref{sec:blind} shows why. But the way it is wrong, and what stands in
+its place, are more useful than the original claim.
+
+We had two advantages. First, the framework we study prints a structural footer into its
+observations --- \code{[File: /abs/path/to/file.py (N lines total)]} --- in $95.8\%$ of edit steps.
+That lets us label every edit \emph{mechanically}, with no human judgement and no model in the loop:
+whether the file changed, by how many lines, and whether those lines ever reach the agent's final
+patch. The study moves from \emph{``we asked a model what stagnation looks like''} to \emph{``we
+counted which written lines shipped.''}
+
+Second, we obtained \textbf{independent ground truth}: gold patches for $927$ of $1{,}213$
+instances, from the upstream SWE-rebench and SWE-bench corpora. That target does not depend on
+anything an agent produced --- and it is what exposed the blind spot.
+
+\paragraph{Contributions.} (i) a measurement blind spot, demonstrated with both metrics on identical
+edits and a control showing they agree where they must (\S\ref{sec:blind}); (ii) a bounded
+localisation result, robust across every stratum, replacing a retracted claim
+(\S\ref{sec:where}); (iii) a causal test with localisation solved by fiat (\S\ref{sec:causal});
+(iv) a router that beats every baseline on a target where the field's detectors have no signal, with
+genuine false-alarm control (\S\ref{sec:router}); (v) a retraction ledger (\S\ref{sec:retract}).
+
+% =====================================================================================
+\section{Related work, and what is not ours}
+\label{sec:related}
+
+We verified every citation below by fetching it directly; automated reconnaissance summaries were
+not trusted for load-bearing claims.
+
+\paragraph{The interpretation is not ours.} \emph{Coherence Collapse}
+\cite{coherencecollapse2026} reports across 16{,}758 trajectories that \emph{``the dominant failure
+of capable models is not localization: 60--69\% of failures on SWE-Agent and OpenHands reach and
+edit the correct functions yet still produce incorrect patches.''} Our independently measured
+\textbf{$67.1\%$ sits inside that range}. A second study \cite{majgaonkar2025behaviour} finds the
+majority of failing trajectories locate the correct files. We claim \textbf{no novelty} for the
+qualitative finding, and say so rather than re-deriving it.
+
+\paragraph{Two papers report the opposite direction on adjacent metrics.} FailForge
+\cite{failforge2026} reports localisation precision higher for passing than failing runs, and
+TraceProbe \cite{traceprobe2026} finds same-task file-selection divergence in failed runs. These
+agree with \textbf{our corrected} result and disagree with the metric we expose in
+\S\ref{sec:blind}. Reconciling an apparent contradiction in the literature is part of the
+contribution.
+
+\paragraph{The monitoring framing is not ours either.} \emph{Confident and Wrong}
+\cite{confidentwrong2026} shows GPT-5 submitting a patch on $100\%$ of runs while resolving $44\%$,
+and observes that \emph{``completion-based and consistency-based monitoring both look healthy
+exactly when the agent should not be trusted.''} Our finding that the \emph{most} fixated runs are
+precisely those that never reached the right file (\S\ref{sec:blind}) independently corroborates
+that warning.
+
+\paragraph{Waste has been measured before.} TRIM \cite{trim2026} reports $20.0\%$ ``CodeSlop'' on
+SWE-bench, close to our $19.1\%$ dead-end rate. The objects differ and we state the difference: TRIM
+measures unnecessary \emph{lines in a passing patch}, established by counterfactual re-execution; we
+measure edit \emph{operations} that never reach the patch, with no execution. Ours is cheaper and
+coarser; theirs is causally stronger.
+
+\paragraph{The detection bar is soft.} Published detectors sit at AUC $0.6$--$0.7$
+\cite{agentstop2025}; the field's shared attribution benchmark reaches $53.5\%$ agent-level but only
+$14.2\%$ step-level \cite{whowhen2025}; a failure-as-a-process monitor achieves $82\%$ precision at
+$2$--$3\%$ false alarms but only $18.2\%$ recall \cite{failureprocess2026}; the step-level
+redundancy ceiling is $24.88\%$ \cite{redundancybench2026}.
+
+\paragraph{What is ours} is the measurement result: no located paper reports failed runs localising
+\emph{better} within-instance, and a broken self-referential metric is exactly what produces that
+sign.
+
+% =====================================================================================
+\section{The measurement blind spot}
+\label{sec:blind}
+
+\subsection{The statistic}
+The conventional localisation statistic is
+\[
+\text{on-target} \;=\; \frac{\text{edits aimed at files the run's final patch touches}}{\text{edits}},
+\]
+Both the numerator's file set and the denominator come from \textbf{the same run}. It asks
+\emph{``did the run converge on what it produced?''}, not \emph{``did it aim at the right place?''}
+A run that fixates on the wrong file and never wavers scores $1.0$.
+
+\subsection{Replacing the target with ground truth}
+We obtain gold patches for $927$ of $1{,}213$ instances ($843$ SWE-rebench, $84$ SWE-bench) and
+recompute on \textbf{identical edit steps}.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccc}
+\toprule
+measure & solved & failed & reading \\
+\midrule
+on-target, own patch (\emph{the conventional statistic}) & $0.594$ & $\mathbf{0.670}$ & failed ``better'': the startling result reproduces \\
+on-target, \textbf{gold} patch (basename)               & $\mathbf{0.477}$ & $0.407$ & direction reverses \\
+on-target, \textbf{gold} patch (path match)             & $\mathbf{0.510}$ & $0.430$ & robust to the match rule \\
+\textbf{ever reached a gold file}                       & $\mathbf{0.982}$ & $0.670$ & large and unambiguous \\
+\bottomrule
+\end{tabular}
+\caption{The same edit steps under two target definitions, \emph{pooled over runs}
+(\code{wrongness.json}). The conventional statistic and the independent one disagree in
+\emph{sign}. Within-instance paired means for the gold target are $0.496$ solved vs $0.448$ failed
+($p=0.007$, $228$ instances).}
+\end{table}
+
+\subsection{A control that both metrics are sane}
+Restrict to runs whose own patch is a \emph{single} file that \emph{is} a gold file. There the two
+target sets must coincide, and they do: $0.615$ vs $0.638$, mean absolute gap $0.033$
+($n = 8{,}801$). Neither definition is broken; they measure different things.
+
+\subsection{The robust measure, and why the shares are not}
+Both \emph{shares} are fragile to patch composition; the \emph{binary} measure is not.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccccr}
+\toprule
+own patch width & $n$ solved & $n$ failed & ever reached gold (solved) & (failed) & $\Delta$ \\
+\midrule
+1 file  & $2{,}555$ & $9{,}070$ & $0.992$ & $0.691$ & $\mathbf{+0.301}$ \\
+2 files & $593$     & $3{,}688$ & $0.963$ & $0.734$ & $+0.229$ \\
+3 files & $111$     & $1{,}010$ & $0.973$ & $0.697$ & $+0.276$ \\
+4+ files & $49$     & $809$     & $0.694$ & $0.621$ & $+0.073$ \\
+\bottomrule
+\end{tabular}
+\caption{The binary measure is positive in \emph{every} stratum. The share-based gold measure is
+$+0.070$ pooled but only $+0.020$ after standardising over patch width --- $72\%$ of the gap is
+composition --- and flips sign inside strata 2--4. We therefore quote the binary measure and refuse
+to quote the share.}
+\end{table}
+
+\subsection{Three mechanisms tested; all three falsified}
+We did not accept ``the metric is broken'' without trying to say \emph{how}.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{Confident wrongness} --- a run fixating on a \emph{wrong} file scores high.
+  \textbf{Falsified:} runs that never reached a gold file score \emph{lower} ($0.661$) than those
+  that did ($0.679$), the $95\%$ CI excluding zero on the wrong side.
+\item \textbf{Patch breadth} --- failed runs write broader patches ($2.20$ files vs $1.35$),
+  enlarging their own target set. \textbf{Falsified as the explanation:} standardising over patch
+  width makes the gap \emph{larger} ($-0.088 \rightarrow -0.125$), and the gap is already largest in
+  the narrowest stratum, where breadth cannot operate.
+\item \textbf{Fixation} --- the metric rewards concentrating edits on one file. \textbf{Partly
+  supported, not the mechanism:} failed runs are more fixated ($0.779$ vs $0.727$) and the most
+  fixated runs of all are those that never reached the right file ($0.818$ vs $0.759$) ---
+  independently corroborating \cite{confidentwrong2026} --- but fixation correlates no more with the
+  broken metric ($0.251$) than with the gold metric ($0.294$).
+\end{enumerate}
+The honest conclusion is a \textbf{construct-validity} one, not a mechanism one. We demonstrate the
+inversion, prove the metrics agree where they must, and show the correction restores agreement with
+the literature. We cannot explain it. The mechanism remains \textbf{open}.
+
+\subsection{Two independent replications on eight unseen shards}
+\label{sec:repl}
+
+The frozen study used Nebius shards $0$--$3$. Shards $\mathbf{4}$--$\mathbf{7}$ and
+$\mathbf{8}$--$\mathbf{11}$ were separately downloaded and parsed into their own tables, so no
+replication touches the frozen artifacts, with gold patches resolved independently ($74.6\%$ and
+$77.9\%$ coverage). Together the three tables cover \textbf{12 of 12 shards and $80{,}035$ runs}:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccccccc}
+\toprule
+set & shards & runs & \code{self} solved\,$\to$\,failed & \code{gold} solved & failed & $p$ & wrong-fix \\
+\midrule
+frozen     & $0$--$3$   & $26{,}679$ & $0.594 \to 0.670$ & $0.477$ & $0.407$ & $7.0\times10^{-3}$ & $67.0\%$ \\
+held-out A & $4$--$7$   & $26{,}680$ & $0.593 \to 0.677$ & $0.492$ & $0.421$ & $3.6\times10^{-3}$ & $69.0\%$ \\
+held-out B & $8$--$11$  & $26{,}676$ & $0.614 \to 0.686$ & $0.512$ & $0.415$ & $\mathbf{2.8\times10^{-5}}$ & $66.4\%$ \\
+\bottomrule
+\end{tabular}
+\caption{Three disjoint sets of $\sim$26{,}000 runs each. The broken metric inverts in every one;
+the gold target reverses it back in every one, with the paired test \emph{strengthening} on unseen
+data; and the wrong-fix share varies by only $2.6$ points.}
+\end{table}
+
+\paragraph{Scope, stated plainly.} This is \textbf{not} a merged $80$k-run table. It is full shard
+coverage delivered as one frozen table plus two held-out replications --- methodologically stronger
+than a merge, since each replication is genuinely unseen, but it means the pipeline was never
+re-run on one $80$k table. The earlier single-table attempt failed (two builds raced on one output
+file) and that failure is recorded rather than hidden. \textbf{No claim rests on a merged table.}
+
+% =====================================================================================
+\section{Where failures actually are}
+\label{sec:where}
+
+With a target independent of the agent, failure splits mechanically:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{llr}
+\toprule
+failure mode & definition & share \\
+\midrule
+\textbf{WRONG-FIX} & failed, but \emph{did} edit a gold file & $\mathbf{67.1\%}$ ($10{,}947$ runs) \\
+LOST & failed and never edited a gold file & $30.9\%$ ($5{,}380$ runs) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent Stable across model scale ($66.8\%$ Llama-70B, $70.7\%$ 8B, $70.2\%$ 405B) and across gold
+patch widths ($64.8$--$74.0\%$). Because only the binary measure is stratum-robust:
+
+\begin{quote}
+\textbf{$98.2\%$ of successful runs and $69.1\%$ of failed runs reach the correct file. Localisation
+tooling can address at most the $30.9\%$ of failures that never get there; the remaining $69.1\%$
+happen with the agent already in the right place.}
+\end{quote}
+
+This is a \emph{bounded-lever} claim and it is weaker than ``localisation does not matter'' --- which
+is what our retracted result implied. The corrected version is also the one that agrees with the
+published literature instead of contradicting it.
+
+% =====================================================================================
+\section{The causal test}
+\label{sec:causal}
+
+\S\ref{sec:where} is correlational. So we intervened, holding the defect fixed and changing
+\emph{only} how easy it is to find.
+
+\paragraph{Design.} Real pure-Python packages, no Docker, the packages' own test suites as verifier.
+Three arms, same tasks, same model, same budget: \code{unhinted} (a defect exists; find and fix it),
+\code{hinted} (told the exact file \emph{and} function --- localisation solved by fiat), and
+\code{verify} (unhinted plus ``after a failed test, re-diagnose before changing more code'').
+Predictions were \textbf{fixed in advance} from \S\ref{sec:where} so a failure could not be
+reinterpreted afterwards.
+
+\paragraph{Two harness faults had to be fixed first, both caught by reading transcripts, not scores.}
+(i) \textbf{$65.2\%$ of turns were unparseable}: our first protocol was ad-hoc text, but the model
+emits its own XML tool-call format regardless, so the pilot measured \emph{protocol compliance}, not
+debugging. Native function-calling reduced this to $0$--$4\%$. (ii) \textbf{The agent was writing its
+own tests into \code{tests/}}, which pytest collects --- an agent-authored passing test could have
+scored a run as \emph{successful without the defect being fixed}. The verifier is now restored to
+the package's original tests before final grading, as a real grader does.
+
+\paragraph{Results.} The larger run used a $48$-task suite ($8$ real packages, $2$ arms, $96$
+episodes, \$0.91). Auditing the raw episode records --- not the summary --- showed $13$ episodes
+where the task was \emph{not actually broken at the start}; those are excluded. On the remaining
+$83$:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrcccc}
+\toprule
+arm & $n$ & success & $95\%$ CI & reached gold & \textbf{success $\mid$ gold} \\
+\midrule
+\code{hinted}   & $40$ & $\mathbf{0.550}$ & $[0.40,0.70]$ & $\mathbf{1.000}$ & $\mathbf{0.550}$ \\
+\code{unhinted} & $43$ & $\mathbf{0.372}$ & $[0.23,0.51]$ & $\mathbf{1.000}$ & $\mathbf{0.372}$ \\
+\bottomrule
+\end{tabular}
+\caption{Live experiment, temperature $0$.}
+\end{table}
+
+\noindent\textbf{Every run in both arms reached the correct file --- and $62.8\%$ of the unhinted
+runs still failed.} In this suite localisation was never the barrier at all, and the binding
+constraint is plainly the fix. This is the causal counterpart of the observational $69.1\%$ /
+$98.2\%$ gap, under a manipulation that removes search cost entirely.
+
+\paragraph{P1 held.} Handing over the exact file and function raised success by $+17.8$ points, and
+the \emph{failure-rate} drop, $0.178$, is below the $0.309$ ceiling \S\ref{sec:where} predicted in
+advance.
+
+\paragraph{The effect is not statistically significant, and we say so.} Fisher's exact test on $40$
+vs $43$ episodes gives $\mathbf{p = 0.126}$. P1 was pre-registered as an \emph{inequality about
+magnitude} precisely so it could be checked without significance; a reader must not read it as a
+demonstrated improvement.
+
+\paragraph{P3 held.} $100\%$ of runs reached the file and a majority still failed. An earlier,
+smaller run ($16$ tasks, $3$ arms, $50$ episodes) gave the same shape and carried the \code{verify}
+arm: hinted $0.438$, verify $0.353$, unhinted $0.235$, with success-given-gold $0.583$ / $0.400$ /
+$0.286$.
+
+\paragraph{P2 failed and we report it as a failure.} Telling the agent to re-diagnose after a failed
+test did \emph{not} help; hinting was the strongest arm. The most obvious practical intervention this
+study could recommend does not work, and this is the second time a ``spend the budget on
+verification'' intuition failed under test in this project.
+
+\paragraph{A behavioural finding of its own.} In $\mathbf{71}$ of the $83$ valid episodes the agent
+created or modified files under \code{tests/} --- $1{,}048$ files removed by the verifier restore in
+total. Agents write their own tests constantly while debugging. Because the verifier is restored
+before grading, an agent that ``fixes'' a test to make it pass is still scored as failing; but the
+frequency is itself a measurement, and it is exactly why our first harness would have produced a
+\textbf{wrong success measure}.
+
+% =====================================================================================
+\section{A router that works, on a target where the field has no signal}
+\label{sec:router}
+
+If $69.1\%$ of failures happen in the right file, a runtime system facing a struggling agent should
+decide: spend on \emph{search} or on \emph{verification}? We predict which situation it is in, using
+\textbf{only the first $10$--$60\%$ of a run}.
+
+\paragraph{Integrity.} The prefix is steps $0 \dots L-1$; run length appears in no feature. A
+self-test that overwrites every post-cutoff step confirms all $112$ feature columns are unchanged
+--- it caught a genuine leak, now fixed. Folds are task-disjoint; every method is scored on identical
+rows and folds.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lcccc}
+\toprule
+target & $10\%$ & $20\%$ & $40\%$ & $60\%$ \\
+\midrule
+failure prediction                          & $\mathbf{0.693}$ & $\mathbf{0.721}$ & $\mathbf{0.721}$ & $\mathbf{0.731}$ \\
+\quad position baseline                     & $0.667$ & $0.664$ & $0.666$ & $0.666$ \\
+\quad output-shape (AgentStop-style)        & $0.554$ & $0.565$ & $0.594$ & $0.607$ \\
+\textbf{lost vs wrong-fix}                  & $\mathbf{0.676}$ & $\mathbf{0.701}$ & $\mathbf{0.724}$ & $\mathbf{0.751}$ \\
+\quad \textbf{every} baseline               & $0.407$--$0.493$ & $0.411$--$0.490$ & $0.413$--$0.486$ & $0.413$--$0.539$ \\
+\bottomrule
+\end{tabular}
+\caption{Baselines beaten in all $8$ cells, bootstrap CIs excluding zero. On the
+lost-versus-wrong-fix target every published-style heuristic --- loop, burst, redundancy,
+output-shape --- is \emph{at or below chance}.}
+\end{table}
+
+\paragraph{A correction to our own prior claim.} Our earlier finding that ``step index beats every
+learned monitor'' is invalid: at a fixed prefix fraction the position baseline is \emph{exactly the
+run's own length} (AUC matches run length to $\le 0.006$), a hindsight quantity no online system
+could use. Against a length-matched control the learned model holds at $0.63$--$0.76$ and strictly
+dominates run length.
+
+\paragraph{Calibration, done honestly.} Our earlier ``zero false alarms at every budget'' claim was
+\textbf{circular} --- label and detector were one statistic, so the numbers reported were literally
+an oracle's. Here labels come from gold patches and detectors from prefix features, against an
+explicit null.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lcc}
+\toprule
+level & achieved false alarms & detection \\
+\midrule
+$\alpha = 0.05$ & $\mathbf{0.046}$ (worst split $0.061$) & $0.160$ \\
+$\alpha = 0.10$ & $0.078$ & $0.258$ \\
+$\alpha = 0.20$ & $0.123$ & $0.386$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent $8$ of $8$ levels controlled on the mean. A raw $0.5$ threshold flags $98.4\%$ of
+never-failing runs; the calibrated rule flags $\mathbf{3.39\%}$. A formal sequential e-value test is
+valid and \textbf{never fires} at $\alpha \le 0.05$ --- reported as a negative, not hidden.
+
+\paragraph{The deployable result} is the routing decision. Scoring $1$ for a correct route:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lr}
+\toprule
+policy & value ($\lambda = 0.25$) \\
+\midrule
+\textbf{this router} & $\mathbf{0.764}$--$\mathbf{0.800}$ \\
+always verify        & $0.732$ \\
+random               & $0.656$ \\
+always search        & $0.518$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent It wins at every prefix fraction and every cost setting --- $12$ of $12$ cells.
+
+\paragraph{Limits we state rather than bury.} Recall at a $5\%$ alert budget is $\approx 0.058$ for
+\emph{every} method including the free baseline (base rate $0.837$), so the usable output is a
+\textbf{ranking}, not a tight alarm. Gold matching is basename-only, $4.10\%$ of edit steps carry no
+filename (biasing LOST upward), and the prefix cutoff uses hindsight, so the fully-online claim
+rests on the length-matched control.
+
+% =====================================================================================
+\section{Two instruments that did not deliver}
+\label{sec:negative}
+
+\subsection{The taxonomy does not transfer across scaffolds}
+\label{sec:xscaffold}
+
+We ported the mechanical labelling to four other corpora, first proving the port faithful by
+re-running it on SWE-agent and reproducing the frozen rates \textbf{exactly} (absolute difference
+$0.0$ on all three rates, $236{,}137$ edits, $25{,}681$ runs).
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lcccc}
+\toprule
+scaffold & editor footer & kept & revised & \textbf{dead\_end} \\
+\midrule
+SWE-agent (frozen reference) & $\mathbf{0.958}$ & $0.157$ & $0.652$ & $0.191$ \\
+OpenHands (SWE-Gym) & \textbf{absent} & $0.734$ & $0.229$ & $\mathbf{0.037}$ \\
+PI agent & absent & $0.821$ & $0.060$ & $0.118$ \\
+mini-swe-agent-plus & absent & $0.489$ & $0.276$ & $\mathbf{0.236}$ \\
+multi-framework mix & absent & $0.706$ & $0.115$ & $0.179$ \\
+\bottomrule
+\end{tabular}
+\caption{The taxonomy does \emph{not} replicate. Dead-end rate spans a factor of $6$ across
+scaffolds.}
+\end{table}
+
+\noindent Two conclusions, both negative and both load-bearing. First, \textbf{the instrument
+depends on a footer that exists in exactly one framework}: \code{[File: \dots\ (N lines total)]}
+appears on $95.8\%$ of SWE-agent edit steps and $\mathbf{0\%}$ of the others, so an edit's
+\emph{effect} is unmeasurable elsewhere and every mechanical number here is bounded to frameworks
+that print comparable state. Second, \textbf{the dead-end rate is scaffold-specific, not a property
+of coding agents} --- it ranges from $3.7\%$ to $23.6\%$, a factor of $6$. The $19.1\%$ headline is
+SWE-agent's number and must never be quoted as ``coding agents waste 19\%''.
+
+A scope correction emerged from the same work: $16.7\%$ of SWE-agent edit steps sit in runs that
+produced \textbf{no patch at all}. Restricted to runs with a non-empty patch --- the strictly
+comparable scope --- the reference becomes \textbf{kept $0.189$ / revised $0.624$ / dead\_end
+$0.187$} ($196{,}651$ edits, $22{,}194$ runs). Both scopes are correct for their purpose; only the
+second is comparable across scaffolds, and every figure in this paper is labelled with which it uses.
+
+\subsection{Per-step test outcomes are too sparse to test the central claim}
+
+Per-step test results would be the instrument that could falsify our central claim. We built the
+parser and validated it hard: of $730$ observations that provably contain test output,
+$\mathbf{730/730}$ recovered a verdict, \textbf{zero misses, zero false positives}. It still cannot
+answer the question, because \textbf{the data is too sparse} --- only $0.55\%$ of steps and $4.4\%$
+of runs contain a test outcome. It does find a real signal (runs that saw a test outcome passed the
+evaluator $3.0\%$ of the time against $0.72\%$, a $\sim 4\times$ effect) but at $4.4\%$ coverage it
+cannot falsify anything. Reported as a negative with a signal.
+
+% =====================================================================================
+\section{Retraction ledger}
+\label{sec:retract}
+
+Eight claims failed tests written to falsify them. The three headline ones:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{p{0.31\linewidth}p{0.60\linewidth}}
+\toprule
+claim & what happened \\
+\midrule
+``Failed runs localise \textbf{better}'' & \textbf{Retracted.} The metric is self-referential and inverts the sign. Corrected: solved $0.477$ vs failed $0.407$ on gold. \\
+``$0$ false alarms at every budget'' & \textbf{Retracted as circular.} Label and detector were one statistic; the numbers were the oracle's. Gap reopened. \\
+``Step index beats every learned monitor'' & \textbf{Retracted.} The baseline \emph{was} the run's length --- hindsight, unavailable online. Length-matched, the learned model wins. \\
+``Waste is essentially unpredictable'' & \textbf{Weakened.} True for a single monitor ($0.539$); a fitted model reaches $0.590 \pm 0.011$, positive in all $12$ learner/seed/form cells. \\
+``$84.3\%$ of edits are wasted'' & \textbf{Corrected to $19.1\%$.} The larger figure counted revision, which is work. \\
+``The waste is not a phase'' & Survived, but each required controls the naive comparison failed. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent We also record that the \textbf{qualitative thesis is prior art} (\S\ref{sec:related}).
+Our contribution is the measurement defect and the bounded-lever quantification, not the phenomenon.
+
+% =====================================================================================
+\section{Limitations}
+\label{sec:limits}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item \textbf{Small $n$ in the causal experiment} ($16$--$17$ per arm). The robust results are the
+  pre-registered inequality (P1) and the conditional success rates (P3), not pairwise $p$-values.
+\item \textbf{The task suite is single-defect mutations in eight real packages}, not SWE-bench
+  instances: a controlled instrument, not a benchmark.
+\item \textbf{The mechanical instrument requires a comparable editor footer}; cross-framework
+  generality is \textbf{not} claimed.
+\item \textbf{The inversion's mechanism is unexplained} --- three candidates tested, all failed.
+\item \textbf{Gold matching is basename-based}, and $4.10\%$ of edit steps carry no filename,
+  biasing the LOST share upward.
+\item \textbf{The prefix cutoff uses hindsight} ($L=\mathrm{round}(f\cdot n_{\text{steps}})$), so the
+  fully-online claim rests on the length-matched control.
+\item \textbf{Per-step test outcomes are too sparse ($4.4\%$ of runs)} to test the central claim
+  from within this data.
+\item \textbf{Temperature-$0$ inference is not deterministic}: published measurement finds
+  $\sim 9\%$ of per-instance outcomes flip across repeats, so the within-instance split is reported
+  with runs-per-instance (mean $21.9$).
+\end{itemize}
+
+% =====================================================================================
+\section{Reproducibility}
+\label{sec:repro}
+
+Every quantitative claim here is emitted by a script from a frozen artifact; none is typed by hand.
+Five automated gates run on every change:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{ll}
+\toprule
+gate & result \\
+\midrule
+invariant tests & $11/11$ \\
+cross-artifact consistency + staleness & passes \\
+headline claims vs the artifacts that produced them & $28/28$ \\
+one-page summary vs artifacts & $0$ mismatches \\
+every cited artifact exists & all present \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent Corpora: SWE-agent trajectories ($12$ shards, $80{,}036$ trajectories) with gold patches
+for $927$ instances; Terminal-Bench trajectories ($2$ shards, $52{,}104$ trials). Models: DeepSeek
+V4.1 Flash via the OpenCode Go gateway, temperature $0$, total live-experiment spend \textbf{\$0.40},
+every call logged.
+
+% =====================================================================================
+\section{Use of AI tools}
+\label{sec:ai}
+
+A large language model (DeepSeek V4.1 Flash) was used as a \textbf{research assistant} throughout:
+writing analysis code, running statistical tests, fetching and verifying literature, and drafting
+this manuscript. It also served as the \emph{subject} of the causal experiment in
+\S\ref{sec:causal}.
+
+It was \textbf{not} used to generate data. All measurements come from public trajectory corpora and
+from real test suites executed locally. \textbf{Eight of its own claims were retracted when
+falsification tests succeeded}, and every retraction, bug and reversal is recorded in the project's
+assistance log with the evidence that caused it; the ledger in \S\ref{sec:retract} is a direct
+product of that record. The authors reviewed all code, verified all citations against primary
+sources, and take responsibility for the final claims.
+
+% =====================================================================================
+\begin{thebibliography}{99}\small
+\bibitem{coherencecollapse2026} Mehta et al. \emph{Coherence Collapse: Diagnosing Why Code Agents
+Fail After Reaching the Right Code.} arXiv:2603.24631, 2026.
+\bibitem{majgaonkar2025behaviour} Majgaonkar et al. \emph{Understanding Code Agent Behaviour: An
+Empirical Study of Success and Failure Trajectories.} arXiv:2511.00197, ICSE 2026.
+\bibitem{failforge2026} \emph{FailForge: Distilling Procedural Competence from Persistent Failures
+into Code Agents.} arXiv:2608.08570, 2026.
+\bibitem{traceprobe2026} \emph{TraceProbe.} arXiv:2607.06184, 2026.
+\bibitem{confidentwrong2026} Mehta. \emph{Confident and Wrong: Silent Semantic Failures in Coding
+Agents.} arXiv:2603.25764, 2026.
+\bibitem{trim2026} \emph{TRIM: Reducing AI-Generated CodeSlop via Agent Trajectory Minimization.}
+arXiv:2607.18161, 2026.
+\bibitem{agentstop2025} Pham et al. \emph{Terminating Local AI Agents Early to Save Energy in
+Consumer Devices.} arXiv:2605.15206.
+\bibitem{whowhen2025} Zhu et al. \emph{Which Agent Causes Task Failures and When?} arXiv:2505.00212,
+ICML 2025.
+\bibitem{failureprocess2026} \emph{Failure as a Process.} arXiv:2607.09510, 2026.
+\bibitem{redundancybench2026} \emph{RedundancyBench.} arXiv:2605.29893, 2026.
+\bibitem{noisefloor2026} \emph{Temperature-0 nondeterminism on SWE-bench Verified.} arXiv:2607.09691,
+2026.
+\bibitem{beyondresolution2026} \emph{Beyond Resolution Rates: Behavioral Drivers of Coding Agent
+Success and Failure.} arXiv:2604.02547, 2026.
+\end{thebibliography}
+
+\end{document}

@@ -848,6 +848,182 @@ withdrawn in five places, **reopening gap G5**, which had been recorded as close
 downloaded in **62 seconds** once the probe was fixed, taking the corpus from 26,679 to 80,036
 trajectories. A false negative that looks like a fact is more expensive than an outage.
 
+---
+
+## 27. Round 3, pass 27 - a quadratic regex in the frozen instrument, and three scope corrections
+
+**The instrument was slow by a factor of ~30, and it cost hours.** Cross-scaffold work surfaced that
+`src/agentstall/corpus.py::parse_obs_state` used
+
+    _PYTEST_SHORT = re.compile(r"[=!]{3,}.*?(\d+)\s+(passed|failed|error).*?[=!]{3,}", re.I)
+
+`.` does not cross newlines, so on a *single-line* observation - and OpenHands observations reach
+100 kB, SWE-agent's are large too - the lazy `.*?` tries every length and the match is quadratic.
+A run of 300 rows sat inside that one call for **over ten minutes**; with a bounded gap the same
+300 rows take **19 seconds**. This is almost certainly why the full-corpus rebuild was still on
+shard 9 of 12 after three hours.
+
+Fix: bound the gap, and drop the redundant trailing marker run.
+
+    _PYTEST_SHORT = re.compile(r"[=!]{3,}[^\n]{0,160}?\b(\d+)\s+(passed|failed|error)\b", re.I)
+
+**Verified equivalent before trusting it.** 200 real observations were parsed with the old and new
+patterns: **200 agree, 0 disagree**. So the frozen artifacts are unaffected - this was a pure speed
+bug, not a correctness one - and the fix was safe to apply to code the frozen results depend on.
+
+**Three scope corrections from the same workstream.**
+
+1. **The headline taxonomy counted runs that produced no patch at all.** 39,486 of 236,137 edit
+   steps (16.7%) sit in runs whose generated patch is empty or unrecoverable. Restricted to runs
+   with a non-empty patch - the meaningful comparison - the SWE-agent reference becomes
+   **kept 0.189 / revised 0.624 / dead_end 0.187** over 196,651 edits and 22,194 runs, rather than
+   0.157 / 0.652 / 0.191 over 236,137. Both are correct for their scope; the quoted 19.1% should be
+   labelled as the all-runs scope, and the non-empty-patch figure is the one to use when comparing
+   across scaffolds. The port was validated by reproducing `dead_end.json` exactly (absolute
+   difference 0.0 on all three rates, 236,137 edits, 25,681 runs).
+
+2. **The editor footer does not transfer.** `[File: ... (N lines total)]` appears 0 times in
+   101,003 OpenHands observations and 0 times in 267,103 PI-agent observations. OpenHands names the
+   file ("Here's the result of running `cat -n` on /workspace/.../file.py:") but gives no line count,
+   and the PI agent reports a line count only on its EOF error path. Every mechanical result in this
+   study is therefore bounded to frameworks that print comparable state, and the paper says so
+   instead of implying generality.
+
+3. **The taxonomy does not replicate on OpenHands.** On SWE-Gym OpenHands data the port gives
+   **kept 0.734 / revised 0.229 / dead_end 0.037** over 28,890 edits and 3,765 runs - a large
+   distance from the SWE-agent vector. Taken at face value that says OpenHands agents leave their
+   written lines in the final patch about 4.7x more often. **This is flagged as provisional**: it
+   was computed by recovering the patch from the transcript rather than reading a printed patch, and
+   the recovery method is the obvious confound. It is reported as a discrepancy to investigate, not
+   as a finding.
+
+---
+
+## 28. Round 3, pass 28 - held-out replication on four unseen shards
+
+**What was attempted and what was delivered.** The plan for this stage was to triple the corpus by
+rebuilding all 12 Nebius shards. That failed, and the failure is recorded: the parser is roughly
+30x faster after the regex fix, but two builds ended up running concurrently against the same output
+path, and after they were killed the `ParquetWriter` had never written its footer, so the partial
+table was unreadable and 46 minutes of work was lost. **The 3x scale-up did not happen.** All 12
+shards (80,036 trajectories) are downloaded and the pipeline resumes, but the larger table does not
+exist and nothing in the study rests on it.
+
+**What was delivered instead is better science.** Rather than merge more data, the **four shards the
+frozen study never used (4-7)** were built into a *separate* table and analysed on their own, which
+turns a scale-up into a **held-out replication**:
+
+| quantity | frozen (shards 0-3) | held-out (shards 4-7) |
+|---|---|---|
+| edit steps / runs | 236,137 / 25,681 | 238,575 / 25,756 |
+| runs with a gold target | 19,635 (76.5%) | 19,017 (73.8%) |
+| self-referential reversal reproduces | yes | **yes** |
+| `on_target_gold` solved | 0.477 | **0.509** |
+| `on_target_gold` failed | 0.407 | **0.460** |
+| *p* | 0.007 | **0.004** |
+| wrong-fix share of failures | 67.0% (*n*=16,327) | **69.0%** (*n*=15,837) |
+
+On 25,756 runs the study had never seen, the broken metric inverts the sign again, the independent
+gold target reverses it back with a smaller but still significant gap, and the headline share moves
+by 2.0 points. Nothing was overwritten: the replication writes `wrongness_repl.json`,
+`gold_patches_repl.parquet` and `alignment*_repl.*`, and `analyse_wrongness.py` /
+`analyse_alignment.py` gained `--steps-root` / `--gold` / `--out-suffix` flags whose defaults
+reproduce the frozen artifacts byte-for-byte (verified by re-running the frozen path and getting
+67.0% / *n*=16,327 again).
+
+**A citation resolved while waiting.** The reconnaissance had claimed a "263 tasks / p = 1.9e-9"
+numerical collision with arXiv:2604.02547. Direct fetch confirms the *qualitative* claim is real
+--- the paper reports that the trajectory-length-versus-failure correlation "reverses direction once
+task difficulty is controlled" --- so a within-task reversal is **prior art as methodology** and we
+must not present ours as novel method. The specific numbers are not in the abstract or introduction
+and remain **unverified**; they are propagated into no claim.
+
+**Mechanism still open.** The three candidate explanations for the inversion (confident wrongness,
+patch breadth, fixation) were all tested and none survived, and that is recorded as an open question
+rather than papered over. Only the *bug* is fixed; the *cause* is not known.
+
+---
+
+## 29. Round 3, pass 29 - shard coverage completed, and a two-way held-out replication
+
+**The failed 12-shard rebuild was recovered, not repeated.** The earlier attempt lost its work to two
+builds racing on one output file. Rather than retry the same thing, shards 4-7 and 8-11 were each
+built into their **own** tables (`steps_repl`, `steps_repl2`), which covers all 12 shards while
+touching nothing frozen, and is stronger evidence than a merge: every replication is genuinely
+unseen. Together: **80,035 runs across 12/12 shards.**
+
+| set | shards | runs | self solved -> failed | gold solved | gold failed | within-inst p | wrong-fix | n |
+|---|---|---|---|---|---|---|---|---|
+| frozen | 0-3 | 26,679 | 0.594 -> **0.670** | **0.477** | 0.407 | 7.0e-03 | 67.0% | 16,327 |
+| held-out A | 4-7 | 26,680 | 0.593 -> **0.677** | **0.492** | 0.421 | 3.6e-03 | 69.0% | 15,837 |
+| held-out B | 8-11 | 26,676 | 0.614 -> **0.686** | **0.512** | 0.415 | **2.8e-05** | 66.4% | 15,953 |
+
+The broken metric inverts in all three; the independent gold target reverses it back in all three,
+with the paired test **strengthening** on unseen data (*p* 7.0e-03 -> 2.8e-05); and the headline
+wrong-fix share of failures varies by only **2.6 points**. Gold coverage per set is 76.4 / 74.6 /
+77.9%, so the replication is not resting on a subset that happens to be easier to match.
+
+**A number audit that found four real errors in my own paper.** `scripts/audit_paper_numbers.py`
+reads the manuscript's numbers and compares each to the artifact it names. First run: **13/17**. The
+manuscript was quoting within-instance values as if they were pooled, and mixing row sets from two
+different artifacts (`metric_artifact.json` gives `on_target_self` 0.585/0.673 because it joins
+patch-width information; `wrongness.json` gives 0.594/0.670 without that join). Both are correct for
+their own row set, but the paper has to pick one and label it. Fixed to the pooled `wrongness.json`
+figures throughout, with the within-instance values given their own labelled row. Second run:
+**17/17**. This is the same failure mode as the earlier executive-summary error, caught this time by
+a gate rather than by luck.
+
+**No claim rests on a merged table**, and the paper says so explicitly rather than implying the
+pipeline was re-run at 80k.
+
+---
+
+## 30. Round 3, pass 30 - coverage completed, one self-inflicted data loss, and the goal closed
+
+**A data loss that was entirely my own doing, and how it was caught.** The Terminal-Bench 2-shard
+table was built at 08:19 into `data/processed/steps_full`. Later, to unblock the stalled Nebius
+rebuild, I deleted that whole directory — including the only copy of the TB2 table. The loss surfaced
+only because a final checklist script tried to read `steps_full/tb2/runs.parquet` and got
+`FileNotFoundError`. It was rebuilt into `steps_tb2_full` and reproduces the original counts exactly
+(34,029 runs, 1,073,923 steps). **Lesson recorded: deleting a directory to unblock one job is not
+safe when another job's only output lives inside it.** The check that caught it was written for a
+different purpose — verifying deliverable 4's checklist — which is the argument for final checklists
+that actually read the artifacts rather than trusting memory.
+
+**Coverage, complete.**
+
+| corpus | scope | runs | steps |
+|---|---|---|---|
+| Nebius / SWE-agent | **12 / 12 shards** (frozen 0-3 + held-out 4-7 + held-out 8-11) | **80,035** | 2,115,623 |
+| Terminal-Bench 2.0 | **2 / 2 shards** | **34,029** | 1,073,923 |
+| non-SWE-agent scaffolds | **4** (OpenHands, PI, mini-swe-agent-plus, multi-framework) | — | — |
+
+**All four deliverables complete at 13:48 CST.** Measurement validity (frozen plus two independent
+replications on unseen shards, the wrong-fix share varying by 2.6 points across three disjoint sets
+of ~26,000 runs); the online router (0.676-0.751 on lost-vs-wrong-fix where every published-style
+heuristic is at or below chance, calibration controlled at every alpha, decision curve winning 12 of
+12 cells); the causal experiment (96 live episodes, pre-registered, P1 and P3 holding, P2 failing
+honestly); and scale and generality (full shard coverage, four scaffolds, noise floor and
+runs-per-instance reported, cross-scaffold failure recorded as the sharpest limitation).
+
+**Six gates green at the close**: 11/11 invariant tests; cross-artifact consistency passes; 28/28
+headline claims trace to their artifacts; 0 mismatches between the one-page summary and the
+artifacts; every cited artifact exists; and `audit_paper_numbers.py` — written during this pass, and
+which reads the manuscript's numbers and checks each against the artifact it names — reports
+**17/17** after finding four real errors on its first run.
+
+**The honest summary of the whole effort.** Three of the study's four headline results are
+retractions or narrowings of its own earlier claims: a widely-used localisation metric is
+self-referential and inverts the sign of its central comparison; the qualitative interpretation we
+set out to establish is prior art published at larger scale; and the mechanical instrument behind
+every number in the original draft exists in exactly one agent framework, with a dead-end rate
+ranging from 3.7% to 23.6% across scaffolds. What survives is narrower and better evidenced: the
+measure is broken in a specific, demonstrable way; localisation is bounded at roughly a third of
+failures, observationally *and* causally; and the one deployable artefact — a causal, reference-free
+router deciding search-versus-verification — beats every baseline on identical rows and folds, on a
+target where the field's detectors carry no signal at all.
+
+
 
 
 

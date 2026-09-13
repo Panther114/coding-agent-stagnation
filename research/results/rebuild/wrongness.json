@@ -1,5 +1,7 @@
 {
   "question": "do failed runs localise WORSE (lost) or equally/better (wrong-fix)?",
+  "steps_root": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\processed\\steps",
+  "is_replication": false,
   "corpora": {
     "nebius": {
       "reversal_on_target_self": {

@@ -1,0 +1,92 @@
+{
+  "n_episodes": 50,
+  "n_tasks": 13,
+  "arms": [
+    "hinted",
+    "unhinted",
+    "verify"
+  ],
+  "total_usd": 0.335,
+  "per_arm": {
+    "hinted": {
+      "n": 16,
+      "success": 0.4375,
+      "success_ci95": [
+        0.1875,
+        0.6875
+      ],
+      "reached_gold": 0.75,
+      "mean_turns": 8.56,
+      "errors": 4,
+      "usd": 0.0666,
+      "success_given_reached_gold": 0.5833,
+      "n_reached_gold": 12
+    },
+    "unhinted": {
+      "n": 17,
+      "success": 0.2353,
+      "success_ci95": [
+        0.0588,
+        0.4706
+      ],
+      "reached_gold": 0.8235,
+      "mean_turns": 11.12,
+      "errors": 2,
+      "usd": 0.13,
+      "success_given_reached_gold": 0.2857,
+      "n_reached_gold": 14
+    },
+    "verify": {
+      "n": 17,
+      "success": 0.3529,
+      "success_ci95": [
+        0.1176,
+        0.5882
+      ],
+      "reached_gold": 0.8824,
+      "mean_turns": 10.94,
+      "errors": 2,
+      "usd": 0.1384,
+      "success_given_reached_gold": 0.4,
+      "n_reached_gold": 15
+    }
+  },
+  "pre_registered_tests": {
+    "P1_hint_gain_lt_lost_fraction": {
+      "fail_rate_unhinted": 0.7647,
+      "fail_rate_hinted": 0.5625,
+      "failure_rate_drop": 0.2022,
+      "pre_registered_lost_fraction": 0.309,
+      "prediction": "drop < 0.309",
+      "holds": true,
+      "p_fisher": 0.28175267205107124
+    },
+    "P2_verify_beats_unhinted_and_hint": {
+      "unhinted": 0.2353,
+      "hinted": 0.4375,
+      "verify": 0.3529,
+      "verify_minus_unhinted": 0.1176,
+      "hinted_minus_unhinted": 0.2022,
+      "prediction": "verify - unhinted > hinted - unhinted",
+      "holds": false
+    },
+    "P3_success_given_reached_gold_below_certainty": {
+      "by_arm": {
+        "hinted": {
+          "success_given_reached_gold": 0.5833,
+          "n": 12
+        },
+        "unhinted": {
+          "success_given_reached_gold": 0.2857,
+          "n": 14
+        },
+        "verify": {
+          "success_given_reached_gold": 0.4,
+          "n": 15
+        }
+      },
+      "prediction": "all well below 1.0",
+      "holds": true
+    }
+  }
+}
