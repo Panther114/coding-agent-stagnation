@@ -23,10 +23,22 @@ import * as path from 'node:path';
 
 export const name = 'dsh-batch-flow';
 
-// Static service dependency: all `ctx.tools` access below requires this
-// declaration (the loader rejects undeclared service property access).
-// Mirrors dsh-rewind-plugin's `inject = ["commands", "tools"]`.
-export const inject = ['tools'];
+// Static service dependencies: `ctx.tools` and `ctx.systemPrompt` access below
+// require this declaration (the loader rejects undeclared service property
+// access). Mirrors dsh-rewind-plugin's `inject = ["commands", "tools"]`.
+export const inject = ['tools', 'systemPrompt'];
+
+// Batch-first workflow discipline, shown to the model. This is the steering
+// half of the plugin: tools alone don't get adopted (models reach for what
+// their priors know), so the discipline is stated where every turn assembles.
+const BATCH_FIRST_TEXT = [
+	'Batch-first workflow (saves turns and context, same tools underneath):',
+	'- Independent calls (reads, searches, checks) go in ONE `batch` call with mode parallel — never one turn per call.',
+	'- Use `read_plus` instead of `read` when a file may reference other files; it returns the file plus its local imports in one result.',
+	'- Dependent chains go in ONE `batch` call with mode sequence, per-step `expect`, and `on_unexpected: "stop"` — a failed expectation stops the batch instead of cascading.',
+	'- Applies to every tool, not just reads: bash commands, searches, edits queued behind checks — anything plannable together.',
+	'- If the same tool fails the same way twice, you will get a nudge; a third time escalates. Diagnose (read the output, state the cause) instead of re-running.',
+].join('\n');
 
 const PLUGIN = 'dsh-batch-flow';
 const MAX_FILES = 10;
@@ -305,6 +317,23 @@ function renderBatch(outcome) {
 export function apply(ctx) {
 	const meters = new WeakMap();
 	const streaks = new WeakMap(); // agent -> { key, count } for the failure-loop advisor
+
+	// Steering half: without this section the tools exist but models reach for
+	// what their priors know (bash/read/grep). Fail-open: a section failure
+	// must never break mounting.
+	try {
+		if (ctx.systemPrompt && typeof ctx.systemPrompt.section === 'function') {
+			ctx.systemPrompt.section({
+				name: 'batch-flow:batch-first',
+				order: 160,
+				text: BATCH_FIRST_TEXT,
+			});
+		} else if (ctx.logger?.warn) {
+			ctx.logger.warn('[dsh-batch-flow] systemPrompt.section unavailable; steering section skipped');
+		}
+	} catch (error) {
+		try { ctx.logger?.warn?.(`[dsh-batch-flow] steering section skipped: ${error?.message ?? error}`); } catch { /* noop */ }
+	}
 
 	function toolOrNull(name) {
 		try {

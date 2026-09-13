@@ -52,5 +52,5 @@ within-task only; never pool across tasks.
 | 2 | exp | A | | /2 | | | | | | |
 | 3 | ctrl | B | | /2 | | | | | | |
 | 4 | exp | B | | /2 | | | | | | |
-| 5 | ptc | A | | /2 | | | | | | |
+| 5 | ptc | A | | TBD | | 71804 | 22852 | 1217003 | 4min | 26 calls; F2P/P2P pending |
 | 6 | ptc | B | | /2 | | | | | | |
