@@ -1,6 +1,6 @@
 # nsui3 battery — instructions, rubric, results
 
-Arms: `src-nsui3-A-ctrl` vs `src-nsui3-A-exp`, both at `b3910f6` (HEAD at materialization;
+Arms: `src-nsui3-A-ctrl` (Standard) vs `src-nsui3-A-ptc` (PTC baseline) vs `src-nsui3-A-exp` (plugin-on-PTC), all at `b3910f6` (HEAD at materialization;
 no future to purge — verified no other branches/tags). Agent workspace-write confined to
 the arm dir. Agent edits = `git diff` vs HEAD.
 
@@ -43,4 +43,5 @@ Compare arms within-task only.
 | run | arm | model | red→green? | regressions? | in-tok | out-tok | cache-tok | wall | notes |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | ctrl | | | | | | | | |
-| 2 | exp | | | | | | | | |
+| 2 | exp | | | | | | | | | |
+| 3 | ptc | | | | | | | | | |

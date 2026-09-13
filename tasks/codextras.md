@@ -1,6 +1,6 @@
 # codextras experiment battery — instructions, rubric, results
 
-Arms: one pair per task: `src-codextras-<TASK>-ctrl` (control) vs `src-codextras-<TASK>-exp` (treated).
+Arms: one TRIPLE per task: `src-codextras-<TASK>-ctrl` (Standard control) vs `src-codextras-<TASK>-ptc` (PTC baseline) vs `src-codextras-<TASK>-exp` (plugin-on-PTC). PTC arms run with the PTC agent preset; headline contrast is exp-vs-PTC.
 Both are byte-identical clones at the SAME base commit; run the SAME task in both.
 Agent workspace-write is confined to the arm dir. Agent edits = `git status`/`git diff`
 vs HEAD (HEAD is the problematic commit; history present, fix purged — verify any time:
@@ -52,3 +52,5 @@ within-task only; never pool across tasks.
 | 2 | exp | A | | /2 | | | | | | |
 | 3 | ctrl | B | | /2 | | | | | | |
 | 4 | exp | B | | /2 | | | | | | |
+| 5 | ptc | A | | /2 | | | | | | |
+| 6 | ptc | B | | /2 | | | | | | |

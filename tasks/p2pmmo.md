@@ -1,6 +1,6 @@
 # p2pmmo battery — instructions, rubric, results
 
-Arms: `src-p2pmmo-A-ctrl` vs `src-p2pmmo-A-exp`, both at `caa696a` (= parent of the fix).
+Arms: `src-p2pmmo-A-ctrl` (Standard) vs `src-p2pmmo-A-ptc` (PTC baseline) vs `src-p2pmmo-A-exp` (plugin-on-PTC), all at `caa696a` (= parent of the fix).
 History present; everything after base purged incl. origin refs
 (verified: `git cat-file -t 7f42f0c` fails). Agent workspace-write confined to the arm dir.
 
@@ -46,3 +46,4 @@ Compare arms within-task only.
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | ctrl | | | | | | | | |
 | 2 | exp | | | | | | | | |
+| 3 | ptc | | | | | | | | |
