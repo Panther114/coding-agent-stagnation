@@ -874,3 +874,24 @@ modified (reproduction deviation 0.0 checked).
 What was accepted/rejected: ACCEPTED misfire-both-ways for repetition (0.608/0.193) and the
 repetition≈movement mechanism (0.797 vs mechanical); REJECTED edit-density-as-signal
 (medians 0/0, AUC 0.594) and conjunction dominance (gain +0.179, CIs overlap — open, not a finding).
+
+## 2026-09-13 (goal round 2: cost anatomy)
+
+Tool/model: Muse Spark, DeepSeek Harness web session (this runtime).
+Purpose: test the user's hypothesis of an uncovered majority-scale cost factor; map wild
+complaint themes (Claude #40867/#28315/#52757/#44993/#24585/#52362/#40230, Codex
+#33276/#36396, Cursor 13M-token case) to corpus analogues.
+Input/task: user goal-round 2 with the same stagnation objective.
+Output used: (1) Exa complaint survey (10 themes); (2) two delegated frozen-data censuses
+(seed 7, read-only, .venv Python 3.14): cost concentration + redo economy, both corpora;
+(3) findings note research/docs/cost_anatomy.md with curated tables
+results/exploratory/r2_cost_census.json + r2_redo_census.json (run_id lists trimmed; full
+4.4MB with IDs stays in /tmp).
+Human verification required: tail-tax uniform-step assumption is a stated lower bound;
+TB2 revision is a lower bound (29% target coverage); complaint bridge covers 8/10 themes;
+dedup artefact (2,487 doubled runs, +20.5% cost as-stored) needs a rebuild verification
+pass before absolute counts are quoted downstream — all headlines here are deduped.
+What was accepted/rejected: ACCEPTED failed-run 77%, tail-tax ~55% LB, C-c 20%, Nebius
+revision 21%, re-reads 45% of reads, deserts 42% + reward gaps; REJECTED sleep-polling as
+cost headline (5% spend, niche) and verify-repeat/theater loops as levers (<0.15% runs).
+Corrected last round's as-stored C-c 24.5%→20.4%.

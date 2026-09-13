@@ -1,0 +1,643 @@
+{
+ "meta": {
+  "seed": 7,
+  "as_stored": {
+   "tb2_run_rows": 17237,
+   "tb2_step_rows": 547031,
+   "distinct_run_ids": 14750
+  },
+  "dedup_rule_runs": "drop_duplicates(run_id, keep=first); dup pairs identical on reward,n_steps,tokens,cost,finished,task,agent,model; differ only on n_edit(173 groups)/n_test(20)/n_verify_obs(919)",
+  "dedup_rule_steps": "drop_duplicates((run_id,step), keep=first); HEADLINE verb/obs tables also computed keep=last as sensitivity bound",
+  "deduped": {
+   "tb2_runs": 14750,
+   "tb2_steps": 452960
+  },
+  "artefact": {
+   "doubled_run_ids": 2487,
+   "share_of_distinct_runs": 0.16861016949152544,
+   "extra_run_rows": 2487,
+   "extra_step_rows": 94071,
+   "extra_step_share_of_547031": 0.17196648818805516,
+   "step_copy_agreement": {
+    "verb": 0.91,
+    "tool": 1.0,
+    "cmd_family": 0.8636,
+    "is_edit": 0.9918,
+    "obs_chars": 0.7883
+   },
+   "nebius_runs_dups": 0
+  },
+  "nebius_runs_cols": [
+   "run_id",
+   "corpus",
+   "task",
+   "agent",
+   "model",
+   "reward",
+   "n_steps",
+   "exit_status",
+   "ev_ran",
+   "ev_pass",
+   "ev_fail",
+   "ev_error",
+   "patch_files",
+   "patch_n_files",
+   "patch_n_added",
+   "patch_n_removed",
+   "patch_lines",
+   "n_edit",
+   "n_test",
+   "n_verify_obs",
+   "n_file_measures",
+   "finished"
+  ]
+ },
+ "exclusions_deduped": {
+  "cost_negative_runs": 141,
+  "cost_nan": 0,
+  "neg_sum_cents": -9999.837954573333,
+  "raw_total_cents": 774628.1318856739,
+  "cleaned_total_cents": 784627.9698402472,
+  "neg_models": {
+   "grok-4-0709@xai": 133,
+   "grok-code-fast-1@xai": 8
+  },
+  "neg_reward_rate": 0.3120567375886525
+ },
+ "pareto_cost_deduped": {
+  "top1pct": {
+   "k": 147,
+   "share": 0.26981894358456726
+  },
+  "top5pct": {
+   "k": 731,
+   "share": 0.5405564633383684
+  },
+  "top10pct": {
+   "k": 1461,
+   "share": 0.6840865116359439
+  },
+  "top20pct": {
+   "k": 2922,
+   "share": 0.8328531999928994
+  },
+  "n": 14609,
+  "total_cents": 784627.9698402472
+ },
+ "pareto_steps_deduped": {
+  "top1pct": {
+   "k": 148,
+   "share": 0.09555810667608619,
+   "cost_cleaned_cents": 100960.42396593094,
+   "share_of_cleaned_cost": 0.12867298623892648
+  },
+  "top5pct": {
+   "k": 738,
+   "share": 0.27028214411868595,
+   "cost_cleaned_cents": 242219.19200253487,
+   "share_of_cleaned_cost": 0.30870578326675185
+  },
+  "top10pct": {
+   "k": 1475,
+   "share": 0.40891027905333804,
+   "cost_cleaned_cents": 353601.13061869144,
+   "share_of_cleaned_cost": 0.450660879054166
+  },
+  "top20pct": {
+   "k": 2950,
+   "share": 0.5916350229600847,
+   "cost_cleaned_cents": 486799.0972353816,
+   "share_of_cleaned_cost": 0.6204202704301958
+  },
+  "n": 14750,
+  "total_steps": 452960
+ },
+ "pareto_output_deduped": {
+  "top1pct": {
+   "k": 130,
+   "share": 0.14749674473824478,
+   "cost_cleaned_cents": 24141.08253479004,
+   "share_of_cleaned_cost": 0.03076755285655346
+  },
+  "top5pct": {
+   "k": 648,
+   "share": 0.34688877094075804,
+   "cost_cleaned_cents": 96645.13476848602,
+   "share_of_cleaned_cost": 0.12317319606661904
+  },
+  "top10pct": {
+   "k": 1295,
+   "share": 0.49205782724595937,
+   "cost_cleaned_cents": 184604.2093244791,
+   "share_of_cleaned_cost": 0.2352761008023524
+  },
+  "top20pct": {
+   "k": 2590,
+   "share": 0.6719279813162882,
+   "cost_cleaned_cents": 351687.03345036507,
+   "share_of_cleaned_cost": 0.44822138257698063
+  },
+  "n": 12948,
+  "total_output": 261589563.0
+ },
+ "long_gt100_deduped": {
+  "count": 770,
+  "share_runs": 0.05220338983050848,
+  "cost_cleaned": 248854.11626458168,
+  "share_cleaned_cost": 0.3171619236505795,
+  "steps": 125678,
+  "share_steps": 0.2774593783115507,
+  "reward_rate": 0.15584415584415584,
+  "solved": 120
+ },
+ "outcome0_deduped": {
+  "count": 9321,
+  "steps": 322623,
+  "share_steps": 0.7122549452490287,
+  "cost_cleaned": 606894.7315538824,
+  "share_cleaned_cost": 0.7734808786863003
+ },
+ "outcome1_deduped": {
+  "count": 5429,
+  "steps": 130337,
+  "share_steps": 0.2877450547509714,
+  "cost_cleaned": 177733.23828636482,
+  "share_cleaned_cost": 0.22651912131369964
+ },
+ "outcome_summary_deduped": {
+  "base_rate": 0.3680677966101695,
+  "n_solved": 5429,
+  "n_failed": 9321,
+  "cost_per_solved_cleaned_cents": 144.52532139256718,
+  "cost_per_solved_cleaned_dollars": 1.4452532139256717
+ },
+ "noedit_deduped": {
+  "rule": "keep-first row",
+  "count": 8600,
+  "share_runs": 0.5830508474576271,
+  "bound_min_both_rows_zero": 8600,
+  "bound_max_either_row_zero": 8703,
+  "straddling_groups": 103,
+  "max_bound_extra_cost_cents": 3332.100097566843,
+  "max_bound_cost_share": 0.41260558284423676
+ },
+ "noedit_stats_deduped": {
+  "count": 8600,
+  "share_runs": 0.5830508474576271,
+  "steps": 177503,
+  "share_steps": 0.39187345460967854,
+  "cost_cleaned": 320409.78071425855,
+  "share_cleaned_cost": 0.40835885671969485,
+  "reward_rate": 0.36
+ },
+ "editing_stats_deduped": {
+  "count": 6150,
+  "share_runs": 0.41694915254237286,
+  "steps": 275457,
+  "share_steps": 0.6081265453903214,
+  "cost_cleaned": 464218.18912598863,
+  "share_cleaned_cost": 0.5916411432803051,
+  "reward_rate": 0.37934959349593494
+ },
+ "inout_deduped": {
+  "n_used": 12764,
+  "n_nan": 1802,
+  "n_zero_output": 184,
+  "median": 20.36235157559607,
+  "p90": 159.32162672412457,
+  "mean": 138.5481063702912,
+  "total_in": 11584255112.0,
+  "total_out": 261589563.0,
+  "corpus_ratio": 44.28408755742292
+ },
+ "tail_tax_deduped": {
+  "runs_gt30": 4619,
+  "tail_share_approx": 0.5470425135442294,
+  "attributed_tail_input": 6337080034.006069,
+  "total_input": 11584255112.0,
+  "assumption": "uniform input-token cost per step within run: tail=(n_steps-30)/n_steps*input_tokens",
+  "bias": "CONSERVATIVE UNDERESTIMATE (lower bound): per-step context grows with index, late steps cost above run average"
+ },
+ "tb2_verb_deduped_keepfirst": {
+  "steps": {
+   "run": {
+    "n": 230124,
+    "share": 0.508044860473331
+   },
+   "edit": {
+    "n": 81171,
+    "share": 0.17920125397386083
+   },
+   "read": {
+    "n": 44835,
+    "share": 0.09898225008830802
+   },
+   "list": {
+    "n": 25099,
+    "share": 0.05541107382550336
+   },
+   "verify": {
+    "n": 24911,
+    "share": 0.05499602613917344
+   },
+   "search": {
+    "n": 20790,
+    "share": 0.04589809254680325
+   },
+   "other": {
+    "n": 16261,
+    "share": 0.03589941716707877
+   },
+   "finish": {
+    "n": 9769,
+    "share": 0.021567025785941364
+   }
+  },
+  "obs": {
+   "edit": {
+    "sum": 21729495.0,
+    "share": 0.16638965043042167
+   },
+   "finish": {
+    "sum": 1537937.0,
+    "share": 0.011776472477340656
+   },
+   "list": {
+    "sum": 9559871.0,
+    "share": 0.07320297106996392
+   },
+   "other": {
+    "sum": 2718170.0,
+    "share": 0.020813891722309207
+   },
+   "read": {
+    "sum": 24513922.0,
+    "share": 0.187710893063029
+   },
+   "run": {
+    "sum": 57144305.0,
+    "share": 0.43757210800524343
+   },
+   "search": {
+    "sum": 4865217.0,
+    "share": 0.03725451308915117
+   },
+   "verify": {
+    "sum": 8525113.0,
+    "share": 0.06527950014254097
+   }
+  },
+  "total_obs": 130594030.0,
+  "n": 452960
+ },
+ "tb2_verb_deduped_keeplast": {
+  "steps": {
+   "run": {
+    "n": 233403,
+    "share": 0.5152839102790533
+   },
+   "edit": {
+    "n": 80217,
+    "share": 0.1770951077357824
+   },
+   "read": {
+    "n": 40555,
+    "share": 0.08953329212292477
+   },
+   "list": {
+    "n": 25136,
+    "share": 0.05549275874249382
+   },
+   "verify": {
+    "n": 24892,
+    "share": 0.0549540798304486
+   },
+   "search": {
+    "n": 20804,
+    "share": 0.04592900035323207
+   },
+   "other": {
+    "n": 18184,
+    "share": 0.04014482515012363
+   },
+   "finish": {
+    "n": 9769,
+    "share": 0.021567025785941364
+   }
+  },
+  "obs": {
+   "edit": {
+    "sum": 12021005.0,
+    "share": 0.154128869785687
+   },
+   "finish": {
+    "sum": 1500492.0,
+    "share": 0.01923875217442011
+   },
+   "list": {
+    "sum": 6406791.0,
+    "share": 0.08214549913115511
+   },
+   "other": {
+    "sum": 2646853.0,
+    "share": 0.03393696794726023
+   },
+   "read": {
+    "sum": 8633734.0,
+    "share": 0.11069853672386447
+   },
+   "run": {
+    "sum": 38577235.0,
+    "share": 0.49462300614689425
+   },
+   "search": {
+    "sum": 3313405.0,
+    "share": 0.04248325059279521
+   },
+   "verify": {
+    "sum": 4893693.0,
+    "share": 0.06274511749792366
+   }
+  },
+  "total_obs": 77993208.0,
+  "n": 452960
+ },
+ "tb2_verb_sensitivity": {
+  "run": {
+   "keepfirst": 0.508,
+   "keeplast": 0.5153
+  },
+  "edit": {
+   "keepfirst": 0.1792,
+   "keeplast": 0.1771
+  },
+  "read": {
+   "keepfirst": 0.099,
+   "keeplast": 0.0895
+  },
+  "list": {
+   "keepfirst": 0.0554,
+   "keeplast": 0.0555
+  },
+  "verify": {
+   "keepfirst": 0.055,
+   "keeplast": 0.055
+  },
+  "search": {
+   "keepfirst": 0.0459,
+   "keeplast": 0.0459
+  },
+  "other": {
+   "keepfirst": 0.0359,
+   "keeplast": 0.0401
+  },
+  "finish": {
+   "keepfirst": 0.0216,
+   "keeplast": 0.0216
+  }
+ },
+ "tb2_top10_cmdfamily_deduped": [
+  {
+   "cmd_family": "cat",
+   "obs_sum": 21080768.0,
+   "share": 0.16142214157875365,
+   "n_steps": 29469
+  },
+  {
+   "cmd_family": "python3",
+   "obs_sum": 10230724.0,
+   "share": 0.07833990573688553,
+   "n_steps": 25170
+  },
+  {
+   "cmd_family": "cd",
+   "obs_sum": 9426040.0,
+   "share": 0.0721781845617292,
+   "n_steps": 45007
+  },
+  {
+   "cmd_family": "ls",
+   "obs_sum": 8812148.0,
+   "share": 0.06747741837816017,
+   "n_steps": 21539
+  },
+  {
+   "cmd_family": "view",
+   "obs_sum": 4553951.0,
+   "share": 0.03487105038415615,
+   "n_steps": 13411
+  },
+  {
+   "cmd_family": "str_replace",
+   "obs_sum": 4550674.0,
+   "share": 0.034845957353486987,
+   "n_steps": 15173
+  },
+  {
+   "cmd_family": "apt-get",
+   "obs_sum": 4102920.0,
+   "share": 0.03141736264666922,
+   "n_steps": 7870
+  },
+  {
+   "cmd_family": "sed",
+   "obs_sum": 3837260.0,
+   "share": 0.029383119580581134,
+   "n_steps": 12546
+  },
+  {
+   "cmd_family": "echo",
+   "obs_sum": 3148181.0,
+   "share": 0.024106622638109875,
+   "n_steps": 10915
+  },
+  {
+   "cmd_family": "grep",
+   "obs_sum": 2908614.0,
+   "share": 0.022272181967276757,
+   "n_steps": 9906
+  }
+ ],
+ "nebius_verb": {
+  "steps": {
+   "edit": {
+    "n": 252848,
+    "share": 0.35649349184506757
+   },
+   "read": {
+    "n": 128291,
+    "share": 0.18087905208779806
+   },
+   "search": {
+    "n": 127874,
+    "share": 0.1802911186807733
+   },
+   "verify": {
+    "n": 87297,
+    "share": 0.12308110943174896
+   },
+   "run": {
+    "n": 63442,
+    "share": 0.0894476527780911
+   },
+   "list": {
+    "n": 30731,
+    "share": 0.04332801326445442
+   },
+   "finish": {
+    "n": 18091,
+    "share": 0.02550672246159399
+   },
+   "other": {
+    "n": 690,
+    "share": 0.0009728394504726026
+   }
+  },
+  "obs": {
+   "edit": {
+    "sum": 476772281.0,
+    "share": 0.4591549071370746
+   },
+   "finish": {
+    "sum": 90113.0,
+    "share": 8.67832040488176e-05
+   },
+   "list": {
+    "sum": 7922248.0,
+    "share": 0.0076295103337957575
+   },
+   "other": {
+    "sum": 972192.0,
+    "share": 0.0009362682044835714
+   },
+   "read": {
+    "sum": 411799055.0,
+    "share": 0.3965825287935732
+   },
+   "run": {
+    "sum": 24230320.0,
+    "share": 0.023334977247768313
+   },
+   "search": {
+    "sum": 55264496.0,
+    "share": 0.053222398910513065
+   },
+   "verify": {
+    "sum": 61318424.0,
+    "share": 0.05905262616874273
+   }
+  },
+  "n": 709264
+ },
+ "nebius_top10_cmdfamily": [
+  {
+   "cmd_family": "edit",
+   "obs_sum": 469280101.0,
+   "share": 0.4519395732151047,
+   "n_steps": 210762
+  },
+  {
+   "cmd_family": "open",
+   "obs_sum": 201919655.0,
+   "share": 0.19445845351205543,
+   "n_steps": 72681
+  },
+  {
+   "cmd_family": "goto",
+   "obs_sum": 111123708.0,
+   "share": 0.1070175382688982,
+   "n_steps": 29299
+  },
+  {
+   "cmd_family": "scroll_down",
+   "obs_sum": 79484446.0,
+   "share": 0.07654738934365989,
+   "n_steps": 19725
+  },
+  {
+   "cmd_family": "python",
+   "obs_sum": 53368434.0,
+   "share": 0.051396398938975005,
+   "n_steps": 91085
+  },
+  {
+   "cmd_family": "search_file",
+   "obs_sum": 22162470.0,
+   "share": 0.021343537072739765,
+   "n_steps": 39465
+  },
+  {
+   "cmd_family": "search_dir",
+   "obs_sum": 19973181.0,
+   "share": 0.019235145231287012,
+   "n_steps": 51750
+  },
+  {
+   "cmd_family": "scroll_up",
+   "obs_sum": 18196162.0,
+   "share": 0.017523789461579804,
+   "n_steps": 4965
+  },
+  {
+   "cmd_family": "pytest",
+   "obs_sum": 9830395.0,
+   "share": 0.009467148748410066,
+   "n_steps": 1811
+  },
+  {
+   "cmd_family": "ls",
+   "obs_sum": 7911746.0,
+   "share": 0.007619396396750929,
+   "n_steps": 30670
+  }
+ ],
+ "nebius_cost_note": "Nebius runs.parquet has NO cost/token columns (verified); costs are TB2-only.",
+ "wait_deduped": {
+  "runs": 543,
+  "share_runs": 0.036813559322033895,
+  "cost_cleaned": 39258.44232369959,
+  "share_cleaned_cost": 0.05003446707576935,
+  "reward_rate": 0.4106813996316759,
+  "steps_matched_asstored": 1821,
+  "breakdown": {
+   "sleep": 1782,
+   "wait_shell_command": 25,
+   "wait": 12,
+   "sleep(5)": 2
+  }
+ },
+ "cc_deduped": {
+  "runs": 1100,
+  "share_runs": 0.07457627118644068,
+  "cost_cleaned": 160388.6257750392,
+  "share_cleaned_cost": 0.2044135971952349,
+  "reward_rate": 0.2772727272727273,
+  "steps_matched_asstored": 10798
+ },
+ "wait_cc_overlap": {
+  "runs_both": 72,
+  "note": "OVERLAP, not additive"
+ },
+ "zero_cost_deduped": {
+  "count": 2194,
+  "share": 0.1487457627118644
+ },
+ "as_stored_appendix": {
+  "note": "row-level (double-counts 2487 doubled runs + 141 neg artefacts); deduped above is HEADLINE",
+  "cost_pareto_rows": {
+   "top1": 0.2629,
+   "top5": 0.5383,
+   "top10": 0.6865,
+   "top20": 0.837,
+   "n": 17096,
+   "total_cents": 987350.42
+  },
+  "noedit_rows": {
+   "count": 10167,
+   "share_runs": 0.5898,
+   "share_cleaned_cost": 0.3995,
+   "reward_rate": 0.34,
+   "vs_editing_reward": 0.3607
+  }
+ }
+}
