@@ -852,3 +852,25 @@ trajectories. A false negative that looks like a fact is more expensive than an 
 
 
 
+
+## 2026-09-13 (goal round 1: guard misfire matrix)
+
+Tool/model: Muse Spark, DeepSeek Harness web session (this runtime).
+Purpose: ground on shipped stagnation heuristics (Exa web searches), then analyse frozen
+trajectory data until a verifiable failure-explaining pattern emerged.
+Input/task: user goal — "ground yourself with web searches on existing heuristics, then
+analyse patterns until something clicks; analysis first."
+Output used: (1) heuristic inventory (OpenHands stuck.py thresholds, DSH
+repeat-tool-reminder texts/defaults from its README, Claude #73307, LivePlan, overthinking,
+goal-drift, wild-misalignment papers); (2) two delegated frozen-data re-analyses (seed 7,
+read-only, .venv Python 3.14 + pandas/pyarrow/scipy/sklearn installed from
+/Volumes/thinkplus/Code/.python3.14) — guard threshold sweeps and misfire-matrix +
+conjunction test on the 386 co-labelled windows, both with Wilson/task-cluster CIs and
+pre-registered support bars; (3) findings note research/docs/misfire_matrix.md with curated
+tables results/exploratory/r1_guard_sweep.json + r1_misfire.json.
+Human verification required: the conjunction-dominance question stays OPEN (CIs overlap);
+window aggregates approximate consecutive chains (bias direction stated); no frozen artifact
+modified (reproduction deviation 0.0 checked).
+What was accepted/rejected: ACCEPTED misfire-both-ways for repetition (0.608/0.193) and the
+repetition≈movement mechanism (0.797 vs mechanical); REJECTED edit-density-as-signal
+(medians 0/0, AUC 0.594) and conjunction dominance (gain +0.179, CIs overlap — open, not a finding).
