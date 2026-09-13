@@ -1,16 +1,15 @@
 {
-  "n_raw": 241,
-  "n_dropped_fail_before_false": 31,
-  "n_valid": 210,
+  "n_raw": 193,
+  "n_dropped_fail_before_false": 25,
+  "n_valid": 168,
   "n_tasks": 42,
   "arms": [
     "hinted",
     "masked",
-    "nudge",
     "unhinted",
     "verify"
   ],
-  "total_usd": 2.2649,
+  "total_usd": 1.775,
   "per_arm": {
     "hinted": {
       "n": 41,
@@ -41,21 +40,6 @@
       "test_files_removed": 500,
       "usd": 0.3982,
       "errors": 7
-    },
-    "nudge": {
-      "n": 42,
-      "success": 0.4524,
-      "success_ci95": [
-        0.3095,
-        0.5952
-      ],
-      "reached_gold": 1.0,
-      "n_reached_gold": 42,
-      "success_given_reached_gold": 0.4524,
-      "mean_turns": 12.02,
-      "test_files_removed": 576,
-      "usd": 0.4355,
-      "errors": 3
     },
     "unhinted": {
       "n": 43,
@@ -104,21 +88,6 @@
       "p_fisher_two_sided": 0.014762022542322997,
       "significant_at_0.05": true
     },
-    "hinted_vs_nudge": {
-      "table": [
-        [
-          23,
-          18
-        ],
-        [
-          19,
-          23
-        ]
-      ],
-      "success_diff": 0.1086,
-      "p_fisher_two_sided": 0.3827522904542403,
-      "significant_at_0.05": false
-    },
     "hinted_vs_unhinted": {
       "table": [
         [
@@ -147,21 +116,6 @@
       ],
       "success_diff": -0.0104,
       "p_fisher_two_sided": 1.0,
-      "significant_at_0.05": false
-    },
-    "masked_vs_nudge": {
-      "table": [
-        [
-          12,
-          30
-        ],
-        [
-          19,
-          23
-        ]
-      ],
-      "success_diff": -0.1667,
-      "p_fisher_two_sided": 0.17446622536274964,
       "significant_at_0.05": false
     },
     "masked_vs_unhinted": {
@@ -194,36 +148,6 @@
       "p_fisher_two_sided": 0.014762022542322999,
       "significant_at_0.05": true
     },
-    "nudge_vs_unhinted": {
-      "table": [
-        [
-          19,
-          23
-        ],
-        [
-          16,
-          27
-        ]
-      ],
-      "success_diff": 0.0803,
-      "p_fisher_two_sided": 0.5122868776936713,
-      "significant_at_0.05": false
-    },
-    "nudge_vs_verify": {
-      "table": [
-        [
-          19,
-          23
-        ],
-        [
-          24,
-          18
-        ]
-      ],
-      "success_diff": -0.119,
-      "p_fisher_two_sided": 0.3827522904542404,
-      "significant_at_0.05": false
-    },
     "unhinted_vs_verify": {
       "table": [
         [
@@ -246,8 +170,8 @@
     "holds": true
   },
   "behaviour": {
-    "episodes_where_agent_modified_the_test_files": 181,
-    "total_test_files_removed": 2687,
+    "episodes_where_agent_modified_the_test_files": 142,
+    "total_test_files_removed": 2111,
     "note": "the verifier is restored before grading, so an agent that edits tests to pass is still scored as failing; the count is a behavioural measurement, not a validity threat"
   }
 }

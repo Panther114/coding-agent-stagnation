@@ -23,12 +23,16 @@
 > on the wrong file scores 1.0. Against an **independent gold patch** the direction reverses
 > (0.477 vs 0.407), and it reverses again on both held-out sets.
 >
-> **The live experiment produced one significant effect, and it is about the benchmark.** Every run
-> in the first two conditions reached the correct file, because pytest prints the failing test's
-> filename, which contains the module name (51.5% of test observations literally name the gold
-> module). Withholding *which* tests failed drops success from **0.561 to 0.286** (Fisher
-> *p* = 0.015) and is the first condition in which any run failed to find the file. Handing over the
-> file is worth +0.189 and is **not** significant (*p* = 0.125).
+> **The live experiment produced one solid effect, and it is about the benchmark; the interventions
+> point the right way but do not reach significance.** Every run in the first two conditions reached
+> the correct file, because pytest prints the failing test's filename, which contains the module name
+> (51.5% of test observations literally name the gold module). Withholding *which* tests failed drops
+> success from **0.561 to 0.286** (Fisher *p* = 0.015) and is the only condition in which any run
+> failed to find the file. Both runtime interventions --- handing over the file (0.561) and the
+> re-check instruction the router prescribes for WRONG-FIX (0.571) --- are ~+0.2 over no intervention
+> (0.372) but are **not** individually significant (*p* = 0.125 and 0.084), and a content-free
+> "keep going" message at the same trigger reaches 0.452, which the experiment cannot distinguish
+> from the instruction it controls for (*p* = 0.383). Reported as suggestive, not as a gain.
 >
 > **Ten of our own claims were retracted**, each by a test written to falsify it: "failed runs
 > localise better" (metric artefact), "zero false alarms at every budget" (circular), "step index

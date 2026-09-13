@@ -48,7 +48,7 @@ generality established here is therefore **shard-level generality within a scaff
 claimed as nothing more.
 
 Along the way we found and fixed a measurement trap that inverts a common result, and we record
-**ten retractions of our own claims**, because the project's rule was that a claim survives only
+**eleven retractions of our own claims**, because the project's rule was that a claim survives only
 if the test written to falsify it fails.
 
 ---
@@ -262,8 +262,8 @@ It beats all three at every fraction and every cost setting — **12 of 12 cells
 ## 5. Testing the premise in a live environment: the verifier was giving the answer away
 
 We ran the router's premise against live agents (DeepSeek V4.1 Flash, temperature 0, real Python
-packages, the packages' own test suites as the verifier, no Docker): 145 episodes over 42 tasks,
-**$1.36 total**.
+packages, the packages' own test suites as the verifier, no Docker): **241 episodes** in five
+conditions over the same 48 tasks, **$2.26 in total**.
 
 The first surprise: **every run in the first two conditions reached the correct file.** 100%. Which
 would mean the LOST mode does not exist in this setting, and the router's SEARCH branch is
@@ -285,26 +285,38 @@ that is why the failure rate is what it is.
 
 We therefore added a third condition, **masked**: the agent is told *that* tests fail (it still sees
 "3 failed, 516 passed") but never *which* ones or *where*. The grader always sees the true output,
-so the success criterion is unchanged.
+so the success criterion is unchanged. Two further conditions test the interventions the router would
+prescribe: **hinted** hands over the file and function (SEARCH), and **verify** appends, after the
+second failing test run, the instruction to stop and re-check the diagnosis instead of editing again
+(WRONG-FIX). **Nudge** is the control for verify — same trigger, same channel, same length, no
+content.
 
 ### 5.1 What the conditions show
 
-Valid episodes only (145 raw, 19 dropped because the mutated package did not actually fail its suite
-at episode start, which makes success meaningless):
+Five conditions, same 48 tasks, valid episodes only (241 raw, 31 dropped because the mutated package
+did not actually fail its suite at episode start, which makes success meaningless):
 
-| condition | what the agent sees | success | vs hinted | reached the correct file |
+| condition | what the agent sees | success | vs unmasked | reached the file |
 |---|---|---|---|---|
-| **hinted** | told the exact file and function | **0.561** (n=41) | — | 1.000 |
-| **unmasked** (normal CI output) | full pytest output | 0.372 (n=43) | −0.189 (*p* = 0.125) | **1.000** |
-| **masked** (location withheld) | only "N failed, M passed" | **0.286** (n=42) | **−0.275 (*p* = 0.015)** | 0.952 |
+| **masked** (location withheld) | only "N failed, M passed" | **0.286** (n=42) | −0.086 (*p* = 0.490) | 0.952 |
+| **unmasked** (normal CI output) | full pytest output | 0.372 (n=43) | — | **1.000** |
+| nudge (control) | full output + content-free "keep going" after the 2nd failure | 0.452 (n=42) | +0.080 (*p* = 0.512) | **1.000** |
+| **hinted** | told the exact file and function | **0.561** (n=41) | +0.189 (*p* = 0.125) | **1.000** |
+| **verify** | full output + re-check-your-diagnosis, same trigger | **0.571** (n=42) | +0.199 (*p* = 0.084) | **1.000** |
 
-Withholding **which** tests failed is the only difference in this experiment that reaches
-significance — and it is also the only condition in which any agent failed to find the file at all.
-The hint itself is worth +0.189 over normal CI output and is **not** significant at this sample
-size; masked against unmasked is indistinguishable too (*p* = 0.490).
+**Two conclusions survive, and both are narrower than the one we wanted.** First, the only solid
+causal result is about the *benchmark*: hiding which tests failed costs 27.5 points (*p* = 0.015
+against hinted, *p* = 0.015 against verify), while the other conditions are statistically
+indistinguishable from each other. Read against the leaked-filename measurement above, this is the
+causal version of the same fact: **roughly a quarter of the benchmark's difficulty was the test
+runner naming the file.**
 
-Read against the leaked-filename measurement above, this is the causal version of the same fact:
-**roughly a quarter of the benchmark's difficulty was the test runner naming the file.**
+Second, the runtime actions the router prescribes both point the right way — a hint or a forced
+re-check is worth roughly **+0.2** over doing nothing, and the re-check costs no turn budget (11.1
+turns against 12.2) — but **this experiment cannot attribute the gain to the instruction rather than
+to being interrupted**, because a content-free message at the same moment moves success almost as
+far (0.452; *p* = 0.383 against verify). A clean separation needs a larger *n* than this suite can
+supply, and we report the ambiguity rather than picking the attractive reading.
 
 ### 5.2 The router on the live runs — another negative
 
@@ -381,10 +393,12 @@ truth. See `demo/README.md`.
 * **The mode labels are coarse.** "Ever touched a gold file" is a proxy for LOST vs WRONG-FIX, not a
   judgement of whether the fix was *good*. Gold matching is basename-based, and 4.10% of edit steps
   carry no filename, which biases LOST upward.
-* **The live experiment is small** (n = 41–43 per condition). One difference reaches significance
-  (withholding the failure location costs 0.275, Fisher *p* = 0.015); the hint's own effect (0.189
-  over normal CI output) does **not** (*p* = 0.125) and is reported as inconclusive rather than as a
-  gain.
+* **The live experiment is small** (n = 41–43 per condition, five conditions). The only comparisons
+  that reach significance involve the masked condition (withholding the failure location costs 0.275,
+  *p* = 0.015). Both runtime interventions point the right way (+0.189 for the hint, +0.199 for the
+  forced re-check) but neither is individually significant (*p* = 0.125, *p* = 0.084), and the
+  content-free control is not distinguishable from the instruction it controls for (*p* = 0.383).
+  The experiment is suggestive of the interventions and conclusive only about the benchmark.
 * **The inversion's mechanism is unexplained.** Three candidate explanations were tested; all three
   failed.
 * **Temperature-0 inference is not deterministic**: published work finds ~9% of per-instance
@@ -408,7 +422,7 @@ Six automated gates run on every change:
 | headline claims vs the artifacts that produced them | 28 / 28 |
 | one-page summary vs artifacts | 0 mismatches |
 | every cited artifact exists | all present |
-| paper numbers vs the artifact each one names | 57 / 57 |
+| paper numbers vs the artifact each one names | 65 / 65 |
 
 The last gate was written during this work and **found five real errors in our own manuscript** —
 values quoted as pooled that were within-instance, figures mixed across two artifacts' row sets, and

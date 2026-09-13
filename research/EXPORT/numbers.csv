@@ -78,6 +78,13 @@ live experiment,masked: success_given_reached_gold,0.3,live_arms_valid.json,
 live experiment,masked: n,42,live_arms_valid.json,
 live experiment,masked: mean_turns,12.31,live_arms_valid.json,
 live experiment,masked: usd,0.3982,live_arms_valid.json,
+live experiment,nudge: success,0.4524,live_arms_valid.json,
+live experiment,nudge: success_ci95,"[0.3095, 0.5952]",live_arms_valid.json,
+live experiment,nudge: reached_gold,1.0,live_arms_valid.json,
+live experiment,nudge: success_given_reached_gold,0.4524,live_arms_valid.json,
+live experiment,nudge: n,42,live_arms_valid.json,
+live experiment,nudge: mean_turns,12.02,live_arms_valid.json,
+live experiment,nudge: usd,0.4355,live_arms_valid.json,
 live experiment,unhinted: success,0.3721,live_arms_valid.json,
 live experiment,unhinted: success_ci95,"[0.2326, 0.5116]",live_arms_valid.json,
 live experiment,unhinted: reached_gold,1.0,live_arms_valid.json,
@@ -85,12 +92,33 @@ live experiment,unhinted: success_given_reached_gold,0.3721,live_arms_valid.json
 live experiment,unhinted: n,43,live_arms_valid.json,
 live experiment,unhinted: mean_turns,12.21,live_arms_valid.json,
 live experiment,unhinted: usd,0.4839,live_arms_valid.json,
+live experiment,verify: success,0.5714,live_arms_valid.json,
+live experiment,verify: success_ci95,"[0.4286, 0.7143]",live_arms_valid.json,
+live experiment,verify: reached_gold,1.0,live_arms_valid.json,
+live experiment,verify: success_given_reached_gold,0.5714,live_arms_valid.json,
+live experiment,verify: n,42,live_arms_valid.json,
+live experiment,verify: mean_turns,11.12,live_arms_valid.json,
+live experiment,verify: usd,0.3498,live_arms_valid.json,
 live experiment,success diff hinted_vs_masked,0.2753,live_arms_valid.json,
 live experiment,Fisher p hinted_vs_masked,0.0148,live_arms_valid.json,significant
+live experiment,success diff hinted_vs_nudge,0.1086,live_arms_valid.json,
+live experiment,Fisher p hinted_vs_nudge,0.3828,live_arms_valid.json,NOT significant
 live experiment,success diff hinted_vs_unhinted,0.1889,live_arms_valid.json,
 live experiment,Fisher p hinted_vs_unhinted,0.1251,live_arms_valid.json,NOT significant
+live experiment,success diff hinted_vs_verify,-0.0104,live_arms_valid.json,
+live experiment,Fisher p hinted_vs_verify,1.0,live_arms_valid.json,NOT significant
+live experiment,success diff masked_vs_nudge,-0.1667,live_arms_valid.json,
+live experiment,Fisher p masked_vs_nudge,0.1745,live_arms_valid.json,NOT significant
 live experiment,success diff masked_vs_unhinted,-0.0864,live_arms_valid.json,
 live experiment,Fisher p masked_vs_unhinted,0.4904,live_arms_valid.json,NOT significant
+live experiment,success diff masked_vs_verify,-0.2857,live_arms_valid.json,
+live experiment,Fisher p masked_vs_verify,0.0148,live_arms_valid.json,significant
+live experiment,success diff nudge_vs_unhinted,0.0803,live_arms_valid.json,
+live experiment,Fisher p nudge_vs_unhinted,0.5123,live_arms_valid.json,NOT significant
+live experiment,success diff nudge_vs_verify,-0.119,live_arms_valid.json,
+live experiment,Fisher p nudge_vs_verify,0.3828,live_arms_valid.json,NOT significant
+live experiment,success diff unhinted_vs_verify,-0.1993,live_arms_valid.json,
+live experiment,Fisher p unhinted_vs_verify,0.0836,live_arms_valid.json,NOT significant
 live experiment,P1 failure-rate drop,0.1889,live_arms_valid.json,ceiling 0.309
 router on live runs (negative),AUC at 20% of the run,0.4263,live_router_deployment.json,does NOT transfer
 router on live runs (negative),baseline position,0.5684,live_router_deployment.json,

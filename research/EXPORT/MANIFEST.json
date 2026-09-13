@@ -1,5 +1,5 @@
 {
-  "n_numbers": 139,
+  "n_numbers": 167,
   "sections": [
     "measurement validity",
     "failure modes",
@@ -87,7 +87,7 @@
     },
     {
       "file": "doc_reference_integrity.json",
-      "bytes": 2428
+      "bytes": 2660
     },
     {
       "file": "early_prediction_nebius.json",
@@ -130,6 +130,10 @@
       "bytes": 212
     },
     {
+      "file": "human_check_blind_scored.json",
+      "bytes": 1260
+    },
+    {
       "file": "label_cost.json",
       "bytes": 2640
     },
@@ -155,7 +159,7 @@
     },
     {
       "file": "roundtrip_cost.json",
-      "bytes": 6680
+      "bytes": 6682
     },
     {
       "file": "route_modes.json",
@@ -223,7 +227,7 @@
     },
     {
       "file": "waiting_probe.json",
-      "bytes": 3782
+      "bytes": 3779
     },
     {
       "file": "waste_alarm.json",
@@ -304,8 +308,20 @@
       "bytes": 572267
     },
     {
+      "file": "episodes_nudge.jsonl",
+      "bytes": 732833
+    },
+    {
+      "file": "episodes_verify.jsonl",
+      "bytes": 690804
+    },
+    {
       "file": "live_arms_valid.json",
-      "bytes": 2518
+      "bytes": 5192
+    },
+    {
+      "file": "live_arms_valid_tmp.json",
+      "bytes": 3710
     },
     {
       "file": "live_experiment.json",
@@ -358,6 +374,6 @@
     "claim audit": "28/28 headline claims found verbatim in the findings",
     "summary audit": "0 mismatches between the executive summary and the artifacts",
     "doc references": "all cited artifacts exist",
-    "paper numbers": "57/57 paper numbers trace to an artifact"
+    "paper numbers": "65/65 paper numbers trace to an artifact"
   }
 }

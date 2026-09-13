@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2026.5.16)  13 SEP 2026 16:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2026.5.16)  13 SEP 2026 16:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -737,9 +737,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5]
+Overfull \hbox (99.22984pt too wide) in paragraph at lines 392--409
+ [][] 
+ []
+
+[6]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 428.
- [6] [7] [8] (acknowledgement_zh.tex [9]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 441.
+ [7] [8] (acknowledgement_zh.tex [9]
 
 LaTeX Font Warning: Font shape `TU/SimSun(0)/m/it' undefined
 (Font)              using `TU/SimSun(0)/m/n' instead on input line 22.
@@ -778,6 +783,6 @@ Here is how much of TeX's memory you used:
  40282 multiletter control sequences out of 15000+600000
  567140 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 79i,11n,93p,1003b,480s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,11n,93p,1003b,507s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (12 pages).

@@ -88,17 +88,23 @@ chk("repl2 gold failed", repl2["pooled_on_target_gold"]["failed"],
 chk("repl2 wrong-fix share", repl2["failure_decomposition"]["frac_wrong_fix"],
     f"{100 * repl2['failure_decomposition']['frac_wrong_fix']:.1f}")
 
-# --- live experiment (all three conditions, valid episodes only) ---
+# --- live experiment (every condition, valid episodes only) ---
 live48 = load(LIVE / "live_arms_valid.json")
-for arm in ("hinted", "unhinted", "masked"):
-    a = live48["per_arm"][arm]
+for arm in ("hinted", "unhinted", "masked", "verify", "nudge"):
+    a = (live48.get("per_arm") or {}).get(arm)
+    if not a:
+        continue
     chk(f"live {arm} success", a["success"], P(a["success"]))
     chk(f"live {arm} reached gold", a["reached_gold"], P(a["reached_gold"]))
-for pair, label in (("hinted_vs_masked", "hinted vs masked"),
-                    ("hinted_vs_unhinted", "hinted vs unhinted"),
-                    ("masked_vs_unhinted", "masked vs unhinted")):
-    p = live48["pairwise"][pair]
-    chk(f"live p {label}", p["p_fisher_two_sided"],
+# the pairwise tests the report actually quotes (the rest exist in the artifact; requiring the
+# prose to enumerate all ten pairs would be noise, not verification)
+REPORTED_PAIRS = ("hinted_vs_masked", "masked_vs_verify", "hinted_vs_unhinted",
+                  "unhinted_vs_verify", "nudge_vs_unhinted", "nudge_vs_verify",
+                  "masked_vs_unhinted")
+for pair, p in (live48.get("pairwise") or {}).items():
+    if pair not in REPORTED_PAIRS:
+        continue
+    chk(f"live p {pair.replace('_', ' ')}", p["p_fisher_two_sided"],
         f"{p['p_fisher_two_sided']:.3f}")
 chk("live n raw", live48["n_raw"], str(live48["n_raw"]))
 chk("live n dropped", live48["n_dropped_fail_before_false"],

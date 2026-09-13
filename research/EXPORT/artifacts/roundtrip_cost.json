@@ -4,79 +4,79 @@
   "tables": {
     "tb2_all_scaffolds": {
       "table": "tb2_all_scaffolds",
-      "n_steps": 1073923,
+      "n_steps": 887137,
       "n_runs": 29103,
-      "total_context_chars": 32052783322.0,
-      "mean_context_chars": 29846.44459798328,
+      "total_context_chars": 17059174835.0,
+      "mean_context_chars": 19229.470572188962,
       "poll_turns": 2116,
-      "poll_cost_share": 0.0008176948546621445,
-      "low_yield_turns_lt_0.05": 745701,
-      "low_yield_cost_share_lt_0.05": 0.9365583312197326,
-      "repeat_turns": 290069,
-      "repeat_cost_share": 0.292604972547351,
-      "mean_own_chars": 514.5933013819426,
-      "median_context_chars": 11314.0,
+      "poll_cost_share": 0.001536381229074847,
+      "low_yield_turns_lt_0.05": 566668,
+      "low_yield_cost_share_lt_0.05": 0.8859852092019432,
+      "repeat_turns": 213820,
+      "repeat_cost_share": 0.27867188207992827,
+      "mean_own_chars": 525.8967059202806,
+      "median_context_chars": 8242.0,
       "by_group": [
         {
-          "group": "terminus-2",
-          "turns": 356327,
-          "cost_share_of_corpus": 0.48003,
+          "group": "openhands",
+          "turns": 341972,
+          "cost_share_of_corpus": 0.39395,
           "poll_share_within": 0.0,
-          "low_yield_share_within": 0.92473
+          "low_yield_share_within": 0.93857
         },
         {
-          "group": "openhands",
-          "turns": 428201,
-          "cost_share_of_corpus": 0.38602,
+          "group": "terminus-2",
+          "turns": 263156,
+          "cost_share_of_corpus": 0.38673,
           "poll_share_within": 0.0,
-          "low_yield_share_within": 0.96616
+          "low_yield_share_within": 0.83495
         },
         {
           "group": "mini-swe-agent",
-          "turns": 134708,
-          "cost_share_of_corpus": 0.0969,
+          "turns": 127322,
+          "cost_share_of_corpus": 0.14968,
           "poll_share_within": 0.0,
-          "low_yield_share_within": 0.90515
+          "low_yield_share_within": 0.88987
         },
         {
           "group": "claude-code",
           "turns": 86208,
-          "cost_share_of_corpus": 0.0253,
+          "cost_share_of_corpus": 0.04754,
           "poll_share_within": 0.031481,
           "low_yield_share_within": 0.87992
         },
         {
           "group": "terminus-3-3",
           "turns": 19641,
-          "cost_share_of_corpus": 0.00514,
+          "cost_share_of_corpus": 0.00966,
           "poll_share_within": 0.0,
           "low_yield_share_within": 0.89691
         },
         {
           "group": "codex",
           "turns": 21278,
-          "cost_share_of_corpus": 0.00205,
+          "cost_share_of_corpus": 0.00385,
           "poll_share_within": 0.0,
           "low_yield_share_within": 0.78037
         },
         {
           "group": "gemini-cli",
           "turns": 12484,
-          "cost_share_of_corpus": 0.0019,
+          "cost_share_of_corpus": 0.00356,
           "poll_share_within": 0.0,
           "low_yield_share_within": 0.75246
         },
         {
           "group": "deepagent-harbor",
           "turns": 10450,
-          "cost_share_of_corpus": 0.00144,
+          "cost_share_of_corpus": 0.0027,
           "poll_share_within": 0.0,
           "low_yield_share_within": 0.82667
         },
         {
           "group": "judy",
           "turns": 4626,
-          "cost_share_of_corpus": 0.00123,
+          "cost_share_of_corpus": 0.00231,
           "poll_share_within": 0.017262,
           "low_yield_share_within": 0.74021
         }

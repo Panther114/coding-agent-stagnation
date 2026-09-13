@@ -1173,6 +1173,44 @@ tampering.
 It is recorded because the repository still ships the v1 artifacts and because keying runs by a field
 the release does not guarantee unique is a bug class, not an incident.
 
+## 34. Round 5, pass 34 (16:20–18:10 CST) - the intervention arm, its control, and a result I am not allowed to like
+
+**The router prescribes an action; this pass tested whether taking it helps.** The suite already had
+three conditions (hinted / unmasked / masked). Two were added, on the same 48 tasks with the same
+harness and the same 14-turn cap:
+
+* **verify** — after the agent has watched its own fix fail a *second* time, the runtime appends the
+  action the router takes for a predicted WRONG-FIX: stop, re-read the code you changed, state what
+  you expected, check that it actually does that, only then edit again.
+* **nudge** — the control. Same trigger, same channel, same rough length: "`[runtime] ... Continue
+  working on the fix.`" No instructional content at all. Without it, a gain from the first arm could
+  be nothing but "the runtime said something", or simply extra tokens.
+
+**What came back (valid episodes only; 241 raw / 210 valid / 48 tasks; \$2.26 in total).**
+
+| condition | n | success | vs unmasked |
+|---|---|---|---|
+| masked | 42 | **0.286** | −0.086, p = 0.490 |
+| unmasked | 43 | 0.372 | — |
+| nudge (control) | 42 | 0.452 | +0.080, p = 0.512 |
+| hinted | 41 | **0.561** | +0.189, p = 0.125 |
+| verify | 42 | **0.571** | +0.199, p = 0.084 |
+
+The only significant differences are the ones involving **masked** (p = 0.015 against hinted and
+against verify). Both runtime interventions point the right way and cost nothing in turn budget
+(verify uses 11.1 turns against 12.2), but **neither is significant**, and the content-free control
+lands at 0.452 — not distinguishable from the instruction it exists to control for (p = 0.383).
+
+**So the honest reading is narrower than the one I wanted.** This experiment is conclusive about the
+*benchmark* (hiding which tests failed costs 27.5 points) and only suggestive about the intervention:
+it cannot separate "check your diagnosis" from "being interrupted at the right moment". That is the
+fourth time this session that an arm designed to confirm a mechanism produced an ambiguity instead,
+and it is reported as an ambiguity rather than as the attractive reading.
+
+**Eleven retractions now, and the pattern is the point.** Every one was found by a script written to
+falsify something — never by re-reading a claim. In this pass the falsifier was a control arm that
+cost \$0.42 and 31 minutes, and it is the single most useful thing bought today.
+
 
 
 

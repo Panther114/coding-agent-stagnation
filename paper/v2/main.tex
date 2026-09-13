@@ -369,7 +369,8 @@ always SEARCH & 0.518 \\
 \section{Testing the premise live: the verifier was giving the answer away}
 
 We ran the premise against live agents (DeepSeek V4.1 Flash, temperature 0, real Python packages,
-their own test suites as verifier, no Docker): 145 episodes over 42 tasks, \textbf{\$1.36 total}.
+their own test suites as verifier, no Docker): \textbf{241 episodes} in five conditions over the same
+48 tasks, \textbf{\$2.26 in total}.
 
 The first surprise: \textbf{every run in the first two conditions reached the correct file} --- 100\%,
 which would mean LOST does not exist in this setting. The second surprise was the explanation. pytest
@@ -380,31 +381,43 @@ module.} Localisation in these benchmarks is string-matching, not diagnosis.
 
 We therefore added a \textbf{masked} condition: the agent is told \emph{that} tests fail (it still
 sees ``3 failed, 516 passed'') but never \emph{which} or \emph{where}. The grader always sees the
-true output, so the success criterion is unchanged.
+true output, so the success criterion is unchanged. Two further conditions test the interventions
+the router would actually prescribe: \textbf{hinted} hands over the file and function (the SEARCH
+action), and \textbf{verify} appends, after the second failing test run, the instruction to stop and
+re-check the diagnosis rather than edit again (the WRONG-FIX action). \textbf{Nudge} is the control
+for the second one: same trigger, same channel, same length, no content.
 
 \begin{table}[h]
 \centering\small
 \begin{tabular}{llccc}
 \toprule
-condition & what the agent sees & success & vs hinted & reached the correct file \\
+condition & what the agent sees & success & vs unmasked & reached the file \\
 \midrule
-hinted   & the exact file and function & $\mathbf{0.561}$ ($n=41$) & --- & 1.000 \\
-unmasked & full pytest output (normal CI) & 0.372 ($n=43$) & $-0.189$ ($p=0.125$) & $\mathbf{1.000}$ \\
-masked   & only ``N failed, M passed'' & $\mathbf{0.286}$ ($n=42$) & $\mathbf{-0.275}$ ($p=0.015$) & 0.952 \\
+masked   & only ``N failed, M passed'' & $\mathbf{0.286}$ ($n=42$) & $-0.086$ ($p=0.490$) & 0.952 \\
+unmasked & full pytest output (normal CI) & 0.372 ($n=43$) & --- & $\mathbf{1.000}$ \\
+nudge    & full output, plus a content-free ``keep going'' after the 2nd failure & 0.452 ($n=42$) & $+0.080$ ($p=0.512$) & $\mathbf{1.000}$ \\
+hinted   & the exact file and function & $\mathbf{0.561}$ ($n=41$) & $+0.189$ ($p=0.125$) & $\mathbf{1.000}$ \\
+verify   & full output, plus a re-check-your-diagnosis instruction, same trigger & $\mathbf{0.571}$ ($n=42$) & $+0.199$ ($p=0.084$) & $\mathbf{1.000}$ \\
 \bottomrule
 \end{tabular}
-\caption{Valid episodes only (145 raw, 19 dropped because the mutated package did not fail its
-suite at episode start, which makes success meaningless). Withholding \emph{which} tests failed is
-the only difference in this experiment that reaches significance --- and it is also the only
-condition in which any agent failed to find the file at all. The hint itself is worth
-$+0.189$ over normal CI output and is \textbf{not} significant at this sample size; masked against
-unmasked is indistinguishable too ($p = 0.490$).}
+\caption{Five conditions, same 48 tasks, valid episodes only (241 raw, 31 dropped because the
+mutated package did not fail its suite at episode start, which makes success meaningless). The
+\textbf{only} differences that reach significance are the ones involving \emph{masked}: against
+hinted ($p=0.015$) and against verify ($p=0.015$). Both runtime interventions land at
+0.56--0.57 against 0.372 for no intervention, but neither is individually significant at this
+sample size, and the content-free control at the same trigger (0.452) is \textbf{not}
+distinguishable from the instruction it controls for ($p=0.383$).}
 \end{table}
 
-\noindent Read against the leaked-filename measurement above, this is the causal version of the same
-fact: \textbf{roughly a quarter of the benchmark's difficulty was the test runner naming the file.}
-Take that away and success drops by 27.5 points while the other two conditions are statistically
-indistinguishable.
+\noindent Two conclusions survive, and they are both narrower than the one we wanted. First, the
+one solid causal result is about the \emph{benchmark}: hiding which tests failed costs 27.5 points
+while the other conditions are statistically indistinguishable from each other. Second, the runtime
+actions the router prescribes both point the right way --- a hint or a forced re-check is worth
+roughly $+0.2$ over doing nothing, and the re-check costs no turn budget (11.1 turns against 12.2)
+--- but \textbf{this experiment cannot attribute the gain to the instruction rather than to being
+interrupted}, because a content-free message at the same moment moves success almost as far. A
+clean separation needs a larger $n$ than this suite can supply, and we would rather report the
+ambiguity than pick the attractive reading.
 
 \paragraph{The router on live runs, and another negative.}
 The frozen model was then applied unchanged to these episodes --- a different scaffold, a different
@@ -472,10 +485,13 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 \item \textbf{The mode labels are coarse.} ``Ever touched a gold file'' is a proxy, not a judgement
   of fix quality; gold matching is basename-based and 4.10\% of edit steps carry no filename, which
   biases LOST upward.
-\item \textbf{The live experiment is small} ($n = 41$--$43$ per condition). One difference reaches
-  significance (withholding the failure location costs $0.275$, Fisher $p = 0.015$); the hint's own
-  effect ($0.189$ over normal CI output) does \textbf{not} ($p = 0.125$) and is reported as
-  inconclusive rather than as a gain.
+\item \textbf{The live experiment is small} ($n = 41$--$43$ per condition, five conditions). The
+  only comparisons that reach significance involve the masked condition (withholding the failure
+  location costs $0.275$, $p = 0.015$). Both runtime interventions point the right way
+  ($+0.189$ for the hint, $+0.199$ for the forced re-check) but neither is individually significant
+  ($p = 0.125$, $p = 0.084$), and the content-free control is not distinguishable from the
+  instruction it controls for ($p = 0.383$). The experiment is reported as \emph{suggestive of the
+  interventions and conclusive only about the benchmark}.
 \item \textbf{The inversion's mechanism is unexplained}: three candidates tested, all failed.
 \item \textbf{Temperature-0 inference is not deterministic} ($\sim$9\% of per-instance outcomes flip
   across repeats), so within-instance comparisons are reported with runs-per-instance (mean 21.9).
@@ -488,7 +504,7 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 
 Six automated gates run on every change: invariant tests 11/11; cross-artifact consistency passes;
 28/28 headline claims trace to their artifacts; 0 mismatches against the one-page summary; every
-cited artifact exists; and 57/57 paper numbers trace to the artifact each one names. That last gate
+cited artifact exists; and 65/65 paper numbers trace to the artifact each one names. That last gate
 was written during this work and \textbf{found five real errors in our own manuscript} --- values
 quoted as pooled that were within-instance, figures mixed across two artifacts' row sets, and a
 transfer table whose cells had been read off the wrong rows. All are fixed. Complete data package:

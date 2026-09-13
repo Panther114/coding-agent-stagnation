@@ -1,8 +1,8 @@
 {
-  "n_steps": 1073923,
+  "n_steps": 887137,
   "n_runs": 29103,
   "poll_steps": 2036,
-  "poll_share_of_steps": 0.001895852868408629,
+  "poll_share_of_steps": 0.0022950232038569016,
   "tool_breakdown": {
     "BashOutput": 1731,
     "TaskOutput": 305
@@ -15,7 +15,7 @@
     "max": 228
   },
   "poll_obs_chars_mean": 246.87917485265226,
-  "ordinary_obs_chars_mean": 272.60160644664467,
+  "ordinary_obs_chars_mean": 291.35168412545073,
   "samples": [
     {
       "run_id": "adaptive-rejection-sampler__ubYZyKj",

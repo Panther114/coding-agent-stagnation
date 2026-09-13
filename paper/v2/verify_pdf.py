@@ -57,7 +57,9 @@ MUST_BE_PRESENT = {
     "router on live runs": "0.426",
     "the footer rate": "95.8",
     "prior art citation": "2603.24631",
-    "gate count": "57/57",
+    "gate count": "65/65",
+    "live nudge control": "0.452",
+    "live verify intervention": "0.571",
     "acknowledgement page": "致谢与人工智能使用声明",
 }
 

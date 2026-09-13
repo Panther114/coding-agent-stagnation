@@ -22,9 +22,9 @@ was read out of a frozen artifact at export time.
 | claim audit | 28/28 headline claims found verbatim in the findings |
 | summary audit | 0 mismatches between the executive summary and the artifacts |
 | doc references | all cited artifacts exist |
-| paper numbers | 57/57 paper numbers trace to an artifact |
+| paper numbers | 65/65 paper numbers trace to an artifact |
 
-## Numbers (139 total)
+## Numbers (167 total)
 
 ### measurement validity
 
@@ -139,6 +139,13 @@ was read out of a frozen artifact at export time.
 | masked: n | `42` | `live_arms_valid.json` |  |
 | masked: mean_turns | `12.31` | `live_arms_valid.json` |  |
 | masked: usd | `0.3982` | `live_arms_valid.json` |  |
+| nudge: success | `0.4524` | `live_arms_valid.json` |  |
+| nudge: success_ci95 | `[0.3095, 0.5952]` | `live_arms_valid.json` |  |
+| nudge: reached_gold | `1` | `live_arms_valid.json` |  |
+| nudge: success_given_reached_gold | `0.4524` | `live_arms_valid.json` |  |
+| nudge: n | `42` | `live_arms_valid.json` |  |
+| nudge: mean_turns | `12.02` | `live_arms_valid.json` |  |
+| nudge: usd | `0.4355` | `live_arms_valid.json` |  |
 | unhinted: success | `0.3721` | `live_arms_valid.json` |  |
 | unhinted: success_ci95 | `[0.2326, 0.5116]` | `live_arms_valid.json` |  |
 | unhinted: reached_gold | `1` | `live_arms_valid.json` |  |
@@ -146,12 +153,33 @@ was read out of a frozen artifact at export time.
 | unhinted: n | `43` | `live_arms_valid.json` |  |
 | unhinted: mean_turns | `12.21` | `live_arms_valid.json` |  |
 | unhinted: usd | `0.4839` | `live_arms_valid.json` |  |
+| verify: success | `0.5714` | `live_arms_valid.json` |  |
+| verify: success_ci95 | `[0.4286, 0.7143]` | `live_arms_valid.json` |  |
+| verify: reached_gold | `1` | `live_arms_valid.json` |  |
+| verify: success_given_reached_gold | `0.5714` | `live_arms_valid.json` |  |
+| verify: n | `42` | `live_arms_valid.json` |  |
+| verify: mean_turns | `11.12` | `live_arms_valid.json` |  |
+| verify: usd | `0.3498` | `live_arms_valid.json` |  |
 | success diff hinted_vs_masked | `0.2753` | `live_arms_valid.json` |  |
 | Fisher p hinted_vs_masked | `0.0148` | `live_arms_valid.json` | significant |
+| success diff hinted_vs_nudge | `0.1086` | `live_arms_valid.json` |  |
+| Fisher p hinted_vs_nudge | `0.3828` | `live_arms_valid.json` | NOT significant |
 | success diff hinted_vs_unhinted | `0.1889` | `live_arms_valid.json` |  |
 | Fisher p hinted_vs_unhinted | `0.1251` | `live_arms_valid.json` | NOT significant |
+| success diff hinted_vs_verify | `-0.0104` | `live_arms_valid.json` |  |
+| Fisher p hinted_vs_verify | `1` | `live_arms_valid.json` | NOT significant |
+| success diff masked_vs_nudge | `-0.1667` | `live_arms_valid.json` |  |
+| Fisher p masked_vs_nudge | `0.1745` | `live_arms_valid.json` | NOT significant |
 | success diff masked_vs_unhinted | `-0.0864` | `live_arms_valid.json` |  |
 | Fisher p masked_vs_unhinted | `0.4904` | `live_arms_valid.json` | NOT significant |
+| success diff masked_vs_verify | `-0.2857` | `live_arms_valid.json` |  |
+| Fisher p masked_vs_verify | `0.0148` | `live_arms_valid.json` | significant |
+| success diff nudge_vs_unhinted | `0.0803` | `live_arms_valid.json` |  |
+| Fisher p nudge_vs_unhinted | `0.5123` | `live_arms_valid.json` | NOT significant |
+| success diff nudge_vs_verify | `-0.119` | `live_arms_valid.json` |  |
+| Fisher p nudge_vs_verify | `0.3828` | `live_arms_valid.json` | NOT significant |
+| success diff unhinted_vs_verify | `-0.1993` | `live_arms_valid.json` |  |
+| Fisher p unhinted_vs_verify | `0.0836` | `live_arms_valid.json` | NOT significant |
 | P1 failure-rate drop | `0.1889` | `live_arms_valid.json` | ceiling 0.309 |
 
 ### router on live runs (negative)

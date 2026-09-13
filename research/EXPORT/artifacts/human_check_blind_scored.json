@@ -1,0 +1,45 @@
+{
+  "n_sample": 12,
+  "n_scored": 12,
+  "n_excluded": 0,
+  "excluded": [],
+  "human_vs_stored": 0.8333333333333334,
+  "human_vs_stored_wilson95": [
+    0.5519636426153274,
+    0.9530358523851776
+  ],
+  "human_vs_mechanical": 0.5,
+  "human_vs_mechanical_wilson95": [
+    0.2537781703934222,
+    0.7462218296065778
+  ],
+  "stored_vs_mechanical_on_scored": 0.6666666666666666,
+  "stored_vs_mechanical_wilson95": [
+    0.3906175873976139,
+    0.8618821601026386
+  ],
+  "kappa_human_vs_stored": 0.6666666666666667,
+  "kappa_human_vs_stored_boot95": [
+    0.2258064516129032,
+    1.0
+  ],
+  "kappa_human_vs_mechanical": 0.09999999999999994,
+  "kappa_human_vs_mechanical_boot95": [
+    -0.33333333333333337,
+    0.5263157894736842
+  ],
+  "diff_mech_minus_stored": -0.33333333333333337,
+  "diff_boot95": [
+    -0.5833333333333334,
+    -0.08333333333333337
+  ],
+  "mcnemar_mech_only": 0,
+  "mcnemar_stored_only": 4,
+  "mcnemar_exact_p": 0.125,
+  "human_stagnant_rate": 0.6666666666666666,
+  "stored_stagnant_rate": 0.5,
+  "mechanical_stagnant_rate": 0.3333333333333333,
+  "bootstrap_reps": 5000,
+  "bootstrap_seed": 7,
+  "warning": "n<=12: CIs are wide by design; report intervals, never points. A 1-window swing is noise."
+}
