@@ -2,34 +2,48 @@
 
 ## ⚠️ Current headline (read this first)
 
-> **A widely-used localisation statistic is self-referential and inverts the sign of the
-> solved-versus-failed comparison.** The conventional measure — the share of a run's edits aimed at
-> files in *that run's own final patch* — reports failed runs localising **better** (0.673) than
-> solved runs (0.585). Against an **independent gold patch**, the direction reverses (0.477 vs
-> 0.407). The robust binary form is unambiguous: **98.2% of solved and 69.1% of failed runs reach
-> the correct file.** So localisation is *bounded*: it can address at most the **30.9%** of failures
-> that never reach the file.
+> **A runtime monitor can tell *how* a coding agent is failing, and the published ones cannot.**
+> When an agent is stuck, the useful decision is whether it is **LOST** (has not found the code) or
+> **WRONG-FIX** (found it, and its change does not work) — opposite interventions. On identical rows
+> and folds, the published stagnation- and loop-detection families score 0.5589 at predicting failure
+> and **0.5960** on the mode question, i.e. at or below chance. A causal router reading only the
+> first 10–60% of a run scores **0.7145 / 0.7324** — a gain of **+0.1556** and **+0.1364 AUC**.
 >
-> **This is causal, not just correlational.** Holding a defect fixed and varying only how easy it is
-> to find, **100% of runs in both arms reached the correct file — and 62.8% of the unhinted runs
-> still failed.** Handing over the file raised success from 37.2% to 55.0% (failure-rate drop 0.178,
-> *below* the 0.309 ceiling predicted in advance; Fisher *p* = 0.126, **not** significant at this n).
-> A re-diagnosis prompt did not help.
+> **It transfers, and the transfer is bounded — both were tested rather than asserted.** Trained on
+> one shard set and scored on the other two in both directions at four fractions (24 cells), cross-set
+> performance **equals** within-set performance (0.7145 vs 0.7169; 0.7324 vs 0.7117). The same model
+> applied to **88,000 runs from three other scaffolds** scores **0.319–0.495** where the identical
+> features fitted *inside* those scaffolds score 0.653–0.761, and it scores 0.426 on our own 125 live
+> episodes against a 0.584 baseline. **The generality claimed is shard-level generality within a
+> scaffold, and nothing more.**
 >
-> **The positive deliverable.** From a run's first 10–60% we predict whether a struggling agent needs
-> *search* or *verification*: **0.676–0.751** at separating lost from wrong-fix runs, where every
-> published-style heuristic (loop, burst, redundancy, output-shape) sits **at or below chance**
-> (0.407–0.539), with genuinely controlled false alarms (α = 0.05 → 0.046). As a policy it is worth
-> **0.764–0.800** against 0.732 (always verify) and 0.518 (always search).
+> **A measurement trap, found first and corrected.** The conventional localisation statistic — the
+> share of a run's edits aimed at files in *that run's own final patch* — reports failed runs
+> localising **better** (0.670) than solved runs (0.594). It is self-referential: a run that fixates
+> on the wrong file scores 1.0. Against an **independent gold patch** the direction reverses
+> (0.477 vs 0.407), and it reverses again on both held-out sets.
 >
-> **Three of these are retractions of our own headlines**: "failed runs localise better" (metric
-> artifact), "zero false alarms at every budget" (circular), "step index beats every learned monitor"
-> (the baseline *was* the run's length). The qualitative thesis is **prior art**
-> ([arXiv:2603.24631](https://arxiv.org/abs/2603.24631), 60–69% on 16,758 trajectories; our 67.1% is
-> inside that range) — we reproduce it rather than discover it.
+> **The live experiment produced one significant effect, and it is about the benchmark.** Every run
+> in the first two conditions reached the correct file, because pytest prints the failing test's
+> filename, which contains the module name (51.5% of test observations literally name the gold
+> module). Withholding *which* tests failed drops success from **0.561 to 0.286** (Fisher
+> *p* = 0.015) and is the first condition in which any run failed to find the file. Handing over the
+> file is worth +0.189 and is **not** significant (*p* = 0.125).
 >
-> **And it replicates twice on unseen data.** All 12 Nebius shards are now covered (80,035 runs) as
-> one frozen table plus two held-out replications:
+> **Ten of our own claims were retracted**, each by a test written to falsify it: "failed runs
+> localise better" (metric artefact), "zero false alarms at every budget" (circular), "step index
+> beats every learned monitor" (the baseline *was* the run's length), a 48-episode condition
+> reporting 0/48 success (a deleted interpreter, not a result), a transfer table whose cells came
+> from the wrong rows, and the cross-scaffold claim this summary now states as a bound.
+>
+> **What is not ours.** The *qualitative* finding that agents usually reach the right code and fail
+> anyway is prior art ([arXiv:2603.24631](https://arxiv.org/abs/2603.24631), 60–69% of failures on
+> 16,758 trajectories; our 67.0% sits inside that range). We reproduce it, at scale, rather than
+> discover it. What is new here is the measurement defect that hid the direction of the effect, the
+> router that acts on it, and the bounds on both.
+>
+> **And it replicates twice on unseen data.** All 12 Nebius shards are covered (80,035 runs) as one
+> frozen table plus two held-out replications:
 >
 > | set | shards | runs | self solved → failed | gold solved | gold failed | within-inst *p* | wrong-fix |
 > |---|---|---|---|---|---|---|---|
@@ -46,8 +60,10 @@
 ---
 
 **One page.** For the full evidence and every artifact, see `REBUILD_FINDINGS_V2.md`; for what each
-claim rests on and what it cannot support, `HANDOFF.md`. Every number here is machine-audited
-against its artifact by `scripts/audit_claims.py`.
+claim rests on and what it cannot support, `HANDOFF.md`; for the rewritten report,
+`../paper/v2/main.tex`. Every number here is machine-audited against its artifact by
+`scripts/audit_claims.py`, `scripts/audit_summary.py` (this file) and
+`scripts/audit_paper_numbers.py`.
 
 ---
 
