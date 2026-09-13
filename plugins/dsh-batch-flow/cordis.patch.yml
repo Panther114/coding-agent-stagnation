@@ -1,0 +1,5 @@
+# dsh-batch-flow bundle patch: one row, host only (no client half).
+# The row name MUST equal the package name.
+- insert:
+    - id: dsh-batch-flow
+      name: 'dsh-batch-flow'

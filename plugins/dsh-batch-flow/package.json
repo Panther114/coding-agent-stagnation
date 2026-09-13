@@ -1,0 +1,28 @@
+{
+  "name": "dsh-batch-flow",
+  "description": "Declarative batch tool-calls, reference-following reads, and per-rule metering for DeepSeek Harness. Advisory + metering; never blocks productive work.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "engines": {
+      "dsh": ">=0.1.5-rc.1"
+    }
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "dsh.plugin.json",
+    "README.md",
+    "package.json"
+  ]
+}
