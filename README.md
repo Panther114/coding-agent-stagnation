@@ -15,7 +15,7 @@ reported agent success rates.
 | you are… | read this |
 |---|---|
 | **a judge or a reviewer of the report** | `paper/v2/main.pdf` (12 pages), then `research/EXPORT/INDEX.md` for every number → the artifact that produced it |
-| **the collaborator** (you have been working on `will/dev`) | **[`COLLABORATOR_NOTES.md`](COLLABORATOR_NOTES.md)** — what was imported, what to fix in your packet, and the TB2 bug you found |
+| **the co-author** (Xuhao Chen — GitHub `willuhd`, branch `will/dev`) | **[`COAUTHOR_NOTES.md`](COAUTHOR_NOTES.md)** — what was imported from your branch, what to fix in the blind packet, and the TB2 duplicate-trial bug you found |
 | **an author, before submitting** | `research/docs/SUBMISSION_CHECKLIST.md` — every required component, its real status, and the fields only you can fill |
 | **someone who wants to run it** | `demo/README.md` — offline, deterministic, no API key |
 

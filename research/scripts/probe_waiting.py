@@ -1,6 +1,6 @@
 """Feasibility probe: can we see agent WAITING / POLLING at scale in the corpora we hold?
 
-Motivation.  A collaborator working on a runtime plugin reports that agents burn turns on
+Motivation.  One of the authors, working on a runtime plugin, reports that agents burn turns on
 `bash_wait`-style polling -- calling a wait/poll tool and doing nothing meaningful, checking a
 progress bar they could have either blocked on or ended the turn for -- and that they fail to batch
 tool calls they could have batched, which multiplies cache reads.  Their evidence comes from one

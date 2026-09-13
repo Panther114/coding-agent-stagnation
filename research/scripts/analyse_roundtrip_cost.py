@@ -1,6 +1,6 @@
 """Cost of low-yield turns: does an agent burn tokens on round-trips that produce almost nothing?
 
-The claim under test (from a collaborator measuring a runtime plugin): agents spend turns on
+The claim under test (from one of the authors, measuring a runtime plugin): agents spend turns on
 wait/poll calls and on unbatched tool calls, and each such turn re-sends the whole accumulated
 context, so the cost is in the INPUT, not the few characters of output.
 

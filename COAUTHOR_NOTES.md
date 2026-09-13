@@ -1,9 +1,13 @@
-# Notes for the collaborator (`will/dev`)
+# Notes for the co-author — Xuhao Chen (branch `will/dev`, GitHub `willuhd`)
 
 **Short version: your work is in `main`, byte-for-byte; your branch is untouched; one thing in your
 packet needs fixing, and one thing you found broke two of my numbers.**
 
-Written 2026-09-13 ~18:30 CST by the AI agent that has been working on `main`.
+Written 2026-09-13 ~19:00 CST by the AI agent that has been working on `main`, for **the second
+author of the report, Xuhao Chen**. You are not an outside contributor: the pilot you built and the
+bug you found are author contributions, and the report's acknowledgement page lists them under
+分工说明 (division of labour) for that reason. If someone *outside* the two authors judged the 12
+windows, that one fact belongs in 来自他人的帮助 instead — see the end of this file.
 
 ## Why there is no merge commit
 
@@ -24,14 +28,14 @@ file to a single line. The per-file hash comparison is what caught it. Worth kno
 
 ## What came across
 
-| item | where it now lives | checked how |
+| your thing | where it now lives | checked how |
 |---|---|---|
 | Blinded human pilot packet (12 cards, sealed key, `SHA256SUMS`, packet, README) | `research/docs/human_check_blind/` | all 18 files verified identical to your blobs; sealed-key chain re-verified (see below) |
 | `make_human_blind_packet.py`, `score_human_sample_ci.py` | `research/scripts/` | `--selftest` passes **5/5**; a full re-run reproduces `human_check_blind_scored.json` with **zero differences** |
 | Pilot result | `research/results/rebuild/human_check_blind_scored.json` | identical to yours |
 | R1/R2 results | `research/results/exploratory/{r1_misfire,r1_guard_sweep,r2_cost_census,r2_redo_census}.json` | files present and valid JSON; **I did not re-derive these** — treat them as yours |
-| Your write-ups | `research/docs/will__3-*.md` (audit, cost anatomy, misfire matrix, human prereg/results/provenance, judge sheet) | verbatim |
-| Your docs map, dataset READMEs, manifest | `research/docs/will__VERSIONS.md`, `will__datasets-*.md`, `DATASETS_MANIFEST.json` | verbatim |
+| Your write-ups | `research/docs/xuhao__3-*.md` (audit, cost anatomy, misfire matrix, human prereg/results/provenance, judge sheet) | verbatim |
+| Your docs map, dataset READMEs, manifest | `research/docs/xuhao__VERSIONS.md`, `xuhao__datasets-*.md`, `DATASETS_MANIFEST.json` | verbatim |
 | `loaders.py` TB2 dedupe, `requirements.lock`, 13 probe scripts | `research/src/loaders.py`, `research/requirements.lock`, `research/scripts/_probe_*.py` | byte-identical |
 | Your macOS `.gitignore` block + derived-file rules | `.gitignore` | merged with mine; I kept `processed/steps*/` versioned on purpose (the six gates need those tables right after a clone) |
 
@@ -119,9 +123,17 @@ python demo/route.py --replay iterative__dvc-4034
 
 ## What I could use from you
 
-Nothing blocking. Two optional things:
+Nothing blocking. Three optional things:
 
 1. If you want R1/R2 cited in the report rather than only in the repository, send one line each on
    what they establish and I will wire them into §7 with your attribution.
 2. If you have a stronger view than mine on the folder layout, say so and I will add an `essay/` +
    `docs/` mirror that does not disturb the paths the gates depend on.
+3. **One question for the paperwork, and it matters.** The competition requires each author's
+   contribution to be stated, and any result produced by a non-author to be named explicitly. So:
+   **who judged the 12 windows?** If it was you, say so and the acknowledgement page will list it
+   under your contributions (it currently does, alongside the TB2 find). If it was somebody outside
+   the two authors, send their name and I will move that one item into 来自他人的帮助
+   (help from others) — the rules treat the two sections differently, and putting a non-author's
+   work under "author contributions" would be the kind of misstatement the integrity criterion is
+   about. Placeholder is already written for it in `paper/v2/acknowledgement_zh.tex` §五.

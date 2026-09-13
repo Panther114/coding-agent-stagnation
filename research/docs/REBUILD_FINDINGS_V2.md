@@ -1535,7 +1535,7 @@ gain. Raw (unfiltered) values for comparison: hinted 0.604, unmasked 0.449, mask
 Artifacts: `data/processed/steps_tb2_dedup/tb2/{runs,steps}.parquet` and
 `dedup_stats.json` · script: `scripts/rebuild_tb2_dedup.py`
 
-**Found by the collaborator, not by me.** Commit `106ff4b` on the `will/dev` branch ("Loader: dedupe
+**Found by the second author, Xuhao Chen, not by me.** Commit `106ff4b` on the `will/dev` branch ("Loader: dedupe
 TB2 UUID + empty-UUID twin trials by trial_name") added the rule to `research/src/loaders.py`:
 Terminal-Bench's release ships **two rows for 4,952 `trial_name` values** — one carrying a real
 `trial_id`, one with an empty one — and the loader keyed runs by `trial_name`, so both were written

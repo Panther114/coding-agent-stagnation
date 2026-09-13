@@ -66,15 +66,19 @@ conclusions were falsified by tests written to break them, and are documented as
 8. a `ParquetWriter` left unclosed produced an unreadable table, and a directory deletion destroyed the only copy of another table;
 9. a whole condition of the live experiment reported **0/48 success and 0% reaching the gold file** — a spectacular number that was a deleted Python interpreter, not a result; it was disbelieved only by reading the transcripts, and the condition was re-run;
 10. the manuscript's own **transfer table** quoted four pairs of numbers that matched the artifact only by coincidence; an automated audit of the paper's numbers against the artifacts found it, and later found the broader finding it belongs to — that the router's generality **stops at the scaffold boundary** (0.32–0.50 on 88,000 runs from three other scaffolds);
-11. the **Terminal-Bench run and step counts were inflated by duplicated trials** in the public release, and worse than a double count: the two copies of a trial had been written as one run carrying both attempts. Found by a collaborator, not by the AI. Rebuilt deduplicated, the table is 29,103 runs and 887,137 steps instead of 34,029 and 1,073,923, and every TB2 statistic was recomputed; no claim in this report depends on those tables.
+11. the **Terminal-Bench run and step counts were inflated by duplicated trials** in the public release, and worse than a double count: the two copies of a trial had been written as one run carrying both attempts. Found by **co-author Xuhao Chen**, not by the AI. Rebuilt deduplicated, the table is 29,103 runs and 887,137 steps instead of 34,029 and 1,073,923, and every TB2 statistic was recomputed; no claim in this report depends on those tables.
 
-We also disclose two things the AI did that were **not** wrong but were **not its own work**:
+Two things the AI did **not** do are worth stating plainly here, because the rules require the report
+to separate each author's contribution:
 
-* the blinded 12-window human pilot (pre-registration, sealed key, Wilson/κ/McNemar scoring) was
-  designed and run by a collaborator, and the single human judgement in it came from a person, not
-  from the model;
-* the duplicate-trial defect above was found by the collaborator's fix to the data loader, and the
-  AI then measured what it had invalidated.
+* the **blinded 12-window human pilot** was designed and run by **co-author Xuhao Chen** — packet,
+  sealed key, pre-registration, the stdlib-only scoring script (Wilson intervals, κ, McNemar) and the
+  decision to report the result at its pre-registered falsification boundary rather than as a pass.
+  The AI re-ran his script on his data and reproduced it exactly; it did not design the experiment.
+* the **duplicate-trial defect** above was found by his fix to the data loader; the AI then measured
+  what it had invalidated. Attribution matters here: the correction is his.
+
+Both are author contributions and are listed as such in the acknowledgement page, not as outside help.
 
 We state these because the competition's criteria include 学术道德与诚信, and because the retraction
 record is itself part of the method: the project's rule was that a claim is only kept if a test
@@ -98,9 +102,17 @@ A working starting point, to be corrected by you:
 | statistical analysis | **[AI, reviewed by STUDENTS]** | |
 | live experiment design | **[STUDENTS / AI]** | |
 | running the live experiment | **[AI, under STUDENTS' direction]** | |
+| **blinded 12-window human pilot** | **Xuhao Chen** | packet, sealed key, pre-registration, stdlib-only scoring (Wilson / κ / McNemar), and the decision to report the result at its falsification boundary rather than as a pass |
+| **duplicate-trial defect in the TB2 tables** | **Xuhao Chen** | found the duplication in the public release and specified the preference rule (keep one row per `trial_name`, prefer the row with a real `trial_id`); the AI then measured what it invalidated |
 | interpretation of results | **[STUDENTS]** | |
 | manuscript | **[STUDENTS, from an AI draft]** | |
 | defence preparation | **[STUDENTS]** | |
+
+**Who is who, for the paperwork:** the two authors are **Ziheng Yu** and **Xuhao Chen** (GitHub
+`willuhd`, branch `will/dev`). There is no third contributor: the pilot and the duplicate-trial find
+are Xuhao Chen's work as a co-author, and the acknowledgement page lists them under 分工说明, not
+under 来自他人的帮助. If the human judge of the 12 windows was someone outside the team, say so in
+来自他人的帮助 — that is the only place where a non-author's help would belong.
 
 ## 6. 声明 (Declaration)
 

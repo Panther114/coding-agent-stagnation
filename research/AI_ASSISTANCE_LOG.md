@@ -1125,9 +1125,10 @@ transfer table read off the wrong rows; and now a generality claim that measurab
 scaffold boundary. The pattern is not accidental — every one of them was caught by a script written
 to falsify a claim, never by re-reading the claim.
 
-## 33. Round 5, pass 33 (16:00–17:00 CST) - a collaborator's branch, and a real bug in my own TB2 numbers
+## 33. Round 5, pass 33 (16:00–17:00 CST) - the second author's branch, and a real bug in my own TB2 numbers
 
-**A second line of work appeared on `will/dev`**, with an unrelated git history (a fresh import plus
+**A second line of work appeared on `will/dev`** — the branch of **Xuhao Chen, the second author**
+(GitHub `willuhd`), not an outside contributor — with an unrelated git history (a fresh import plus
 their own commits), built on a snapshot of this repository taken at 09:31 today. Rather than merge
 two histories across a 2,600-file restructure, I identified exactly what the branch *adds* and
 imported those files into the current layout, verifying each against the branch blob afterwards
@@ -1149,7 +1150,7 @@ every file to one line and had to be redone — the check that caught it was com
    affect *my* tables, not just theirs — see below.
 3. Explanatory documents (`3-audit`, `3-cost-anatomy`, `3-misfire-matrix`, `3-human-prereg`,
    `3-human-results`, `3-judge-sheet`, `3-human-provenance-template`, `docs/VERSIONS.md`), imported
-   verbatim into `research/docs/will__*`, plus `requirements.lock` and a dataset manifest.
+   verbatim into `research/docs/xuhao__*`, plus `requirements.lock` and a dataset manifest.
 
 **Their bug find invalidated two of my numbers, and I measured the damage rather than patching it
 quietly.** Terminal-Bench's release ships two rows for 4,952 `trial_name` values (one with a real
