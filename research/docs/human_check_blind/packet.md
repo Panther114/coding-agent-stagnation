@@ -5,7 +5,7 @@ Do NOT open `key/` until all 12 verdicts + confidences + reasons are committed a
 Do NOT open `research/docs/human_check_sample.md`, `human_check_readable.md`,
 `research/results/rebuild/human_check_sample.csv`, or run any scoring script until committed.
 
-For each row: open the blind card copy, apply `research/docs/judge_sheet_v2.md`,
+For each row: open the blind card copy, apply `docs/3-judge-sheet.md`,
 fill `judge.csv` (`your_verdict`: stalled | progress | blocked-external | done-redundant | uncertain).
 
 | blind_id | task | t | w | blind card |

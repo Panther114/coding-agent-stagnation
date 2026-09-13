@@ -13,14 +13,14 @@ annotation logistics and drafting (see `AI_ASSISTANCE_LOG.md`).
 
 | If you want to… | Read |
 |---|---|
-| understand the result in plain language | `docs/KEY_FINDINGS.md` |
-| **read the whole rebuild in two minutes** | **`docs/EXECUTIVE_SUMMARY.md`** |
-| **read the rebuild: objective labels, 41k trajectories, the new headline** | **`docs/REBUILD_FINDINGS_V2.md`** |
-| **write the paper: claim → artifact → what it does and does not support** | **`docs/HANDOFF.md`** |
-| **see what was wrong with the first version and what fixed it** | **`docs/GAP_ANALYSIS_AND_PLAN.md`** |
+| understand the result in plain language | `../docs/1-key-findings.md` |
+| **read the whole rebuild in two minutes** | **`../docs/2-executive-summary.md`** |
+| **read the rebuild: objective labels, 41k trajectories, the new headline** | **`../docs/2-rebuild-findings-v2.md`** |
+| **write the paper: claim → artifact → what it does and does not support** | **`../docs/2-handoff.md`** |
+| **see what was wrong with the first version and what fixed it** | **`../docs/2-gap-analysis-and-plan.md`** |
 | **do the one human check the rebuild cannot do for itself** | **`docs/human_check_sample.md`** |
-| see what must still be done before submitting | `docs/SUBMISSION_CHECKLIST.md` |
-| check how the labels were defined | `docs/annotation_guide.md` |
+| see what must still be done before submitting | `../docs/0-submission-checklist.md` |
+| check how the labels were defined | `../docs/1-annotation-guide.md` |
 | know what the AI did, and where it went wrong | `AI_ASSISTANCE_LOG.md` |
 | read the paper | `../paper/main.pdf` (source: `../paper/main.tex`) |
 | audit a specific number | `results/final/tb2_final/paper_numbers.json` and the table it came from |
@@ -108,12 +108,12 @@ it.
 ## The rebuild attempt (2026-09-11)
 
 A follow-up set out to convert the negative result into a positive one. **Its two central premises
-were tested and both failed**, which is recorded in `docs/REBUILD_FINDINGS.md` and reported in the
+were tested and both failed**, which is recorded in `../docs/2-rebuild-findings.md` and reported in the
 paper's discussion:
 
 * `docs/REBUILD_PLAN.md` — the plan, frozen before implementation, with pre-registered
   interpretations of every possible outcome.
-* `docs/REBUILD_FINDINGS.md` — what was done, and what it found.
+* `../docs/2-rebuild-findings.md` — what was done, and what it found.
 * `scripts/secure_assets.py`, `scripts/secure_wordvecs.py` — cache a real encoder
   (all-MiniLM-L6-v2, 183 MB) and word vectors (GloVe, 134 MB). **Both load with the network off**,
   so the pipeline needs no internet.
@@ -128,8 +128,8 @@ paper's discussion:
 The "no objective signal exists" conclusion above was true of Terminal-Bench's release alone.
 A second rebuild mines **objective** progress labels out of editor telemetry in both corpora and
 rebuilds the study on 41,429 trajectories / 1,256,295 steps. Read
-`docs/REBUILD_FINDINGS_V2.md`; the gap analysis that motivated it is
-`docs/GAP_ANALYSIS_AND_PLAN.md`.
+`../docs/2-rebuild-findings-v2.md`; the gap analysis that motivated it is
+`../docs/2-gap-analysis-and-plan.md`.
 
 Headlines: **19.1% of edits are unambiguously wasted** — their lines never reach the agent's own final patch *and* no later action touches that file again (45,122 edits, 1.8 per run). A further 65.2% are revision, so the coarse 80% figure must not be quoted as waste; waste is
 evenly spread through the run yet is a stable per-run property (split-half ρ = +0.56); it is
@@ -279,7 +279,7 @@ Two provenance notes that matter when re-running any of this:
 
 * **The rebuild's labels involve no reader at all.** They are read out of the recorded
   trajectories (file line counts, patch text), so the "AI readers judged the labels" objection
-  does not apply to `docs/REBUILD_FINDINGS_V2.md`. `docs/human_check_sample.md` exists for the
+  does not apply to `../docs/2-rebuild-findings-v2.md`. `docs/human_check_sample.md` exists for the
   one check that still needs a person.
 * **Ten defects introduced during the rebuild were found and fixed**, each by a test or by
   checking an internal quantity against an external one, and each is listed in

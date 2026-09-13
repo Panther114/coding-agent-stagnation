@@ -126,7 +126,7 @@ def main() -> None:
         "Do NOT open `research/docs/human_check_sample.md`, `human_check_readable.md`,",
         "`research/results/rebuild/human_check_sample.csv`, or run any scoring script until committed.",
         "",
-        "For each row: open the blind card copy, apply `research/docs/judge_sheet_v2.md`,",
+        "For each row: open the blind card copy, apply `docs/3-judge-sheet.md`,",
         "fill `judge.csv` (`your_verdict`: stalled | progress | blocked-external | done-redundant | uncertain).",
         "",
         "| blind_id | task | t | w | blind card |",
@@ -184,7 +184,7 @@ def main() -> None:
     readme = "\n".join([
         "# human_check_blind — blinding rules",
         "",
-        "- Judge works ONLY from `packet.md` + `cards/Bxx.md` + `judge.csv` + `judge_sheet_v2.md`.",
+        "- Judge works ONLY from `packet.md` + `cards/Bxx.md` + `judge.csv` + `docs/3-judge-sheet.md`.",
         "- Sealed: `key/` (mapping + stored/mechanical labels + SHA). Opening it before committing",
         "  all 12 verdicts invalidates the pilot. Record open time in the provenance log.",
         "- Also sealed until committed: `docs/human_check_sample.md`, `docs/human_check_readable.md`,",

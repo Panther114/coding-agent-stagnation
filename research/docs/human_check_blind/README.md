@@ -1,6 +1,6 @@
 # human_check_blind — blinding rules
 
-- Judge works ONLY from `packet.md` + `cards/Bxx.md` + `judge.csv` + `judge_sheet_v2.md`.
+- Judge works ONLY from `packet.md` + `cards/Bxx.md` + `judge.csv` + `../../docs/3-judge-sheet.md`.
 - Sealed: `key/` (mapping + stored/mechanical labels + SHA). Opening it before committing
   all 12 verdicts invalidates the pilot. Record open time in the provenance log.
 - Also sealed until committed: `docs/human_check_sample.md`, `docs/human_check_readable.md`,
