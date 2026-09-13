@@ -1,13 +1,13 @@
 blind_id,task,t,w,card_blind,your_verdict,confidence,reason_step_cites
-B01,install-windows-3.11,12,10,research/docs/human_check_blind/cards/B01.md,,,
-B02,crack-7z-hash,27,10,research/docs/human_check_blind/cards/B02.md,,,
-B03,extract-moves-from-video,45,10,research/docs/human_check_blind/cards/B03.md,,,
-B04,cobol-modernization,39,10,research/docs/human_check_blind/cards/B04.md,,,
-B05,make-doom-for-mips,24,10,research/docs/human_check_blind/cards/B05.md,,,
-B06,compile-compcert,60,10,research/docs/human_check_blind/cards/B06.md,,,
-B07,git-leak-recovery,39,10,research/docs/human_check_blind/cards/B07.md,,,
-B08,build-pov-ray,24,10,research/docs/human_check_blind/cards/B08.md,,,
-B09,feal-linear-cryptanalysis,12,10,research/docs/human_check_blind/cards/B09.md,,,
-B10,financial-document-processor,57,10,research/docs/human_check_blind/cards/B10.md,,,
-B11,install-windows-3.11,9,10,research/docs/human_check_blind/cards/B11.md,,,
-B12,feal-linear-cryptanalysis,27,10,research/docs/human_check_blind/cards/B12.md,,,
+B01,install-windows-3.11,12,10,research/docs/human_check_blind/cards/B01.md,progress,high,"PRODUCTIVE per codebook (E,I,V). Installs required packages (steps 4-5), starts nginx and QEMU with QMP socket (steps 7-8), verifies both services listening on ports 80 and 5901 (steps 9, 11). boundary=false."
+B02,crack-7z-hash,27,10,research/docs/human_check_blind/cards/B02.md,stalled,high,"STAGNANT per codebook (none). Alternates timed-out John the Ripper runs (steps 21-22), generic docs (step 23), re-checks of inspected files (steps 18-19, 25), unguided password guesses (step 27). boundary=false."
+B03,extract-moves-from-video,45,10,research/docs/human_check_blind/cards/B03.md,stalled,medium,"STAGNANT per codebook (none). After frame-detection output (step 37), kills processes (38-39), halts OCR via ^Z (43), idles on empty terminal output (40-42, 44-45) without creating /app/solution.txt. boundary=true."
+B04,cobol-modernization,39,10,research/docs/human_check_blind/cards/B04.md,progress,high,"PRODUCTIVE per codebook (E,I,V). Implements /app/program.py (step 32), verifies output via cmp (33-34), differential tests vs reference COBOL binary (35-39). boundary=false."
+B05,make-doom-for-mips,24,10,research/docs/human_check_blind/cards/B05.md,stalled,medium,"STAGNANT per codebook (none). Passively reads headers/docs (15, 17-18, 21) without compiling, porting, or testing a hypothesis to narrow scope. boundary=false."
+B06,compile-compcert,60,10,research/docs/human_check_blind/cards/B06.md,stalled,high,"STAGNANT per codebook (none). Thrashes through failed curl 404s (51-53) and repeated bash syntax errors on search/archive pages (55, 57, 59); no progress toward building CompCert. boundary=false."
+B07,git-leak-recovery,39,10,research/docs/human_check_blind/cards/B07.md,progress,high,"PRODUCTIVE per codebook (E,I). Resolves git-filter-repo location/syntax (31-37), rewrites history with --force purging the secret (38). boundary=false."
+B08,build-pov-ray,24,10,research/docs/human_check_blind/cards/B08.md,progress,high,"PRODUCTIVE per codebook (E,I,V). Sets up build tree (17-20), installs build tools (22), advances build from missing-binary error to actionable source blocker config.h (23-24). boundary=false."
+B09,feal-linear-cryptanalysis,12,10,research/docs/human_check_blind/cards/B09.md,stalled,medium,"STAGNANT per codebook (none). Implements infeasible brute-force attack.c (6-7) despite constraints, runs it (8), spends second half sending interrupts to hung process (9-12). boundary=true."
+B10,financial-document-processor,57,10,research/docs/human_check_blind/cards/B10.md,stalled,high,"STAGNANT per codebook (none). Repeated inline Python with identical regex syntax errors (PatternError steps 50, 52, 54); modifies no files, extracts no invoice data. boundary=false."
+B11,install-windows-3.11,9,10,research/docs/human_check_blind/cards/B11.md,stalled,medium,"STAGNANT per codebook (none). Window spent on scaffold meta-prompts and internal notes (0-3, 6-9); only a basic which check and pre-existing config reads, no installs or services. boundary=false."
+B12,feal-linear-cryptanalysis,27,10,research/docs/human_check_blind/cards/B12.md,stalled,high,"STAGNANT per codebook (none). Degenerate loop of identical echo statements claiming missing files every step (18-27); no changes, nothing learned. boundary=false."
