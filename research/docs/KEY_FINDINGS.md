@@ -1,6 +1,6 @@
 # Key findings, artifact map, and what the student still has to do
 
-Audience: the student team (Qichen Tong, Ke Chuang Jiang) and their advisor. Written so that
+Audience: the student team (Ziheng Yu, Xuhao Chen) and their advisor. Written so that
 the central claim, the evidence for it, and the limits of that evidence can be checked without
 re-reading the whole paper.
 

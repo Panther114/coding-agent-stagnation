@@ -2,7 +2,7 @@
 
 > **Start with `EXECUTIVE_SUMMARY.md`** — the whole rebuild in two minutes, machine-audited. This file says how to turn it into a paper.
 
-**Audience:** the student authors (Qichen Tong, Ke Chuang Jiang) and their advisor.
+**Audience:** the student authors (Ziheng Yu, Xuhao Chen) and their advisor.
 **Purpose:** the rebuild produced the *evidence*; this file says which claim each artifact
 supports, what the paper can and cannot say, and which decisions are yours.
 **Rule the rebuild followed:** no number here is typed by hand. Every value is emitted by

@@ -6,7 +6,7 @@ This directory holds a complete, reproducible study of one question:
 > stopped making task-relevant progress?**
 
 It was produced for the S.-T. Yau High School Science Award (Computer Science), 2026, by
-Qichen Tong and Ke Chuang Jiang, with an autonomous AI agent doing the implementation,
+Ziheng Yu and Xuhao Chen, with an autonomous AI agent doing the implementation,
 annotation logistics and drafting (see `AI_ASSISTANCE_LOG.md`).
 
 ## Start here
