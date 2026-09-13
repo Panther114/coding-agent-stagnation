@@ -1,0 +1,44 @@
+# nsui3 battery — instructions, rubric, results
+
+Arms: `src-nsui3-A-ctrl` vs `src-nsui3-A-exp`, both at `b3910f6` (HEAD at materialization;
+no future to purge — verified no other branches/tags). Agent workspace-write confined to
+the arm dir. Agent edits = `git diff` vs HEAD.
+
+⚠️ GUI tests pop real windows — runs need a GUI session, not headless SSH.
+⚠️ NO sealed gold exists (the fix is unwritten): scoring is red-to-green + no-regressions
++ diff review, NOT gold comparison. Weaker oracle than codextras — disclosed, not hidden.
+
+## §2 — Agent brief (this section only is shown to the agent)
+
+> One test assertion currently fails: `NSPopover final isShown false after close`
+> (run `./tests.sh`). Diagnose and fix the popover close behavior so the suite is green.
+> Do not weaken the assertion or silence the runner. Keep every other test green.
+
+## Battery (evaluator-only below this line)
+
+### Task A — popover close state (ACTIVE)
+- Red assertion (deterministic 3/3 on Apple Silicon, GraalVM 25, verified 2026-09-13):
+  `NSPopover final isShown false after close`; `PopoverTest` exits 1.
+- Oracle: `./tests.sh` → assertion green AND no new failures (baseline: 1740 PASS / that 1 FAIL).
+- Full suite takes minutes; single class: `java -XstartOnFirstThread
+  --enable-native-access=ALL-UNNAMED -cp out/classes:out/tests nsui.tests.PopoverTest`.
+- Runner flaw (disclose in paper if used): `tests.sh` prints ALL TESTS PASSED even with
+  failures (WARN-and-continue). Score from assertion lines, never the footer.
+
+### Staged (not yet materialized)
+Suite-honesty milestone: runner fails red properly → integrate AppearanceTest + ~10 unlisted
+test files → responder-cycle regression test from the live-observed bfc5da6 bug. Each stage
+verifiable independently.
+
+## Scoring rubric
+
+Solved iff the red assertion turns green AND no previously-green assertion goes red AND the
+diff is minimal (no assertion edits, no runner silencing). Cost from DSH per run.
+Compare arms within-task only.
+
+## Results (fill after scoring)
+
+| run | arm | model | red→green? | regressions? | in-tok | out-tok | cache-tok | wall | notes |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | ctrl | | | | | | | | |
+| 2 | exp | | | | | | | | |
