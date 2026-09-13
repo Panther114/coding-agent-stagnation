@@ -1,0 +1,13 @@
+n,task,run,card,your_verdict
+1,build-pov-ray,oboi8x8,research/data/annotations/tb2/cards_dense/d_tb2_build-pov-ray__oboi8x8_24.md,
+2,cobol-modernization,z8rbv6p,research/data/annotations/tb2/cards_dense/d_tb2_cobol-modernization__z8rbv6p_39.md,
+3,compile-compcert,qeLnFSj,research/data/annotations/tb2/cards/tb2_compile-compcert__qeLnFSj_60.md,
+4,crack-7z-hash,Mp364LH,research/data/annotations/tb2/cards_dense/d_tb2_crack-7z-hash__Mp364LH_27.md,
+5,extract-moves-from-video,vRcGj7U,research/data/annotations/tb2/cards_dense/d_tb2_extract-moves-from-video__vRcGj7U_45.md,
+6,feal-linear-cryptanalysis,L3Ts8kn,research/data/annotations/tb2/cards_dense/d_tb2_feal-linear-cryptanalysis__L3Ts8kn_12.md,
+7,feal-linear-cryptanalysis,jbbLGgC,research/data/annotations/tb2/cards_dense/d_tb2_feal-linear-cryptanalysis__jbbLGgC_27.md,
+8,financial-document-processor,ygK3UcB,research/data/annotations/tb2/cards/tb2_financial-document-processor__ygK3UcB_57.md,
+9,git-leak-recovery,3MYVn6Q,research/data/annotations/tb2/cards_dense/d_tb2_git-leak-recovery__3MYVn6Q_39.md,
+10,install-windows-3.11,2UtJ22k,research/data/annotations/tb2/cards_dense/d_tb2_install-windows-3.11__2UtJ22k_9.md,
+11,install-windows-3.11,mUYmJ4a,research/data/annotations/tb2/cards_dense/d_tb2_install-windows-3.11__mUYmJ4a_12.md,
+12,make-doom-for-mips,DU5GBNE,research/data/annotations/tb2/cards_dense/d_tb2_make-doom-for-mips__DU5GBNE_24.md,
