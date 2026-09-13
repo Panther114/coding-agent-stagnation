@@ -5,11 +5,14 @@ with a hard deadline of **2026-09-15**, and the most useful help is *independent
 checking work the authors cannot credibly check on their own. Every task below is separable:
 pick one, finish it, report it. None of them requires you to understand the whole project first.
 
+This repository is **private** — send your GitHub username to be added as a collaborator before
+you can clone it.
+
 Setup, once:
 
 ```powershell
-git clone <this repo>
-cd research
+git clone https://github.com/Panther114/coding-agent-stagnation.git
+cd coding-agent-stagnation/research
 python scripts/run_rebuild_tests.py      # should pass; if it does not, tell us immediately
 ```
 
