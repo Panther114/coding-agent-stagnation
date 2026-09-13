@@ -68,3 +68,10 @@ research/results/final/*/window_features.parquet
 research/results/rebuild/*_w10/window_scores.parquet
 research/results/rebuild/step_task.parquet
 *.npz
+
+# Datasets: raw downloads and regenerable derivatives never enter history.
+# (contents ignored; READMEs kept as living docs)
+datasets/raw/*
+!datasets/raw/README.md
+datasets/processed/*
+!datasets/processed/README.md

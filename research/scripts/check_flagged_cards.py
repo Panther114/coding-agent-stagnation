@@ -4,7 +4,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 adj = {a["card_id"]: a for a in csv.DictReader(
-    open("data/annotations/tb2/adjudicated.csv", encoding="utf-8"))}
+    open("../datasets/annotations/tb2/adjudicated.csv", encoding="utf-8"))}
 
 checks = {
     "d_tb2_feal-linear-cryptanalysis__L3Ts8kn_33": "advancing counter read as non-informative",

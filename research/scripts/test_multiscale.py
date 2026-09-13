@@ -33,7 +33,7 @@ import pyarrow.parquet as pq
 
 FEATS = "results/final/tb2_v5/window_features.parquet"
 SCORES = "results/final/tb2_v5/monitor_scores.parquet"
-GOLD = "data/annotations/tb2/adjudicated.csv"
+GOLD = "../datasets/annotations/tb2/adjudicated.csv"
 OUT = "results/final/v2"
 os.makedirs(OUT, exist_ok=True)
 SCALES = (10, 20)

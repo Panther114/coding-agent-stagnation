@@ -14,7 +14,7 @@ import re
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-CARDS = "data/annotations/tb2/cards_dense"
+CARDS = "../datasets/annotations/tb2/cards_dense"
 
 
 def ordinal(names):
@@ -46,11 +46,11 @@ def main() -> None:
 
     print("\nwhich regime does each reader file actually match?")
     rows = []
-    for f in sorted(os.listdir("data/annotations/tb2")):
+    for f in sorted(os.listdir("../datasets/annotations/tb2")):
         if not (f.startswith("labels_dense_") and f.endswith(".csv")):
             continue
         ids = [r["card_id"] for r in csv.DictReader(
-            open(os.path.join("data/annotations/tb2", f), encoding="utf-8"))]
+            open(os.path.join("../datasets/annotations/tb2", f), encoding="utf-8"))]
         if not ids:
             continue
         pos = {os.path.splitext(n)[0]: i for i, n in enumerate(names)}

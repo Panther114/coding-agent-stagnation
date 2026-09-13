@@ -19,7 +19,7 @@ PROMPT = """You are an independent annotator for a research study on coding-agen
 STEP 0 — read the codebook with the read tool:
 {root}\\docs\\annotation_guide.md
 
-STEP 1 — list your assigned cards with the glob tool, pattern "data/annotations/tb2/cards_dense/*.md" in path {root}, sort the file names ascending, and keep the cards at these 1-based ranks: {ranks}. Read EVERY one of them with the read tool (one read call per file) before deciding anything. Each card shows the task statement, the window under judgement (steps lo-hi), and the steps immediately before and after it.
+STEP 1 — list your assigned cards with the glob tool, pattern "../datasets/annotations/tb2/cards_dense/*.md" in path {root}, sort the file names ascending, and keep the cards at these 1-based ranks: {ranks}. Read EVERY one of them with the read tool (one read call per file) before deciding anything. Each card shows the task statement, the window under judgement (steps lo-hi), and the steps immediately before and after it.
 
 STEP 2 — apply the codebook §4 decision procedure IN ORDER to each card and produce:
 - label: PRODUCTIVE | STAGNANT | REGRESSION | DONE_REDUNDANT | BLOCKED_EXTERNAL | UNCERTAIN
@@ -50,7 +50,7 @@ def main():
     ap.add_argument("--batches", type=int, default=32)
     ap.add_argument("--per-batch", type=int, default=30)
     ap.add_argument("--prefix", default="labels_refine_")
-    ap.add_argument("--out", default="data/annotations/tb2/refine_batches.json")
+    ap.add_argument("--out", default="../datasets/annotations/tb2/refine_batches.json")
     args = ap.parse_args()
     n = 952
     batches = []

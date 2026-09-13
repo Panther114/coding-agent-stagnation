@@ -1,7 +1,7 @@
 """Generate the round-3 (dense) annotation batch prompts, one per labeler.
 
-Usage: python scripts/make_labeler_batches.py --cards-dir data/annotations/tb2/cards_dense --batches 18
-Prints the prompts to data/annotations/tb2/batches.json and a shell-friendly listing.
+Usage: python scripts/make_labeler_batches.py --cards-dir ../datasets/annotations/tb2/cards_dense --batches 18
+Prints the prompts to ../datasets/annotations/tb2/batches.json and a shell-friendly listing.
 """
 from __future__ import annotations
 
@@ -46,10 +46,10 @@ Reply with only: the number of cards labelled and the count of each label."""
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cards-dir", default="data/annotations/tb2/cards_dense")
+    ap.add_argument("--cards-dir", default="../datasets/annotations/tb2/cards_dense")
     ap.add_argument("--root", default=r"D:\Gavania\Academic\Competitions\Agent_Correction\research")
     ap.add_argument("--batches", type=int, default=18)
-    ap.add_argument("--out", default="data/annotations/tb2/batches.json")
+    ap.add_argument("--out", default="../datasets/annotations/tb2/batches.json")
     args = ap.parse_args()
 
     full = os.path.join(args.root, args.cards_dir.replace("/", os.sep))

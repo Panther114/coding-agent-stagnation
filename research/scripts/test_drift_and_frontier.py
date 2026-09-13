@@ -29,7 +29,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 import numpy as np
 import pyarrow.parquet as pq
 
-GOLD = "data/annotations/tb2/adjudicated.csv"
+GOLD = "../datasets/annotations/tb2/adjudicated.csv"
 SCORES = "results/final/tb2_v5/monitor_scores.parquet"
 OUT = "results/final/v2"
 W = 10

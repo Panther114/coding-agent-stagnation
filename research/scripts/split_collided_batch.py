@@ -15,7 +15,7 @@ import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-D = "data/annotations/tb2"
+D = "../datasets/annotations/tb2"
 SRC = os.path.join(D, "labels_refine_20.csv")
 DST = os.path.join(D, "labels_refine_20b.csv")
 OWN = "dna-assembly"   # batch 20's own assignment

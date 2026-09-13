@@ -19,7 +19,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 PH = re.compile(r"^\$[A-Za-z0-9]{1,4}$")
-CARDS = "data/annotations/tb2/cards_dense"
+CARDS = "../datasets/annotations/tb2/cards_dense"
 SAMPLES = "data/processed/tb2/sample_trajectories.jsonl"
 OUT = "results/final/redaction.json"
 
@@ -53,7 +53,7 @@ def main() -> None:
         if n.endswith(".md"):
             txt = open(os.path.join(CARDS, n), encoding="utf-8", errors="replace").read()
             density[os.path.splitext(n)[0]] = len(PH2.findall(txt))
-    adj = list(csv.DictReader(open("data/annotations/tb2/adjudicated.csv", encoding="utf-8")))
+    adj = list(csv.DictReader(open("../datasets/annotations/tb2/adjudicated.csv", encoding="utf-8")))
     buckets = []
     print("\ntie rate by placeholders in the window's card:")
     for lo, hi, tag in ((0, 0, "0"), (1, 5, "1-5"), (6, 15, "6-15"), (16, 999, "16+")):

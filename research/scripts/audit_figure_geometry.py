@@ -19,7 +19,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 import numpy as np
 from PIL import Image
 
-FIG = "../paper/figures"
+FIG = "../essay/figures"
 TEXT_WIDTH_IN = 7.0   # usenix/ieee two-column text width
 DPI = 220
 

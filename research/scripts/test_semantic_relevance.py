@@ -35,7 +35,7 @@ import numpy as np
 from evidence import STOPWORDS, extract_entities, task_terms  # noqa: E402
 
 PROC = "data/processed/tb2/sample_trajectories.jsonl"
-GOLD = "data/annotations/tb2/adjudicated.csv"
+GOLD = "../datasets/annotations/tb2/adjudicated.csv"
 CACHE = os.path.abspath("data/raw/models")
 OUT = "results/final/v2"
 os.makedirs(OUT, exist_ok=True)

@@ -10,7 +10,7 @@ import csv
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-adj = list(csv.DictReader(open("data/annotations/tb2/adjudicated.csv", encoding="utf-8")))
+adj = list(csv.DictReader(open("../datasets/annotations/tb2/adjudicated.csv", encoding="utf-8")))
 single = [a for a in adj if int(a["n_reads"]) == 1]
 multi = [a for a in adj if int(a["n_reads"]) > 1]
 tied = [a for a in multi if a["gold"] == "UNCERTAIN"]

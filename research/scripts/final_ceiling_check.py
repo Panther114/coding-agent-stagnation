@@ -8,7 +8,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 import pypdf
 
 print("=== ceiling claim present in PDF ===")
-r = pypdf.PdfReader("../paper/main.pdf")
+r = pypdf.PdfReader("../essay/main.pdf")
 flat = re.sub(r"\s+", "", "".join((p.extract_text() or "") for p in r.pages)).lower()
 for c in ("ceiling,notatuningartifact", "all sixsignalfamiliesjointly",
           "trajectory-clusteredinterval", "task-clusteredbootstrap"):

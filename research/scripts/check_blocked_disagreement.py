@@ -9,7 +9,7 @@ import csv
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-adj = list(csv.DictReader(open("data/annotations/tb2/adjudicated.csv", encoding="utf-8")))
+adj = list(csv.DictReader(open("../datasets/annotations/tb2/adjudicated.csv", encoding="utf-8")))
 multi = [a for a in adj if int(a["n_reads"]) > 1]
 
 blk = [a for a in multi if "BLOCKED_EXTERNAL" in a["votes"] and len(set(a["votes"].split("|"))) > 1]

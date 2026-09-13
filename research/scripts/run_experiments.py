@@ -17,7 +17,7 @@ Design
 Usage:
   python scripts/run_experiments.py --corpus tb2 --w 10 --out results/final/tb2
   python scripts/run_experiments.py --corpus nebius --processed data/processed/nebius \
-      --annotations data/annotations/nebius --transfer-from results/final/tb2 \
+      --annotations ../datasets/annotations/nebius --transfer-from results/final/tb2 \
       --out results/final/nebius_transfer
 """
 from __future__ import annotations

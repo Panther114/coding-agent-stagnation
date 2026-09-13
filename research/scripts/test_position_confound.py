@@ -17,7 +17,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 import numpy as np
 import pyarrow.parquet as pq
 
-GOLD = "data/annotations/tb2/adjudicated.csv"
+GOLD = "../datasets/annotations/tb2/adjudicated.csv"
 W = 10
 
 rows = [r for r in csv.DictReader(open(GOLD, encoding="utf-8")) if r["binary"] != ""]

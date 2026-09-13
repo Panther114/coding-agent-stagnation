@@ -47,7 +47,7 @@ def main() -> None:
     ap.add_argument("--run", default="results/final/tb2_v5")
     ap.add_argument("--corpus", default="tb2")
     ap.add_argument("--ann", default=None)
-    ap.add_argument("--tex", default="../paper/generated_tb2.tex")
+    ap.add_argument("--tex", default="../essay/generated_tb2.tex")
     args = ap.parse_args()
     ann = args.ann or os.path.join(paths.DATA, "annotations", args.corpus)
     macros = read_macros(args.tex)

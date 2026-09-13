@@ -66,7 +66,7 @@ def main() -> None:
         "was *doing something sensible*. Only a person can check that.",
         "",
         "**What to do.** Read the trajectory for each row below (the annotation card is named in",
-        "the table and lives in `data/annotations/tb2/cards_dense/`), decide whether the window is",
+        "the table and lives in `../datasets/annotations/tb2/cards_dense/`), decide whether the window is",
         "stagnant or productive, and write your verdict in the `human_label` column of",
         "`results/rebuild/human_check_sample.csv`. Do not look at the other two columns until you",
         "have committed to your own — that is the point of the exercise.",

@@ -13,7 +13,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--run", default="results/final/tb2_final")
-ap.add_argument("--ann", default="data/annotations/tb2")
+ap.add_argument("--ann", default="../datasets/annotations/tb2")
 args = ap.parse_args()
 
 notes = json.load(open(os.path.join(args.run, "figure_notes.json"), encoding="utf-8"))

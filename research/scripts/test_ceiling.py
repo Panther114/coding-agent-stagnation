@@ -33,7 +33,7 @@ import numpy as np
 import pyarrow.parquet as pq
 
 OUT = "results/final/v2"
-GOLD = "data/annotations/tb2/adjudicated.csv"
+GOLD = "../datasets/annotations/tb2/adjudicated.csv"
 SCORES = "results/final/tb2_v5/monitor_scores.parquet"
 W = 10
 

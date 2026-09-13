@@ -53,7 +53,7 @@ for n in sorted(os.listdir(figdir)):
     print(f"  {n:28} {w}x{h}  aspect {asp:.2f}  ink {float((a<0.9).mean()):.3f}")
 
 print("\n=== 4. INTEGRITY ===")
-print(f"  gold windows       : {sum(1 for _ in open(os.path.join(ROOT, 'data/annotations/tb2/adjudicated.csv'), encoding='utf-8')) - 1}")
+print(f"  gold windows       : {sum(1 for _ in open(os.path.join(ROOT, '../datasets/annotations/tb2/adjudicated.csv'), encoding='utf-8')) - 1}")
 for f in ("stationary_stats.json", "nested_validation.json", "alarm_artifact.json",
           "regime_headline.json", "detector_frontier.json"):
     p = os.path.join(ROOT, "results/final/v2", f)

@@ -22,7 +22,7 @@ annotation logistics and drafting (see `AI_ASSISTANCE_LOG.md`).
 | see what must still be done before submitting | `../docs/0-submission-checklist.md` |
 | check how the labels were defined | `../docs/1-annotation-guide.md` |
 | know what the AI did, and where it went wrong | `AI_ASSISTANCE_LOG.md` |
-| read the paper | `../paper/main.pdf` (source: `../paper/main.tex`) |
+| read the paper | `../essay/main.pdf` (source: `../essay/main.tex`) |
 | audit a specific number | `results/final/tb2_final/paper_numbers.json` and the table it came from |
 | audit a rebuild number | `results/rebuild/rebuild_numbers.flat.json` |
 
@@ -269,7 +269,7 @@ Two provenance notes that matter when re-running any of this:
 * The labels were produced by AI readers applying a written codebook, not by human experts.
   This is stated in the paper's limitations, and the artifact keeps every reader's raw output
   and step-cited justification so the labels can be re-checked by hand.
-* No number in the paper is typed by hand: `paper/generated_tb2.tex` is emitted from the frozen
+* No number in the paper is typed by hand: `../essay/generated_tb2.tex` is emitted from the frozen
   run by `scripts/export_results_tex.py`, and `scripts/pdf_text_probe.py` verifies that the
   values actually reach the PDF.
 * Two claims were withdrawn when the data contradicted them; both reversals are recorded in

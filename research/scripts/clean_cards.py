@@ -15,7 +15,7 @@ import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-CARDS = "data/annotations/tb2/cards_dense"
+CARDS = "../datasets/annotations/tb2/cards_dense"
 BAD = set(range(0x00, 0x09)) | {0x0b, 0x0c} | set(range(0x0e, 0x20)) | {0x7f}
 
 

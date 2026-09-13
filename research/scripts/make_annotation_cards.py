@@ -9,7 +9,7 @@ Design decisions
   than at positions the detector suspects.  A small number of *control* windows is added
   with an explicit prior (long runs of identical commands; runs immediately after a
   verification that made the failure set shrink) to check the labels are not degenerate.
-* One card per window, written to ``data/annotations/cards/<card_id>.md``, plus an index
+* One card per window, written to ``../datasets/annotations/cards/<card_id>.md``, plus an index
   CSV with the sampling metadata.  Cards contain no monitor scores.
 
 Usage:

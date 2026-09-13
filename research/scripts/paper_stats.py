@@ -1,12 +1,12 @@
 """Summarise the compiled paper's structure: pages per section and total length.
 
-Usage: python scripts/paper_stats.py ../paper/main.aux
+Usage: python scripts/paper_stats.py ../essay/main.aux
 """
 import re
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-aux = open(sys.argv[1] if len(sys.argv) > 1 else "../paper/main.aux", encoding="utf-8",
+aux = open(sys.argv[1] if len(sys.argv) > 1 else "../essay/main.aux", encoding="utf-8",
            errors="ignore").read()
 secs = re.findall(r"\\newlabel\{(sec:[^}]+)\}\{\{([^}]*)\}\{(\d+)\}", aux)
 tabs = re.findall(r"\\newlabel\{(tab:[^}]+)\}\{\{([^}]*)\}\{(\d+)\}", aux)

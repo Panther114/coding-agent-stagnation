@@ -45,7 +45,7 @@ def sign_test(wins: int, losses: int) -> float:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", default="results/final/tb2_v5")
-    ap.add_argument("--ann", default="data/annotations/tb2")
+    ap.add_argument("--ann", default="../datasets/annotations/tb2")
     ap.add_argument("--w", type=int, default=10)
     args = ap.parse_args()
 

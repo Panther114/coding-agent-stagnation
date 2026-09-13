@@ -8,7 +8,7 @@ import re
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-D = "data/annotations/tb2"
+D = "../datasets/annotations/tb2"
 adj = {a["card_id"]: a for a in csv.DictReader(
     open(os.path.join(D, "adjudicated.csv"), encoding="utf-8"))}
 

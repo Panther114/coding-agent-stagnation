@@ -6,7 +6,7 @@ import re
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-D = "data/annotations/tb2"
+D = "../datasets/annotations/tb2"
 IDX = ("cards_index.csv", "dense_cards_index.csv", "dense2_cards_index.csv")
 
 idx = {}

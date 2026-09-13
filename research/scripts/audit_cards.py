@@ -17,7 +17,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.stdout.reconfigure(encoding="utf-8")
 
-CARDS = "data/annotations/tb2/cards_dense"
+CARDS = "../datasets/annotations/tb2/cards_dense"
 BAD_BYTES = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x0b, 0x0c, 0x0e, 0x0f}
 
 
@@ -41,7 +41,7 @@ def main() -> None:
 
     # does the contamination correlate with label disagreement?
     adj = {a["card_id"]: a for a in csv.DictReader(
-        open("data/annotations/tb2/adjudicated.csv", encoding="utf-8"))}
+        open("../datasets/annotations/tb2/adjudicated.csv", encoding="utf-8"))}
     bad_ids = {os.path.splitext(n)[0] for n, _, _, _ in offenders}
     stats = {}
     for tag, ids in (("contaminated", bad_ids),

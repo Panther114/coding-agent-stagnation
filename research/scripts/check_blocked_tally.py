@@ -3,7 +3,7 @@ import csv
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-adj = list(csv.DictReader(open("data/annotations/tb2/adjudicated.csv", encoding="utf-8")))
+adj = list(csv.DictReader(open("../datasets/annotations/tb2/adjudicated.csv", encoding="utf-8")))
 rows = [a for a in adj if "BLOCKED_EXTERNAL" in a["votes"]]
 unanimous = [a for a in rows if a["gold"] == "BLOCKED_EXTERNAL" and int(a["n_reads"]) > 1]
 single = [a for a in rows if a["gold"] == "BLOCKED_EXTERNAL" and int(a["n_reads"]) == 1]

@@ -28,7 +28,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
-JUDGE_CSV = REPO / "windows_to_judge.csv"
+JUDGE_CSV = REPO / "tasks" / "windows_to_judge.csv"
 SAMPLE_CSV = ROOT / "results" / "rebuild" / "human_check_sample.csv"
 OUT = ROOT / "docs" / "human_check_blind"
 

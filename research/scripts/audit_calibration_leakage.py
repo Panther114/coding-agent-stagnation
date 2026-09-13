@@ -17,7 +17,7 @@ import re
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-D = "data/annotations/tb2"
+D = "../datasets/annotations/tb2"
 
 PATTERNS = {
     "sibling label file": re.compile(r"labels_(?:dense|refine|p2|r\d)[\w]*\.csv", re.I),

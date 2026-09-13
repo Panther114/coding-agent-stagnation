@@ -60,7 +60,7 @@ def main():
     manifest = {}
     for key in keys:
         spec = DATASETS[key]
-        outdir = os.path.join(ROOT, "data", "raw", key)
+        outdir = os.path.join(os.path.dirname(ROOT), "datasets", "raw", key)
         os.makedirs(outdir, exist_ok=True)
         manifest[key] = {"repo": spec["repo"], "files": []}
         for rel in spec["files"]:
