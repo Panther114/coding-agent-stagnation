@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}The intervention problem}{3}{section.1}%
+\contentsline {section}{\numberline {2}A trap we hit first}{3}{section.2}%
+\contentsline {section}{\numberline {3}The system}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}What it does}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}What it may look at}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}One detail that changed a comparison}{4}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Results}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The published detectors cannot make this decision}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}It transfers to runs it has never seen}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Where it stops working, tested rather than asserted}{4}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Calibration, done properly}{5}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}It is worth acting on}{6}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Testing the premise live: the verifier was giving the answer away}{6}{section.5}%
+\contentsline {paragraph}{The router on live runs, and another negative.}{6}{section*.10}%
+\contentsline {paragraph}{Harness faults we had to fix, because they looked like results.}{6}{section*.11}%
+\contentsline {section}{\numberline {6}The demo}{7}{section.6}%
+\contentsline {section}{\numberline {7}Limitations}{7}{section.7}%
+\contentsline {section}{\numberline {8}Reproducibility}{7}{section.8}%
+\contentsline {section}{\numberline {9}Use of AI tools}{8}{section.9}%
+\contentsline {section}{致谢与人工智能使用声明 (Acknowledgement / AI disclosure)}{10}{section*.13}%

@@ -1,33 +1,36 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\providecommand\HyField@AuxAddToFields[1]{}
-\providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\HyPL@Entry{1<</S/D>>}
 \citation{agentstop}
 \citation{fap}
-\@writefile{toc}{\contentsline {section}{\numberline {1}The intervention problem}{1}{section.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Two-thirds of failures happen with the agent already in the right file. Stable to within 2.6 points across three disjoint shard sets, and across model scale (66.8\% Llama-70B, 70.7\% 8B, 70.2\% 405B).}}{2}{table.caption.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}A trap we hit first}{2}{section.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Solved / failed, on three disjoint sets of runs (each $\sim $26{,}700 runs, 1{,}213 shared instances). The trap inverts in all three; the independent target reverses it in all three.}}{2}{table.caption.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}The system}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}What it does}{2}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}What it may look at}{2}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}One detail that changed a comparison}{3}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{3}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The published detectors cannot make this decision}{3}{subsection.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Identical rows, identical task-disjoint folds. Averaged over 24 cells (every ordered pair of the three shard sets $\times $ four prefix fractions). On the mode question the published families carry \emph  {no information}.}}{3}{table.caption.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}It transfers to runs it has never seen}{3}{subsection.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Means over the 24 cross-set cells (three shard sets, every ordered pair, four prefix fractions) and over the three within-set cells. Cross-set performance \emph  {equals} within-set performance: the margin is not fitted to one corpus. The worst single cell still beats the best baseline's mean.}}{3}{table.caption.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Where it stops working, tested rather than asserted}{3}{subsection.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces AUC on identical rows; ``fitted inside it'' is task-disjoint 5-fold OOF. The features carry real signal inside every scaffold, and a model trained on SWE-agent carries almost none of it across. Three variants that drop the command-digest and observation-scale features (22--31 features) move the transferred column only within 0.32--0.54, so this is not a bridge artefact.}}{4}{table.caption.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Calibration, done properly}{4}{subsection.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}It is worth acting on}{4}{subsection.4.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Beats all three at every fraction and every cost setting --- 12 of 12 cells.}}{4}{table.caption.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Testing the premise live: the verifier was giving the answer away}{4}{section.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Valid episodes only (145 raw, 19 dropped because the mutated package did not fail its suite at episode start, which makes success meaningless). Withholding \emph  {which} tests failed is the only difference in this experiment that reaches significance --- and it is also the only condition in which any agent failed to find the file at all. The hint itself is worth $+0.189$ over normal CI output and is \textbf  {not} significant at this sample size; masked against unmasked is indistinguishable too ($p = 0.490$).}}{5}{table.caption.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The router on live runs, and another negative.}{5}{section*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Harness faults we had to fix, because they looked like results.}{5}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}The demo}{5}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{5}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}The intervention problem}{3}{section.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Two-thirds of failures happen with the agent already in the right file. Stable to within 2.6 points across three disjoint shard sets, and across model scale (66.8\% Llama-70B, 70.7\% 8B, 70.2\% 405B).}}{3}{table.caption.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}A trap we hit first}{3}{section.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Solved / failed, on three disjoint sets of runs (each $\sim $26{,}700 runs, 1{,}213 shared instances). The trap inverts in all three; the independent target reverses it in all three.}}{3}{table.caption.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}The system}{4}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}What it does}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}What it may look at}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}One detail that changed a comparison}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The published detectors cannot make this decision}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Identical rows, identical task-disjoint folds. Averaged over 24 cells (every ordered pair of the three shard sets $\times $ four prefix fractions). On the mode question the published families carry \emph  {no information}.}}{4}{table.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}It transfers to runs it has never seen}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Where it stops working, tested rather than asserted}{4}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Means over the 24 cross-set cells (three shard sets, every ordered pair, four prefix fractions) and over the three within-set cells. Cross-set performance \emph  {equals} within-set performance: the margin is not fitted to one corpus. The worst single cell still beats the best baseline's mean.}}{5}{table.caption.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces AUC on identical rows; ``fitted inside it'' is task-disjoint 5-fold OOF. The features carry real signal inside every scaffold, and a model trained on SWE-agent carries almost none of it across. Three variants that drop the command-digest and observation-scale features (22--31 features) move the transferred column only within 0.32--0.54, so this is not a bridge artefact.}}{5}{table.caption.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Calibration, done properly}{5}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Beats all three at every fraction and every cost setting --- 12 of 12 cells.}}{6}{table.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}It is worth acting on}{6}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Testing the premise live: the verifier was giving the answer away}{6}{section.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Valid episodes only (145 raw, 19 dropped because the mutated package did not fail its suite at episode start, which makes success meaningless). Withholding \emph  {which} tests failed is the only difference in this experiment that reaches significance --- and it is also the only condition in which any agent failed to find the file at all. The hint itself is worth $+0.189$ over normal CI output and is \textbf  {not} significant at this sample size; masked against unmasked is indistinguishable too ($p = 0.490$).}}{6}{table.caption.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The router on live runs, and another negative.}{6}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Harness faults we had to fix, because they looked like results.}{6}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}The demo}{7}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{7}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Reproducibility}{7}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Use of AI tools}{8}{section.9}\protected@file@percent }
 \bibcite{agentstop}{1}
 \bibcite{fap}{2}
 \bibcite{redundancy}{3}
@@ -38,6 +41,5 @@
 \bibcite{trim}{8}
 \bibcite{whowhen}{9}
 \bibcite{noise}{10}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Reproducibility}{6}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Use of AI tools}{6}{section.9}\protected@file@percent }
-\gdef \@abspage@last{6}
+\@writefile{toc}{\contentsline {section}{致谢与人工智能使用声明 (Acknowledgement / AI disclosure)}{10}{section*.13}\protected@file@percent }
+\gdef \@abspage@last{12}

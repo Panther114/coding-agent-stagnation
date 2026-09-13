@@ -70,6 +70,15 @@ VERIFY_INSTRUCTION = (
     "is correct before making another change."
 )
 
+#: re-issued by the runtime after the agent has watched its own fix fail a second time.  This is
+#: the action taken when a router would say WRONG-FIX ("you are in the right place, your change is
+#: wrong -- check your reasoning"), as opposed to SEARCH ("you have not found the code").
+VERIFY_REMINDER = (
+    "\n\n[runtime] Your change has now failed the tests more than once. Do not make another edit "
+    "yet: re-read the code you changed, state what you expected it to do, and check that the code "
+    "actually does that. Only then edit again."
+)
+
 SYSTEM = """You are a coding agent fixing a defect in a Python project.
 
 Use the provided tools. Rules:
@@ -215,6 +224,7 @@ def run_episode(task: Dict[str, Any], arm: str, seed: int, max_turns: int, tag: 
     ]
     gold_rel = str(task["gold_file"]).replace("\\", "/")
     reached_gold = edits = test_calls = n_tamper = n_empty = 0
+    n_fail_obs = reinjected = 0
     final_ok = False
     transcript: List[Dict[str, Any]] = []
     writes: List[Dict[str, Any]] = []
@@ -281,6 +291,13 @@ def run_episode(task: Dict[str, Any], arm: str, seed: int, max_turns: int, tag: 
                 # arm is "masked", so that success is measured on the true suite while the agent
                 # has to diagnose the defect instead of reading its location off the traceback
                 shown = mask_output(o) if arm == "masked" else o[-2500:]
+                if new:
+                    n_fail_obs += 1
+                    if arm == "verify" and n_fail_obs >= 2:
+                        # the runtime intervention: the agent has now SEEN its fix fail twice, which
+                        # is the observable evidence the router's VERIFY branch exists for
+                        shown += VERIFY_REMINDER
+                        reinjected += 1
                 parts.append((f"[{len(new)} failing test(s) outside the known pre-existing set] "
                               if new else "[all tests pass] ") + shown)
             elif name == "done":
@@ -317,6 +334,7 @@ def run_episode(task: Dict[str, Any], arm: str, seed: int, max_turns: int, tag: 
         "n_turns": turns, "edits": edits, "test_calls": test_calls, "reached_gold": bool(reached_gold),
         "success": bool(final_ok), "fail_before": len({x for x in fails0 if x not in pre}) > 0,
         "test_files_removed": n_tamper, "n_empty": n_empty, "error": err,
+        "n_fail_obs": n_fail_obs, "verify_reinjections": reinjected,
         "gold_file": task["gold_file"], "n_source_files": task.get("n_source_files"),
         "usd": round(g.spend.usd, 6), "calls": g.spend.calls,
         "route_failures": dict(g._route_fail),

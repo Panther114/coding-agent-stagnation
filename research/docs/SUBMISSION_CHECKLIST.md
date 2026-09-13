@@ -13,9 +13,9 @@ draft is still on disk and still compiles; nothing in it is submitted any more.
 |---|---|
 | Title | **Lost or Wrong?** A runtime router that tells you *how* a coding agent is failing — and therefore what to do |
 | Authors | Ziheng Yu, Xuhao Chen |
-| Report source | `paper/v2/main.tex` → `paper/v2/main.pdf` (6 pages, compiles with `pdflatex`) |
+| Report source | `paper/v2/main.tex` → `paper/v2/main.pdf` (**12 pages**: cover, abstract, contents, 8 pages of body, references page, 2-page acknowledgement). **Build with `xelatex main.tex` (twice)** — the cover page and acknowledgement are Chinese, and `pdflatex` cannot set them. |
 | Same text in markdown, for rewriting | `paper/v2/ESSAY.md` |
-| Mandatory acknowledgement + AI disclosure | `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` |
+| Mandatory acknowledgement + AI disclosure | in the PDF (`paper/v2/acknowledgement_zh.tex`) and in markdown at `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` |
 | Every raw number, table and artifact | `research/EXPORT/` (`INDEX.md`, `numbers.csv`, `TABLES.md`, `artifacts/`, `live/`, `MANIFEST.json`) |
 | Executable demonstration | `demo/route.py` + `demo/README.md` (offline, no API key; `--fit --summary --list --replay --live`) |
 | Full narrative record | `research/docs/REBUILD_FINDINGS_V2.md`, `research/AI_ASSISTANCE_LOG.md` |
@@ -30,27 +30,24 @@ stops working.*
 
 | # | Requirement | Status |
 |---|---|---|
-| 1 | Research report PDF: cover page, abstract + keywords, table of contents, body, references on a separate page | **Partly done.** Body, abstract and references are in `paper/v2/main.tex`. Cover page and TOC still to add — see §2. |
-| 2 | Acknowledgement page, 1–2 pages / 500–1500 字: background, instructor relationship, **whether guidance was paid**, division of labour, difficulties and how they were solved | **Drafted** in `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md`; the sections marked `[STUDENTS TO COMPLETE]` are yours. |
-| 3 | AI-use disclosure: tool name and version, stages, purpose, time, frequency | **Done** (same file, §3), sourced from `research/AI_ASSISTANCE_LOG.md` (32 passes). |
+| 1 | Research report PDF: cover page, abstract + keywords, table of contents, body, references on a separate page | **Done.** Cover page, abstract, contents, body, references page and the acknowledgement page are all in `paper/v2/main.tex`. The cover's bracketed fields (school, province, instructor, Chinese names) are the only blanks. |
+| 2 | Acknowledgement page, 1–2 pages / 500–1500 字: background, instructor relationship, **whether guidance was paid**, division of labour, difficulties and how they were solved | **Skeleton in the PDF** (2 pages), as `paper/v2/acknowledgement_zh.tex`. Sections 二 (instructor relationship) and 三 (division of labour) are `[待填写]`; the rest is written and factual. |
+| 3 | AI-use disclosure: tool name and version, stages, purpose, time, frequency | **Done** (acknowledgement §四), sourced from `research/AI_ASSISTANCE_LOG.md` (32 passes). |
 | 4 | AI chat records uploaded as supporting material | **Yours.** I cannot export the session transcripts; the harness keeps them. |
-| 5 | Academic-integrity declaration, signed by students and instructor, stamped by the school | **Yours.** |
+| 5 | Academic-integrity declaration, signed by students and instructor, stamped by the school | **Yours.** A signature block is at the end of the acknowledgement page. |
 | 6 | Instructor information form, signed and stamped (1–2 instructors) | **Yours.** |
 | 7 | Plagiarism report (CNKI / PaperPass etc.) for the final PDF; over the threshold is disqualifying | **Yours** — it must be generated from *your* final PDF after you rewrite it. No copy exists in this repository. |
 | 8 | CS category explicitly encourages an executable package / source / video as evidence of authenticity | **Done, and better than a video:** `demo/route.py` reproduces the paper's held-out numbers on demand. |
 
-## 2. Cover page and table of contents
+## 2. What is still open in the PDF
 
-Add to `paper/v2/main.tex` before submission (the rules' template is linked from the rules page,
-「下载研究报告模板」 — use its layout if it differs):
-
-1. **Cover page** — report title, both authors, school, province, country, instructor name(s),
-   date. Replace `\maketitle` with this page, or keep `\maketitle` and insert the cover before it.
-2. **Table of contents** — `\tableofcontents` after the abstract and before §1, on its own page
-   (`\newpage` either side). With 10 sections it fits on one page.
-3. **References on a separate page** — already true: `\begin{thebibliography}` starts a new page.
-4. **Acknowledgement page** — paste the finished Chinese text from
-   `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` as the last page.
+1. **Cover page fields** — `paper/v2/main.tex`, the `titlepage` block: school, province/country,
+   instructor name(s), and both Chinese names. I did not invent the Chinese characters.
+2. **Acknowledgement §二 and §三** — instructor relationship, whether guidance was paid, and the
+   detailed division of labour. `paper/v2/acknowledgement_zh.tex`.
+3. Optional: the competition's own report template is linked from the rules page
+   (「下载研究报告模板」). If its cover layout differs from this one, copy its layout and keep the
+   title, authors and abstract.
 
 ## 3. Verify these yourself before submitting
 

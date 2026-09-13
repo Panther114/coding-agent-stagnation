@@ -1,7 +1,10 @@
-% !TEX program = pdflatex
+% !TEX program = xelatex
 % =====================================================================================
 %  Lost or Wrong?  A runtime router that tells you HOW a coding agent is failing.
 %  S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026
+%
+%  BUILD WITH XELATEX (the cover page and the acknowledgement page contain Chinese):
+%      xelatex main.tex      (run twice, so the table of contents resolves)
 %
 %  Every number in this file is read out of a frozen artifact by a script; none is typed by
 %  hand.  Six automated gates verify that, including scripts/audit_paper_numbers.py which
@@ -12,14 +15,17 @@
 %      research/scripts/audit_claims.py                28/28 headline claims vs artifacts
 %      research/scripts/audit_summary.py               0 mismatches
 %      research/scripts/check_doc_references.py        every cited artifact exists
-%      research/scripts/audit_paper_numbers.py         17/17 paper numbers trace to artifacts
+%      research/scripts/audit_paper_numbers.py         57/57 paper numbers trace to artifacts
 %
 %  Complete data package for rewriting: research/EXPORT/
 % =====================================================================================
 \documentclass[10pt]{article}
 
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{Microsoft YaHei}
+\newCJKfontfamily\heiti{SimHei}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -41,8 +47,42 @@
 \date{\today}
 
 \begin{document}
-\maketitle
-\vspace{-1.1em}
+
+% -------------------------------------------------------------------------------------
+% COVER PAGE -- fill in the bracketed fields before submission.  The competition's own
+% template is linked from the rules page ("下载研究报告模板"); if its layout differs, use
+% that layout and keep this title and the author list.
+% -------------------------------------------------------------------------------------
+\begin{titlepage}
+\centering
+\vspace*{2.2cm}
+{\large 第十九届丘成桐中学科学奖（计算机）\par}
+\vspace{0.4cm}
+{\normalsize The 19th S.-T. Yau High School Science Award --- Computer Science\par}
+\vspace{2.6cm}
+{\LARGE\bfseries Lost or Wrong?\par}
+\vspace{0.5cm}
+{\large A runtime router that tells you \emph{how} a coding agent is failing ---\\[2pt]
+and therefore what to do\par}
+\vspace{1.2cm}
+{\large 失之搜索，还是错于修正？\\
+一个判断编码智能体\textbf{如何}失败的运行时路由器\par}
+\vspace{2.4cm}
+{\large
+\begin{tabular}{rl}
+参赛学生 (Students): & Ziheng Yu \textbf{[中文姓名待填]} \\[4pt]
+                     & Xuhao Chen \textbf{[中文姓名待填]} \\[10pt]
+学校 (School):        & \textbf{[STUDENTS TO COMPLETE]}\\[4pt]
+省/国家 (Province/Country): & \textbf{[STUDENTS TO COMPLETE]}\\[4pt]
+指导老师 (Instructor): & \textbf{[STUDENTS TO COMPLETE]}\\[4pt]
+学科 (Category):       & Computer Science（计算机）\\
+\end{tabular}\par}
+\vfill
+{\large \today\par}
+\vspace{1.3cm}
+\end{titlepage}
+
+\vspace{0.4em}
 
 \begin{abstract}
 \noindent
@@ -82,6 +122,10 @@ is \emph{shard-level within a scaffold} and is claimed as nothing more.
 \vspace{-0.3em}
 \noindent\hangindent=2em\textbf{Keywords:} coding agents, runtime monitoring, failure modes,
 intervention, reproducible research.
+
+\newpage
+\tableofcontents
+\newpage
 
 % =====================================================================================
 \section{The intervention problem}
@@ -455,6 +499,7 @@ documented pass by pass in the project's assistance log. Full disclosure, includ
 chat records, is in the separate acknowledgement and disclosure document.
 
 % =====================================================================================
+\newpage
 \begin{thebibliography}{99}\small
 \bibitem{agentstop} Pham et al. \emph{Terminating Local AI Agents Early to Save Energy in Consumer
 Devices.} arXiv:2605.15206.
@@ -472,5 +517,8 @@ arXiv:2607.18161.
 \bibitem{whowhen} Zhu et al. \emph{Which Agent Causes Task Failures and When?} arXiv:2505.00212.
 \bibitem{noise} \emph{Temperature-0 nondeterminism on SWE-bench Verified.} arXiv:2607.09691.
 \end{thebibliography}
+
+% --- mandatory acknowledgement page (1-2 pages, 500-1500 characters) -----------------
+\input{acknowledgement_zh}
 
 \end{document}
