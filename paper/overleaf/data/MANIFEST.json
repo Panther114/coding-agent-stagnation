@@ -1,0 +1,379 @@
+{
+  "n_numbers": 167,
+  "sections": [
+    "measurement validity",
+    "failure modes",
+    "mechanism tests",
+    "router transfer",
+    "cross-scaffold",
+    "frozen taxonomy",
+    "live experiment",
+    "router on live runs (negative)",
+    "cross-scaffold transfer (negative)",
+    "live experiment (masked)"
+  ],
+  "artifacts_copied": [
+    {
+      "file": "admission.json",
+      "bytes": 3284
+    },
+    {
+      "file": "admission_cost.json",
+      "bytes": 8330
+    },
+    {
+      "file": "alignment.json",
+      "bytes": 1060
+    },
+    {
+      "file": "capacity.json",
+      "bytes": 6552
+    },
+    {
+      "file": "capacity_nebius.json",
+      "bytes": 6552
+    },
+    {
+      "file": "capacity_tb2.json",
+      "bytes": 6521
+    },
+    {
+      "file": "channel_ablation.json",
+      "bytes": 1088
+    },
+    {
+      "file": "channel_ablation_stability.json",
+      "bytes": 2477
+    },
+    {
+      "file": "claim_audit.json",
+      "bytes": 6522
+    },
+    {
+      "file": "cost.json",
+      "bytes": 3841
+    },
+    {
+      "file": "dead_end.json",
+      "bytes": 1729
+    },
+    {
+      "file": "dead_end_cost.json",
+      "bytes": 2539
+    },
+    {
+      "file": "dead_end_recovery.json",
+      "bytes": 1102
+    },
+    {
+      "file": "dead_end_timing.json",
+      "bytes": 768
+    },
+    {
+      "file": "dead_end_variance.json",
+      "bytes": 1724
+    },
+    {
+      "file": "detector_families.json",
+      "bytes": 5167
+    },
+    {
+      "file": "detector_value.json",
+      "bytes": 1185
+    },
+    {
+      "file": "detector_value_length.json",
+      "bytes": 852
+    },
+    {
+      "file": "doc_reference_integrity.json",
+      "bytes": 2660
+    },
+    {
+      "file": "early_prediction_nebius.json",
+      "bytes": 4794
+    },
+    {
+      "file": "early_prediction_tb2.json",
+      "bytes": 4786
+    },
+    {
+      "file": "edit_structure.json",
+      "bytes": 3676
+    },
+    {
+      "file": "editor_state_coverage.json",
+      "bytes": 309
+    },
+    {
+      "file": "extraction_verification.json",
+      "bytes": 593
+    },
+    {
+      "file": "field_comparison_stability.json",
+      "bytes": 4048
+    },
+    {
+      "file": "gold_crosscheck.json",
+      "bytes": 3915
+    },
+    {
+      "file": "gold_patches.json",
+      "bytes": 641
+    },
+    {
+      "file": "gold_patches_repl.json",
+      "bytes": 211
+    },
+    {
+      "file": "gold_patches_repl2.json",
+      "bytes": 212
+    },
+    {
+      "file": "human_check_blind_scored.json",
+      "bytes": 1260
+    },
+    {
+      "file": "label_cost.json",
+      "bytes": 2640
+    },
+    {
+      "file": "label_signature.json",
+      "bytes": 2802
+    },
+    {
+      "file": "metric_artifact.json",
+      "bytes": 3876
+    },
+    {
+      "file": "on_target.json",
+      "bytes": 1603
+    },
+    {
+      "file": "rebuild_numbers.flat.json",
+      "bytes": 64465
+    },
+    {
+      "file": "rebuild_numbers.json",
+      "bytes": 45920
+    },
+    {
+      "file": "roundtrip_cost.json",
+      "bytes": 6682
+    },
+    {
+      "file": "route_modes.json",
+      "bytes": 280000
+    },
+    {
+      "file": "route_modes_transfer.json",
+      "bytes": 20935
+    },
+    {
+      "file": "routeA.json",
+      "bytes": 2845
+    },
+    {
+      "file": "router_xscaffold.json",
+      "bytes": 23883
+    },
+    {
+      "file": "scaffold_transfer.json",
+      "bytes": 2559
+    },
+    {
+      "file": "seed_stability_nebius.json",
+      "bytes": 2832
+    },
+    {
+      "file": "seed_stability_tb2.json",
+      "bytes": 2808
+    },
+    {
+      "file": "self_reference.json",
+      "bytes": 2479
+    },
+    {
+      "file": "sequential_deadend.json",
+      "bytes": 3983
+    },
+    {
+      "file": "size_artifact.json",
+      "bytes": 2178
+    },
+    {
+      "file": "stationarity_mechanism.json",
+      "bytes": 20544
+    },
+    {
+      "file": "step_task.json",
+      "bytes": 4975
+    },
+    {
+      "file": "step_verification.json",
+      "bytes": 3666
+    },
+    {
+      "file": "sustained_waste.json",
+      "bytes": 8461
+    },
+    {
+      "file": "transfer.json",
+      "bytes": 6074
+    },
+    {
+      "file": "waiting_inspect.json",
+      "bytes": 6619
+    },
+    {
+      "file": "waiting_probe.json",
+      "bytes": 3779
+    },
+    {
+      "file": "waste_alarm.json",
+      "bytes": 1909
+    },
+    {
+      "file": "waste_runs.json",
+      "bytes": 1462
+    },
+    {
+      "file": "wrongness.json",
+      "bytes": 6888
+    },
+    {
+      "file": "wrongness_repl.json",
+      "bytes": 6882
+    },
+    {
+      "file": "wrongness_repl2.json",
+      "bytes": 6897
+    },
+    {
+      "file": "xscaffold_calibration.json",
+      "bytes": 1502
+    },
+    {
+      "file": "xscaffold_download_ledger.json",
+      "bytes": 18289
+    },
+    {
+      "file": "xscaffold_markers.json",
+      "bytes": 1643
+    },
+    {
+      "file": "xscaffold_markers_nebius_openhands.json",
+      "bytes": 1668
+    },
+    {
+      "file": "xscaffold_markers_pi.json",
+      "bytes": 688
+    },
+    {
+      "file": "xscaffold_markers_smithmarines.json",
+      "bytes": 704
+    },
+    {
+      "file": "xscaffold_markers_swegym.json",
+      "bytes": 975
+    },
+    {
+      "file": "xscaffold_markers_thoughtworks.json",
+      "bytes": 1019
+    },
+    {
+      "file": "xscaffold_probe.json",
+      "bytes": 4778
+    },
+    {
+      "file": "xscaffold_replication.json",
+      "bytes": 41884
+    },
+    {
+      "file": "zero_false_alarm_provenance.json",
+      "bytes": 244
+    }
+  ],
+  "live_files_copied": [
+    {
+      "file": "episodes.jsonl",
+      "bytes": 4003751
+    },
+    {
+      "file": "episodes48.jsonl",
+      "bytes": 1457923
+    },
+    {
+      "file": "episodes_masked.jsonl",
+      "bytes": 572267
+    },
+    {
+      "file": "episodes_nudge.jsonl",
+      "bytes": 732833
+    },
+    {
+      "file": "episodes_verify.jsonl",
+      "bytes": 690804
+    },
+    {
+      "file": "live_arms_valid.json",
+      "bytes": 5192
+    },
+    {
+      "file": "live_arms_valid_tmp.json",
+      "bytes": 3710
+    },
+    {
+      "file": "live_experiment.json",
+      "bytes": 2157
+    },
+    {
+      "file": "live_experiment48.json",
+      "bytes": 1444
+    },
+    {
+      "file": "live_experiment48_valid.json",
+      "bytes": 1402
+    },
+    {
+      "file": "live_masked_vs_full.json",
+      "bytes": 1868
+    },
+    {
+      "file": "live_router_deployment.json",
+      "bytes": 10624
+    },
+    {
+      "file": "pilot_episodes.jsonl",
+      "bytes": 182717
+    },
+    {
+      "file": "smoke2_episodes.jsonl",
+      "bytes": 3175
+    },
+    {
+      "file": "smoke3_episodes.jsonl",
+      "bytes": 8363
+    },
+    {
+      "file": "smoke48.jsonl",
+      "bytes": 10124
+    },
+    {
+      "file": "smoke_episodes.jsonl",
+      "bytes": 5487
+    },
+    {
+      "file": "smoke_mask.jsonl",
+      "bytes": 5981
+    }
+  ],
+  "gates_at_export": {
+    "invariant tests": "11 passed, 0 failed",
+    "consistency": "all consistency checks passed",
+    "claim audit": "28/28 headline claims found verbatim in the findings",
+    "summary audit": "0 mismatches between the executive summary and the artifacts",
+    "doc references": "all cited artifacts exist",
+    "paper numbers": "65/65 paper numbers trace to an artifact"
+  }
+}

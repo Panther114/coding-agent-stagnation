@@ -98,7 +98,7 @@ current report is built entirely on the three SWE-agent shard sets.
 |---|---|
 | The report (12 pages, builds with `xelatex main.tex` twice) | `paper/v2/main.tex` → `paper/v2/main.pdf` |
 | Same text in markdown | `paper/v2/ESSAY.md` |
-| Acknowledgement + AI disclosure pages | `paper/v2/acknowledgement_zh.tex` |
+| Acknowledgement + AI disclosure pages | `paper/v2/main.tex (the acknowledgement is inlined at the end)` |
 | Runnable demo (no API key, reproduces the paper's numbers) | `demo/route.py`, `demo/README.md` |
 | Every raw number, artifact and table | `research/EXPORT/` (`INDEX.md`, `numbers.csv`, `TABLES.md`) |
 | Full findings, incl. the new §2.34–2.37 | `research/docs/REBUILD_FINDINGS_V2.md` |
@@ -136,4 +136,4 @@ Nothing blocking. Three optional things:
    the two authors, send their name and I will move that one item into 来自他人的帮助
    (help from others) — the rules treat the two sections differently, and putting a non-author's
    work under "author contributions" would be the kind of misstatement the integrity criterion is
-   about. Placeholder is already written for it in `paper/v2/acknowledgement_zh.tex` §五.
+   about. Placeholder is already written for it in `paper/v2/main.tex (the acknowledgement is inlined at the end)` §五.

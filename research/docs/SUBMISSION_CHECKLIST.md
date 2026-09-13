@@ -15,7 +15,7 @@ draft is still on disk and still compiles; nothing in it is submitted any more.
 | Authors | Ziheng Yu, Xuhao Chen |
 | Report source | `paper/v2/main.tex` → `paper/v2/main.pdf` (**12 pages**: cover, abstract, contents, 8 pages of body, references page, 2-page acknowledgement). **Build with `xelatex main.tex` (twice)** — the cover page and acknowledgement are Chinese, and `pdflatex` cannot set them. |
 | Same text in markdown, for rewriting | `paper/v2/ESSAY.md` |
-| Mandatory acknowledgement + AI disclosure | in the PDF (`paper/v2/acknowledgement_zh.tex`) and in markdown at `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` |
+| Mandatory acknowledgement + AI disclosure | in the PDF (`paper/v2/main.tex (the acknowledgement is inlined at the end)`) and in markdown at `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` |
 | Every raw number, table and artifact | `research/EXPORT/` (`INDEX.md`, `numbers.csv`, `TABLES.md`, `artifacts/`, `live/`, `MANIFEST.json`) |
 | Executable demonstration | `demo/route.py` + `demo/README.md` (offline, no API key; `--fit --summary --list --replay --live`) |
 | Full narrative record | `research/docs/REBUILD_FINDINGS_V2.md`, `research/AI_ASSISTANCE_LOG.md` |
@@ -31,7 +31,7 @@ stops working.*
 | # | Requirement | Status |
 |---|---|---|
 | 1 | Research report PDF: cover page, abstract + keywords, table of contents, body, references on a separate page | **Done.** Cover page, abstract, contents, body, references page and the acknowledgement page are all in `paper/v2/main.tex`. The cover's bracketed fields (school, province, instructor, Chinese names) are the only blanks. |
-| 2 | Acknowledgement page, 1–2 pages / 500–1500 字: background, instructor relationship, **whether guidance was paid**, division of labour, difficulties and how they were solved | **Skeleton in the PDF** (2 pages), as `paper/v2/acknowledgement_zh.tex`. Sections 二 (instructor relationship) and 三 (division of labour) contain `[待填写]` fields; §三 already carries the second author's concrete contributions (blinded human pilot, TB2 duplicate-trial find); §五 asks who, if anyone **outside the two authors**, helped. |
+| 2 | Acknowledgement page, 1–2 pages / 500–1500 字: background, instructor relationship, **whether guidance was paid**, division of labour, difficulties and how they were solved | **Skeleton in the PDF** (2 pages), as `paper/v2/main.tex (the acknowledgement is inlined at the end)`. Sections 二 (instructor relationship) and 三 (division of labour) contain `[待填写]` fields; §三 already carries the second author's concrete contributions (blinded human pilot, TB2 duplicate-trial find); §五 asks who, if anyone **outside the two authors**, helped. |
 | 3 | AI-use disclosure: tool name and version, stages, purpose, time, frequency | **Done** (acknowledgement §四), sourced from `research/AI_ASSISTANCE_LOG.md` (32 passes). |
 | 4 | AI chat records uploaded as supporting material | **Yours.** I cannot export the session transcripts; the harness keeps them. |
 | 5 | Academic-integrity declaration, signed by students and instructor, stamped by the school | **Yours.** A signature block is at the end of the acknowledgement page. |
@@ -44,7 +44,7 @@ stops working.*
 1. **Cover page fields** — `paper/v2/main.tex`, the `titlepage` block: school, province/country,
    instructor name(s), and both Chinese names. I did not invent the Chinese characters.
 2. **Acknowledgement §二, §三 and §五** — instructor relationship, whether guidance was paid, and the
-   remaining division-of-labour fields. `paper/v2/acknowledgement_zh.tex`. §三 already names **Xuhao
+   remaining division-of-labour fields. `paper/v2/main.tex (the acknowledgement is inlined at the end)`. §三 already names **Xuhao
    Chen** (the second author) for the blinded human pilot and the TB2 duplicate-trial find; §五 is
    for help from people **outside the two authors** only.
 3. Optional: the competition's own report template is linked from the rules page
