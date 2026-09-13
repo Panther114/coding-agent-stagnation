@@ -23,6 +23,11 @@ import * as path from 'node:path';
 
 export const name = 'dsh-batch-flow';
 
+// Static service dependency: all `ctx.tools` access below requires this
+// declaration (the loader rejects undeclared service property access).
+// Mirrors dsh-rewind-plugin's `inject = ["commands", "tools"]`.
+export const inject = ['tools'];
+
 const PLUGIN = 'dsh-batch-flow';
 const MAX_FILES = 10;
 const MAX_BYTES_PER_FILE = 20000;
