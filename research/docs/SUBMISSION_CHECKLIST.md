@@ -43,11 +43,44 @@ stops working.*
 
 1. **Cover page fields** — `paper/v2/main.tex`, the `titlepage` block: school, province/country,
    instructor name(s), and both Chinese names. I did not invent the Chinese characters.
-2. **Acknowledgement §二 and §三** — instructor relationship, whether guidance was paid, and the
-   detailed division of labour. `paper/v2/acknowledgement_zh.tex`.
+2. **Acknowledgement §二, §三 and §五** — instructor relationship, whether guidance was paid, the
+   detailed division of labour, and the contributions of other people (the blinded human reader and
+   the collaborator who found the duplicate-trial bug). `paper/v2/acknowledgement_zh.tex`.
+   §五 is drafted and factual but needs names and roles.
 3. Optional: the competition's own report template is linked from the rules page
    (「下载研究报告模板」). If its cover layout differs from this one, copy its layout and keep the
    title, authors and abstract.
+
+## 2b. A second contributor's branch (`will/dev`)
+
+A collaborator worked on `origin/will/dev` with its own git history. Their work is **imported into
+this branch, not merged**: their files were copied across and each one verified byte-for-byte
+against the branch blob (`research/src/loaders.py`, `research/scripts/make_human_blind_packet.py`,
+`research/scripts/score_human_sample_ci.py`, the probe scripts, `research/docs/human_check_blind/`,
+`research/docs/will__3-*.md`, `research/results/exploratory/*.json`,
+`research/results/rebuild/human_check_blind_scored.json`, `research/requirements.lock`,
+`research/docs/DATASETS_MANIFEST.json`). Their layout restructure (`datasets/`, `essay/`, `tasks/`,
+top-level `docs/`) was **not** adopted, because every path in this branch's documents, the export
+package and the six verification gates refers to the current layout; their `docs/VERSIONS.md` is a
+translation table if you ever want to switch.
+
+Two of their contributions are load-bearing or checkable:
+
+* **A blinded human pilot** — 12 windows judged by an independent reader with a pre-registered
+  protocol, sealed key and Wilson/κ/McNemar statistics. Re-verified here: the scoring script's
+  self-tests pass and re-running it reproduces the committed result exactly (83.3% agreement with
+  the stored judgements, 50.0% with the mechanical measure). It is reported in the report's
+  limitations, §7.
+* **A real bug in our TB2 numbers** — Terminal-Bench ships duplicate trials, and the frozen table
+  double-counted them (34,029 run rows over 29,103 ids; 1,073,923 steps with 186,786 duplicate
+  step rows). Rebuilt deduplicated: **29,103 runs / 887,137 steps**. Two TB2 statistics move
+  (polling share 0.082% → 0.154%; mean context per step 29,846 → 19,229 chars); no claim in
+  `paper/v2` depends on TB2. Recorded as §2.37 of `REBUILD_FINDINGS_V2.md`.
+
+One thing to fix on their side: `research/docs/human_check_blind/key/SHA256SUMS` fails for 14 of its
+15 entries as committed, because the digests were computed on LF content and the checked-out files
+are CRLF. Normalising CRLF→LF reproduces all 14 exactly, and `judge.csv` matches as committed — the
+packet is intact, the checksum file is line-ending-sensitive.
 
 ## 3. Verify these yourself before submitting
 

@@ -59,7 +59,7 @@ PROGRESS_CMD = re.compile(
 TABLES = [
     ("swe_agent_A_shards0_3", ROOT / "data" / "processed" / "steps" / "nebius" / "steps.parquet"),
     ("swe_agent_B_shards4_7", ROOT / "data" / "processed" / "steps_repl" / "nebius" / "steps.parquet"),
-    ("tb2", ROOT / "data" / "processed" / "steps_tb2_full" / "tb2" / "steps.parquet"),
+    ("tb2", ROOT / "data" / "processed" / "steps_tb2_dedup" / "tb2" / "steps.parquet"),
 ]
 
 

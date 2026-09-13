@@ -1145,14 +1145,15 @@ here depends on a merged table.
 | Nebius / SWE-agent | shards 4–7 (held-out A) | 26,680 | 710,910 | `data/processed/steps_repl/nebius` |
 | Nebius / SWE-agent | shards 8–11 (held-out B) | 26,676 | 695,449 | `data/processed/steps_repl2/nebius` |
 | **Nebius total** | **12 / 12 shards** | **80,035** | **2,115,623** | — |
-| Terminal-Bench 2.0 | **2 / 2 shards** | **34,029** | **1,073,923** | `data/processed/steps_tb2_full/tb2` |
+| Terminal-Bench 2.0 | **2 / 2 shards** | **29,103** | **887,137** | `data/processed/steps_tb2_dedup/tb2` |
 | 4 non-SWE-agent scaffolds | see §2.33 | — | — | `xscaffold_replication.json` |
 
-Terminal-Bench's 52,104 raw trials yield 34,029 parseable runs and 1,073,923 steps; the remainder are
-the zero-action agent-crash trials documented earlier. The 2-shard TB2 table was built once at 08:19,
-**destroyed** when `steps_full` was cleared to unblock the Nebius rebuild — it was the only copy, which
-was a mistake — and rebuilt into `steps_tb2_full` in the final pass, reproducing the original run and
-step counts exactly.
+Terminal-Bench's 52,104 raw trials yield **29,103** parseable runs and **887,137** steps once the
+release's duplicated trials are removed (§2.37); the remainder are the zero-action agent-crash trials
+documented earlier. The 2-shard TB2 table was built once at 08:19, **destroyed** when `steps_full`
+was cleared to unblock the Nebius rebuild — it was the only copy, which was a mistake — and rebuilt
+into `steps_tb2_full` in the final pass, reproducing the original run and step counts exactly. That
+table was itself superseded by `steps_tb2_dedup` once the duplication was found.
 
 **Three consequences, and they are all retractions or narrowing.**
 
@@ -1526,6 +1527,56 @@ file at all: roughly a quarter of the benchmark's difficulty was the test runner
 (§2.32 measured the leak at 51.5% of test observations). Second, the *hint* — handing over the file
 and function — is worth +0.189 and is **not** significant at this n, so it must not be reported as a
 gain. Raw (unfiltered) values for comparison: hinted 0.604, unmasked 0.449, masked 0.333.
+
+---
+
+### 2.37 Terminal-Bench ships duplicate trials, and the duplicate inflated every TB2 statistic
+
+Artifacts: `data/processed/steps_tb2_dedup/tb2/{runs,steps}.parquet` and
+`dedup_stats.json` · script: `scripts/rebuild_tb2_dedup.py`
+
+**Found by the collaborator, not by me.** Commit `106ff4b` on the `will/dev` branch ("Loader: dedupe
+TB2 UUID + empty-UUID twin trials by trial_name") added the rule to `research/src/loaders.py`:
+Terminal-Bench's release ships **two rows for 4,952 `trial_name` values** — one carrying a real
+`trial_id`, one with an empty one — and the loader keyed runs by `trial_name`, so both were written
+under the same `run_id`.
+
+My own table builder (`build_step_table.py::build_tb2`) had the same defect, and it was worse than a
+double count: the two rows were written as **one run with the union of both step sets**, so a run
+could carry two different attempts. The frozen TB2 table therefore reported:
+
+| quantity | duplicated table (frozen) | deduplicated table |
+|---|---|---|
+| run rows | 34,029 | **29,103** |
+| distinct run ids | 29,103 | 29,103 |
+| step rows | 1,073,923 | **887,137** |
+| duplicate `(run_id, step)` pairs | 186,786 | **0** |
+| solve rate | 0.3254 | **0.3439** |
+
+**Preference matters and is not cosmetic.** 354 of the 4,926 duplicated pairs *disagree* on
+`reward`/`n_steps`, so they are not byte-identical copies; the rule keeps the twin carrying a real
+`trial_id`, and re-deduplicating by `(run_id, step)` instead would merge two different attempts.
+
+**What it changes.** Every TB2 statistic in the v1 study was computed on the inflated table, and the
+effect is not uniform:
+
+| quantity (TB2, all scaffolds) | frozen table | deduplicated |
+|---|---|---|
+| polling share of context cost | 0.082% | **0.154%** |
+| turns contributing < 5% of their context | 93.7% | **88.6%** |
+| repeated-signature turns, cost share | 29.3% | **27.9%** |
+| mean context per step | 29,846 chars | **19,229 chars** |
+
+The polling conclusion is unchanged and slightly strengthened — polling is *still* negligible — but
+**the share was understated by a factor of ~1.9**, because the duplicated copies doubled the context
+they contributed. The awaiting-turn result that contradicted a prior claim about agent polling
+(§2.31) survives the correction; its number moves from 0.082% to 0.154%.
+
+**Boundary of the correction.** TB2 does not carry any claim in the current report: `paper/v2` is
+built entirely on the three SWE-agent shard sets, and no number in `paper/v2/main.tex` comes from
+Terminal-Bench. The correction is recorded because the repository still ships the v1 artifacts, and
+because the same bug class — keying runs by a field the release does not guarantee unique — is
+exactly what a future rebuild would repeat.
 
 ---
 

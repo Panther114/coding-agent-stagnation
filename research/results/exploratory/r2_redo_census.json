@@ -1,0 +1,432 @@
+{
+ "seed": 7,
+ "methods_note": "Full-shard censuses, exact shares, no CIs. Sorted by (run_id,step) mergesort. ent_file/ent_path are integer counts (not filenames) and tb2 file_shown is always empty, so file identity = normalized non-empty targets_str only. Denominators stated per metric. Chain adjacency = STRICT (same run, equal sig, step increments by exactly 1). Consecutive-row adjacency was tested and REJECTED: it gives 47.36% TB2 ge2 runs, exceeding the prior-round 42.6% ceiling; strict reproduces prior 42.6% exactly (6284/14750). Duplicate step indices exist in tb2 (e.g. 0,0,1,1,...), hence the gap. nebius steps are unique per run (both variants agree). Prior static-output subset (15.6% runs/4.3% steps) and sleep chains (1.2% runs) use narrower sub-definitions and were not exactly reproduced (strict static-ge2 = 19.1%/5.3%; strict sleep-ge2 all-sleep chains = 0.73% runs); all len>=3 categorized cuts in this census fall far below every ceiling. Test-flavored = is_test==1 OR lowercased cmd_family in {pytest,unittest,npm test,make,gradle,go test,cargo test}. Theater error signal = st_error>=1 OR st_exit not in (-999,0); in practice st_error is N/A(-1) and the footprint is driven by st_exit. Desert long-run threshold uses the literal n_steps column (>=20).",
+ "tb2": {
+  "corpus": "tb2",
+  "n_runs": 14750,
+  "n_steps_total": 547031,
+  "n_edit_steps": 67956,
+  "n_read_steps": 52858,
+  "n_testflag_steps": 4534,
+  "revision": {
+   "edit_target_coverage": 0.2943963741244335,
+   "note": "ent_file/ent_path are integer counts, file_shown empty in tb2; file identity = normalized non-empty targets_str (whole string as key)",
+   "qualifying_file_runs": 1246,
+   "runs_affected": 1005,
+   "share_runs": 0.06813559322033898,
+   "steps_in_affected_runs": 73199,
+   "share_steps_in_affected_runs": 0.13381142933398657,
+   "reedit_steps_beyond_first": 10256,
+   "share_reedit_of_all_steps": 0.018748480433467208,
+   "top5_basenames": [
+    {
+     "basename": "shared_heap.c",
+     "edits_in_qualifying_fileruns": 1928,
+     "file_runs": 78,
+     "reedit_steps": 1850
+    },
+    {
+     "basename": "out.html",
+     "edits_in_qualifying_fileruns": 704,
+     "file_runs": 37,
+     "reedit_steps": 667
+    },
+    {
+     "basename": "bottle.py",
+     "edits_in_qualifying_fileruns": 606,
+     "file_runs": 50,
+     "reedit_steps": 556
+    },
+    {
+     "basename": "ars.R",
+     "edits_in_qualifying_fileruns": 534,
+     "file_runs": 45,
+     "reedit_steps": 489
+    },
+    {
+     "basename": "attack.py",
+     "edits_in_qualifying_fileruns": 484,
+     "file_runs": 40,
+     "reedit_steps": 444
+    }
+   ],
+   "run_ids": "[run_id list \u00d71005 archived in /tmp]"
+  },
+  "verify_repeats": {
+   "def": "STRICT-adjacency (step+1) maximal equal-sig runs len>=3 where ALL steps satisfy (is_test==1 OR cmd_family in {pytest,unittest,npm test,make,gradle,go test,cargo test}); adjacency = consecutive rows after sort by (run_id,step)",
+   "n_chains": 15,
+   "n_runs": 13,
+   "share_runs": 0.0008813559322033898,
+   "n_steps_in_chains": 75,
+   "share_steps_of_all": 0.00013710374731962173,
+   "static_chains": 11,
+   "static_steps": 46,
+   "static_share_of_vsteps": 0.6133333333333333,
+   "static_share_runs_of_all_runs": 0.0006779661016949153,
+   "static_share_steps_of_all_steps": 8.409029835603466e-05,
+   "changing_chains": 4,
+   "changing_steps": 29,
+   "changing_runs": 3,
+   "chain_run_ids": {
+    "n": 13,
+    "first5": [
+     "build-cython-ext__AUG9iVE",
+     "build-cython-ext__Z4ZqrQt",
+     "build-pov-ray__AhmdCAY",
+     "build-pov-ray__YRidBhZ",
+     "fix-code-vulnerability__4U5A2Ct"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   },
+   "static_runs": 10
+  },
+  "rereads": {
+   "def": "is_read step with non-empty targets_str already read earlier in same run; empty-target reads unattributable (excluded)",
+   "n_read_steps": 52858,
+   "n_attributable_reads": 46787,
+   "n_empty_target_reads": 6071,
+   "n_reread_steps": 23630,
+   "share_of_all_read_steps": 0.44704680464641117,
+   "share_of_attributable_reads": 0.5050548229208969,
+   "share_of_all_steps": 0.043196820655502156,
+   "runs_with_any_reread": 3844,
+   "share_runs_any": 0.26061016949152543,
+   "runs_with_gt10_rereads": 462,
+   "share_runs_gt10_of_all_runs": 0.03132203389830508,
+   "share_runs_gt10_of_reading_runs": 0.05284831846259437,
+   "reads_per_distinct_target_median": 1.0,
+   "reads_per_distinct_target_p90": 3.0,
+   "reads_per_distinct_target_max": 282,
+   "n_reading_runs": 8742,
+   "reread_run_ids": {
+    "n": 3844,
+    "first5": [
+     "adaptive-rejection-sampler__2ZVJDrp",
+     "adaptive-rejection-sampler__4HeqvxL",
+     "adaptive-rejection-sampler__5NL4w4t",
+     "adaptive-rejection-sampler__6FaBhwG",
+     "adaptive-rejection-sampler__8J8kvuq"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   },
+   "heavy_run_ids": {
+    "n": 462,
+    "first5": [
+     "adaptive-rejection-sampler__FouXgSx",
+     "adaptive-rejection-sampler__HyrfKZf",
+     "adaptive-rejection-sampler__KSg5yzj",
+     "adaptive-rejection-sampler__PbUxhwv",
+     "adaptive-rejection-sampler__Rm8QMkp"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  },
+  "deserts": {
+   "def": "runs with n_steps column>=20 and zero is_test steps",
+   "n_long_runs": 6817,
+   "share_long_of_all_runs": 0.46216949152542375,
+   "n_desert_runs": 6221,
+   "share_desert_of_long": 0.9125715123954818,
+   "share_desert_of_all_runs": 0.4217627118644068,
+   "desert_reward_rate": 0.31795531265069926,
+   "tested_long_reward_rate": 0.3976510067114094,
+   "n_tested_long_runs": 596,
+   "desert_run_ids": {
+    "n": 6221,
+    "first5": [
+     "adaptive-rejection-sampler__2ZVJDrp",
+     "adaptive-rejection-sampler__3LTRFMG",
+     "adaptive-rejection-sampler__4LUV7B6",
+     "adaptive-rejection-sampler__5NL4w4t",
+     "adaptive-rejection-sampler__5wzrbZ5"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  },
+  "theater": {
+   "def": "STRICT-adjacency (step+1) maximal equal-sig chains len>=4 where EVERY step has error signal (st_error>=1 OR st_exit not in (-999,0)); primary=all-error",
+   "n_chains": 8,
+   "n_runs": 6,
+   "share_runs": 0.00040677966101694915,
+   "n_steps_in_chains": 410,
+   "share_steps_of_all": 0.0007495004853472655,
+   "any_error_chains": 86,
+   "any_error_runs": 63,
+   "any_error_steps": 989,
+   "chain_run_ids": {
+    "n": 6,
+    "first5": [
+     "crack-7z-hash__AuBn9mC",
+     "crack-7z-hash__Mp364LH",
+     "fix-ocaml-gc__XBUekJY",
+     "fix-ocaml-gc__awEK6tj",
+     "git-leak-recovery__8Q6MGR6"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  },
+  "validation_any_sig_chains_ge2": {
+   "runs": 6284,
+   "share_runs": 0.42603389830508476,
+   "steps": 181113,
+   "share_steps": 0.3310836131773154
+  },
+  "validation_any_sig_chains_ge3": {
+   "runs": 2197,
+   "share_runs": 0.14894915254237287,
+   "steps": 28169,
+   "share_steps": 0.051494339443285665
+  },
+  "combined": {
+   "def": "union of runs touching >=1 redo signal (revision 3+ same-target edits; verify-repeat chain; any re-read; desert long-untested; theater all-error chain). Overlaps NOT additive.",
+   "n_union_runs": 7717,
+   "share_runs_of_all": 0.523186440677966,
+   "n_union_steps": 466101,
+   "share_steps_of_all": 0.8520559163923068,
+   "per_signal_runs": {
+    "revision": 1005,
+    "verify_repeats": 13,
+    "rereads_any": 3844,
+    "deserts": 6221,
+    "theater": 6
+   },
+   "pairwise_overlaps": {
+    "revision_x_verify_repeats": 0,
+    "revision_x_rereads_any": 542,
+    "revision_x_deserts": 729,
+    "revision_x_theater": 1,
+    "verify_repeats_x_rereads_any": 5,
+    "verify_repeats_x_deserts": 7,
+    "verify_repeats_x_theater": 0,
+    "rereads_any_x_deserts": 2527,
+    "rereads_any_x_theater": 2,
+    "deserts_x_theater": 5
+   },
+   "union_run_ids": {
+    "n": 7717,
+    "first5": [
+     "adaptive-rejection-sampler__2ZVJDrp",
+     "adaptive-rejection-sampler__3LTRFMG",
+     "adaptive-rejection-sampler__4HeqvxL",
+     "adaptive-rejection-sampler__4LUV7B6",
+     "adaptive-rejection-sampler__5NL4w4t"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  }
+ },
+ "nebius": {
+  "corpus": "nebius",
+  "n_runs": 26679,
+  "n_steps_total": 709264,
+  "n_edit_steps": 236137,
+  "n_read_steps": 128291,
+  "n_testflag_steps": 6922,
+  "revision": {
+   "edit_target_coverage": 0.9714995955737559,
+   "note": "ent_file/ent_path are integer counts, file_shown empty in tb2; file identity = normalized non-empty targets_str (whole string as key)",
+   "qualifying_file_runs": 16051,
+   "runs_affected": 12875,
+   "share_runs": 0.482589302447618,
+   "steps_in_affected_runs": 424929,
+   "share_steps_in_affected_runs": 0.5991126012316993,
+   "reedit_steps_beyond_first": 152090,
+   "share_reedit_of_all_steps": 0.21443355365562047,
+   "top5_basenames": [
+    {
+     "basename": "reproduce.py",
+     "edits_in_qualifying_fileruns": 26490,
+     "file_runs": 2311,
+     "reedit_steps": 24179
+    },
+    {
+     "basename": "__init__.py",
+     "edits_in_qualifying_fileruns": 5679,
+     "file_runs": 575,
+     "reedit_steps": 5104
+    },
+    {
+     "basename": "reproduce_bug.py",
+     "edits_in_qualifying_fileruns": 4594,
+     "file_runs": 363,
+     "reedit_steps": 4231
+    },
+    {
+     "basename": "utils.py",
+     "edits_in_qualifying_fileruns": 2695,
+     "file_runs": 175,
+     "reedit_steps": 2520
+    },
+    {
+     "basename": "parser.py",
+     "edits_in_qualifying_fileruns": 2505,
+     "file_runs": 215,
+     "reedit_steps": 2290
+    }
+   ],
+   "run_ids": "[run_id list \u00d712875 archived in /tmp]"
+  },
+  "verify_repeats": {
+   "def": "STRICT-adjacency (step+1) maximal equal-sig runs len>=3 where ALL steps satisfy (is_test==1 OR cmd_family in {pytest,unittest,npm test,make,gradle,go test,cargo test}); adjacency = consecutive rows after sort by (run_id,step)",
+   "n_chains": 41,
+   "n_runs": 34,
+   "share_runs": 0.0012744105851043893,
+   "n_steps_in_chains": 409,
+   "share_steps_of_all": 0.0005766541090482529,
+   "static_chains": 26,
+   "static_steps": 118,
+   "static_share_of_vsteps": 0.2885085574572127,
+   "static_share_runs_of_all_runs": 0.0008246186138910754,
+   "static_share_steps_of_all_steps": 0.00016636964515328567,
+   "changing_chains": 15,
+   "changing_steps": 291,
+   "changing_runs": 15,
+   "chain_run_ids": {
+    "n": 34,
+    "first5": [
+     "PyCQA__flake8-bugbear-220::swe-agent-llama-70b::aa1ca5314934",
+     "PyCQA__flake8-bugbear-220::swe-agent-llama-70b::cbe6b978a532",
+     "PyCQA__flake8-bugbear-230::swe-agent-llama-70b::31c4dabe7a3e",
+     "PyCQA__flake8-bugbear-230::swe-agent-llama-70b::6bd1af395b3f",
+     "PyCQA__flake8-bugbear-230::swe-agent-llama-8b::3ba4e43084f8"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   },
+   "static_runs": 22
+  },
+  "rereads": {
+   "def": "is_read step with non-empty targets_str already read earlier in same run; empty-target reads unattributable (excluded)",
+   "n_read_steps": 128291,
+   "n_attributable_reads": 124190,
+   "n_empty_target_reads": 4101,
+   "n_reread_steps": 57788,
+   "share_of_all_read_steps": 0.45044469214520116,
+   "share_of_attributable_reads": 0.46531926886222724,
+   "share_of_all_steps": 0.081476008933204,
+   "runs_with_any_reread": 11268,
+   "share_runs_any": 0.4223546609693017,
+   "runs_with_gt10_rereads": 1756,
+   "share_runs_gt10_of_all_runs": 0.06581955845421493,
+   "share_runs_gt10_of_reading_runs": 0.0710614706001376,
+   "reads_per_distinct_target_median": 1.0,
+   "reads_per_distinct_target_p90": 3.0,
+   "reads_per_distinct_target_max": 150,
+   "n_reading_runs": 24711,
+   "reread_run_ids": {
+    "n": 11268,
+    "first5": [
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::925cda7494ec",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::cdec778e26d8",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-70b::1b03c6147c9b",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-70b::4b4c132e6579",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-70b::6de158732c74"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   },
+   "heavy_run_ids": {
+    "n": 1756,
+    "first5": [
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-8b::27d9d4f875d8",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-8b::482ae755a7f3",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-8b::6553f433ef1f",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-8b::8f902d1b041c",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-8b::975a14b7eec4"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  },
+  "deserts": {
+   "def": "runs with n_steps column>=20 and zero is_test steps",
+   "n_long_runs": 11847,
+   "share_long_of_all_runs": 0.4440571235803441,
+   "n_desert_runs": 10931,
+   "share_desert_of_long": 0.9226808474719338,
+   "share_desert_of_all_runs": 0.40972300311106113,
+   "desert_reward_rate": 0.06358064221022779,
+   "tested_long_reward_rate": 0.08842794759825327,
+   "n_tested_long_runs": 916,
+   "desert_run_ids": {
+    "n": 10931,
+    "first5": [
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::09d853701fbf",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::925cda7494ec",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::a2d1d8724bb3",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::aceb7aa5f2cd",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::b3c10567e476"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  },
+  "theater": {
+   "def": "STRICT-adjacency (step+1) maximal equal-sig chains len>=4 where EVERY step has error signal (st_error>=1 OR st_exit not in (-999,0)); primary=all-error",
+   "n_chains": 13,
+   "n_runs": 12,
+   "share_runs": 0.0004497919712133138,
+   "n_steps_in_chains": 66,
+   "share_steps_of_all": 9.305420830607503e-05,
+   "any_error_chains": 145,
+   "any_error_runs": 131,
+   "any_error_steps": 1490,
+   "chain_run_ids": {
+    "n": 12,
+    "first5": [
+     "commitizen-tools__commitizen-552::swe-agent-llama-70b::3debceb3d6bf",
+     "iterative__dvc-3935::swe-agent-llama-70b::fa6831dfbfbe",
+     "jackdewinter__pyscan-12::swe-agent-llama-8b::c63ed3a39c02",
+     "lightstep__lightstep-tracer-python-109::swe-agent-llama-70b::e8cf353568f5",
+     "mapbox__untiler-28::swe-agent-llama-70b::dc86ed267c99"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  },
+  "validation_any_sig_chains_ge2": {
+   "runs": 7485,
+   "share_runs": 0.2805577420443045,
+   "steps": 102040,
+   "share_steps": 0.14386744569018026
+  },
+  "validation_any_sig_chains_ge3": {
+   "runs": 4004,
+   "share_runs": 0.15008058772817573,
+   "steps": 86290,
+   "share_steps": 0.12166132779895779
+  },
+  "combined": {
+   "def": "union of runs touching >=1 redo signal (revision 3+ same-target edits; verify-repeat chain; any re-read; desert long-untested; theater all-error chain). Overlaps NOT additive.",
+   "n_union_runs": 18556,
+   "share_runs_of_all": 0.6955283181528543,
+   "n_union_steps": 630079,
+   "share_steps_of_all": 0.8883560987164159,
+   "per_signal_runs": {
+    "revision": 12875,
+    "verify_repeats": 34,
+    "rereads_any": 11268,
+    "deserts": 10931,
+    "theater": 12
+   },
+   "pairwise_overlaps": {
+    "revision_x_verify_repeats": 31,
+    "revision_x_rereads_any": 6298,
+    "revision_x_deserts": 8109,
+    "revision_x_theater": 8,
+    "verify_repeats_x_rereads_any": 18,
+    "verify_repeats_x_deserts": 0,
+    "verify_repeats_x_theater": 0,
+    "rereads_any_x_deserts": 6855,
+    "rereads_any_x_theater": 6,
+    "deserts_x_theater": 8
+   },
+   "union_run_ids": {
+    "n": 18556,
+    "first5": [
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::09d853701fbf",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::925cda7494ec",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::a2d1d8724bb3",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::aceb7aa5f2cd",
+     "3YOURMIND__django-migration-linter-258::swe-agent-llama-405b::b3c10567e476"
+    ],
+    "full": "archived /tmp/goal_r2_redo.json"
+   }
+  }
+ }
+}

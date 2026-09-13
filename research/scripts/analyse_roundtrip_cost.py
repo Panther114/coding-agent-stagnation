@@ -38,7 +38,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results" / "rebuild"
 
 TABLES = [
-    ("tb2_all_scaffolds", ROOT / "data" / "processed" / "steps_tb2_full" / "tb2" / "steps.parquet"),
+    ("tb2_all_scaffolds", ROOT / "data" / "processed" / "steps_tb2_dedup" / "tb2" / "steps.parquet"),
     ("swe_agent_shards0_3", ROOT / "data" / "processed" / "steps" / "nebius" / "steps.parquet"),
     ("swe_agent_shards4_7", ROOT / "data" / "processed" / "steps_repl" / "nebius" / "steps.parquet"),
     ("swe_agent_shards8_11", ROOT / "data" / "processed" / "steps_repl2" / "nebius" / "steps.parquet"),

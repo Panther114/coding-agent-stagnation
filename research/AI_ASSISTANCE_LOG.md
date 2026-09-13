@@ -1125,6 +1125,54 @@ transfer table read off the wrong rows; and now a generality claim that measurab
 scaffold boundary. The pattern is not accidental — every one of them was caught by a script written
 to falsify a claim, never by re-reading the claim.
 
+## 33. Round 5, pass 33 (16:00–17:00 CST) - a collaborator's branch, and a real bug in my own TB2 numbers
+
+**A second line of work appeared on `will/dev`**, with an unrelated git history (a fresh import plus
+their own commits), built on a snapshot of this repository taken at 09:31 today. Rather than merge
+two histories across a 2,600-file restructure, I identified exactly what the branch *adds* and
+imported those files into the current layout, verifying each against the branch blob afterwards
+(`git restore --source=origin/will/dev`; a first attempt through `Set-Content -NoNewline` collapsed
+every file to one line and had to be redone — the check that caught it was comparing
+`git hash-object` against `git rev-parse origin/will/dev:<path>` per file).
+
+**What they contributed, and how it was checked.**
+
+1. **A blinded human pilot** (`research/docs/human_check_blind/`, scripts `make_human_blind_packet.py`
+   and `score_human_sample_ci.py`, result `human_check_blind_scored.json`): 12 windows judged blind by
+   an independent human, with a pre-registration, Wilson intervals, Cohen's κ and McNemar. I
+   re-derived their headline from their committed data rather than trusting it: **the script's
+   self-tests pass 5/5, and re-running it reproduces the committed artifact with zero differences** —
+   human vs stored 83.3% [55.2, 95.3], human vs mechanical 50.0% [25.4, 74.6], κ +0.667 and +0.100.
+   Their honest framing ("at the falsification boundary", not "confirmed") is exactly the standard
+   the rest of this project holds itself to.
+2. **The TB2 duplicate-trial bug** (`research/src/loaders.py`, commit `106ff4b`), which turns out to
+   affect *my* tables, not just theirs — see below.
+3. Explanatory documents (`3-audit`, `3-cost-anatomy`, `3-misfire-matrix`, `3-human-prereg`,
+   `3-human-results`, `3-judge-sheet`, `3-human-provenance-template`, `docs/VERSIONS.md`), imported
+   verbatim into `research/docs/will__*`, plus `requirements.lock` and a dataset manifest.
+
+**Their bug find invalidated two of my numbers, and I measured the damage rather than patching it
+quietly.** Terminal-Bench's release ships two rows for 4,952 `trial_name` values (one with a real
+`trial_id`, one empty). My builder keyed runs by `trial_name`, so the frozen TB2 table had 34,029 run
+rows over 29,103 ids and 1,073,923 step rows with 186,786 duplicates — and, worse than a double
+count, the two rows were written as *one run carrying the union of both attempts*. `scripts/
+rebuild_tb2_dedup.py` re-reads the raw shards in two passes, keeping one row per trial name and
+preferring the twin with a real `trial_id` (354 of the pairs disagree on reward, so the preference
+rule is load-bearing). Corrected: **29,103 runs, 887,137 steps**. The TB2 polling analysis moves from
+0.082% to **0.154%** of context cost — the conclusion is unchanged, but the share had been understated
+by ~1.9× because duplicated copies doubled the context they contributed. Recorded as §2.37.
+
+**A third thing I found while checking their seal.** `key/SHA256SUMS` in their blind packet fails for
+14 of its 15 entries as committed — because the sums were computed on LF content and the checked-out
+files are CRLF. Hashing each file after CRLF→LF normalisation reproduces all 14 recorded digests
+exactly, and `judge.csv` matches as committed. **The packet is intact; the check, not the data, was
+line-ending-sensitive.** Worth fixing in their packet so a future verifier does not read it as
+tampering.
+
+**No claim in the current report depends on TB2**, so nothing in `paper/v2` changed because of this.
+It is recorded because the repository still ships the v1 artifacts and because keying runs by a field
+the release does not guarantee unique is a bug class, not an incident.
+
 
 
 

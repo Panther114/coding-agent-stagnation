@@ -24,7 +24,7 @@ POLL = ("bashoutput", "bash_output", "taskoutput", "task_output", "wait")
 
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
-    p = ROOT / "data" / "processed" / "steps_tb2_full" / "tb2" / "steps.parquet"
+    p = ROOT / "data" / "processed" / "steps_tb2_dedup" / "tb2" / "steps.parquet"
     import pyarrow.parquet as pq
     cols = pq.ParquetFile(str(p)).schema_arrow.names
     want = [c for c in ("run_id", "task", "model", "step", "n_steps", "verb", "tool",

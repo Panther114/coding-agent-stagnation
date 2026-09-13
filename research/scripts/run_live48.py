@@ -79,6 +79,15 @@ VERIFY_REMINDER = (
     "actually does that. Only then edit again."
 )
 
+#: THE CONTROL for VERIFY_REMINDER.  Same trigger, same channel, same rough length, but its content
+#: carries no instruction to re-examine anything.  Without this arm a gain from VERIFY_REMINDER
+#: cannot be distinguished from the mere fact that the runtime said something ("try harder"
+#: priming, or simply extra tokens in the context).
+NUDGE_REMINDER = (
+    "\n\n[runtime] Your change has now failed the tests more than once. Continue working on the "
+    "fix."
+)
+
 SYSTEM = """You are a coding agent fixing a defect in a Python project.
 
 Use the provided tools. Rules:
@@ -297,6 +306,10 @@ def run_episode(task: Dict[str, Any], arm: str, seed: int, max_turns: int, tag: 
                         # the runtime intervention: the agent has now SEEN its fix fail twice, which
                         # is the observable evidence the router's VERIFY branch exists for
                         shown += VERIFY_REMINDER
+                        reinjected += 1
+                    elif arm == "nudge" and n_fail_obs >= 2:
+                        # identical trigger and channel, content deliberately empty
+                        shown += NUDGE_REMINDER
                         reinjected += 1
                 parts.append((f"[{len(new)} failing test(s) outside the known pre-existing set] "
                               if new else "[all tests pass] ") + shown)

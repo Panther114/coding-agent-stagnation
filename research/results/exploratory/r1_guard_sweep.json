@@ -1,0 +1,589 @@
+{
+  "seed": 7,
+  "n_total": 405,
+  "n_binary": 386,
+  "verify": {
+    "n_stag_reader": 103,
+    "n_prod_reader": 283,
+    "n_mech1": 198,
+    "n_mech0": 188,
+    "expect_stag": 103,
+    "expect_prod": 283,
+    "match": true
+  },
+  "reader_prevalence": 0.266839378238342,
+  "mech_prevalence": 0.5129533678756477,
+  "rep_sweep_vs_reader": [
+    {
+      "n_fired": 185,
+      "TP": 65,
+      "FP": 120,
+      "FN": 38,
+      "TN": 163,
+      "precision": 0.35135135135135137,
+      "recall": 0.6310679611650486,
+      "fpr": 0.42402826855123676,
+      "f1": 0.4513888888888889,
+      "prec_ci95": [
+        0.2862182738462216,
+        0.42253234042521015
+      ],
+      "rec_ci95": [
+        0.5347390366684421,
+        0.7179715180218659
+      ],
+      "threshold": 0.25
+    },
+    {
+      "n_fired": 163,
+      "TP": 60,
+      "FP": 103,
+      "FN": 43,
+      "TN": 180,
+      "precision": 0.36809815950920244,
+      "recall": 0.5825242718446602,
+      "fpr": 0.36395759717314485,
+      "f1": 0.45112781954887216,
+      "prec_ci95": [
+        0.2978892093742377,
+        0.44438130349545424
+      ],
+      "rec_ci95": [
+        0.4859998631563654,
+        0.6731141897967914
+      ],
+      "threshold": 0.4
+    },
+    {
+      "n_fired": 143,
+      "TP": 56,
+      "FP": 87,
+      "FN": 47,
+      "TN": 196,
+      "precision": 0.3916083916083916,
+      "recall": 0.5436893203883495,
+      "fpr": 0.30742049469964666,
+      "f1": 0.4552845528455284,
+      "prec_ci95": [
+        0.31544371983096325,
+        0.473444442651603
+      ],
+      "rec_ci95": [
+        0.44765761687698924,
+        0.6365792346864467
+      ],
+      "threshold": 0.5
+    },
+    {
+      "n_fired": 110,
+      "TP": 48,
+      "FP": 62,
+      "FN": 55,
+      "TN": 221,
+      "precision": 0.43636363636363634,
+      "recall": 0.46601941747572817,
+      "fpr": 0.21908127208480566,
+      "f1": 0.4507042253521127,
+      "prec_ci95": [
+        0.3473834458841848,
+        0.5296386620271588
+      ],
+      "rec_ci95": [
+        0.37264215923684024,
+        0.561840289547154
+      ],
+      "threshold": 0.6
+    },
+    {
+      "n_fired": 47,
+      "TP": 26,
+      "FP": 21,
+      "FN": 77,
+      "TN": 262,
+      "precision": 0.5531914893617021,
+      "recall": 0.2524271844660194,
+      "fpr": 0.07420494699646643,
+      "f1": 0.3466666666666667,
+      "prec_ci95": [
+        0.4124521373875824,
+        0.685892525250887
+      ],
+      "rec_ci95": [
+        0.17847711876706254,
+        0.34418072237346703
+      ],
+      "threshold": 0.75
+    }
+  ],
+  "rep_sweep_vs_mech": [
+    {
+      "n_fired": 185,
+      "TP": 129,
+      "FP": 56,
+      "FN": 69,
+      "TN": 132,
+      "precision": 0.6972972972972973,
+      "recall": 0.6515151515151515,
+      "fpr": 0.2978723404255319,
+      "f1": 0.6736292428198434,
+      "prec_ci95": [
+        0.6276332627386721,
+        0.7589341037737912
+      ],
+      "rec_ci95": [
+        0.5828319271929965,
+        0.714430876906852
+      ],
+      "threshold": 0.25
+    },
+    {
+      "n_fired": 163,
+      "TP": 122,
+      "FP": 41,
+      "FN": 76,
+      "TN": 147,
+      "precision": 0.7484662576687117,
+      "recall": 0.6161616161616161,
+      "fpr": 0.21808510638297873,
+      "f1": 0.6759002770083103,
+      "prec_ci95": [
+        0.6766573768275054,
+        0.8088330524179586
+      ],
+      "rec_ci95": [
+        0.5468220903221479,
+        0.6810793928210693
+      ],
+      "threshold": 0.4
+    },
+    {
+      "n_fired": 143,
+      "TP": 114,
+      "FP": 29,
+      "FN": 84,
+      "TN": 159,
+      "precision": 0.7972027972027972,
+      "recall": 0.5757575757575758,
+      "fpr": 0.15425531914893617,
+      "f1": 0.6686217008797655,
+      "prec_ci95": [
+        0.7239294161695328,
+        0.8549256221847211
+      ],
+      "rec_ci95": [
+        0.5061172209386688,
+        0.6425141811112555
+      ],
+      "threshold": 0.5
+    },
+    {
+      "n_fired": 110,
+      "TP": 86,
+      "FP": 24,
+      "FN": 112,
+      "TN": 164,
+      "precision": 0.7818181818181819,
+      "recall": 0.43434343434343436,
+      "fpr": 0.1276595744680851,
+      "f1": 0.5584415584415585,
+      "prec_ci95": [
+        0.6958449001339267,
+        0.848771479115838
+      ],
+      "rec_ci95": [
+        0.3671993305319335,
+        0.5039867876914655
+      ],
+      "threshold": 0.6
+    },
+    {
+      "n_fired": 47,
+      "TP": 44,
+      "FP": 3,
+      "FN": 154,
+      "TN": 185,
+      "precision": 0.9361702127659575,
+      "recall": 0.2222222222222222,
+      "fpr": 0.015957446808510637,
+      "f1": 0.35918367346938773,
+      "prec_ci95": [
+        0.8283712206562209,
+        0.9780550129792273
+      ],
+      "rec_ci95": [
+        0.1699108190282207,
+        0.28510737345539017
+      ],
+      "threshold": 0.75
+    }
+  ],
+  "quiet_sweep_vs_reader": [
+    {
+      "n_fired": 238,
+      "TP": 77,
+      "FP": 161,
+      "FN": 26,
+      "TN": 122,
+      "precision": 0.3235294117647059,
+      "recall": 0.7475728155339806,
+      "fpr": 0.568904593639576,
+      "f1": 0.45161290322580644,
+      "prec_ci95": [
+        0.267304050081838,
+        0.38536116549728483
+      ],
+      "rec_ci95": [
+        0.655819277626533,
+        0.8215228812329375
+      ],
+      "threshold": 0.5
+    },
+    {
+      "n_fired": 163,
+      "TP": 59,
+      "FP": 104,
+      "FN": 44,
+      "TN": 179,
+      "precision": 0.3619631901840491,
+      "recall": 0.5728155339805825,
+      "fpr": 0.3674911660777385,
+      "f1": 0.44360902255639095,
+      "prec_ci95": [
+        0.2921502480436847,
+        0.43813284681994646
+      ],
+      "rec_ci95": [
+        0.476361241327509,
+        0.6640335112782175
+      ],
+      "threshold": 0.7
+    },
+    {
+      "n_fired": 93,
+      "TP": 48,
+      "FP": 45,
+      "FN": 55,
+      "TN": 238,
+      "precision": 0.5161290322580645,
+      "recall": 0.46601941747572817,
+      "fpr": 0.15901060070671377,
+      "f1": 0.489795918367347,
+      "prec_ci95": [
+        0.4159537133977668,
+        0.6150247090983505
+      ],
+      "rec_ci95": [
+        0.37264215923684024,
+        0.561840289547154
+      ],
+      "threshold": 0.9
+    }
+  ],
+  "quiet_sweep_vs_mech": [
+    {
+      "n_fired": 238,
+      "TP": 198,
+      "FP": 40,
+      "FN": 0,
+      "TN": 148,
+      "precision": 0.8319327731092437,
+      "recall": 1.0,
+      "fpr": 0.2127659574468085,
+      "f1": 0.908256880733945,
+      "prec_ci95": [
+        0.7792383615069985,
+        0.8740818282370323
+      ],
+      "rec_ci95": [
+        0.9809672535295003,
+        1.0000000000000002
+      ],
+      "threshold": 0.5
+    },
+    {
+      "n_fired": 163,
+      "TP": 163,
+      "FP": 0,
+      "FN": 35,
+      "TN": 188,
+      "precision": 1.0,
+      "recall": 0.8232323232323232,
+      "fpr": 0.0,
+      "f1": 0.9030470914127424,
+      "prec_ci95": [
+        0.9769745674939582,
+        0.9999999999999998
+      ],
+      "rec_ci95": [
+        0.7640943939404446,
+        0.8700662548058989
+      ],
+      "threshold": 0.7
+    },
+    {
+      "n_fired": 93,
+      "TP": 93,
+      "FP": 0,
+      "FN": 105,
+      "TN": 188,
+      "precision": 1.0,
+      "recall": 0.4696969696969697,
+      "fpr": 0.0,
+      "f1": 0.6391752577319588,
+      "prec_ci95": [
+        0.9603310973796384,
+        0.9999999999999998
+      ],
+      "rec_ci95": [
+        0.401418494744127,
+        0.5391289444359033
+      ],
+      "threshold": 0.9
+    }
+  ],
+  "key_q_reader": {
+    "question": "ANY single-channel point prec>=0.80 AND rec>=0.30 vs READER?",
+    "answer": "NO",
+    "closest_overall": {
+      "rule": "QUIET y_stagnation>=0.9",
+      "precision": 0.5161,
+      "prec_ci95": [
+        0.416,
+        0.615
+      ],
+      "recall": 0.466,
+      "rec_ci95": [
+        0.373,
+        0.562
+      ],
+      "note": "highest precision among points meeting recall>=0.30"
+    },
+    "closest_rep": {
+      "rule": "REP rep_exact_frac>=0.6",
+      "precision": 0.4364,
+      "prec_ci95": [
+        0.347,
+        0.53
+      ],
+      "recall": 0.466,
+      "rec_ci95": [
+        0.373,
+        0.562
+      ]
+    },
+    "highest_prec_note": {
+      "rule": "REP>=0.75",
+      "precision": 0.5532,
+      "prec_ci95": [
+        0.412,
+        0.686
+      ],
+      "recall": 0.2524,
+      "rec_ci95": [
+        0.178,
+        0.344
+      ],
+      "note": "highest precision overall but FAILS recall gate (<0.30)"
+    }
+  },
+  "key_q_mech": {
+    "question": "ANY single-channel point prec>=0.80 AND rec>=0.30 vs MECHANICAL?",
+    "answer": "YES (with circularity caveat)",
+    "points": [
+      {
+        "rule": "QUIET y_stagnation>=0.5",
+        "precision": 0.8319,
+        "prec_ci95": [
+          0.779,
+          0.874
+        ],
+        "recall": 1.0,
+        "rec_ci95": [
+          0.981,
+          1.0
+        ],
+        "caveat": "CIRCULAR: mech=(y_stagnation>0.5), same variable; recall 1.0 by construction modulo y==0.5 boundary"
+      },
+      {
+        "rule": "QUIET y_stagnation>=0.7",
+        "precision": 1.0,
+        "prec_ci95": [
+          0.977,
+          1.0
+        ],
+        "recall": 0.8232,
+        "rec_ci95": [
+          0.764,
+          0.87
+        ],
+        "caveat": "CIRCULAR: subset of mech=1 by construction"
+      },
+      {
+        "rule": "QUIET y_stagnation>=0.9",
+        "precision": 1.0,
+        "prec_ci95": [
+          0.96,
+          1.0
+        ],
+        "recall": 0.4697,
+        "rec_ci95": [
+          0.401,
+          0.539
+        ],
+        "caveat": "CIRCULAR"
+      }
+    ],
+    "best_noncircular_rep": {
+      "rule": "REP rep_exact_frac>=0.5",
+      "precision": 0.7972,
+      "prec_ci95": [
+        0.724,
+        0.855
+      ],
+      "recall": 0.5758,
+      "rec_ci95": [
+        0.506,
+        0.643
+      ],
+      "verdict": "STRICTLY just below 0.80 on point estimate (CI covers 0.80); REP-only answer is borderline NO. Next REP>=0.75 gives prec 0.936 CI[0.828,0.978] but rec 0.222 fails recall."
+    }
+  },
+  "field_mappings_approx": {
+    "caveat": "APPROXIMATION: window aggregates (rep_exact_frac over w=10 windows) are NOT consecutive-chain detectors. OpenHands '4 identical action-observation pairs' and DSH repeat-tool-reminder [3,5,8] consecutive triggers operate on ordered step sequences; rep_exact_frac measures fraction of exact repeats anywhere in the window regardless of adjacency/order.",
+    "openhands4": "OpenHands-style '4 identical action-observation pairs' \u2248 UPPER end of REP sweep (t=0.5-0.75; w=10 window with frac>=0.5 means >=5/10 repeats; maxrep>=4 subset n=121/143 is the closer analogue).",
+    "dsh_358": "DSH [3,5,8] consecutive \u2248 sustained-high-REP region (t>=0.5, especially t=0.6-0.75; 8 consecutive in a 10-window forces frac>=0.7+).",
+    "bias_direction": "Aggregates smooth bursts, so this sweep UNDERSTATES burst-guard precision / OVERSTATES its recall. Data-grounded support (assumption-backed, not proof): requiring BOTH frac>=0.5 AND maxrep>=4 (n=121, more consecutive-like) gives reader precision 0.421 vs frac>=0.5 alone 0.392, while discordant cells (frac-only n=22, maxrep-only n=22) each have stag rate 0.227 \u2014 i.e. the stricter consecutive-leaning conjunction is more precise at lower recall. corr(frac,maxrep)=0.903. Full step-level consecutive chains unavailable in this parquet, so exact burst-guard operating point cannot be measured here \u2014 stated as assumption + directional evidence, APPROXIMATION."
+  },
+  "consistency": "Sweep results point the SAME direction as frozen detector_families.json and gold_crosscheck.json. Families shipped-style repetition signals (exact_burst AUC 0.546, ngram_loop 0.530, openhands5 0.515) are near chance on step_wasted yet materially better on step_noop (exact_burst 0.677, ngram_loop 0.652, openhands5 0.663) \u2014 exactly what single-channel sweeps show: REP/QUIET separate objective/mechanical quietness well (REP>=0.5 prec 0.797 vs mech; QUIET>=0.5 prec 0.832 vs mech) but separate judged STAGNANT poorly (best recall-gated prec 0.516 QUIET>=0.9, 0.436 REP>=0.6; REP AUC judged 0.588 vs objective 0.834 in gold_crosscheck). Reader labels discount mere repetition/no-op (many high-REP windows judged PRODUCTIVE: 87/143 FP at REP>=0.5), while mechanical/objective targets reward it \u2014 consistent with STALL/NOV carrying judged signal (STALL AUC judged 0.688, NOV 0.679) and VER/WS failing (0.36). No contradiction found.",
+  "exemplars_REP_ge_0_5": {
+    "fired_but_reader_PROD": [
+      {
+        "run_id": "extract-moves-from-video__ZE44RbF",
+        "t": 45.0,
+        "task": "extract-moves-from-video",
+        "gold": "PRODUCTIVE",
+        "binary": 0,
+        "rep_exact_frac": 0.9,
+        "rep_exact_maxrep": 10.0,
+        "y_stagnation": 1.0,
+        "ver_stall_len": 45.0,
+        "nov_new_rate": 0.0,
+        "kind": "dense2"
+      },
+      {
+        "run_id": "feal-differential-cryptanalysis__WrYCeFB",
+        "t": 33.0,
+        "task": "feal-differential-cryptanalysis",
+        "gold": "PRODUCTIVE",
+        "binary": 0,
+        "rep_exact_frac": 0.9,
+        "rep_exact_maxrep": 10.0,
+        "y_stagnation": 1.0,
+        "ver_stall_len": 33.0,
+        "nov_new_rate": 0.0,
+        "kind": "dense2"
+      },
+      {
+        "run_id": "feal-linear-cryptanalysis__923TJt4",
+        "t": 33.0,
+        "task": "feal-linear-cryptanalysis",
+        "gold": "PRODUCTIVE",
+        "binary": 0,
+        "rep_exact_frac": 0.9,
+        "rep_exact_maxrep": 10.0,
+        "y_stagnation": 1.0,
+        "ver_stall_len": 12.0,
+        "nov_new_rate": 0.0,
+        "kind": "dense2"
+      }
+    ],
+    "notfired_but_reader_STAG": [
+      {
+        "run_id": "build-pov-ray__bMc6qiA",
+        "t": 33.0,
+        "task": "build-pov-ray",
+        "gold": "STAGNANT",
+        "binary": 1,
+        "rep_exact_frac": 0.0,
+        "rep_exact_maxrep": 1.0,
+        "y_stagnation": 0.9,
+        "ver_stall_len": 9.0,
+        "nov_new_rate": 0.0,
+        "kind": "dense2"
+      },
+      {
+        "run_id": "compile-compcert__qeLnFSj",
+        "t": 60.0,
+        "task": "compile-compcert",
+        "gold": "STAGNANT",
+        "binary": 1,
+        "rep_exact_frac": 0.0,
+        "rep_exact_maxrep": 1.0,
+        "y_stagnation": 0.5,
+        "ver_stall_len": 3.0,
+        "nov_new_rate": 0.0,
+        "kind": "position"
+      },
+      {
+        "run_id": "crack-7z-hash__M36nRdr",
+        "t": 27.0,
+        "task": "crack-7z-hash",
+        "gold": "STAGNANT",
+        "binary": 1,
+        "rep_exact_frac": 0.0,
+        "rep_exact_maxrep": 1.0,
+        "y_stagnation": 0.09999999999999998,
+        "ver_stall_len": 0.0,
+        "nov_new_rate": 0.2,
+        "kind": "dense2"
+      }
+    ],
+    "fired_and_STAGNANT": [
+      {
+        "run_id": "crack-7z-hash__Mp364LH",
+        "t": 195.0,
+        "task": "crack-7z-hash",
+        "gold": "STAGNANT",
+        "binary": 1,
+        "rep_exact_frac": 0.9,
+        "rep_exact_maxrep": 10.0,
+        "y_stagnation": 1.0,
+        "ver_stall_len": 31.0,
+        "nov_new_rate": 0.0,
+        "kind": "dense2"
+      },
+      {
+        "run_id": "extract-elf__rUUxEg5",
+        "t": 27.0,
+        "task": "extract-elf",
+        "gold": "DONE_REDUNDANT",
+        "binary": 1,
+        "rep_exact_frac": 0.9,
+        "rep_exact_maxrep": 10.0,
+        "y_stagnation": 0.8,
+        "ver_stall_len": 0.0,
+        "nov_new_rate": 0.0,
+        "kind": "dense2"
+      },
+      {
+        "run_id": "extract-moves-from-video__vRcGj7U",
+        "t": 101.0,
+        "task": "extract-moves-from-video",
+        "gold": "STAGNANT",
+        "binary": 1,
+        "rep_exact_frac": 0.9,
+        "rep_exact_maxrep": 10.0,
+        "y_stagnation": 1.0,
+        "ver_stall_len": 58.0,
+        "nov_new_rate": 0.0,
+        "kind": "dense2"
+      }
+    ]
+  },
+  "notes": {
+    "binary_mapping": "binary==1 (n=103) = STAGNANT 90 + DONE_REDUNDANT 13; binary==0 (n=283) = PRODUCTIVE 281 + REGRESSION 2",
+    "w": "all windows w=10",
+    "wilson": "Wilson 95% z=1.96",
+    "mech_def": "mech=(y_stagnation>0.5) strict; QUIET>=0.5 uses >= so y==0.5 windows (n=40 FP vs mech) explain QUIET0.5 prec<1 vs mech"
+  }
+}

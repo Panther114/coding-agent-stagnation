@@ -461,6 +461,14 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
   SWE-agent's number and is not claimed for coding agents in general.}
 \item \textbf{The 3.7\% figure rests on patch recovery from the transcript} for a scaffold with no
   printed patch; reported as a discrepancy to investigate.
+\item \textbf{Step-level telemetry does not track what a person calls progress.} An independent
+  blinded reader judged 12 windows (pre-registered, sealed key, one pass): agreement with the
+  stored reader-produced judgements was \textbf{83.3\%} (Wilson [55.2, 95.3], $\kappa$ = +0.667)
+  but with the mechanical progress measure only \textbf{50.0\%} ([25.4, 74.6], $\kappa$ = +0.100),
+  with the disagreement concentrated on windows where the workspace moved without advancing the
+  task. The labels used in \emph{this} paper do not depend on that measure --- they are defined
+  against the dataset's gold patch --- but the pilot is why we do not claim that telemetry tracks
+  progress, and it bounds what any behavioural monitor of this family can be expected to detect.
 \item \textbf{The mode labels are coarse.} ``Ever touched a gold file'' is a proxy, not a judgement
   of fix quality; gold matching is basename-based and 4.10\% of edit steps carry no filename, which
   biases LOST upward.
@@ -480,7 +488,7 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 
 Six automated gates run on every change: invariant tests 11/11; cross-artifact consistency passes;
 28/28 headline claims trace to their artifacts; 0 mismatches against the one-page summary; every
-cited artifact exists; and 47/47 paper numbers trace to the artifact each one names. That last gate
+cited artifact exists; and 57/57 paper numbers trace to the artifact each one names. That last gate
 was written during this work and \textbf{found five real errors in our own manuscript} --- values
 quoted as pooled that were within-instance, figures mixed across two artifacts' row sets, and a
 transfer table whose cells had been read off the wrong rows. All are fixed. Complete data package:

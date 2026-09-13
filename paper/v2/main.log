@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2026.5.16)  13 SEP 2026 15:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2026.5.16)  13 SEP 2026 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -753,7 +753,13 @@ Overfull \hbox (22.10895pt too wide) in paragraph at lines 71--73
 LOG.md
  []
 
-[10]) [11] (main.aux)
+[10]
+Overfull \hbox (45.13666pt too wide) in paragraph at lines 86--89
+\TU/SimSun(0)/m/n/10 提 出 了 去 重 规 则；|  据 此 我 们 对 相 关 数 据 表 重 新 构 建，|  修 正 了 两 处 
+统 计 量  |（详 见 \TU/lmtt/m/n/10 research/docs/REBUILD_FINDINGS_V2.md
+ []
+
+) [11] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -766,10 +772,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3414A767E0916691A86E3EE901337339;3477.
  ) 
 Here is how much of TeX's memory you used:
- 18414 strings out of 409617
- 378044 string characters out of 5774013
- 1956191 words of memory out of 5000000
- 40270 multiletter control sequences out of 15000+600000
+ 18426 strings out of 409617
+ 378784 string characters out of 5774013
+ 1954191 words of memory out of 5000000
+ 40282 multiletter control sequences out of 15000+600000
  567140 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  79i,11n,93p,1003b,480s stack positions out of 10000i,1000n,20000p,200000b,200000s

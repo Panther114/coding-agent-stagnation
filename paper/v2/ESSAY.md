@@ -371,9 +371,16 @@ truth. See `demo/README.md`.
   must not be quoted as a universal rate.
 * **The 3.7% figure rests on patch recovery from the transcript** for a scaffold with no printed
   patch, which is the obvious confound. Reported as a discrepancy to investigate.
-* **The mode labels are a coarse binary.** "Ever touched a gold file" is a proxy for LOST vs
-  WRONG-FIX, not a judgement of whether the fix was *good*. Gold matching is basename-based, and
-  4.10% of edit steps carry no filename, which biases LOST upward.
+* **Step-level telemetry does not track what a person calls progress.** An independent blinded reader
+  judged 12 windows (pre-registered, sealed key, single pass): agreement with the stored
+  reader-produced judgements was **83.3%** (Wilson [55.2, 95.3], κ = +0.667) but with the mechanical
+  progress measure only **50.0%** ([25.4, 74.6], κ = +0.100), the disagreement concentrating on
+  windows where the workspace moved without advancing the task. This paper's labels do not depend on
+  that measure — they are defined against the dataset's gold patch — but the pilot is why we do not
+  claim telemetry tracks progress.
+* **The mode labels are coarse.** "Ever touched a gold file" is a proxy for LOST vs WRONG-FIX, not a
+  judgement of whether the fix was *good*. Gold matching is basename-based, and 4.10% of edit steps
+  carry no filename, which biases LOST upward.
 * **The live experiment is small** (n = 41–43 per condition). One difference reaches significance
   (withholding the failure location costs 0.275, Fisher *p* = 0.015); the hint's own effect (0.189
   over normal CI output) does **not** (*p* = 0.125) and is reported as inconclusive rather than as a
