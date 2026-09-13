@@ -53,7 +53,7 @@ line-by-line index into them.
 
 ## 4. What the AI got wrong (自愿披露 / volunteered disclosure)
 
-The rules ask for truthful disclosure. The truthful summary is that **ten of the AI's own
+The rules ask for truthful disclosure. The truthful summary is that **eleven of the AI's own
 conclusions were falsified by tests written to break them, and are documented as retractions**:
 
 1. "failed runs localise *better*" — the metric was **self-referential** and inverted the sign; corrected on an independent gold target, and the correction replicated on two held-out shard sets;
@@ -65,7 +65,16 @@ conclusions were falsified by tests written to break them, and are documented as
 7. a quadratic regular expression made a parser ~30× slower than necessary and stalled a full-corpus rebuild for hours;
 8. a `ParquetWriter` left unclosed produced an unreadable table, and a directory deletion destroyed the only copy of another table;
 9. a whole condition of the live experiment reported **0/48 success and 0% reaching the gold file** — a spectacular number that was a deleted Python interpreter, not a result; it was disbelieved only by reading the transcripts, and the condition was re-run;
-10. the manuscript's own **transfer table** quoted four pairs of numbers that matched the artifact only by coincidence; an automated audit of the paper's numbers against the artifacts found it, and later found the broader finding it belongs to — that the router's generality **stops at the scaffold boundary** (0.32–0.50 on 88,000 runs from three other scaffolds).
+10. the manuscript's own **transfer table** quoted four pairs of numbers that matched the artifact only by coincidence; an automated audit of the paper's numbers against the artifacts found it, and later found the broader finding it belongs to — that the router's generality **stops at the scaffold boundary** (0.32–0.50 on 88,000 runs from three other scaffolds);
+11. the **Terminal-Bench run and step counts were inflated by duplicated trials** in the public release, and worse than a double count: the two copies of a trial had been written as one run carrying both attempts. Found by a collaborator, not by the AI. Rebuilt deduplicated, the table is 29,103 runs and 887,137 steps instead of 34,029 and 1,073,923, and every TB2 statistic was recomputed; no claim in this report depends on those tables.
+
+We also disclose two things the AI did that were **not** wrong but were **not its own work**:
+
+* the blinded 12-window human pilot (pre-registration, sealed key, Wilson/κ/McNemar scoring) was
+  designed and run by a collaborator, and the single human judgement in it came from a person, not
+  from the model;
+* the duplicate-trial defect above was found by the collaborator's fix to the data loader, and the
+  AI then measured what it had invalidated.
 
 We state these because the competition's criteria include 学术道德与诚信, and because the retraction
 record is itself part of the method: the project's rule was that a claim is only kept if a test

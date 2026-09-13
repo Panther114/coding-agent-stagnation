@@ -54,3 +54,41 @@ research/data/live/*/__pycache__/
 # ---------------------------------------------------------------------------
 demo/_cache/
 research/data/live/.venv/
+
+# ---------------------------------------------------------------------------
+# Added 2026-09-13 (round 6) from the collaborator's branch (`will/dev`).  Their
+# macOS block, plus the derived files they identified as regenerable.  The big
+# derived tables above stay ignored; the frozen feature tables under
+# research/data/processed/steps* stay VERSIONED on purpose, so the six gates run
+# immediately after a clone.  Their rule ignoring `processed/steps/` was not
+# taken for that reason -- those parquet files are checked in deliberately.
+# ---------------------------------------------------------------------------
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+*.icloud
+.DS_Store
+
+research/data/processed/windows/
+research/data/processed/steps_full/
+research/data/processed/tb2/sample_trajectories.jsonl
+research/data/processed/nebius/sample_trajectories.jsonl
+research/data/processed/tb2/step_embeddings.npz
+research/results/final/*/monitor_scores.parquet
+research/results/final/*/window_features.parquet
+research/results/rebuild/*_w10/window_scores.parquet
+research/results/rebuild/step_task.parquet
+*.npz

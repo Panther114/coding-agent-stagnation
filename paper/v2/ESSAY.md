@@ -457,7 +457,7 @@ reconnaissance claims were rejected as unverifiable. The model also served as th
 live experiment in §5.
 
 It was not used to generate data. All measurements come from public trajectory corpora and from real
-test suites executed locally. **Ten of its own claims were falsified and retracted**, documented
+test suites executed locally. **Eleven of its own claims were falsified and retracted**, documented
 in `research/AI_ASSISTANCE_LOG.md` (30 passes) with the evidence that killed each one; §2 and §4.3
 are two of them, kept in the paper deliberately. Full disclosure, including the required chat
 records, is in `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md`.
