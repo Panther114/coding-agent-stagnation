@@ -48,7 +48,7 @@ generality established here is therefore **shard-level generality within a scaff
 claimed as nothing more.
 
 Along the way we found and fixed a measurement trap that inverts a common result, and we record
-**eight retractions of our own claims**, because the project's rule was that a claim survives only
+**ten retractions of our own claims**, because the project's rule was that a claim survives only
 if the test written to falsify it fails.
 
 ---
@@ -436,7 +436,7 @@ reconnaissance claims were rejected as unverifiable. The model also served as th
 live experiment in §5.
 
 It was not used to generate data. All measurements come from public trajectory corpora and from real
-test suites executed locally. **Eight of its own claims were falsified and retracted**, documented
+test suites executed locally. **Ten of its own claims were falsified and retracted**, documented
 in `research/AI_ASSISTANCE_LOG.md` (30 passes) with the evidence that killed each one; §2 and §4.3
 are two of them, kept in the paper deliberately. Full disclosure, including the required chat
 records, is in `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md`.

@@ -5,8 +5,8 @@
 > name and version, the specific stages and purposes of use, and the time and frequency of use,
 > and to submit the AI chat records for verification. Anything not filled in here will be
 > incomplete at submission. Facts below come from the project's own log
-> (`research/AI_ASSISTANCE_LOG.md`, 30 recorded passes); the sections marked
-> **[STUDENTS TO COMPLETE]** are ones only you can state truthfully.
+> (`research/AI_ASSISTANCE_LOG.md`, 32 recorded passes as of 2026-09-13 15:50 CST); the sections
+> marked **[STUDENTS TO COMPLETE]** are ones only you can state truthfully.
 
 ---
 
@@ -29,7 +29,8 @@ grounds for disqualification.
 **Tool.** `deepseek-v4.1-flash`, a large language model, accessed through an autonomous coding-agent
 harness (DeepSeek Harness / DSH) and through the OpenCode Go model gateway. Every model call is
 recorded in `research/results/rebuild/llm_ledger.jsonl` with timestamp, token counts and cost; the
-live experiment's total spend was **$0.92**.
+live experiment's total spend was **$1.36** (145 episodes over 42 tasks, including one 48-episode
+condition that had to be re-run after a harness fault).
 
 **Stages and purposes.**
 
@@ -39,18 +40,20 @@ live experiment's total spend was **$0.92**.
 | data pipeline | writing the trajectory parsers and the step-table builders |
 | statistics | writing and running the analyses: task-disjoint cross-validation, bootstrap intervals, permutation/Wilcoxon tests, calibration, decision curves |
 | the causal experiment | the model *is* the agent under test in the live experiment; it is the subject, not the analyst, in that part |
+| the demo | writing `demo/route.py`, which the authors can run to reproduce the held-out numbers |
 | drafting | producing draft manuscript text, later reviewed and rewritten by the authors |
 
-**Time and frequency.** Three working sessions, 2026-09-10 to 2026-09-13, recorded pass by pass in
-`research/AI_ASSISTANCE_LOG.md` (current total: 30 passes). The log records each pass, each bug the
-AI introduced, and each claim it retracted.
+**Time and frequency.** Four working sessions, 2026-09-10 to 2026-09-13, recorded pass by pass in
+`research/AI_ASSISTANCE_LOG.md` (current total: 32 passes; the last two, passes 31–32, ran
+13:50–15:50 CST on 2026-09-13). The log records each pass, each bug the AI introduced, and each
+claim it retracted.
 
 **Chat records.** Submitted separately as required. They are long; the project log is a condensed,
 line-by-line index into them.
 
 ## 4. What the AI got wrong (自愿披露 / volunteered disclosure)
 
-The rules ask for truthful disclosure. The truthful summary is that **eight of the AI's own
+The rules ask for truthful disclosure. The truthful summary is that **ten of the AI's own
 conclusions were falsified by tests written to break them, and are documented as retractions**:
 
 1. "failed runs localise *better*" — the metric was **self-referential** and inverted the sign; corrected on an independent gold target, and the correction replicated on two held-out shard sets;
@@ -60,7 +63,9 @@ conclusions were falsified by tests written to break them, and are documented as
 5. "waste is essentially unpredictable" — weakened: a fitted model reaches 0.590 ± 0.011 over the position baseline;
 6. "agents fail by being wrong, not lost" as a *novel* claim — the interpretation is prior art (arXiv:2603.24631, published on 16,758 trajectories), so the claim was re-scoped to the measurement defect;
 7. a quadratic regular expression made a parser ~30× slower than necessary and stalled a full-corpus rebuild for hours;
-8. a `ParquetWriter` left unclosed produced an unreadable table, and a directory deletion destroyed the only copy of another table.
+8. a `ParquetWriter` left unclosed produced an unreadable table, and a directory deletion destroyed the only copy of another table;
+9. a whole condition of the live experiment reported **0/48 success and 0% reaching the gold file** — a spectacular number that was a deleted Python interpreter, not a result; it was disbelieved only by reading the transcripts, and the condition was re-run;
+10. the manuscript's own **transfer table** quoted four pairs of numbers that matched the artifact only by coincidence; an automated audit of the paper's numbers against the artifacts found it, and later found the broader finding it belongs to — that the router's generality **stops at the scaffold boundary** (0.32–0.50 on 88,000 runs from three other scaffolds).
 
 We state these because the competition's criteria include 学术道德与诚信, and because the retraction
 record is itself part of the method: the project's rule was that a claim is only kept if a test

@@ -1023,6 +1023,108 @@ failures, observationally *and* causally; and the one deployable artefact — a 
 router deciding search-versus-verification — beats every baseline on identical rows and folds, on a
 target where the field's detectors carry no signal at all.
 
+## 31. Round 4, pass 31 (13:50–15:25 CST) - the paper rebuilt around the system, a runnable demo, and every number exported
+
+**Instruction from the authors.** The brief changed: the paper is to be restructured *around the
+system* rather than around the critique, a runnable demo is required (no video), one real
+application experiment is required, the mandatory pages must be written, and — described as the
+first step and non-negotiable — the work must show a significant improvement over existing work with
+a large or at least modest gain. The authors will rewrite the prose themselves, so everything must
+be exported as raw material.
+
+**Result #5 was secured before the rewrite, and it is the number the paper now leads with.** The
+router was trained on one shard set and scored on the other two in both directions, at four prefix
+fractions: 24 cross cells. On identical rows and folds the published families — position, AgentStop-
+style output shape, n-gram loop and normalised redundancy — were re-derived rather than quoted:
+
+| target | within-set | **cross-set** | worst cell | position | AgentStop-style | **gain** |
+|---|---|---|---|---|---|---|
+| will this run fail? | 0.7169 | **0.7145** | 0.6752 | 0.6718 | 0.5589 | **+0.1556** |
+| LOST or WRONG-FIX? | 0.7117 | **0.7324** | 0.6817 | 0.5993 | 0.5960 | **+0.1364** |
+
+Cross-set equals within-set, so the margin is not fitted to one corpus. `route_modes_transfer.json`.
+
+**The paper was rewritten from the title down** (`paper/v2/main.tex`, 6 pages, compiles with
+`pdflatex`) and now leads with the intervention problem: a runtime that detects *that* an agent is
+struggling cannot decide whether to help it search or make it verify, and the published detectors
+score at or below chance on exactly that question. `paper/v2/ESSAY.md` carries the same text in
+markdown for the authors to rewrite from.
+
+**A runnable demo** (`demo/route.py`, + `demo/README.md`): `--fit`, `--summary`, `--list`,
+`--replay <run_id>`, `--live`. Offline, deterministic, no API key. `--replay` on a real held-out run
+prints `P(fail) = 0.980, P(wrong-fix) = 0.199 -> SEARCH`, then reveals `reward=0 -> LOST`. The
+`--summary` numbers (0.6965 / 0.7346 and 0.7220 / 0.7274) are the same cells as the frozen transfer
+artifact, so the demo is a reproduction rather than a second claim.
+
+**Every number exported** (`research/EXPORT/`): 139 rows of claim → value → artifact → note,
+`numbers.csv`, pre-rendered markdown tables, 69 verified artifact copies, 15 live episode files, and
+a manifest recording all six gate results at export time. It never writes into `results/`.
+
+**And a fourth self-correction, made by a gate rather than by me.** Extending the number audit to
+cover the export surfaced that the paper's new transfer table was quoting four pairs of values that
+matched the artifact only by coincidence — they had been read off the wrong rows of the wrong
+fraction. The table now reports the artifact's verdict block directly, and the audit checks every
+value in it.
+
+## 32. Round 5, pass 32 (15:00–15:48 CST) - the masked condition finally valid, a significant live result, and a negative result about my own method
+
+**The masked arm finished clean at 15:00** (48 episodes, $0.4372, 31 minutes wall clock at 10
+workers), after the earlier run had produced 0/48 success and 0% reaching the gold file. That first
+number was a harness fault, not a finding: every episode died before its first tool call because the
+recorded interpreter had been deleted from a temp directory between runs. It looked exactly like a
+spectacular result, and it was disbelieved only by reading transcripts
+(`scripts/diagnose_masked.py`). The venv was rebuilt in-repo and the arm re-run.
+
+**The live experiment now has one significant effect, and it is the one the paper argues about.**
+Valid episodes only (19 of 145 dropped because the mutated package did not actually fail at episode
+start — a filter that *lowers* every arm, which is the signature of a real data problem):
+
+| condition | what the agent sees | success | vs hinted | reached the gold file |
+|---|---|---|---|---|
+| hinted | the exact file and function | **0.561** (n=41) | — | 1.000 |
+| unmasked | full pytest output (normal CI) | 0.372 (n=43) | −0.189, p = 0.125 | **1.000** |
+| masked | only "N failed, M passed" | **0.286** (n=42) | **−0.275, p = 0.015** | 0.952 |
+
+Withholding *which* tests failed is the only significant difference, and the first condition in
+which any agent failed to find the file at all. Read against the leaked-filename measurement
+(51.5% of test observations name the gold module), **roughly a quarter of the benchmark's difficulty
+was the test runner naming the file.** The hint's own effect is *not* significant at this n and is
+reported as inconclusive rather than as a gain.
+
+**Then I pointed the same instrument at my own headline and it failed.** Applying the frozen router
+unchanged to those 125 live episodes gives AUC **0.426** at the 20% checkpoint against 0.584 for the
+published output-overlap baseline — it does not transfer. Rather than leave that as a bridge
+artefact, the question was asked properly on three external scaffolds (88,000 runs with a usable
+outcome label), using the same feature code on both sides of the bridge and adding the control a
+near-chance number cannot supply by itself — how well the *same* features do when fitted inside the
+target:
+
+| test corpus | runs | fitted inside it | **transferred from SWE-agent** | best fixed baseline |
+|---|---|---|---|---|
+| SWE-rebench / OpenHands | 67,074 | 0.653 | **0.495** | 0.655 |
+| thoughtworks agentic-coding | 15,000 | 0.759 | **0.433** | 0.640 |
+| SWE-Gym / OpenHands | 6,055 | 0.761 | **0.319** | 0.425 |
+
+Four feature-set variants (22–31 features, dropping command-digest and observation-scale families
+one at a time and together) move the transferred column only within 0.32–0.54. **The claim is now
+bounded in the paper, the essay and the findings document: the transfer is shard-level generality
+within a scaffold, not scaffold-independent generality.** The mode head could not be tested this way
+at all — the gold patches that define its labels exist for 227 of the 9,921 instances with edits in
+these corpora.
+
+**The number audit now covers 57 values** (transfer verdict, every directional cell, the live arms,
+their pairwise Fisher tests, the router's live deployment, and the cross-scaffold cells) and reports
+**57/57**. This pass it caught a fifth real error in our own manuscript. All six gates are green;
+139 numbers and 69 artifacts are in the export package; docs `REBUILD_FINDINGS_V2.md` §2.34–2.36
+record the new results.
+
+**Passes 22–32 at a glance.** Eight of the ten ended by narrowing or retracting something: a
+self-referential localisation metric that inverts its own comparison; "zero false alarms" that was
+circular; a baseline that was really run length; a 0/48 experiment that was a deleted interpreter; a
+transfer table read off the wrong rows; and now a generality claim that measurably stops at the
+scaffold boundary. The pattern is not accidental — every one of them was caught by a script written
+to falsify a claim, never by re-reading the claim.
+
 
 
 
