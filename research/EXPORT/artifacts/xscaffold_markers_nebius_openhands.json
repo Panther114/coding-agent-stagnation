@@ -1,0 +1,24 @@
+{
+  "nebius_openhands": {
+    "n_runs": 67074,
+    "n_steps": 4316760,
+    "n_tool_obs": 4249707,
+    "obs_with_footer": 13,
+    "obs_with_lines_total": 7,
+    "obs_with_catn": 897176,
+    "obs_truncated": 6,
+    "first_footer_literal": "[File:...|...]",
+    "first_footer_obs_snippet": "Here's the result of running `cat -n` on /workspace/BoboTiG__ebook-reader-dict__unknown/wikidict/render.py:\n     1\t\"\"\"Render templates from raw data.\"\"\"\n     2\t\n     3\timport json\n     4\timport logging\n     5\timport multiprocessing\n     6\timport os\n     7\timport re\n     8\tfrom collections import defaultdict\n     9\tfrom collections.abc import Callable\n    10\tfrom functools import partial\n    11\tfrom itertools import chain\n    12\tfrom pathlib import Path\n    13\tfrom typing import cast\n    14\t\n    15\timport wikitextparser as wtp\n    16\timport wikitextparser._spans\n    17\t\n    18\tfrom .lang import",
+    "first_lines_total_literal": "(8 lines total)",
+    "first_catn_literal": "Here's the result of running `cat -n` on /workspace/PlasmaFAIR__sdf-xarray__unknown/README.md:\n     1\t# sdf-xarray\n     2\t\n     3\t`sdf-xarray` provides a backend for [xarray](https://xarray.dev) to\n     4\tread SDF files as created by the [EPOCH](https://epochpic.github.io)\n     5\tplasma PIC code.\n  ",
+    "max_numbered_line_seen": 117087,
+    "n_edits": 717739,
+    "n_edits_with_target_path": 716202,
+    "n_runs_with_patch": 67018,
+    "patch_chars_total": 718783839,
+    "added_lines_total": 31804316,
+    "n_runs_patch_from_column": 67018,
+    "n_runs_patch_recovered": 0,
+    "patch_trust": "own_patch_column"
+  }
+}

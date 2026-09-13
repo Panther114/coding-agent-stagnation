@@ -1,0 +1,37 @@
+{
+  "purpose": "re-run the kept/revised/dead_end labelling with the cross-scaffold code path on the SWE-agent corpus, to prove the port is faithful and to fix the reference against which the other scaffolds are compared",
+  "n_edit_steps_recomputed": 236137,
+  "n_runs_recomputed": 25681,
+  "n_edit_steps_with_empty_patch": 39486,
+  "frac_edit_steps_with_empty_patch": 0.16721648873323536,
+  "n_runs_with_only_empty_patches": 3487,
+  "n_runs_total": 25681,
+  "frozen_headline": {
+    "kept_rate": 0.15734086568390385,
+    "revised_rate": 0.6515751449370493,
+    "dead_end_rate": 0.19108398937904691,
+    "n_edits": 236137,
+    "scope": "every edit step of every run, including runs that produced no patch at all (13.99% of the edits)"
+  },
+  "reference_all_runs": {
+    "kept_rate": 0.15734086568390385,
+    "revised_rate": 0.6515751449370493,
+    "dead_end_rate": 0.19108398937904691,
+    "n_edits": 236137,
+    "n_runs": 25681
+  },
+  "reference_nonempty_patch_runs_only": {
+    "kept_rate": 0.18893369471805382,
+    "revised_rate": 0.6239581797194014,
+    "dead_end_rate": 0.1871081255625448,
+    "n_edits": 196651,
+    "n_runs": 22194,
+    "scope": "strictly comparable with scaffolds whose final patch has to be recovered from the transcript, where a run with no patch cannot be distinguished from a run with an empty patch"
+  },
+  "abs_diff_vs_frozen": {
+    "kept_rate": 0.0,
+    "revised_rate": 0.0,
+    "dead_end_rate": 0.0
+  },
+  "reproduces_frozen": true
+}

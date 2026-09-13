@@ -1,0 +1,572 @@
+{
+  "purpose": "train on one shard set, test on another; #5 evidence that the router's margin is not a property of one corpus split",
+  "sets": {
+    "A_shards0_3": {
+      "n_runs": 20341,
+      "n_instances": 927,
+      "n_failed": 17031
+    },
+    "B_shards4_7": {
+      "n_runs": 19648,
+      "n_instances": 923,
+      "n_failed": 16463
+    },
+    "C_shards8_11": {
+      "n_runs": 21079,
+      "n_instances": 889,
+      "n_failed": 16704
+    }
+  },
+  "instance_overlap": {
+    "A_shards0_3|B_shards4_7": {
+      "shared_instances": 1,
+      "frac_of_smaller": 0.0011,
+      "examples": [
+        "Parquery__icontract-151"
+      ]
+    },
+    "A_shards0_3|C_shards8_11": {
+      "shared_instances": 0,
+      "frac_of_smaller": 0.0,
+      "examples": []
+    },
+    "B_shards4_7|C_shards8_11": {
+      "shared_instances": 1,
+      "frac_of_smaller": 0.0011,
+      "examples": [
+        "pypa__build-177"
+      ]
+    }
+  },
+  "fractions": [
+    0.1,
+    0.2,
+    0.4,
+    0.6
+  ],
+  "targets": {
+    "y_fail": {
+      "0.1": {
+        "label": "failure prediction",
+        "within_A_shards0_3": 0.6946608911668273,
+        "within_B_shards4_7": 0.6684051606709341,
+        "within_C_shards8_11": 0.6965834359605911,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.6752383037515932,
+            "position": 0.6708294733702357,
+            "agentstop_shape": 0.6011295678402002,
+            "ngram_loop": 0.6704752801367722,
+            "redundancy": 0.6712754665783535,
+            "n_train": 20341,
+            "n_test": 19648
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.7038998836891077,
+            "position": 0.68546026272578,
+            "agentstop_shape": 0.5974202038861521,
+            "ngram_loop": 0.6847256089217296,
+            "redundancy": 0.685765654077723,
+            "n_train": 20341,
+            "n_test": 21079
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.6929966609670902,
+            "position": 0.667251126034434,
+            "agentstop_shape": 0.5848384880529747,
+            "ngram_loop": 0.6669282919488737,
+            "redundancy": 0.6665931380505533,
+            "n_train": 19648,
+            "n_test": 20341
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.7031794198139026,
+            "position": 0.68546026272578,
+            "agentstop_shape": 0.5973883620689655,
+            "ngram_loop": 0.6847256089217296,
+            "redundancy": 0.6852943076081006,
+            "n_train": 19648,
+            "n_test": 21079
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.7028963090408622,
+            "position": 0.667251126034434,
+            "agentstop_shape": 0.5848994041609923,
+            "ngram_loop": 0.6669282919488737,
+            "redundancy": 0.6666718642262616,
+            "n_train": 21079,
+            "n_test": 20341
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.6836576592331922,
+            "position": 0.6708294733702357,
+            "agentstop_shape": 0.6011493448369214,
+            "ngram_loop": 0.6704752801367722,
+            "redundancy": 0.670554607444256,
+            "n_train": 21079,
+            "n_test": 19648
+          }
+        }
+      },
+      "0.2": {
+        "label": "failure prediction",
+        "within_A_shards0_3": 0.7204974986966188,
+        "within_B_shards4_7": 0.6834287934191614,
+        "within_C_shards8_11": 0.7165223453749315,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.6964690336953681,
+            "position": 0.6626384687760414,
+            "agentstop_shape": 0.5541428564753597,
+            "ngram_loop": 0.6585940443395689,
+            "redundancy": 0.6240227288612846,
+            "n_train": 20341,
+            "n_test": 19648
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.7219813149972634,
+            "position": 0.68118504378763,
+            "agentstop_shape": 0.5333419334975369,
+            "ngram_loop": 0.6776600027367269,
+            "redundancy": 0.6434958812260536,
+            "n_train": 20341,
+            "n_test": 21079
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.7085542961377875,
+            "position": 0.6637075611719948,
+            "agentstop_shape": 0.5382215139586406,
+            "ngram_loop": 0.6601357290357853,
+            "redundancy": 0.664543374876558,
+            "n_train": 19648,
+            "n_test": 20341
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.7170845306513409,
+            "position": 0.68118504378763,
+            "agentstop_shape": 0.5330287287903668,
+            "ngram_loop": 0.6776600027367269,
+            "redundancy": 0.6782460727969348,
+            "n_train": 19648,
+            "n_test": 21079
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.725604083259583,
+            "position": 0.6637075611719948,
+            "agentstop_shape": 0.5063671080689718,
+            "ngram_loop": 0.6601357290357853,
+            "redundancy": 0.6698303218531128,
+            "n_train": 21079,
+            "n_test": 20341
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.7079073658442112,
+            "position": 0.6626384687760414,
+            "agentstop_shape": 0.4929341768340041,
+            "ngram_loop": 0.6585940443395689,
+            "redundancy": 0.665271841685618,
+            "n_train": 21079,
+            "n_test": 19648
+          }
+        }
+      },
+      "0.4": {
+        "label": "failure prediction",
+        "within_A_shards0_3": 0.7204716084637557,
+        "within_B_shards4_7": 0.7013045284650008,
+        "within_C_shards8_11": 0.7244006089217296,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.7083408387067675,
+            "position": 0.6644898779252004,
+            "agentstop_shape": 0.571374952309689,
+            "ngram_loop": 0.6542425138489041,
+            "redundancy": 0.630708717354963,
+            "n_train": 20341,
+            "n_test": 19648
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.7283779898741106,
+            "position": 0.6848021004378764,
+            "agentstop_shape": 0.5440035851122058,
+            "ngram_loop": 0.6756539614121511,
+            "redundancy": 0.6485080254515599,
+            "n_train": 20341,
+            "n_test": 21079
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.7174005603075678,
+            "position": 0.6664385416960471,
+            "agentstop_shape": 0.5693284291786384,
+            "ngram_loop": 0.657293533153778,
+            "redundancy": 0.6290997170434366,
+            "n_train": 19648,
+            "n_test": 20341
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.7289633757525998,
+            "position": 0.6848021004378764,
+            "agentstop_shape": 0.5451862205801861,
+            "ngram_loop": 0.6756539614121511,
+            "redundancy": 0.6517426108374386,
+            "n_train": 19648,
+            "n_test": 21079
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.7256229754130596,
+            "position": 0.6664385416960471,
+            "agentstop_shape": 0.5311399188364705,
+            "ngram_loop": 0.657293533153778,
+            "redundancy": 0.6309507489541464,
+            "n_train": 21079,
+            "n_test": 20341
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.7169330474282705,
+            "position": 0.6644898779252004,
+            "agentstop_shape": 0.5374233224191138,
+            "ngram_loop": 0.6542425138489041,
+            "redundancy": 0.6401641433513771,
+            "n_train": 21079,
+            "n_test": 19648
+          }
+        }
+      },
+      "0.6": {
+        "label": "failure prediction",
+        "within_A_shards0_3": 0.7318176149729452,
+        "within_B_shards4_7": 0.7196096169603863,
+        "within_C_shards8_11": 0.7312782840722496,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.7226870282640365,
+            "position": 0.6634965367846895,
+            "agentstop_shape": 0.5673052678614935,
+            "ngram_loop": 0.6505427565033086,
+            "redundancy": 0.6414683189962821,
+            "n_train": 20341,
+            "n_test": 19648
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.7375360974274767,
+            "position": 0.6847685686918445,
+            "agentstop_shape": 0.5566004036672141,
+            "ngram_loop": 0.6716572249589492,
+            "redundancy": 0.6549731116584565,
+            "n_train": 20341,
+            "n_test": 21079
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.7242942450243123,
+            "position": 0.6663149444384429,
+            "agentstop_shape": 0.5735498586991095,
+            "ngram_loop": 0.6556725242985911,
+            "redundancy": 0.6279532294140718,
+            "n_train": 19648,
+            "n_test": 20341
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.731768253968254,
+            "position": 0.6847685686918445,
+            "agentstop_shape": 0.559971189107827,
+            "ngram_loop": 0.6716572249589492,
+            "redundancy": 0.6524407840722497,
+            "n_train": 19648,
+            "n_test": 21079
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.7353241760493261,
+            "position": 0.6663149444384429,
+            "agentstop_shape": 0.5601523239743557,
+            "ngram_loop": 0.6556725242985911,
+            "redundancy": 0.641416718154437,
+            "n_train": 21079,
+            "n_test": 20341
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.7307359607877654,
+            "position": 0.6634965367846895,
+            "agentstop_shape": 0.5731782348906462,
+            "ngram_loop": 0.6505427565033086,
+            "redundancy": 0.6520463899304764,
+            "n_train": 21079,
+            "n_test": 19648
+          }
+        }
+      }
+    },
+    "y_wrong_fix": {
+      "0.1": {
+        "label": "lost vs wrong-fix (failed runs only)",
+        "within_A_shards0_3": 0.6741538499976008,
+        "within_B_shards4_7": 0.702240682073354,
+        "within_C_shards8_11": 0.6932944190607403,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.7053203426557206,
+            "position": 0.6041815602161986,
+            "agentstop_shape": 0.5186829790271067,
+            "ngram_loop": 0.603485462309655,
+            "redundancy": 0.6157288025883552,
+            "n_train": 17031,
+            "n_test": 16463
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.6979478156067942,
+            "position": 0.6120313301257487,
+            "agentstop_shape": 0.49602402159571474,
+            "ngram_loop": 0.61234950692827,
+            "redundancy": 0.6280225155356841,
+            "n_train": 17031,
+            "n_test": 16704
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.6817488236159316,
+            "position": 0.593093098977219,
+            "agentstop_shape": 0.5164841063453961,
+            "ngram_loop": 0.5912571806889533,
+            "redundancy": 0.6023169311319911,
+            "n_train": 16463,
+            "n_test": 17031
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.7009625147496048,
+            "position": 0.6120313301257487,
+            "agentstop_shape": 0.4962058545612716,
+            "ngram_loop": 0.61234950692827,
+            "redundancy": 0.627781023937042,
+            "n_train": 16463,
+            "n_test": 16704
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.6825947273778081,
+            "position": 0.593093098977219,
+            "agentstop_shape": 0.516459302117122,
+            "ngram_loop": 0.5912571806889533,
+            "redundancy": 0.6018529028784737,
+            "n_train": 16704,
+            "n_test": 17031
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.7055730291117266,
+            "position": 0.6041815602161986,
+            "agentstop_shape": 0.5190158246648414,
+            "ngram_loop": 0.603485462309655,
+            "redundancy": 0.6151648797711399,
+            "n_train": 16704,
+            "n_test": 16463
+          }
+        }
+      },
+      "0.2": {
+        "label": "lost vs wrong-fix (failed runs only)",
+        "within_A_shards0_3": 0.6981735619718629,
+        "within_B_shards4_7": 0.7260543443567077,
+        "within_C_shards8_11": 0.7219465779565598,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.7346426935864064,
+            "position": 0.598515072635585,
+            "agentstop_shape": 0.5743062150129623,
+            "ngram_loop": 0.5961621148410793,
+            "redundancy": 0.6044754744623949,
+            "n_train": 17031,
+            "n_test": 16463
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.7274166784874566,
+            "position": 0.6092539605309417,
+            "agentstop_shape": 0.5713748519634261,
+            "ngram_loop": 0.6088477783645488,
+            "redundancy": 0.6137958388296468,
+            "n_train": 17031,
+            "n_test": 16704
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.7086156390839444,
+            "position": 0.588734356444688,
+            "agentstop_shape": 0.5681123207526648,
+            "ngram_loop": 0.5855103472970328,
+            "redundancy": 0.5989996433716526,
+            "n_train": 16463,
+            "n_test": 17031
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.7295013021658803,
+            "position": 0.6092539605309417,
+            "agentstop_shape": 0.571491466599312,
+            "ngram_loop": 0.6088477783645488,
+            "redundancy": 0.6130459438654424,
+            "n_train": 16463,
+            "n_test": 16704
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.7047717944934253,
+            "position": 0.588734356444688,
+            "agentstop_shape": 0.5681715536101353,
+            "ngram_loop": 0.5855103472970328,
+            "redundancy": 0.5972132809886042,
+            "n_train": 16704,
+            "n_test": 17031
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.7317204023951273,
+            "position": 0.598515072635585,
+            "agentstop_shape": 0.5755005901248911,
+            "ngram_loop": 0.5961621148410793,
+            "redundancy": 0.6012477457295244,
+            "n_train": 16704,
+            "n_test": 16463
+          }
+        }
+      },
+      "0.4": {
+        "label": "lost vs wrong-fix (failed runs only)",
+        "within_A_shards0_3": 0.7234516380910545,
+        "within_B_shards4_7": 0.7490587078445639,
+        "within_C_shards8_11": 0.7473970388592677,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.7515630214394422,
+            "position": 0.5977569389237258,
+            "agentstop_shape": 0.6393900021741443,
+            "ngram_loop": 0.5891360270915567,
+            "redundancy": 0.5972976922350005,
+            "n_train": 17031,
+            "n_test": 16463
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.7497674386639988,
+            "position": 0.6087459278118185,
+            "agentstop_shape": 0.6433182215117479,
+            "ngram_loop": 0.6023788783420243,
+            "redundancy": 0.6034708490822678,
+            "n_train": 17031,
+            "n_test": 16704
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.728716320527565,
+            "position": 0.587352571745029,
+            "agentstop_shape": 0.6318644650721932,
+            "ngram_loop": 0.5774335155092791,
+            "redundancy": 0.5903285536246095,
+            "n_train": 16463,
+            "n_test": 17031
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.7565440756143447,
+            "position": 0.6087459278118185,
+            "agentstop_shape": 0.6432130969154726,
+            "ngram_loop": 0.6035255812064342,
+            "redundancy": 0.6011455832032917,
+            "n_train": 16463,
+            "n_test": 16704
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.7259163105338032,
+            "position": 0.587352571745029,
+            "agentstop_shape": 0.6320826581988755,
+            "ngram_loop": 0.5703187709691072,
+            "redundancy": 0.5954209803051425,
+            "n_train": 16704,
+            "n_test": 17031
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.7530155514099226,
+            "position": 0.5977569389237258,
+            "agentstop_shape": 0.6394233908192956,
+            "ngram_loop": 0.5824411163735537,
+            "redundancy": 0.5999099861290913,
+            "n_train": 16704,
+            "n_test": 16463
+          }
+        }
+      },
+      "0.6": {
+        "label": "lost vs wrong-fix (failed runs only)",
+        "within_A_shards0_3": 0.751143847287153,
+        "within_B_shards4_7": 0.7683250299523077,
+        "within_C_shards8_11": 0.7742132160628592,
+        "cross": {
+          "A_shards0_3->B_shards4_7": {
+            "own_rates": 0.7727529491375784,
+            "position": 0.596687114527183,
+            "agentstop_shape": 0.6620857478560889,
+            "ngram_loop": 0.45670374937468583,
+            "redundancy": 0.5980927665755377,
+            "n_train": 17031,
+            "n_test": 16463
+          },
+          "A_shards0_3->C_shards8_11": {
+            "own_rates": 0.7754468046300227,
+            "position": 0.6080130903056111,
+            "agentstop_shape": 0.6653708970114854,
+            "ngram_loop": 0.42910681852771976,
+            "redundancy": 0.5974796505452711,
+            "n_train": 17031,
+            "n_test": 16704
+          },
+          "B_shards4_7->A_shards0_3": {
+            "own_rates": 0.7536082719879122,
+            "position": 0.587169250180191,
+            "agentstop_shape": 0.6631935491949826,
+            "ngram_loop": 0.4412266138318587,
+            "redundancy": 0.576243730851421,
+            "n_train": 16463,
+            "n_test": 17031
+          },
+          "B_shards4_7->C_shards8_11": {
+            "own_rates": 0.7763233911801746,
+            "position": 0.6080130903056111,
+            "agentstop_shape": 0.6661362201337153,
+            "ngram_loop": 0.42910681852771976,
+            "redundancy": 0.5940737649732475,
+            "n_train": 16463,
+            "n_test": 16704
+          },
+          "C_shards8_11->A_shards0_3": {
+            "own_rates": 0.7525234848895703,
+            "position": 0.587169250180191,
+            "agentstop_shape": 0.663331684122417,
+            "ngram_loop": 0.5654285918399375,
+            "redundancy": 0.5747020324512577,
+            "n_train": 16704,
+            "n_test": 17031
+          },
+          "C_shards8_11->B_shards4_7": {
+            "own_rates": 0.7704853628541162,
+            "position": 0.596687114527183,
+            "agentstop_shape": 0.6631024742291205,
+            "ngram_loop": 0.5769217717756415,
+            "redundancy": 0.5922367682831331,
+            "n_train": 16704,
+            "n_test": 16463
+          }
+        }
+      }
+    }
+  },
+  "note": "features use steps 0..L-1 only; labels come from gold patches; each method is trained on the source set's rows and scored on the target set's rows, with standardisation computed on the source only",
+  "verdict": {
+    "y_fail": {
+      "within_own_rates_mean": 0.7169,
+      "cross_own_rates_mean": 0.7145,
+      "cross_own_rates_min": 0.6752,
+      "cross_position_mean": 0.6718,
+      "cross_agentstop_mean": 0.5589,
+      "own_minus_position": 0.0427,
+      "own_minus_agentstop": 0.1556,
+      "n_cross_cells": 24
+    },
+    "y_wrong_fix": {
+      "within_own_rates_mean": 0.7117,
+      "cross_own_rates_mean": 0.7324,
+      "cross_own_rates_min": 0.6817,
+      "cross_position_mean": 0.5993,
+      "cross_agentstop_mean": 0.596,
+      "own_minus_position": 0.1331,
+      "own_minus_agentstop": 0.1364,
+      "n_cross_cells": 24
+    }
+  }
+}

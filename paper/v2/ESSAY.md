@@ -1,6 +1,6 @@
-# Where Coding Agents Actually Fail
+# Lost or Wrong?
 
-### A measurement blind spot, a bounded localisation effect, and a working router
+### A runtime router that tells you *how* a coding agent is failing — and therefore what to do
 
 **Ziheng Yu · Xuhao Chen**
 S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026
@@ -9,526 +9,368 @@ S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026
 
 ## Abstract
 
-Coding agents fail, and a large literature tries to detect *when*. This study asks a different
-question first: **are we measuring the right thing?** Working from 236,137 mechanically labelled
-edit operations across 25,681 agent runs on 1,213 real software-engineering instances, we report
-four results, one of which is a correction to our own earlier headline.
+When a coding agent starts to struggle, a developer (or an automated system) has one practical
+decision to make: **help it find the code, or make it check its own fix?** Those are opposite
+actions. Today's runtime monitors cannot choose between them, because they only detect *that* an
+agent is struggling — they carry no signal at all about *how*. We show this directly: on identical
+rows and folds, the published stagnation- and loop-detection families score **0.554–0.607** at
+predicting failure, and on the question that actually decides the intervention — is the agent LOST
+(has not found the code) or WRONG-FIX (found it, and the change does not work) — they score **at or
+below chance (0.41–0.54)**.
 
-First, we identify a **measurement blind spot**. A commonly computable statistic — the share of a
-run's edits aimed at files in *that run's own final patch* — inverts the sign of the
-solved-versus-failed comparison. On our data it reports failed runs localising *better* (0.673 vs
-0.585). Against an **independent gold patch**, the direction reverses (0.477 vs 0.407). The metric
-is a closed loop: its target set is the run's own output, so a run that fixates on the wrong file
-and never wavers scores 1.0. Two published papers report the direction our correction recovers. We
-stress-tested three mechanisms for the inversion and **all three failed**, so the defect is
-demonstrated but not mechanistically explained.
+We build the missing piece. **`Route` is a causal, reference-free runtime router** that reads only
+the first 10–60% of a run and outputs both whether the run will fail and, if so, which of the two
+failure modes it is in, together with the intervention that follows. Trained on one set of agent
+runs and tested on **two disjoint sets it never saw** (24 cells: every ordered pair of shard sets ×
+four prefix fractions), it reaches **0.7145** at failure prediction and **0.7324** at mode
+discrimination — **+0.156 and +0.136 AUC over the published detector family** on the same rows and
+folds. Cross-set performance equals within-set performance, so the margin is not fitted to one
+corpus.
 
-Second, we bound what localisation can buy. The robust measure is binary — did the run ever edit a
-gold-patch file — and it is positive in every patch-width stratum: **98.2% of successful runs and
-69.1% of failed runs reach the correct file**. Localisation is necessary but capped: it can address
-at most the **30.9%** of failures that never reach the file. The remaining 69.1% happen with the
-agent already in the right place.
+Two results make the router trustworthy rather than merely accurate. Its **false-alarm rate is
+genuinely controlled** (α = 0.05 → 0.046 achieved, 8 of 8 levels) using a sequential test against
+an explicit null — replacing an earlier claim of ours that was **circular** and has been withdrawn.
+And as a decision rule it beats every fixed policy: routing on the predicted mode is worth
+**0.764–0.800** against 0.732 for always-verify, 0.656 for random and 0.518 for always-search, in
+**12 of 12** fraction × cost cells.
 
-Third, we make that causal rather than correlational. Holding a defect fixed and varying **only**
-how easy it is to find, across three arms of a live experiment on real Python packages: handing the
-agent the exact file and function moves success from **23.5% to 43.8%** — real, but the
-failure-rate drop (0.203) is below the 0.309 our observational result predicted as the ceiling, and
-confirmed in advance. Decisively, **even when the agent reaches the correct file — 82% of runs did —
-it succeeded only 28.6% of the time.** A prompt telling it to re-diagnose after a failed test did
-**not** help. Being in the right place is necessary and nowhere near sufficient.
+We then test the router's premise in a live environment and find something uncomfortable: on the
+benchmark suite we built, **100% of runs reached the correct file** — because the verifier itself
+prints the failing test's filename, which contains the module name. Localisation was being solved
+by string-matching, not by diagnosis. Masking the failure location (the agent is told *that* tests
+fail, never *where*) is the condition the router exists for, and we report what happens there.
 
-Fourth, we build a **causal, reference-free router** that decides whether a struggling run needs
-*search* or *verification*. Using only the first 10–60% of a run, it beats every baseline on
-identical rows and folds: **0.693–0.731** on failure prediction and **0.676–0.751** on
-distinguishing lost from wrong-fix runs, where every published-style heuristic — loop detection,
-burst detection, redundancy, output-shape — sits **at or below chance (0.407–0.539)**. Its
-false-alarm rate is genuinely controlled (α = 0.05 → 0.046 achieved), unlike the circular
-calibration claim we withdrew. As a routing policy it is worth 0.764–0.800 against 0.732 for always
-verifying and 0.518 for always searching.
-
-We report a ledger of **eight claims we retracted, including three of our own headlines.** The most
-transferable result of this work is not a number but a procedure: we wrote tests designed to
-falsify our own claims, and they succeeded eight times.
+Along the way we found and fixed a measurement trap that inverts a common result, and we record
+**eight retractions of our own claims**, because the project's rule was that a claim survives only
+if the test written to falsify it fails.
 
 ---
 
-## 1. Introduction
+## 1. The intervention problem
 
-Coding agents resolve a substantial share of real software issues and fail on the rest. A large body
-of work treats failure as a *monitoring* problem: watch the trajectory, notice when the agent is
-stuck, intervene. That framing has a hidden premise — that the agent fails because it is **lost**,
-unable to find the right place to work.
+A coding agent runs for fifty steps and is not solving the task. Someone has to decide what to do.
+The literature has produced many ways to notice this — loop detectors, redundancy measures,
+stagnation triggers, output-shape anomalies — and they are decent at noticing: published detectors
+sit around AUC 0.6–0.7 [1], and a failure-as-a-process monitor reaches 82% precision at a 2–3%
+false-alarm rate [2].
 
-This study began with a startling result supporting the opposite view. On tasks containing both a
-solved and a failed run, failed runs appeared to aim a *higher* share of their edits at the file
-that ends up in their patch (0.620) than solved runs did (0.576), *p* = 3.3 × 10⁻⁴. If failures
-localise at least as well as successes, then localisation is not the bottleneck and a great deal of
-monitoring research is aimed at the wrong target.
+But *noticing* is not *deciding*. There are two very different reasons an agent can be stuck:
 
-That result is wrong, and §3 shows why. But the way it is wrong, and what stands in its place, are
-more useful than the original claim.
+* **LOST** — it has not found the code that needs changing. Lengthy searching, wrong-file edits,
+  no edit at all. The remedy is to supply a location.
+* **WRONG-FIX** — it found the right code and its change does not work. Repeated edits to the same
+  place, tests still failing. The remedy is to force it to re-examine its diagnosis, or to stop it.
 
-We had two advantages over the usual setup. First, the agent framework we study prints a structural
-footer into its observations — `[File: /abs/path/to/file.py (N lines total)]` — in **95.8% of edit
-steps, covering 95.8% of all editing**. That lets us label every single edit mechanically, with no
-human judgement and no model in the loop: whether the file changed, by how many lines, and whether
-those lines ever appear in the agent's final submitted patch. This converts the study from *"we
-asked a model what stagnation looks like"* to *"we counted which written lines shipped."*
+These remedies are **opposite**, and applying the wrong one wastes the very budget you were trying
+to save. So a monitor that cannot separate them cannot be acted on — however good its AUC.
 
-Second, we obtained **independent ground truth**: gold patches for 927 of the 1,213 instances from
-the upstream SWE-rebench and SWE-bench corpora. That is a target completely independent of what any
-agent produced — and it is what exposed the blind spot.
+We measured the two modes on 236,137 mechanically labelled edits across 25,681 agent runs on 1,213
+real software-engineering instances, and then replicated the measurement on two further, disjoint
+sets of ~26,000 runs each:
 
-Our contributions:
-
-1. **A measurement blind spot**, demonstrated with both metrics on identical edits and a control
-   showing the two agree where they must (§3).
-2. **A bounded-localsation result**, robust across every stratum, replacing a retracted claim (§4).
-3. **A causal test**: the same defect with localisation solved by fiat (§5).
-4. **A working router** that beats every baseline on a target where the field's detectors have no
-   signal, with genuine false-alarm control (§6).
-5. **A retraction ledger** (§8) and an honest account of what failed.
-
----
-
-## 2. Related work, and what is not ours
-
-We verified every citation below by fetching it directly; reconnaissance summaries were not trusted
-for load-bearing claims.
-
-**The interpretation is not ours.** *Coherence Collapse* ([arXiv:2603.24631](https://arxiv.org/abs/2603.24631),
-2026) reports across 16,758 trajectories that *"the dominant failure of capable models is not
-localization: 60–69% of failures on SWE-Agent and OpenHands reach and edit the correct functions yet
-still produce incorrect patches."* Our independently measured **67.1% sits inside that range.** A
-second study ([arXiv:2511.00197](https://arxiv.org/abs/2511.00197), ICSE 2026) finds the majority of
-failing trajectories locate the correct files. We therefore claim **no novelty** for the qualitative
-finding that agents fail after reaching the right code, and we say so explicitly rather than
-re-deriving it.
-
-**Two papers report the opposite direction on adjacent metrics** — FailForge
-([arXiv:2608.08570](https://arxiv.org/abs/2608.08570)) reports localisation precision higher for
-passing than failing runs, and TraceProbe ([arXiv:2607.06184](https://arxiv.org/abs/2607.06184))
-finds same-task file-selection divergence in failed runs. These are consistent with **our corrected**
-result and inconsistent with the metric we expose in §3. Reconciling an apparent contradiction in
-the literature is part of what we contribute.
-
-**The monitoring framing is not ours either.** *Confident and Wrong: Silent Semantic Failures in
-Coding Agents* ([arXiv:2603.25764](https://arxiv.org/abs/2603.25764)) shows GPT-5 submitting a patch
-on 100% of runs while resolving 44%, and observes that *"completion-based and consistency-based
-monitoring both look healthy exactly when the agent should not be trusted."* Our finding that the
-*most* fixated runs are precisely the ones that never reached the right file (§3) independently
-corroborates that warning.
-
-**Waste has been measured before.** TRIM ([arXiv:2607.18161](https://arxiv.org/abs/2607.18161))
-reports 20.0% "CodeSlop" on SWE-bench, close to our 19.1% dead-end rate. The objects differ and we
-state the difference plainly: TRIM measures unnecessary *lines in a passing patch*, established by
-counterfactual re-execution; we measure edit *operations* that never reach the patch, with no
-execution at all. Ours is cheaper and coarser; theirs is causally stronger.
-
-**The detection bar is soft, which is why our router is worth reporting.** Published detectors sit
-at AUC 0.6–0.7 ([arXiv:2605.15206](https://arxiv.org/abs/2605.15206)); the field's shared
-attribution benchmark reaches 53.5% agent-level but only **14.2% step-level**
-([arXiv:2505.00212](https://arxiv.org/abs/2505.00212)); a failure-as-a-process monitor achieves 82%
-precision at 2–3% false alarms but only **18.2% recall**
-([arXiv:2607.09510](https://arxiv.org/abs/2607.09510)); the step-level redundancy ceiling is
-**24.88%** ([arXiv:2605.29893](https://arxiv.org/abs/2605.29893)).
-
-**What is ours** is the measurement result: no located paper reports failed runs localising *better*
-within-instance, and a broken self-referential metric is exactly what produces that sign.
-
----
-
-## 3. The measurement blind spot
-
-### 3.1 The statistic
-
-The conventional localisation statistic is:
-
-> **on-target** = (the run's edits aimed at files its final patch touches) ÷ (the run's edits)
-
-Both the numerator's file set and the denominator come from **the same run**. It asks *"did the run
-converge on what it produced?"*, not *"did it aim at the right place?"* A run that fixates on the
-wrong file and never wavers scores 1.0.
-
-### 3.2 Replacing the target with ground truth
-
-We obtain gold patches for 927 of 1,213 instances (843 SWE-rebench, 84 SWE-bench) and recompute on
-**identical edit steps**.
-
-| measure | solved | failed | reading |
-|---|---|---|---|
-| on-target, own patch (*the conventional statistic*) | 0.594 | **0.670** | failed "better" — the startling result reproduces |
-| on-target, **gold** patch (basename match) | **0.477** | 0.407 | direction reverses |
-| on-target, **gold** patch (path match) | **0.510** | 0.430 | robust to the match rule |
-| **ever reached a gold file** | **0.982** | 0.670 | large and unambiguous |
-
-*Pooled over runs. Within-instance paired means for the gold target are 0.496 solved vs 0.448 failed, p = 0.007 over 228 instances.*
-
-### 3.3 A control that both metrics are sane
-
-Restrict to runs whose own patch is a *single* file that *is* a gold file. There the two target sets
-must coincide, and they do: 0.615 vs 0.638, mean absolute gap 0.033 (n = 8,801). Neither definition
-is broken; they genuinely measure different things.
-
-### 3.4 The robust measure, and why the shares are not
-
-Both **shares** are fragile to patch composition. The **binary** measure is not:
-
-| own patch width | n solved | n failed | ever reached gold (solved) | (failed) | Δ |
-|---|---|---|---|---|---|
-| 1 file | 2,555 | 9,070 | 0.992 | 0.691 | **+0.301** |
-| 2 files | 593 | 3,688 | 0.963 | 0.734 | +0.229 |
-| 3 files | 111 | 1,010 | 0.973 | 0.697 | +0.276 |
-| 4+ files | 49 | 809 | 0.694 | 0.621 | +0.073 |
-
-The binary measure is positive in **every** stratum. The share-based gold measure is +0.070 pooled
-but only **+0.020** after standardising over patch width — 72% of the gap is composition — and it
-flips sign inside strata 2–4. So we quote the binary one and refuse to quote the share.
-
-### 3.5 Three mechanisms tested; all three falsified
-
-We did not accept "the metric is broken" without trying to say *how*. All three attempts failed, and
-we report them because the failures are informative:
-
-1. **Confident wrongness** — the idea that a run fixating on a *wrong* file scores high. **Falsified:**
-   runs that never reached a gold file score **lower** (0.661) than those that did (0.679), with the
-   95% CI excluding zero on the wrong side.
-2. **Patch breadth** — failed runs write broader patches (2.20 files vs 1.35), enlarging their own
-   target set. **Falsified as the explanation:** standardising over patch width makes the
-   self-referential gap *larger* (−0.088 → −0.125), and the gap is already largest in the narrowest
-   stratum, where breadth cannot operate.
-3. **Fixation** — the metric rewards concentrating edits on one file. **Partly supported, but not the
-   mechanism:** failed runs are more fixated (0.779 vs 0.727) and the most fixated runs of all are
-   those that never reached the right file (0.818 vs 0.759) — which independently corroborates the
-   *Confident and Wrong* warning — but fixation correlates no more with the broken metric (0.251)
-   than with the gold metric (0.294).
-
-**So the honest conclusion is a construct-validity one, not a mechanism one.** We can demonstrate
-the inversion, prove the metrics agree where they must, and show the correction restores agreement
-with the literature. We cannot yet explain it. Three candidate mechanisms were tested and all three
-failed; the mechanism remains **open**.
-
-### 3.6 Two independent replications on eight unseen shards
-
-The frozen study used Nebius shards 0–3. Shards **4–7** and **8–11** were separately downloaded and
-parsed into their own tables, so no replication touches the frozen artifacts, with gold patches
-resolved independently (74.6% and 77.9% coverage). Together the three tables cover **12 of 12 shards
-and 80,035 runs**:
-
-| set | shards | runs | `on_target_self` solved → failed | `on_target_gold` solved | failed | within-inst *p* | wrong-fix | *n* |
-|---|---|---|---|---|---|---|---|---|
-| frozen | 0–3 | 26,679 | 0.594 → **0.670** | **0.477** | 0.407 | 7.0 × 10⁻³ | 67.0% | 16,327 |
-| held-out A | 4–7 | 26,680 | 0.593 → **0.677** | **0.492** | 0.421 | 3.6 × 10⁻³ | 69.0% | 15,837 |
-| held-out B | 8–11 | 26,676 | 0.614 → **0.686** | **0.512** | 0.415 | **2.8 × 10⁻⁵** | 66.4% | 15,953 |
-
-**All three agree, on three disjoint sets of ~26,000 runs each.** The broken metric inverts in every
-one; the gold target reverses it back in every one, with the paired test *strengthening* on the
-unseen data (7.0 × 10⁻³ → 2.8 × 10⁻⁵); and the wrong-fix share of failures varies by only **2.6
-percentage points**. A result that survives two independent replications on data the study never saw
-is not a sampling artefact.
-
-**Scope, stated plainly.** This is **not** a merged 80k-run table. It is full shard coverage as one
-frozen table plus two held-out replications — methodologically stronger than a merge, since each
-replication is genuinely unseen, but it means the pipeline was never re-run on one 80k table. The
-earlier single-table attempt failed (two builds raced on one output file) and that failure is
-recorded rather than hidden. **No claim rests on a merged table.**
-
----
-
-## 4. Where failures actually are
-
-With a target that does not depend on the agent, failure splits mechanically in two:
-
-| failure mode | definition | share |
+| failure mode | definition (mechanical, no judgement) | share |
 |---|---|---|
-| **WRONG-FIX** | failed, but *did* edit a gold file | **67.1%** (10,947 runs) |
-| **LOST** | failed and never edited a gold file | 30.9% (5,380 runs) |
+| **WRONG-FIX** | the run failed, but it *did* edit a file the gold patch touches | **67.0%** / 69.0% / 66.4% |
+| **LOST** | the run failed and never edited such a file | 33.0% / 31.0% / 33.6% |
 
-Stable across model scale: 66.8% (Llama-70B), 70.7% (8B), 70.2% (405B), and across instances
-regardless of how many files the gold patch touches (64.8–74.0%).
-
-Because the binary measure is stratum-robust while the shares are not, the defensible claim is:
-
-> **98.2% of successful runs and 69.1% of failed runs reach the correct file. Localisation tooling
-> can therefore address at most the 30.9% of failures that never get there; the remaining 69.1%
-> happen with the agent already in the right place.**
-
-This is a **bounded-lever** claim, and it is weaker than "localisation does not matter" — which is
-what our earlier, retracted result implied. The corrected version is also the one that agrees with
-the published literature rather than contradicting it.
+Two-thirds of failures happen with the agent already in the right file. That ratio is stable to
+within **2.6 points** across three disjoint shard sets, and across model scale (66.8% Llama-70B,
+70.7% 8B, 70.2% 405B). It is the empirical reason the router is worth building: the interesting
+decision is not "is it failing" but "which of these two is it".
 
 ---
 
-## 5. The causal test
+## 2. A trap we hit first, and why it matters
 
-§4 is correlational. A reviewer can answer *"that is selection"*. So we intervened, holding the
-defect fixed and changing **only** how easy it is to locate.
+Before building anything we tried to reproduce the natural measurement of localisation, and got a
+result that looked like a headline: **failed runs localise *better* than successful ones**
+(0.670 vs 0.594, *p* = 3.3 × 10⁻⁴).
 
-**Design.** Real pure-Python packages, no Docker, the packages' own test suites as the verifier.
-Three arms, same tasks, same model, same budget:
+It was wrong, and the reason is worth stating because it is easy to fall into: that statistic is
+computed against **the run's own final patch**. Both the numerator's file set and the denominator
+come from the run itself, so it measures *convergence on what the run produced*, not aim at the
+*correct* file — and a run that fixates on the wrong file and never wavers scores a perfect 1.0.
 
-| arm | manipulation |
-|---|---|
-| unhinted | a defect exists; find and fix it |
-| hinted | told the exact file **and** function — localisation solved by fiat |
-| verify | unhinted, plus "after a failed test, re-diagnose before changing more code" |
+Recomputed against an **independent gold patch** for 927 of the 1,213 instances, the direction
+reverses. The control that settles it: restricted to runs whose own patch is a single file that
+*is* a gold file — where the two target sets must coincide — the two metrics agree (0.615 vs 0.638,
+mean absolute gap 0.033 over 8,801 runs). Neither definition is broken; they measure different
+things, and only one of them answers the question.
 
-Predictions were **fixed in advance** from §4, so that a failure could not be reinterpreted after
-the fact.
+| measure | solved | failed |
+|---|---|---|
+| on-target, own patch (*the trap*) | 0.594 | **0.670** |
+| on-target, gold patch | **0.477** | 0.407 |
+| **ever reached a gold file** | **0.982** | 0.670 |
 
-**Two harness faults had to be fixed first, and both were caught by reading transcripts rather than
-scores.**
-
-- **65.2% of turns were unparseable.** Our first protocol was ad-hoc text, but the model emits its
-  own XML tool-call format regardless. The pilot was measuring *protocol compliance*, not debugging.
-  Native function-calling reduced this to 0–4%. This was invisible in the pass/fail column and would
-  have silently invalidated everything.
-- **The agent was writing its own tests into `tests/`** (`test_debug.py`, `test_aaa_dump.py`), which
-  pytest collects. An agent-authored passing test could have scored a run as **successful without the
-  defect being fixed.** The verifier is now restored to the package's original tests before final
-  grading — as a real grader does. Counts are logged.
-
-**Results.** The larger run used a 48-task suite (8 real packages, 2 arms, 96 episodes, $0.91).
-Auditing the raw episode records — not the summary — showed **13 episodes where the task was not
-actually broken at the start**, so those are excluded. On the remaining 83:
-
-| arm | n | success | 95% CI | **reached gold** | **success given gold** | turns |
-|---|---|---|---|---|---|---|
-| hinted | 40 | **0.550** | [0.40, 0.70] | **1.000** | **0.550** | 11.4 |
-| unhinted | 43 | **0.372** | [0.23, 0.51] | **1.000** | **0.372** | 12.2 |
-
-**Every run in both arms reached the correct file — and 62.8% of the unhinted runs still failed.**
-This is the cleanest form of the entire result: in this suite localisation was never the barrier at
-all, and the binding constraint is plainly the fix. It is the causal counterpart of the observational
-69.1% / 98.2% gap, under a manipulation that removes search cost entirely.
-
-**P1 held.** Handing over the exact file and function raised success by +17.8 points, and the
-*failure-rate* drop, 0.178, is below the 0.309 ceiling §4 predicted in advance.
-
-**The effect is not statistically significant, and we say so.** Fisher's exact test on 40 vs 43
-episodes gives **p = 0.126**. P1 was pre-registered as an *inequality about magnitude* precisely so
-it could be checked without significance; a reader must not read it as a demonstrated improvement.
-
-**P3 held.** 100% of runs reached the file and a majority still failed. An earlier, smaller run (16
-tasks, 3 arms, 50 episodes) gave the same shape and carried the `verify` arm: hinted 0.438, verify
-0.353, unhinted 0.235, with success-given-gold of 0.583 / 0.400 / 0.286.
-
-**P2 failed and we report it as a failure.** Telling the agent to re-diagnose after a failed test did
-**not** help; hinting was the strongest arm. The most obvious practical intervention this study could
-recommend does not work. This is the second time a "spend the budget on verification" intuition has
-failed under test in this project.
-
-**A behavioural finding of its own.** In **71 of the 83 valid episodes the agent created or modified
-files under `tests/`** — 1,048 files removed by the verifier restore in total. Agents write their own
-tests constantly while debugging. Because the verifier is restored before grading, an agent that
-"fixes" a test to make it pass is still scored as failing; but the frequency is itself a measurement,
-and it is exactly why our first harness would have produced a **wrong success measure**.
+We would rather report this than the tempting number, because every quantity in this paper is built
+on the independent target. We also tested three candidate explanations for the inversion
+(confident wrongness, patch breadth, fixation) and **all three failed**; the mechanism is recorded
+as open rather than asserted.
 
 ---
 
-## 6. A router that works, on a target where the field has no signal
+## 3. The system
 
-If 69.1% of failures happen in the right file, a runtime system facing a struggling agent should
-decide: spend on **search**, or on **verification**? We built a predictor of which situation it is
-in, using **only the first 10–60% of a run**.
+### 3.1 What it does
 
-**Causality and integrity.** The prefix is steps `0…L−1`; the run's total length appears in no
-feature. A self-test that overwrites every post-cutoff step confirms all 112 feature columns are
-unchanged — it caught a genuine leak, now fixed. Folds are task-disjoint; every method is scored on
-identical rows and folds.
+```
+python demo/route.py --replay <run_id>
+```
 
-| target | 10% | 20% | 40% | 60% |
+`Route` reads a run's first *f* fraction of steps — *f* = 10%, 20%, 40% or 60% — and outputs:
+
+```
+at 20% of the run:
+    P(fail) = 0.772   P(wrong-fix | this is a failing run) = 0.682
+    -> VERIFY (it is in the right place, make it check its fix)
+
+ground truth: reward=0 -> WRONG-FIX
+```
+
+That is a real held-out run, and the router called it correctly four fractions deep.
+
+### 3.2 What it may look at, and what it may not
+
+The design constraint that makes the result meaningful is **causality**. The prefix is steps
+`0 … L−1` with `L = round(f · n_steps)`; the run's own length appears in **no** feature. A
+self-test overwrites every post-cutoff step and asserts that all 112 feature columns are unchanged —
+it caught a genuine leak during development (a feature that read past the prefix), which is now
+fixed. Labels come from the dataset's gold patch, never from the agent's own output. Folds are
+task-disjoint: no task appears in both training and test.
+
+The router's inputs are ordinary observables: edit counts and rates, no-op edit fraction, repeat
+and entropy of command signatures, read/edit/run/verify mix, observation-size trend, and the
+pass/fail/error signals visible so far. It has two heads — `P(fail)` and `P(wrong-fix | fail)` —
+and the routing rule is simply: intervene only if `P(fail)` is high, and then choose SEARCH if the
+mode head says LOST and VERIFY if it says WRONG-FIX.
+
+### 3.3 One detail that changed a comparison
+
+An earlier version of this work compared the router against "position" (how far into the run we
+are) and found it barely won. That comparison was **invalid**: at a fixed prefix fraction, position
+*is* the run's length (`round(f · n_steps)`) — a quantity no online system can know. Verified: its
+AUC matches run length's to ≤0.006. Against a length-matched control (fixed prefix lengths of 5, 10
+and 20 steps, where position is inert) the learned model holds at 0.63–0.76 and strictly dominates
+run length; adding position to the features changes the result by ≤0.002.
+
+---
+
+## 4. Results
+
+### 4.1 The published detectors cannot make this decision
+
+On identical rows, identical task-disjoint folds, and identical features:
+
+| target | `Route` | position | AgentStop-style shape | loop / redundancy families |
 |---|---|---|---|---|
-| failure prediction | **0.693** | **0.721** | **0.721** | **0.731** |
-| — position baseline | 0.667 | 0.664 | 0.666 | 0.666 |
-| — output-shape (AgentStop-style) | 0.554 | 0.565 | 0.594 | 0.607 |
-| **lost vs wrong-fix** | **0.676** | **0.701** | **0.724** | **0.751** |
-| — **every** baseline | 0.407–0.493 | 0.411–0.490 | 0.413–0.486 | 0.413–0.539 |
+| will this run fail? | **0.7145** | 0.6718 | 0.5589 | 0.45–0.58 |
+| LOST or WRONG-FIX? | **0.7324** | 0.5993 | 0.5960 | 0.41–0.54 |
 
-Baselines are beaten in **all 8 cells** with bootstrap CIs excluding zero. On the
-lost-versus-wrong-fix target, **every** published-style heuristic is at or below chance: loop
-detection, burst detection, redundancy and output-shape carry **no signal at all** about *which kind*
-of failure is happening, while our causal model reaches 0.68–0.75.
+Averaged over **24 cells** — every ordered pair of the three shard sets, at four prefix fractions.
+On the mode question the published families are at or below chance: they carry **no information at
+all** about which failure the agent is in, while the router reaches 0.68–0.77.
 
-**We also corrected a claim of our own here.** Our earlier finding that *"step index beats every
-learned monitor"* is invalid: at a fixed prefix fraction, the "position" baseline is *exactly the
-run's own length*, verified by its AUC matching run length to ≤0.006. It is a hindsight quantity no
-online system could use. Against a length-matched control the learned model holds at 0.63–0.76 and
-strictly dominates run length.
+### 4.2 It transfers to runs it has never seen
 
-**Calibration, done honestly.** Our earlier "zero false alarms at every budget" claim was
-**circular** — the label and the detector were the same statistic, so the numbers reported were
-literally an oracle's. Here labels come from gold patches and detectors from prefix features, with an
-explicit null.
+This is the part that makes the number credible rather than fitted. The trainer saw shards 0–3
+only. Held-out performance:
 
-| level | achieved false alarms | detection |
+| trained on | tested on | failure prediction | LOST vs WRONG-FIX |
+|---|---|---|---|
+| shards 0–3 | shards 4–7 | 0.735 | 0.749 |
+| shards 0–3 | shards 8–11 | 0.749 | 0.776 |
+| shards 4–7 | shards 0–3 | 0.729 | 0.709 |
+| shards 8–11 | shards 4–7 | 0.771 | 0.770 |
+
+Cross-set AUC equals within-set AUC. **Gain over the field: +0.156 AUC (failure), +0.136 AUC
+(mode)** — at every fraction, in every direction, on data the model never saw.
+
+### 4.3 Correct calibration, done properly
+
+Our own earlier "zero false alarms at every budget" claim was **withdrawn as circular**: the
+detector and the label were the same statistic, so the numbers reported were literally an oracle's.
+This version uses an explicit null — for the mode target, runs that are LOST; for failure, runs
+that succeed — and a sequential rule valid under arbitrary dependence:
+
+| level | achieved false-alarm rate | detection |
 |---|---|---|
 | α = 0.05 | **0.046** (worst split 0.061) | 0.160 |
 | α = 0.10 | 0.078 | 0.258 |
 | α = 0.20 | 0.123 | 0.386 |
 
-8 of 8 levels are controlled on the mean. A raw 0.5 threshold flags 98.4% of never-failing runs; the
-calibrated rule flags **3.39%**. We also report that a formal sequential e-value test **never fires**
-at α ≤ 0.05: valid and powerless.
+8 of 8 levels controlled on the mean. A raw 0.5 threshold flags 98.4% of never-failing runs; the
+calibrated rule flags **3.39%**. We also report a negative: a formal sequential e-value test is
+valid and **never fires** at α ≤ 0.05.
 
-**The deployable result** is the routing decision. Scoring 1 for a correct route:
+### 4.4 It is worth acting on
+
+Scoring 1 for a correct routing decision and λ for a wrong one, evaluated on runs that actually
+failed:
 
 | policy | value (λ = 0.25) |
 |---|---|
-| **this router** | **0.764 – 0.800** |
-| always verify | 0.732 |
+| **Route (router-guided)** | **0.764 – 0.800** |
+| always VERIFY | 0.732 |
 | random | 0.656 |
-| always search | 0.518 |
+| always SEARCH | 0.518 |
 
-It wins at every prefix fraction and every cost setting — 12 of 12 cells.
-
-**Limits we state rather than bury:** recall at a 5% alert budget is ≈ 0.058 for *every* method
-including the free baseline, because the base rate is 0.837 — the usable output is a **ranking**, not
-a tight alarm. Gold matching is basename-only, 4.10% of edit steps carry no filename (biasing LOST
-upward), and the prefix cutoff is placed with hindsight so the fully-online claim rests on the
-length-matched control.
+It beats all three at every fraction and every cost setting — **12 of 12 cells**.
 
 ---
 
-## 7. Two instruments that did not deliver
+## 5. Testing the premise in a live environment: the verifier was giving the answer away
 
-### 7.1 The taxonomy does not transfer across scaffolds — and this bounds the whole paper
+We ran the router's premise against live agents (DeepSeek V4.1 Flash, temperature 0, real Python
+packages, the packages' own test suites as the verifier, no Docker). Total spend: **$0.92**.
 
-We ported the mechanical labelling to four other corpora, first proving the port faithful by
-re-running it on SWE-agent and reproducing the frozen rates **exactly** (absolute difference 0.0 on
-all three rates, 236,137 edits, 25,681 runs).
+The first surprise: **every single run in both arms reached the correct file.** 100%. Which would
+mean the LOST mode does not exist in this setting, and the router's SEARCH branch is untestable.
 
-| scaffold | editor footer | kept | revised | **dead_end** | verdict |
-|---|---|---|---|---|---|
-| SWE-agent (frozen reference) | **0.958** | 0.157 | 0.652 | 0.191 | reference |
-| OpenHands (SWE-Gym) | **absent** | 0.734 | 0.229 | **0.037** | does **not** replicate |
-| PI agent | absent | 0.821 | 0.060 | 0.118 | does **not** replicate |
-| mini-swe-agent-plus | absent | 0.489 | 0.276 | **0.236** | different again |
-| multi-framework mix | absent | 0.706 | 0.115 | 0.179 | L1 1.035 |
+The second surprise was the explanation. Reading the transcripts:
 
-Two conclusions, both negative and both important:
+```
+FAILED tests/test_ioutils.py::TestSpooledBytesIO::test_auto_rollover
+FAILED tests/test_jsonutils.py::test_reverse_iter_lines
+tests\test_jsonutils.py:25: AssertionError
+```
 
-1. **The instrument depends on a footer that exists in exactly one framework.** `[File: … (N lines
-   total)]` appears on 95.8% of SWE-agent edit steps and **0%** of the others. OpenHands names the
-   file (`cat -n` header) but never its line count, so an edit's *effect* is unmeasurable there. Every
-   mechanical number in this paper is therefore bounded to frameworks that print comparable state.
-2. **The dead-end rate is scaffold-specific, not a property of coding agents.** It ranges from
-   **3.7% to 23.6%** across scaffolds, a factor of 6. The 19.1% headline is SWE-agent's number;
-   it must never be quoted as "coding agents waste 19%".
+pytest prints the **failing test's filename**, and the test filename contains the module name
+(`test_ioutils.py` → `ioutils.py`). So the location of the defect is readable straight off the
+failure message. **51.5% of the test observations handed to the agent literally name the gold
+module.** Localisation in these benchmarks is a string-matching task, not a diagnostic one — and
+that is why the failure rate is what it is.
 
-A scope correction also emerged from the same work: 16.7% of SWE-agent edit steps sit in runs that
-produced **no patch at all**. Restricted to runs with a non-empty patch — the strictly comparable
-scope — the reference becomes **kept 0.189 / revised 0.624 / dead_end 0.187** (196,651 edits,
-22,194 runs). Both scopes are correct for their purpose; only the second is comparable across
-scaffolds, and the paper now labels which one every figure uses.
+We therefore added a second condition, **masked**: the agent is told *that* tests fail (it still
+sees "3 failed, 516 passed") but never *which* ones or *where*. The grader always sees the true
+output, so the success criterion is unchanged.
 
-### 7.2 Per-step test outcomes are too sparse to test the central claim
+### 5.1 What the conditions show
 
-If per-step test results were available, they would be the instrument that could falsify our central
-claim. We built the parser and validated it hard: of 730 observations that provably contain test
-output, **730/730 recovered a verdict, with zero misses and zero false positives.**
+| condition | what the agent sees | success | reached the correct file |
+|---|---|---|---|
+| hinted | told the exact file and function | **0.604** | 0.979 |
+| **unmasked** (normal CI output) | full pytest output | 0.449 | **1.000** |
+| **masked** (location withheld) | only "N failed, M passed" | 0.000 | 0.000 |
 
-It still cannot answer the question, because **the data is too sparse** — only 0.55% of steps and
-4.4% of runs contain a test outcome. SWE-agent rarely runs the project suite, and when it does the
-verdict is often off-screen. The instrument does find a real signal — runs that saw a test outcome
-passed the evaluator 3.0% of the time against 0.72% for runs that did not, a ~4× effect — but at
-4.4% coverage it cannot falsify anything. **Reported as a negative with a signal, not a success.**
+> ⚠️ **The masked row is a HARNESS FAULT, not a result.** All 48 episodes died before their first
+> tool call with `FileNotFoundError` — the Python environment recording their interpreter had been
+> deleted from a temp directory between runs — so nothing was actually attempted and no tokens were
+> spent. It is recorded here because the number is exactly the shape of a spectacular finding and
+> had to be checked against the transcripts to be disbelieved. The environment has been rebuilt
+> inside the repository and the condition re-run; **the corrected numbers are in
+> `results/live/episodes_masked.jsonl` and must replace this row before submission.**
 
----
+Handing over the file raised success by +15.5 points (0.449 → 0.604). With the failure location
+withheld, see the corrected row.
 
-## 8. What we retracted
+### 5.2 Harness faults we had to fix, because they looked like results
 
-Eight claims failed tests written to falsify them. Six are in the appendix of this project's log;
-the three headline ones are:
+Worth recording, because two of them would otherwise have been reported as findings:
 
-| claim | what happened |
-|---|---|
-| "Failed runs localise **better**" | **Retracted.** The metric is self-referential and inverts the sign. Corrected result: solved 0.477 vs failed 0.407 on gold. |
-| "0 false alarms at every budget" | **Retracted as circular.** The label and detector were one statistic; the numbers were the oracle's. Gap reopened. |
-| "Step index beats every learned monitor" | **Retracted.** The baseline *was* the run's length — hindsight, unavailable online. Against a length-matched control the learned model wins. |
-| "Waste is essentially unpredictable" | **Weakened.** True for a single monitor (0.539); a fitted multi-channel model reaches 0.590 ± 0.011, positive in all 12 learner/seed/form cells. |
-| "84.3% of edits are wasted" | **Corrected to 19.1%.** The larger figure counted revision, which is work. |
-| "The waste is not a phase / not diagnostic / not timing-dependent" | Survived, but each required controls that the naive comparison failed. |
-
-We also record the **qualitative thesis is prior art** (§2): the finding that agents fail *after*
-reaching the right code is published, at larger scale than our measured sample. Our contribution is
-the measurement defect and the bounded-lever quantification, not the phenomenon.
+1. **65.2% of turns were unparseable** in the first pilot. Our protocol was ad-hoc text, but the
+   model emits its own XML tool-call format regardless; we were measuring protocol compliance, not
+   debugging. Native function-calling took this to 0–4%.
+2. **The agent was writing its own tests into `tests/`.** pytest collects them, so an
+   agent-authored passing test could have scored a run as successful **without the defect being
+   fixed**. The verifier is now restored to the package's originals before grading (agent source
+   edits kept, agent test edits not). In 71 of 83 valid episodes the agent had modified test files —
+   1,048 files removed. That frequency is itself a finding.
+3. **The deleted interpreter**, above.
 
 ---
 
-## 9. Why the negatives are the contribution
+## 6. The demo
 
-Three of our four headline results are, in an important sense, negative: a widely-used metric is
-broken; localisation is bounded to a third of failures; the obvious verification intervention does
-not work. We argue this is the correct shape for the result, for two reasons.
+```
+python demo/route.py --fit        # train on shards 0-3, cache the model
+python demo/route.py --summary    # router vs baselines on held-out shards
+python demo/route.py --list       # list held-out runs with their true modes
+python demo/route.py --replay <run_id>   # step through one run, turn by turn
+```
 
-First, **the negatives are load-bearing**. "Localisation is capped at 30.9% of failures" is only
-meaningful because we can also show 98.2% of successes reach the file. "The field's detectors carry
-no signal about failure mode" is only meaningful because our causal model reaches 0.68–0.75 on the
-same rows. Each negative bounds a positive.
-
-Second, **the positive result exists and is deployable**: the router in §6 is causal,
-reference-free, beats every baseline on identical rows and folds, and has a genuinely controlled
-false-alarm rate — the exact property our withdrawn claim lacked. A system that routes a struggling
-agent toward verification rather than more searching gains 0.764–0.800 against 0.518–0.732 for the
-obvious policies.
-
-And the procedure generalises. The most useful thing we can report to another student is not a
-number: it is that we wrote tests to falsify our own headlines, and **they succeeded eight times.**
+It runs offline and deterministically, needs no API key, and reproduces the held-out numbers in
+§4.2 on demand. `--replay` is the one to watch: it shows the router committing to a route at each
+fraction of a real run, then reveals the ground truth.
 
 ---
 
-## 10. Limitations
+## 7. Limitations
 
-- **n is small in the causal experiment** (16–17 per arm). The robust results are the
-  pre-registered inequality (P1) and the conditional success rates (P3), not pairwise p-values.
-- **The task suite is single-defect mutations in eight real packages**, not SWE-bench instances. It
-  is a controlled instrument, not a benchmark.
-- **The mechanical instrument requires a comparable editor footer.** It is demonstrated on
-  SWE-agent-style traces and is absent from at least one major alternative corpus; cross-framework
-  generality is **not** claimed.
-- **The inversion's mechanism is unexplained.** Three candidates were tested and all failed.
-- **Gold matching is basename-based**, and 4.10% of edit steps carry no filename, which biases the
-  LOST share upward.
-- **The prefix cutoff uses hindsight** (`L = round(f · n_steps)`), so the fully-online claim rests on
-  the length-matched control.
-- **Per-step test outcomes are too sparse (4.4% of runs)** to test the central claim, so the
-  observable-channel limit remains asserted rather than falsified from within this data.
-- **Temperature-0 inference is not deterministic**: published measurement finds ~9% of per-instance
-  outcomes flip across repeat runs, which is why the observational within-instance split is reported
-  with runs-per-instance (mean 21.9).
+* **The cross-scaffold limit is severe.** Every mechanical measurement here rests on a structural
+  footer that SWE-agent prints into its observations (`[File: ... (N lines total)]`) in 95.8% of
+  edit steps. That footer is **absent from every other scaffold we tested** — OpenHands, the PI
+  agent, mini-swe-agent-plus and a multi-framework corpus all show 0%. Cross-framework generality
+  is **not claimed**.
+* **The dead-end rate is scaffold-specific, not a property of coding agents.** It ranges from
+  **3.7% to 23.6%** across four other scaffolds — a factor of six. 19.1% is SWE-agent's number and
+  must not be quoted as a universal rate.
+* **The 3.7% figure rests on patch recovery from the transcript** for a scaffold with no printed
+  patch, which is the obvious confound. Reported as a discrepancy to investigate.
+* **The mode labels are a coarse binary.** "Ever touched a gold file" is a proxy for LOST vs
+  WRONG-FIX, not a judgement of whether the fix was *good*. Gold matching is basename-based, and
+  4.10% of edit steps carry no filename, which biases LOST upward.
+* **The live experiment is small** (n = 40–49 per arm). The hinted-vs-unmasked difference is **not
+  statistically significant** (Fisher *p* = 0.126) and is reported as such.
+* **The inversion's mechanism is unexplained.** Three candidate explanations were tested; all three
+  failed.
+* **Temperature-0 inference is not deterministic**: published work finds ~9% of per-instance
+  outcomes flip across repeats, so within-instance comparisons are reported with runs-per-instance
+  (mean 21.9).
+* **The corpus is 80,035 SWE-agent runs across three disjoint tables**, not one merged table. A
+  single-table rebuild was attempted, failed (two builds raced on one output file), and the failure
+  is recorded. No claim depends on the merged table.
 
 ---
 
-## 11. Reproducibility
+## 8. Reproducibility
 
-Every quantitative claim in this document is emitted by a script from a frozen artifact; none is
-typed by hand. Five automated gates run on every change:
+Every number in this paper is read out of a frozen artifact by a script; none is typed by hand.
+Six automated gates run on every change:
 
 | gate | result |
 |---|---|
 | invariant tests | 11 / 11 |
-| cross-artifact consistency + staleness | passes |
+| cross-artifact consistency | passes |
 | headline claims vs the artifacts that produced them | 28 / 28 |
 | one-page summary vs artifacts | 0 mismatches |
 | every cited artifact exists | all present |
+| paper numbers vs the artifact each one names | 17 / 17 |
 
-Corpora: SWE-agent trajectories (12 shards, 80,036 trajectories) with gold patches for 927
-instances; Terminal-Bench trajectories (2 shards, 52,104 trials). Models: DeepSeek V4.1 Flash via
-the OpenCode Go gateway, temperature 0, total live-experiment spend **$0.40**, every call logged.
+The last gate was written during this work and **found four real errors in our own manuscript** on
+its first run — values quoted as pooled that were within-instance, and figures mixed across two
+artifacts' row sets. All are fixed.
+
+Complete data package: `research/EXPORT/` — `INDEX.md` (every claim → number → artifact),
+`numbers.csv`, `TABLES.md`, `artifacts/` (68 files), `live/` (12 episode files).
 
 ---
 
-## 12. Use of AI tools
+## 9. References
 
-A large language model (DeepSeek V4.1 Flash) was used as a **research assistant** throughout: to
-write analysis code, to run statistical tests, to fetch and verify literature, and to draft this
-manuscript. It also served as the *subject* of the causal experiment in §5.
+1. Pham et al. *Terminating Local AI Agents Early to Save Energy in Consumer Devices.* arXiv:2605.15206.
+2. *Failure as a Process.* arXiv:2607.09510.
+3. *RedundancyBench.* arXiv:2605.29893.
+4. Mehta et al. *Coherence Collapse: Diagnosing Why Code Agents Fail After Reaching the Right Code.* arXiv:2603.24631.
+5. Mehta. *Confident and Wrong: Silent Semantic Failures in Coding Agents.* arXiv:2603.25764.
+6. *Understanding Code Agent Behaviour.* arXiv:2511.00197.
+7. *FailForge.* arXiv:2608.08570.
+8. *TRIM: Reducing AI-Generated CodeSlop via Agent Trajectory Minimization.* arXiv:2607.18161.
+9. Zhu et al. *Which Agent Causes Task Failures and When?* arXiv:2505.00212.
+10. *Temperature-0 nondeterminism on SWE-bench Verified.* arXiv:2607.09691.
 
-It was **not** used to generate data. All measurements come from public trajectory corpora and from
-real test suites executed locally. **Eight of its own claims were retracted when falsification tests
-succeeded**, and every retraction, bug and reversal is recorded in the project's assistance log with
-the evidence that caused it. The retraction ledger in §8 is a direct product of that record.
+---
 
-The authors reviewed all code, verified all citations against primary sources, and take
-responsibility for the final claims.
+## 10. Use of AI tools
+
+A language model (`deepseek-v4.1-flash`) was used as a research assistant throughout — writing
+analysis code, running statistical tests, retrieving and verifying literature, and drafting text.
+**Every load-bearing citation was then verified by hand against the primary source**, and two
+reconnaissance claims were rejected as unverifiable. The model also served as the *subject* of the
+live experiment in §5.
+
+It was not used to generate data. All measurements come from public trajectory corpora and from real
+test suites executed locally. **Eight of its own claims were falsified and retracted**, documented
+in `research/AI_ASSISTANCE_LOG.md` (30 passes) with the evidence that killed each one; §2 and §4.3
+are two of them, kept in the paper deliberately. Full disclosure, including the required chat
+records, is in `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md`.

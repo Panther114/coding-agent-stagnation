@@ -1,0 +1,111 @@
+{
+  "n_runs": 19635,
+  "mechanisms": {
+    "confident_wrongness": {
+      "claim": "a failed run that NEVER reached the right file should still score high on the self-referential metric",
+      "on_target_self_lost_runs": 0.6612,
+      "on_target_self_wrong_fix_runs": 0.6791,
+      "delta_lost_minus_wrongfix": -0.0178,
+      "delta_ci95": [
+        -0.030552967693300244,
+        -0.0045152134438532845
+      ],
+      "n_lost": 5380,
+      "n_wrong_fix": 10947,
+      "on_target_gold_lost_runs": 0.0,
+      "on_target_gold_wrong_fix_runs": 0.6068
+    },
+    "patch_breadth": {
+      "strata": [
+        {
+          "patch_n_files": 1,
+          "n_solved": 2555,
+          "n_failed": 9070,
+          "gold_solved": 0.5233,
+          "gold_failed": 0.4721,
+          "gold_delta": 0.0512,
+          "touch_solved": 0.9922,
+          "touch_failed": 0.6908,
+          "touch_delta": 0.3013
+        },
+        {
+          "patch_n_files": 2,
+          "n_solved": 593,
+          "n_failed": 3688,
+          "gold_solved": 0.347,
+          "gold_failed": 0.3631,
+          "gold_delta": -0.0161,
+          "touch_solved": 0.9629,
+          "touch_failed": 0.7337,
+          "touch_delta": 0.2292
+        },
+        {
+          "patch_n_files": 3,
+          "n_solved": 111,
+          "n_failed": 1010,
+          "gold_solved": 0.2614,
+          "gold_failed": 0.2733,
+          "gold_delta": -0.0119,
+          "touch_solved": 0.973,
+          "touch_failed": 0.697,
+          "touch_delta": 0.2759
+        },
+        {
+          "patch_n_files": 4,
+          "n_solved": 49,
+          "n_failed": 809,
+          "gold_solved": 0.1346,
+          "gold_failed": 0.278,
+          "gold_delta": -0.1434,
+          "touch_solved": 0.6939,
+          "touch_failed": 0.6205,
+          "touch_delta": 0.0734
+        }
+      ],
+      "pooled_gold_delta_solved_minus_failed": 0.0703,
+      "standardised_gold_delta": 0.0199,
+      "mean_patch_n_files_solved": 1.34,
+      "mean_patch_n_files_failed": 2.245,
+      "reading": "pooled vs standardised: how much of the pooled gap is composition rather than within-stratum effect",
+      "standardised_self_delta": -0.1246,
+      "pooled_self_delta": -0.0883
+    },
+    "fixation": {
+      "claim": "the self-referential metric rewards concentrating edits on one file (fixation) rather than aiming at the correct file",
+      "fixation_solved": 0.7274,
+      "fixation_failed": 0.7785,
+      "fixation_delta_solved_minus_failed": -0.0511,
+      "fixation_lost_runs": 0.8181,
+      "fixation_wrongfix_runs": 0.7589,
+      "corr_on_target_self_vs_fixation": 0.2512,
+      "corr_on_target_gold_vs_fixation": 0.2938,
+      "mean_n_edit_solved": 5.34,
+      "mean_n_edit_failed": 9.54,
+      "mean_distinct_files_solved": 1.924,
+      "mean_distinct_files_failed": 1.815,
+      "reading": "if corr(self, fixation) >> corr(gold, fixation), the self-referential metric is mostly a fixation measure"
+    }
+  },
+  "robustness": {
+    "path_level_matching": {
+      "pooled_gold_basename_solved": 0.4771,
+      "pooled_gold_basename_failed": 0.4069,
+      "pooled_gold_path_solved": 0.51,
+      "pooled_gold_path_failed": 0.4298,
+      "note": "if basename and path versions agree in sign, the match rule is not driving it"
+    },
+    "non_circularity": {
+      "n": 8801,
+      "mean_on_target_self": 0.6154,
+      "mean_on_target_gold": 0.6384,
+      "mean_abs_gap": 0.0326,
+      "note": "where the own-patch set is a single gold file the two metrics should nearly agree; a large gap would mean one definition is broken"
+    }
+  },
+  "verdict": {
+    "confident_wrongness_supported": false,
+    "self_referential_metric_inverts_sign": true,
+    "independent_metric_inverts_back": true,
+    "composition_share_of_pooled_gap": 0.7169
+  }
+}

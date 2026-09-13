@@ -1,0 +1,380 @@
+[
+  {
+    "corpus": "nebius_openhands",
+    "repo": "nebius/SWE-rebench-openhands-trajectories",
+    "file": "trajectories.parquet",
+    "bytes": 2079503354,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\nebius_openhands\\trajectories.parquet"
+  },
+  {
+    "corpus": "swegym",
+    "repo": "SWE-Gym/OpenHands-Sampled-Trajectories",
+    "file": "data/train.raw-00000-of-00003.parquet",
+    "bytes": 70817777,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\swegym\\data\\train.raw-00000-of-00003.parquet"
+  },
+  {
+    "corpus": "swegym",
+    "repo": "SWE-Gym/OpenHands-Sampled-Trajectories",
+    "file": "data/train.raw-00001-of-00003.parquet",
+    "bytes": 78471672,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\swegym\\data\\train.raw-00001-of-00003.parquet"
+  },
+  {
+    "corpus": "swegym",
+    "repo": "SWE-Gym/OpenHands-Sampled-Trajectories",
+    "file": "data/train.raw-00002-of-00003.parquet",
+    "bytes": 151806160,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\swegym\\data\\train.raw-00002-of-00003.parquet"
+  },
+  {
+    "corpus": "pi",
+    "repo": "whitecircle/swe-rebench-v2-glm-5.1-pi-agent-successful-traces",
+    "file": "data/train-00000-of-00002.parquet",
+    "bytes": 150763378,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\pi\\data\\train-00000-of-00002.parquet"
+  },
+  {
+    "corpus": "pi",
+    "repo": "whitecircle/swe-rebench-v2-glm-5.1-pi-agent-successful-traces",
+    "file": "data/train-00001-of-00002.parquet",
+    "bytes": 149416520,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\pi\\data\\train-00001-of-00002.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00000-of-00047.parquet",
+    "bytes": 25736721,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00000-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00001-of-00047.parquet",
+    "bytes": 28557518,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00001-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00002-of-00047.parquet",
+    "bytes": 25729532,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00002-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00003-of-00047.parquet",
+    "bytes": 28453501,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00003-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00004-of-00047.parquet",
+    "bytes": 27675786,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00004-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00005-of-00047.parquet",
+    "bytes": 28731170,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00005-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00006-of-00047.parquet",
+    "bytes": 28630250,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00006-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00007-of-00047.parquet",
+    "bytes": 28841726,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00007-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00008-of-00047.parquet",
+    "bytes": 28636172,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00008-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00009-of-00047.parquet",
+    "bytes": 28944098,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00009-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00010-of-00047.parquet",
+    "bytes": 28159521,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00010-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00011-of-00047.parquet",
+    "bytes": 28784258,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00011-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00012-of-00047.parquet",
+    "bytes": 33804396,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00012-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00013-of-00047.parquet",
+    "bytes": 34587040,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00013-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00014-of-00047.parquet",
+    "bytes": 34279344,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00014-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00015-of-00047.parquet",
+    "bytes": 34939319,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00015-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00016-of-00047.parquet",
+    "bytes": 34636473,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00016-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00017-of-00047.parquet",
+    "bytes": 35432026,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00017-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00018-of-00047.parquet",
+    "bytes": 35647655,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00018-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00019-of-00047.parquet",
+    "bytes": 35498921,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00019-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00020-of-00047.parquet",
+    "bytes": 34781595,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00020-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00021-of-00047.parquet",
+    "bytes": 35957570,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00021-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00022-of-00047.parquet",
+    "bytes": 35517564,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00022-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00023-of-00047.parquet",
+    "bytes": 35651864,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00023-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00024-of-00047.parquet",
+    "bytes": 36044175,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00024-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00025-of-00047.parquet",
+    "bytes": 36275643,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00025-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00026-of-00047.parquet",
+    "bytes": 35616664,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00026-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00027-of-00047.parquet",
+    "bytes": 35171202,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00027-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00028-of-00047.parquet",
+    "bytes": 35635309,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00028-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00029-of-00047.parquet",
+    "bytes": 35731693,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00029-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00030-of-00047.parquet",
+    "bytes": 36089441,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00030-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00031-of-00047.parquet",
+    "bytes": 35913133,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00031-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00032-of-00047.parquet",
+    "bytes": 36080560,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00032-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00033-of-00047.parquet",
+    "bytes": 36301625,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00033-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00034-of-00047.parquet",
+    "bytes": 36108266,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00034-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00035-of-00047.parquet",
+    "bytes": 35147771,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00035-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00036-of-00047.parquet",
+    "bytes": 36017828,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00036-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00037-of-00047.parquet",
+    "bytes": 36035259,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00037-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00038-of-00047.parquet",
+    "bytes": 35752091,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00038-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00039-of-00047.parquet",
+    "bytes": 36005326,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00039-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00040-of-00047.parquet",
+    "bytes": 35894605,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00040-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00041-of-00047.parquet",
+    "bytes": 35570310,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00041-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00042-of-00047.parquet",
+    "bytes": 34346801,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00042-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00043-of-00047.parquet",
+    "bytes": 35632337,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00043-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00044-of-00047.parquet",
+    "bytes": 35404692,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00044-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00045-of-00047.parquet",
+    "bytes": 35413747,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00045-of-00047.parquet"
+  },
+  {
+    "corpus": "smithmarines",
+    "repo": "Kwai-Klear/SWE-smith-mini_swe_agent_plus-trajectories-66k",
+    "file": "data/train-00046-of-00047.parquet",
+    "bytes": 35252566,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\smithmarines\\data\\train-00046-of-00047.parquet"
+  },
+  {
+    "corpus": "thoughtworks",
+    "repo": "thoughtworks/agentic-coding-trajectories",
+    "file": "sessions.parquet",
+    "bytes": 325563194,
+    "local": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\raw\\xscaffold\\thoughtworks\\sessions.parquet"
+  }
+]

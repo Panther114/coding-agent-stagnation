@@ -139,6 +139,28 @@ def is_test_path(rel: str) -> bool:
     return n.startswith("test_") or n.endswith("_test.py") or n == "conftest.py"
 
 
+# --- the "masked" condition ------------------------------------------------------------------
+# Every live arm so far reached the gold file 100% of the time, which made the router's SEARCH
+# branch untestable.  Inspecting the transcripts showed why: pytest prints the failing test's FILE
+# NAME, and that name contains the module name (e.g. "test_ioutils.py" -> "ioutils.py"), so
+# locating the defect is a string match rather than a diagnosis -- 51.5% of the test observations
+# handed to the agent literally name the gold module.  In the masked condition the agent is told
+# only THAT tests fail, never which ones or where.  The grader still sees the real output; only
+# what the agent is shown changes, so the success criterion is untouched.
+_COUNT_LINE = re.compile(r"^\s*=*\s*(\d+\s+(?:failed|passed|error)[^\n]*)$", re.M)
+MASK_PREAMBLE = ("[test run complete -- the failing test names, file paths and tracebacks are "
+                 "withheld by this project's CI configuration]\n")
+
+
+def mask_output(out: str) -> str:
+    """Keep the pass/fail counts; remove every hint of *where* the failure is."""
+    hits = _COUNT_LINE.findall(out or "")
+    counts = hits[-1].strip() if hits else ""
+    tail = ("\nNo failing test names, no module names and no tracebacks are available. "
+            "Determine the defect by reading the code.\n")
+    return MASK_PREAMBLE + (counts + "\n" if counts else "test run finished\n") + tail
+
+
 def restore_tests(pristine: Path, dest: Path) -> int:
     """Restore the original verifier before FINAL grading only."""
     removed = 0
@@ -180,9 +202,10 @@ def run_episode(task: Dict[str, Any], arm: str, seed: int, max_turns: int, tag: 
     objf = dest / ".task" / "objective.md"
     if objf.exists():
         obj = objf.read_text(encoding="utf-8", errors="replace")
+    first_out = mask_output(out0) if arm == "masked" else out0[-1500:]
     first = (f"{obj}\n\nThe repository is the current directory.\n"
              f"Test command: `{task['test_command']}`\n"
-             f"Current test output (tail):\n```\n{out0[-1500:]}\n```\n\nSend your first tool call.")
+             f"Current test output (tail):\n```\n{first_out}\n```\n\nSend your first tool call.")
     if arm == "verify":
         first += VERIFY_INSTRUCTION
 
@@ -254,8 +277,12 @@ def run_episode(task: Dict[str, Any], arm: str, seed: int, max_turns: int, tag: 
                 test_calls += 1
                 f, o = run_tests(dest, task)
                 new = {x for x in f if x not in pre}
+                # the grader always sees the real output; the AGENT sees a masked view when the
+                # arm is "masked", so that success is measured on the true suite while the agent
+                # has to diagnose the defect instead of reading its location off the traceback
+                shown = mask_output(o) if arm == "masked" else o[-2500:]
                 parts.append((f"[{len(new)} failing test(s) outside the known pre-existing set] "
-                              if new else "[all tests pass] ") + o[-2500:])
+                              if new else "[all tests pass] ") + shown)
             elif name == "done":
                 n_tamper += restore_tests(pristine, dest)
                 f, o = run_tests(dest, task)
@@ -307,6 +334,13 @@ def main() -> None:
     ap.add_argument("--max-turns", type=int, default=14)
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--tag", default="live48")
+    ap.add_argument("--python-bin", default=None,
+                    help="interpreter used to run the task suites. Overrides the value recorded "
+                         "in tasks.jsonl. Needed because that recorded a venv under D:\\Devs\\temp "
+                         "which was deleted between runs -- every episode then died with "
+                         "FileNotFoundError before its first tool call, and the failure looked "
+                         "like a result (0/48 success, 0%% reached gold) until the transcripts were "
+                         "read. The suite is now built in-repo at research/data/live/.venv.")
     ap.add_argument("--out", default="results/live/episodes48.jsonl")
     args = ap.parse_args()
 
@@ -316,6 +350,13 @@ def main() -> None:
     tasks = [json.loads(l) for l in tp.read_text(encoding="utf-8").splitlines() if l.strip()]
     if args.limit:
         tasks = tasks[: args.limit]
+    if args.python_bin:
+        missing = [t["task_id"] for t in tasks
+                   if not Path(t.get("python_bin") or "").exists()]
+        print(f"--python-bin override -> {args.python_bin}  "
+              f"(replaces {len(missing)} task(s) whose recorded interpreter is missing)")
+        for t in tasks:
+            t["python_bin"] = args.python_bin
     out_path = Path(args.out)
     if not out_path.is_absolute():
         out_path = ROOT / out_path

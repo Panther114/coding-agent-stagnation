@@ -1,0 +1,6 @@
+{
+  "instances_in_table": 1238,
+  "instances_with_gold": 923,
+  "coverage": 0.7456,
+  "path": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\results\\rebuild\\gold_patches_repl.parquet"
+}

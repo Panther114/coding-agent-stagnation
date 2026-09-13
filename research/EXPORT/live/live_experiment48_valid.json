@@ -1,0 +1,57 @@
+{
+  "n_raw": 96,
+  "n_dropped_fail_before_false": 13,
+  "n_valid": 83,
+  "arms": {
+    "unhinted": {
+      "n": 43,
+      "success": 0.3721,
+      "success_ci95": [
+        0.2326,
+        0.5116
+      ],
+      "reached_gold": 1.0,
+      "success_given_reached_gold": 0.3721,
+      "n_reached_gold": 43,
+      "mean_turns": 12.21,
+      "test_files_removed": 587
+    },
+    "hinted": {
+      "n": 40,
+      "success": 0.55,
+      "success_ci95": [
+        0.4,
+        0.7
+      ],
+      "reached_gold": 1.0,
+      "success_given_reached_gold": 0.55,
+      "n_reached_gold": 40,
+      "mean_turns": 11.4,
+      "test_files_removed": 461
+    }
+  },
+  "P1_failure_rate_drop": {
+    "drop": 0.1779,
+    "pre_registered_ceiling": 0.309,
+    "holds": true
+  },
+  "significance_hinted_vs_unhinted": {
+    "table": [
+      [
+        22,
+        18
+      ],
+      [
+        16,
+        27
+      ]
+    ],
+    "p_fisher_two_sided": 0.12584830684232243,
+    "note": "NOT significant at this sample size; reported so the effect is not over-read"
+  },
+  "behaviour": {
+    "episodes_where_agent_modified_the_test_files": 71,
+    "total_test_files_removed": 1048,
+    "note": "the verifier is restored before grading, so an agent that edits tests to pass is still scored as failing; the count is a behavioural measurement, not a validity threat"
+  }
+}

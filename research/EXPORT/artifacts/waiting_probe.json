@@ -1,0 +1,133 @@
+{
+  "purpose": "feasibility probe for waiting/polling behaviour at scale",
+  "tables": {
+    "swe_agent_A_shards0_3": {
+      "table": "swe_agent_A_shards0_3",
+      "path": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\processed\\steps\\nebius\\steps.parquet",
+      "n_steps": 709264,
+      "n_runs": 26679,
+      "tool_wait_steps": 126,
+      "sleep_steps": 0,
+      "poll_steps": 0,
+      "progress_steps": 40,
+      "any_wait_signal_steps": 166,
+      "any_wait_signal_frac": 0.00023,
+      "consecutive_repeat_steps": 88682,
+      "consecutive_repeat_frac": 0.12503,
+      "wait_tool_top": {
+        "sleep": 89,
+        "wait": 37
+      },
+      "verb_mix": {
+        "edit": 0.3565,
+        "read": 0.1809,
+        "search": 0.1803,
+        "verify": 0.1231,
+        "run": 0.0894,
+        "list": 0.0433,
+        "finish": 0.0255,
+        "other": 0.001
+      },
+      "tool_top": {
+        "edit": 210762,
+        "python": 91085,
+        "open": 72681,
+        "search_dir": 51750,
+        "search_file": 39465,
+        "ls": 30670,
+        "goto": 29299,
+        "create": 25129,
+        "find_file": 24396,
+        "scroll_down": 19725,
+        "submit": 18090,
+        "rm": 13684
+      }
+    },
+    "swe_agent_B_shards4_7": {
+      "table": "swe_agent_B_shards4_7",
+      "path": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\processed\\steps_repl\\nebius\\steps.parquet",
+      "n_steps": 710910,
+      "n_runs": 26680,
+      "tool_wait_steps": 818,
+      "sleep_steps": 0,
+      "poll_steps": 0,
+      "progress_steps": 3,
+      "any_wait_signal_steps": 821,
+      "any_wait_signal_frac": 0.00115,
+      "consecutive_repeat_steps": 90338,
+      "consecutive_repeat_frac": 0.12707,
+      "wait_tool_top": {
+        "wait": 652,
+        "sleep": 95,
+        "wait-for-it": 71
+      },
+      "verb_mix": {
+        "edit": 0.3583,
+        "read": 0.1839,
+        "search": 0.1728,
+        "verify": 0.1218,
+        "run": 0.0929,
+        "list": 0.0449,
+        "finish": 0.0239,
+        "other": 0.0015
+      },
+      "tool_top": {
+        "edit": 212093,
+        "python": 89116,
+        "open": 73617,
+        "search_dir": 48751,
+        "search_file": 38594,
+        "ls": 31758,
+        "goto": 29978,
+        "create": 26293,
+        "find_file": 22914,
+        "scroll_down": 20407,
+        "submit": 16976,
+        "rm": 12226
+      }
+    },
+    "tb2": {
+      "table": "tb2",
+      "path": "D:\\Gavania\\Academic\\Competitions\\Agent_Correction\\research\\data\\processed\\steps_tb2_full\\tb2\\steps.parquet",
+      "n_steps": 1073923,
+      "n_runs": 29103,
+      "tool_wait_steps": 2116,
+      "sleep_steps": 0,
+      "poll_steps": 2,
+      "progress_steps": 17,
+      "any_wait_signal_steps": 2135,
+      "any_wait_signal_frac": 0.00199,
+      "consecutive_repeat_steps": 268363,
+      "consecutive_repeat_frac": 0.24989,
+      "wait_tool_top": {
+        "BashOutput": 1731,
+        "TaskOutput": 305,
+        "wait_shell_command": 80
+      },
+      "verb_mix": {
+        "run": 0.4918,
+        "edit": 0.1953,
+        "read": 0.1034,
+        "list": 0.0548,
+        "verify": 0.0517,
+        "search": 0.0439,
+        "other": 0.0374,
+        "finish": 0.0218
+      },
+      "tool_top": {
+        "bash_command": 490858,
+        "execute_bash": 271728,
+        "str_replace_editor": 102480,
+        "Bash": 47735,
+        "execute_ipython_cell": 21873,
+        "shell": 20148,
+        "mark_task_complete": 19063,
+        "task_tracker": 19030,
+        "run_shell_command": 10018,
+        "think": 8694,
+        "TodoWrite": 8458,
+        "Read": 8168
+      }
+    }
+  }
+}

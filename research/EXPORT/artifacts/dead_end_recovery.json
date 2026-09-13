@@ -1,0 +1,24 @@
+{
+  "n_runs": 3673,
+  "R1_change": {
+    "edit_size_change_at_real_dead_end": 1.9124818610568985,
+    "edit_size_change_at_random_split": 1.5418864440870437,
+    "new_file_rate_change_at_real_dead_end": -0.1147931669184753,
+    "new_file_rate_change_at_random_split": 0.09659536071246715,
+    "p_lines": 1.1327137623942855e-78,
+    "n_runs": 3673
+  },
+  "R2_course_change": {
+    "share_editing_larger_after": 0.5050367546964334,
+    "share_identical_size": 0.027225701061802342,
+    "control_share_larger_after": 0.41600871222433977
+  },
+  "R3_outcome": {
+    "success_when_larger_after": 0.0913338997451147,
+    "success_when_not": 0.1023502653525398,
+    "n_larger": 2354,
+    "n_not": 1319,
+    "p": 0.27540700980682686
+  },
+  "interpretation": "If post-dead-end edits are measurably different from pre-dead-end ones and the difference exceeds the random-split control, a dead end carries information the agent uses; if the difference matches the control, the dead end taught nothing and the survivable-dead-end statistic of 2.19 is a length effect rather than a recovery."
+}

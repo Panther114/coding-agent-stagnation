@@ -1,0 +1,49 @@
+{
+  "n_edits": 236137,
+  "n_runs": 25681,
+  "kept_rate": 0.15734086568390385,
+  "revised_rate": 0.6515751449370493,
+  "dead_end_rate": 0.19108398937904691,
+  "wasted_pooled": 0.8426591343160962,
+  "decomposition_check": 1.0,
+  "within_instance": {
+    "kept": {
+      "n_instances": 271,
+      "mean_delta": 0.1411014926695725,
+      "median_delta": 0.11670276712451344,
+      "frac_positive": 0.6974169741697417,
+      "p": 7.597320214221998e-14
+    },
+    "revised": {
+      "n_instances": 271,
+      "mean_delta": -0.08786699462471623,
+      "median_delta": -0.08117138417138414,
+      "frac_positive": 0.2915129151291513,
+      "p": 1.8262401178475835e-13
+    },
+    "dead_end": {
+      "n_instances": 271,
+      "mean_delta": -0.05323449804485627,
+      "median_delta": -0.05164835164835169,
+      "frac_positive": 0.3837638376383764,
+      "p": 9.230585544534542e-05
+    }
+  },
+  "volume": {
+    "dead_end_edits": 45122,
+    "revised_edits": 153861,
+    "kept_edits": 37154,
+    "mean_dead_end_per_run": 1.7570188076788287,
+    "frac_runs_with_no_dead_end": 0.1278377010241034
+  },
+  "unsuperseded_subset": {
+    "n": 57261,
+    "kept_rate": 0.21199420198739108,
+    "note": "within edits nothing revisits, the question 'will this turn out to have been needed' has a directly measurable answer, and it is the decision a refusal policy actually faces"
+  },
+  "recommendation": {
+    "headline": "quote the dead-end rate as the unambiguous measure of wasted work, and the coarse rate only as context: the coarse rate counts revision, which a reviewer will (correctly) argue is not waste",
+    "coarse_rate": 0.8426591343160962,
+    "unambiguous_rate": 0.19108398937904691
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "purpose": "price agent turns by the context they re-send, to test the claim that wait/poll and unbatched turns burn tokens whose cost is in the INPUT",
+  "caveat": "character-count estimates, not billed tokens; the absolute numbers are proxies and only the shares should be compared",
+  "tables": {
+    "tb2_all_scaffolds": {
+      "table": "tb2_all_scaffolds",
+      "n_steps": 1073923,
+      "n_runs": 29103,
+      "total_context_chars": 32052783322.0,
+      "mean_context_chars": 29846.44459798328,
+      "poll_turns": 2116,
+      "poll_cost_share": 0.0008176948546621445,
+      "low_yield_turns_lt_0.05": 745701,
+      "low_yield_cost_share_lt_0.05": 0.9365583312197326,
+      "repeat_turns": 290069,
+      "repeat_cost_share": 0.292604972547351,
+      "mean_own_chars": 514.5933013819426,
+      "median_context_chars": 11314.0,
+      "by_group": [
+        {
+          "group": "terminus-2",
+          "turns": 356327,
+          "cost_share_of_corpus": 0.48003,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.92473
+        },
+        {
+          "group": "openhands",
+          "turns": 428201,
+          "cost_share_of_corpus": 0.38602,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.96616
+        },
+        {
+          "group": "mini-swe-agent",
+          "turns": 134708,
+          "cost_share_of_corpus": 0.0969,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.90515
+        },
+        {
+          "group": "claude-code",
+          "turns": 86208,
+          "cost_share_of_corpus": 0.0253,
+          "poll_share_within": 0.031481,
+          "low_yield_share_within": 0.87992
+        },
+        {
+          "group": "terminus-3-3",
+          "turns": 19641,
+          "cost_share_of_corpus": 0.00514,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.89691
+        },
+        {
+          "group": "codex",
+          "turns": 21278,
+          "cost_share_of_corpus": 0.00205,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.78037
+        },
+        {
+          "group": "gemini-cli",
+          "turns": 12484,
+          "cost_share_of_corpus": 0.0019,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.75246
+        },
+        {
+          "group": "deepagent-harbor",
+          "turns": 10450,
+          "cost_share_of_corpus": 0.00144,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.82667
+        },
+        {
+          "group": "judy",
+          "turns": 4626,
+          "cost_share_of_corpus": 0.00123,
+          "poll_share_within": 0.017262,
+          "low_yield_share_within": 0.74021
+        }
+      ],
+      "group_column": "agent"
+    },
+    "swe_agent_shards0_3": {
+      "table": "swe_agent_shards0_3",
+      "n_steps": 709264,
+      "n_runs": 26679,
+      "total_context_chars": 25640279953.0,
+      "mean_context_chars": 36150.54472382639,
+      "poll_turns": 126,
+      "poll_cost_share": 0.0003651050229233041,
+      "low_yield_turns_lt_0.05": 345676,
+      "low_yield_cost_share_lt_0.05": 0.7285088011222932,
+      "repeat_turns": 88682,
+      "repeat_cost_share": 0.1928115732769745,
+      "mean_own_chars": 1911.4506953687203,
+      "median_context_chars": 28249.0,
+      "by_group": [
+        {
+          "group": "swe-agent-llama-70b",
+          "turns": 643450,
+          "cost_share_of_corpus": 0.89195,
+          "poll_share_within": 0.000409,
+          "low_yield_share_within": 0.72292
+        },
+        {
+          "group": "swe-agent-llama-8b",
+          "turns": 50976,
+          "cost_share_of_corpus": 0.0846,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.77047
+        },
+        {
+          "group": "swe-agent-llama-405b",
+          "turns": 14838,
+          "cost_share_of_corpus": 0.02345,
+          "poll_share_within": 3e-06,
+          "low_yield_share_within": 0.78982
+        }
+      ],
+      "group_column": "model"
+    },
+    "swe_agent_shards4_7": {
+      "table": "swe_agent_shards4_7",
+      "n_steps": 710910,
+      "n_runs": 26680,
+      "total_context_chars": 25790782406.0,
+      "mean_context_chars": 36278.54778523301,
+      "poll_turns": 747,
+      "poll_cost_share": 0.0014924790723310948,
+      "low_yield_turns_lt_0.05": 344366,
+      "low_yield_cost_share_lt_0.05": 0.7217521393484165,
+      "repeat_turns": 90338,
+      "repeat_cost_share": 0.19785178955303384,
+      "mean_own_chars": 1939.2072681492734,
+      "median_context_chars": 28550.0,
+      "by_group": [
+        {
+          "group": "swe-agent-llama-70b",
+          "turns": 644482,
+          "cost_share_of_corpus": 0.89185,
+          "poll_share_within": 0.001673,
+          "low_yield_share_within": 0.71661
+        },
+        {
+          "group": "swe-agent-llama-8b",
+          "turns": 51052,
+          "cost_share_of_corpus": 0.0836,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.76742
+        },
+        {
+          "group": "swe-agent-llama-405b",
+          "turns": 15376,
+          "cost_share_of_corpus": 0.02455,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.75308
+        }
+      ],
+      "group_column": "model"
+    },
+    "swe_agent_shards8_11": {
+      "table": "swe_agent_shards8_11",
+      "n_steps": 695449,
+      "n_runs": 26676,
+      "total_context_chars": 25031255847.0,
+      "mean_context_chars": 35992.9424688223,
+      "poll_turns": 293,
+      "poll_cost_share": 0.0008075448600563377,
+      "low_yield_turns_lt_0.05": 333332,
+      "low_yield_cost_share_lt_0.05": 0.720844464268561,
+      "repeat_turns": 74461,
+      "repeat_cost_share": 0.17018864219353844,
+      "mean_own_chars": 1947.4275424941297,
+      "median_context_chars": 28078.0,
+      "by_group": [
+        {
+          "group": "swe-agent-llama-70b",
+          "turns": 645112,
+          "cost_share_of_corpus": 0.91557,
+          "poll_share_within": 0.000882,
+          "low_yield_share_within": 0.71763
+        },
+        {
+          "group": "swe-agent-llama-8b",
+          "turns": 37947,
+          "cost_share_of_corpus": 0.06396,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.75059
+        },
+        {
+          "group": "swe-agent-llama-405b",
+          "turns": 12390,
+          "cost_share_of_corpus": 0.02047,
+          "poll_share_within": 0.0,
+          "low_yield_share_within": 0.7718
+        }
+      ],
+      "group_column": "model"
+    }
+  }
+}

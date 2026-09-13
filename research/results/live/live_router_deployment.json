@@ -1,0 +1,367 @@
+{
+  "question": "does the frozen router (trained on public SWE-agent runs) predict failure on in-house live episodes: different scaffold, different model, real packages?",
+  "model_artifact": "demo/_cache/router.pkl",
+  "n_episodes_raw": 109,
+  "n_dropped_fail_before_false": 15,
+  "n_valid": 94,
+  "arms": {
+    "hinted": 41,
+    "masked": 11,
+    "unhinted": 42
+  },
+  "mapping_caveats": [
+    "live runs are capped at 14 turns, so prefixes are short",
+    "the mode target has no negatives here (reached_gold is 1.0), so LOST/WRONG-FIX cannot be evaluated on this data set",
+    "targets_str is empty, so the TF-normalised redundancy baseline is not evaluable",
+    "sig for write turns is tool name + path; the corpus uses a command digest"
+  ],
+  "fractions": {
+    "0.2": {
+      "n": 94,
+      "n_failed": 51,
+      "auc_router": 0.4370725034199727,
+      "auc_router_ci95_task_clustered": [
+        0.34960679834350045,
+        0.52865866873065
+      ],
+      "baselines": {
+        "position": 0.5745554035567715,
+        "agentstop_shape": 0.43365253077975374,
+        "agentstop_overlap": 0.610579115367077
+      },
+      "gain_over_best_baseline": -0.17350661194710426,
+      "feature_drift": {
+        "n_features": 34,
+        "n_features_abs_z_gt_3": 10,
+        "worst": [
+          {
+            "feature": "obs_mean_over_text",
+            "live_minus_train_sd": 780.1903063235416
+          },
+          {
+            "feature": "pass_seen_per_step",
+            "live_minus_train_sd": 179.37791546524036
+          },
+          {
+            "feature": "fail_minus_pass_norm",
+            "live_minus_train_sd": 167.77014578379456
+          },
+          {
+            "feature": "fail_seen_per_step",
+            "live_minus_train_sd": 29.082469607461785
+          },
+          {
+            "feature": "repeat_sig_frac",
+            "live_minus_train_sd": 9.398992883087512
+          },
+          {
+            "feature": "has_repeat_3plus",
+            "live_minus_train_sd": 4.604156721687394
+          },
+          {
+            "feature": "unique_sig_frac",
+            "live_minus_train_sd": 4.123429338733201
+          },
+          {
+            "feature": "any_test_pass_seen",
+            "live_minus_train_sd": 4.077088164942515
+          }
+        ]
+      }
+    },
+    "0.4": {
+      "n": 94,
+      "n_failed": 51,
+      "auc_router": 0.4024167806657546,
+      "auc_router_ci95_task_clustered": [
+        0.2950475761217949,
+        0.5067776861168054
+      ],
+      "baselines": {
+        "position": 0.6048791609667121,
+        "agentstop_shape": 0.35886912904696766,
+        "agentstop_overlap": 0.668718650250798
+      },
+      "gain_over_best_baseline": -0.2663018695850434,
+      "feature_drift": {
+        "n_features": 34,
+        "n_features_abs_z_gt_3": 10,
+        "worst": [
+          {
+            "feature": "obs_mean_over_text",
+            "live_minus_train_sd": 895.3890646013757
+          },
+          {
+            "feature": "pass_seen_per_step",
+            "live_minus_train_sd": 306.84051282457455
+          },
+          {
+            "feature": "fail_minus_pass_norm",
+            "live_minus_train_sd": 290.450620264966
+          },
+          {
+            "feature": "fail_seen_per_step",
+            "live_minus_train_sd": 30.590989931162607
+          },
+          {
+            "feature": "any_test_pass_seen",
+            "live_minus_train_sd": 12.178776815684259
+          },
+          {
+            "feature": "any_test_fail_seen",
+            "live_minus_train_sd": 9.121811847239881
+          },
+          {
+            "feature": "repeat_sig_frac",
+            "live_minus_train_sd": 8.23599202859699
+          },
+          {
+            "feature": "has_repeat_3plus",
+            "live_minus_train_sd": 5.422552666276893
+          }
+        ]
+      }
+    },
+    "0.6": {
+      "n": 94,
+      "n_failed": 51,
+      "auc_router": 0.3643410852713178,
+      "auc_router_ci95_task_clustered": [
+        0.2632932018961431,
+        0.4729048412944582
+      ],
+      "baselines": {
+        "position": 0.5098039215686274,
+        "agentstop_shape": 0.3800729594163247,
+        "agentstop_overlap": 0.7610579115367077
+      },
+      "gain_over_best_baseline": -0.39671682626538984,
+      "feature_drift": {
+        "n_features": 34,
+        "n_features_abs_z_gt_3": 9,
+        "worst": [
+          {
+            "feature": "obs_mean_over_text",
+            "live_minus_train_sd": 911.6409225460379
+          },
+          {
+            "feature": "pass_seen_per_step",
+            "live_minus_train_sd": 427.9349515607372
+          },
+          {
+            "feature": "fail_minus_pass_norm",
+            "live_minus_train_sd": 401.66679893224284
+          },
+          {
+            "feature": "fail_seen_per_step",
+            "live_minus_train_sd": 53.617460383278846
+          },
+          {
+            "feature": "any_test_pass_seen",
+            "live_minus_train_sd": 23.5211409267227
+          },
+          {
+            "feature": "any_test_fail_seen",
+            "live_minus_train_sd": 14.876742461324037
+          },
+          {
+            "feature": "repeat_sig_frac",
+            "live_minus_train_sd": 7.260101474192467
+          },
+          {
+            "feature": "has_repeat_3plus",
+            "live_minus_train_sd": 5.7945508229084846
+          }
+        ]
+      }
+    }
+  },
+  "by_arm": {
+    "hinted": {
+      "0.2": 0.38526570048309183,
+      "0.4": 0.3900966183574879,
+      "0.6": 0.31280193236714976
+    },
+    "masked": {
+      "0.2": 0.5357142857142857,
+      "0.4": 0.5178571428571428,
+      "0.6": 0.42857142857142855
+    },
+    "unhinted": {
+      "0.2": 0.5036057692307693,
+      "0.4": 0.421875,
+      "0.6": 0.420673076923077
+    }
+  },
+  "verdict": {
+    "headline": "frozen router on live runs: AUC 0.437 at 20% (n=94), best baseline 0.611, gain -0.174",
+    "transfers_better_than_baselines": false,
+    "mode_head_evaluable": false,
+    "mode_head_reason": "no LOST episodes exist in the live data (reached_gold = 1.0 everywhere)"
+  },
+  "refit_bridgeable": {
+    "train_table": "_cache/route_modes/prefix_features.parquet",
+    "n_train_rows": 20341,
+    "dropped_features": [
+      "verify_frac",
+      "search_frac"
+    ],
+    "sig_features": [
+      "unique_sig_frac",
+      "sig_entropy",
+      "repeat_sig_frac",
+      "max_consec_repeat_norm",
+      "has_repeat_3plus"
+    ],
+    "scale_sensitive": [
+      "obs_mean",
+      "obs_last_over_mean",
+      "text_chars_mean",
+      "text_to_obs",
+      "obs_mean_over_text",
+      "obs_slope_norm",
+      "obs_half_ratio"
+    ],
+    "variants": {
+      "bridgeable": {
+        "n_features": 32,
+        "features": [
+          "no_edit_yet",
+          "first_edit_frac",
+          "edit_rate",
+          "noop_edit_frac",
+          "distinct_files_per_edit",
+          "repeat_file_edit_frac",
+          "any_file_edited_twice",
+          "testish_per_step",
+          "run_frac",
+          "read_frac",
+          "finish_seen",
+          "unique_sig_frac",
+          "unique_cmdfam_frac",
+          "sig_entropy",
+          "cmdfam_entropy",
+          "repeat_sig_frac",
+          "max_consec_repeat_norm",
+          "has_repeat_3plus",
+          "obs_mean",
+          "obs_last_over_mean",
+          "obs_slope_norm",
+          "obs_half_ratio",
+          "text_chars_mean",
+          "text_to_obs",
+          "err_rate",
+          "pass_seen_per_step",
+          "fail_seen_per_step",
+          "err_seen_per_step",
+          "fail_minus_pass_norm",
+          "any_test_fail_seen",
+          "any_test_pass_seen",
+          "obs_mean_over_text"
+        ],
+        "auc_in_corpus_shards0_3": 0.7332052569501395,
+        "live": {
+          "0.2": {
+            "n": 94,
+            "auc": 0.4398084815321478
+          },
+          "0.4": {
+            "n": 94,
+            "auc": 0.40697674418604646
+          },
+          "0.6": {
+            "n": 94,
+            "auc": 0.3657090743274054
+          }
+        }
+      },
+      "bridgeable_no_sig": {
+        "n_features": 27,
+        "features": [
+          "no_edit_yet",
+          "first_edit_frac",
+          "edit_rate",
+          "noop_edit_frac",
+          "distinct_files_per_edit",
+          "repeat_file_edit_frac",
+          "any_file_edited_twice",
+          "testish_per_step",
+          "run_frac",
+          "read_frac",
+          "finish_seen",
+          "unique_cmdfam_frac",
+          "cmdfam_entropy",
+          "obs_mean",
+          "obs_last_over_mean",
+          "obs_slope_norm",
+          "obs_half_ratio",
+          "text_chars_mean",
+          "text_to_obs",
+          "err_rate",
+          "pass_seen_per_step",
+          "fail_seen_per_step",
+          "err_seen_per_step",
+          "fail_minus_pass_norm",
+          "any_test_fail_seen",
+          "any_test_pass_seen",
+          "obs_mean_over_text"
+        ],
+        "auc_in_corpus_shards0_3": 0.7292398382831662,
+        "live": {
+          "0.2": {
+            "n": 94,
+            "auc": 0.41974464204286366
+          },
+          "0.4": {
+            "n": 94,
+            "auc": 0.39284085727314183
+          },
+          "0.6": {
+            "n": 94,
+            "auc": 0.3625170998632011
+          }
+        }
+      },
+      "bridgeable_no_sig_no_scale": {
+        "n_features": 20,
+        "features": [
+          "no_edit_yet",
+          "first_edit_frac",
+          "edit_rate",
+          "noop_edit_frac",
+          "distinct_files_per_edit",
+          "repeat_file_edit_frac",
+          "any_file_edited_twice",
+          "testish_per_step",
+          "run_frac",
+          "read_frac",
+          "finish_seen",
+          "unique_cmdfam_frac",
+          "cmdfam_entropy",
+          "err_rate",
+          "pass_seen_per_step",
+          "fail_seen_per_step",
+          "err_seen_per_step",
+          "fail_minus_pass_norm",
+          "any_test_fail_seen",
+          "any_test_pass_seen"
+        ],
+        "auc_in_corpus_shards0_3": 0.714304819308526,
+        "live": {
+          "0.2": {
+            "n": 94,
+            "auc": 0.6356589147286822
+          },
+          "0.4": {
+            "n": 94,
+            "auc": 0.6591427268581851
+          },
+          "0.6": {
+            "n": 94,
+            "auc": 0.4746922024623803
+          }
+        }
+      }
+    }
+  }
+}

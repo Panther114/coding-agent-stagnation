@@ -1,0 +1,106 @@
+{
+  "corpus": "nebius",
+  "checkpoints": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.7
+  ],
+  "cells": [
+    {
+      "checkpoint": 0.1,
+      "n_runs": 727,
+      "base_failure_rate": 0.9766162310866575,
+      "mean_run_length": 161.707015130674,
+      "auc_all_raw": 0.8776304888152444,
+      "auc_novelty": 0.7325600662800331,
+      "auc_stall": 0.6918806959403478,
+      "auc_repetition": 0.5634217067108533,
+      "auc_run_length_so_far": 0.5067937033968516,
+      "auc_windows_observed": 0.5162386081193041,
+      "effective_base_rate": 0.9766162310866575,
+      "note_short_run_enrichment": "runs shorter than the checkpoint threshold are excluded by construction; at f=0.10 these are runs that died almost immediately, so the 0.878 there is partly the model detecting early death rather than stagnation"
+    },
+    {
+      "checkpoint": 0.2,
+      "n_runs": 2860,
+      "base_failure_rate": 0.9576923076923077,
+      "mean_run_length": 89.55699300699301,
+      "auc_all_raw": 0.8171589438143256,
+      "auc_novelty": 0.7077777677200161,
+      "auc_stall": 0.6615191042155097,
+      "auc_repetition": 0.6262057999088767,
+      "auc_run_length_so_far": 0.5512447988799677,
+      "auc_windows_observed": 0.5530838606114918,
+      "effective_base_rate": 0.9576923076923077,
+      "note_short_run_enrichment": "runs shorter than the checkpoint threshold are excluded by construction; at f=0.10 these are runs that died almost immediately, so the 0.878 there is partly the model detecting early death rather than stagnation"
+    },
+    {
+      "checkpoint": 0.3,
+      "n_runs": 6601,
+      "base_failure_rate": 0.9584911377064081,
+      "mean_run_length": 61.666262687471594,
+      "auc_all_raw": 0.7336770116255326,
+      "auc_novelty": 0.6370219624157387,
+      "auc_stall": 0.6169192627125781,
+      "auc_repetition": 0.5107135564300374,
+      "auc_run_length_so_far": 0.5228651625117241,
+      "auc_windows_observed": 0.5162177159872128,
+      "effective_base_rate": 0.9584911377064081,
+      "note_short_run_enrichment": "runs shorter than the checkpoint threshold are excluded by construction; at f=0.10 these are runs that died almost immediately, so the 0.878 there is partly the model detecting early death rather than stagnation"
+    },
+    {
+      "checkpoint": 0.4,
+      "n_runs": 9608,
+      "base_failure_rate": 0.9499375520399667,
+      "mean_run_length": 51.385512073272274,
+      "auc_all_raw": 0.7283864761677844,
+      "auc_novelty": 0.6425995657944821,
+      "auc_stall": 0.5994401705478729,
+      "auc_repetition": 0.5417326581454991,
+      "auc_run_length_so_far": 0.5783317050436586,
+      "auc_windows_observed": 0.5718119025887186,
+      "effective_base_rate": 0.9499375520399667,
+      "note_short_run_enrichment": "runs shorter than the checkpoint threshold are excluded by construction; at f=0.10 these are runs that died almost immediately, so the 0.878 there is partly the model detecting early death rather than stagnation"
+    },
+    {
+      "checkpoint": 0.5,
+      "n_runs": 11847,
+      "base_failure_rate": 0.9344981851945641,
+      "mean_run_length": 45.80400101291466,
+      "auc_all_raw": 0.7339468677803158,
+      "auc_novelty": 0.6907756588914848,
+      "auc_stall": 0.6067240431255803,
+      "auc_repetition": 0.6058698447788269,
+      "auc_run_length_so_far": 0.6447222217048906,
+      "auc_windows_observed": 0.6375688270739844,
+      "effective_base_rate": 0.9344981851945641,
+      "note_short_run_enrichment": "runs shorter than the checkpoint threshold are excluded by construction; at f=0.10 these are runs that died almost immediately, so the 0.878 there is partly the model detecting early death rather than stagnation"
+    },
+    {
+      "checkpoint": 0.7,
+      "n_runs": 15370,
+      "base_failure_rate": 0.9054001301236174,
+      "mean_run_length": 39.158490566037734,
+      "auc_all_raw": 0.7536033651308519,
+      "auc_novelty": 0.7260912695667027,
+      "auc_stall": 0.6576579490699355,
+      "auc_repetition": 0.679904589652278,
+      "auc_run_length_so_far": 0.6957636712394627,
+      "auc_windows_observed": 0.6929733243240144,
+      "effective_base_rate": 0.9054001301236174,
+      "note_short_run_enrichment": "runs shorter than the checkpoint threshold are excluded by construction; at f=0.10 these are runs that died almost immediately, so the 0.878 there is partly the model detecting early death rather than stagnation"
+    }
+  ],
+  "summary": {
+    "best_checkpoint": 0.1,
+    "best_auc": 0.8776304888152444,
+    "earliest_checkpoint_above_0.70": 0.1,
+    "control_at_best": 0.5067937033968516,
+    "beats_run_length_control_at_best": true,
+    "n_checkpoints_beating_control": 6,
+    "n_checkpoints": 6
+  }
+}

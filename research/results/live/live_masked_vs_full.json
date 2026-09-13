@@ -1,0 +1,77 @@
+{
+  "n_episodes": 145,
+  "n_tasks": 48,
+  "arms": [
+    "hinted",
+    "masked",
+    "unhinted"
+  ],
+  "total_usd": 0.9202,
+  "per_arm": {
+    "hinted": {
+      "n": 48,
+      "success": 0.6042,
+      "success_ci95": [
+        0.4583,
+        0.7292
+      ],
+      "reached_gold": 0.9792,
+      "mean_turns": 11.08,
+      "errors": 8,
+      "usd": 0.3824,
+      "success_given_reached_gold": 0.617,
+      "n_reached_gold": 47
+    },
+    "masked": {
+      "n": 48,
+      "success": 0.0,
+      "success_ci95": [
+        0.0,
+        0.0
+      ],
+      "reached_gold": 0.0,
+      "mean_turns": NaN,
+      "errors": 48,
+      "usd": 0.0
+    },
+    "unhinted": {
+      "n": 49,
+      "success": 0.449,
+      "success_ci95": [
+        0.3061,
+        0.5918
+      ],
+      "reached_gold": 1.0,
+      "mean_turns": 11.96,
+      "errors": 5,
+      "usd": 0.5378,
+      "success_given_reached_gold": 0.449,
+      "n_reached_gold": 49
+    }
+  },
+  "pre_registered_tests": {
+    "P1_hint_gain_lt_lost_fraction": {
+      "fail_rate_unhinted": 0.551,
+      "fail_rate_hinted": 0.3958,
+      "failure_rate_drop": 0.1552,
+      "pre_registered_lost_fraction": 0.309,
+      "prediction": "drop < 0.309",
+      "holds": true,
+      "p_fisher": 0.15618419359541222
+    },
+    "P3_success_given_reached_gold_below_certainty": {
+      "by_arm": {
+        "hinted": {
+          "success_given_reached_gold": 0.617,
+          "n": 47
+        },
+        "unhinted": {
+          "success_given_reached_gold": 0.449,
+          "n": 49
+        }
+      },
+      "prediction": "all well below 1.0",
+      "holds": true
+    }
+  }
+}

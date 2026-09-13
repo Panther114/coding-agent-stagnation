@@ -1,0 +1,301 @@
+{
+  "n_steps": 1073923,
+  "n_runs": 29103,
+  "poll_steps": 2036,
+  "poll_share_of_steps": 0.001895852868408629,
+  "tool_breakdown": {
+    "BashOutput": 1731,
+    "TaskOutput": 305
+  },
+  "polls_per_run": {
+    "n_runs_with_polls": 397,
+    "mean": 5.128463476070529,
+    "median": 2.0,
+    "p90": 8.0,
+    "max": 228
+  },
+  "poll_obs_chars_mean": 246.87917485265226,
+  "ordinary_obs_chars_mean": 272.60160644664467,
+  "samples": [
+    {
+      "run_id": "adaptive-rejection-sampler__ubYZyKj",
+      "step": 6,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 595
+    },
+    {
+      "run_id": "adaptive-rejection-sampler__ubYZyKj",
+      "step": 7,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 595
+    },
+    {
+      "run_id": "adaptive-rejection-sampler__MnARWmM",
+      "step": 9,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "break-filter-js-from-html__jcXX5ky",
+      "step": 5,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 89
+    },
+    {
+      "run_id": "build-pov-ray__dvdvo22",
+      "step": 7,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 345
+    },
+    {
+      "run_id": "build-pov-ray__dvdvo22",
+      "step": 64,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 338
+    },
+    {
+      "run_id": "build-pov-ray__dvdvo22",
+      "step": 111,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 325
+    },
+    {
+      "run_id": "build-pov-ray__dvdvo22",
+      "step": 138,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 328
+    },
+    {
+      "run_id": "build-pov-ray__dvdvo22",
+      "step": 152,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 322
+    },
+    {
+      "run_id": "build-pov-ray__dvdvo22",
+      "step": 250,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 323
+    },
+    {
+      "run_id": "caffe-cifar-10__kfvZJTp",
+      "step": 44,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "caffe-cifar-10__kfvZJTp",
+      "step": 46,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "caffe-cifar-10__PaYz2wb",
+      "step": 35,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 263
+    },
+    {
+      "run_id": "caffe-cifar-10__PaYz2wb",
+      "step": 37,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "caffe-cifar-10__PaYz2wb",
+      "step": 41,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 248
+    },
+    {
+      "run_id": "caffe-cifar-10__PaYz2wb",
+      "step": 44,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "caffe-cifar-10__PaYz2wb",
+      "step": 55,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 248
+    },
+    {
+      "run_id": "caffe-cifar-10__PaYz2wb",
+      "step": 57,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "caffe-cifar-10__yNp4U86",
+      "step": 9,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 0
+    },
+    {
+      "run_id": "caffe-cifar-10__K8ChxJy",
+      "step": 66,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 340
+    },
+    {
+      "run_id": "caffe-cifar-10__K8ChxJy",
+      "step": 76,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 354
+    },
+    {
+      "run_id": "caffe-cifar-10__K8ChxJy",
+      "step": 79,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 336
+    },
+    {
+      "run_id": "caffe-cifar-10__K8ChxJy",
+      "step": 81,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 346
+    },
+    {
+      "run_id": "caffe-cifar-10__K8ChxJy",
+      "step": 83,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 355
+    },
+    {
+      "run_id": "cancel-async-tasks__Bf56gna",
+      "step": 3,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "cancel-async-tasks__Bf56gna",
+      "step": 7,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 602
+    },
+    {
+      "run_id": "cancel-async-tasks__Bf56gna",
+      "step": 9,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "circuit-fibsqrt__BCUPmxJ",
+      "step": 8,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "circuit-fibsqrt__BCUPmxJ",
+      "step": 9,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 3
+    },
+    {
+      "run_id": "circuit-fibsqrt__XHdNLJz",
+      "step": 31,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 251
+    },
+    {
+      "run_id": "circuit-fibsqrt__XHdNLJz",
+      "step": 32,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 251
+    },
+    {
+      "run_id": "circuit-fibsqrt__XHdNLJz",
+      "step": 33,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 251
+    },
+    {
+      "run_id": "circuit-fibsqrt__5SmCXKE",
+      "step": 10,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 336
+    },
+    {
+      "run_id": "circuit-fibsqrt__EPa4xDv",
+      "step": 144,
+      "tool": "TaskOutput",
+      "targets": "",
+      "obs_chars": 351
+    },
+    {
+      "run_id": "compile-compcert__BitJQqj",
+      "step": 52,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 302
+    },
+    {
+      "run_id": "compile-compcert__BitJQqj",
+      "step": 54,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 587
+    },
+    {
+      "run_id": "compile-compcert__Fdjrkwp",
+      "step": 35,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 398
+    },
+    {
+      "run_id": "compile-compcert__Fdjrkwp",
+      "step": 37,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 398
+    },
+    {
+      "run_id": "compile-compcert__Fdjrkwp",
+      "step": 39,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 758
+    },
+    {
+      "run_id": "compile-compcert__Fdjrkwp",
+      "step": 41,
+      "tool": "BashOutput",
+      "targets": "",
+      "obs_chars": 1015
+    }
+  ]
+}

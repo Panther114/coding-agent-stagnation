@@ -1,0 +1,54 @@
+{
+  "n_runs": 25681,
+  "pooled_dead_end": 0.3368051271018867,
+  "pooled_wasted": 0.8052967139194704,
+  "variance_dead_end": {
+    "ss_total": 2108.839377252025,
+    "ss_task": 522.8037691866435,
+    "ss_model": 11.899575834114694,
+    "ss_resid": 1581.862999189144,
+    "frac_task": 0.24791066347968893,
+    "frac_model": 0.0056427132205871125,
+    "frac_residual": 0.7501107084079724
+  },
+  "variance_wasted": {
+    "ss_total": 2313.960966982406,
+    "ss_task": 701.8377671819585,
+    "ss_model": 3.5233119847722447,
+    "ss_resid": 1610.6872102728996,
+    "frac_task": 0.3033057934841538,
+    "frac_model": 0.0015226324190623368,
+    "frac_residual": 0.6960736301327362
+  },
+  "multi_model_instances": {
+    "n_instances": 180,
+    "n_runs": 5540
+  },
+  "within_instance_model_spread": {
+    "mean_max_minus_min": 0.1592941998606148,
+    "median": 0.14068931192048983,
+    "n_instances": 180
+  },
+  "per_model": [
+    {
+      "model": "swe-agent-llama-405b",
+      "dead_end": 0.2337454959997242,
+      "success": 0.3014018691588785,
+      "n": 428
+    },
+    {
+      "model": "swe-agent-llama-70b",
+      "dead_end": 0.34273072943358646,
+      "success": 0.15695086098278035,
+      "n": 23810
+    },
+    {
+      "model": "swe-agent-llama-8b",
+      "dead_end": 0.2695985647969349,
+      "success": 0.18295218295218296,
+      "n": 1443
+    }
+  ],
+  "model_rank_correlation": -1.0,
+  "interpretation": "A task-dominated variance share means dead-ending is mostly a property of the issue and not of the agent, so a per-run monitor cannot remove it; an agent-dominated share means the same issue dead-ends differently for different models, which a runtime could act on."
+}

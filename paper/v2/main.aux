@@ -2,85 +2,39 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\citation{coherencecollapse2026}
-\citation{majgaonkar2025behaviour}
-\citation{failforge2026}
-\citation{traceprobe2026}
-\citation{confidentwrong2026}
-\citation{trim2026}
-\citation{agentstop2025}
-\citation{whowhen2025}
-\citation{failureprocess2026}
-\citation{redundancybench2026}
-\@writefile{toc}{\contentsline {paragraph}{Contributions.}{2}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Related work, and what is not ours}{2}{section.2}\protected@file@percent }
-\newlabel{sec:related}{{2}{2}{Related work, and what is not ours}{section.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{The interpretation is not ours.}{2}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Two papers report the opposite direction on adjacent metrics.}{2}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The monitoring framing is not ours either.}{2}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Waste has been measured before.}{2}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The detection bar is soft.}{2}{section*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{What is ours}{2}{section*.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}The measurement blind spot}{2}{section.3}\protected@file@percent }
-\newlabel{sec:blind}{{3}{2}{The measurement blind spot}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The statistic}{2}{subsection.3.1}\protected@file@percent }
-\citation{confidentwrong2026}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Replacing the target with ground truth}{3}{subsection.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The same edit steps under two target definitions, \emph  {pooled over runs} (\texttt  {\small  wrongness.json}). The conventional statistic and the independent one disagree in \emph  {sign}. Within-instance paired means for the gold target are $0.496$ solved vs $0.448$ failed ($p=0.007$, $228$ instances).}}{3}{table.caption.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}A control that both metrics are sane}{3}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The robust measure, and why the shares are not}{3}{subsection.3.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces The binary measure is positive in \emph  {every} stratum. The share-based gold measure is $+0.070$ pooled but only $+0.020$ after standardising over patch width --- $72\%$ of the gap is composition --- and flips sign inside strata 2--4. We therefore quote the binary measure and refuse to quote the share.}}{3}{table.caption.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Three mechanisms tested; all three falsified}{3}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Two independent replications on eight unseen shards}{4}{subsection.3.6}\protected@file@percent }
-\newlabel{sec:repl}{{3.6}{4}{Two independent replications on eight unseen shards}{subsection.3.6}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Three disjoint sets of $\sim $26{,}000 runs each. The broken metric inverts in every one; the gold target reverses it back in every one, with the paired test \emph  {strengthening} on unseen data; and the wrong-fix share varies by only $2.6$ points.}}{4}{table.caption.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Scope, stated plainly.}{4}{section*.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Where failures actually are}{4}{section.4}\protected@file@percent }
-\newlabel{sec:where}{{4}{4}{Where failures actually are}{section.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}The causal test}{4}{section.5}\protected@file@percent }
-\newlabel{sec:causal}{{5}{4}{The causal test}{section.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Design.}{4}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Two harness faults had to be fixed first, both caught by reading transcripts, not scores.}{5}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Results.}{5}{section*.15}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Live experiment, temperature $0$.}}{5}{table.caption.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{P1 held.}{5}{section*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The effect is not statistically significant, and we say so.}{5}{section*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{P3 held.}{5}{section*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{P2 failed and we report it as a failure.}{5}{section*.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{A behavioural finding of its own.}{5}{section*.21}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}A router that works, on a target where the field has no signal}{5}{section.6}\protected@file@percent }
-\newlabel{sec:router}{{6}{5}{A router that works, on a target where the field has no signal}{section.6}{}}
-\@writefile{toc}{\contentsline {paragraph}{Integrity.}{5}{section*.22}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Baselines beaten in all $8$ cells, bootstrap CIs excluding zero. On the lost-versus-wrong-fix target every published-style heuristic --- loop, burst, redundancy, output-shape --- is \emph  {at or below chance}.}}{6}{table.caption.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{A correction to our own prior claim.}{6}{section*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Calibration, done honestly.}{6}{section*.25}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The deployable result}{6}{section*.27}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Limits we state rather than bury.}{6}{section*.29}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Two instruments that did not deliver}{6}{section.7}\protected@file@percent }
-\newlabel{sec:negative}{{7}{6}{Two instruments that did not deliver}{section.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}The taxonomy does not transfer across scaffolds}{6}{subsection.7.1}\protected@file@percent }
-\newlabel{sec:xscaffold}{{7.1}{6}{The taxonomy does not transfer across scaffolds}{subsection.7.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces The taxonomy does \emph  {not} replicate. Dead-end rate spans a factor of $6$ across scaffolds.}}{7}{table.caption.30}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Per-step test outcomes are too sparse to test the central claim}{7}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Retraction ledger}{7}{section.8}\protected@file@percent }
-\newlabel{sec:retract}{{8}{7}{Retraction ledger}{section.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Limitations}{7}{section.9}\protected@file@percent }
-\newlabel{sec:limits}{{9}{7}{Limitations}{section.9}{}}
-\bibcite{coherencecollapse2026}{1}
-\bibcite{majgaonkar2025behaviour}{2}
-\bibcite{failforge2026}{3}
-\bibcite{traceprobe2026}{4}
-\bibcite{confidentwrong2026}{5}
-\bibcite{trim2026}{6}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Reproducibility}{8}{section.10}\protected@file@percent }
-\newlabel{sec:repro}{{10}{8}{Reproducibility}{section.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {11}Use of AI tools}{8}{section.11}\protected@file@percent }
-\newlabel{sec:ai}{{11}{8}{Use of AI tools}{section.11}{}}
-\bibcite{agentstop2025}{7}
-\bibcite{whowhen2025}{8}
-\bibcite{failureprocess2026}{9}
-\bibcite{redundancybench2026}{10}
-\bibcite{noisefloor2026}{11}
-\bibcite{beyondresolution2026}{12}
-\gdef \@abspage@last{9}
+\citation{agentstop}
+\citation{fap}
+\@writefile{toc}{\contentsline {section}{\numberline {1}The intervention problem}{1}{section.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Two-thirds of failures happen with the agent already in the right file. Stable to within 2.6 points across three disjoint shard sets, and across model scale (66.8\% Llama-70B, 70.7\% 8B, 70.2\% 405B).}}{2}{table.caption.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}A trap we hit first}{2}{section.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Solved / failed, on three disjoint sets of runs (each $\sim $26{,}700 runs, 1{,}213 shared instances). The trap inverts in all three; the independent target reverses it in all three.}}{2}{table.caption.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}The system}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}What it does}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}What it may look at}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}One detail that changed a comparison}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{3}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The published detectors cannot make this decision}{3}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Identical rows, identical task-disjoint folds. Averaged over 24 cells (every ordered pair of the three shard sets $\times $ four prefix fractions). On the mode question the published families carry \emph  {no information}.}}{3}{table.caption.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}It transfers to runs it has never seen}{3}{subsection.4.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Cross-set AUC equals within-set AUC. \textbf  {Gain over the field: +0.156 AUC (failure), +0.136 AUC (mode)} --- at every fraction, in every direction, on data the model never saw.}}{3}{table.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Calibration, done properly}{3}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Beats all three at every fraction and every cost setting --- 12 of 12 cells.}}{4}{table.caption.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}It is worth acting on}{4}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Testing the premise live: the verifier was giving the answer away}{4}{section.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Valid episodes only. 13 of 96 episodes were dropped because the mutated package did not actually fail its suite at episode start, which makes success meaningless; including them gives 0.596 and 0.449, i.e.\ the filter \emph  {lowers} both arms. The hinted--unmasked difference is \textbf  {not significant} (Fisher $p = 0.126$).}}{4}{table.caption.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Harness faults we had to fix, because they looked like results.}{4}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}The demo}{4}{section.6}\protected@file@percent }
+\bibcite{agentstop}{1}
+\bibcite{fap}{2}
+\bibcite{redundancy}{3}
+\bibcite{coherence}{4}
+\bibcite{confidentwrong}{5}
+\bibcite{behaviour}{6}
+\bibcite{failforge}{7}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{5}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Reproducibility}{5}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Use of AI tools}{5}{section.9}\protected@file@percent }
+\bibcite{trim}{8}
+\bibcite{whowhen}{9}
+\bibcite{noise}{10}
+\gdef \@abspage@last{6}

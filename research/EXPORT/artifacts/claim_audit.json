@@ -1,0 +1,233 @@
+{
+  "n_checks": 28,
+  "n_failing": 0,
+  "checks": [
+    {
+      "claim": "total steps",
+      "artifact": "rebuild_numbers.flat.json",
+      "artifact_value": 1256295,
+      "quoted": "1,256,295",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "total trajectories",
+      "artifact": "rebuild_numbers.flat.json",
+      "artifact_value": 41429,
+      "quoted": "41,429",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "dead-end share",
+      "artifact": "dead_end.json",
+      "artifact_value": 0.19108398937904691,
+      "quoted": "19.1%",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "revised share",
+      "artifact": "dead_end.json",
+      "artifact_value": 0.6515751449370493,
+      "quoted": "65.2%",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "kept share",
+      "artifact": "dead_end.json",
+      "artifact_value": 0.15734086568390385,
+      "quoted": "15.7%",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "classes sum to 1",
+      "artifact": "dead_end.json",
+      "artifact_value": 1.0,
+      "quoted": "1.000",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "within-instance p",
+      "artifact": "alignment.json",
+      "artifact_value": 1.898153783231925e-09,
+      "quoted": "1.9e-09",
+      "present_in_doc": false,
+      "agrees": true
+    },
+    {
+      "claim": "on-target reversal p",
+      "artifact": "alignment.json",
+      "artifact_value": 0.0003274560166027009,
+      "quoted": "3.3e-04",
+      "present_in_doc": false,
+      "agrees": true
+    },
+    {
+      "claim": "wasted-edit AUC",
+      "artifact": "step_task.json",
+      "artifact_value": 0.5387972390047004,
+      "quoted": "0.539",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "no-op AUC",
+      "artifact": "step_task.json",
+      "artifact_value": 0.8231721027720781,
+      "quoted": "0.823",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "structural seed mean",
+      "artifact": "edit_structure.json",
+      "artifact_value": 0.7315534331798355,
+      "quoted": "0.7316",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "structural seed sd",
+      "artifact": "edit_structure.json",
+      "artifact_value": 0.000597951984782447,
+      "quoted": "0.0006",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "cost ratio across deciles",
+      "artifact": "cost.json",
+      "artifact_value": 847.7312222232277,
+      "quoted": "848",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "scaffold transfer mean",
+      "artifact": "scaffold_transfer.json",
+      "artifact_value": 0.7745248920075798,
+      "quoted": "0.775",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "scaffold degradation",
+      "artifact": "scaffold_transfer.json",
+      "artifact_value": -0.018383334167462,
+      "quoted": "-0.018",
+      "present_in_doc": false,
+      "agrees": true
+    },
+    {
+      "claim": "extraction hit rate in patch",
+      "artifact": "extraction_verification.json",
+      "artifact_value": 0.7593390804597702,
+      "quoted": "0.759",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "on-target top-quartile AUC",
+      "artifact": "on_target.json",
+      "artifact_value": 0.7228422845330645,
+      "quoted": "0.723",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "ablation single-monitor position baseline",
+      "artifact": "channel_ablation.json",
+      "artifact_value": 0.5429035303922263,
+      "quoted": "0.543",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "ablation verification channel alone",
+      "artifact": "channel_ablation.json",
+      "artifact_value": 0.537711404150735,
+      "quoted": "0.538",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "ablation novelty channel alone",
+      "artifact": "channel_ablation.json",
+      "artifact_value": 0.5770132055894788,
+      "quoted": "0.577",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "ablation all channels fitted",
+      "artifact": "channel_ablation.json",
+      "artifact_value": 0.5988597071681422,
+      "quoted": "0.599",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "grid position baseline mean",
+      "artifact": "channel_ablation_stability.json",
+      "artifact_value": 0.5260837012224521,
+      "quoted": "0.526",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "grid all-channel mean",
+      "artifact": "channel_ablation_stability.json",
+      "artifact_value": 0.5899840720937297,
+      "quoted": "0.590",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "grid all-channel gain over position",
+      "artifact": "channel_ablation_stability.json",
+      "artifact_value": 0.06390037087127749,
+      "quoted": "+0.064",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "grid fraction where VER beats position",
+      "artifact": "channel_ablation_stability.json",
+      "artifact_value": 0.8333333333333334,
+      "quoted": "0.83",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "grid fraction where NOV beats position",
+      "artifact": "channel_ablation_stability.json",
+      "artifact_value": 1.0,
+      "quoted": "1.00",
+      "present_in_doc": true,
+      "agrees": true
+    },
+    {
+      "claim": "retired phrase only as a quoted retraction: essentially unpredictable",
+      "artifact": "channel_ablation_stability.json",
+      "artifact_value": 1,
+      "quoted": "essentially unpredictable",
+      "present_in_doc": false,
+      "n_occurrences": 0,
+      "agrees": true
+    },
+    {
+      "claim": "retired phrase only as a quoted retraction: not predictable at all",
+      "artifact": "channel_ablation_stability.json",
+      "artifact_value": 1,
+      "quoted": "not predictable at all",
+      "present_in_doc": true,
+      "n_occurrences": 2,
+      "agrees": true
+    }
+  ],
+  "failing": []
+}

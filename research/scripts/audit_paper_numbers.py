@@ -24,6 +24,7 @@ def load(p):
 
 wrong = load(RES / "wrongness.json")["corpora"]["nebius"]
 repl = load(RES / "wrongness_repl.json")["corpora"]["nebius"]
+repl2 = load(RES / "wrongness_repl2.json")["corpora"]["nebius"]
 artifact = load(RES / "route_modes.json")
 live48 = load(LIVE / "live_experiment48_valid.json")
 xs = load(RES / "xscaffold_replication.json")
@@ -32,8 +33,26 @@ P = lambda x: f"{float(x):.3f}"
 checks = []
 
 
+def pct(x):
+    """The same quantity written as a percentage, for prose that uses '%'."""
+    return f"{100 * float(x):.1f}"
+
+
+def contains_quantity(quoted, value):
+    """The paper may write a rate as 0.550 or as 55.0% -- both are the same number.
+
+    Only these two exact renderings are accepted; this is not a fuzzy match, so a wrong
+    decimal still fails the audit.
+    """
+    if quoted in tex:
+        return True
+    if isinstance(value, (int, float)) and 0.0 <= float(value) <= 1.0:
+        return pct(value) in tex
+    return False
+
+
 def chk(label, expected, quoted):
-    present = quoted in tex
+    present = contains_quantity(quoted, expected)
     checks.append((label, expected, quoted, present))
 
 
@@ -60,6 +79,12 @@ chk("repl gold failed", repl["pooled_on_target_gold"]["failed"],
     P(repl["pooled_on_target_gold"]["failed"]))
 chk("repl wrong-fix share", repl["failure_decomposition"]["frac_wrong_fix"],
     f"{100 * repl['failure_decomposition']['frac_wrong_fix']:.1f}")
+chk("repl2 gold solved", repl2["pooled_on_target_gold"]["solved"],
+    P(repl2["pooled_on_target_gold"]["solved"]))
+chk("repl2 gold failed", repl2["pooled_on_target_gold"]["failed"],
+    P(repl2["pooled_on_target_gold"]["failed"]))
+chk("repl2 wrong-fix share", repl2["failure_decomposition"]["frac_wrong_fix"],
+    f"{100 * repl2['failure_decomposition']['frac_wrong_fix']:.1f}")
 
 # --- live experiment ---
 chk("live hinted success", live48["arms"]["hinted"]["success"],

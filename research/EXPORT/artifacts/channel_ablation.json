@@ -1,0 +1,39 @@
+{
+  "rows": 23411,
+  "base_rate": 0.8378967152193413,
+  "n_folds": 10,
+  "seed": 0,
+  "target": "y_wasted (window ending at t-1 -> is the next edit wasted)",
+  "channels": {
+    "POS": {
+      "auc": 0.5429035303922263,
+      "n_features": 2
+    },
+    "REP": {
+      "auc": 0.5162585810942963,
+      "n_features": 5
+    },
+    "MIX": {
+      "auc": 0.5334518741389352,
+      "n_features": 7
+    },
+    "NOV": {
+      "auc": 0.5770132055894788,
+      "n_features": 13
+    },
+    "WS": {
+      "auc": 0.5440320222044547,
+      "n_features": 13
+    },
+    "VER": {
+      "auc": 0.537711404150735,
+      "n_features": 8
+    }
+  },
+  "union_auc": 0.5988597071681422,
+  "ws_plus_ver_auc": 0.5773202537467733,
+  "ver_gain_over_ws": 0.033288231542318636,
+  "ver_gain_over_pos": -0.005192126241491235,
+  "max_single_channel_gain_over_pos": 0.0341096751972525,
+  "verdict": "SURVIVES: no channel we hold, including per-step verification output, lifts the wasted-edit prediction materially above position. The limit is the observable channel, not the model."
+}

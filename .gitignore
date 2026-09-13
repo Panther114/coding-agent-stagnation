@@ -46,3 +46,11 @@ research/data/processed/xscaffold/
 research/data/live/work/
 research/data/live/work48/
 research/data/live/*/__pycache__/
+
+# ---------------------------------------------------------------------------
+# Added 2026-09-13 (round 4). Demo caches: a 2.7 KB fitted router and the live
+# venv used by the causal experiment.  `python demo/route.py --fit` regenerates
+# the first; research/scripts/build_live_venv.ps1 regenerates the second.
+# ---------------------------------------------------------------------------
+demo/_cache/
+research/data/live/.venv/

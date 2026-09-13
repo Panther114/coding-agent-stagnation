@@ -1,0 +1,156 @@
+{
+  "n_step_rows": 43032,
+  "budget": 0.1,
+  "tasks": {
+    "step_wasted": {
+      "n": 43032,
+      "base_rate": 0.9812232757018033,
+      "families": {
+        "own_all_raw": {
+          "auc": 0.6224881138407512,
+          "recall_at_budget": 0.10164835164835165,
+          "precision_at_budget": 0.9974436439693237,
+          "lift": 1.0165307618247428
+        },
+        "novelty": {
+          "auc": NaN,
+          "recall_at_budget": 0.10107995452823039,
+          "precision_at_budget": 0.9918661399023937,
+          "lift": 1.0108465264370927
+        },
+        "stall": {
+          "auc": 0.6366095375582936,
+          "recall_at_budget": 0.10152993558165972,
+          "precision_at_budget": 0.99628166395538,
+          "lift": 1.0153465461189823
+        },
+        "position": {
+          "auc": 0.6366095375582936,
+          "recall_at_budget": 0.10152993558165972,
+          "precision_at_budget": 0.99628166395538,
+          "lift": 1.0153465461189823
+        },
+        "openhands5": {
+          "auc": 0.5151606566018482,
+          "recall_at_budget": 0.10103258810155362,
+          "precision_at_budget": 0.9914013478968162,
+          "lift": 1.0103728401547887
+        },
+        "ngram_loop": {
+          "auc": 0.5304645849200305,
+          "recall_at_budget": 0.10089048882152331,
+          "precision_at_budget": 0.9900069718800837,
+          "lift": 1.008951781307876
+        },
+        "exact_burst": {
+          "auc": 0.5464086634601315,
+          "recall_at_budget": 0.10103258810155362,
+          "precision_at_budget": 0.9914013478968162,
+          "lift": 1.0103728401547887
+        },
+        "tfnorm_novel": {
+          "auc": 0.5271032100368052,
+          "recall_at_budget": 0.10079575596816977,
+          "precision_at_budget": 0.9890773878689286,
+          "lift": 1.0080044087432678
+        }
+      }
+    },
+    "step_noop": {
+      "n": 28041,
+      "base_rate": 0.4911379765343604,
+      "families": {
+        "own_all_raw": {
+          "auc": 0.8206919006361463,
+          "recall_at_budget": 0.2030932326459483,
+          "precision_at_budget": 0.9975035663338089,
+          "lift": 2.031004756285676
+        },
+        "novelty": {
+          "auc": NaN,
+          "recall_at_budget": 0.10957014231774616,
+          "precision_at_budget": 0.5381597717546363,
+          "lift": 1.0957404995477602
+        },
+        "stall": {
+          "auc": 0.669487193059737,
+          "recall_at_budget": 0.1460935230903282,
+          "precision_at_budget": 0.717546362339515,
+          "lift": 1.4609873327303469
+        },
+        "position": {
+          "auc": 0.669487193059737,
+          "recall_at_budget": 0.1460935230903282,
+          "precision_at_budget": 0.717546362339515,
+          "lift": 1.4609873327303469
+        },
+        "openhands5": {
+          "auc": 0.6630484402155692,
+          "recall_at_budget": 0.14986930002904444,
+          "precision_at_budget": 0.7360912981455064,
+          "lift": 1.4987464486856046
+        },
+        "ngram_loop": {
+          "auc": 0.6522968916182035,
+          "recall_at_budget": 0.17731629392971246,
+          "precision_at_budget": 0.8708987161198288,
+          "lift": 1.7732261762065147
+        },
+        "exact_burst": {
+          "auc": 0.6766987459556552,
+          "recall_at_budget": 0.17862329363926807,
+          "precision_at_budget": 0.8773181169757489,
+          "lift": 1.786296639421796
+        },
+        "tfnorm_novel": {
+          "auc": 0.6352317424136749,
+          "recall_at_budget": 0.12169619517862329,
+          "precision_at_budget": 0.5977175463623395,
+          "lift": 1.2170053527117604
+        }
+      }
+    },
+    "run_fail": {
+      "n": 21248,
+      "base_rate": 0.8624341114457831,
+      "families": {
+        "own_all_raw": {
+          "auc": 0.7492575373653655,
+          "recall_at_budget": 0.1140518417462483,
+          "precision_at_budget": 0.9835294117647059,
+          "lift": 1.1404110745526042
+        },
+        "agentstop_shape": {
+          "auc": 0.6628145876029552,
+          "recall_at_budget": 0.11323328785811733,
+          "precision_at_budget": 0.9764705882352941,
+          "lift": 1.132226306074954
+        },
+        "novelty": {
+          "auc": 0.28077033117874467,
+          "recall_at_budget": 0.08316507503410642,
+          "precision_at_budget": 0.7171764705882353,
+          "lift": 0.8315724773292674
+        },
+        "stall": {
+          "auc": 0.6622578608103674,
+          "recall_at_budget": 0.11192360163710778,
+          "precision_at_budget": 0.9651764705882353,
+          "lift": 1.1191306765107134
+        },
+        "n_steps": {
+          "auc": 0.7081114872449253,
+          "recall_at_budget": 0.111268758526603,
+          "precision_at_budget": 0.9595294117647059,
+          "lift": 1.1125828617285933
+        },
+        "repetition": {
+          "auc": 0.6377606030919103,
+          "recall_at_budget": 0.11045020463847204,
+          "precision_at_budget": 0.9524705882352941,
+          "lift": 1.104398093250943
+        }
+      }
+    }
+  }
+}
