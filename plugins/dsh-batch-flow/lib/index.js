@@ -358,17 +358,27 @@ export function apply(ctx) {
 					},
 					required: ['spec'],
 				},
-				output: { schema: { type: 'object' } },
+				output: {
+					schema: {
+						type: 'object',
+						additionalProperties: true,
+					},
+					render: (_args, value) => [{
+						type: 'text',
+						text: value && typeof value === 'object' && Array.isArray(value.results)
+							? renderBatch(value)
+							: 'batch completed (unrecognized result shape)',
+					}],
+				},
 				execute: async (args, exec) => {
 					const meter = exec?.agent ? meterOf(meters, exec.agent) : null;
 					bump(meter, 'batches');
 					if (!toolOrNull()) throw new Error('batch: tool execution backend unavailable in this deployment');
-					const outcome = await runBatch(ctx.tools, exec?.agent ?? null, args?.spec, meter);
-					return { value: outcome, content: renderBatch(outcome) };
+					return runBatch(ctx.tools, exec?.agent ?? null, args?.spec, meter);
 				},
 			});
 		} catch (error) {
-			try { ctx.logger?.warn?.(`[dsh-batch-flow] batch registration skipped: ${error?.message ?? error}`); } catch { /* noop */ }
+			throw new Error(`[dsh-batch-flow] batch registration failed: ${error?.message ?? error}`);
 		}
 
 		try {
@@ -384,17 +394,28 @@ export function apply(ctx) {
 					},
 					required: ['path'],
 				},
-				output: { schema: { type: 'object' } },
+				output: {
+					schema: {
+						type: 'object',
+						additionalProperties: true,
+					},
+					render: (_args, value) => [{
+						type: 'text',
+						text: value && typeof value === 'object' && Array.isArray(value.files)
+							? renderReadPlus(value)
+							: 'read_plus completed (unrecognized result shape)',
+					}],
+				},
 				execute: async (args, exec) => {
 					const meter = exec?.agent ? meterOf(meters, exec.agent) : null;
 					const root = args?.root ?? exec?.cwd ?? process.cwd();
-				 const outcome = await readPlus(root, args.path, { maxFiles: args.maxFiles });
+					const outcome = await readPlus(root, args.path, { maxFiles: args.maxFiles });
 					bump(meter, 'readPlus'); bump(meter, 'readPlusFiles', outcome.files.length);
-					return { value: outcome, content: renderReadPlus(outcome) };
+					return outcome;
 				},
 			});
 		} catch (error) {
-			try { ctx.logger?.warn?.(`[dsh-batch-flow] read_plus registration skipped: ${error?.message ?? error}`); } catch { /* noop */ }
+			throw new Error(`[dsh-batch-flow] read_plus registration failed: ${error?.message ?? error}`);
 		}
 	}
 
