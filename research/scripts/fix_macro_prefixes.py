@@ -34,14 +34,14 @@ RENAMES = {
 
 
 def main() -> None:
-    gen = open(os.path.join(ROOT, "paper", "generated_tb2.tex"), encoding="utf-8").read()
+    gen = open(os.path.join(ROOT, "research", "archive", "paper_v1", "generated_tb2.tex"), encoding="utf-8").read()
     known = {m.group(1) for m in re.finditer(r"\\newcommand\{\\(\w+)\}", gen)}
     bare = {n[len(PREFIX):] for n in known if n.startswith(PREFIX)}
     print(f"generated macros: {len(known)} (with prefix: {len(bare)})")
 
     total = 0
     for f in FILES:
-        p = os.path.join(ROOT, "paper", f)
+        p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
         if not os.path.exists(p):
             continue
         s = open(p, encoding="utf-8").read()
@@ -60,7 +60,7 @@ def main() -> None:
 
     leftovers = []
     for f in FILES:
-        p = os.path.join(ROOT, "paper", f)
+        p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
         if not os.path.exists(p):
             continue
         s = open(p, encoding="utf-8").read()

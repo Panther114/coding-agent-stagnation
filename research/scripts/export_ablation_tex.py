@@ -1,6 +1,6 @@
 """Write the ablation table fragment used by the paper.
 
-Usage: python scripts/export_ablation_tex.py --run results/final/tb2_final --out ../paper/generated_ablation.tex
+Usage: python scripts/export_ablation_tex.py --run results/final/tb2_final --out ../archive/paper_v1/generated_ablation.tex
 """
 from __future__ import annotations
 

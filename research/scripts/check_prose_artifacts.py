@@ -5,7 +5,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 PAPER = os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                                      "..", "paper"))
+                                      "archive", "paper_v1"))
 FILES = ("abstract.tex", "sections_intro.tex", "sections_related.tex", "sections_definition.tex",
          "sections_method.tex", "sections_setup.tex", "sections_results.tex",
          "sections_discussion.tex")

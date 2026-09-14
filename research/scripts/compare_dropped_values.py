@@ -18,7 +18,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 import pypdf
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAPER = os.path.normpath(os.path.join(ROOT, "..", "paper"))
+PAPER = os.path.normpath(os.path.join(ROOT, "archive", "paper_v1"))
 OLD_PDF = os.path.join(ROOT, "results", "backup_pre_dense2", "main_pre_dense2.pdf")
 
 

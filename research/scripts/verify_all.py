@@ -27,7 +27,7 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8")
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-PAPER = os.path.normpath(os.path.join(ROOT, "..", "paper"))
+PAPER = os.path.normpath(os.path.join(ROOT, "archive", "paper_v1"))
 
 STEPS = [
     ("figure-audit self-test", ["selftest_figure_audit.py"]),

@@ -4,7 +4,7 @@ Every number that appears in the paper comes from this script, so the text can n
 drift from the artifacts.
 
 Usage: python scripts/export_results_tex.py --run results/final/tb2_round1 --corpus tb2 \
-         --out paper/generated_tb2.tex
+         --out research/archive/paper_v1/generated_tb2.tex
 """
 from __future__ import annotations
 

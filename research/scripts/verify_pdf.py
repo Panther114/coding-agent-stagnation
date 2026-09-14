@@ -8,7 +8,11 @@ wrong number to a judge. Two things are asserted:
   2. the claims that were retracted appear (if at all) only inside a sentence that retracts them,
      never as findings.
 
-Usage:  python verify_pdf.py [main.pdf]
+Usage:  python scripts/verify_pdf.py [path/to/main.pdf]
+
+Run with no argument and it checks `paper/main.pdf`, the file that gets submitted. This absorbed an
+earlier `paper/v2/verify_paper.py`, which had gone stale: nine of its fifteen needles were from a
+mid-draft version of the report and no longer appeared anywhere in it.
 """
 from __future__ import annotations
 
@@ -26,7 +30,8 @@ except ImportError:  # pragma: no cover
         print("no pypdf/PyPDF2 available; skipping the PDF check")
         sys.exit(0)
 
-path = Path(sys.argv[1] if len(sys.argv) > 1 else "main.pdf")
+ROOT = Path(__file__).resolve().parents[2]  # research/scripts -> repository root
+path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "paper" / "main.pdf"
 reader = PdfReader(str(path))
 text = "".join(page.extract_text() or "" for page in reader.pages)
 flat = " ".join(text.split())
@@ -52,8 +57,11 @@ MUST_BE_PRESENT = {
     "cross-scaffold, SWE-Gym": "0.319",
     "fitted inside the target, best": "0.761",
     "live masked success": "0.286",
+    "live unmasked success": "0.372",
     "live hinted success": "0.561",
     "live masked vs hinted p": "0.015",
+    "on-target gold patch, frozen": "0.477",
+    "dead-end rate": "19.1",
     "router on live runs": "0.426",
     "the footer rate": "95.8",
     "prior art citation": "2603.24631",

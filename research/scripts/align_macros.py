@@ -1,6 +1,6 @@
 """Align macro references in the paper with the names actually generated.
 
-Reads the macro names from ``paper/generated_tb2.tex`` and rewrites every reference in the
+Reads the macro names from ``research/archive/paper_v1/generated_tb2.tex`` and rewrites every reference in the
 section files so that it matches, using a canonical short form for each semantic name.  Any
 reference with no corresponding macro is reported, because a missing macro silently prints as
 "??" in LaTeX and would corrupt a number in the paper.
@@ -45,7 +45,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="report only, do not rewrite")
     args = ap.parse_args()
-    gen = open(os.path.join(ROOT, "paper", "generated_tb2.tex"), encoding="utf-8").read()
+    gen = open(os.path.join(ROOT, "research", "archive", "paper_v1", "generated_tb2.tex"), encoding="utf-8").read()
     known = {m.group(1) for m in re.finditer(r"\\newcommand\{\\(\w+)\}", gen)}
     # bare names (macro definitions carry the short "p" prefix)
     bare = {n[1:] if n.startswith("p") else n for n in known}
@@ -53,7 +53,7 @@ def main() -> None:
 
     used, missing = set(), set()
     for f in FILES:
-        p = os.path.join(ROOT, "paper", f)
+        p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
         if not os.path.exists(p):
             continue
         s = open(p, encoding="utf-8").read()
@@ -72,7 +72,7 @@ def main() -> None:
     # references that look generated but have no macro
     gen_like = re.compile(r"\\(p)?(auc|within|pair|cal|ann|n[A-Z]|mon|abl|outcome|corpus|desc|prauc|wParam|best)")
     for f in FILES:
-        p = os.path.join(ROOT, "paper", f)
+        p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
         if not os.path.exists(p):
             continue
         s = open(p, encoding="utf-8").read()

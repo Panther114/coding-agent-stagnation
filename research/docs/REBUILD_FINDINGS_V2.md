@@ -1572,8 +1572,8 @@ The polling conclusion is unchanged and slightly strengthened — polling is *st
 they contributed. The awaiting-turn result that contradicted a prior claim about agent polling
 (§2.31) survives the correction; its number moves from 0.082% to 0.154%.
 
-**Boundary of the correction.** TB2 does not carry any claim in the current report: `paper/v2` is
-built entirely on the three SWE-agent shard sets, and no number in `paper/v2/main.tex` comes from
+**Boundary of the correction.** TB2 does not carry any claim in the current report: `paper/` is
+built entirely on the three SWE-agent shard sets, and no number in `paper/main.tex` comes from
 Terminal-Bench. The correction is recorded because the repository still ships the v1 artifacts, and
 because the same bug class — keying runs by a field the release does not guarantee unique — is
 exactly what a future rebuild would repeat.

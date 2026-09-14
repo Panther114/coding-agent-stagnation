@@ -21,12 +21,17 @@ __pycache__/
 .venv/
 venv/
 
-# LaTeX intermediates (main.pdf and main.bbl are kept)
+# LaTeX intermediates (main.pdf is kept, because that is the artifact that gets submitted)
 paper/*.aux
 paper/*.log
 paper/*.out
+paper/*.toc
 paper/*.blg
 paper/*.synctex.gz
+
+# The upload zip is derived: it is a copy of every file in paper/ and is rebuilt by
+#   research/scripts/build_overleaf_zip.py, so versioning it would duplicate the folder.
+research/EXPORT/overleaf_upload.zip
 
 # Local secrets — never commit these
 .env

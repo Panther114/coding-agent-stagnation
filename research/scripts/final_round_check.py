@@ -10,7 +10,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 import pypdf
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAPER = os.path.normpath(os.path.join(ROOT, "..", "paper"))
+PAPER = os.path.normpath(os.path.join(ROOT, "archive", "paper_v1"))
 
 print("=== 1. THE OBJECTIVE ===")
 al = json.load(open(os.path.join(ROOT, "results/final/v2/alarm_artifact.json"), encoding="utf-8"))

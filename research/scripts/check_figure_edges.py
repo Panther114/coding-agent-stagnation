@@ -14,7 +14,7 @@ from PIL import Image
 
 sys.stdout.reconfigure(encoding="utf-8")
 FIG = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                    "..", "..", "paper", "figures"))
+                                    "..", "..", "research", "archive", "paper_v1", "figures"))
 
 
 def main() -> None:

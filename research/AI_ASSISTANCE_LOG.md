@@ -9,6 +9,12 @@ successes.
 **Rounds covered:** 2026-09-10, 22:15 to 2026-09-11 06:00 (Asia/Shanghai), single continuous
 session.
 
+**A note on paths, added 2026-09-13.** The project had a different layout while this log was being
+written, and the entries below keep the paths that were true when they were written. The report this
+log calls `paper/main.pdf` is the v1 Terminal-Bench draft, and what it later calls
+`paper/v2/main.tex` is the current report. `paper/` has since been consolidated into one
+self-contained `paper/main.tex`, and the v1 draft moved to `research/archive/paper_v1/`.
+
 **Final artifact counts:** 1,500 trajectory analysis sample (100,848 agent steps); 1,457
 annotation cards generated; 1,785 label rows collected across 61 reader sessions (88 published
 subagent runs plus follow-up passes); 654 adjudicated windows over 81 trajectories; 201,696

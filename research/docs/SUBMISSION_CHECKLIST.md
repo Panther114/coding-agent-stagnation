@@ -4,8 +4,10 @@ Deadline: **2026-09-15 24:00** (registration and upload window opened 2026-07-01
 **Computer Science**. The rules, the judging criteria and the AI-use policy are saved under
 `research/docs/award/`.
 
-**Rewritten 2026-09-13 15:50 CST to describe `paper/v2/`, not the earlier `paper/` draft.** The old
-draft is still on disk and still compiles; nothing in it is submitted any more.
+**Consolidated 2026-09-13: `paper/` is now one self-contained report.** The earlier Terminal-Bench
+draft (a `main.tex` pulling in `sections_*.tex` and generated macro files) and the upload bundle that
+duplicated the current report are gone from `paper/`; the draft moved to `research/archive/paper_v1/`.
+Everything below refers to the current single-file report at `paper/main.tex`.
 
 ## 0. What the submission is now
 
@@ -13,9 +15,9 @@ draft is still on disk and still compiles; nothing in it is submitted any more.
 |---|---|
 | Title | **Lost or Wrong?** A runtime router that tells you *how* a coding agent is failing — and therefore what to do |
 | Authors | Ziheng Yu, Xuhao Chen |
-| Report source | `paper/v2/main.tex` → `paper/v2/main.pdf` (**12 pages**: cover, abstract, contents, 8 pages of body, references page, 2-page acknowledgement). **Build with `xelatex main.tex` (twice)** — the cover page and acknowledgement are Chinese, and `pdflatex` cannot set them. |
-| Same text in markdown, for rewriting | `paper/v2/ESSAY.md` |
-| Mandatory acknowledgement + AI disclosure | in the PDF (`paper/v2/main.tex (the acknowledgement is inlined at the end)`) and in markdown at `paper/v2/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` |
+| Report source | `paper/main.tex` → `paper/main.pdf` (**12 pages**: cover, abstract, contents, 8 pages of body, references page, 2-page acknowledgement). **Build with `xelatex main.tex` (twice)** — the cover page and acknowledgement are Chinese, and `pdflatex` cannot set them. |
+| Same text in markdown, for rewriting | `paper/ESSAY.md` |
+| Mandatory acknowledgement + AI disclosure | in the PDF (`paper/main.tex (the acknowledgement is inlined at the end)`) and in markdown at `paper/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` |
 | Every raw number, table and artifact | `research/EXPORT/` (`INDEX.md`, `numbers.csv`, `TABLES.md`, `artifacts/`, `live/`, `MANIFEST.json`) |
 | Executable demonstration | `demo/route.py` + `demo/README.md` (offline, no API key; `--fit --summary --list --replay --live`) |
 | Full narrative record | `research/docs/REBUILD_FINDINGS_V2.md`, `research/AI_ASSISTANCE_LOG.md` |
@@ -30,8 +32,8 @@ stops working.*
 
 | # | Requirement | Status |
 |---|---|---|
-| 1 | Research report PDF: cover page, abstract + keywords, table of contents, body, references on a separate page | **Done.** Cover page, abstract, contents, body, references page and the acknowledgement page are all in `paper/v2/main.tex`. The cover's bracketed fields (school, province, instructor, Chinese names) are the only blanks. |
-| 2 | Acknowledgement page, 1–2 pages / 500–1500 字: background, instructor relationship, **whether guidance was paid**, division of labour, difficulties and how they were solved | **Skeleton in the PDF** (2 pages), as `paper/v2/main.tex (the acknowledgement is inlined at the end)`. Sections 二 (instructor relationship) and 三 (division of labour) contain `[待填写]` fields; §三 already carries the second author's concrete contributions (blinded human pilot, TB2 duplicate-trial find); §五 asks who, if anyone **outside the two authors**, helped. |
+| 1 | Research report PDF: cover page, abstract + keywords, table of contents, body, references on a separate page | **Done.** Cover page, abstract, contents, body, references page and the acknowledgement page are all in `paper/main.tex`. The cover's bracketed fields (school, province, instructor, Chinese names) are the only blanks. |
+| 2 | Acknowledgement page, 1–2 pages / 500–1500 字: background, instructor relationship, **whether guidance was paid**, division of labour, difficulties and how they were solved | **Skeleton in the PDF** (2 pages), as `paper/main.tex (the acknowledgement is inlined at the end)`. Sections 二 (instructor relationship) and 三 (division of labour) contain `[待填写]` fields; §三 already carries the second author's concrete contributions (blinded human pilot, TB2 duplicate-trial find); §五 asks who, if anyone **outside the two authors**, helped. |
 | 3 | AI-use disclosure: tool name and version, stages, purpose, time, frequency | **Done** (acknowledgement §四), sourced from `research/AI_ASSISTANCE_LOG.md` (32 passes). |
 | 4 | AI chat records uploaded as supporting material | **Yours.** I cannot export the session transcripts; the harness keeps them. |
 | 5 | Academic-integrity declaration, signed by students and instructor, stamped by the school | **Yours.** A signature block is at the end of the acknowledgement page. |
@@ -41,10 +43,10 @@ stops working.*
 
 ## 2. What is still open in the PDF
 
-1. **Cover page fields** — `paper/v2/main.tex`, the `titlepage` block: school, province/country,
+1. **Cover page fields** — `paper/main.tex`, the `titlepage` block: school, province/country,
    instructor name(s), and both Chinese names. I did not invent the Chinese characters.
 2. **Acknowledgement §二, §三 and §五** — instructor relationship, whether guidance was paid, and the
-   remaining division-of-labour fields. `paper/v2/main.tex (the acknowledgement is inlined at the end)`. §三 already names **Xuhao
+   remaining division-of-labour fields. `paper/main.tex (the acknowledgement is inlined at the end)`. §三 already names **Xuhao
    Chen** (the second author) for the blinded human pilot and the TB2 duplicate-trial find; §五 is
    for help from people **outside the two authors** only.
 3. Optional: the competition's own report template is linked from the rules page
@@ -75,7 +77,7 @@ Two of his contributions are load-bearing or checkable:
   double-counted them (34,029 run rows over 29,103 ids; 1,073,923 steps with 186,786 duplicate
   step rows). Rebuilt deduplicated: **29,103 runs / 887,137 steps**. Two TB2 statistics move
   (polling share 0.082% → 0.154%; mean context per step 29,846 → 19,229 chars); no claim in
-  `paper/v2` depends on TB2. Recorded as §2.37 of `REBUILD_FINDINGS_V2.md`.
+  `paper/` depends on TB2. Recorded as §2.37 of `REBUILD_FINDINGS_V2.md`.
 
 One thing for him to fix: `research/docs/human_check_blind/key/SHA256SUMS` fails for 14 of its 15
 entries as committed, because the digests were computed on LF content and the checked-out files are
@@ -91,7 +93,7 @@ packet is intact, the checksum file is line-ending-sensitive.
 2. Re-run the gates: `research/scripts/run_rebuild_tests.py`, `check_rebuild_consistency.py`,
    `audit_claims.py`, `audit_summary.py`, `check_doc_references.py`, `audit_paper_numbers.py`.
    All six must be green (11/11, passes, 28/28, 0 mismatches, all present, 57/57).
-3. After rewriting the essay, re-run `audit_paper_numbers.py`. It reads `paper/v2/main.tex` and
+3. After rewriting the essay, re-run `audit_paper_numbers.py`. It reads `paper/main.tex` and
    checks every number against the artifact it names — **it has already caught five real errors in
    our own manuscript**, including a transfer table whose cells came from the wrong rows. If you
    rewrite the LaTeX, it protects you; if you rewrite only the markdown essay, port the numbers back

@@ -14,7 +14,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAPER = os.path.join(os.path.dirname(ROOT), "paper")
+PAPER = os.path.join(os.path.dirname(ROOT), "research", "archive", "paper_v1")
 FILES = ("main.tex", "abstract.tex", "sections_intro.tex", "sections_related.tex",
          "sections_definition.tex", "sections_method.tex", "sections_setup.tex",
          "sections_results.tex", "sections_discussion.tex")

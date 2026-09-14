@@ -65,7 +65,7 @@
 
 **One page.** For the full evidence and every artifact, see `REBUILD_FINDINGS_V2.md`; for what each
 claim rests on and what it cannot support, `HANDOFF.md`; for the rewritten report,
-`../paper/v2/main.tex`. Every number here is machine-audited against its artifact by
+`../paper/main.tex`. Every number here is machine-audited against its artifact by
 `scripts/audit_claims.py`, `scripts/audit_summary.py` (this file) and
 `scripts/audit_paper_numbers.py`.
 

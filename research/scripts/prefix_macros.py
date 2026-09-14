@@ -5,7 +5,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-gen = open(os.path.join(ROOT, "paper", "generated_tb2.tex"), encoding="utf-8").read()
+gen = open(os.path.join(ROOT, "research", "archive", "paper_v1", "generated_tb2.tex"), encoding="utf-8").read()
 names = sorted({m.group(1) for m in re.finditer(r"\\newcommand\{\\(\w+)\}", gen)}, key=len, reverse=True)
 print(f"generated macros: {len(names)}")
 pat = re.compile(r"\\(?!ppx)(?:" + "|".join(names) + r")\b")
@@ -13,7 +13,7 @@ total = 0
 for f in ("main.tex", "abstract.tex", "sections_intro.tex", "sections_related.tex",
           "sections_definition.tex", "sections_method.tex", "sections_setup.tex",
           "sections_results.tex", "sections_discussion.tex"):
-    p = os.path.join(ROOT, "paper", f)
+    p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
     if not os.path.exists(p):
         continue
     s = open(p, encoding="utf-8").read()

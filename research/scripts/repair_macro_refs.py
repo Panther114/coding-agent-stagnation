@@ -70,7 +70,7 @@ FIXES = {
 def main() -> None:
     total = 0
     for f in FILES:
-        p = os.path.join(ROOT, "paper", f)
+        p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
         if not os.path.exists(p):
             continue
         s = open(p, encoding="utf-8").read()

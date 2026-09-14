@@ -40,7 +40,7 @@ file to a single line. The per-file hash comparison is what caught it. Worth kno
 | Your macOS `.gitignore` block + derived-file rules | `.gitignore` | merged with mine; I kept `processed/steps*/` versioned on purpose (the six gates need those tables right after a clone) |
 
 **Not taken: your folder restructure** (`datasets/`, `essay/`, `tasks/`, top-level `docs/`). Every
-path in `paper/v2`, `research/EXPORT/`, the submission checklist and the six verification gates
+path in `paper/`, `research/EXPORT/`, the submission checklist and the six verification gates
 refers to the current layout, so adopting it would have broken all of them. Your `docs/VERSIONS.md`
 is kept as the translation table if the team ever wants to switch.
 
@@ -89,16 +89,16 @@ Measured effect on the analyses that used it: polling share of context cost **0.
 mean context per step **29,846 → 19,229 chars**, low-yield cost share 93.7% → 88.6%. The polling
 conclusion is unchanged and slightly strengthened. Recorded as §2.37 of
 `research/docs/REBUILD_FINDINGS_V2.md`; the three analysis scripts now read
-`steps_tb2_dedup/` instead of `steps_tb2_full/`. **No claim in `paper/v2` depends on TB2** — the
+`steps_tb2_dedup/` instead of `steps_tb2_full/`. **No claim in `paper/` depends on TB2** — the
 current report is built entirely on the three SWE-agent shard sets.
 
 ## Where my work is, if you want to look
 
 | what | where |
 |---|---|
-| The report (12 pages, builds with `xelatex main.tex` twice) | `paper/v2/main.tex` → `paper/v2/main.pdf` |
-| Same text in markdown | `paper/v2/ESSAY.md` |
-| Acknowledgement + AI disclosure pages | `paper/v2/main.tex (the acknowledgement is inlined at the end)` |
+| The report (12 pages, builds with `xelatex main.tex` twice) | `paper/main.tex` → `paper/main.pdf` |
+| Same text in markdown | `paper/ESSAY.md` |
+| Acknowledgement + AI disclosure pages | `paper/main.tex (the acknowledgement is inlined at the end)` |
 | Runnable demo (no API key, reproduces the paper's numbers) | `demo/route.py`, `demo/README.md` |
 | Every raw number, artifact and table | `research/EXPORT/` (`INDEX.md`, `numbers.csv`, `TABLES.md`) |
 | Full findings, incl. the new §2.34–2.37 | `research/docs/REBUILD_FINDINGS_V2.md` |
@@ -136,4 +136,4 @@ Nothing blocking. Three optional things:
    the two authors, send their name and I will move that one item into 来自他人的帮助
    (help from others) — the rules treat the two sections differently, and putting a non-author's
    work under "author contributions" would be the kind of misstatement the integrity criterion is
-   about. Placeholder is already written for it in `paper/v2/main.tex (the acknowledgement is inlined at the end)` §五.
+   about. Placeholder is already written for it in `paper/main.tex (the acknowledgement is inlined at the end)` §五.

@@ -16,7 +16,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAPER = os.path.normpath(os.path.join(ROOT, "..", "paper"))
+PAPER = os.path.normpath(os.path.join(ROOT, "archive", "paper_v1"))
 
 DEF_FILES = ("generated_tb2.tex", "ablation_macros.tex")
 BODY_SKIP = set(DEF_FILES) | {"generated_ablation.tex", "generated_ops.tex"}

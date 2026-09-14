@@ -23,7 +23,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
-    gen = open(os.path.join(ROOT, "paper", "generated_tb2.tex"), encoding="utf-8").read()
+    gen = open(os.path.join(ROOT, "research", "archive", "paper_v1", "generated_tb2.tex"), encoding="utf-8").read()
     defined = [m.group(1) for m in re.finditer(r"\\newcommand\{\\(\w+)\}", gen)]
     lookup = {}
     for n in defined:
@@ -34,7 +34,7 @@ def main() -> None:
 
     changed = 0
     for f in FILES:
-        p = os.path.join(ROOT, "paper", f)
+        p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
         if not os.path.exists(p):
             continue
         s = open(p, encoding="utf-8").read()
@@ -54,7 +54,7 @@ def main() -> None:
 
     missing = []
     for f in FILES:
-        p = os.path.join(ROOT, "paper", f)
+        p = os.path.join(ROOT, "research", "archive", "paper_v1", f)
         if not os.path.exists(p):
             continue
         s = open(p, encoding="utf-8").read()

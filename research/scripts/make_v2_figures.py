@@ -1,6 +1,6 @@
 """Figures for the report, drawn only from frozen artifacts.
 
-    python scripts/make_v2_figures.py            # writes paper/v2/figures/*.pdf and *.png
+    python scripts/make_v2_figures.py            # writes paper/figures/*.pdf and *.png
 
 Every number plotted here is read out of the same JSON the report's audit checks
 (`scripts/audit_paper_numbers.py`), so a figure cannot drift from the text.  Style rules: no
@@ -28,7 +28,7 @@ import numpy as np  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / "results" / "rebuild"
 LIVE = ROOT / "results" / "live"
-OUT = ROOT.parent / "paper" / "v2" / "figures"
+OUT = ROOT.parent / "paper" / "figures"
 
 C = {
     "router": "#1b6ca8",

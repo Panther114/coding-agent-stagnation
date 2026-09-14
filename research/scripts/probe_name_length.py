@@ -13,7 +13,7 @@ import subprocess
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
-PAPER = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "paper")
+PAPER = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "research", "archive", "paper_v1")
 
 
 def try_name(name: str) -> bool:

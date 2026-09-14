@@ -1,6 +1,6 @@
 """Diff two generated macro files, name by name.
 
-Usage: python scripts/diff_macros.py paper/generated_tb2.tex.bak paper/generated_tb2.regen.tex
+Usage: python scripts/diff_macros.py research/archive/paper_v1/generated_tb2.tex.bak research/archive/paper_v1/generated_tb2.regen.tex
 """
 from __future__ import annotations
 

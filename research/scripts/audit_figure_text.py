@@ -22,8 +22,8 @@ Text that intersects a data curve or a bar is not reported: that is normal in a 
 text-on-text, text-outside-its-panel and text-cut-off are defects.
 
 Usage:
-  python scripts/audit_figure_text.py                 # audit the on-disk PNGs in paper/figures
-  python scripts/audit_figure_text.py --save          # re-render into paper/figures first
+  python scripts/audit_figure_text.py                 # audit the on-disk PNGs in research/archive/paper_v1/figures
+  python scripts/audit_figure_text.py --save          # re-render into research/archive/paper_v1/figures first
   python scripts/audit_figure_text.py --json out.json
 """
 from __future__ import annotations
@@ -51,7 +51,7 @@ from matplotlib.transforms import Bbox  # noqa: E402
 
 os.environ.setdefault("MPLBACKEND", "Agg")
 
-PAPER = os.path.normpath(os.path.join(ROOT, "..", "paper"))
+PAPER = os.path.normpath(os.path.join(ROOT, "archive", "paper_v1"))
 FIGDIR = os.path.join(PAPER, "figures")
 
 # width each figure is given in the paper, in inches (text width is 6.5in at 1in margins)
@@ -704,7 +704,7 @@ def report(reports: List[Dict[str, Any]]) -> int:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--save", action="store_true", help="re-render figures into paper/figures")
+    ap.add_argument("--save", action="store_true", help="re-render figures into research/archive/paper_v1/figures")
     ap.add_argument("--outdir", default=FIGDIR)
     ap.add_argument("--json", default=None)
     args = ap.parse_args()

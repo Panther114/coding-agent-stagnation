@@ -87,17 +87,17 @@ cd research
 python scripts/build_dataset.py --corpus tb2 --n 1500 --out data/processed/tb2 --windows 10 --stride 3 --seed 11
 python scripts/embed_semantics.py --corpus tb2
 python scripts/build_gold.py --corpus tb2
-# the paper's numbers come from this run directory; ./paper/generated_tb2.tex is exported from it
+# the v1 draft's numbers came from this run directory; its macros and figures were exported there
 python scripts/run_experiments.py --corpus tb2 --w 10 --w-extra 20 --folds 5 --out results/final/tb2_v5
 python scripts/run_ablation.py --run results/final/tb2_v5 --folds 5 --out results/final/tb2_v5/ablation.json
 python scripts/run_cross_scaffold.py --run results/final/tb2_v5 --out results/final/tb2_v5/cross_scaffold.json
 python scripts/compare_monitors.py --run results/final/tb2_v5 --out results/final/tb2_v5/paired_comparisons.json
-python scripts/make_figures.py --run results/final/tb2_v5 --corpus tb2 --outdir ../paper/figures
-python scripts/make_regime_figure.py --run results/final/tb2_v5 --out ../paper/figures/fig_regimes_tb2_w10.png
-python scripts/export_results_tex.py --run results/final/tb2_v5 --corpus tb2 --out ../paper/generated_tb2.tex
-python scripts/export_ablation_tex.py --run results/final/tb2_v5 --out ../paper/ablation_macros.tex
+python scripts/make_figures.py --run results/final/tb2_v5 --corpus tb2 --outdir ../archive/paper_v1/figures
+python scripts/make_regime_figure.py --run results/final/tb2_v5 --out ../archive/paper_v1/figures/fig_regimes_tb2_w10.png
+python scripts/export_results_tex.py --run results/final/tb2_v5 --corpus tb2 --out ../archive/paper_v1/generated_tb2.tex
+python scripts/export_ablation_tex.py --run results/final/tb2_v5 --out ../archive/paper_v1/ablation_macros.tex
 python scripts/verify_all.py
-cd ../paper && pdflatex main && bibtex main && pdflatex main && pdflatex main
+cd ../archive/paper_v1 && pdflatex main && bibtex main && pdflatex main && pdflatex main
 ```
 
 Everything except the annotation step runs offline once the corpora are in `data/raw/`. The
@@ -206,7 +206,7 @@ The new package and its stage scripts:
 | live causal experiment on the 48-task suite (verifier-restoring) | `scripts/run_live48.py`, `scripts/analyse_live48_valid.py` | `results/live/live_experiment48_valid.json` |
 | build a task suite from real package sdists via the domestic mirror | `scripts/build_sdist_suite.py` | `data/live/sdist/tasks_sdist.jsonl` |
 | fetch withheld HF shards through the mirror | `scripts/fetch_missing_shards.py` | `data/raw/download_ledger.json` |
-| the rewritten paper (v2): LaTeX and its markdown twin | — | `paper/v2/main.tex`, `paper/v2/ESSAY.md` |
+| the rewritten paper (v2): LaTeX and its markdown twin | — | `paper/main.tex`, `paper/ESSAY.md` |
 | the sustained-event formulation (degenerate) | `scripts/analyse_sustained_waste.py` | `results/rebuild/sustained_waste.json` |
 | the coarse waste rate split into revision vs dead end | `scripts/analyse_dead_end.py` | `results/rebuild/dead_end.json` |
 | held-out-scaffold transfer | `scripts/analyse_scaffold_transfer.py` | `results/rebuild/scaffold_transfer.json` |
@@ -229,7 +229,12 @@ The first version's modules (`src/features.py`, `src/monitors.py`, …) and its 
 
 ## Checking the result
 
-One command runs every check that guards the paper:
+There are two stacks, because there are two paper generations. **The current report** is guarded by
+the six gates listed in the top-level `README.md` (`run_rebuild_tests.py`, `check_rebuild_consistency.py`,
+`audit_claims.py`, `audit_summary.py`, `check_doc_references.py`, `audit_paper_numbers.py`) plus
+`scripts/verify_pdf.py`, which reads the compiled PDF. **The v1 draft** — the one split across
+`sections_*.tex`, whose sources now live in `research/archive/paper_v1/` — is guarded by this single
+command:
 
 ```powershell
 python scripts/verify_all.py                                    # everything below, in order
@@ -279,7 +284,7 @@ Two provenance notes that matter when re-running any of this:
 * The labels were produced by AI readers applying a written codebook, not by human experts.
   This is stated in the paper's limitations, and the artifact keeps every reader's raw output
   and step-cited justification so the labels can be re-checked by hand.
-* No number in the paper is typed by hand: `paper/generated_tb2.tex` is emitted from the frozen
+* No number in the paper is typed by hand: `research/archive/paper_v1/generated_tb2.tex` is emitted from the frozen
   run by `scripts/export_results_tex.py`, and `scripts/pdf_text_probe.py` verifies that the
   values actually reach the PDF.
 * Two claims were withdrawn when the data contradicted them; both reversals are recorded in

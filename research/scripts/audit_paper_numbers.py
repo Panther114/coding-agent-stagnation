@@ -1,7 +1,7 @@
 """Audit the rewritten paper's headline numbers against the artifacts that produced them.
 
 A compiled PDF is not evidence that its numbers are right. This reads the numbers out of
-`paper/v2/main.tex` and compares each to the artifact it claims to come from, so the paper cannot
+`paper/main.tex` and compares each to the artifact it claims to come from, so the paper cannot
 drift from the frozen results the way an earlier executive summary did.
 """
 from __future__ import annotations
@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPER = ROOT.parent / "paper" / "v2" / "main.tex"
+PAPER = ROOT.parent / "paper" / "main.tex"
 RES = ROOT / "results" / "rebuild"
 LIVE = ROOT / "results" / "live"
 

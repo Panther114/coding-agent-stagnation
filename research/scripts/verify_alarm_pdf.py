@@ -6,7 +6,7 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8")
 import pypdf
 
-PAPER = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", "paper")
+PAPER = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "archive", "paper_v1")
 PAPER = os.path.normpath(PAPER)
 
 r = pypdf.PdfReader(os.path.join(PAPER, "main.pdf"))

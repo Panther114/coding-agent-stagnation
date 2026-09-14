@@ -14,7 +14,7 @@ reported agent success rates.
 
 | you are… | read this |
 |---|---|
-| **a judge or a reviewer of the report** | `paper/v2/main.pdf` (12 pages), then `research/EXPORT/INDEX.md` for every number → the artifact that produced it |
+| **a judge or a reviewer of the report** | `paper/main.pdf` (12 pages), then `research/EXPORT/INDEX.md` for every number → the artifact that produced it |
 | **the co-author** (Xuhao Chen — GitHub `willuhd`, branch `will/dev`) | **[`COAUTHOR_NOTES.md`](COAUTHOR_NOTES.md)** — what was imported from your branch, what to fix in the blind packet, and the TB2 duplicate-trial bug you found |
 | **an author, before submitting** | `research/docs/SUBMISSION_CHECKLIST.md` — every required component, its real status, and the fields only you can fill |
 | **someone who wants to run it** | `demo/README.md` — offline, deterministic, no API key |
@@ -23,7 +23,7 @@ reported agent success rates.
 
 | # | what | where |
 |---|---|---|
-| 1 | **Report** — cover page, abstract, contents, body, references page, 2-page Chinese acknowledgement. Build with `xelatex main.tex` **twice** (the cover and acknowledgement are Chinese; `pdflatex` cannot set them). | `paper/v2/main.tex` → `paper/v2/main.pdf`; same text in markdown at `paper/v2/ESSAY.md` |
+| 1 | **Report** — cover page, abstract, contents, body, references page, 2-page Chinese acknowledgement. Build with `xelatex main.tex` **twice** (the cover and acknowledgement are Chinese; `pdflatex` cannot set them). | `paper/main.tex` → `paper/main.pdf`; same text in markdown at `paper/ESSAY.md` |
 | 2 | **Runnable demo** — `--fit --summary --list --replay --live`. `--summary` reproduces the frozen held-out numbers (0.6965 / 0.7346 and 0.7220 / 0.7274 at the 20 % checkpoint). | `demo/route.py`, `demo/README.md` |
 | 3 | **Live application experiment** — 241 episodes, 48 real PyPI-package tasks, five conditions, $2.26: masked 0.286, unmasked 0.372, nudge 0.452, hinted 0.561, verify 0.571. | `research/scripts/run_live48.py`, `research/results/live/live_arms_valid.json` |
 | 4 | **Data package** — every number / table / artifact behind the report | `research/EXPORT/` |
@@ -40,7 +40,7 @@ Six gates run on every change, and all are green:
 | `research/scripts/audit_summary.py` | 0 mismatches in the executive summary |
 | `research/scripts/check_doc_references.py` | every cited artifact exists |
 | `research/scripts/audit_paper_numbers.py` | 65 / 65 paper numbers trace to an artifact |
-| `paper/v2/verify_pdf.py` | the compiled PDF carries the current numbers, and retracted claims only inside retractions |
+| `research/scripts/verify_pdf.py` | the compiled PDF carries the current numbers, and retracted claims only inside retractions |
 
 That last gate has caught **five real errors in our own manuscript**, including a transfer table
 whose cells came from the wrong rows. The AI assistance log records **eleven retractions** of the

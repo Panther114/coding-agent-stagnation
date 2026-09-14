@@ -1,0 +1,70 @@
+% !TEX program = pdflatex
+% =====================================================================================
+%  What actually reveals a coding agent has stopped making progress?
+%  S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026.
+%
+%  Every quantitative claim comes from paper/generated_<corpus>.tex, produced by
+%  scripts/export_results_tex.py from the frozen run directory (results/final/<run>).
+%  Do not type numbers into this file by hand: regenerate them instead.
+% =====================================================================================
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\captionsetup{font=small,labelfont=bf}
+\newcommand{\code}[1]{\texttt{\small #1}}
+\newcommand{\evid}{\textsc{evid}}
+\newcommand{\ver}{\textsc{ver}}
+\newcommand{\rep}{\textsc{rep}}
+\newcommand{\nov}{\textsc{nov}}
+\newcommand{\work}{\textsc{work}}
+\newcommand{\sem}{\textsc{sem}}
+\newcommand{\mon}[1]{\textsc{#1}}
+\graphicspath{{figures/}}
+
+\input{generated_tb2}
+\input{ablation_macros}
+
+\title{\vspace{-3.4em}Activity Is Not Progress:\\
+Which Runtime Signals Reveal That a Coding Agent Has Stalled?}
+\author{Ziheng Yu \quad Xuhao Chen}
+\date{\today}
+
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+\vspace{-0.4em}
+
+\noindent\hangindent=2em\textbf{Keywords:} coding agents, runtime monitoring, failure detection, progress
+estimation, trajectory annotation, reproducibility.
+
+\input{sections_intro}
+\input{sections_related}
+\input{sections_definition}
+\input{sections_method}
+\input{sections_setup}
+\input{tables_tb2}
+\input{sections_results}
+\input{sections_discussion}
+
+\bibliographystyle{plain}
+{\small\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}
+\bibliography{refs}}
+
+\end{document}

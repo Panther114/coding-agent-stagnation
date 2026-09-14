@@ -8,7 +8,7 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PAPER = os.path.join(ROOT, "paper")
+PAPER = os.path.join(ROOT, "research", "archive", "paper_v1")
 gen = open(os.path.join(PAPER, "generated_tb2.tex"), encoding="utf-8").read()
 defined = {m.group(1) for m in re.finditer(r"\\newcommand\{\\(\w+)\}", gen)}
 builtin = {"cite", "ref", "label", "begin", "end", "item", "textbf", "emph", "code", "evid",
