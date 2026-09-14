@@ -1,12 +1,16 @@
 # 致谢页 / Acknowledgement and Disclosure of AI Use
 
 > **Status: DRAFT SKELETON — the students must complete the marked sections.**
-> The competition requires this part to be **1–2 pages (500–1500 字)** and to state the AI tool
-> name and version, the specific stages and purposes of use, and the time and frequency of use,
-> and to submit the AI chat records for verification. Anything not filled in here will be
-> incomplete at submission. Facts below come from the project's own log
-> (`research/AI_ASSISTANCE_LOG.md`, 32 recorded passes as of 2026-09-13 15:50 CST); the sections
-> marked **[STUDENTS TO COMPLETE]** are ones only you can state truthfully.
+> **The submitted version of this page is the last section of `paper/main.tex`; this file is the
+> worksheet behind it.** It keeps the fill-in guidance — the worked examples, the rule references
+> and the questions to settle — which is deliberately *not* in the PDF, because the rules cap that
+> page at 500–1500 字 and the PDF currently sits at **1121 字 over 2 pages**. Keep it inside the
+> limit whatever you add.
+> The competition requires the page to state the AI tool name and version, the specific stages and
+> purposes of use, and the time and frequency of use, and to submit the AI chat records for
+> verification. Anything left marked here will be incomplete at submission. Facts below come from
+> the project's own log (`research/AI_ASSISTANCE_LOG.md`, 34 recorded passes to 2026-09-13
+> 18:10 CST); the sections marked **[STUDENTS TO COMPLETE]** are ones only you can state truthfully.
 
 ---
 
@@ -19,18 +23,27 @@ open-source Python packages. No human subjects, no private data.
 
 ## 2. 指导老师与参赛学生的关系 (Instructor–student relationship)
 
-**[STUDENTS TO COMPLETE]** — must state: who the instructor(s) are; how the students came to be
-introduced to them; whether the guidance was **paid or unpaid**; and what the instructor did and
-did not contribute. The rules require this explicitly and treat an undisclosed paid arrangement as
-grounds for disqualification.
+**[STUDENTS TO COMPLETE]** — must state (all four, none optional):
+
+1. the instructor's name(s) and affiliation;
+2. how the students came to know them (school course, science programme, family introduction, …);
+3. whether the guidance was **paid or unpaid** — if paid, the amount and who paid it; if unpaid,
+   say so explicitly;
+4. what the instructor did and did **not** contribute — e.g. shaping the question, reviewing drafts,
+   supplying compute, versus not collecting the data and not writing the code.
+
+The rules require this explicitly and treat an undisclosed paid arrangement as grounds for
+disqualification, so there is no reason to soften the wording. Note also that an instructor may be a
+school teacher, a university teacher, or a research-institute researcher — but **not** anyone from a
+company, a training organisation, or any for-profit body.
 
 ## 3. AI 使用情况 (Use of AI tools)
 
 **Tool.** `deepseek-v4.1-flash`, a large language model, accessed through an autonomous coding-agent
 harness (DeepSeek Harness / DSH) and through the OpenCode Go model gateway. Every model call is
 recorded in `research/results/rebuild/llm_ledger.jsonl` with timestamp, token counts and cost; the
-live experiment's total spend was **$1.36** (145 episodes over 42 tasks, including one 48-episode
-condition that had to be re-run after a harness fault).
+live experiment's total spend was **$2.26** (241 episodes over 48 tasks in five conditions, 210 of
+them valid, one condition re-run after a harness fault).
 
 **Stages and purposes.**
 
@@ -44,9 +57,8 @@ condition that had to be re-run after a harness fault).
 | drafting | producing draft manuscript text, later reviewed and rewritten by the authors |
 
 **Time and frequency.** Four working sessions, 2026-09-10 to 2026-09-13, recorded pass by pass in
-`research/AI_ASSISTANCE_LOG.md` (current total: 32 passes; the last two, passes 31–32, ran
-13:50–15:50 CST on 2026-09-13). The log records each pass, each bug the AI introduced, and each
-claim it retracted.
+`research/AI_ASSISTANCE_LOG.md` (current total: **34 passes**, the last running to 18:10 CST on
+2026-09-13). The log records each pass, each bug the AI introduced, and each claim it retracted.
 
 **Chat records.** Submitted separately as required. They are long; the project log is a condensed,
 line-by-line index into them.
@@ -114,7 +126,24 @@ are Xuhao Chen's work as a co-author, and the acknowledgement page lists them un
 under 来自他人的帮助. If the human judge of the 12 windows was someone outside the team, say so in
 来自他人的帮助 — that is the only place where a non-author's help would belong.
 
-## 6. 声明 (Declaration)
+## 6. 来自他人的帮助 (Help from outside the team)
+
+**[STUDENTS TO COMPLETE — answer it even if the answer is 「无」.]** This section is only for help from
+people **other than the two authors**. An author's own work belongs in 分工说明 above; repeating it
+here would misstate it. Under the rules, if a result could not have been obtained without outside
+help (a large instrument, a test rig, and so on), the helper's name and what they contributed must be
+named.
+
+* helper name / affiliation / contribution: **[STUDENTS TO COMPLETE]**
+* if there was genuinely no outside help, write 「无」.
+
+**One question to settle before submitting.** The blinded pilot had **12 windows judged by hand**.
+Who judged them? If it was one of the two authors, say so in 分工说明 (the PDF already attributes the
+*design* of the pilot to Xuhao Chen). If it was someone outside the team, name them here and note it
+in the trial record under `research/docs/human_check_blind/`. This is the only place a non-author's
+help belongs.
+
+## 7. 声明 (Declaration)
 
 We declare that the research results presented are original work by the participating students; that
 materials taken from others are cited and listed in the references; that the AI use described above

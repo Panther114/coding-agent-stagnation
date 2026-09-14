@@ -40,14 +40,27 @@ python scripts/verify_pdf.py ../paper/main.pdf
 | path | what |
 |---|---|
 | `main.tex` | the whole report, one file, builds with `xelatex` |
-| `main.pdf` | the compiled report (12 pages) |
-| `figures/` | seven figures: PDF (vector — use these) and PNG (preview only) |
+| `main.pdf` | the compiled report (15 pages, 7 figures) |
+| `figures/` | the seven figures, all of them included by `main.tex`: PDF (vector — what LaTeX uses) and PNG (preview only) |
 | `data/` | `TABLES.md` (pre-rendered tables), `numbers.csv` (every number, machine-readable), `INDEX.md` (claim → value → artifact), `MANIFEST.json`. A copy of `research/EXPORT/` |
 | `ESSAY.md` | the same text in markdown, for rewriting in your own voice |
 | `ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` | the acknowledgement + AI-use disclosure in markdown, with the fill-in fields marked |
 
-The report currently includes **no figures** — the seven files are here so you can place them while
-rewriting. Paste these blocks where you want them:
+**All seven figures are already included in `main.tex`.** The file names follow the order the figures
+were built, not the order they are printed:
+
+| file | prints as | section |
+|---|---|---|
+| `fig1_measurement_trap.pdf` | Figure 1 | §2, the trap |
+| `fig2_router_vs_field.pdf` | Figure 2 | §4.1 |
+| `fig3_transfer_grid.pdf` | Figure 3 | §4.2 |
+| `fig6_cross_scaffold.pdf` | Figure 4 | §4.3 |
+| `fig4_calibration.pdf` | Figure 5 | §4.4 |
+| `fig5_decision_curve.pdf` | Figure 6 | §4.5 |
+| `fig7_live_conditions.pdf` | Figure 7 | §5 |
+
+No figure number is typed by hand: each carries a `\label` and the prose refers to it with `\ref`, so
+moving one renumbers the rest. For reference, these are the blocks as they now stand in `main.tex`:
 
 ```latex
 \begin{figure}[t]

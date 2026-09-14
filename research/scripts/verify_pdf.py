@@ -16,6 +16,7 @@ mid-draft version of the report and no longer appeared anywhere in it.
 """
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -35,6 +36,14 @@ path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "paper" / "main.pdf"
 reader = PdfReader(str(path))
 text = "".join(page.extract_text() or "" for page in reader.pages)
 flat = " ".join(text.split())
+# pypdf splits some bold caption labels ('T able 1:'), and pdftotext invents column spaces, so
+# matching is done against a whitespace-free copy as well.  A gate that silently stops finding a
+# string because the extractor moved a space is worse than no gate.
+dense = "".join(text.split())
+
+
+def present(needle: str) -> bool:
+    return needle in flat or "".join(needle.split()) in dense
 
 # --- 1. the report's own numbers must be in the PDF -----------------------------------
 MUST_BE_PRESENT = {
@@ -84,7 +93,7 @@ ok = True
 print(f"{path.name}: {len(reader.pages)} pages, {len(text):,} characters extracted\n")
 print("must appear in the PDF:")
 for label, needle in MUST_BE_PRESENT.items():
-    hit = needle in flat
+    hit = present(needle)
     ok &= hit
     print(f"  {'ok  ' if hit else 'MISS'} {label:38s} {needle}")
 
@@ -99,6 +108,19 @@ for needle in MUST_NOT_STAND_ALONE:
     ok &= contextual
     print(f"  {'ok  ' if contextual else 'BAD '} {needle!r} appears in a retraction context"
           if contextual else f"  BAD  {needle!r} is asserted without retraction language")
+
+# --- 3. structural completeness: every figure and table caption reached the page -------
+want_figs = list(range(1, 8))
+want_tabs = list(range(1, 9))
+figs = sorted({int(n) for n in re.findall(r"Figure(\d+):", dense)})
+tabs = sorted({int(n) for n in re.findall(r"Table(\d+):", dense)})
+struct_ok = figs == want_figs and tabs == want_tabs
+ok &= struct_ok
+print(f"\nstructure: {len(figs)}/7 figure captions, {len(tabs)}/8 table captions, "
+      f"{len(reader.pages)} pages")
+if not struct_ok:
+    print(f"  MISSING figures {[n for n in want_figs if n not in figs]}, "
+          f"tables {[n for n in want_tabs if n not in tabs]}")
 
 print("\nPDF CONTENT VERIFIED" if ok else "\nPDF CONTENT CHECK FAILED")
 sys.exit(0 if ok else 1)

@@ -7,6 +7,12 @@ S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026
 
 ---
 
+> **What this file is.** The report's text in markdown, kept so you can rewrite it in your own
+> voice. It is *not* generated from the LaTeX: **`paper/main.pdf` is the submitted artifact and
+> `paper/main.tex` is its canonical source**, so where the two differ, the PDF is right. The LaTeX
+> is the version that carries the seven figures, the eight numbered tables and the 2-page
+> acknowledgement.
+
 ## Abstract
 
 When a coding agent starts to struggle, a developer (or an automated system) has one practical

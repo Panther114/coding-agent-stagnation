@@ -15,7 +15,7 @@ Everything below refers to the current single-file report at `paper/main.tex`.
 |---|---|
 | Title | **Lost or Wrong?** A runtime router that tells you *how* a coding agent is failing — and therefore what to do |
 | Authors | Ziheng Yu, Xuhao Chen |
-| Report source | `paper/main.tex` → `paper/main.pdf` (**12 pages**: cover, abstract, contents, 8 pages of body, references page, 2-page acknowledgement). **Build with `xelatex main.tex` (twice)** — the cover page and acknowledgement are Chinese, and `pdflatex` cannot set them. |
+| Report source | `paper/main.tex` → `paper/main.pdf` (**15 pages**: cover; title/abstract/keywords; contents; 9 pages of body with 7 figures; references page; 2-page acknowledgement). **Build with `xelatex main.tex` (twice)** — the cover page and acknowledgement are Chinese, and `pdflatex` cannot set them. |
 | Same text in markdown, for rewriting | `paper/ESSAY.md` |
 | Mandatory acknowledgement + AI disclosure | in the PDF (`paper/main.tex (the acknowledgement is inlined at the end)`) and in markdown at `paper/ACKNOWLEDGEMENT_AND_AI_DISCLOSURE.md` |
 | Every raw number, table and artifact | `research/EXPORT/` (`INDEX.md`, `numbers.csv`, `TABLES.md`, `artifacts/`, `live/`, `MANIFEST.json`) |

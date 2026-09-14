@@ -161,10 +161,13 @@ def fig3() -> None:
         for yi, v in zip(y, cross):
             ax.text(v + 0.008, yi, f"{v:.3f}", va="center", fontsize=7.5)
         ax.axvline(float(np.mean(within)), color=C["accent"], lw=1.0, ls=(0, (4, 2)))
-        ax.text(float(np.mean(within)) + 0.004, len(pairs) - 0.6, "within-set\nmean", color=C["accent"],
-                fontsize=7)
+        # Annotated *below* the bars: at the top the two-line label ran into the panel title
+        # (caught by scripts/audit_figures.py, which flags text-on-text collisions).
+        ax.text(float(np.mean(within)) + 0.006, -0.62, "within-set mean", color=C["accent"],
+                fontsize=7, va="center")
         ax.set_yticks(y, labels, fontsize=7.5)
         ax.set_xlim(0.5, 0.86)
+        ax.set_ylim(-1.0, 5.5)
         ax.set_title(title, fontsize=8.5)
         for s in ("top", "right"):
             ax.spines[s].set_visible(False)

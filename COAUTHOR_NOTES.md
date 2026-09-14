@@ -96,7 +96,7 @@ current report is built entirely on the three SWE-agent shard sets.
 
 | what | where |
 |---|---|
-| The report (12 pages, builds with `xelatex main.tex` twice) | `paper/main.tex` → `paper/main.pdf` |
+| The report (15 pages, 7 figures, builds with `xelatex main.tex` twice) | `paper/main.tex` → `paper/main.pdf` |
 | Same text in markdown | `paper/ESSAY.md` |
 | Acknowledgement + AI disclosure pages | `paper/main.tex (the acknowledgement is inlined at the end)` |
 | Runnable demo (no API key, reproduces the paper's numbers) | `demo/route.py`, `demo/README.md` |

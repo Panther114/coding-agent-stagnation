@@ -33,7 +33,11 @@
   \setCJKsansfont{Noto Sans CJK SC}
   \newCJKfontfamily\heiti{Noto Sans CJK SC}
 }{
-  \setCJKmainfont{SimSun}
+  % SimSun has no bold and no italic face: without them, \textbf{中文} silently falls back to the
+  % regular weight and \emph{中文} produces a warning and no slant.  SimHei ships with every
+  % Windows that has SimSun; the italic is synthesised by slanting the same face.
+  % (Overleaf takes the Noto branch, where both faces exist.)
+  \setCJKmainfont{SimSun}[BoldFont=SimHei, AutoFakeSlant=0.2]
   \setCJKsansfont{Microsoft YaHei}
   \newCJKfontfamily\heiti{SimHei}
 }
@@ -42,7 +46,13 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage[margin=1in]{geometry}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+% pdfusetitle puts \title and \author into the PDF's own properties, which is what a submission
+% system shows and indexes.  Without it those fields come out empty.
+\hypersetup{
+  pdfsubject={S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026},
+  pdfkeywords={coding agents, runtime monitoring, failure modes, intervention, reproducible research},
+}
 \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{enumitem}
@@ -52,8 +62,11 @@
 \newcommand{\code}[1]{\texttt{\small #1}}
 \graphicspath{{figures/}}
 
-\title{\vspace{-3.2em}Lost or Wrong?\\[3pt]
-\large A runtime router that tells you \emph{how} a coding agent is failing --- and therefore what to do}
+% Title and author metadata: these become the PDF's document properties, and the same title and
+% author list are printed again at the top of page 2 (the rules require 题目 and 作者 on the report
+% proper, 参赛规则 §四（四）2.b, not only on the cover).
+\title{Lost or Wrong? A runtime router that tells you how a coding agent is failing --- and
+therefore what to do}
 \author{Ziheng Yu \quad Xuhao Chen}
 \date{\today}
 
@@ -92,6 +105,19 @@ and therefore what to do\par}
 {\large \today\par}
 \vspace{1.3cm}
 \end{titlepage}
+
+% -------------------------------------------------------------------------------------
+% Page 2 onward: 题目、作者、摘要、关键词、目录、正文 (参赛规则 §四（四）2.b).
+% The cover repeats the title; the report proper must open with it, so it is set again here.
+% -------------------------------------------------------------------------------------
+\begin{center}
+{\LARGE\bfseries Lost or Wrong?\par}
+\vspace{0.5em}
+{\large A runtime router that tells you \emph{how} a coding agent is failing ---\\[2pt]
+and therefore what to do\par}
+\vspace{1.1em}
+{\normalsize\bfseries Ziheng Yu \quad Xuhao Chen\par}
+\end{center}
 
 \vspace{0.4em}
 
@@ -163,7 +189,7 @@ We measured the two modes on 236{,}137 mechanically labelled edits across 25{,}6
 1{,}213 real software-engineering instances, then replicated on two further disjoint sets of
 $\sim$26{,}000 runs each:
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering\small
 \begin{tabular}{llc}
 \toprule
@@ -176,10 +202,11 @@ LOST & failed and never edited such a file & 33.0 / 31.0 / 33.6\% \\
 \caption{Two-thirds of failures happen with the agent already in the right file. Stable to within
 2.6 points across three disjoint shard sets, and across model scale (66.8\% Llama-70B, 70.7\% 8B,
 70.2\% 405B).}
+\label{tab:modes}
 \end{table}
 
-\noindent The 67.0 / 69.0 / 66.4\% is stable to within 2.6 points across the three disjoint sets, and
-across model scale (66.8\% Llama-70B, 70.7\% 8B, 70.2\% 405B).
+\noindent The share barely moves between sets, so the split is a property of these corpora rather
+than of one shard set or one model size.
 
 % =====================================================================================
 \section{A trap we hit first}
@@ -196,9 +223,9 @@ reverses, and does so again on both held-out sets (0.492 vs 0.421, $p=3.6\times1
 0.512 vs 0.415, $p=2.8\times10^{-5}$, $n=229$ --- paired within-instance tests). The control that
 settles it: restricted to runs whose own patch is a single file that \emph{is} a gold file --- where
 the two target sets must coincide --- the metrics agree (0.615 vs 0.638, mean absolute gap 0.033 over
-8{,}801 runs).
+8{,}801 runs). Figure~\ref{fig:measurement_trap} plots both readings side by side.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering\small
 \begin{tabular}{lccc}
 \toprule
@@ -211,7 +238,17 @@ on-target, gold patch & $\mathbf{0.477}$ / 0.407 & $\mathbf{0.492}$ / 0.421 & $\
 \end{tabular}
 \caption{Solved / failed, on three disjoint sets of runs (each $\sim$26{,}700 runs, 1{,}213 shared
 instances). The trap inverts in all three; the independent target reverses it in all three.}
+\label{tab:trap}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/fig1_measurement_trap.pdf}
+\caption{Left: measured against each run's own final patch, failed runs look \emph{better} at
+localisation than solved ones. Right: measured against an independent gold patch the ordering
+reverses, in all three disjoint shard sets.}
+\label{fig:measurement_trap}
+\end{figure}
 
 \noindent Every quantity in this paper is built on the independent target. We tested three candidate
 explanations for the inversion (confident wrongness, patch breadth, fixation) and \textbf{all three
@@ -257,7 +294,13 @@ adding position to the features changes the result by $\le 0.002$.
 
 \subsection{The published detectors cannot make this decision}
 
-\begin{table}[h]
+Every published family is re-implemented on the identical rows and the identical task-disjoint folds,
+so the comparison is not across papers but across models on one matrix. On the failure question the
+families are respectable; on the question that decides the intervention they sit at or below chance,
+which is what \emph{cannot make this decision} means. Figure~\ref{fig:router_vs_field} shows the same
+comparison cell by cell.
+
+\begin{table}[ht]
 \centering\small
 \begin{tabular}{lcccc}
 \toprule
@@ -270,11 +313,20 @@ LOST or WRONG-FIX? & $\mathbf{0.7324}$ & 0.5993 & 0.5960 & 0.41--0.54 \\
 \caption{Identical rows, identical task-disjoint folds. Averaged over 24 cells (every ordered pair
 of the three shard sets $\times$ four prefix fractions). On the mode question the published families
 carry \emph{no information}.}
+\label{tab:detectors}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/fig2_router_vs_field.pdf}
+\caption{Means over the 24 cross-set cells. On the mode question every published family sits at or
+below the chance line while the router reaches 0.732.}
+\label{fig:router_vs_field}
+\end{figure}
 
 \subsection{It transfers to runs it has never seen}
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering\small
 \begin{tabular}{lcc}
 \toprule
@@ -294,17 +346,27 @@ AgentStop-style baseline & 0.5589 & 0.5960 \\
 fractions) and over the three within-set cells. Cross-set performance \emph{equals} within-set
 performance: the margin is not fitted to one corpus. The worst single cell still beats the best
 baseline's mean.}
+\label{tab:transfer}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/fig3_transfer_grid.pdf}
+\caption{Each bar is a model trained on one shard set and scored on another; the dashed line is the
+within-set mean. Cross-set performance equals within-set performance.}
+\label{fig:transfer_grid}
+\end{figure}
 
 \noindent Direction by direction, at the deployed 20\% checkpoint, the failure head scores 0.6965
 (0--3$\rightarrow$4--7), 0.7220 (0--3$\rightarrow$8--11), 0.7086 (4--7$\rightarrow$0--3) and 0.7079
 (8--11$\rightarrow$4--7); the mode head scores 0.7346, 0.7274, 0.7086 and 0.7317 on the same rows.
-Nothing here is evaluated on data the model was fitted on.
+Nothing here is evaluated on data the model was fitted on; Figure~\ref{fig:transfer_grid} shows the
+six ordered pairs against the within-set mean.
 
 
 \subsection{Where it stops working, tested rather than asserted}
 
-``Generalises'' would be too strong a word for the table above, and we checked. The train/test
+``Generalises'' would be too strong a word for Table~\ref{tab:transfer}, and we checked. The train/test
 split is over \emph{shards} of one scaffold: the same prompt, tool set and observation format. So
 we applied the same code path to three public corpora recorded from \textbf{other scaffolds} ---
 OpenHands on SWE-rebench, a four-framework corpus, and SWE-Gym's OpenHands trajectories ---
@@ -312,7 +374,7 @@ building the per-step frame with the same feature code for training and for test
 control that a near-chance result cannot supply by itself: how well the \emph{same} features do when
 the model is fitted inside the target scaffold.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering\small
 \begin{tabular}{lrrrr}
 \toprule
@@ -327,7 +389,17 @@ SWE-Gym / OpenHands & 6{,}055 & 0.761 & \textbf{0.319} & 0.425 \\
 carry real signal inside every scaffold, and a model trained on SWE-agent carries almost none of it
 across. Three variants that drop the command-digest and observation-scale features (22--31 features)
 move the transferred column only within 0.32--0.54, so this is not a bridge artefact.}
+\label{tab:crossscaffold}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/fig6_cross_scaffold.pdf}
+\caption{The same features fitted inside each scaffold (green) reach 0.65--0.76; transferred from
+SWE-agent (red) they reach 0.32--0.50, at or below the fixed baselines. The generality claimed in
+this report is therefore bounded to one scaffold's shards.}
+\label{fig:cross_scaffold}
+\end{figure}
 
 \noindent This is a negative result and we report it as one: \textbf{the transfer established here
 is shard-level generality within a scaffold, not scaffold-independent generality.} It is consistent
@@ -335,6 +407,7 @@ with the structural finding in the limitations --- a measurement that leans on o
 format cannot be expected to survive a different one. The mode head could not be tested this way at
 all: the gold patches that define its labels exist for 227 of the 9{,}921 instances in these corpora
 that have edits, so the LOST/WRONG-FIX question has almost no negatives to score.
+Figure~\ref{fig:cross_scaffold} sets the two columns against each other.
 
 \subsection{Calibration, done properly}
 Our own earlier ``zero false alarms at every budget'' claim was \textbf{withdrawn as circular}: the
@@ -342,7 +415,7 @@ detector and the label were the same statistic, so the numbers reported were lit
 This version uses an explicit null (for the mode target, runs that are LOST; for failure, runs that
 succeed) and a sequential rule valid under arbitrary dependence:
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering\small
 \begin{tabular}{lcc}
 \toprule
@@ -353,15 +426,36 @@ $\alpha = 0.10$ & 0.078 & 0.258 \\
 $\alpha = 0.20$ & 0.123 & 0.386 \\
 \bottomrule
 \end{tabular}
+\caption{Requested false-alarm rate against the rate actually achieved, and the detection that
+buys, across the calibrated levels.}
+\label{tab:calibration}
 \end{table}
 
-\noindent 8 of 8 levels controlled on the mean. A raw 0.5 threshold flags 98.4\% of never-failing
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/fig4_calibration.pdf}
+\caption{The sequential rule is controlled at every level on the mean; the detection rate it buys is
+modest and is reported as such.}
+\label{fig:calibration}
+\end{figure}
+
+\noindent 8 of 8 levels controlled on the mean; Figure~\ref{fig:calibration} plots the same
+comparison. A raw 0.5 threshold flags 98.4\% of never-failing
 runs; the calibrated rule flags \textbf{3.39\%}. We also report a negative: a formal sequential
 e-value test is valid and \textbf{never fires} at $\alpha \le 0.05$.
 
 \subsection{It is worth acting on}
 
-\begin{table}[h]
+A detector is only worth building if the decision it drives beats the fixed policies a person could
+follow without one. The router is therefore scored head to head with those policies on the runs that
+actually failed, giving 1 for a route that names the true failure mode and $\lambda$ for one that
+does not, and sweeping both the checkpoint and the cost $\lambda$. It wins in \textbf{12 of 12} cells,
+and the ordering of the fixed policies is itself informative: \textbf{always SEARCH is worse than a
+coin flip} (0.518 against 0.656), which is the practical consequence of the 67\% WRONG-FIX share ---
+on this corpus, intervening with a location is more often the wrong action than the right one.
+Figure~\ref{fig:decision_curve} traces the whole sweep.
+
+\begin{table}[ht]
 \centering\small
 \begin{tabular}{lr}
 \toprule
@@ -374,7 +468,16 @@ always SEARCH & 0.518 \\
 \bottomrule
 \end{tabular}
 \caption{Beats all three at every fraction and every cost setting --- 12 of 12 cells.}
+\label{tab:decision}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.62\linewidth]{figures/fig5_decision_curve.pdf}
+\caption{Scoring 1 for a correct route and $\lambda$ for a wrong one, on runs that failed. The
+router beats always-verify, random and always-search at every checkpoint and every cost setting.}
+\label{fig:decision_curve}
+\end{figure}
 
 % =====================================================================================
 \section{Testing the premise live: the verifier was giving the answer away}
@@ -398,9 +501,10 @@ action), and \textbf{verify} appends, after the second failing test run, the ins
 re-check the diagnosis rather than edit again (the WRONG-FIX action). \textbf{Nudge} is the control
 for the second one: same trigger, same channel, same length, no content.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering\small
-\begin{tabular}{llccc}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}l p{4.6cm} c c c@{}}
 \toprule
 condition & what the agent sees & success & vs unmasked & reached the file \\
 \midrule
@@ -418,7 +522,16 @@ hinted ($p=0.015$) and against verify ($p=0.015$). Both runtime interventions la
 0.56--0.57 against 0.372 for no intervention, but neither is individually significant at this
 sample size, and the content-free control at the same trigger (0.452) is \textbf{not}
 distinguishable from the instruction it controls for ($p=0.383$).}
+\label{tab:live}
 \end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/fig7_live_conditions.pdf}
+\caption{Only the comparisons involving \emph{masked} reach significance. Both runtime interventions
+point the right way but neither is individually significant at this sample size.}
+\label{fig:live_conditions}
+\end{figure}
 
 \noindent Two conclusions survive, and they are both narrower than the one we wanted. First, the
 one solid causal result is about the \emph{benchmark}: hiding which tests failed costs 27.5 points
@@ -428,7 +541,8 @@ roughly $+0.2$ over doing nothing, and the re-check costs no turn budget (11.1 t
 --- but \textbf{this experiment cannot attribute the gain to the instruction rather than to being
 interrupted}, because a content-free message at the same moment moves success almost as far. A
 clean separation needs a larger $n$ than this suite can supply, and we would rather report the
-ambiguity than pick the attractive reading.
+ambiguity than pick the attractive reading. Figure~\ref{fig:live_conditions} shows the five
+conditions with Wilson intervals.
 
 \paragraph{The router on live runs, and another negative.}
 The frozen model was then applied unchanged to these episodes --- a different scaffold, a different
@@ -568,42 +682,32 @@ Terminal-Bench 2.0，以及另外四个开源脚手架），以及八个开源 P
 
 \subsection*{二、指导老师与参赛学生的关系}
 
-[待填写] 需明确说明以下四点，缺一不可：
-\begin{enumerate}[leftmargin=1.6em,itemsep=1pt]
-  \item 指导老师的姓名与所在单位；
-  \item 学生通过什么渠道认识指导老师（校内课程、科创项目、亲友介绍等）；
-  \item \textbf{指导是有偿还是无偿}（如为有偿，须写明费用与来源；如为无偿，亦须明确写出）；
-  \item 指导老师具体参与与未参与的部分（例如：确定选题方向、审阅稿件、提供算力；未参与数据采集、
-        未参与代码编写等）。
-\end{enumerate}
-据实填写即可。组委会明确将「未申报的有偿指导」列为取消资格的情形，因此此处不需要顾虑措辞。
+[待填写] 四项缺一不可：
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+  \item 老师姓名与所在单位：\ [待填写]
+  \item 学生与老师的结识渠道：\ [待填写]
+  \item 指导有偿还是无偿（有偿须写明费用与来源）：\ [待填写]
+  \item 老师参与与未参与的部分：\ [待填写]
+\end{itemize}
 
 \subsection*{三、分工说明}
 
-按组委会要求，逐项说明。括号内为我方建议的填写格式，请按实际修改。本节须写清\textbf{每位}作者的
-具体贡献——下述两项工作属于作者二（Xuhao Chen）而非外部协助，因此在此列出，而非列入「来自他人的
-帮助」。
+本节写清\textbf{每位}作者的具体贡献。下述两项工作属于作者二（Xuhao Chen）而非外部协助，因此在此
+列出，而非列入「来自他人的帮助」。
 
 \begin{itemize}[leftmargin=1.3em,itemsep=2pt]
-  \item \textbf{选题来源}：\ [待填写] 例如：由 XXX 提出，经与老师讨论后确定为「用运行时路由器区分两
-        种失败模式」。
-  \item \textbf{数据获取}：\ [待填写] 例如：XXX 负责检索并下载六个公开数据集；XXX 负责搭建
-        Python 环境与测试套件。
-  \item \textbf{分析与计算}：\ [待填写] 例如：统计分析与模型训练由 AI 助手完成代码编写，XXX 与
-        XXX 负责核验每一项结论是否与其产物一致，并推翻了其中十一项错误结论（见下）。
-  \item \textbf{实验设计与实施}：\ [待填写] 例如：活体实验（241 次真实运行、5 种条件，花费 2.26
-        美元）由 XXX 设计条件（提示位置／不提示／遮蔽失败位置／强制复查／中性对照），由 AI 助手
-        执行运行脚本。
+  \item \textbf{选题来源}：\ [待填写]
+  \item \textbf{数据获取}：\ [待填写]
+  \item \textbf{分析与计算}：\ [待填写]
+  \item \textbf{实验设计与实施}：\ [待填写]
   \item \textbf{独立的盲评人机对照试验（作者二 Xuhao Chen）}：由作者二设计并实施——编写盲评窗口
         包与评分脚本（仅用标准库，含 Wilson 区间、$\kappa$、McNemar 检验）、预先注册判定规则、
         密封答案并在全部判定提交后才开封。结果为：人工判定与读者标注一致率 83.3\%（$\kappa$ =
         +0.667），与机械指标一致率仅 50.0\%（$\kappa$ = +0.100）。
   \item \textbf{数据重复问题的发现与修正（作者二 Xuhao Chen）}：由作者二发现 Terminal-Bench 2.0
         数据集中存在重复试验条目并给出去重规则；据此重建数据表，并重新计算受影响的全部统计量。
-  \item \textbf{撰写论文}：\ [待填写] 例如：论文结构由 XXX 确定，初稿由 AI 助手生成，最终文字由
-        XXX 与 XXX 重写并逐句核对。
-  \item \textbf{遇到的困难及解决经过}：\ [待填写] 例如：最初使用的定位指标是「自指」的，导致结论
-        完全反向；用独立的官方补丁重新计算后方向反转，并在两个留出数据集上复现。
+  \item \textbf{撰写论文}：\ [待填写]
+  \item \textbf{遇到的困难及解决经过}：\ [待填写]
 \end{itemize}
 
 \subsection*{四、人工智能使用情况}
@@ -618,24 +722,15 @@ Terminal-Bench 2.0，以及另外四个开源脚手架），以及八个开源 P
 验证、自助法区间、Wilcoxon 检验、校准曲线、决策曲线）；（4）在活体实验中，模型本身是被测试的\emph{对象}；
 （5）编写初稿文字，由参赛学生审阅并重写。
 
-\textbf{时间与频率}：\textbf{2026 年 9 月 10 日至 9 月 13 日}，共四个工作时段，逐次记录在
-\texttt{research/AI\_ASSISTANCE\_LOG.md}（共 34 次记录）。
+\textbf{时间与频率}：\textbf{2026 年 9 月 10 日至 9 月 13 日}，共四个工作时段，累计 34 次，逐次
+记录于项目内的 AI 使用日志（\texttt{AI\_ASSISTANCE\_LOG.md}）。
 
 \textbf{聊天记录}：按组委会要求另行提交。
 
 \subsection*{五、来自他人的帮助}
 
-[待填写并据实说明] 本节只填\textbf{两位作者之外}的帮助；作者本人的工作已列入第三节，不要重复计入。
-组委会规定：如必须由他人提供帮助才能完成（如大型仪器操作、测试等），须写明帮助者姓名与帮助内容；
-指导老师不得来自公司、培训机构或任何谋利机构。
-
-\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
-  \item 提供帮助者姓名 / 单位 / 帮助内容：\ [待填写]
-  \item 若确实没有任何来自作者之外的帮助，请直接写明「无」。
-  \item \textbf{需要确认的一点}：盲评试验中被判定的 12 个窗口，其人工判定是由谁作出的？若由两位作者
-        之一作出，请在上文第三节中说明；若由作者之外的人作出，请在此处写明其姓名，并在试验记录
-        （\texttt{research/docs/human\_check\_blind/}）中一并注明。
-\end{itemize}
+[待填写] 本节只填\textbf{两位作者之外}的帮助；确无此类帮助，请写明「无」。（盲评试验中被判定的
+12 个窗口，其判定人若在两位作者之外，请在此写明姓名。）
 
 \subsection*{六、关于 AI 出错的自愿声明}
 
