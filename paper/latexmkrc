@@ -1,0 +1,17 @@
+# Overleaf reads this file if it is present.  Two things are set here:
+#
+#   $pdf_mode = 5      build with XeLaTeX, not pdfLaTeX.  The report's cover page and
+#                      acknowledgement are Chinese and its font loading needs fontspec, so
+#                      pdfLaTeX cannot build it at all -- and the half-built PDF it leaves
+#                      behind has an empty contents page and "Figure ??" at every reference.
+#
+#   $max_repeat = 5    rerun until the .aux and .toc stop changing, so the contents page and
+#                      every \ref are resolved in one Recompile rather than two.
+#
+# If the Menu -> Compiler setting disagrees (it is pdfLaTeX by default on a new project), the
+# menu wins and main.tex will print a page telling you to switch it.
+
+$pdf_mode  = 5;
+$xelatex   = 'xelatex -interaction=nonstopmode -synctex=1 %O %S';
+$max_repeat = 5;
+$bibtex_use = 0;      # the bibliography is inlined with \begin{thebibliography}

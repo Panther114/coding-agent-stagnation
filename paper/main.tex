@@ -22,6 +22,33 @@
 % =====================================================================================
 \documentclass[10pt]{article}
 
+% -------------------------------------------------------------------------------------
+% THIS FILE MUST BE COMPILED WITH XeLaTeX (Overleaf: Menu -> Compiler -> XeLaTeX).
+%
+% If it is built with pdfLaTeX instead -- Overleaf's default engine -- fontspec aborts, the run
+% continues in nonstopmode, and the result is a half-built PDF with an EMPTY CONTENTS PAGE and
+% "Figure ??" at every reference.  That is a compiler setting, not a broken document, but it is
+% a miserable thing to debug.  So under pdfLaTeX we stop immediately and print the instruction.
+% -------------------------------------------------------------------------------------
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[margin=1in]{geometry}
+  \pagestyle{empty}
+  \begin{document}
+  \vspace*{3.5cm}
+  \begin{center}
+    {\Large\bfseries This report must be compiled with XeLaTeX}\\[1.4em]
+    It is currently being compiled with pdfLaTeX, which cannot load the fonts and cannot set the
+    Chinese cover page or the acknowledgement.\\[1.4em]
+    In Overleaf: \textbf{Menu} $\rightarrow$ \textbf{Compiler} $\rightarrow$ \textbf{XeLaTeX},
+    then press \textbf{Recompile} twice.\\[1.4em]
+    From a terminal: \texttt{xelatex main.tex}, twice.
+  \end{center}
+  \end{document}
+  \endinput
+\fi
+
 \usepackage{fontspec}
 \usepackage{xeCJK}
 % Chinese fonts differ between machines: Overleaf ships the Noto CJK family, Windows has

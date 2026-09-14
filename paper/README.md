@@ -6,10 +6,34 @@ self-contained, and `main.tex` is the only `.tex` file in it.
 
 ## Upload to Overleaf
 
-1. Overleaf → New Project → Upload Project → drop **this whole folder** (or a zip of it).
-2. **Menu → Compiler → XeLaTeX.** This is the one setting that matters. pdfLaTeX cannot set the
-   Chinese cover page or acknowledgement and stops with `Unicode character 第 (U+7B2C)`.
-3. **Compile twice** — the table of contents resolves on the second pass.
+1. Overleaf → New Project → Upload Project → **upload `research/EXPORT/overleaf_upload.zip`**. It is
+   built from this folder and checked before it is written (one self-contained `.tex`, seven
+   figures, a PDF newer than its source, no build leftovers). Dropping the folder itself also works
+   — but see the note at the end of this section.
+2. **Menu → Compiler → XeLaTeX.** This is the setting that matters. `latexmkrc` asks for XeLaTeX as
+   well, but the menu wins if they disagree.
+3. **Recompile.** One press is enough: `latexmkrc` sets `$max_repeat = 5`, so the build reruns until
+   the contents page and every `\ref` have settled. Without `latexmkrc`, press it twice.
+
+### If the contents page comes out empty and references read "Figure ??"
+
+That is the pdfLaTeX build, every time — it is a compiler setting, not a broken document. pdfLaTeX
+cannot load `fontspec`, the run continues in nonstopmode, and what lands on your screen is a
+half-built PDF with an empty contents page and `??` at every reference. Two things now stop that:
+
+* `latexmkrc` sets `$pdf_mode = 5`, so a latexmk build uses XeLaTeX;
+* under pdfLaTeX, `main.tex` no longer tries to typeset the report at all. It stops and prints **one
+  page** saying "This report must be compiled with XeLaTeX", with the menu path. Seven `??` marks
+  and an empty contents page are gone; you get the instruction instead.
+
+If you ever see the old symptom anyway, the first line of the Overleaf log tells you which engine
+ran. Fix the engine rather than the document.
+
+### Building locally
+
+If you compile in this folder yourself, delete `main.aux`, `main.toc`, `main.log`, `main.out` and
+`main.synctex.gz` before uploading it — otherwise they travel with the project. `main.pdf` is the
+exception: it is the report, and it is versioned on purpose.
 
 The font block selects itself, so the same file builds on Overleaf and on Windows:
 

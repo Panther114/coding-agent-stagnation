@@ -65,6 +65,17 @@ def main() -> None:
     elif main_pdf.stat().st_mtime < main_tex.stat().st_mtime:
         problems.append("main.pdf is OLDER than main.tex — recompile (xelatex, twice)")
 
+    # The two things that keep an upload from being built with the wrong engine.  Without them a
+    # pdfLaTeX build leaves a half-built PDF: empty contents page, "Figure ??" at every reference.
+    lmk = PAPER / "latexmkrc"
+    if not lmk.exists():
+        problems.append("latexmkrc is missing — Overleaf would fall back to pdfLaTeX")
+    elif "$pdf_mode" not in lmk.read_text(encoding="utf-8"):
+        problems.append("latexmkrc does not set $pdf_mode, so it would not force XeLaTeX")
+    if "\\ifPDFTeX" not in src:
+        problems.append("main.tex has lost its pdfLaTeX guard, so a pdfLaTeX build would silently "
+                        "produce an empty contents page and 'Figure ??' everywhere")
+
     junk = [p.name for pat in JUNK for p in PAPER.glob(pat)]
     if junk:
         problems.append(f"build junk in the upload folder: {sorted(junk)}")
