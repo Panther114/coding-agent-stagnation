@@ -1,6 +1,7 @@
 % !TEX program = xelatex
 % =====================================================================================
-%  Lost or Wrong?  A runtime router that tells you HOW a coding agent is failing.
+%  Lost or Wrong?  A causal runtime router that distinguishes search failure from
+%  wrong-fix failure in coding agents.
 %  S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026
 %
 %  BUILD WITH XELATEX (the cover page and the acknowledgement page contain Chinese):
@@ -92,8 +93,8 @@
 % Title and author metadata: these become the PDF's document properties, and the same title and
 % author list are printed again at the top of page 2 (the rules require 题目 and 作者 on the report
 % proper, 参赛规则 §四（四）2.b, not only on the cover).
-\title{Lost or Wrong? A runtime router that tells you how a coding agent is failing --- and
-therefore what to do}
+\title{Lost or Wrong? A causal runtime router that distinguishes search failure from
+wrong-fix failure in coding agents}
 \author{Ziheng Yu \quad Xuhao Chen}
 \date{\today}
 
@@ -113,8 +114,8 @@ therefore what to do}
 \vspace{2.6cm}
 {\LARGE\bfseries Lost or Wrong?\par}
 \vspace{0.5cm}
-{\large A runtime router that tells you \emph{how} a coding agent is failing ---\\[2pt]
-and therefore what to do\par}
+{\large A causal runtime router that distinguishes search failure from\
+wrong-fix failure in coding agents\par}
 \vspace{1.2cm}
 {\large 失之搜索，还是错于修正？\\
 一个判断编码智能体\textbf{如何}失败的运行时路由器\par}
@@ -140,8 +141,8 @@ and therefore what to do\par}
 \begin{center}
 {\LARGE\bfseries Lost or Wrong?\par}
 \vspace{0.5em}
-{\large A runtime router that tells you \emph{how} a coding agent is failing ---\\[2pt]
-and therefore what to do\par}
+{\large A causal runtime router that distinguishes search failure from\
+wrong-fix failure in coding agents\par}
 \vspace{1.1em}
 {\normalsize\bfseries Ziheng Yu \quad Xuhao Chen\par}
 \end{center}
@@ -150,15 +151,15 @@ and therefore what to do\par}
 
 \begin{abstract}
 \noindent
-When a coding agent starts to struggle, the practical decision is: \textbf{help it find the code,
-or make it check its own fix?} Those are opposite actions. Today's runtime monitors cannot choose
+When a coding agent stops making progress, two interventions are available: help it find the code,
+or make it re-examine its own fix. They are opposite, and today's runtime monitors cannot choose
 between them --- they detect \emph{that} an agent is struggling and carry no signal about \emph{how}.
 On identical rows and folds the published stagnation- and loop-detection families score
 \textbf{0.554--0.607} at predicting failure, and at the question that decides the intervention ---
 is the agent LOST (has not found the code) or WRONG-FIX (found it, and the change does not work) ---
 they score \textbf{at or below chance (0.41--0.54)}.
 
-We build the missing piece. \textbf{\code{Route}} is a causal, reference-free runtime router that
+We present \textbf{\code{Route}}, a causal, reference-free runtime router that
 reads only the first 10--60\% of a run and outputs both whether the run will fail and which failure
 mode it is in, with the intervention that follows. Trained on one set of runs and tested on
 \textbf{two disjoint sets it never saw} (24 cells: every ordered pair of shard sets $\times$ four
@@ -167,20 +168,20 @@ discrimination --- \textbf{+0.156 and +0.136 AUC over the published detector fam
 rows and folds. Cross-set performance equals within-set performance, so the margin is not fitted to
 one corpus.
 
-Two results make it trustworthy rather than merely accurate. Its \textbf{false-alarm rate is
-genuinely controlled} ($\alpha=0.05 \rightarrow 0.046$ achieved, 8 of 8 levels) against an explicit
-null --- replacing an earlier claim of ours that was \textbf{circular} and is withdrawn. And as a
-decision rule it beats every fixed policy: \textbf{0.764--0.800} against 0.732 for always-verify,
-0.656 for random and 0.518 for always-search, in \textbf{12 of 12} cells.
+Two further results bound the claim. The \textbf{false-alarm rate is controlled} at every level
+($\alpha=0.05 \rightarrow 0.046$ achieved, 8 of 8 levels) against an explicit null, replacing an
+earlier claim of ours that was \textbf{circular} and is withdrawn. As a decision rule the router
+beats every fixed policy: \textbf{0.764--0.800} against 0.732 for always-verify, 0.656 for random
+and 0.518 for always-search, in \textbf{12 of 12} cells.
 
-Testing the premise live produced something uncomfortable: on our benchmark suite \textbf{every run
-reached the correct file}, because the verifier prints the failing test's filename, which contains
-the module name --- localisation was being solved by string-matching, not diagnosis. Withholding
-which tests failed cuts success by \textbf{27.5 points} ($p = 0.015$) and is the only significant
-effect in the live experiment. We also report where the method \textbf{stops} working: a model
-trained on SWE-agent scores 0.32--0.50 on 88{,}000 runs from three other scaffolds, against
-0.65--0.76 for the same features fitted inside those scaffolds, so the generality established here
-is \emph{shard-level within a scaffold} and is claimed as nothing more.
+A live evaluation exposes a benchmark artefact: on our suite \textbf{every run reached the correct
+file}, because the verifier prints the failing test's filename, which contains the module name ---
+localisation was solved by string-matching, not diagnosis. Withholding which tests failed cuts
+success by \textbf{27.5 points} ($p = 0.015$) and is the only significant effect in that experiment.
+We also report where the method \textbf{stops} working: a model trained on SWE-agent scores
+0.32--0.50 on 88{,}000 runs from three other scaffolds, against 0.65--0.76 for the same features
+fitted inside those scaffolds, so the generality established here is \emph{shard-level within a
+scaffold}.
 \end{abstract}
 
 \vspace{-0.3em}
@@ -192,15 +193,15 @@ intervention, reproducible research.
 \newpage
 
 % =====================================================================================
-\section{The intervention problem}
+\section{The intervention problem: LOST and WRONG-FIX}
 
-A coding agent runs for fifty steps and is not solving the task. Someone must decide what to do. The
+A coding agent has run for fifty steps without solving the task, and a decision is required. The
 literature offers many ways to notice this --- loop detectors, redundancy measures, stagnation
 triggers, output-shape anomalies --- and they are decent at noticing: published detectors sit around
 AUC 0.6--0.7 \cite{agentstop}, and a failure-as-a-process monitor reaches 82\% precision at a
 2--3\% false-alarm rate \cite{fap}.
 
-But noticing is not deciding. There are two very different reasons an agent can be stuck:
+Detecting stagnation is not deciding what to do. A stalled agent has two distinct failure modes:
 
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
 \item \textbf{LOST} --- it has not found the code that needs changing. Long searching, wrong-file
@@ -209,8 +210,8 @@ But noticing is not deciding. There are two very different reasons an agent can 
   the same place, tests still failing. The remedy is to force it to re-examine its diagnosis.
 \end{itemize}
 
-\noindent These remedies are \emph{opposite}, and applying the wrong one wastes the budget you were
-trying to save. A monitor that cannot separate them cannot be acted on, however good its AUC.
+\noindent The remedies are \emph{opposite}: applying the wrong one wastes the budget the monitor was
+meant to save. A monitor that cannot separate the modes cannot be acted on, however high its AUC.
 
 We measured the two modes on 236{,}137 mechanically labelled edits across 25{,}681 runs on
 1{,}213 real software-engineering instances, then replicated on two further disjoint sets of
@@ -236,14 +237,14 @@ LOST & failed and never edited such a file & 33.0 / 31.0 / 33.6\% \\
 than of one shard set or one model size.
 
 % =====================================================================================
-\section{A trap we hit first}
+\section{A measurement trap: self-referential localisation}
 
-Before building anything we tried to reproduce the natural measurement of localisation and got what
-looked like a headline: \textbf{failed runs localise \emph{better} than successful ones}
-(0.670 vs 0.594, $p=3.3\times10^{-4}$). It was wrong. That statistic is computed against
-\textbf{the run's own final patch}: both the numerator's file set and the denominator come from the
-run itself, so it measures convergence on what the run produced, not aim at the \emph{correct} file
---- and a run that fixates on the wrong file and never wavers scores a perfect 1.0.
+We first reproduced the standard localisation measurement and obtained an apparent headline:
+\textbf{failed runs localise \emph{better} than successful ones} (0.670 vs 0.594,
+$p=3.3\times10^{-4}$). The result is an artefact of the target. That statistic is computed against
+\textbf{the run's own final patch}, so both the numerator's file set and the denominator come from
+the run itself: it measures convergence on what the run produced, not aim at the \emph{correct}
+file, and a run that fixates on the wrong file and never wavers scores a perfect 1.0.
 
 Recomputed against an independent gold patch for 927 of the 1{,}213 instances the direction
 reverses, and does so again on both held-out sets (0.492 vs 0.421, $p=3.6\times10^{-3}$, $n=198$;
@@ -282,9 +283,27 @@ explanations for the inversion (confident wrongness, patch breadth, fixation) an
 failed}; the mechanism is recorded as open rather than asserted.
 
 % =====================================================================================
-\section{The system}
+\section{The router}
 
-\subsection{What it does}
+\subsection{Overview of the approach}
+
+The router is a two-head classifier over a fixed-length feature vector computed from the first $f$
+fraction of a run, $f \in \{10, 20, 40, 60\}\%$. Both heads read the same inputs and answer
+different questions: $P(\text{fail})$ asks whether the run will fail, and
+$P(\text{wrong-fix} \mid \text{fail})$ asks whether a failing run has found the right file and is
+failing to fix it (WRONG-FIX) rather than still searching for it (LOST). The outputs combine into a
+single decision rule: intervene only when $P(\text{fail})$ is high, then apply the remedy the mode
+head implies --- SEARCH for LOST, VERIFY for WRONG-FIX.
+
+Three design choices carry the claim. Every feature is a function of the prefix alone, so the model
+is evaluated at the moment the decision would be made; run length is excluded because, at a fixed
+prefix fraction, it is not observable online. The mode question is asked on the same rows, folds and
+features as the failure question, so the comparison against published detectors isolates the
+question asked rather than the data or the model class. And the model is trained on one shard set and
+scored on shard sets it never saw, which makes the reported margin a property of the mechanism
+rather than of the fitting.
+
+\subsection{Runtime interface and outputs}
 \code{python demo/route.py --replay <run\_id>} reads a run's first $f$ fraction of steps
 ($f = 10, 20, 40, 60\%$) and prints, at each fraction, $P(\text{fail})$,
 $P(\text{wrong-fix} \mid \text{failing})$, and the resulting intervention. On a real held-out run:
@@ -296,7 +315,7 @@ at 20\% of the run:\\
 ground truth: reward=0 -> WRONG-FIX
 \end{quote}
 
-\subsection{What it may look at}
+\subsection{Input features and causal constraints}
 The design constraint that makes the result meaningful is \textbf{causality}. The prefix is steps
 $0\dots L-1$ with $L = \mathrm{round}(f \cdot n_{\text{steps}})$; the run's own length appears in
 \emph{no} feature. A self-test overwrites every post-cutoff step and asserts all 112 feature columns
@@ -305,27 +324,24 @@ dataset's gold patch, never from the agent's output. Folds are task-disjoint.
 
 The inputs are ordinary observables: edit counts and rates, no-op edit fraction, repeat and entropy
 of command signatures, the read/edit/run/verify mix, observation-size trend, and the
-pass/fail/error signals visible so far. Two heads --- $P(\text{fail})$ and
-$P(\text{wrong-fix}\mid\text{fail})$ --- and the rule is: intervene only if $P(\text{fail})$ is
-high, then SEARCH if the mode head says LOST, VERIFY if it says WRONG-FIX.
+pass/fail/error signals visible so far.
 
-\subsection{One detail that changed a comparison}
-An earlier version compared the router against ``position'' and found it barely won. That comparison
-was \textbf{invalid}: at a fixed prefix fraction, position \emph{is} the run's length --- a quantity
-no online system can know (verified: its AUC matches run length's to $\le 0.006$). Against a
+\subsection{Controlling for run length}
+An earlier version compared the router against ``position'' and found it marginally ahead. That
+comparison was \textbf{invalid}: at a fixed prefix fraction, position \emph{is} the run's length ---
+a quantity no online system can observe (verified: its AUC matches run length's to $\le 0.006$). Against a
 length-matched control the learned model holds at 0.63--0.76 and strictly dominates run length;
 adding position to the features changes the result by $\le 0.002$.
 
 % =====================================================================================
 \section{Results}
 
-\subsection{The published detectors cannot make this decision}
+\subsection{Published detectors cannot identify the failure mode}
 
-Every published family is re-implemented on the identical rows and the identical task-disjoint folds,
-so the comparison is not across papers but across models on one matrix. On the failure question the
-families are respectable; on the question that decides the intervention they sit at or below chance,
-which is what \emph{cannot make this decision} means. Figure~\ref{fig:router_vs_field} shows the same
-comparison cell by cell.
+Every published family is re-implemented on the identical rows and task-disjoint folds, so the
+comparison is across models on one matrix rather than across papers. On failure prediction the
+families are competitive; on the mode question they sit at or below chance.
+Figure~\ref{fig:router_vs_field} shows the same comparison cell by cell.
 
 \begin{table}[ht]
 \centering\small
@@ -351,7 +367,7 @@ below the chance line while the router reaches 0.732.}
 \label{fig:router_vs_field}
 \end{figure}
 
-\subsection{It transfers to runs it has never seen}
+\subsection{Transfer to unseen shard sets}
 
 \begin{table}[ht]
 \centering\small
@@ -391,11 +407,11 @@ Nothing here is evaluated on data the model was fitted on; Figure~\ref{fig:trans
 six ordered pairs against the within-set mean.
 
 
-\subsection{Where it stops working, tested rather than asserted}
+\subsection{Limits of cross-scaffold generalisation}
 
-``Generalises'' would be too strong a word for Table~\ref{tab:transfer}, and we checked. The train/test
-split is over \emph{shards} of one scaffold: the same prompt, tool set and observation format. So
-we applied the same code path to three public corpora recorded from \textbf{other scaffolds} ---
+The transfer reported in Table~\ref{tab:transfer} is over \emph{shards} of one scaffold: the same
+prompt, tool set and observation format. To test whether it survives a different scaffold we applied
+the same code path to three public corpora recorded from \textbf{other scaffolds} ---
 OpenHands on SWE-rebench, a four-framework corpus, and SWE-Gym's OpenHands trajectories ---
 building the per-step frame with the same feature code for training and for test data, and adding a
 control that a near-chance result cannot supply by itself: how well the \emph{same} features do when
@@ -430,15 +446,15 @@ this report is therefore bounded to one scaffold's shards.}
 
 \noindent This is a negative result and we report it as one: \textbf{the transfer established here
 is shard-level generality within a scaffold, not scaffold-independent generality.} It is consistent
-with the structural finding in the limitations --- a measurement that leans on one scaffold's output
+with the structural finding in the limitations: a measurement that depends on one scaffold's output
 format cannot be expected to survive a different one. The mode head could not be tested this way at
 all: the gold patches that define its labels exist for 227 of the 9{,}921 instances in these corpora
 that have edits, so the LOST/WRONG-FIX question has almost no negatives to score.
 Figure~\ref{fig:cross_scaffold} sets the two columns against each other.
 
-\subsection{Calibration, done properly}
+\subsection{Calibration of the false-alarm rate}
 Our own earlier ``zero false alarms at every budget'' claim was \textbf{withdrawn as circular}: the
-detector and the label were the same statistic, so the numbers reported were literally an oracle's.
+detector and the label were the same statistic, so the reported numbers were those of an oracle.
 This version uses an explicit null (for the mode target, runs that are LOST; for failure, runs that
 succeed) and a sequential rule valid under arbitrary dependence:
 
@@ -471,16 +487,15 @@ comparison. A raw 0.5 threshold flags 98.4\% of never-failing
 runs; the calibrated rule flags \textbf{3.39\%}. We also report a negative: a formal sequential
 e-value test is valid and \textbf{never fires} at $\alpha \le 0.05$.
 
-\subsection{It is worth acting on}
+\subsection{Decision value against fixed policies}
 
-A detector is only worth building if the decision it drives beats the fixed policies a person could
-follow without one. The router is therefore scored head to head with those policies on the runs that
-actually failed, giving 1 for a route that names the true failure mode and $\lambda$ for one that
-does not, and sweeping both the checkpoint and the cost $\lambda$. It wins in \textbf{12 of 12} cells,
-and the ordering of the fixed policies is itself informative: \textbf{always SEARCH is worse than a
-coin flip} (0.518 against 0.656), which is the practical consequence of the 67\% WRONG-FIX share ---
-on this corpus, intervening with a location is more often the wrong action than the right one.
-Figure~\ref{fig:decision_curve} traces the whole sweep.
+A detector is useful only if the decision it drives beats fixed policies that require no detector.
+The router is therefore scored against those policies on the runs that actually failed, giving 1 for
+a route that names the true failure mode and $\lambda$ for one that does not, and sweeping both the
+checkpoint and the cost $\lambda$. It wins in \textbf{12 of 12} cells. The ordering of the fixed
+policies is itself informative: \textbf{always SEARCH scores below random} (0.518 against 0.656),
+the practical consequence of the 67\% WRONG-FIX share --- on this corpus a location is more often
+the wrong action than the right one. Figure~\ref{fig:decision_curve} traces the whole sweep.
 
 \begin{table}[ht]
 \centering\small
@@ -507,18 +522,18 @@ router beats always-verify, random and always-search at every checkpoint and eve
 \end{figure}
 
 % =====================================================================================
-\section{Testing the premise live: the verifier was giving the answer away}
+\section{Live evaluation: verifier leakage and intervention effects}
 
 We ran the premise against live agents (DeepSeek V4.1 Flash, temperature 0, real Python packages,
 their own test suites as verifier, no Docker): \textbf{241 episodes} in five conditions over the same
 48 tasks, \textbf{\$2.26 in total}.
 
-The first surprise: \textbf{every run in the first two conditions reached the correct file} --- 100\%,
-which would mean LOST does not exist in this setting. The second surprise was the explanation. pytest
-prints the failing test's \emph{filename}, and that filename contains the module name
-(\code{test\_ioutils.py} $\rightarrow$ \code{ioutils.py}), so the defect's location is readable off
-the failure message. \textbf{51.5\% of test observations handed to the agent literally name the gold
-module.} Localisation in these benchmarks is string-matching, not diagnosis.
+In the first two conditions \textbf{every run reached the correct file} (100\%), which would place
+the LOST mode outside this setting. The explanation is mechanical: pytest prints the failing test's
+\emph{filename}, and that filename contains the module name (\code{test\_ioutils.py} $\rightarrow$
+\code{ioutils.py}), so the defect's location is readable off the failure message. \textbf{51.5\% of
+test observations handed to the agent name the gold module explicitly.} Localisation in these
+benchmarks is string-matching, not diagnosis.
 
 We therefore added a \textbf{masked} condition: the agent is told \emph{that} tests fail (it still
 sees ``3 failed, 516 passed'') but never \emph{which} or \emph{where}. The grader always sees the
@@ -560,34 +575,33 @@ point the right way but neither is individually significant at this sample size.
 \label{fig:live_conditions}
 \end{figure}
 
-\noindent Two conclusions survive, and they are both narrower than the one we wanted. First, the
-one solid causal result is about the \emph{benchmark}: hiding which tests failed costs 27.5 points
-while the other conditions are statistically indistinguishable from each other. Second, the runtime
-actions the router prescribes both point the right way --- a hint or a forced re-check is worth
-roughly $+0.2$ over doing nothing, and the re-check costs no turn budget (11.1 turns against 12.2)
---- but \textbf{this experiment cannot attribute the gain to the instruction rather than to being
-interrupted}, because a content-free message at the same moment moves success almost as far. A
-clean separation needs a larger $n$ than this suite can supply, and we would rather report the
-ambiguity than pick the attractive reading. Figure~\ref{fig:live_conditions} shows the five
-conditions with Wilson intervals.
+\noindent Two conclusions remain, both narrower than intended. The one solid causal result concerns
+the \emph{benchmark}: hiding which tests failed costs 27.5 points, while the other conditions are
+statistically indistinguishable from each other. The runtime actions the router prescribes both
+point the right way --- a hint or a forced re-check is worth roughly $+0.2$ over doing nothing, and
+the re-check costs no turn budget (11.1 turns against 12.2) --- but \textbf{this experiment cannot
+attribute the gain to the instruction rather than to being interrupted}, because a content-free
+message at the same moment moves success almost as far. Separating the two needs a larger $n$ than
+this suite can supply; we report the ambiguity rather than the attractive reading.
+Figure~\ref{fig:live_conditions} shows the five conditions with Wilson intervals.
 
-\paragraph{The router on live runs, and another negative.}
+\paragraph{The router on live runs: a further negative.}
 The frozen model was then applied unchanged to these episodes --- a different scaffold, a different
 model, real packages --- and it does \textbf{not} transfer: AUC \textbf{0.426} at the 20\%
 checkpoint ($n=125$) against 0.584 for the published output-overlap baseline. Re-fitting on the
 training corpus with only the features that survive the transcript bridge, and dropping the
-observation-scale family, recovers 0.602. This is the same conclusion the three external corpora
-reached in \S4.4, from a completely different direction, and it is the reason the claim in this
-paper is bounded to one scaffold's shards.
+observation-scale family, recovers 0.602. This is the conclusion the three external corpora
+reached in \S4.3, from a different direction, and it is why the claim in this paper is bounded to one
+scaffold's shards.
 
-\noindent\emph{Note: the masked condition's first run produced 0/48 success and 0\% reaching the
-gold file. That was a \textbf{harness fault, not a result}: every episode died before its first tool
-call because the recorded Python interpreter had been deleted from a temp directory between runs.
-No tokens were spent. It is recorded because the number has exactly the shape of a spectacular
-finding and had to be checked against the transcripts to be disbelieved. The environment has been
-rebuilt in-repo and the condition re-run; the numbers above are the corrected ones.}
+\noindent\emph{Note: the masked condition's first run produced 0/48 success and 0\% reaching the gold
+file. That was a \textbf{harness fault, not a result}: every episode died before its first tool call
+because the recorded Python interpreter had been deleted from a temp directory between runs, and no
+tokens were spent. It is recorded because the number has the shape of a strong finding and was
+disbelieved only by reading the transcripts. The environment was rebuilt in-repo and the condition
+re-run; the numbers above are the corrected ones.}
 
-\paragraph{Harness faults we had to fix, because they looked like results.}
+\paragraph{Harness faults that looked like results.}
 (i) \textbf{65.2\% of turns were unparseable} in the first pilot --- our protocol was ad-hoc text,
 but the model emits its own XML tool-call format regardless; native function-calling took this to
 0--4\%. (ii) \textbf{The agent was writing its own tests into \code{tests/}}, which pytest collects,
@@ -597,7 +611,7 @@ being fixed}; the verifier is now restored to the packages' originals before gra
 interpreter, above.
 
 % =====================================================================================
-\section{The demo}
+\section{Reproducible demonstration}
 
 \begin{quote}\small\ttfamily
 python demo/route.py --fit \# train on shards 0--3, cache the model\\
@@ -606,14 +620,14 @@ python demo/route.py --list \# held-out runs with their true modes\\
 python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 \end{quote}
 
-\noindent Offline, deterministic, no API key, and it reproduces the held-out numbers on demand.
+\noindent Offline, deterministic, no API key; reproduces the held-out numbers on demand.
 
 % =====================================================================================
 \section{Limitations}
 
 \begin{itemize}[leftmargin=1.3em,itemsep=1pt]
-\item \textbf{The cross-scaffold limit is severe, and we measured it rather than assuming it}
-  (\S4.4). Every mechanical measurement rests on a structural footer SWE-agent prints into its
+\item \textbf{The cross-scaffold limitation is severe, and measured rather than assumed}
+  (\S4.3). Every mechanical measurement rests on a structural footer SWE-agent prints into its
   observations (\code{[File: ... (N lines total)]}) in 95.8\% of edit steps. That footer is
   \textbf{absent from every other scaffold tested} --- OpenHands, the PI agent, mini-swe-agent-plus
   and a multi-framework corpus all show 0\% --- and the failure head trained on SWE-agent scores
@@ -647,17 +661,17 @@ python demo/route.py --replay <run\_id> \# step through one run, turn by turn
 \item \textbf{The inversion's mechanism is unexplained}: three candidates tested, all failed.
 \item \textbf{Temperature-0 inference is not deterministic} ($\sim$9\% of per-instance outcomes flip
   across repeats), so within-instance comparisons are reported with runs-per-instance (mean 21.9).
-\item \textbf{The corpus is 80{,}035 runs across three disjoint tables}, not one merged table. The
-  single-table rebuild was attempted, failed, and the failure is recorded.
+\item \textbf{The corpus is 80{,}035 runs in three disjoint tables}, not one merged table. The
+  single-table rebuild was attempted, failed, and is recorded.
 \end{itemize}
 
 % =====================================================================================
-\section{Reproducibility}
+\section{Automated verification}
 
 Six automated gates run on every change: invariant tests 11/11; cross-artifact consistency passes;
 28/28 headline claims trace to their artifacts; 0 mismatches against the one-page summary; every
-cited artifact exists; and 65/65 paper numbers trace to the artifact each one names. That last gate
-was written during this work and \textbf{found five real errors in our own manuscript} --- values
+cited artifact exists; and 65/65 paper numbers trace to the artifact each one names. The last of
+these was written during this work and \textbf{found five real errors in our own manuscript}: values
 quoted as pooled that were within-instance, figures mixed across two artifacts' row sets, and a
 transfer table whose cells had been read off the wrong rows. All are fixed. Complete data package:
 \code{research/EXPORT/}.
@@ -665,9 +679,9 @@ transfer table whose cells had been read off the wrong rows. All are fixed. Comp
 % =====================================================================================
 \section{Use of AI tools}
 
-A language model (\code{deepseek-v4.1-flash}) was used as a research assistant throughout ---
-writing analysis code, running statistical tests, retrieving and verifying literature, and drafting
-text. Every load-bearing citation was then verified by hand against the primary source, and two
+A language model (\code{deepseek-v4.1-flash}) was used as a research assistant throughout: writing
+analysis code, running statistical tests, retrieving and verifying literature, and drafting text.
+Every load-bearing citation was verified by hand against the primary source, and two
 reconnaissance claims were rejected as unverifiable. The model also served as the \emph{subject} of
 the live experiment. It was not used to generate data; all measurements come from public corpora and
 real test suites executed locally. \textbf{Eleven of its own claims were falsified and retracted},

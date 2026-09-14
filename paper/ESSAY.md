@@ -1,6 +1,6 @@
 # Lost or Wrong?
 
-### A runtime router that tells you *how* a coding agent is failing — and therefore what to do
+### A causal runtime router that distinguishes search failure from wrong-fix failure in coding agents
 
 **Ziheng Yu · Xuhao Chen**
 S.-T. Yau High School Science Award (Computer Science), Mainland China, 2026
@@ -59,7 +59,7 @@ if the test written to falsify it fails.
 
 ---
 
-## 1. The intervention problem
+## 1. The intervention problem: LOST and WRONG-FIX
 
 A coding agent runs for fifty steps and is not solving the task. Someone has to decide what to do.
 The literature has produced many ways to notice this — loop detectors, redundancy measures,
@@ -93,7 +93,7 @@ decision is not "is it failing" but "which of these two is it".
 
 ---
 
-## 2. A trap we hit first, and why it matters
+## 2. A measurement trap: self-referential localisation
 
 Before building anything we tried to reproduce the natural measurement of localisation, and got a
 result that looked like a headline: **failed runs localise *better* than successful ones**
@@ -123,9 +123,26 @@ as open rather than asserted.
 
 ---
 
-## 3. The system
+## 3. The router
 
-### 3.1 What it does
+### 3.1 Overview of the approach
+
+The router is a two-head classifier over a fixed-length feature vector computed from the first *f*
+fraction of a run, *f* ∈ {10, 20, 40, 60}%. Both heads read the same inputs and answer different
+questions: P(fail) asks whether the run will fail, and P(wrong-fix | fail) asks whether a failing run
+has found the right file and is failing to fix it (WRONG-FIX) rather than still searching for it
+(LOST). The outputs combine into a single decision rule: intervene only when P(fail) is high, then
+apply the remedy the mode head implies — SEARCH for LOST, VERIFY for WRONG-FIX.
+
+Three design choices carry the claim. Every feature is a function of the prefix alone, so the model
+is evaluated at the moment the decision would be made; run length is excluded because, at a fixed
+prefix fraction, it is not observable online. The mode question is asked on the same rows, folds and
+features as the failure question, so the comparison against published detectors isolates the question
+asked rather than the data or the model class. And the model is trained on one shard set and scored
+on shard sets it never saw, which makes the reported margin a property of the mechanism rather than
+of the fitting.
+
+### 3.2 Runtime interface and outputs
 
 ```
 python demo/route.py --replay <run_id>
@@ -143,7 +160,7 @@ ground truth: reward=0 -> WRONG-FIX
 
 That is a real held-out run, and the router called it correctly four fractions deep.
 
-### 3.2 What it may look at, and what it may not
+### 3.3 Input features and causal constraints
 
 The design constraint that makes the result meaningful is **causality**. The prefix is steps
 `0 … L−1` with `L = round(f · n_steps)`; the run's own length appears in **no** feature. A
@@ -158,7 +175,7 @@ pass/fail/error signals visible so far. It has two heads — `P(fail)` and `P(wr
 and the routing rule is simply: intervene only if `P(fail)` is high, and then choose SEARCH if the
 mode head says LOST and VERIFY if it says WRONG-FIX.
 
-### 3.3 One detail that changed a comparison
+### 3.4 Controlling for run length
 
 An earlier version of this work compared the router against "position" (how far into the run we
 are) and found it barely won. That comparison was **invalid**: at a fixed prefix fraction, position
@@ -171,7 +188,7 @@ run length; adding position to the features changes the result by ≤0.002.
 
 ## 4. Results
 
-### 4.1 The published detectors cannot make this decision
+### 4.1 Published detectors cannot identify the failure mode
 
 On identical rows, identical task-disjoint folds, and identical features:
 
@@ -184,7 +201,7 @@ Averaged over **24 cells** — every ordered pair of the three shard sets, at fo
 On the mode question the published families are at or below chance: they carry **no information at
 all** about which failure the agent is in, while the router reaches 0.68–0.77.
 
-### 4.2 It transfers to runs it has never seen
+### 4.2 Transfer to unseen shard sets
 
 This is the part that makes the number credible rather than fitted. The trainer saw shards 0–3
 only. Averaged over the **24 cross-set cells** (three shard sets, every ordered pair, four prefix
@@ -204,7 +221,7 @@ the worst single cell still beats the best baseline's mean. Direction by directi
 20% checkpoint, the failure head scores 0.6965 (0–3→4–7), 0.7220 (0–3→8–11), 0.7086 (4–7→0–3) and
 0.7079 (8–11→4–7); the mode head scores 0.7346, 0.7274, 0.7086 and 0.7317 on the same rows.
 
-### 4.3 Where it stops working — tested, not asserted
+### 4.3 Limits of cross-scaffold generalisation
 
 "Generalises" would be too strong a word for the table above, and we checked. The split is over
 *shards of one scaffold*: the same prompt, the same tools, the same observation format. So we ran
@@ -232,7 +249,7 @@ survive a different one. The mode head could not be tested this way at all: the 
 define its labels exist for 227 of the 9,921 instances that have edits in these corpora, so the
 LOST/WRONG-FIX question has almost no negatives to score.
 
-### 4.4 Correct calibration, done properly
+### 4.4 Calibration of the false-alarm rate
 
 Our own earlier "zero false alarms at every budget" claim was **withdrawn as circular**: the
 detector and the label were the same statistic, so the numbers reported were literally an oracle's.
@@ -249,7 +266,7 @@ that succeed — and a sequential rule valid under arbitrary dependence:
 calibrated rule flags **3.39%**. We also report a negative: a formal sequential e-value test is
 valid and **never fires** at α ≤ 0.05.
 
-### 4.5 It is worth acting on
+### 4.5 Decision value against fixed policies
 
 Scoring 1 for a correct routing decision and λ for a wrong one, evaluated on runs that actually
 failed:
@@ -265,7 +282,7 @@ It beats all three at every fraction and every cost setting — **12 of 12 cells
 
 ---
 
-## 5. Testing the premise in a live environment: the verifier was giving the answer away
+## 5. Live evaluation: verifier leakage and intervention effects
 
 We ran the router's premise against live agents (DeepSeek V4.1 Flash, temperature 0, real Python
 packages, the packages' own test suites as the verifier, no Docker): **241 episodes** in five
@@ -324,7 +341,7 @@ to being interrupted**, because a content-free message at the same moment moves 
 far (0.452; *p* = 0.383 against verify). A clean separation needs a larger *n* than this suite can
 supply, and we report the ambiguity rather than picking the attractive reading.
 
-### 5.2 The router on the live runs — another negative
+### 5.2 The router on the live runs: a further negative
 
 The frozen model was then applied **unchanged** to these episodes (a different scaffold, a different
 model, real packages). It does **not** transfer: AUC **0.426** at the 20% checkpoint (n = 125)
@@ -333,7 +350,7 @@ the features that survive the transcript bridge, and dropping the observation-sc
 0.602. This is the same conclusion the three external corpora reached in §4.3, from a completely
 different direction — and it is why the claim in this paper is bounded to shards of one scaffold.
 
-### 5.3 Harness faults we had to fix, because they looked like results
+### 5.3 Harness faults that looked like results
 
 Worth recording, because two of them would otherwise have been reported as findings:
 
@@ -357,7 +374,7 @@ Worth recording, because two of them would otherwise have been reported as findi
 
 ---
 
-## 6. The demo
+## 6. Reproducible demonstration
 
 ```
 python demo/route.py --fit        # train on shards 0-3, cache the model
@@ -416,7 +433,7 @@ truth. See `demo/README.md`.
 
 ---
 
-## 8. Reproducibility
+## 8. Automated verification
 
 Every number in this paper is read out of a frozen artifact by a script; none is typed by hand.
 Six automated gates run on every change:

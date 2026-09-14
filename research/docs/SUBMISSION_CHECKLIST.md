@@ -13,7 +13,7 @@ Everything below refers to the current single-file report at `paper/main.tex`.
 
 | | |
 |---|---|
-| Title | **Lost or Wrong?** A runtime router that tells you *how* a coding agent is failing — and therefore what to do |
+| Title | **Lost or Wrong?** A causal runtime router that distinguishes search failure from wrong-fix failure in coding agents |
 | Authors | Ziheng Yu, Xuhao Chen |
 | Report source | `paper/main.tex` → `paper/main.pdf` (**15 pages**: cover; title/abstract/keywords; contents; 9 pages of body with 7 figures; references page; 2-page acknowledgement). **Build with `xelatex main.tex` (twice)** — the cover page and acknowledgement are Chinese, and `pdflatex` cannot set them. |
 | Same text in markdown, for rewriting | `paper/ESSAY.md` |
