@@ -41,6 +41,35 @@ stops working.*
 | 7 | Plagiarism report (CNKI / PaperPass etc.) for the final PDF; over the threshold is disqualifying | **Yours** — it must be generated from *your* final PDF after you rewrite it. No copy exists in this repository. |
 | 8 | CS category explicitly encourages an executable package / source / video as evidence of authenticity | **Done, and better than a video:** `demo/route.py` reproduces the paper's held-out numbers on demand. |
 
+## 1b. Format compliance, rule by rule
+
+Checked against 参赛规则 §四（四）2 (`research/docs/award/rules.txt`, lines 88–98) and against the
+rendered pages of `paper/main.pdf`. Page numbers are the PDF's own.
+
+| the rules require | where it is | how it was checked |
+|---|---|---|
+| a) 封面页: 姓名、学校省份/州、国别、指导老师姓名、报告标题 | p.1 — all five fields present; three are bracketed for you to fill | read off the rendered page |
+| b) 第二页起: 题目、作者、摘要、关键词、目录、正文 | p.2 = title + authors + abstract + keywords; p.3 = contents; p.4–12 = body | `verify_pdf.py` asserts the title; the rest read off the rendered pages |
+| c) 另起一页: 参考文献 | p.13, 10 entries, `\newpage` before `thebibliography` | rendered page |
+| d) 致谢页: 研究背景 / 与指导老师的关系（含**是否有偿**）/ 分工说明 / 他人协助 / AI 使用（工具与版本、环节、用途、时间、频率） | p.14–15, sections 一–七 | headings and content read off the rendered pages |
+| 致谢页 1–2 页、500–1500 字 | 2 pages, **1121 字** (CJK + CJK punctuation + latin words) | counted against the source by script; re-count after you fill the fields |
+| 报告为 PDF 文件 | `paper/main.pdf` | — |
+| 图表编号并配标题 | 7 figures, 8 tables, every one captioned | `verify_pdf.py`: 7/7 and 8/8 captions reach the page |
+
+Properties of the build itself:
+
+* **Build with `xelatex main.tex`, twice** — the cover page and the acknowledgement are Chinese.
+* The LaTeX log has **no** overfull box, underfull box, undefined reference, float-placement
+  warning, missing glyph, or substituted font shape.
+* All 37 fonts are embedded and subset; the PDF carries its own title, author, subject and keywords.
+* Figures pass `research/scripts/audit_figures.py`: no text-on-text collision, no ink outside the
+  page, nothing printed below 5 pt.
+* `paper/` uploads to Overleaf as-is: `research/scripts/build_overleaf_zip.py` asserts one
+  self-contained `.tex`, seven figures, a PDF newer than its source, and no build junk.
+
+**Not checked here, because only you can supply them:** the cover's school / province / instructor /
+Chinese names, the acknowledgement's 二、三、五 fields, and the signatures.
+
 ## 2. What is still open in the PDF
 
 1. **Cover page fields** — `paper/main.tex`, the `titlepage` block: school, province/country,
@@ -92,7 +121,7 @@ packet is intact, the checksum file is line-ending-sensitive.
    20% checkpoint). If they do not, something has been edited and you need to know why.
 2. Re-run the gates: `research/scripts/run_rebuild_tests.py`, `check_rebuild_consistency.py`,
    `audit_claims.py`, `audit_summary.py`, `check_doc_references.py`, `audit_paper_numbers.py`.
-   All six must be green (11/11, passes, 28/28, 0 mismatches, all present, 57/57).
+   All six must be green (11/11, passes, 28/28, 0 mismatches, all present, 65/65).
 3. After rewriting the essay, re-run `audit_paper_numbers.py`. It reads `paper/main.tex` and
    checks every number against the artifact it names — **it has already caught five real errors in
    our own manuscript**, including a transfer table whose cells came from the wrong rows. If you
