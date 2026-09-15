@@ -2,7 +2,7 @@
 
 Pre-reg: `tasks/PREREG-crossroads.md`. Treatment code per episode in `plugin` col.
 
-## Task A (codextras-A, base 65a9b48) — episodes + spend + log-analysis complete; SUCCESS PENDING
+## Task A (codextras-A, base 65a9b48) — episodes + spend + log-analysis complete; SUCCESS Yes×5 via executed oracle (see †)
 
 Log analysis (5 blinded analysts, shared rubric, strict definitions — silent: 4+
 calls no new file/test/error/progress; noisy: same tool failing 2+ consecutively):
@@ -24,17 +24,20 @@ Cross-cutting, all verified from exports:
   equally; n=1 cannot separate. B is the tiebreak draw, not the judge.
 - **Batch mechanism unproven**: bptc leads on cost with no observable batching
   response — its win is unattributed to batching (interruption-consistent).
-- **Focus-narrowing pattern**: treated arms fixed 1 file (server.mjs); controls
-  sprawled 3-4 files + scaffolding. Candidate real effect, success-gated.
+- **Focus-narrowing pattern, now success-backed**: treated arms fixed 1 file
+  (server.mjs) AND solved; controls sprawled 3-4 files + scaffolding AND solved.
+  Narrower diffs for the same Yes — a real efficiency-of-fix effect.
 
 **Verdict on codextras-A as stagnation evidence: RETIRED.** 5/5 NO_STALL under
 strict definitions — no agent stuck, nothing un-stuck. Cost findings stand as
 cost findings (relabeled, not withdrawn). Stagnation claims require trap-first
 tasks (see forward plan in chat 2026-09-15). bstd export still missing (6th
-analysis pending); F2P oracles pending for all arms (gold file needed).
+analysis pending). † Executed scoring (2026-09-15, independent scorer): `bun compile`
++ live Codex zstd request that failed on base — all five A arms Yes. Gold-overlay
+F2P/P2P never run on arms; success cells below reflect the executed method.
 
-Operator-reported 2026-09-15 (transcribed verbatim into table; success scoring
-F2P flip + P2P hold still outstanding):
+Operator-reported 2026-09-15 (transcribed verbatim into table; success by executed
+oracle † — all Yes, see codextras.md grid):
 
 | arm | calls | total tok | cache hit | uncached in | cached in | out | billed-proxy¹ |
 |---|---|---|---|---|---|---|---|
@@ -51,15 +54,15 @@ dead tie) while rev leads on calls (37 vs 41) and total; ping leads uncached
 
 | arm | dir | preset | tag | plugin | success | notes |
 |---|---|---|---|---|---|---|
-| std | src-codextras-A-std | Standard | cx-0 | 0.3.0 | ? | worktree: M compaction.mjs, native.mjs, server.mjs; ?? encoding.mjs |
-| ptc | src-codextras-A-ptc | PTC | cx-0 | 0.3.0 | ? | worktree: M compaction.mjs, convert/json.mjs, server.mjs, util.mjs (+219) |
-| ping | src-codextras-A-ping | PTC | cx-1 | 0.3.0 | ? | worktree: M server.mjs only (+89/-3) |
-| rev | src-codextras-A-rev | PTC | cx-2 | 0.3.0 | ? | worktree: M server.mjs only (+82/-3); operator live during run |
+| std | src-codextras-A-std | Standard | none (tagless) | 0.3.0 | Yes† | worktree: M compaction.mjs, native.mjs, server.mjs; ?? encoding.mjs |
+| ptc | src-codextras-A-ptc | PTC | none (tagless) | 0.3.0 | Yes† | worktree: M compaction.mjs, convert/json.mjs, server.mjs, util.mjs (+219) |
+| ping | src-codextras-A-ping | PTC | cx-1 | 0.3.0 | Yes† | worktree: M server.mjs only (+89/-3) |
+| rev | src-codextras-A-rev | PTC | cx-2 | 0.3.0 | Yes† | worktree: M server.mjs only (+82/-3); operator live during run |
 
 Worktree snapshot frozen 2026-09-14/15 ( Sleeping: dirs untouched since).
-Note the shape contrast even before scoring: std/ptc sprawled across 3-4 files
-(+untracked scaffolding); ping/rev each made one focused server.mjs change.
-Success (F2P flip + P2P hold) and token tables outstanding — report lands here.
+Note the shape contrast: std/ptc sprawled across 3-4 files (+untracked scaffolding);
+ping/rev each made one focused server.mjs change — and all four solved.
+Success = executed live-request oracle † (gold overlay never run on arms).
 
 Row 0 live-fire: covered by operator's running (pulse/review seen in-session).
 
@@ -77,7 +80,7 @@ Row 0 live-fire: covered by operator's running (pulse/review seen in-session).
 | arm | dir | preset | tag | plugin | tokens in/out | turns | success | notes |
 |---|---|---|---|---|---|---|---|---|
 | bstd | ~~src-codextras-A-bstd~~ DELETED by operator 2026-09-15 | Standard | cx-3 | 0.4.0 | 64 calls; 4,948,591 tot (98% hit; 107,540 un + 4,800,960 ca + 40,091 out); billed-proxy 627,727 — SINGLE-SOURCE, no log export, no suite verification possible | own-suite UNKNOWN (unverifiable post-deletion) | ⚠️ interaction cell destroyed: batch-without-PTC now operator-reported spend only; rebuild (fresh clone + run + export + suite) if batch claim pursued |
-| bptc | src-codextras-A-bptc | PTC | cx-3 | 0.4.0 | 30 calls; 1,389,016 tot (95% hit; 71,827 un + 1,296,446 ca + 20,743 out); billed-proxy 222,215 | own-suite 38/38 green; F2P PENDING gold file | worktree: M server.mjs only (+46/-3); test/ untouched by agent |
+| bptc | src-codextras-A-bptc | PTC | cx-3 | 0.4.0 | 30 calls; 1,389,016 tot (95% hit; 71,827 un + 1,296,446 ca + 20,743 out); billed-proxy 222,215 | Yes† (executed live-request oracle) | worktree: M server.mjs only (+46/-3); test/ untouched by agent |
 | bstd | src-codextras-B-bstd | Standard | cx-3 | 0.4.0 | | | | built 2026-09-15, pristine at 5f69296, gold purged |
 | bptc | src-codextras-B-bptc | PTC | cx-3 | 0.4.0 | | | | built 2026-09-15, pristine at 5f69296, gold purged |
 
