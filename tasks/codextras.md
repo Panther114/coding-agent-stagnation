@@ -1,6 +1,6 @@
 # codextras experiment battery — instructions, rubric, results
 
-Arms: one TRIPLE per task: `src-codextras-<TASK>-ctrl` (Standard control) vs `src-codextras-<TASK>-ptc` (PTC baseline) vs `src-codextras-<TASK>-exp` (plugin-on-PTC). PTC arms run with the PTC agent preset; headline contrast is exp-vs-PTC.
+Arms: one set per task: `src-codextras-<TASK>-std` (Standard control) vs `-ptc` (PTC baseline) vs `-ping` (PTC + content-free pulses) vs `-rev` (PTC + mode-routed review) vs `-bptc`/`-bstd` (batch-opportunity nudge). Same plugin build all arms, selected per session by opaque tag (`[cx-0..3]`, mapping sealed in `PREREG-crossroads.md`); PTC arms run with the PTC agent preset; headline contrasts rev-vs-ping (success) and std-vs-ptc (cost).
 Both are byte-identical clones at the SAME base commit; run the SAME task in both.
 Agent workspace-write is confined to the arm dir. Agent edits = `git status`/`git diff`
 vs HEAD (HEAD is the problematic commit; history present, fix purged — verify any time:
@@ -44,13 +44,34 @@ Cost (user fills from DSH per run): input / output / cache tokens, wall time.
 Headline per arm: solve rate + mean tokens per run + cost per solve. Compare arms
 within-task only; never pool across tasks.
 
-## Results (fill after scoring)
+## Results — Task A (spend logged 2026-09-15 from DSH UI tables; success PENDING gold overlay on all arms)
 
 | run | arm | task | model | F2P | P2P | in-tok | out-tok | cache-tok | wall | notes |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | ctrl | A | | /2 | | | | | | |
-| 2 | exp | A | | /2 | | | | | | |
-| 3 | ctrl | B | | /2 | | | | | | |
-| 4 | exp | B | | /2 | | | | | | |
-| 5 | ptc | A | | TBD | | 71804 | 22852 | 1217003 | 4min | 26 calls; F2P/P2P pending |
-| 6 | ptc | B | | /2 | | | | | | |
+| 1 | std | A | muse-spark-1.3 | PEND | PEND | 306582 | 54991 | 8637310 | | 95 calls; tagless (gate off); sprawl 3f+new file |
+| 2 | ptc | A | muse-spark-1.3 | PEND | PEND | 234556 | 43725 | 5683008 | | 64 calls; tagless; sprawl 4f+219 |
+| 3 | ping | A | muse-spark-1.3 | PEND | PEND | 158468 | 28334 | 2401689 | | 41 calls; `[cx-1]` + pulses verified in log; 1 file |
+| 4 | rev | A | muse-spark-1.3 | PEND | PEND | 184565 | 28441 | 2149845 | | 37 calls; `[cx-2]` + reviews verified in log; 1 file |
+| 5 | bptc | A | muse-spark-1.3 | PEND | own-suite 38/38 (NOT oracle) | 71827 | 20743 | 1296446 | | 30 calls; `[cx-3]` + batch notes verified; 1 file |
+| 6 | std | B | | /2 | | | | | | pending |
+| 7 | ptc | B | | /2 | | | | | | pending |
+| 8 | ping | B | | /2 | | | | | | pending |
+| 9 | rev | B | | /2 | | | | | | pending |
+
+Masked-A lane (mstd/mptc/mping/mrev + check.sh gatekeeper) lives in `RUNLOG-crossroads.md`
+with its own spend table; same oracle, same PENDING status.
+
+## Provenance notes (transcript-verified 2026-09-15, `sessions/`)
+
+- Tags: `[cx-1]` present only in ping/mping logs, `[cx-2]` only in rev/mrev, `[cx-3]`
+  only in bptc; std/ptc/mstd/mptc ran TAGLESS (gate off). No arm received another
+  arm's content. Treatment texts verified in-log (pulses/reviews/batch notes).
+- Streak nudge: ZERO firings in all 9 trial arms (no consecutive-identical failure
+  in ~300 calls). Single firing in the whole corpus: `codextras-A-rutwork2-base`
+  (operator's manual rut playground — mechanism existence proof, not trial data).
+- `codextras-A-mrev.jsonl` is a COMPLETE 11-step session that ended right after
+  answering the Branch-A review (turn completed, never reached fix): usable for
+  review-response analysis only, not cost/success.
+- `codextras-A-rutwork2-base.jsonl` (58 calls, later of two playground sessions):
+  operator-built manual rut artifact, brief/conditions NOT on record — provenance
+  incomplete; excluded from both batteries until a one-line provenance note lands.
