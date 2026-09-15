@@ -10,6 +10,9 @@ contribution, defect and retraction is logged in `research/AI_ASSISTANCE_LOG.md`
 The research package, its findings and the five verification gates live in `research/` — start
 at `research/README.md`. The report is in `essay/` (source `essay/main.tex`).
 
+Live-agent batteries run on real packages in isolated arm dirs (`tasks/src-*/`, never
+committed). The codextras taskbed is https://github.com/willuhd/codextras (private).
+
 ## If you are the reviewer
 
 Start with **[`TASK_12_WINDOWS.md`](tasks/TASK_12_WINDOWS.md)** — about 40 minutes, and it needs a

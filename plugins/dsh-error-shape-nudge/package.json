@@ -1,7 +1,7 @@
 {
   "name": "dsh-error-shape-nudge",
-  "description": "Advisory nudge when an agent repeats the same error shape twice in a row (same tool, same exit/error code). Zero-config, never blocks.",
-  "version": "0.1.0",
+  "description": "Advisory nudge on repeated same-shape errors, plus fixed-checkpoint review gate and batch-opportunity arm (Crossroads: session tag, else env off/ping/review/batch). Zero-config, never blocks.",
+  "version": "0.4.0",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",

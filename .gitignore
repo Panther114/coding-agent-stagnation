@@ -78,3 +78,6 @@ datasets/processed/*
 
 # Experiment arms: agent working copies (cloned task instances, modified by runs).
 tasks/src-*/
+
+# Scratch analysis (venvs, probes, recon outputs) — never commit.
+work/

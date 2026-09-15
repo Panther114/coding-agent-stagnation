@@ -1,0 +1,76 @@
+{
+ "exported": "2026-09-15",
+ "source": "DSH stored sessions (session.v3.jsonl.zstd, decompressed, byte-faithful content, new framing only)",
+ "files": [
+  {
+   "arm": "codextras-A-std",
+   "sessionId": "session-12d48050-6a54-4fce-929e-8c1f3bf7fb47",
+   "bytes": 2107229,
+   "sha256": "5501cd765421528d956a0cbb10c8f6c3a95433573e48a99951d892281b9e5097",
+   "lines": 519
+  },
+  {
+   "arm": "codextras-A-ptc",
+   "sessionId": "session-7c136749-b2ce-4cb5-9da9-7fca03c3895c",
+   "bytes": 2148035,
+   "sha256": "636c4ca60cc007162f0ed2f8ba292d2a7b2d2ca25fbbd0253cf52c8920e20ff6",
+   "lines": 533
+  },
+  {
+   "arm": "codextras-A-ping",
+   "sessionId": "session-a0d0c41e-e52c-43e5-a795-0303331cb959",
+   "bytes": 1430335,
+   "sha256": "687baaf64d8863e736201e50313a184f325f1eba356f08610279c62fca269de6",
+   "lines": 378
+  },
+  {
+   "arm": "codextras-A-rev",
+   "sessionId": "session-03b0bf0c-83ad-4e5c-bbee-17e2242f9e4f",
+   "bytes": 1625680,
+   "sha256": "81b1f204afd983a1c53dbaf2ea61c1387331864761ee37578d7701d5242b0a41",
+   "lines": 341
+  },
+  {
+   "arm": "codextras-A-bptc",
+   "sessionId": "session-37a1e2d1-fbe7-4a66-bf5a-2311d0836aeb",
+   "bytes": 1255098,
+   "sha256": "c73b185c6d2a776f14a61ab78b16744a5f9f0d5807e187717acd7b921ca9ae72",
+   "lines": 286
+  },
+  {
+   "arm": "codextras-A-mstd",
+   "sessionId": "session-98b65ce3-0406-42d6-83e9-32b5f8fafdef",
+   "bytes": 1494711,
+   "sha256": "7b724bce366297860477027618bedc2d08a7e57348d0128766453500fa478e49",
+   "lines": 305
+  },
+  {
+   "arm": "codextras-A-mptc",
+   "sessionId": "session-4f608375-6744-49e2-899d-416acb8e3409",
+   "bytes": 1265324,
+   "sha256": "d142e2d4f6c4777b554bc7a82ec9255888941617413177a0ff321b5d5fd8d72d",
+   "lines": 271
+  },
+  {
+   "arm": "codextras-A-mrev",
+   "sessionId": "session-e589c91c-e6a9-45b4-bf83-a4a38d990a2a",
+   "bytes": 581638,
+   "sha256": "854083f621dfd840a83351303edc5cdf46bc2418f4d95ef97be219dae62a4b81",
+   "lines": 97
+  },
+  {
+   "arm": "codextras-A-mping",
+   "sessionId": "session-960a0096-cb36-4074-a1d0-46b15f93c465",
+   "bytes": 1749718,
+   "sha256": "334c63d21a4bf8cedeaaeea830fba4e9a8123000481b500121f798a2c175e6b0",
+   "lines": 410
+  },
+  {
+   "arm": "codextras-A-rutwork2-base",
+   "sessionId": "session-57a90748-1c53-4e94-b10f-729b1cd99f02",
+   "bytes": 1798579,
+   "sha256": "8571f1a60a0635607e2fbb648309a7417cf124ce9fd786cd5081440ca9f72fc6",
+   "lines": 517
+  }
+ ]
+}
